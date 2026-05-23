@@ -1,0 +1,103 @@
+:root {
+  /* === Backgrounds === */
+  --bg:              #161320;
+  --bg-elevated:     #1F1A2E;
+  --bg-soft:         #0F0C18;
+
+  /* === Text === */
+  --text:            #EDE4D3;
+  --text-soft:       #B8AE9C;
+  --text-muted:      #9A9283;  /* terciario, leyendas */
+
+  /* === Structural gold (bridge with El Fabulario) === */
+  --oro:             #D4B05A;
+  --oro-texto:       #E0C46F;
+  --oro-suave:       #A8884A;
+
+  /* === Accents rebalanced for dark background === */
+  --esmeralda:       #3FAE7E;
+  --coral:           #E07A5F;
+  --lavanda:         #B5A3E3;  /* link primario, saturada para vibrar sobre oscuro */
+  --granate:         #A14D6B;
+
+  /* === Semantic aliases === */
+  --link:            var(--lavanda);
+  --link-hover:      var(--esmeralda);
+  --rule:            var(--oro);
+  --accent:          var(--coral);
+
+  /* === Typography === */
+  --font-display:    'Cinzel', serif;
+  --font-body:       'Cormorant Garamond', serif;
+  --font-body-weight: 500;
+  --line-height-body: 1.7;
+
+  /* === Spacing === */
+  --space-container: 32px;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+  line-height: var(--line-height-body);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+  border-bottom-color: currentColor;
+}
+
+hr.ornate {
+  border: 0;
+  height: 6px;
+  border-top: 1px solid var(--oro);
+  border-bottom: 1px solid var(--oro);
+  background: transparent;
+  margin: 2rem auto;
+  max-width: 80%;
+}
+
+.frame {
+  position: relative;
+  border: 1.5px solid var(--oro);
+  padding: var(--space-container);
+}
+
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--oro-suave);
+  pointer-events: none;
+}
+
+.invert {
+  background: #EDE4D3;
+  color: #161320;
+  padding: var(--space-container);
+}
+
+.invert a { color: var(--granate); }
