@@ -16,14 +16,10 @@ curador: Don Alejandro
 es_seudonimo: true
 ---
 Primer verso del fixture.
-
-Segundo verso del fixture.
-
-
-
-\    Estrofa nueva, separada por línea en blanco.
-
-Para probar remark-breaks.\
-\
-Prueba 2\
-Prueba 3
+  Segundo verso del fixture.
+  
+  Estrofa nueva, separada por línea en blanco.
+  Para probar remark-breaks.
+  
+  Prueba 2
+  Prueba 3
