@@ -1,31 +1,29 @@
 ---
-titulo: Poema del amor sabroso
-resumen: El merecumbé es lindo y shabosho.
+titulo: Fixture en verso libre
+resumen: ""
 fecha: 2026-05-23
 fecha_actualizada: 2026-05-23
 ilustracion: /img/poemas/chatgpt-image-20-may-2026-20_26_32.png
 spotify_url: ""
-borrador: false
+borrador: true
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
-  - amor
-motivos:
-  - espada
+  - poesia-misma
+motivos: null
 autor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro
 es_seudonimo: true
 ---
-Verso primero de prueba.
+Primer verso del fixture.
 
-Verso segundo de prueba.
+Segundo verso del fixture.
 
 
 
-Verso de la segunda estrofa.
+\    Estrofa nueva, separada por línea en blanco.
 
-Verso final de prueba.
-
+Para probar remark-breaks.\
 \
-Prueba versos pegaditos.\
-Itos itos itos itos..
+Prueba 2\
+Prueba 3
