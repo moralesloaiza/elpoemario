@@ -1,0 +1,240 @@
+backend:
+  name: github
+  repo: moralesloaiza/elpoemario
+  branch: main
+  base_url: https://auth.elpoemario.com
+  auth_endpoint: auth
+
+publish_mode: editorial_workflow
+
+media_folder: "public/img"
+public_folder: "/img"
+
+site_url: https://elpoemario.com
+display_url: https://elpoemario.com
+logo_url: https://elpoemario.com/logo.svg
+
+locale: es
+
+collections:
+  - name: poemas
+    label: "Poemas"
+    label_singular: "Poema"
+    folder: "src/content/poemas"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: titulo
+    extension: md
+    format: frontmatter
+    media_folder: "/public/img/poemas"
+    public_folder: "/img/poemas"
+    fields:
+      - { label: "Título", name: titulo, widget: string }
+      - { label: "Resumen", name: resumen, widget: text, required: false }
+      - { label: "Fecha", name: fecha, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Fecha actualizada", name: fecha_actualizada, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { label: "Ilustración", name: ilustracion, widget: image, required: false }
+      - { label: "Enlace a Spotify", name: spotify_url, widget: string, required: false, pattern: ['^https://open\.spotify\.com/', 'Debe empezar con https://open.spotify.com/'] }
+      - { label: "Borrador", name: borrador, widget: boolean, default: true }
+      - label: "Tipo (forma métrica o estrófica)"
+        name: tipo
+        widget: select
+        options:
+          - soneto
+          - silva
+          - romance
+          - decima
+          - redondilla
+          - cuarteta
+          - cuarteto
+          - terceto
+          - octava-real
+          - lira
+          - oda
+          - elegia
+          - egloga
+          - himno
+          - balada
+          - copla
+          - seguidilla
+          - letrilla
+          - villancico
+          - haiku
+          - tanka
+          - verso-libre
+          - prosa-poetica
+      - label: "Movimiento histórico-estético"
+        name: movimiento
+        widget: select
+        required: false
+        options:
+          - medieval
+          - siglo-de-oro
+          - barroco
+          - neoclasicismo
+          - romanticismo
+          - realismo
+          - modernismo
+          - generacion-98
+          - vanguardia
+          - generacion-27
+          - posguerra
+          - contemporaneo
+          - popular-tradicional
+      - label: "Temas (conceptos abstractos)"
+        name: temas
+        widget: select
+        multiple: true
+        min: 1
+        options:
+          - amor
+          - desamor
+          - muerte
+          - tiempo
+          - naturaleza
+          - mar
+          - noche
+          - dios
+          - soledad
+          - memoria
+          - infancia
+          - patria
+          - exilio
+          - libertad
+          - justicia
+          - belleza
+          - fe
+          - duda
+          - melancolia
+          - alegria
+          - esperanza
+          - dolor
+          - trabajo
+          - amistad
+          - sueno
+          - vejez
+          - juventud
+          - ciudad
+          - viaje
+          - guerra
+          - paz
+          - arte
+          - poesia-misma
+          - silencio
+          - identidad
+      - label: "Motivos (figuras concretas)"
+        name: motivos
+        widget: select
+        multiple: true
+        required: false
+        default: []
+        options:
+          - amada
+          - amado
+          - yo-lirico
+          - dios-figura
+          - la-muerte-personificada
+          - luna
+          - sol
+          - mar-figura
+          - rio
+          - montana
+          - jardin
+          - rosa
+          - ruisenor
+          - reloj
+          - espejo
+          - ventana
+          - puerta
+          - camino
+          - barco
+          - estrella
+          - ceniza
+          - lagrima
+          - sangre
+          - fuego
+          - sombra
+          - espada
+          - libro
+          - lira
+          - sepulcro
+          - ruinas
+      - label: "Autor"
+        name: autor
+        widget: relation
+        collection: autores
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: [nombre]
+      - { label: "Curador", name: curador, widget: string, default: "Don Alejandro" }
+      - { label: "Es seudónimo", name: es_seudonimo, widget: boolean, default: true }
+      - { label: "Nombre real", name: nombre_real, widget: string, required: false }
+      - { label: "Nota del curador", name: nota_curador, widget: text, required: false }
+      - { label: "Cuerpo del poema", name: body, widget: markdown }
+
+  - name: autores
+    label: "Autores"
+    label_singular: "Autor"
+    folder: "src/content/autores"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: nombre
+    extension: md
+    format: frontmatter
+    media_folder: "/public/img/autores"
+    public_folder: "/img/autores"
+    fields:
+      - { label: "Nombre", name: nombre, widget: string }
+      - label: "Tipo"
+        name: tipo
+        widget: select
+        options: [clasico, colaborador]
+        default: clasico
+      - { label: "Descripción", name: descripcion, widget: text }
+      - { label: "Fecha de nacimiento", name: fecha_nacimiento, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { label: "Fecha de muerte", name: fecha_muerte, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { label: "Lugar de nacimiento", name: lugar_nacimiento, widget: string, required: false }
+      - { label: "Lugar de muerte", name: lugar_muerte, widget: string, required: false }
+      - { label: "Imagen", name: imagen, widget: image, required: false }
+      - label: "Enlaces externos (sameAs)"
+        name: sameAs
+        widget: list
+        required: false
+        field: { label: URL, name: url, widget: string }
+      - { label: "También figura en (hostname)", name: tambien_en, widget: string, required: false, hint: "Ej.: elfabulario.com. El slug debe ser idéntico en ambos portales." }
+      - { label: "Cuerpo (biografía extendida)", name: body, widget: markdown }
+
+  - name: entradas
+    label: "Bitácora"
+    label_singular: "Entrada"
+    folder: "src/content/entradas"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: titulo
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: "Título", name: titulo, widget: string }
+      - { label: "Resumen", name: resumen, widget: text, required: false }
+      - { label: "Fecha", name: fecha, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - label: "Tipo"
+        name: tipo
+        widget: select
+        options: [bitacora, correspondencia]
+        default: bitacora
+      - { label: "Autor", name: autor, widget: relation, collection: autores, value_field: "{{slug}}", search_fields: [nombre], display_fields: [nombre] }
+      - { label: "Borrador", name: borrador, widget: boolean, default: true }
+      - { label: "Cuerpo", name: body, widget: markdown }
+
+  - name: destacado
+    label: "Destacado"
+    files:
+      - name: actual
+        label: "Destacado actual"
+        file: "src/content/destacado/actual.md"
+        fields:
+          - label: "Tipo de referencia"
+            name: tipo
+            widget: select
+            options: [poema, entrada, autor]
+          - { label: "Slug referenciado", name: referencia, widget: string, hint: "Slug exacto del poema, entrada o autor." }
