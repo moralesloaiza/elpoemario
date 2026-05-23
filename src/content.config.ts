@@ -2,9 +2,14 @@ import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { TIPOS, MOVIMIENTOS, TEMAS, MOTIVOS } from './utils/taxonomia';
 
-// Decap stores cleared optional fields as empty strings ("") instead of omitting
-// them from frontmatter. These helpers normalize "" -> undefined so the schema
-// validates as the user intended (field absent, not field invalid).
+// Decap stores cleared optional fields inconsistently:
+//   - cleared text: ""
+//   - cleared multi-select (lists): null
+//   - cleared empty list: [] (rare, but observed)
+// These helpers normalize those values to `undefined` so the schema validates
+// as the user intended (field absent, not field invalid). For arrays the
+// strategy depends on the field's semantics — see each preprocess below.
+
 const optionalDate = () =>
   z.preprocess(
     (v) => (v === '' || v === null ? undefined : v),
@@ -38,8 +43,20 @@ const poemas = defineCollection({
       (v) => (v === '' || v === null ? undefined : v),
       z.enum(MOVIMIENTOS).optional(),
     ),
-    temas: z.array(z.enum(TEMAS)).min(1),
-    motivos: z.array(z.enum(MOTIVOS)).default([]),
+    // Required, min 1. Normalize null/"" to [] so `.min(1)` emits a clean
+    // "array must contain at least 1 element" error instead of Zod's
+    // generic "expected array, got null".
+    temas: z.preprocess(
+      (v) => (v === null || v === '' ? [] : v),
+      z.array(z.enum(TEMAS)).min(1),
+    ),
+    // Optional with default []. Normalize null/"" to undefined so `.default([])`
+    // takes over. Covers Decap writing `motivos: null` after the user clears
+    // the multi-select.
+    motivos: z.preprocess(
+      (v) => (v === null || v === '' ? undefined : v),
+      z.array(z.enum(MOTIVOS)).default([]),
+    ),
     autor: reference('autores'),
     curador: z.string().default('Don Alejandro'),
     es_seudonimo: z.boolean().default(true),
@@ -59,11 +76,17 @@ const autores = defineCollection({
     lugar_nacimiento: optionalString(),
     lugar_muerte: optionalString(),
     imagen: optionalString(),
-    sameAs: z
-      .preprocess(
-        (v) => (Array.isArray(v) && v.length === 0 ? undefined : v),
-        z.array(z.string().url()).optional(),
-      ),
+    // Optional list of canonical URLs (Wikipedia, VIAF, etc.). Normalize
+    // null, "", and empty arrays to undefined so the schema treats the
+    // field as absent.
+    sameAs: z.preprocess(
+      (v) => {
+        if (v === null || v === '' || v === undefined) return undefined;
+        if (Array.isArray(v) && v.length === 0) return undefined;
+        return v;
+      },
+      z.array(z.string().url()).optional(),
+    ),
     tambien_en: optionalString(),
   }),
 });
