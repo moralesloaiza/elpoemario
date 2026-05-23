@@ -1,17 +1,40 @@
 ---
-
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base titulo="Inicio">
+  <section class="hero">
+    <h1>EL POEMARIO</h1>
+    <p class="lema">
+      Antología viva de la poesía en lengua castellana
+    </p>
+    <hr class="ornate" />
+    <p class="intro">
+      Un breviario de versos y voces, en construcción.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  .hero h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0;
+  }
+  .lema {
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+  }
+  .intro {
+    color: var(--text);
+  }
+</style>

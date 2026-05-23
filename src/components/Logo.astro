@@ -1,0 +1,26 @@
+---
+interface Props {
+  tamano?: number;
+}
+const { tamano = 76 } = Astro.props;
+---
+
+<svg
+  width={tamano}
+  height={tamano}
+  viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+  class="logo-mark"
+>
+  <polygon points="100,10 190,100 100,190 10,100" fill="var(--oro)" />
+  <polygon points="100,16 184,100 100,184 16,100" fill="var(--text)" />
+  <polygon points="100,24 176,100 100,176 24,100" fill="var(--oro)" />
+  <polygon points="100,27 173,100 100,173 27,100" fill="var(--text)" />
+  <path
+    d="M 80 58 L 110 58 A 12 12 0 0 1 122 70 L 122 94 A 12 12 0 0 1 110 106 L 95 106 L 95 144 L 80 144 Z M 95 73 L 107 73 L 107 91 L 95 91 Z"
+    fill="var(--bg)"
+    fill-rule="evenodd"
+  />
+</svg>
