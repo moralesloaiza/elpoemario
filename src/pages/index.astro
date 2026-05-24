@@ -1,12 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { buildWebSiteJsonLd } from '../utils/jsonld';
 ---
 
 <Base titulo="Inicio">
+  <JsonLd slot="head" data={buildWebSiteJsonLd()} />
+
   <section class="hero">
     <h1>EL POEMARIO</h1>
     <p class="lema">
-      Antología viva de la poesía en lengua castellana
+      Antología viva de poesía en español
     </p>
     <hr class="ornate" />
     <p class="intro">

@@ -7,7 +7,7 @@ interface Props {
   descripcion?: string;
 }
 
-const { titulo, descripcion = 'Antología viva de la poesía en lengua castellana.' } = Astro.props;
+const { titulo, descripcion = 'Antología viva de poesía en español.' } = Astro.props;
 const anio = new Date().getFullYear();
 ---
 
@@ -25,6 +25,7 @@ const anio = new Date().getFullYear();
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
     />
     <title>{titulo} · El Poemario</title>
+    <slot name="head" />
   </head>
   <body>
     <header class="site-header">
