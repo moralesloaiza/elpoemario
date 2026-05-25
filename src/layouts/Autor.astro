@@ -6,7 +6,6 @@ import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import IconoEditar from '../components/IconoEditar.astro';
 import PoemaCard from '../components/PoemaCard.astro';
-import Luna from '../components/ornaments/Luna.astro';
 
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
 
@@ -79,7 +78,6 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 
   <article class="autor" lang="es">
     <header class="autor-cabecera">
-      <Luna width="72px" />
       <h1 class="autor-nombre">{nombre}</h1>
       {anios && <p class="autor-anios">{anios}</p>}
     </header>
@@ -179,7 +177,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     font-family: var(--font-display);
     font-size: var(--fs-3xl);
     line-height: var(--lh-snug);
-    margin: var(--space-sm) 0 var(--space-2xs);
+    margin: 0 0 var(--space-2xs);
     color: var(--text);
     letter-spacing: 0.04em;
     text-wrap: balance;

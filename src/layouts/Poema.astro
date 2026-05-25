@@ -9,7 +9,6 @@ import FormattedDate from '../components/FormattedDate.astro';
 import SpotifyEmbed from '../components/SpotifyEmbed.astro';
 import NavegacionPoemas from '../components/NavegacionPoemas.astro';
 import IconoEditar from '../components/IconoEditar.astro';
-import Luna from '../components/ornaments/Luna.astro';
 
 import { buildPoemaJsonLd } from '../utils/jsonld';
 import {
@@ -125,7 +124,6 @@ const siguiente = siguienteEntry
     )}
 
     <header class="poema-cabecera">
-      <Luna width="72px" />
       <h1 class="poema-titulo">{titulo}</h1>
       <p class="poema-autor">
         <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>

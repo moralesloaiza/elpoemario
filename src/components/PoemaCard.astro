@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
-import Luna from './ornaments/Luna.astro';
 
 interface Props {
   poema: CollectionEntry<'poemas'>;
@@ -15,7 +14,7 @@ const { titulo, ilustracion, fecha } = poema.data;
 
 <article class="card">
   <figure class:list={['card-img', { 'con-ornamento': !ilustracion }]}>
-    {ilustracion ? (
+    {ilustracion && (
       <img
         src={ilustracion}
         alt=""
@@ -24,8 +23,6 @@ const { titulo, ilustracion, fecha } = poema.data;
         width="900"
         height="600"
       />
-    ) : (
-      <Luna width="100px" />
     )}
   </figure>
   <div class="card-meta">
@@ -47,19 +44,16 @@ const { titulo, ilustracion, fecha } = poema.data;
     position: relative;
   }
 
-  /* Frame: aspect ratio shared by both image and ornament variants. */
+  /* Frame: aspect ratio shared by both image and ornament-only variants. */
   .card-img {
     aspect-ratio: 3 / 2;
     overflow: hidden;
     margin: 0 0 var(--space-md);
   }
 
-  /* Ornament variant: double gold border, mirrors the .frame primitive. */
+  /* Ornament-only variant: double gold border, mirrors the .frame primitive. */
   .card-img.con-ornamento {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: var(--bg-elevated);
     border: 1.5px solid var(--oro);
   }
@@ -77,9 +71,6 @@ const { titulo, ilustracion, fecha } = poema.data;
     height: 100%;
     object-fit: cover;
     transition: transform var(--dur-fast) var(--ease-standard);
-  }
-  .card-img :global(svg) {
-    display: block;
   }
   .card:has(.card-titulo a:hover) .card-img :global(img),
   .card:has(.card-titulo a:focus-visible) .card-img :global(img) {
