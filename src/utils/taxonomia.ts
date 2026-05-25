@@ -1,5 +1,12 @@
 // Single source of truth for content taxonomy.
 // Must stay in sync with public/admin/config.yml select widgets.
+//
+// To add a new slug:
+//   1. Add it to the corresponding array.
+//   2. Add its display label to the *_DISPLAY map below.
+//   3. Sync public/admin/config.yml (Decap select widget).
+
+// ── Slug arrays ─────────────────────────────────────────────────────────────
 
 export const TIPOS = [
   'soneto', 'silva', 'romance', 'decima', 'redondilla', 'cuarteta', 'cuarteto',
@@ -30,7 +37,131 @@ export const MOTIVOS = [
   'sepulcro', 'ruinas',
 ] as const;
 
+// ── Derived types ───────────────────────────────────────────────────────────
+
 export type Tipo = typeof TIPOS[number];
 export type Movimiento = typeof MOVIMIENTOS[number];
 export type Tema = typeof TEMAS[number];
 export type Motivo = typeof MOTIVOS[number];
+
+// ── Slug → display name maps ────────────────────────────────────────────────
+
+export const TIPOS_DISPLAY: Record<Tipo, string> = {
+  'soneto': 'Soneto',
+  'silva': 'Silva',
+  'romance': 'Romance',
+  'decima': 'Décima',
+  'redondilla': 'Redondilla',
+  'cuarteta': 'Cuarteta',
+  'cuarteto': 'Cuarteto',
+  'terceto': 'Terceto',
+  'octava-real': 'Octava real',
+  'lira': 'Lira',
+  'oda': 'Oda',
+  'elegia': 'Elegía',
+  'egloga': 'Égloga',
+  'himno': 'Himno',
+  'balada': 'Balada',
+  'copla': 'Copla',
+  'seguidilla': 'Seguidilla',
+  'letrilla': 'Letrilla',
+  'villancico': 'Villancico',
+  'haiku': 'Haiku',
+  'tanka': 'Tanka',
+  'verso-libre': 'Verso libre',
+  'prosa-poetica': 'Prosa poética',
+};
+
+export const MOVIMIENTOS_DISPLAY: Record<Movimiento, string> = {
+  'medieval': 'Medieval',
+  'siglo-de-oro': 'Siglo de Oro',
+  'barroco': 'Barroco',
+  'neoclasicismo': 'Neoclasicismo',
+  'romanticismo': 'Romanticismo',
+  'realismo': 'Realismo',
+  'modernismo': 'Modernismo',
+  'generacion-98': 'Generación del 98',
+  'vanguardia': 'Vanguardia',
+  'generacion-27': 'Generación del 27',
+  'posguerra': 'Posguerra',
+  'contemporaneo': 'Contemporáneo',
+  'popular-tradicional': 'Popular y tradicional',
+};
+
+export const TEMAS_DISPLAY: Record<Tema, string> = {
+  'amor': 'Amor',
+  'desamor': 'Desamor',
+  'muerte': 'Muerte',
+  'tiempo': 'Tiempo',
+  'naturaleza': 'Naturaleza',
+  'mar': 'Mar',
+  'noche': 'Noche',
+  'dios': 'Dios',
+  'soledad': 'Soledad',
+  'memoria': 'Memoria',
+  'infancia': 'Infancia',
+  'patria': 'Patria',
+  'exilio': 'Exilio',
+  'libertad': 'Libertad',
+  'justicia': 'Justicia',
+  'belleza': 'Belleza',
+  'fe': 'Fe',
+  'duda': 'Duda',
+  'melancolia': 'Melancolía',
+  'alegria': 'Alegría',
+  'esperanza': 'Esperanza',
+  'dolor': 'Dolor',
+  'trabajo': 'Trabajo',
+  'amistad': 'Amistad',
+  'sueno': 'Sueño',
+  'vejez': 'Vejez',
+  'juventud': 'Juventud',
+  'ciudad': 'Ciudad',
+  'viaje': 'Viaje',
+  'guerra': 'Guerra',
+  'paz': 'Paz',
+  'arte': 'Arte',
+  'poesia-misma': 'Poesía misma',
+  'silencio': 'Silencio',
+  'identidad': 'Identidad',
+};
+
+export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
+  'amada': 'La amada',
+  'amado': 'El amado',
+  'yo-lirico': 'Yo lírico',
+  'dios-figura': 'Dios',
+  'la-muerte-personificada': 'La muerte personificada',
+  'luna': 'Luna',
+  'sol': 'Sol',
+  'mar-figura': 'Mar',
+  'rio': 'Río',
+  'montana': 'Montaña',
+  'jardin': 'Jardín',
+  'rosa': 'Rosa',
+  'ruisenor': 'Ruiseñor',
+  'reloj': 'Reloj',
+  'espejo': 'Espejo',
+  'ventana': 'Ventana',
+  'puerta': 'Puerta',
+  'camino': 'Camino',
+  'barco': 'Barco',
+  'estrella': 'Estrella',
+  'ceniza': 'Ceniza',
+  'lagrima': 'Lágrima',
+  'sangre': 'Sangre',
+  'fuego': 'Fuego',
+  'sombra': 'Sombra',
+  'espada': 'Espada',
+  'libro': 'Libro',
+  'lira': 'Lira',
+  'sepulcro': 'Sepulcro',
+  'ruinas': 'Ruinas',
+};
+
+// ── URL bases for taxonomy index pages ──────────────────────────────────────
+
+export const URL_TIPOS = '/tipos';
+export const URL_MOVIMIENTOS = '/movimientos';
+export const URL_TEMAS = '/temas';
+export const URL_MOTIVOS = '/motivos';

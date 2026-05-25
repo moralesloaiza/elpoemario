@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import Logo from '../components/Logo.astro';
+import BotonCrear from '../components/BotonCrear.astro';
 
 interface Props {
   titulo: string;
@@ -24,7 +25,7 @@ const anio = new Date().getFullYear();
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
     />
-    <title>{titulo} · El Poemario</title>
+    <title>{titulo}</title>
     <slot name="head" />
   </head>
   <body>
@@ -52,7 +53,7 @@ const anio = new Date().getFullYear();
         don Alejandro de Morales y Loaiza
       </p>
     </footer>
-
+    <BotonCrear />
     <style>
       .site-header {
         max-width: 960px;
