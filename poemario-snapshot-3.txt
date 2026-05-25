@@ -1,15 +1,14 @@
+﻿===== FILE: src/layouts/Base.astro =====
 ---
 import '../styles/tokens.css';
 import Logo from '../components/Logo.astro';
-import BotonCrear from '../components/BotonCrear.astro';
-import Buscador from '../components/Buscador.astro';
 
 interface Props {
   titulo: string;
   descripcion?: string;
 }
 
-const { titulo, descripcion = 'Antología viva de poesía en español.' } = Astro.props;
+const { titulo, descripcion = 'Antología viva de la poesía en lengua castellana.' } = Astro.props;
 const anio = new Date().getFullYear();
 ---
 
@@ -26,8 +25,7 @@ const anio = new Date().getFullYear();
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
     />
-    <title>{titulo}</title>
-    <slot name="head" />
+    <title>{titulo} · El Poemario</title>
   </head>
   <body>
     <header class="site-header">
@@ -40,7 +38,6 @@ const anio = new Date().getFullYear();
         <a href="/tipos/">Formas</a>
         <a href="/temas/">Temas</a>
         <a href="/sobre/">Sobre</a>
-        <Buscador />
       </nav>
     </header>
 
@@ -55,7 +52,7 @@ const anio = new Date().getFullYear();
         don Alejandro de Morales y Loaiza
       </p>
     </footer>
-    <BotonCrear />
+
     <style>
       .site-header {
         max-width: 960px;
@@ -99,3 +96,4 @@ const anio = new Date().getFullYear();
     </style>
   </body>
 </html>
+

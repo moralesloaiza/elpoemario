@@ -1,0 +1,299 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+	titulo="Buscar · El Poemario"
+	descripcion="Buscar poemas, autores, formas, movimientos, temas y motivos en El Poemario."
+>
+	<div class="serp">
+		<header class="serp-titulo">
+			<h1 data-titulo>Buscar</h1>
+			<p class="subtitulo" data-subtitulo>
+				Escribe en el campo de búsqueda del menú o pulsa <kbd>/</kbd>.
+			</p>
+		</header>
+
+		<hr class="ornate" />
+
+		<section class="resultados" hidden data-seccion-entidades>
+			<h2>Coincidencias en la taxonomía</h2>
+			<ul class="lista-entidades" data-lista-entidades></ul>
+		</section>
+
+		<section class="resultados" hidden data-seccion-poemas>
+			<h2>En poemas <span class="conteo" data-conteo-poemas></span></h2>
+			<ul class="lista-textos" data-lista-poemas></ul>
+		</section>
+
+		<p class="vacio" hidden data-vacio>
+			No se encontró nada para esta búsqueda. Revise la grafía o pruebe otros términos.
+		</p>
+	</div>
+</Base>
+
+<script>
+	type TipoEntidad = 'autor' | 'forma' | 'movimiento' | 'tema' | 'motivo';
+
+	interface Entidad {
+		tipo: TipoEntidad;
+		slug: string;
+		nombre: string;
+		conteo: number;
+		url: string;
+	}
+
+	const ETIQUETAS_TIPO: Record<TipoEntidad, string> = {
+		autor: 'Autor',
+		forma: 'Forma',
+		movimiento: 'Movimiento',
+		tema: 'Tema',
+		motivo: 'Motivo',
+	};
+
+	function norm(s: string): string {
+		return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+	}
+
+	function escape(s: string): string {
+		return s.replace(/[&<>"']/g, (c) => ({
+			'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+		})[c] as string);
+	}
+
+	const params = new URLSearchParams(window.location.search);
+	const q = (params.get('q') ?? '').trim();
+
+	const titulo = document.querySelector<HTMLElement>('[data-titulo]')!;
+	const subtitulo = document.querySelector<HTMLElement>('[data-subtitulo]')!;
+	const secEnt = document.querySelector<HTMLElement>('[data-seccion-entidades]')!;
+	const secPoe = document.querySelector<HTMLElement>('[data-seccion-poemas]')!;
+	const listaEnt = document.querySelector<HTMLElement>('[data-lista-entidades]')!;
+	const listaPoe = document.querySelector<HTMLElement>('[data-lista-poemas]')!;
+	const conteoPoe = document.querySelector<HTMLElement>('[data-conteo-poemas]')!;
+	const vacio = document.querySelector<HTMLElement>('[data-vacio]')!;
+
+	if (q) {
+		titulo.textContent = `Resultados para «${q}»`;
+		subtitulo.hidden = true;
+		ejecutar(q);
+	}
+
+	async function ejecutar(query: string) {
+		// ── Entities ──
+		try {
+			const ents: Entidad[] = await fetch('/buscar/entidades.json').then((r) => r.json());
+			const qn = norm(query);
+			const matches = ents.filter((e) => norm(e.nombre).includes(qn));
+			if (matches.length > 0) {
+				listaEnt.innerHTML = matches
+					.map(
+						(e) =>
+							`<li><a href="${e.url}">` +
+								`<span class="rotulo">${ETIQUETAS_TIPO[e.tipo]}</span>` +
+								`<span class="nombre">${escape(e.nombre)}</span>` +
+								`<span class="conteo">${e.conteo === 1 ? '1 poema' : `${e.conteo} poemas`}</span>` +
+							`</a></li>`,
+					)
+					.join('');
+				secEnt.hidden = false;
+			}
+		} catch {
+			/* sin entidades disponibles, seguimos sin esta sección */
+		}
+
+		// ── Text via Pagefind ──
+		let poemas = 0;
+		try {
+			// URL built at runtime to keep Rollup out of build-time resolution.
+			const url = '/pagefind/pagefind.js';
+			const pf = await import(/* @vite-ignore */ url);
+			await pf.init();
+			const { results } = await pf.search(query);
+
+			const filas: string[] = [];
+
+			for (const r of results) {
+				const d = await r.data();
+				const urlPoema: string = d.url;
+				const tituloPoema = d.meta?.title ?? urlPoema;
+				const autor = d.meta?.author ?? null;
+				const excerpt = d.excerpt ?? '';
+				filas.push(
+					`<li><a href="${urlPoema}">` +
+						`<span class="t-titulo">${escape(tituloPoema)}</span>` +
+						(autor ? `<span class="t-autor">· ${escape(autor)}</span>` : '') +
+						(excerpt ? `<p class="t-excerpt">${excerpt}</p>` : '') +
+					`</a></li>`,
+				);
+				poemas++;
+			}
+
+			if (poemas > 0) {
+				listaPoe.innerHTML = filas.join('');
+				conteoPoe.textContent = `(${poemas})`;
+				secPoe.hidden = false;
+			}
+		} catch {
+			/* Pagefind not available — entities only */
+		}
+
+		if (secEnt.hidden && secPoe.hidden) {
+			vacio.hidden = false;
+		}
+	}
+</script>
+
+<style>
+	.serp {
+		padding-block: var(--space-xl);
+	}
+	.serp-titulo {
+		text-align: center;
+		margin-bottom: var(--space-md);
+	}
+	.serp-titulo h1 {
+		margin: 0 0 var(--space-sm);
+		font-size: var(--fs-3xl);
+	}
+	.subtitulo {
+		font-family: var(--font-body);
+		font-style: italic;
+		font-size: var(--fs-md);
+		color: var(--text-soft);
+		max-width: var(--measure-narrow);
+		margin: 0 auto;
+	}
+	.subtitulo kbd {
+		font-family: monospace;
+		font-size: var(--fs-xs);
+		background: var(--bg-elevated);
+		border: var(--rule-hairline) solid var(--oro);
+		padding: 0 var(--space-2xs);
+		margin: 0 var(--space-3xs);
+		color: var(--oro-texto);
+	}
+
+	.resultados {
+		max-width: var(--measure);
+		margin: var(--space-2xl) auto 0;
+	}
+	.resultados h2 {
+		font-family: var(--font-display);
+		font-size: var(--fs-md);
+		letter-spacing: var(--ls-wide);
+		color: var(--oro-texto);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		margin: 0 0 var(--space-md);
+		padding-bottom: var(--space-2xs);
+		border-bottom: var(--rule-hairline) solid var(--oro);
+	}
+	.resultados h2 .conteo {
+		font-family: var(--font-body);
+		font-style: italic;
+		font-weight: var(--fw-regular);
+		font-size: var(--fs-sm);
+		text-transform: none;
+		letter-spacing: 0;
+		color: var(--text-soft);
+		margin-left: var(--space-2xs);
+	}
+
+	.lista-entidades,
+	.lista-textos {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.lista-entidades li,
+	.lista-textos li {
+		border-bottom: var(--rule-hairline) solid var(--oro-suave);
+	}
+	.lista-entidades li:last-child,
+	.lista-textos li:last-child {
+		border-bottom: 0;
+	}
+	.lista-entidades a,
+	.lista-textos a {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		padding: var(--space-md);
+		transition: background-color var(--dur-fast) var(--ease-standard);
+		border-bottom: 0;
+	}
+	.lista-entidades a:hover,
+	.lista-textos a:hover {
+		background-color: rgba(255, 255, 255, 0.03);
+	}
+
+	.lista-entidades a {
+		display: grid;
+		grid-template-columns: 8rem 1fr auto;
+		gap: var(--space-sm);
+		align-items: baseline;
+	}
+	.lista-entidades :global(.rotulo) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-widest);
+		color: var(--oro-texto);
+		text-transform: uppercase;
+	}
+	.lista-entidades :global(.nombre) {
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		color: var(--text);
+	}
+	.lista-entidades :global(.conteo) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-wide);
+		color: var(--esmeralda);
+	}
+
+	.lista-textos :global(.t-titulo) {
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		color: var(--text);
+	}
+	.lista-textos :global(.t-autor) {
+		font-family: var(--font-body);
+		font-style: italic;
+		font-size: var(--fs-sm);
+		color: var(--text-soft);
+		margin-left: var(--space-2xs);
+	}
+	.lista-textos :global(.t-excerpt) {
+		font-family: var(--font-body);
+		font-size: var(--fs-sm);
+		color: var(--text-soft);
+		line-height: 1.5;
+		margin: var(--space-2xs) 0 0;
+	}
+	.lista-textos :global(.t-excerpt mark) {
+		background: rgba(212, 176, 90, 0.25);
+		color: inherit;
+		padding: 0 0.1em;
+	}
+
+	.vacio {
+		text-align: center;
+		font-family: var(--font-body);
+		font-style: italic;
+		color: var(--text-soft);
+		max-width: var(--measure-narrow);
+		margin: var(--space-2xl) auto 0;
+	}
+
+	@media (max-width: 540px) {
+		.lista-entidades a {
+			grid-template-columns: 6rem 1fr;
+		}
+		.lista-entidades :global(.conteo) {
+			grid-column: 2;
+			margin-top: var(--space-3xs);
+		}
+	}
+</style>

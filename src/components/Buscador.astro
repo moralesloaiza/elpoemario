@@ -1,0 +1,615 @@
+---
+// Buscador del Poemario.
+//
+// Abre un overlay con un campo de búsqueda y un dropdown agrupado:
+//   1. ENTIDADES (una por tipo: autor, forma, movimiento, tema, motivo)
+//   2. EN POEMAS (hasta 4 coincidencias de texto)
+//   3. Ver todos los resultados → /buscar?q=...
+//
+// Fuentes de datos:
+//   - /buscar/entidades.json  → matching de entidades (substring, sin acentos)
+//   - /pagefind/pagefind.js   → matching de texto libre (cargado bajo demanda)
+//
+// Teclas:
+//   /        — enfoca el campo (abre overlay si está cerrado)
+//   Escape   — cierra el overlay
+//   ↑ ↓      — navega resultados
+//   Enter    — abre el resultado seleccionado, o /buscar?q=... si ninguno
+---
+
+<button
+	type="button"
+	class="buscador-trigger"
+	aria-label="Abrir buscador"
+	data-buscador-trigger
+>
+	<svg
+		class="buscador-trigger-icon"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+	>
+		<circle cx="11" cy="11" r="7"></circle>
+		<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+	</svg>
+</button>
+
+<div class="buscador-overlay" hidden data-buscador-overlay>
+	<div class="buscador-panel" role="dialog" aria-modal="true" aria-label="Buscar en el Poemario">
+		<div class="buscador-input-row">
+			<svg
+				class="buscador-input-icon"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<circle cx="11" cy="11" r="7"></circle>
+				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+			</svg>
+			<input
+				type="search"
+				class="buscador-input"
+				placeholder="Buscar poemas, autores, temas…"
+				autocomplete="off"
+				spellcheck="false"
+				aria-label="Buscar"
+				aria-controls="buscador-resultados"
+				aria-expanded="false"
+				aria-autocomplete="list"
+				data-buscador-input
+			/>
+			<button
+				type="button"
+				class="buscador-cerrar"
+				aria-label="Cerrar buscador"
+				data-buscador-cerrar
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+
+		<div
+			class="buscador-resultados"
+			id="buscador-resultados"
+			role="listbox"
+			data-buscador-resultados
+		></div>
+	</div>
+</div>
+
+<script>
+	type TipoEntidad = 'autor' | 'forma' | 'movimiento' | 'tema' | 'motivo';
+
+	interface Entidad {
+		tipo: TipoEntidad;
+		slug: string;
+		nombre: string;
+		conteo: number;
+		url: string;
+	}
+
+	interface ResultadoTexto {
+		titulo: string;
+		autor: string | null;
+		url: string;
+	}
+
+	const overlay = document.querySelector<HTMLElement>('[data-buscador-overlay]');
+	const triggers = document.querySelectorAll<HTMLButtonElement>('[data-buscador-trigger]');
+	const cerrar = document.querySelector<HTMLButtonElement>('[data-buscador-cerrar]');
+	const input = document.querySelector<HTMLInputElement>('[data-buscador-input]');
+	const lista = document.querySelector<HTMLElement>('[data-buscador-resultados]');
+
+	// Portal: movemos el overlay al final del <body> para que su position:fixed
+	// no quede atrapado en un ancestro con su propio contexto de apilado y para
+	// que el atributo [hidden] no compita con display:flex heredado del nav.
+	if (overlay && overlay.parentElement !== document.body) {
+		document.body.appendChild(overlay);
+	}
+
+	if (overlay && triggers.length > 0 && cerrar && input && lista) {
+		// ── State ───────────────────────────────────────────────────
+		let entidades: Entidad[] = [];
+		let entidadesPromise: Promise<Entidad[]> | null = null;
+		let pagefind: { search: (q: string) => Promise<{ results: PagefindRaw[] }> } | null = null;
+		let pagefindPromise: Promise<typeof pagefind> | null = null;
+		let timer: number | null = null;
+		let seleccion = -1;
+
+		// ── Helpers ─────────────────────────────────────────────────
+		const ETIQUETAS_TIPO: Record<TipoEntidad, string> = {
+			autor: 'Autor',
+			forma: 'Forma',
+			movimiento: 'Movimiento',
+			tema: 'Tema',
+			motivo: 'Motivo',
+		};
+
+		function norm(s: string): string {
+			return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+		}
+
+		function cargarEntidades(): Promise<Entidad[]> {
+			if (!entidadesPromise) {
+				entidadesPromise = fetch('/buscar/entidades.json')
+					.then((r) => r.json())
+					.then((data: Entidad[]) => {
+						entidades = data;
+						return data;
+					})
+					.catch(() => []);
+			}
+			return entidadesPromise;
+		}
+
+		function cargarPagefind() {
+			if (!pagefindPromise) {
+				pagefindPromise = (async () => {
+					try {
+						// URL built at runtime so Rollup does not try to resolve
+						// the module at build time (it does not exist yet).
+						const url = '/pagefind/pagefind.js';
+						const mod = await import(/* @vite-ignore */ url);
+						await mod.init();
+						pagefind = mod;
+						return mod;
+					} catch {
+						return null;
+					}
+				})();
+			}
+			return pagefindPromise;
+		}
+
+		function buscarEntidades(q: string): Entidad[] {
+			const qn = norm(q);
+			const vistos = new Set<TipoEntidad>();
+			const out: Entidad[] = [];
+			// entidades arrives already sorted by conteo desc; take first per type.
+			for (const e of entidades) {
+				if (vistos.has(e.tipo)) continue;
+				if (norm(e.nombre).includes(qn)) {
+					out.push(e);
+					vistos.add(e.tipo);
+				}
+				if (vistos.size === 5) break;
+			}
+			return out;
+		}
+
+		interface PagefindRaw {
+			url: string;
+			data: () => Promise<{
+				url: string;
+				meta: Record<string, string>;
+				excerpt?: string;
+			}>;
+		}
+
+		async function buscarTexto(q: string) {
+			const pf = await cargarPagefind();
+			if (!pf) return { poemas: [] as ResultadoTexto[] };
+
+			const { results } = await pf.search(q);
+			const poemas: ResultadoTexto[] = [];
+
+			for (const r of results.slice(0, 20)) {
+				const d = await r.data();
+				poemas.push({
+					titulo: d.meta?.title ?? d.url,
+					autor: d.meta?.author ?? null,
+					url: d.url,
+				});
+				if (poemas.length === 4) break;
+			}
+			return { poemas };
+		}
+
+		// ── Render ──────────────────────────────────────────────────
+		function escape(s: string): string {
+			return s.replace(/[&<>"']/g, (c) => ({
+				'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+			})[c] as string);
+		}
+
+		function render(q: string, ents: Entidad[], textos: { poemas: ResultadoTexto[] }) {
+			const partes: string[] = [];
+			let idx = 0;
+
+			if (ents.length > 0) {
+				partes.push('<div class="grupo">');
+				for (const e of ents) {
+					partes.push(
+						`<a class="item item-entidad" role="option" data-idx="${idx++}" href="${e.url}">` +
+							`<span class="rotulo">${ETIQUETAS_TIPO[e.tipo]}</span>` +
+							`<span class="nombre">${escape(e.nombre)}</span>` +
+							`<span class="conteo">${e.conteo === 1 ? '1 poema' : `${e.conteo} poemas`}</span>` +
+						`</a>`,
+					);
+				}
+				partes.push('</div>');
+			}
+
+			if (textos.poemas.length > 0) {
+				partes.push('<div class="grupo">');
+				partes.push(`<div class="seccion">En poemas</div>`);
+				for (const t of textos.poemas) {
+					partes.push(
+						`<a class="item item-texto" role="option" data-idx="${idx++}" href="${t.url}">` +
+							`<span class="titulo">${escape(t.titulo)}</span>` +
+							(t.autor ? `<span class="autor">· ${escape(t.autor)}</span>` : '') +
+						`</a>`,
+					);
+				}
+				partes.push('</div>');
+			}
+
+			if (ents.length === 0 && textos.poemas.length === 0) {
+				partes.push('<div class="vacio">Sin coincidencias.</div>');
+			} else {
+				const href = `/buscar/?q=${encodeURIComponent(q)}`;
+				partes.push(
+					`<a class="item item-todos" role="option" data-idx="${idx++}" href="${href}">` +
+						`Ver todos los resultados →` +
+					`</a>`,
+				);
+			}
+
+			lista!.innerHTML = partes.join('');
+			seleccion = -1;
+			input!.setAttribute('aria-expanded', 'true');
+		}
+
+		function limpiar() {
+			lista!.innerHTML = '';
+			seleccion = -1;
+			input!.setAttribute('aria-expanded', 'false');
+		}
+
+		// ── Search with debounce ────────────────────────────────────
+		async function ejecutarBusqueda() {
+			const q = input!.value.trim();
+			if (!q) {
+				limpiar();
+				return;
+			}
+			await cargarEntidades();
+			const ents = buscarEntidades(q);
+			render(q, ents, { poemas: [] });
+			// Text search loads in the background and re-renders when ready.
+			const textos = await buscarTexto(q);
+			// Only update if the query hasn't changed in the meantime.
+			if (input!.value.trim() === q) {
+				render(q, ents, textos);
+			}
+		}
+
+		input.addEventListener('input', () => {
+			if (timer) window.clearTimeout(timer);
+			timer = window.setTimeout(ejecutarBusqueda, 150);
+		});
+
+		// ── Keyboard navigation ─────────────────────────────────────
+		function items(): HTMLElement[] {
+			return Array.from(lista!.querySelectorAll<HTMLElement>('.item'));
+		}
+
+		function aplicarSeleccion() {
+			const its = items();
+			its.forEach((el, i) => el.classList.toggle('sel', i === seleccion));
+			if (seleccion >= 0 && its[seleccion]) {
+				its[seleccion].scrollIntoView({ block: 'nearest' });
+			}
+		}
+
+		input.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				const n = items().length;
+				if (n > 0) {
+					seleccion = (seleccion + 1) % n;
+					aplicarSeleccion();
+				}
+			} else if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				const n = items().length;
+				if (n > 0) {
+					seleccion = (seleccion - 1 + n) % n;
+					aplicarSeleccion();
+				}
+			} else if (e.key === 'Enter') {
+				e.preventDefault();
+				const its = items();
+				if (seleccion >= 0 && its[seleccion]) {
+					(its[seleccion] as HTMLAnchorElement).click();
+				} else {
+					const q = input!.value.trim();
+					if (q) window.location.href = `/buscar/?q=${encodeURIComponent(q)}`;
+				}
+			} else if (e.key === 'Escape') {
+				cerrarOverlay();
+			}
+		});
+
+		// ── Open / close ────────────────────────────────────────────
+		function abrirOverlay() {
+			overlay!.hidden = false;
+			document.body.classList.add('buscador-abierto');
+			input!.focus();
+			// Preload both data sources.
+			cargarEntidades();
+			cargarPagefind();
+		}
+
+		function cerrarOverlay() {
+			overlay!.hidden = true;
+			document.body.classList.remove('buscador-abierto');
+			input!.value = '';
+			limpiar();
+		}
+
+		triggers.forEach((t) => t.addEventListener('click', abrirOverlay));
+		cerrar.addEventListener('click', cerrarOverlay);
+
+		// Click outside the panel closes.
+		overlay.addEventListener('click', (e) => {
+			if (e.target === overlay) cerrarOverlay();
+		});
+
+		// Global "/" shortcut (unless focus is inside an input/textarea).
+		document.addEventListener('keydown', (e) => {
+			if (e.key !== '/') return;
+			const t = e.target as HTMLElement | null;
+			const enInput = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+			if (enInput) return;
+			e.preventDefault();
+			abrirOverlay();
+		});
+	}
+</script>
+
+<style>
+	/* ── Trigger button in the nav ───────────────────────────────────── */
+	.buscador-trigger {
+		background: transparent;
+		border: 0;
+		padding: var(--space-2xs);
+		margin: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text);
+		cursor: pointer;
+		border-bottom: 2px solid transparent;
+		transition:
+			color var(--dur-fast) var(--ease-standard),
+			border-color var(--dur-fast) var(--ease-standard);
+	}
+	.buscador-trigger:hover,
+	.buscador-trigger:focus-visible {
+		color: var(--oro-texto);
+		outline: none;
+	}
+	.buscador-trigger-icon {
+		width: 1.1rem;
+		height: 1.1rem;
+		display: block;
+	}
+
+	/* ── Overlay ─────────────────────────────────────────────────────── */
+	/* [hidden] needs !important because .buscador-overlay sets display:flex
+	   with higher specificity than the user-agent universal rule. */
+	.buscador-overlay[hidden] {
+		display: none !important;
+	}
+	.buscador-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.6);
+		z-index: 200;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		padding: clamp(2rem, 8vh, 6rem) var(--space-md) var(--space-md);
+	}
+	:global(body.buscador-abierto) {
+		overflow: hidden;
+	}
+
+	.buscador-panel {
+		background: var(--bg-elevated);
+		border: var(--rule-hairline) solid var(--oro);
+		width: 100%;
+		max-width: 36rem;
+		display: flex;
+		flex-direction: column;
+		max-height: 80vh;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+	}
+
+	/* ── Input row ───────────────────────────────────────────────────── */
+	.buscador-input-row {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-md);
+		border-bottom: var(--rule-hairline) solid var(--oro);
+	}
+	.buscador-input-icon {
+		width: 1.1rem;
+		height: 1.1rem;
+		color: var(--oro-texto);
+		flex-shrink: 0;
+	}
+	.buscador-input {
+		flex: 1;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		color: var(--text);
+		padding: var(--space-2xs) 0;
+	}
+	.buscador-input::placeholder {
+		color: var(--text-soft);
+		font-style: italic;
+	}
+	.buscador-input::-webkit-search-cancel-button {
+		display: none;
+	}
+	.buscador-cerrar {
+		background: transparent;
+		border: 0;
+		padding: var(--space-2xs);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-soft);
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+	.buscador-cerrar svg {
+		width: 1rem;
+		height: 1rem;
+	}
+	.buscador-cerrar:hover,
+	.buscador-cerrar:focus-visible {
+		color: var(--text);
+		outline: none;
+	}
+
+	/* ── Results ─────────────────────────────────────────────────────── */
+	.buscador-resultados {
+		overflow-y: auto;
+		flex: 1;
+	}
+	.buscador-resultados:empty {
+		display: none;
+	}
+	.buscador-resultados :global(.grupo) {
+		padding-block: var(--space-2xs);
+		border-bottom: var(--rule-hairline) solid var(--oro);
+	}
+	.buscador-resultados :global(.grupo:last-of-type) {
+		border-bottom: 0;
+	}
+	.buscador-resultados :global(.seccion) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-widest);
+		color: var(--oro-texto);
+		padding: var(--space-xs) var(--space-md) var(--space-2xs);
+		text-transform: uppercase;
+	}
+
+	.buscador-resultados :global(.item) {
+		display: block;
+		text-decoration: none;
+		color: var(--text);
+		padding: var(--space-xs) var(--space-md);
+		transition: background-color var(--dur-fast) var(--ease-standard);
+		border-bottom: 0;
+	}
+	.buscador-resultados :global(.item:hover),
+	.buscador-resultados :global(.item.sel) {
+		background-color: rgba(255, 255, 255, 0.04);
+		color: var(--text);
+	}
+
+	.buscador-resultados :global(.item-entidad) {
+		display: grid;
+		grid-template-columns: 6.5rem 1fr auto;
+		gap: var(--space-sm);
+		align-items: baseline;
+	}
+	.buscador-resultados :global(.rotulo) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-widest);
+		color: var(--oro-texto);
+		text-transform: uppercase;
+	}
+	.buscador-resultados :global(.nombre) {
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		color: var(--text);
+	}
+	.buscador-resultados :global(.conteo) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-wide);
+		color: var(--esmeralda);
+	}
+
+	.buscador-resultados :global(.item-texto) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: var(--space-2xs) var(--space-xs);
+	}
+	.buscador-resultados :global(.item-texto .titulo) {
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		color: var(--text);
+	}
+	.buscador-resultados :global(.item-texto .autor) {
+		font-family: var(--font-body);
+		font-style: italic;
+		font-size: var(--fs-sm);
+		color: var(--text-soft);
+	}
+
+	.buscador-resultados :global(.item-todos) {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-widest);
+		color: var(--oro-texto);
+		text-align: center;
+		padding-block: var(--space-md);
+		text-transform: uppercase;
+	}
+
+	.buscador-resultados :global(.vacio) {
+		font-family: var(--font-body);
+		font-style: italic;
+		color: var(--text-soft);
+		padding: var(--space-md);
+		text-align: center;
+	}
+
+	@media (max-width: 540px) {
+		.buscador-overlay {
+			padding-top: var(--space-md);
+		}
+		.buscador-resultados :global(.item-entidad) {
+			grid-template-columns: 5rem 1fr;
+		}
+		.buscador-resultados :global(.item-entidad .conteo) {
+			grid-column: 2;
+			margin-top: var(--space-3xs);
+		}
+	}
+</style>
