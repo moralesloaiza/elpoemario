@@ -6,7 +6,7 @@
 //
 // Builders added incrementally per PR:
 //   - PR 2: PUBLISHER, absoluteUrl, buildWebSiteJsonLd, buildBreadcrumbJsonLd
-//   - PR 3 (this one): buildPoemaJsonLd + taxonomiaToKeywords + spotifyToCanonical
+//   - PR 3: buildPoemaJsonLd + taxonomiaToKeywords + spotifyToCanonical
 //   - PR 4: buildAutorJsonLd
 
 import type { CollectionEntry } from 'astro:content';
@@ -163,6 +163,48 @@ export function buildPoemaJsonLd(
       contentUrl: spotifyToCanonical(poema.spotify_url),
       embedUrl: poema.spotify_url,
     };
+  }
+
+  return data;
+}
+
+// Input shape matches what Autor.astro receives via Astro.props:
+// the entry's `data` flattened, plus `id` injected by the page.
+type AutorInput = CollectionEntry<'autores'>['data'] & { id: string };
+
+// Build a Person JSON-LD object for an author page. The `@id` uses the
+// same `#person` fragment as the inline `author` reference emitted by
+// buildPoemaJsonLd, so crawlers unify both entities.
+export function buildAutorJsonLd(
+  autor: AutorInput,
+  site: URL,
+): Record<string, unknown> {
+  const canonical = absoluteUrl(`/autores/${autor.id}/`, site);
+
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${canonical}#person`,
+    name: autor.nombre,
+    url: canonical,
+  };
+
+  if (autor.descripcion) data.description = autor.descripcion;
+  if (autor.fecha_nacimiento) {
+    data.birthDate = autor.fecha_nacimiento.toISOString().slice(0, 10);
+  }
+  if (autor.fecha_muerte) {
+    data.deathDate = autor.fecha_muerte.toISOString().slice(0, 10);
+  }
+  if (autor.lugar_nacimiento) {
+    data.birthPlace = { '@type': 'Place', name: autor.lugar_nacimiento };
+  }
+  if (autor.lugar_muerte) {
+    data.deathPlace = { '@type': 'Place', name: autor.lugar_muerte };
+  }
+  if (autor.imagen) data.image = absoluteUrl(autor.imagen, site);
+  if (autor.sameAs && autor.sameAs.length > 0) {
+    data.sameAs = autor.sameAs;
   }
 
   return data;
