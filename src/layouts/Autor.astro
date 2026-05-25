@@ -1,0 +1,294 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+import Base from './Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import IconoEditar from '../components/IconoEditar.astro';
+import PoemaCard from '../components/PoemaCard.astro';
+
+import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
+
+// Receives the author's frontmatter spread plus its id (slug). Same
+// pattern as Poema.astro.
+type Props = CollectionEntry<'autores'>['data'] & { id: string };
+
+const props = Astro.props;
+const {
+  id,
+  nombre,
+  tipo,
+  fecha_nacimiento,
+  fecha_muerte,
+  imagen,
+  tambien_en,
+} = props;
+
+// Life dates: "1836–1870" only if both years are known AND the author is
+// a classic. Collaborators do not show life dates, matching the Fabulario
+// convention — sensible: living collaborators have birth dates but not
+// death dates.
+const anios =
+  tipo === 'clasico' && fecha_nacimiento && fecha_muerte
+    ? `${fecha_nacimiento.getUTCFullYear()}–${fecha_muerte.getUTCFullYear()}`
+    : null;
+
+// Sibling-portal cross-link. Mapping is local: only two valid values.
+// Falls back to the literal hostname if a typo lands in the CMS, so the
+// link still resolves to *something* rather than rendering `undefined`.
+const PORTAL_LABEL: Record<string, string> = {
+  'elfabulario.com': 'El Fabulario',
+  'elpoemario.com': 'El Poemario',
+};
+const tambienEnLabel = tambien_en ? (PORTAL_LABEL[tambien_en] ?? tambien_en) : null;
+const tambienEnUrl = tambien_en ? `https://${tambien_en}/autores/${id}/` : null;
+
+// JSON-LD: Person + Breadcrumb. Breadcrumb points to /autores/ which
+// lands in PR 7; until then it 404s. Valid schema markup either way.
+const site = Astro.site!;
+const personLd = buildAutorJsonLd(props as Props, site);
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: 'Autores', path: '/autores/' },
+    { name: nombre, path: `/autores/${id}/` },
+  ],
+  site,
+);
+
+// Poems by this author, non-draft, newest first.
+const todosLosPoemas = await getCollection('poemas', ({ data }) => !data.borrador);
+const poemasDelAutor = todosLosPoemas
+  .filter((p) => p.data.autor.id === id)
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime());
+
+const headingPoemas =
+  poemasDelAutor.length === 0
+    ? 'Aún no hay poemas de este autor'
+    : poemasDelAutor.length === 1
+      ? '1 poema en El Poemario'
+      : `${poemasDelAutor.length} poemas en El Poemario`;
+
+const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
+---
+
+<Base titulo={`${nombre} · El Poemario`} descripcion={descripcionMeta}>
+  <JsonLd slot="head" data={personLd} />
+  <JsonLd slot="head" data={breadcrumbLd} />
+
+  <article class="autor" lang="es">
+    <header class="autor-cabecera">
+      <h1 class="autor-nombre">{nombre}</h1>
+      {anios && <p class="autor-anios">{anios}</p>}
+    </header>
+
+    {imagen && (
+      <figure class="autor-retrato">
+        <img
+          src={imagen}
+          alt={`Retrato de ${nombre}`}
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="600"
+        />
+      </figure>
+    )}
+
+    <div class="autor-bio prose">
+      <slot />
+    </div>
+
+    {tambienEnLabel && tambienEnUrl && (
+      <p class="autor-tambien-en">
+        También figura en <a href={tambienEnUrl}>{tambienEnLabel}</a>.
+      </p>
+    )}
+
+    <hr class="ornate" />
+
+    <section class="autor-poemas" aria-labelledby="lista-titulo">
+      <h2 id="lista-titulo">{headingPoemas}</h2>
+
+      {poemasDelAutor.length > 0 && (
+        <ul class="lista">
+          {poemasDelAutor.map((p, i) => (
+            <li class="item" hidden={i >= 18}>
+              <PoemaCard poema={p} autorNombre={nombre} mostrarAutor={false} />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {poemasDelAutor.length > 18 && (
+        <button type="button" class="cargar-mas" data-cargar-mas>
+          Mostrar más poemas
+        </button>
+      )}
+    </section>
+  </article>
+
+  <IconoEditar slug={id} coleccion="autores" />
+</Base>
+
+<script>
+  const PASO = 18;
+  const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
+  const lista = document.querySelector<HTMLUListElement>('.lista');
+
+  if (boton && lista) {
+    const items = Array.from(lista.children) as HTMLElement[];
+
+    boton.addEventListener('click', () => {
+      const ocultos = items.filter((el) => el.hasAttribute('hidden'));
+      const lote = ocultos.slice(0, PASO);
+
+      lote.forEach((el) => el.removeAttribute('hidden'));
+
+      // Move focus to the first card of the just-revealed batch.
+      const primera = lote[0]?.querySelector<HTMLElement>('.card');
+      if (primera) {
+        primera.setAttribute('tabindex', '-1');
+        primera.focus();
+      }
+
+      // Hide the button once no hidden cards remain.
+      if (ocultos.length <= PASO) {
+        boton.setAttribute('hidden', '');
+      }
+    });
+  }
+</script>
+
+<style>
+  .autor {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding-inline: var(--space-md);
+    padding-block: var(--space-2xl);
+  }
+
+  /* ── Header ──────────────────────────────────────────────────────── */
+  .autor-cabecera {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  .autor-nombre {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+    letter-spacing: 0.04em;
+    text-wrap: balance;
+  }
+  .autor-anios {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ── Portrait ────────────────────────────────────────────────────── */
+  .autor-retrato {
+    margin: 0 auto var(--space-xl);
+    max-width: var(--measure-narrow);
+    padding: 0;
+  }
+  .autor-retrato img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border: var(--rule-hairline) solid var(--oro);
+  }
+
+  /* ── Bio ─────────────────────────────────────────────────────────── */
+  .autor-bio {
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-xl);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    line-height: var(--line-height-body);
+    color: var(--text);
+  }
+  .autor-bio :global(p) {
+    margin: 0 0 var(--space-lg);
+  }
+  .autor-bio :global(em) {
+    font-style: italic;
+  }
+  .autor-bio :global(strong) {
+    font-weight: var(--fw-bold);
+  }
+  .autor-bio :global(a) {
+    color: var(--link);
+  }
+
+  /* ── Cross-portal link ───────────────────────────────────────────── */
+  .autor-tambien-en {
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-xl);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-base);
+    color: var(--text-soft);
+    text-align: center;
+  }
+
+  /* ── Poems section ───────────────────────────────────────────────── */
+  .autor-poemas h2 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+    margin: var(--space-xl) 0 var(--space-lg);
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+  /* Hidden batches for cargar-mas: overrides the grid's implicit display. */
+  [hidden] {
+    display: none !important;
+  }
+  .cargar-mas {
+    display: block;
+    margin: var(--space-xl) auto 0;
+    padding: var(--space-2xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    background: transparent;
+    border: var(--rule-hairline) solid var(--oro);
+    cursor: pointer;
+    transition:
+      background-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .cargar-mas:hover,
+  .cargar-mas:focus-visible {
+    background-color: var(--bg-elevated);
+    color: var(--oro);
+  }
+  .cargar-mas:focus-visible {
+    outline: 2px solid var(--esmeralda);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 720px) {
+    .lista {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>
