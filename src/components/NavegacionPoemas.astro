@@ -1,0 +1,116 @@
+---
+import Luna from './ornaments/Luna.astro';
+
+type PoemaVecino = {
+  slug: string;
+  titulo: string;
+};
+
+interface Props {
+  anterior: PoemaVecino;
+  siguiente: PoemaVecino;
+}
+
+const { anterior, siguiente } = Astro.props;
+---
+
+<nav class="nav-poemas" aria-label="Navegación entre poemas">
+  <a class="nav-poemas-enlace anterior" href={`/poemas/${anterior.slug}/`} rel="prev">
+    <span class="nav-poemas-flecha" aria-hidden="true">←</span>
+    <span class="nav-poemas-meta">
+      <span class="nav-poemas-rotulo">Poema anterior</span>
+      <span class="nav-poemas-titulo">{anterior.titulo}</span>
+    </span>
+  </a>
+  <span class="nav-poemas-ornamento"><Luna width="56px" /></span>
+  <a class="nav-poemas-enlace siguiente" href={`/poemas/${siguiente.slug}/`} rel="next">
+    <span class="nav-poemas-meta">
+      <span class="nav-poemas-rotulo">Poema siguiente</span>
+      <span class="nav-poemas-titulo">{siguiente.titulo}</span>
+    </span>
+    <span class="nav-poemas-flecha" aria-hidden="true">→</span>
+  </a>
+</nav>
+
+<style>
+  .nav-poemas {
+    max-width: var(--measure);
+    margin: var(--space-md) auto 0;
+    padding-block: var(--space-lg);
+    border-top: var(--rule-hairline) solid var(--oro);
+    border-bottom: var(--rule-hairline) solid var(--oro);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  .nav-poemas-enlace {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--text);
+    padding: var(--space-sm);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+    border-bottom: none;
+  }
+  .nav-poemas-enlace:hover,
+  .nav-poemas-enlace:focus-visible {
+    background-color: color-mix(in srgb, var(--oro) 12%, transparent);
+    border-bottom: none;
+  }
+  .nav-poemas-enlace.siguiente {
+    justify-content: flex-end;
+    text-align: right;
+  }
+  .nav-poemas-flecha {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    color: var(--oro);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .nav-poemas-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    min-width: 0;
+  }
+  .nav-poemas-rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    font-weight: var(--fw-bold);
+  }
+  .nav-poemas-titulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    line-height: var(--lh-snug);
+    color: var(--text);
+    text-wrap: balance;
+  }
+  /* Override the Luna ornament's default bottom margin within nav. */
+  .nav-poemas-ornamento {
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .nav-poemas-ornamento :global(.luna) {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .nav-poemas {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+    .nav-poemas-ornamento {
+      display: none;
+    }
+    .nav-poemas-enlace.siguiente {
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>

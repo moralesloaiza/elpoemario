@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Poema from '../../layouts/Poema.astro';
+
+export async function getStaticPaths() {
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+  return poemas.map((poema) => ({
+    params: { slug: poema.id },
+    props: poema,
+  }));
+}
+
+type Props = CollectionEntry<'poemas'>;
+
+const poema = Astro.props;
+const { Content } = await render(poema);
+---
+
+<Poema {...poema.data} id={poema.id}>
+  <Content />
+</Poema>

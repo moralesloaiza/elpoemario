@@ -1,0 +1,202 @@
+---
+// Floating "+" button with dropdown menu. Visible only when a Decap
+// session is active (`decap-cms-user` in localStorage). Each option
+// opens Decap directly at the new-entry form of its collection.
+
+const opciones = [
+  { coleccion: 'poemas', etiqueta: 'Nuevo poema' },
+  { coleccion: 'entradas', etiqueta: 'Nueva entrada' },
+  { coleccion: 'autores', etiqueta: 'Nuevo autor' },
+];
+---
+
+<div class="boton-crear-wrap oculto" data-boton-crear="true">
+  <button
+    type="button"
+    class="boton-crear"
+    aria-label="Crear contenido nuevo"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    data-boton-crear-trigger="true"
+  >
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+    </svg>
+  </button>
+
+  <ul class="menu-crear" role="menu" aria-label="Crear contenido nuevo">
+    {opciones.map(({ coleccion, etiqueta }) => (
+      <li role="none">
+        
+          role="menuitem"
+          href={`/admin/#/collections/${coleccion}/new`}
+          tabindex="-1"
+        >
+          {etiqueta}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  (() => {
+    const wrap = document.querySelector('[data-boton-crear]');
+    if (!wrap) return;
+    if (!localStorage.getItem('decap-cms-user')) return;
+
+    wrap.classList.remove('oculto');
+
+    const trigger = wrap.querySelector('[data-boton-crear-trigger]');
+    const items = wrap.querySelectorAll('a[role="menuitem"]');
+    if (!trigger || !items.length) return;
+
+    const cerrar = () => {
+      trigger.setAttribute('aria-expanded', 'false');
+      items.forEach((i) => i.setAttribute('tabindex', '-1'));
+    };
+    const abrir = () => {
+      trigger.setAttribute('aria-expanded', 'true');
+      items.forEach((i) => i.setAttribute('tabindex', '0'));
+      (items[0] as HTMLElement).focus();
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const abierto = trigger.getAttribute('aria-expanded') === 'true';
+      if (abierto) cerrar();
+      else abrir();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target as Node)) cerrar();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
+        cerrar();
+        (trigger as HTMLElement).focus();
+      }
+    });
+  })();
+</script>
+
+<style>
+  .boton-crear-wrap {
+    position: fixed;
+    right: var(--space-md);
+    bottom: var(--space-md);
+    z-index: 100;
+  }
+
+  .boton-crear-wrap.oculto {
+    display: none;
+  }
+
+  .boton-crear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--oro-texto);
+    border: var(--rule-hairline) solid var(--oro);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    padding: 0;
+    transition:
+      transform var(--dur-fast) var(--ease-standard),
+      background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+
+  .boton-crear:hover,
+  .boton-crear:focus-visible {
+    background: var(--oro);
+    color: var(--bg);
+    transform: translateY(-1px);
+  }
+
+  .boton-crear:focus-visible {
+    outline: 2px solid var(--esmeralda);
+    outline-offset: 2px;
+  }
+
+  .boton-crear svg {
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .boton-crear[aria-expanded="true"] svg {
+    transform: rotate(45deg);
+  }
+
+  .menu-crear {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-2xs) 0;
+    background: var(--bg);
+    border: var(--rule-hairline) solid var(--oro);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + var(--space-2xs));
+    min-width: 11rem;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      visibility 0s linear var(--dur-fast),
+      opacity var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .boton-crear[aria-expanded="true"] + .menu-crear {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      visibility 0s linear 0s,
+      opacity var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .menu-crear li {
+    margin: 0;
+  }
+
+  .menu-crear a {
+    display: block;
+    padding: var(--space-2xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--fs-2xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: none;
+  }
+
+  .menu-crear a:hover,
+  .menu-crear a:focus-visible {
+    background: var(--oro);
+    color: var(--bg);
+    outline: none;
+    border-bottom: none;
+  }
+
+  @media (max-width: 480px) {
+    .boton-crear-wrap {
+      right: var(--space-sm);
+      bottom: var(--space-sm);
+    }
+    .boton-crear {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+</style>

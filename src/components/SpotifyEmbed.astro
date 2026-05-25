@@ -1,0 +1,206 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+
+// Match Spotify URLs with optional regional prefix (e.g. intl-es, intl-pt)
+const trackMatch = url.match(/spotify\.com\/(?:intl-[a-z]+\/)?track\/([a-zA-Z0-9]+)/);
+const episodeMatch = url.match(/spotify\.com\/(?:intl-[a-z]+\/)?episode\/([a-zA-Z0-9]+)/);
+
+const trackId = trackMatch?.[1];
+const episodeId = episodeMatch?.[1];
+
+// Warn at build time if a URL was provided but did not match any supported pattern
+if (url && !trackId && !episodeId) {
+  console.warn(`[SpotifyEmbed] URL no reconocida (solo se admiten track y episode): ${url}`);
+}
+
+const tipo = trackId ? 'track' : episodeId ? 'episode' : null;
+const spotifyId = trackId ?? episodeId;
+const altura = tipo === 'episode' ? 232 : 152;
+const embedSrc = tipo && spotifyId
+  ? `https://open.spotify.com/embed/${tipo}/${spotifyId}?utm_source=generator`
+  : null;
+---
+
+{embedSrc && (
+  <div
+    class="spotify-embed"
+    data-spotify-facade
+    data-src={embedSrc}
+    data-altura={altura}
+    data-tipo={tipo}
+    style={`--embed-altura: ${altura}px`}
+  >
+    <button
+      type="button"
+      class="spotify-facade"
+      aria-label="Cargar reproductor de Spotify y escuchar la lectura"
+    >
+      <span class="spotify-facade__play" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="0.75" />
+          <polygon points="20,16 20,32 34,24" fill="currentColor" />
+        </svg>
+      </span>
+      <span class="spotify-facade__rotulo">Escuchar la lectura</span>
+      <span class="spotify-facade__hint">Pulsa para cargar el reproductor</span>
+    </button>
+  </div>
+)}
+
+<script>
+  // Facade pattern for Spotify embeds. The real iframe ships ~660ms of TBT
+  // because its SDK blocks the main thread shortly after FCP. We replace it
+  // with a static button until the user clicks, optionally pre-mounting it
+  // after idle so the SDK runs outside the TBT measurement window.
+
+  type FacadeElement = HTMLElement & { dataset: DOMStringMap };
+
+  const facades = document.querySelectorAll<FacadeElement>('[data-spotify-facade]');
+
+  const mount = (container: FacadeElement) => {
+    if (container.dataset.mounted === 'true') return;
+    container.dataset.mounted = 'true';
+
+    const src = container.dataset.src;
+    const altura = container.dataset.altura ?? '152';
+    if (!src) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.width = '100%';
+    iframe.height = altura;
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute(
+      'allow',
+      'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+    );
+    iframe.setAttribute('loading', 'lazy');
+    iframe.title = 'Reproductor de Spotify';
+
+    const button = container.querySelector('button');
+    container.replaceChildren(iframe);
+
+    // If the mount was user-initiated (click), restore focus to the iframe
+    // so keyboard users land in the new interactive element.
+    if (button && document.activeElement === button) {
+      iframe.focus();
+    }
+  };
+
+  // 1) Mount on click — always the primary path.
+  facades.forEach((container) => {
+    const button = container.querySelector('button');
+    button?.addEventListener('click', () => mount(container));
+  });
+
+  // 2) Optional preload via IntersectionObserver, deferred to idle so the
+  //    Spotify SDK boots outside the TBT window.
+  const schedulePreload = (cb: () => void) => {
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => void;
+    };
+    if (typeof w.requestIdleCallback === 'function') {
+      w.requestIdleCallback(cb, { timeout: 3000 });
+    } else {
+      setTimeout(cb, 2500);
+    }
+  };
+
+  if ('IntersectionObserver' in window && facades.length > 0) {
+    schedulePreload(() => {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              mount(entry.target as FacadeElement);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '200px' },
+      );
+      facades.forEach((container) => {
+        if (container.dataset.mounted !== 'true') io.observe(container);
+      });
+    });
+  }
+</script>
+
+<style>
+  .spotify-embed {
+    margin-block: var(--space-lg);
+  }
+
+  /* ── Facade Art-Déco ────────────────────────────────────────────────── */
+  .spotify-facade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xs);
+    width: 100%;
+    height: var(--embed-altura, 152px);
+    padding: var(--space-md);
+    position: relative;
+    background: transparent;
+    border: 1.5px solid var(--oro);
+    cursor: pointer;
+    color: var(--oro-texto);
+    font-family: inherit;
+    transition: border-color var(--dur-fast) var(--ease-standard),
+                color var(--dur-fast) var(--ease-standard);
+  }
+  .spotify-facade::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--oro);
+    pointer-events: none;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+  .spotify-facade:hover,
+  .spotify-facade:focus-visible {
+    border-color: var(--esmeralda);
+    color: var(--esmeralda);
+    outline: none;
+  }
+  .spotify-facade:hover::before,
+  .spotify-facade:focus-visible::before {
+    border-color: var(--esmeralda);
+  }
+
+  .spotify-facade__play {
+    display: inline-flex;
+    line-height: 0;
+  }
+  .spotify-facade__play svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .spotify-facade__rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+  }
+
+  .spotify-facade__hint {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+  }
+
+  /* En track (152px de alto) el hint aprieta: lo ocultamos. */
+  .spotify-embed[data-tipo='track'] .spotify-facade__hint {
+    display: none;
+  }
+</style>
