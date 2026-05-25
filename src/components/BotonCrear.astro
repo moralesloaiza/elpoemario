@@ -1,4 +1,4 @@
----
+﻿---
 // Floating "+" button with dropdown menu. Visible only when a Decap
 // session is active (`decap-cms-user` in localStorage). Each option
 // opens Decap directly at the new-entry form of its collection.
@@ -30,7 +30,7 @@ const opciones = [
   <ul class="menu-crear" role="menu" aria-label="Crear contenido nuevo">
     {opciones.map(({ coleccion, etiqueta }) => (
       <li role="none">
-        
+        <a
           role="menuitem"
           href={`/admin/#/collections/${coleccion}/new`}
           tabindex="-1"
@@ -61,7 +61,7 @@ const opciones = [
     const abrir = () => {
       trigger.setAttribute('aria-expanded', 'true');
       items.forEach((i) => i.setAttribute('tabindex', '0'));
-      (items[0] as HTMLElement).focus();
+      items[0].focus();
     };
 
     trigger.addEventListener('click', (e) => {
@@ -72,13 +72,13 @@ const opciones = [
     });
 
     document.addEventListener('click', (e) => {
-      if (!wrap.contains(e.target as Node)) cerrar();
+      if (!wrap.contains(e.target)) cerrar();
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
         cerrar();
-        (trigger as HTMLElement).focus();
+        trigger.focus();
       }
     });
   })();
