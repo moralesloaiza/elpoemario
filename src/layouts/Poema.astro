@@ -109,7 +109,7 @@ const siguiente = siguienteEntry
 <Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
   <JsonLd slot="head" data={jsonLd} />
 
-  <article class="poema" lang="es">
+  <article class="poema" lang="es" data-pagefind-body>
     {ilustracion && (
       <figure class="poema-ilustracion">
         <img
@@ -126,7 +126,7 @@ const siguiente = siguienteEntry
     <header class="poema-cabecera">
       <h1 class="poema-titulo">{titulo}</h1>
       <p class="poema-autor">
-        <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>
+        <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
         {anios && <span class="poema-anios"> · {anios}</span>}
       </p>
       <hr class="ornate" />

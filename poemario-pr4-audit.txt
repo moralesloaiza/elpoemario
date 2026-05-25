@@ -1,0 +1,1254 @@
+﻿===== BUNDLE: Poemario PR 4 audit =====
+Generado: 2026-05-24 22:20
+Archivos: 11
+
+===== FILE: src\content.config.ts =====
+import { defineCollection, reference, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { TIPOS, MOVIMIENTOS, TEMAS, MOTIVOS } from './utils/taxonomia';
+
+// Decap stores cleared optional fields inconsistently:
+//   - cleared text: ""
+//   - cleared multi-select (lists): null
+//   - cleared empty list: [] (rare, but observed)
+// These helpers normalize those values to `undefined` so the schema validates
+// as the user intended (field absent, not field invalid). For arrays the
+// strategy depends on the field's semantics — see each preprocess below.
+
+const optionalDate = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.coerce.date().optional(),
+  );
+
+const optionalString = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.string().optional(),
+  );
+
+const optionalUrl = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.string().url().optional(),
+  );
+
+const poemas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/poemas' }),
+  schema: z.object({
+    titulo: z.string(),
+    resumen: optionalString(),
+    fecha: z.coerce.date(),
+    fecha_actualizada: optionalDate(),
+    ilustracion: optionalString(),
+    spotify_url: optionalUrl(),
+    borrador: z.boolean().default(false),
+    tipo: z.enum(TIPOS),
+    movimiento: z.preprocess(
+      (v) => (v === '' || v === null ? undefined : v),
+      z.enum(MOVIMIENTOS).optional(),
+    ),
+    // Required, min 1. Normalize null/"" to [] so `.min(1)` emits a clean
+    // "array must contain at least 1 element" error instead of Zod's
+    // generic "expected array, got null".
+    temas: z.preprocess(
+      (v) => (v === null || v === '' ? [] : v),
+      z.array(z.enum(TEMAS)).min(1),
+    ),
+    // Optional with default []. Normalize null/"" to undefined so `.default([])`
+    // takes over. Covers Decap writing `motivos: null` after the user clears
+    // the multi-select.
+    motivos: z.preprocess(
+      (v) => (v === null || v === '' ? undefined : v),
+      z.array(z.enum(MOTIVOS)).default([]),
+    ),
+    autor: reference('autores'),
+    curador: z.string().default('Don Alejandro'),
+    es_seudonimo: z.boolean().default(true),
+    nombre_real: optionalString(),
+    nota_curador: optionalString(),
+  }),
+});
+
+const autores = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/autores' }),
+  schema: z.object({
+    nombre: z.string(),
+    tipo: z.enum(['clasico', 'colaborador']),
+    descripcion: z.string(),
+    fecha_nacimiento: optionalDate(),
+    fecha_muerte: optionalDate(),
+    lugar_nacimiento: optionalString(),
+    lugar_muerte: optionalString(),
+    imagen: optionalString(),
+    // Optional list of canonical URLs (Wikipedia, VIAF, etc.). Normalize
+    // null, "", and empty arrays to undefined so the schema treats the
+    // field as absent.
+    sameAs: z.preprocess(
+      (v) => {
+        if (v === null || v === '' || v === undefined) return undefined;
+        if (Array.isArray(v) && v.length === 0) return undefined;
+        return v;
+      },
+      z.array(z.string().url()).optional(),
+    ),
+    tambien_en: optionalString(),
+  }),
+});
+
+const entradas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/entradas' }),
+  schema: z.object({
+    titulo: z.string(),
+    resumen: optionalString(),
+    fecha: z.coerce.date(),
+    fecha_actualizada: optionalDate(),
+    ilustracion: optionalString(),
+    borrador: z.boolean().default(false),
+    tipo: z.enum(['bitacora', 'correspondencia']),
+    autor: reference('autores').optional(),
+    curador: z.string().default('Don Alejandro'),
+  }),
+});
+
+const destacado = defineCollection({
+  loader: glob({ pattern: 'actual.md', base: './src/content/destacado' }),
+  schema: z.object({
+    tipo: z.enum(['poema', 'entrada', 'autor']),
+    referencia: z.string(),
+    nota: optionalString(),
+  }),
+});
+
+export const collections = { poemas, autores, entradas, destacado };
+
+===== FILE: src\utils\jsonld.ts =====
+// JSON-LD helpers for El Poemario.
+//
+// Pure functions: they take in collection entries and return plain
+// objects ready for <JsonLd data={...} />. No Astro imports beyond
+// type imports, so they remain testable in isolation.
+//
+// Builders added incrementally per PR:
+//   - PR 2: PUBLISHER, absoluteUrl, buildWebSiteJsonLd, buildBreadcrumbJsonLd
+//   - PR 3 (this one): buildPoemaJsonLd + taxonomiaToKeywords + spotifyToCanonical
+//   - PR 4: buildAutorJsonLd
+
+import type { CollectionEntry } from 'astro:content';
+import {
+  TIPOS_DISPLAY,
+  MOVIMIENTOS_DISPLAY,
+  TEMAS_DISPLAY,
+  MOTIVOS_DISPLAY,
+} from './taxonomia';
+
+// Canonical origin. Hard-coded (not imported from consts.ts) to keep
+// these helpers free of cross-module dependencies. If the domain ever
+// changes, update here and grep for the literal in the codebase.
+const SITE_ORIGIN = 'https://elpoemario.com';
+
+// Publisher entity. Emitted inline (not by reference) on the home
+// WebSite, and on every Poem, so the JSON-LD block is self-contained.
+// Logo must live in /public/ (not /src/assets/) so the URL is stable
+// across builds — crawlers cache it.
+//
+// NOTE: /logo.svg does not exist yet. The JSON-LD is still valid
+// markup; the only consequence is a 404 if a crawler resolves the URL.
+// Will be supplied when the final Poemario logo is designed (decision
+// §13.3 of the design doc).
+export const PUBLISHER = {
+  '@type': 'Organization',
+  '@id': `${SITE_ORIGIN}/#publisher`,
+  name: 'El Poemario',
+  url: SITE_ORIGIN,
+  logo: `${SITE_ORIGIN}/logo.svg`,
+} as const;
+
+// Resolve an absolute URL from a path using the configured site URL.
+export function absoluteUrl(path: string, site: URL): string {
+  return new URL(path, site).href;
+}
+
+// Spotify embed URL → canonical resource URL.
+// open.spotify.com/embed/episode/<id> → open.spotify.com/episode/<id>.
+// Also handles /embed/track/ and regional prefixes like /embed/intl-es/.
+export function spotifyToCanonical(url: string): string {
+  return url.replace('/embed/', '/');
+}
+
+// Flatten taxonomy into a comma-separated keywords string for SEO.
+// Uses the display labels (Spanish, accented) rather than slugs, which
+// match how crawlers and LLM agents will index the corpus.
+export function taxonomiaToKeywords(
+  tipo: string,
+  movimiento: string | undefined,
+  temas: readonly string[],
+  motivos: readonly string[],
+): string | undefined {
+  const labels: string[] = [];
+
+  const tipoLabel = TIPOS_DISPLAY[tipo as keyof typeof TIPOS_DISPLAY];
+  if (tipoLabel) labels.push(tipoLabel);
+
+  if (movimiento) {
+    const movLabel = MOVIMIENTOS_DISPLAY[movimiento as keyof typeof MOVIMIENTOS_DISPLAY];
+    if (movLabel) labels.push(movLabel);
+  }
+
+  for (const t of temas) {
+    const label = TEMAS_DISPLAY[t as keyof typeof TEMAS_DISPLAY];
+    if (label) labels.push(label);
+  }
+  for (const m of motivos) {
+    const label = MOTIVOS_DISPLAY[m as keyof typeof MOTIVOS_DISPLAY];
+    if (label) labels.push(label);
+  }
+
+  return labels.length > 0 ? labels.join(', ') : undefined;
+}
+
+// Minimal Person reference for embedding as `author` of a Poem.
+// The canonical Person (with biography, dates, sameAs) lives at the
+// author's own page (built in PR 4); search engines unify entities by
+// matching @id.
+function personReference(autor: CollectionEntry<'autores'>, site: URL) {
+  const autorUrl = absoluteUrl(`/autores/${autor.id}/`, site);
+  return {
+    '@type': 'Person',
+    '@id': `${autorUrl}#person`,
+    name: autor.data.nombre,
+    url: autorUrl,
+  };
+}
+
+// Build the `editor` field from the curator metadata. When the curator
+// signs under a pseudonym and the real name is recorded, the real name
+// is exposed as `alternateName` per schema.org conventions.
+function buildEditor(
+  curador: string,
+  esSeudonimo: boolean,
+  nombreReal: string | undefined,
+) {
+  const editor: Record<string, unknown> = {
+    '@type': 'Person',
+    name: curador,
+  };
+  if (esSeudonimo && nombreReal) editor.alternateName = nombreReal;
+  return editor;
+}
+
+// Input shape matches what Poema.astro receives via Astro.props:
+// the entry's `data` flattened, plus `id` injected by the page.
+type PoemaInput = CollectionEntry<'poemas'>['data'] & { id: string };
+
+// Build a Poem JSON-LD object for a poema page.
+// schema.org/Poem is a CreativeWork subclass specifically intended for
+// poetry; prefer it over generic CreativeWork.
+export function buildPoemaJsonLd(
+  poema: PoemaInput,
+  autor: CollectionEntry<'autores'>,
+  site: URL,
+): Record<string, unknown> {
+  const canonical = absoluteUrl(`/poemas/${poema.id}/`, site);
+  const datePublished = poema.fecha.toISOString();
+  const dateModified = (poema.fecha_actualizada ?? poema.fecha).toISOString();
+
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Poem',
+    '@id': `${canonical}#poem`,
+    name: poema.titulo,
+    headline: poema.titulo,
+    inLanguage: 'es',
+    genre: 'Poesía',
+    url: canonical,
+    mainEntityOfPage: canonical,
+    datePublished,
+    dateModified,
+    author: personReference(autor, site),
+    editor: buildEditor(poema.curador, poema.es_seudonimo, poema.nombre_real),
+    publisher: PUBLISHER,
+  };
+
+  if (poema.resumen) data.description = poema.resumen;
+  if (poema.ilustracion) data.image = absoluteUrl(poema.ilustracion, site);
+
+  const keywords = taxonomiaToKeywords(
+    poema.tipo,
+    poema.movimiento,
+    poema.temas,
+    poema.motivos,
+  );
+  if (keywords) data.keywords = keywords;
+
+  if (poema.spotify_url) {
+    data.associatedMedia = {
+      '@type': 'AudioObject',
+      name: poema.titulo,
+      contentUrl: spotifyToCanonical(poema.spotify_url),
+      embedUrl: poema.spotify_url,
+    };
+  }
+
+  return data;
+}
+
+// Site-wide WebSite entity. Emitted only on the home page (canonical
+// place for the site's identity).
+//
+// The potentialAction (SearchAction) declares a search endpoint at
+// /buscar/?q=... — that page lands in PR 5. Until then the markup
+// points to a 404; valid schema.org and consumed by Bing, voice
+// assistants, and LLM agents.
+export function buildWebSiteJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_ORIGIN}/#website`,
+    name: 'El Poemario',
+    url: SITE_ORIGIN,
+    description: 'Colección de poesía en español.',
+    inLanguage: 'es',
+    publisher: PUBLISHER,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_ORIGIN}/buscar/?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+// Build a BreadcrumbList JSON-LD object from an ordered list of crumbs.
+// The last item should be the current page. URLs are emitted for every
+// item (Google accepts both omitting and including the leaf URL).
+export function buildBreadcrumbJsonLd(
+  items: Array<{ name: string; path: string }>,
+  site: URL,
+): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path, site),
+    })),
+  };
+}
+
+===== FILE: src\utils\taxonomia.ts =====
+// Single source of truth for content taxonomy.
+// Must stay in sync with public/admin/config.yml select widgets.
+//
+// To add a new slug:
+//   1. Add it to the corresponding array.
+//   2. Add its display label to the *_DISPLAY map below.
+//   3. Sync public/admin/config.yml (Decap select widget).
+
+// ── Slug arrays ─────────────────────────────────────────────────────────────
+
+export const TIPOS = [
+  'soneto', 'silva', 'romance', 'decima', 'redondilla', 'cuarteta', 'cuarteto',
+  'terceto', 'octava-real', 'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada',
+  'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
+  'verso-libre', 'prosa-poetica',
+] as const;
+
+export const MOVIMIENTOS = [
+  'medieval', 'siglo-de-oro', 'barroco', 'neoclasicismo', 'romanticismo',
+  'realismo', 'modernismo', 'generacion-98', 'vanguardia', 'generacion-27',
+  'posguerra', 'contemporaneo', 'popular-tradicional',
+] as const;
+
+export const TEMAS = [
+  'amor', 'desamor', 'muerte', 'tiempo', 'naturaleza', 'mar', 'noche', 'dios',
+  'soledad', 'memoria', 'infancia', 'patria', 'exilio', 'libertad', 'justicia',
+  'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
+  'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
+  'paz', 'arte', 'poesia-misma', 'silencio', 'identidad',
+] as const;
+
+export const MOTIVOS = [
+  'amada', 'amado', 'yo-lirico', 'dios-figura', 'la-muerte-personificada',
+  'luna', 'sol', 'mar-figura', 'rio', 'montana', 'jardin', 'rosa', 'ruisenor',
+  'reloj', 'espejo', 'ventana', 'puerta', 'camino', 'barco', 'estrella',
+  'ceniza', 'lagrima', 'sangre', 'fuego', 'sombra', 'espada', 'libro', 'lira',
+  'sepulcro', 'ruinas',
+] as const;
+
+// ── Derived types ───────────────────────────────────────────────────────────
+
+export type Tipo = typeof TIPOS[number];
+export type Movimiento = typeof MOVIMIENTOS[number];
+export type Tema = typeof TEMAS[number];
+export type Motivo = typeof MOTIVOS[number];
+
+// ── Slug → display name maps ────────────────────────────────────────────────
+
+export const TIPOS_DISPLAY: Record<Tipo, string> = {
+  'soneto': 'Soneto',
+  'silva': 'Silva',
+  'romance': 'Romance',
+  'decima': 'Décima',
+  'redondilla': 'Redondilla',
+  'cuarteta': 'Cuarteta',
+  'cuarteto': 'Cuarteto',
+  'terceto': 'Terceto',
+  'octava-real': 'Octava real',
+  'lira': 'Lira',
+  'oda': 'Oda',
+  'elegia': 'Elegía',
+  'egloga': 'Égloga',
+  'himno': 'Himno',
+  'balada': 'Balada',
+  'copla': 'Copla',
+  'seguidilla': 'Seguidilla',
+  'letrilla': 'Letrilla',
+  'villancico': 'Villancico',
+  'haiku': 'Haiku',
+  'tanka': 'Tanka',
+  'verso-libre': 'Verso libre',
+  'prosa-poetica': 'Prosa poética',
+};
+
+export const MOVIMIENTOS_DISPLAY: Record<Movimiento, string> = {
+  'medieval': 'Medieval',
+  'siglo-de-oro': 'Siglo de Oro',
+  'barroco': 'Barroco',
+  'neoclasicismo': 'Neoclasicismo',
+  'romanticismo': 'Romanticismo',
+  'realismo': 'Realismo',
+  'modernismo': 'Modernismo',
+  'generacion-98': 'Generación del 98',
+  'vanguardia': 'Vanguardia',
+  'generacion-27': 'Generación del 27',
+  'posguerra': 'Posguerra',
+  'contemporaneo': 'Contemporáneo',
+  'popular-tradicional': 'Popular y tradicional',
+};
+
+export const TEMAS_DISPLAY: Record<Tema, string> = {
+  'amor': 'Amor',
+  'desamor': 'Desamor',
+  'muerte': 'Muerte',
+  'tiempo': 'Tiempo',
+  'naturaleza': 'Naturaleza',
+  'mar': 'Mar',
+  'noche': 'Noche',
+  'dios': 'Dios',
+  'soledad': 'Soledad',
+  'memoria': 'Memoria',
+  'infancia': 'Infancia',
+  'patria': 'Patria',
+  'exilio': 'Exilio',
+  'libertad': 'Libertad',
+  'justicia': 'Justicia',
+  'belleza': 'Belleza',
+  'fe': 'Fe',
+  'duda': 'Duda',
+  'melancolia': 'Melancolía',
+  'alegria': 'Alegría',
+  'esperanza': 'Esperanza',
+  'dolor': 'Dolor',
+  'trabajo': 'Trabajo',
+  'amistad': 'Amistad',
+  'sueno': 'Sueño',
+  'vejez': 'Vejez',
+  'juventud': 'Juventud',
+  'ciudad': 'Ciudad',
+  'viaje': 'Viaje',
+  'guerra': 'Guerra',
+  'paz': 'Paz',
+  'arte': 'Arte',
+  'poesia-misma': 'Poesía misma',
+  'silencio': 'Silencio',
+  'identidad': 'Identidad',
+};
+
+export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
+  'amada': 'La amada',
+  'amado': 'El amado',
+  'yo-lirico': 'Yo lírico',
+  'dios-figura': 'Dios',
+  'la-muerte-personificada': 'La muerte personificada',
+  'luna': 'Luna',
+  'sol': 'Sol',
+  'mar-figura': 'Mar',
+  'rio': 'Río',
+  'montana': 'Montaña',
+  'jardin': 'Jardín',
+  'rosa': 'Rosa',
+  'ruisenor': 'Ruiseñor',
+  'reloj': 'Reloj',
+  'espejo': 'Espejo',
+  'ventana': 'Ventana',
+  'puerta': 'Puerta',
+  'camino': 'Camino',
+  'barco': 'Barco',
+  'estrella': 'Estrella',
+  'ceniza': 'Ceniza',
+  'lagrima': 'Lágrima',
+  'sangre': 'Sangre',
+  'fuego': 'Fuego',
+  'sombra': 'Sombra',
+  'espada': 'Espada',
+  'libro': 'Libro',
+  'lira': 'Lira',
+  'sepulcro': 'Sepulcro',
+  'ruinas': 'Ruinas',
+};
+
+// ── URL bases for taxonomy index pages ──────────────────────────────────────
+
+export const URL_TIPOS = '/tipos';
+export const URL_MOVIMIENTOS = '/movimientos';
+export const URL_TEMAS = '/temas';
+export const URL_MOTIVOS = '/motivos';
+
+===== FILE: src\layouts\Base.astro =====
+---
+import '../styles/tokens.css';
+import Logo from '../components/Logo.astro';
+import BotonCrear from '../components/BotonCrear.astro';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+}
+
+const { titulo, descripcion = 'Antología viva de poesía en español.' } = Astro.props;
+const anio = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={descripcion} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    />
+    <title>{titulo}</title>
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo-link" href="/" aria-label="El Poemario · inicio">
+        <Logo />
+      </a>
+      <nav class="site-nav">
+        <a href="/poemas/">Poemas</a>
+        <a href="/autores/">Autores</a>
+        <a href="/tipos/">Formas</a>
+        <a href="/temas/">Temas</a>
+        <a href="/sobre/">Sobre</a>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <hr class="ornate" />
+      <p>
+        © {anio} El Poemario · Una colección dirigida por
+        don Alejandro de Morales y Loaiza
+      </p>
+    </footer>
+    <BotonCrear />
+    <style>
+      .site-header {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem var(--space-container) 1rem;
+        text-align: center;
+      }
+      .logo-link {
+        display: inline-block;
+        border: none;
+        margin-bottom: 1.25rem;
+      }
+      .logo-link:hover,
+      .logo-link:focus-visible {
+        border: none;
+      }
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .site-main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem var(--space-container);
+      }
+      .site-footer {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1rem var(--space-container) 3rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>
+
+===== FILE: src\layouts\Poema.astro =====
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
+import { marked } from 'marked';
+
+import Base from './Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import SpotifyEmbed from '../components/SpotifyEmbed.astro';
+import NavegacionPoemas from '../components/NavegacionPoemas.astro';
+import IconoEditar from '../components/IconoEditar.astro';
+import Luna from '../components/ornaments/Luna.astro';
+
+import { buildPoemaJsonLd } from '../utils/jsonld';
+import {
+  TIPOS_DISPLAY,
+  MOVIMIENTOS_DISPLAY,
+  TEMAS_DISPLAY,
+  MOTIVOS_DISPLAY,
+  URL_TIPOS,
+  URL_MOVIMIENTOS,
+  URL_TEMAS,
+  URL_MOTIVOS,
+} from '../utils/taxonomia';
+
+// Receives the poema's frontmatter spread plus its id (slug). Same
+// pattern as Fabula.astro in El Fabulario.
+type Props = CollectionEntry<'poemas'>['data'] & { id: string };
+
+const props = Astro.props;
+const {
+  id,
+  titulo,
+  resumen,
+  fecha,
+  fecha_actualizada,
+  ilustracion,
+  spotify_url,
+  tipo,
+  movimiento,
+  temas,
+  motivos,
+  autor: autorRef,
+  curador,
+  nota_curador,
+} = props;
+
+// Resolve referenced author entry.
+const autor = await getEntry(autorRef);
+if (!autor) {
+  throw new Error(`Poema "${id}" referencia autor inexistente: ${autorRef.id}`);
+}
+
+// JSON-LD for the Poem entity.
+const site = Astro.site!;
+const jsonLd = buildPoemaJsonLd(props as Props, autor, site);
+
+// Author dates: "1836–1870" only if both years are known.
+const fnac = autor.data.fecha_nacimiento;
+const fmue = autor.data.fecha_muerte;
+const anios = fnac && fmue
+  ? `${fnac.getUTCFullYear()}–${fmue.getUTCFullYear()}`
+  : null;
+
+// Curator note: inline Markdown (no <p> wrapper, sits inside a <p>).
+const notaCuradorHtml = nota_curador
+  ? (marked.parseInline(nota_curador, { async: false }) as string)
+  : null;
+
+// Curator credit (decision 11).
+const creditoCurador = notaCuradorHtml
+  ? `Selección y nota de ${curador}.`
+  : `Selección de ${curador}.`;
+
+// Body class: verse vs prose-poetry.
+const bodyClass = tipo === 'prosa-poetica' ? 'prose' : 'prose prose--verso';
+
+// Description for <Base>.
+const descripcion = resumen ?? `Poema de ${autor.data.nombre}, en El Poemario.`;
+
+// ── Previous / next navigation ────────────────────────────────────────────
+// Build a chronological-desc list of all non-draft poemas. The current
+// entry is found by id and the neighbors are selected with circular
+// wrapping at both ends. Replicates NavegacionFabulas behaviour.
+const todos = await getCollection('poemas', ({ data }) => !data.borrador);
+todos.sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime());
+
+const idx = todos.findIndex((p) => p.id === id);
+
+// idx can legitimately be -1 when this layout renders a draft (drafts
+// are excluded from `todos`). In that case neighbours collapse to the
+// current entry, which makes the navigation harmless but visible.
+const safeIdx = idx === -1 ? 0 : idx;
+const total = todos.length;
+const anteriorEntry = total > 0
+  ? todos[(safeIdx - 1 + total) % total]
+  : null;
+const siguienteEntry = total > 0
+  ? todos[(safeIdx + 1) % total]
+  : null;
+
+const anterior = anteriorEntry
+  ? { slug: anteriorEntry.id, titulo: anteriorEntry.data.titulo }
+  : null;
+const siguiente = siguienteEntry
+  ? { slug: siguienteEntry.id, titulo: siguienteEntry.data.titulo }
+  : null;
+---
+
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <article class="poema" lang="es">
+    {ilustracion && (
+      <figure class="poema-ilustracion">
+        <img
+          src={ilustracion}
+          alt=""
+          loading="eager"
+          decoding="async"
+          width="1200"
+          height="800"
+        />
+      </figure>
+    )}
+
+    <header class="poema-cabecera">
+      <Luna width="72px" />
+      <h1 class="poema-titulo">{titulo}</h1>
+      <p class="poema-autor">
+        <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>
+        {anios && <span class="poema-anios"> · {anios}</span>}
+      </p>
+      <hr class="ornate" />
+    </header>
+
+    {spotify_url && <SpotifyEmbed url={spotify_url} />}
+
+    <div class={bodyClass}>
+      <slot />
+    </div>
+
+    {notaCuradorHtml && (
+      <aside class="nota-curador" aria-label={`Nota de ${curador}`}>
+        <p class="nota-curador-rotulo">Nota de {curador}</p>
+        <p class="nota-curador-texto" set:html={notaCuradorHtml}></p>
+      </aside>
+    )}
+
+    <footer class="poema-cierre">
+      <p class="poema-credito">{creditoCurador}</p>
+      <p class="poema-fecha">
+        Publicado el <FormattedDate date={fecha} />
+        {fecha_actualizada && (
+          <span>
+            {' · Actualizado el '}<FormattedDate date={fecha_actualizada} />
+          </span>
+        )}
+      </p>
+    </footer>
+
+    <section class="poema-taxonomia" aria-label="Categorías de este poema">
+      <dl>
+        <div class="taxo-grupo">
+          <dt>Tipo</dt>
+          <dd>
+            <a href={`${URL_TIPOS}/${tipo}/`} class="chip">{TIPOS_DISPLAY[tipo]}</a>
+          </dd>
+        </div>
+
+        {movimiento && (
+          <div class="taxo-grupo">
+            <dt>Movimiento</dt>
+            <dd>
+              <a href={`${URL_MOVIMIENTOS}/${movimiento}/`} class="chip">
+                {MOVIMIENTOS_DISPLAY[movimiento]}
+              </a>
+            </dd>
+          </div>
+        )}
+
+        {temas.length > 0 && (
+          <div class="taxo-grupo">
+            <dt>Temas</dt>
+            <dd>
+              <ul class="chips">
+                {temas.map((t) => (
+                  <li>
+                    <a href={`${URL_TEMAS}/${t}/`} class="chip">{TEMAS_DISPLAY[t]}</a>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        )}
+
+        {motivos.length > 0 && (
+          <div class="taxo-grupo">
+            <dt>Motivos</dt>
+            <dd>
+              <ul class="chips">
+                {motivos.map((m) => (
+                  <li>
+                    <a href={`${URL_MOTIVOS}/${m}/`} class="chip">{MOTIVOS_DISPLAY[m]}</a>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        )}
+
+        <div class="taxo-grupo">
+          <dt>Autor</dt>
+          <dd>
+            <a href={`/autores/${autor.id}/`} class="chip">{autor.data.nombre}</a>
+          </dd>
+        </div>
+
+        <div class="taxo-grupo">
+          <dt>Ayuda</dt>
+          <dd>
+            <a href="/colaborar/" class="chip">¿Cómo colaborar?</a>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    {anterior && siguiente && (
+      <NavegacionPoemas anterior={anterior} siguiente={siguiente} />
+    )}
+  </article>
+
+  <IconoEditar slug={id} coleccion="poemas" />
+</Base>
+
+<style>
+  /* ── Article wrapper ─────────────────────────────────────────────── */
+  .poema {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding-inline: var(--space-md);
+    padding-block: var(--space-2xl);
+  }
+
+  /* ── Illustration ────────────────────────────────────────────────── */
+  .poema-ilustracion {
+    margin: 0 0 var(--space-2xl);
+    padding: 0;
+  }
+  .poema-ilustracion img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border: var(--rule-hairline) solid var(--oro);
+  }
+
+  /* ── Header ──────────────────────────────────────────────────────── */
+  .poema-cabecera {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  .poema-titulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-md);
+    color: var(--text);
+    letter-spacing: 0.04em;
+    text-wrap: balance;
+  }
+  .poema-autor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    color: var(--text-soft);
+    margin: 0;
+  }
+  .poema-autor a {
+    color: inherit;
+    border-bottom-color: transparent;
+  }
+  .poema-autor a:hover,
+  .poema-autor a:focus-visible {
+    color: var(--link-hover);
+    border-bottom-color: currentColor;
+  }
+  .poema-anios {
+    font-style: normal;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+  }
+
+  /* ── Body (verse and prose-poetry) ───────────────────────────────── */
+  .prose {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    line-height: var(--line-height-body);
+    color: var(--text);
+    max-width: var(--measure-narrow);
+    margin-inline: auto;
+  }
+  .prose :global(p) {
+    margin: 0 0 var(--space-lg);
+  }
+  .prose :global(em) {
+    font-style: italic;
+  }
+  .prose :global(strong) {
+    font-weight: var(--fw-bold);
+  }
+  .prose :global(a) {
+    color: var(--link);
+  }
+  .prose :global(blockquote) {
+    margin: var(--space-lg) 0;
+    padding-inline: var(--space-md);
+    border-left: 2px solid var(--coral);
+    font-style: italic;
+    color: var(--text-soft);
+  }
+
+  /* Verse-specific: hanging indent for wrapped long lines. */
+  .prose--verso :global(p) {
+    margin: 0 0 1.5em;
+    padding-inline-start: 2ch;
+    text-indent: -2ch;
+  }
+
+  /* Prose-poetry: first-letter drop cap on the first paragraph. */
+  .prose:not(.prose--verso) :global(p:first-of-type::first-letter) {
+    font-family: var(--font-display);
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.85;
+    padding-right: 0.08em;
+    padding-top: 0.05em;
+    color: var(--oro-texto);
+  }
+
+  /* ── Curator note ────────────────────────────────────────────────── */
+  .nota-curador {
+    margin: var(--space-2xl) auto 0;
+    max-width: var(--measure-narrow);
+    padding: var(--space-lg);
+    border: var(--rule-hairline) solid var(--oro);
+    background: var(--bg-elevated);
+  }
+  .nota-curador-rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-xs);
+    font-weight: var(--fw-bold);
+  }
+  .nota-curador-texto {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-base);
+    line-height: var(--line-height-body);
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  /* ── Cierre ──────────────────────────────────────────────────────── */
+  .poema-cierre {
+    margin-top: var(--space-2xl);
+    text-align: center;
+    color: var(--text-soft);
+    font-size: var(--fs-sm);
+  }
+  .poema-credito {
+    margin: 0 0 var(--space-2xs);
+    font-style: italic;
+  }
+  .poema-fecha {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ── Taxonomy footer ─────────────────────────────────────────────── */
+  .poema-taxonomia {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: var(--rule-hairline) solid var(--oro);
+  }
+  .poema-taxonomia dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: var(--space-xs) var(--space-lg);
+  }
+  .taxo-grupo {
+    display: contents;
+  }
+  .poema-taxonomia dt {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    font-weight: var(--fw-bold);
+    padding-top: var(--space-2xs);
+  }
+  .poema-taxonomia dd {
+    margin: 0;
+  }
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+  }
+  .chip {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    padding: var(--space-3xs) var(--space-xs);
+    border: var(--rule-hairline) solid var(--oro-suave);
+    color: var(--text);
+    text-decoration: none;
+    transition:
+      border-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .chip:hover,
+  .chip:focus-visible {
+    border-color: var(--oro);
+    color: var(--oro-texto);
+  }
+
+  @media (max-width: 640px) {
+    .poema-taxonomia dl {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xs);
+    }
+    .taxo-grupo {
+      display: block;
+      margin-bottom: var(--space-sm);
+    }
+    .poema-taxonomia dt {
+      margin-bottom: var(--space-2xs);
+    }
+  }
+</style>
+
+===== FILE: src\content\autores\alejandro-de-morales-y-loaiza.md =====
+---
+nombre: Alejandro de Morales y Loaiza
+tipo: colaborador
+descripcion: Director y curador de El Poemario. Esta ficha sirve también como
+  fixture de desarrollo para las plantillas de autor.
+fecha_nacimiento: 1985-01-02
+fecha_muerte: ""
+lugar_nacimiento: Maracaibo
+imagen: /img/autores/chatgpt-image-16-may-2026-10_12_48.png
+tambien_en: ""
+---
+Editor y antólogo. Dirige El Poemario y su gemelo El Fabulario, ambos publicados bajo el seudónimo Don Alejandro.
+
+
+===== FILE: astro.config.mjs =====
+// @ts-check
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import remarkBreaks from 'remark-breaks';
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://elpoemario.com',
+  integrations: [sitemap()],
+  markdown: {
+    remarkPlugins: [remarkBreaks],
+  },
+});
+
+===== FILE: package.json =====
+{
+  "name": "elpoemario",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7",
+    "marked": "^18.0.4",
+    "remark-breaks": "^4.0.0"
+  }
+}
+
+
+===== FILE: src\pages\poemas\[...slug].astro =====
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Poema from '../../layouts/Poema.astro';
+
+export async function getStaticPaths() {
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+  return poemas.map((poema) => ({
+    params: { slug: poema.id },
+    props: poema,
+  }));
+}
+
+type Props = CollectionEntry<'poemas'>;
+
+const poema = Astro.props;
+const { Content } = await render(poema);
+---
+
+<Poema {...poema.data} id={poema.id}>
+  <Content />
+</Poema>
+
+===== FILE: src\components\IconoEditar.astro =====
+---
+// "Edit in Decap" floating icon — visible only when there's an active
+// Decap session. Checks the `decap-cms-user` key in localStorage. If
+// present, the icon shows. Does not validate the token against the API:
+// if it's expired, Decap will reauth on click. The /admin/ URL is
+// OAuth-protected, so having the link in public HTML is not a risk.
+
+interface Props {
+  /** Slug of the .md file (without extension). */
+  slug: string;
+  /** Decap collection name. */
+  coleccion?: string;
+}
+
+const { slug, coleccion = 'poemas' } = Astro.props;
+const href = `/admin/#/collections/${coleccion}/entries/${slug}`;
+---
+
+<a
+  class="icono-editar oculto"
+  href={href}
+  aria-label="Editar esta entrada en el panel editorial"
+  data-icono-editar="true"
+>
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+    <path
+      fill="currentColor"
+      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm17.71-10.04a1 1 0 0 0 0-1.41l-2.51-2.51a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 2-2z"
+    />
+  </svg>
+</a>
+
+<script>
+  const icono = document.querySelector('[data-icono-editar]');
+  if (icono && localStorage.getItem('decap-cms-user')) {
+    icono.classList.remove('oculto');
+  }
+</script>
+
+<style>
+  .icono-editar {
+    position: fixed;
+    right: calc(var(--space-md) + 2.75rem + var(--space-sm));
+    bottom: var(--space-md);
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--oro-texto);
+    border: var(--rule-hairline) solid var(--oro);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    transition:
+      transform var(--dur-fast) var(--ease-standard),
+      background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .icono-editar:hover,
+  .icono-editar:focus-visible {
+    background: var(--oro);
+    color: var(--bg);
+    transform: translateY(-1px);
+    border-bottom-color: var(--oro);
+  }
+  .icono-editar:focus-visible {
+    outline: 2px solid var(--esmeralda);
+    outline-offset: 2px;
+  }
+  .icono-editar.oculto {
+    display: none;
+  }
+  @media (max-width: 480px) {
+    .icono-editar {
+      right: calc(var(--space-sm) + 2.5rem + var(--space-2xs));
+      bottom: var(--space-sm);
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+</style>
+
+
+===== FILE: src\components\FormattedDate.astro =====
+---
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+  {
+    date.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    })
+  }
+</time>
+
+===== FILE: LISTADO src/content/poemas =====
+.gitkeep
+poema-del-amor-sabroso.md

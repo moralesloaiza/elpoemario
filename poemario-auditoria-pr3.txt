@@ -1,0 +1,551 @@
+﻿===== FILE: src\content.config.ts =====
+import { defineCollection, reference, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { TIPOS, MOVIMIENTOS, TEMAS, MOTIVOS } from './utils/taxonomia';
+
+// Decap stores cleared optional fields inconsistently:
+//   - cleared text: ""
+//   - cleared multi-select (lists): null
+//   - cleared empty list: [] (rare, but observed)
+// These helpers normalize those values to `undefined` so the schema validates
+// as the user intended (field absent, not field invalid). For arrays the
+// strategy depends on the field's semantics — see each preprocess below.
+
+const optionalDate = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.coerce.date().optional(),
+  );
+
+const optionalString = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.string().optional(),
+  );
+
+const optionalUrl = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.string().url().optional(),
+  );
+
+const poemas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/poemas' }),
+  schema: z.object({
+    titulo: z.string(),
+    resumen: optionalString(),
+    fecha: z.coerce.date(),
+    fecha_actualizada: optionalDate(),
+    ilustracion: optionalString(),
+    spotify_url: optionalUrl(),
+    borrador: z.boolean().default(false),
+    tipo: z.enum(TIPOS),
+    movimiento: z.preprocess(
+      (v) => (v === '' || v === null ? undefined : v),
+      z.enum(MOVIMIENTOS).optional(),
+    ),
+    // Required, min 1. Normalize null/"" to [] so `.min(1)` emits a clean
+    // "array must contain at least 1 element" error instead of Zod's
+    // generic "expected array, got null".
+    temas: z.preprocess(
+      (v) => (v === null || v === '' ? [] : v),
+      z.array(z.enum(TEMAS)).min(1),
+    ),
+    // Optional with default []. Normalize null/"" to undefined so `.default([])`
+    // takes over. Covers Decap writing `motivos: null` after the user clears
+    // the multi-select.
+    motivos: z.preprocess(
+      (v) => (v === null || v === '' ? undefined : v),
+      z.array(z.enum(MOTIVOS)).default([]),
+    ),
+    autor: reference('autores'),
+    curador: z.string().default('Don Alejandro'),
+    es_seudonimo: z.boolean().default(true),
+    nombre_real: optionalString(),
+    nota_curador: optionalString(),
+  }),
+});
+
+const autores = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/autores' }),
+  schema: z.object({
+    nombre: z.string(),
+    tipo: z.enum(['clasico', 'colaborador']),
+    descripcion: z.string(),
+    fecha_nacimiento: optionalDate(),
+    fecha_muerte: optionalDate(),
+    lugar_nacimiento: optionalString(),
+    lugar_muerte: optionalString(),
+    imagen: optionalString(),
+    // Optional list of canonical URLs (Wikipedia, VIAF, etc.). Normalize
+    // null, "", and empty arrays to undefined so the schema treats the
+    // field as absent.
+    sameAs: z.preprocess(
+      (v) => {
+        if (v === null || v === '' || v === undefined) return undefined;
+        if (Array.isArray(v) && v.length === 0) return undefined;
+        return v;
+      },
+      z.array(z.string().url()).optional(),
+    ),
+    tambien_en: optionalString(),
+  }),
+});
+
+const entradas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/entradas' }),
+  schema: z.object({
+    titulo: z.string(),
+    resumen: optionalString(),
+    fecha: z.coerce.date(),
+    fecha_actualizada: optionalDate(),
+    ilustracion: optionalString(),
+    borrador: z.boolean().default(false),
+    tipo: z.enum(['bitacora', 'correspondencia']),
+    autor: reference('autores').optional(),
+    curador: z.string().default('Don Alejandro'),
+  }),
+});
+
+const destacado = defineCollection({
+  loader: glob({ pattern: 'actual.md', base: './src/content/destacado' }),
+  schema: z.object({
+    tipo: z.enum(['poema', 'entrada', 'autor']),
+    referencia: z.string(),
+    nota: optionalString(),
+  }),
+});
+
+export const collections = { poemas, autores, entradas, destacado };
+
+===== FILE: src\utils\taxonomia.ts =====
+// Single source of truth for content taxonomy.
+// Must stay in sync with public/admin/config.yml select widgets.
+
+export const TIPOS = [
+  'soneto', 'silva', 'romance', 'decima', 'redondilla', 'cuarteta', 'cuarteto',
+  'terceto', 'octava-real', 'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada',
+  'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
+  'verso-libre', 'prosa-poetica',
+] as const;
+
+export const MOVIMIENTOS = [
+  'medieval', 'siglo-de-oro', 'barroco', 'neoclasicismo', 'romanticismo',
+  'realismo', 'modernismo', 'generacion-98', 'vanguardia', 'generacion-27',
+  'posguerra', 'contemporaneo', 'popular-tradicional',
+] as const;
+
+export const TEMAS = [
+  'amor', 'desamor', 'muerte', 'tiempo', 'naturaleza', 'mar', 'noche', 'dios',
+  'soledad', 'memoria', 'infancia', 'patria', 'exilio', 'libertad', 'justicia',
+  'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
+  'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
+  'paz', 'arte', 'poesia-misma', 'silencio', 'identidad',
+] as const;
+
+export const MOTIVOS = [
+  'amada', 'amado', 'yo-lirico', 'dios-figura', 'la-muerte-personificada',
+  'luna', 'sol', 'mar-figura', 'rio', 'montana', 'jardin', 'rosa', 'ruisenor',
+  'reloj', 'espejo', 'ventana', 'puerta', 'camino', 'barco', 'estrella',
+  'ceniza', 'lagrima', 'sangre', 'fuego', 'sombra', 'espada', 'libro', 'lira',
+  'sepulcro', 'ruinas',
+] as const;
+
+export type Tipo = typeof TIPOS[number];
+export type Movimiento = typeof MOVIMIENTOS[number];
+export type Tema = typeof TEMAS[number];
+export type Motivo = typeof MOTIVOS[number];
+
+===== FILE: src\utils\jsonld.ts =====
+// JSON-LD helpers for El Poemario.
+//
+// Pure functions: they take in collection entries and return plain
+// objects ready for <JsonLd data={...} />. No Astro imports beyond
+// type imports, so they remain testable in isolation.
+//
+// Builders are added incrementally as their consumer pages land:
+//   - PR 2 (this one): PUBLISHER, buildWebSiteJsonLd, buildBreadcrumbJsonLd
+//   - PR 3: buildPoemaJsonLd  + taxonomiaToKeywords + spotifyToCanonical
+//   - PR 4: buildAutorJsonLd
+
+// Canonical origin. Hard-coded (not imported from consts.ts) to keep
+// these helpers free of cross-module dependencies. If the domain ever
+// changes, update here and grep for the literal in the codebase.
+const SITE_ORIGIN = 'https://elpoemario.com';
+
+// Publisher entity. Emitted inline (not by reference) on the home
+// WebSite, and later on every Poem, so the JSON-LD block is
+// self-contained. Logo must live in /public/ (not /src/assets/) so the
+// URL is stable across builds — crawlers cache it.
+//
+// NOTE: /logo.svg does not exist yet. The JSON-LD is still valid
+// markup; the only consequence is a 404 if a crawler resolves the URL.
+// Will be supplied when the final Poemario logo is designed (decision
+// §13.3 of the design doc).
+export const PUBLISHER = {
+  '@type': 'Organization',
+  '@id': `${SITE_ORIGIN}/#publisher`,
+  name: 'El Poemario',
+  url: SITE_ORIGIN,
+  logo: `${SITE_ORIGIN}/logo.svg`,
+} as const;
+
+// Resolve an absolute URL from a path using the configured site URL.
+// Kept exported for use by builders in later PRs.
+export function absoluteUrl(path: string, site: URL): string {
+  return new URL(path, site).href;
+}
+
+// Site-wide WebSite entity. Emitted only on the home page (canonical
+// place for the site's identity).
+//
+// The potentialAction (SearchAction) declares a search endpoint at
+// /buscar/?q=... — that page will land in PR 5 (Pagefind-backed
+// search). Until then the markup points to a 404; this is acceptable
+// SEO practice (declarative metadata, not a crawled link).
+//
+// Google retired the Sitelinks Search Box feature in late 2024, but
+// the markup remains valid schema.org and is consumed by Bing, voice
+// assistants, and LLM agents.
+export function buildWebSiteJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_ORIGIN}/#website`,
+    name: 'El Poemario',
+    url: SITE_ORIGIN,
+    description: 'Colección de poesía en español.',
+    inLanguage: 'es',
+    publisher: PUBLISHER,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_ORIGIN}/buscar/?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+}
+
+// Build a BreadcrumbList JSON-LD object from an ordered list of crumbs.
+// The last item should be the current page. URLs are emitted for every
+// item (Google accepts both omitting and including the leaf URL).
+//
+// Used by inner pages in later PRs. Kept here in PR 2 because it has
+// no dependencies and belongs to the same architectural slot.
+export function buildBreadcrumbJsonLd(
+  items: Array<{ name: string; path: string }>,
+  site: URL,
+): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path, site),
+    })),
+  };
+}
+
+===== FILE: src\layouts\Base.astro =====
+---
+import '../styles/tokens.css';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+}
+
+const { titulo, descripcion = 'Antología viva de poesía en español.' } = Astro.props;
+const anio = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={descripcion} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    />
+    <title>{titulo} · El Poemario</title>
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo-link" href="/" aria-label="El Poemario · inicio">
+        <Logo />
+      </a>
+      <nav class="site-nav">
+        <a href="/poemas/">Poemas</a>
+        <a href="/autores/">Autores</a>
+        <a href="/tipos/">Formas</a>
+        <a href="/temas/">Temas</a>
+        <a href="/sobre/">Sobre</a>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <hr class="ornate" />
+      <p>
+        © {anio} El Poemario · Una colección dirigida por
+        don Alejandro de Morales y Loaiza
+      </p>
+    </footer>
+
+    <style>
+      .site-header {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem var(--space-container) 1rem;
+        text-align: center;
+      }
+      .logo-link {
+        display: inline-block;
+        border: none;
+        margin-bottom: 1.25rem;
+      }
+      .logo-link:hover,
+      .logo-link:focus-visible {
+        border: none;
+      }
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .site-main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem var(--space-container);
+      }
+      .site-footer {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1rem var(--space-container) 3rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>
+
+===== FILE: src\styles\tokens.css =====
+:root {
+  /* === Backgrounds === */
+  --bg:              #161320;
+  --bg-elevated:     #1F1A2E;
+  --bg-soft:         #0F0C18;
+
+  /* === Text === */
+  --text:            #EDE4D3;
+  --text-soft:       #B8AE9C;
+  --text-muted:      #9A9283;  /* terciario, leyendas */
+
+  /* === Structural gold (bridge with El Fabulario) === */
+  --oro:             #D4B05A;
+  --oro-texto:       #E0C46F;
+  --oro-suave:       #A8884A;
+
+  /* === Accents rebalanced for dark background === */
+  --esmeralda:       #3FAE7E;
+  --coral:           #E07A5F;
+  --lavanda:         #B5A3E3;  /* link primario, saturada para vibrar sobre oscuro */
+  --granate:         #A14D6B;
+
+  /* === Semantic aliases === */
+  --link:            var(--lavanda);
+  --link-hover:      var(--esmeralda);
+  --rule:            var(--oro);
+  --accent:          var(--coral);
+
+  /* === Typography === */
+  --font-display:    'Cinzel', serif;
+  --font-body:       'Cormorant Garamond', serif;
+  --font-body-weight: 500;
+  --line-height-body: 1.7;
+
+  /* === Spacing === */
+  --space-container: 32px;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+  line-height: var(--line-height-body);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+  border-bottom-color: currentColor;
+}
+
+hr.ornate {
+  border: 0;
+  height: 6px;
+  border-top: 1px solid var(--oro);
+  border-bottom: 1px solid var(--oro);
+  background: transparent;
+  margin: 2rem auto;
+  max-width: 80%;
+}
+
+.frame {
+  position: relative;
+  border: 1.5px solid var(--oro);
+  padding: var(--space-container);
+}
+
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--oro-suave);
+  pointer-events: none;
+}
+
+.invert {
+  background: #EDE4D3;
+  color: #161320;
+  padding: var(--space-container);
+}
+
+.invert a { color: var(--granate); }
+
+===== FILE: src\components\JsonLd.astro =====
+---
+interface Props {
+  data: Record<string, unknown>;
+}
+const { data } = Astro.props;
+const json = JSON.stringify(data).replace(/</g, '\u003c');
+---
+<script type="application/ld+json" set:html={json} is:inline />
+
+
+===== FILE: src\pages\index.astro =====
+---
+import Base from '../layouts/Base.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { buildWebSiteJsonLd } from '../utils/jsonld';
+---
+
+<Base titulo="Inicio">
+  <JsonLd slot="head" data={buildWebSiteJsonLd()} />
+
+  <section class="hero">
+    <h1>EL POEMARIO</h1>
+    <p class="lema">
+      Antología viva de poesía en español
+    </p>
+    <hr class="ornate" />
+    <p class="intro">
+      Un breviario de versos y voces, en construcción.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  .hero h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0;
+  }
+  .lema {
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+  }
+  .intro {
+    color: var(--text);
+  }
+</style>
+
+===== FILE: astro.config.mjs =====
+// @ts-check
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import remarkBreaks from 'remark-breaks';
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://elpoemario.com',
+  integrations: [sitemap()],
+  markdown: {
+    remarkPlugins: [remarkBreaks],
+  },
+});
+
+===== FILE: package.json =====
+{
+  "name": "elpoemario",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7",
+    "remark-breaks": "^4.0.0"
+  }
+}
+
+
