@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import AutorCard from '../../components/AutorCard.astro';
+
+const autores = await getCollection('autores');
+const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+
+// Count published poems per author. `p.data.autor` is a reference()
+// ({ collection, id }) in El Poemario — NOT a string like in El Fabulario.
+// Index by `.id` (the file slug) to get a stable string key.
+const conteoPorId = new Map<string, number>();
+for (const p of poemas) {
+  const k = p.data.autor.id;
+  conteoPorId.set(k, (conteoPorId.get(k) ?? 0) + 1);
+}
+
+// Enrich + sort: poem count desc, alphabetical by name as tiebreak (es locale).
+// Mirrors El Fabulario's /autores/ ordering. Classics and collaborators are
+// not separated visually; the rubric in each AutorCard surfaces tipo inline.
+const autoresConConteo = autores
+  .map((a) => ({
+    ...a,
+    conteo: conteoPorId.get(a.id) ?? 0,
+  }))
+  .sort((a, b) => {
+    if (b.conteo !== a.conteo) return b.conteo - a.conteo;
+    return a.data.nombre.localeCompare(b.data.nombre, 'es');
+  });
+---
+
+<Base
+  titulo="Autores · El Poemario"
+  descripcion="Los autores de El Poemario: clásicos en dominio público y colaboradores contemporáneos."
+>
+  <article class="page indice" lang="es">
+    <header class="title">
+      <h1>Autores</h1>
+      <p class="subtitulo">Las voces que sostienen El Poemario.</p>
+    </header>
+
+    <hr class="ornate" />
+
+    {autoresConConteo.length === 0 ? (
+      <p class="vacio">Aún no hay autores en El Poemario.</p>
+    ) : (
+      <ul class="lista">
+        {autoresConConteo.map((a) => (
+          <li class="item">
+            <AutorCard autor={a} conteo={a.conteo} />
+          </li>
+        ))}
+      </ul>
+    )}
+  </article>
+</Base>
+
+<style>
+  .indice {
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--fs-3xl);
+  }
+  .subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+
+  .vacio {
+    text-align: center;
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--text-soft);
+    margin: var(--space-2xl) auto;
+  }
+
+  /* Responsive grid: 1 col móvil → 2 cols tablet (≥480px) → 3 cols desktop
+     (≥720px). Same breakpoint convention as El Fabulario. gap --space-xl
+     (32px) is denser than /poemas/ (--space-2xl): author cards are more
+     compact than poem cards. */
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2xl) 0 0;
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  @media (min-width: 480px) {
+    .lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 720px) {
+    .lista {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .item {
+    margin: 0;
+  }
+</style>
