@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
+import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
+import { TIPOS_DISPLAY } from '../utils/taxonomia';
 
 interface Props {
   poema: CollectionEntry<'poemas'>;
@@ -9,12 +11,17 @@ interface Props {
 }
 
 const { poema, autorNombre, mostrarAutor = true } = Astro.props;
-const { titulo, ilustracion, fecha } = poema.data;
+const { titulo, ilustracion, fecha, tipo } = poema.data;
+
+// Display label for the metric/strophic form. Used as a small uppercase
+// rubric above the title — primary literary disambiguator in an anthology
+// of mixed forms (soneto vs verso libre vs romance, etc.).
+const tipoLabel = TIPOS_DISPLAY[tipo];
 ---
 
 <article class="card">
   <figure class:list={['card-img', { 'con-ornamento': !ilustracion }]}>
-    {ilustracion && (
+    {ilustracion ? (
       <img
         src={ilustracion}
         alt=""
@@ -23,9 +30,12 @@ const { titulo, ilustracion, fecha } = poema.data;
         width="900"
         height="600"
       />
+    ) : (
+      <OrnamentoTarjeta />
     )}
   </figure>
   <div class="card-meta">
+    <p class="card-tipo">{tipoLabel}</p>
     <h3 class="card-titulo">
       <a href={`/poemas/${poema.id}/`}>{titulo}</a>
     </h3>
@@ -72,9 +82,26 @@ const { titulo, ilustracion, fecha } = poema.data;
     object-fit: cover;
     transition: transform var(--dur-fast) var(--ease-standard);
   }
+  .card-img :global(svg.ornamento) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   .card:has(.card-titulo a:hover) .card-img :global(img),
   .card:has(.card-titulo a:focus-visible) .card-img :global(img) {
     transform: scale(1.02);
+  }
+
+  /* Form rubric: small uppercase label above the title. Reads as the
+     literary category (soneto, romance, verso libre). */
+  .card-tipo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
   }
 
   .card-titulo {

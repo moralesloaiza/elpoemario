@@ -1,0 +1,39 @@
+---
+/* ============================================================
+   El Poemario · Ornamento para tarjetas sin ilustración
+   Composición: estrella de ocho puntas Art Déco (dos cuadrados
+   superpuestos) con anillo concéntrico — halo lunar. Centrada
+   en viewBox 3:2. El marco doble dorado se aplica desde el
+   contenedor padre (.card-img.con-ornamento en PoemaCard.astro)
+   replicando la convención .frame canónica de tokens.css.
+   Hereda color via currentColor.
+   ============================================================ */
+---
+
+<svg
+  class="ornamento"
+  viewBox="0 0 300 200"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  preserveAspectRatio="xMidYMid meet"
+>
+  <!-- Eight-point star, viewBox base 100x100 scaled 1.5 = 150x150.
+       Horizontal center: (300-150)/2 = 75. Vertical center: (200-150)/2 = 25. -->
+  <g transform="translate(75, 25)">
+    <g transform="scale(1.5)">
+      <!-- Halo ring -->
+      <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="0.6"/>
+      <!-- Eight-point star: two overlapping squares -->
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M 20 20 L 80 20 L 80 80 L 20 80 Z"/>
+        <path d="M 50 10 L 90 50 L 50 90 L 10 50 Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
+
+<style>
+  .ornamento {
+    color: var(--oro);
+  }
+</style>

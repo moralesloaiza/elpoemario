@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+
+import Base from '../../layouts/Base.astro';
+import PoemaCard from '../../components/PoemaCard.astro';
+
+// All non-draft poems, newest first. Full anthology, no pagination in v1.
+// For ~86 Bécquer Rimas a flat grid is fine. Revisit when the corpus
+// grows to several hundred entries.
+const poemas = (await getCollection('poemas', ({ data }) => !data.borrador)).sort(
+  (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime(),
+);
+
+// Author names live in the `autores` collection; the `autor` field on a
+// poem is a reference (`{ collection, id }`), not a string. Build an
+// id->name map once so the template renders without per-row awaits.
+const autoresLista = await getCollection('autores');
+const autoresPorId = new Map(autoresLista.map((a) => [a.id, a.data.nombre]));
+---
+
+<Base
+  titulo="Poemas · El Poemario"
+  descripcion="El catálogo completo de poemas en El Poemario."
+>
+  <section class="indice" aria-labelledby="indice-titulo">
+    <header class="title">
+      <h1 id="indice-titulo">Poemas</h1>
+      <p class="subtitulo">El catálogo completo, del más reciente al más antiguo.</p>
+    </header>
+
+    <hr class="ornate" />
+
+    {poemas.length === 0 ? (
+      <p class="vacio">Aún no hay poemas publicados.</p>
+    ) : (
+      <ul class="lista">
+        {poemas.map((poema) => (
+          <li>
+            <PoemaCard
+              poema={poema}
+              autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
+            />
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Base>
+
+<style>
+  .indice {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-md);
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--fs-3xl);
+  }
+  .subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+
+  .vacio {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-soft);
+    margin-top: var(--space-2xl);
+  }
+
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2xl) 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2xl);
+    max-width: none;
+  }
+
+  @media (max-width: 720px) {
+    .lista {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>
