@@ -1,0 +1,157 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PoemaCard from './PoemaCard.astro';
+
+interface Props {
+  rotulo: string;
+  display: string;
+  poemas: CollectionEntry<'poemas'>[];
+  autorMap: Map<string, string>;
+  contadorTexto: string;
+  vacioTexto: string;
+}
+
+const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.props;
+---
+
+<main class="page taxonomia-page">
+  <header class="title">
+    <p class="rotulo">{rotulo}</p>
+    <h1>{display}</h1>
+  </header>
+
+  <hr class="ornate" />
+
+  <section class="poemas-de-taxonomia" aria-labelledby="lista-titulo">
+    <h2 id="lista-titulo">{contadorTexto}</h2>
+
+    {poemas.length === 0 && (
+      <p class="vacio">{vacioTexto}</p>
+    )}
+
+    {poemas.length > 0 && (
+      <ul class="lista">
+        {poemas.map((p, i) => (
+          <li class="item" hidden={i >= 18}>
+            <PoemaCard
+              poema={p}
+              autorNombre={autorMap.get(p.data.autor.id) ?? 'Desconocido'}
+              mostrarAutor={true}
+            />
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {poemas.length > 18 && (
+      <button type="button" class="cargar-mas" data-cargar-mas>
+        Mostrar más poemas
+      </button>
+    )}
+  </section>
+</main>
+
+<script>
+  // Progressive disclosure: reveal additional batches of 18 cards on click.
+  // Replicates the Fabulario pattern; remains inert when the list is short.
+  const PASO = 18;
+  const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
+  const lista = document.querySelector<HTMLUListElement>('.lista');
+
+  if (boton && lista) {
+    const items = Array.from(lista.children) as HTMLElement[];
+
+    boton.addEventListener('click', () => {
+      const ocultos = items.filter((el) => el.hasAttribute('hidden'));
+      const lote = ocultos.slice(0, PASO);
+
+      lote.forEach((el) => el.removeAttribute('hidden'));
+
+      // Move focus to the first card of the just-revealed batch.
+      const primera = lote[0]?.querySelector<HTMLElement>('.card');
+      if (primera) {
+        primera.setAttribute('tabindex', '-1');
+        primera.focus();
+      }
+
+      // Hide the button once no hidden cards remain.
+      if (ocultos.length <= PASO) {
+        boton.setAttribute('hidden', '');
+      }
+    });
+  }
+</script>
+
+<style>
+  .taxonomia-page {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+  .rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    text-transform: uppercase;
+    margin: var(--space-sm) 0 var(--space-2xs);
+  }
+  .title h1 {
+    margin: 0;
+    font-size: var(--fs-3xl);
+    text-wrap: balance;
+  }
+  .poemas-de-taxonomia h2 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+    margin: var(--space-xl) 0 var(--space-lg);
+  }
+  .vacio {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-soft);
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+  /* Hidden batches for "cargar mas": overrides the grid's implicit display. */
+  [hidden] {
+    display: none !important;
+  }
+  .cargar-mas {
+    display: block;
+    margin: var(--space-xl) auto 0;
+    padding: var(--space-2xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--esmeralda);
+    background: transparent;
+    border: var(--rule-hairline) solid var(--oro);
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .cargar-mas:hover,
+  .cargar-mas:focus-visible {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  @media (max-width: 720px) {
+    .lista {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

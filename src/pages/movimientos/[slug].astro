@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ListadoPoemasTaxonomia from '../../components/ListadoPoemasTaxonomia.astro';
+import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import { MOVIMIENTOS_DISPLAY, type Movimiento } from '../../utils/taxonomia';
+
+export async function getStaticPaths() {
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+  const autores = await getCollection('autores');
+  const autorMap = new Map(autores.map((a) => [a.id, a.data.nombre]));
+
+  // Group by `movimiento` (single-select, optional). Skip poemas without a
+  // movimiento — they appear in other taxonomies but not under any movement.
+  const porSlug = new Map<string, typeof poemas>();
+  for (const p of poemas) {
+    const k = p.data.movimiento;
+    if (!k) continue;
+    if (!porSlug.has(k)) porSlug.set(k, []);
+    porSlug.get(k)!.push(p);
+  }
+
+  return Array.from(porSlug.entries()).map(([slug, ps]) => ({
+    params: { slug },
+    props: {
+      slug: slug as Movimiento,
+      poemas: ps.sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf()),
+      autorMap,
+    },
+  }));
+}
+
+const { slug, poemas, autorMap } = Astro.props;
+const display = MOVIMIENTOS_DISPLAY[slug];
+// Movement labels include proper nouns ("Siglo de Oro", "Generación del 98");
+// keep original casing in running text.
+const contadorTexto =
+  poemas.length === 1
+    ? `1 poema dentro de ${display}`
+    : `${poemas.length} poemas dentro de ${display}`;
+
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: display, path: `/movimientos/${slug}/` },
+  ],
+  Astro.site!,
+);
+---
+
+<Base
+  titulo={`Movimiento: ${display} · El Poemario`}
+  descripcion={`Poemas dentro de ${display} en El Poemario.`}
+>
+  <JsonLd slot="head" data={breadcrumbLd} />
+  <ListadoPoemasTaxonomia
+    rotulo="Movimiento"
+    display={display}
+    poemas={poemas}
+    autorMap={autorMap}
+    contadorTexto={contadorTexto}
+    vacioTexto={`Aún no hay poemas publicados dentro de ${display}.`}
+  />
+</Base>
