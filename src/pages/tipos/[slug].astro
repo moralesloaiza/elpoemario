@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ListadoPoemasTaxonomia from '../../components/ListadoPoemasTaxonomia.astro';
+import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import { TIPOS_DISPLAY, type Tipo } from '../../utils/taxonomia';
+
+export async function getStaticPaths() {
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+  const autores = await getCollection('autores');
+  const autorMap = new Map(autores.map((a) => [a.id, a.data.nombre]));
+
+  // Group by `tipo` (single-select, required). Only slugs with >=1 published
+  // poema produce a path — values without poemas yield no static route.
+  const porSlug = new Map<string, typeof poemas>();
+  for (const p of poemas) {
+    const k = p.data.tipo;
+    if (!porSlug.has(k)) porSlug.set(k, []);
+    porSlug.get(k)!.push(p);
+  }
+
+  return Array.from(porSlug.entries()).map(([slug, ps]) => ({
+    params: { slug },
+    props: {
+      slug: slug as Tipo,
+      poemas: ps.sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf()),
+      autorMap,
+    },
+  }));
+}
+
+const { slug, poemas, autorMap } = Astro.props;
+const display = TIPOS_DISPLAY[slug];
+const displayLower = display.toLowerCase();
+const contadorTexto =
+  poemas.length === 1
+    ? `1 poema en ${displayLower}`
+    : `${poemas.length} poemas en ${displayLower}`;
+
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: display, path: `/tipos/${slug}/` },
+  ],
+  Astro.site!,
+);
+---
+
+<Base
+  titulo={`Forma: ${display} · El Poemario`}
+  descripcion={`Poemas en ${displayLower} en El Poemario.`}
+>
+  <JsonLd slot="head" data={breadcrumbLd} />
+  <ListadoPoemasTaxonomia
+    rotulo="Forma"
+    display={display}
+    poemas={poemas}
+    autorMap={autorMap}
+    contadorTexto={contadorTexto}
+    vacioTexto={`Aún no hay poemas publicados en ${displayLower}.`}
+  />
+</Base>
