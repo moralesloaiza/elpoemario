@@ -1,0 +1,155 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
+
+interface Props {
+  autor: CollectionEntry<'autores'>;
+  conteo: number;
+}
+
+const { autor, conteo } = Astro.props;
+const { nombre, tipo, fecha_nacimiento, fecha_muerte, imagen } = autor.data;
+
+// Display rubric for tipo. Mirrors PoemaCard.card-tipo position and style:
+// small uppercase label above the name, primary disambiguator for an
+// anthology that mixes dominio-público classics with living collaborators.
+const tipoLabel = tipo === 'clasico' ? 'CLÁSICO' : 'COLABORADOR';
+
+// Life dates: only for classics with both years known. Same rule as
+// Autor.astro — living collaborators have a birth date but no death date,
+// so we suppress the dash to avoid a misleading "1980–" string.
+const anios =
+  tipo === 'clasico' && fecha_nacimiento && fecha_muerte
+    ? `${fecha_nacimiento.getUTCFullYear()}–${fecha_muerte.getUTCFullYear()}`
+    : null;
+
+// Published-poem count. "—" for zero (author exists but has no poems yet),
+// singular/plural otherwise.
+const conteoLabel =
+  conteo === 0 ? '—' : conteo === 1 ? '1 poema' : `${conteo} poemas`;
+---
+
+<article class="card">
+  <figure class:list={['card-img', { 'con-ornamento': !imagen }]}>
+    {imagen ? (
+      <img
+        src={imagen}
+        alt={`Retrato de ${nombre}`}
+        loading="lazy"
+        decoding="async"
+        width="900"
+        height="600"
+      />
+    ) : (
+      <OrnamentoTarjeta />
+    )}
+  </figure>
+  <div class="card-meta">
+    <p class="card-tipo">{tipoLabel}</p>
+    <h3 class="card-nombre">
+      <a href={`/autores/${autor.id}/`}>{nombre}</a>
+    </h3>
+    {anios && <p class="card-anios">{anios}</p>}
+    <p class="card-conteo">{conteoLabel}</p>
+  </div>
+</article>
+
+<style>
+  /* Structure mirrors PoemaCard for visual coherence across the anthology.
+     Block-link pattern: <a> wraps only the name; its ::before overlay
+     extends the click target across the whole .card. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card-img {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    margin: 0 0 var(--space-md);
+  }
+
+  /* Ornament-only variant: double gold border, mirrors the .frame primitive
+     in global.css. Same rule as PoemaCard.card-img.con-ornamento. */
+  .card-img.con-ornamento {
+    position: relative;
+    background: var(--bg-elevated);
+    border: 1.5px solid var(--oro);
+  }
+  .card-img.con-ornamento::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: var(--rule-hairline) solid var(--oro);
+    pointer-events: none;
+  }
+
+  .card-img :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .card-img :global(svg.ornamento) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .card:has(.card-nombre a:hover) .card-img :global(img),
+  .card:has(.card-nombre a:focus-visible) .card-img :global(img) {
+    transform: scale(1.02);
+  }
+
+  .card-tipo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+  }
+
+  .card-nombre {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+    text-transform: none;
+  }
+
+  .card-nombre a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .card-nombre a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .card:has(.card-nombre a:hover) .card-nombre,
+  .card:has(.card-nombre a:focus-visible) .card-nombre {
+    color: var(--oro-texto);
+  }
+
+  .card-anios {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin: 0;
+  }
+  .card-conteo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    margin: var(--space-2xs) 0 0;
+  }
+</style>
