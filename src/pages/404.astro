@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+
+const titulo = 'Página no encontrada · El Poemario';
+const descripcion = 'La página que buscabas no se encuentra en El Poemario.';
+---
+
+<Base titulo={titulo} descripcion={descripcion}>
+  <div class="error-page">
+    <header class="title">
+      <h1>Aquí no hay poema</h1>
+      <p class="lead">
+        La página que buscabas no se encuentra en el Poemario,
+        o quizá nunca estuvo.
+      </p>
+    </header>
+
+    <hr class="ornate" />
+
+    <nav class="acciones" aria-label="Navegación de rescate">
+      <a href="/">Volver al inicio</a>
+      <span aria-hidden="true">·</span>
+      <a href="/poemas/">Ver todos los poemas</a>
+      <span aria-hidden="true">·</span>
+      <a href="/autores/">Ver autores</a>
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .error-page {
+    max-width: var(--measure-narrow);
+    margin-inline: auto;
+    padding-block: var(--space-2xl);
+    text-align: center;
+  }
+  .title {
+    margin-bottom: var(--space-xl);
+  }
+  .title h1 {
+    font-size: var(--fs-3xl);
+    margin: var(--space-md) 0;
+    text-wrap: balance;
+  }
+  .lead {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+  .acciones {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    margin-top: var(--space-xl);
+  }
+  .acciones a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: var(--rule-hairline) solid transparent;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+  .acciones a:hover,
+  .acciones a:focus-visible {
+    border-bottom-color: var(--oro-texto);
+  }
+  .acciones span {
+    margin-inline: var(--space-xs);
+    color: var(--oro);
+  }
+</style>
