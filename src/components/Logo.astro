@@ -1,6 +1,9 @@
 ---
-// Diamond rhombus logo for El Poemario. Sister to El Fabulario's F-mark,
-// inverted in palette (gold/ivory on dark vs gold/ivory on light navy).
+// Diamond rhombus logo for El Poemario. Ink-on-ivory palette: the rhombus
+// renders as an ivory plaque floating on the dark page background (the
+// outer ink frame is the same color as --bg, so it camouflages into the
+// page on the site itself but is visible on light surfaces — favicons,
+// social cards, print). Sister to El Fabulario's gold-on-navy F-mark.
 // Decorative (aria-hidden): when wrapped in a link, the link's aria-label
 // communicates intent to screen readers.
 interface Props {
@@ -18,14 +21,14 @@ const { tamano = 76 } = Astro.props;
   focusable="false"
   class="logo-mark"
 >
-  <!-- Rhombus frame: gold outer, ivory gap, gold inner line, ivory ground -->
-  <path fill="var(--oro)"  d="M 500.00 18.34 L 43.86 496.01 L 500.00 976.08 L 956.14 496.81 Z"/>
+  <!-- Rhombus frame: ink outer, ivory gap, ink inner line, ivory ground -->
+  <path fill="var(--bg)"   d="M 500.00 18.34 L 43.86 496.01 L 500.00 976.08 L 956.14 496.81 Z"/>
   <path fill="var(--text)" d="M 500.80 42.26 L 933.01 496.81 L 500.00 952.95 L 66.99 496.81 Z"/>
-  <path fill="var(--oro)"  d="M 500.80 56.62 L 81.34 496.01 L 499.20 937.80 L 918.66 496.81 Z"/>
+  <path fill="var(--bg)"   d="M 500.80 56.62 L 81.34 496.01 L 499.20 937.80 L 918.66 496.81 Z"/>
   <path fill="var(--text)" d="M 500.00 69.38 L 906.70 496.01 L 500.80 925.84 L 93.30 497.61 Z"/>
 
-  <!-- Sunburst rays in gold on ivory ground -->
-  <g fill="none" stroke="var(--oro)" stroke-linecap="round">
+  <!-- Sunburst rays in ink on ivory ground -->
+  <g fill="none" stroke="var(--bg)" stroke-linecap="round">
     <line x1="499.20" y1="135.57" x2="499.20" y2="310.21" stroke-width="6.38"/>
     <line x1="436.36" y1="224.05" x2="456.29" y2="309.99" stroke-width="6.99"/>
     <line x1="541.43" y1="310.00" x2="562.42" y2="224.14" stroke-width="7.02"/>
@@ -53,5 +56,4 @@ const { tamano = 76 } = Astro.props;
   </g>
 
   <!-- Letter P: ink on ivory for maximum legibility -->
-  <path fill="var(--bg)" fill-rule="evenodd" d="M 397.93 338.92 L 403.51 346.09 L 408.29 355.66 L 410.69 365.23 L 410.69 645.93 L 407.50 661.88 L 397.93 677.03 L 491.23 677.03 L 484.05 665.07 L 481.66 655.50 L 481.66 540.67 L 546.25 539.87 L 566.19 537.48 L 586.92 531.10 L 609.25 518.34 L 624.40 503.99 L 631.58 494.42 L 643.54 468.90 L 648.33 442.58 L 647.53 423.44 L 644.34 407.50 L 633.97 384.37 L 616.43 363.64 L 602.07 353.27 L 578.15 342.90 L 546.25 338.12 Z M 567.78 410.69 L 574.96 425.84 L 576.56 441.79 L 574.16 453.75 L 569.38 464.11 L 559.01 476.08 L 550.24 481.66 L 537.48 485.65 L 481.66 484.85 L 482.46 394.74 L 543.86 394.74 L 555.82 399.52 Z"/>
-</svg>
+  <path fill="var(--bg)" fill-rule="evenodd" d="M 397.93 338.92 L 403.51 346.09 L 408.29 355.66 L 410.69 365.23 L 410.69 645.93 L 407.50 661.88 L 397.93 677.03 L 491.23 677.03 L 484.05 665.07 L 481.66 655.50 L 481.66 540.67 L 546.25 539.87 L 566.19 537.48 L 586.92 531.10 L 609.25 518.34 L 624.40 503.99 L 631.58 494.42 L 643.54 468.90 L 648.33 442.58 L 647.53 423.44 L 644.34 407.50 L 633.97 384.37 L 616.43 363.64 L 602.07 353.27 L 578.15 342.90 L 546.25 338.12 Z M 567.78 410.69 L 574.96 425.84 L 576.56 441.79 L 574.16 453.75 L
