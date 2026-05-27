@@ -1,45 +1,36 @@
 ---
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
+import { SITE_TITLE, SITE_SUBTITLE, SITE_TAGLINE } from '../consts';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 ---
 
-<Base titulo="El Poemario · Un breviario de versos y voces">
+<Base titulo={`${SITE_TITLE} · ${SITE_TAGLINE}`}>
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
-    <h1>EL POEMARIO</h1>
-    <p class="lema">
-      Un breviario de versos y voces
-    </p>
-    <hr class="ornate" />
-    <p class="intro">
-      Una colección dirigida por
-      D. Alejandro de Morales y Loaiza
-    </p>
+    <h1>{SITE_TITLE}</h1>
+    <p class="subtitulo">{SITE_SUBTITLE}</p>
   </section>
 </Base>
 
 <style>
   .hero {
     text-align: center;
-    padding: 3rem 0;
+    margin-bottom: var(--space-2xl);
   }
   .hero h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.05;
-    color: var(--text);
-    margin: 0;
+    margin: 0 0 var(--space-md);
+    font-size: var(--fs-3xl);
+    text-wrap: balance;
   }
-  .lema {
+  .subtitulo {
+    font-family: var(--font-body);
     font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
     color: var(--text-soft);
-    font-size: 1.2rem;
-    margin: 1rem 0 2rem;
-  }
-  .intro {
-    color: var(--text);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
   }
 </style>
