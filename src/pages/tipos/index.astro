@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { TIPOS_DISPLAY, type Tipo } from '../../utils/taxonomia';
+
+const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+
+// Count poemas per tipo (single-select, required). Only tipos with >=1
+// published poema appear in the index.
+const conteo = new Map<Tipo, number>();
+for (const p of poemas) {
+  const k = p.data.tipo;
+  conteo.set(k, (conteo.get(k) ?? 0) + 1);
+}
+
+// Sort by count desc, alphabetical Spanish as tiebreaker.
+const items = Array.from(conteo.entries())
+  .map(([slug, n]) => ({ slug, conteo: n, display: TIPOS_DISPLAY[slug] }))
+  .sort((a, b) => {
+    if (b.conteo !== a.conteo) return b.conteo - a.conteo;
+    return a.display.localeCompare(b.display, 'es');
+  });
+---
+
+<Base
+  titulo="Formas · El Poemario"
+  descripcion="Sonetos, silvas, romances y demás formas métricas y estróficas en El Poemario."
+>
+  <div class="indice">
+    <header class="title">
+      <h1>Formas</h1>
+      <p class="subtitulo">Sonetos, silvas, romances y demás formas métricas y estróficas.</p>
+    </header>
+
+    <hr class="ornate" />
+
+    <ul class="lista">
+      {items.map((item) => (
+        <li class="item">
+          <a href={`/tipos/${item.slug}/`} class="item-link">
+            <h2 class="item-nombre">{item.display}</h2>
+            <p class="item-conteo">
+              {item.conteo === 1 ? '1 poema' : `${item.conteo} poemas`}
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .indice {
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--fs-3xl);
+  }
+  .subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2xl) 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-md);
+  }
+  .item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: var(--space-md);
+    border: var(--rule-hairline) solid var(--oro);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .item-link:hover,
+  .item-link:focus-visible {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .item-nombre {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+    text-transform: none;
+  }
+  .item-link:hover .item-nombre {
+    color: var(--oro-texto);
+  }
+  .item-conteo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--esmeralda);
+    margin: 0;
+  }
+</style>
