@@ -1,0 +1,108 @@
+---
+import { SITE_TITLE } from '../consts';
+import Buscador from './Buscador.astro';
+import HeaderLink from './HeaderLink.astro';
+import Logo from './Logo.astro';
+---
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label={`${SITE_TITLE} · inicio`}>
+      <Logo />
+    </a>
+    <nav class="internal-links" aria-label="Navegación principal">
+      <HeaderLink href="/">Inicio</HeaderLink>
+      <HeaderLink href="/poemas">Poemas</HeaderLink>
+      <HeaderLink href="/bitacora">Bitácora</HeaderLink>
+      <HeaderLink href="/correspondencia">Correspondencia</HeaderLink>
+      <HeaderLink href="/sobre">Acerca de</HeaderLink>
+      <Buscador />
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    background: var(--bg);
+    border-bottom: var(--rule-hairline) solid var(--oro);
+    position: relative;
+  }
+  /* Doble línea ornamental Art-Déco */
+  header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: var(--rule-hairline);
+    background: var(--oro);
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-container);
+    text-align: center;
+  }
+  .logo {
+    text-decoration: none;
+    color: var(--text);
+    display: inline-block;
+    line-height: 0;
+    border-bottom: none;
+  }
+  .logo:hover,
+  .logo:focus-visible {
+    border-bottom: none;
+  }
+  .logo :global(.logo-mark) {
+    display: block;
+    width: 76px;
+    height: 76px;
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .logo:hover :global(.logo-mark),
+  .logo:focus-visible :global(.logo-mark) {
+    transform: scale(1.04);
+  }
+  .internal-links {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .internal-links :global(a) {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-widest);
+    color: var(--text);
+    text-decoration: none;
+    padding-block: var(--space-2xs);
+    border-bottom: 2px solid transparent;
+    transition: color var(--dur-fast) var(--ease-standard),
+                border-color var(--dur-fast) var(--ease-standard);
+  }
+  .internal-links :global(a:hover),
+  .internal-links :global(a:focus-visible) {
+    color: var(--oro-texto);
+  }
+  .internal-links :global(a.active) {
+    font-weight: var(--fw-bold);
+    border-bottom-color: var(--oro);
+    text-decoration: none;
+  }
+  @media (max-width: 540px) {
+    .logo :global(.logo-mark) {
+      width: 64px;
+      height: 64px;
+    }
+    .internal-links {
+      gap: var(--space-md);
+    }
+  }
+</style>
