@@ -4,17 +4,18 @@ import JsonLd from '../components/JsonLd.astro';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 ---
 
-<Base titulo="Inicio">
+<Base titulo="El Poemario · Un breviario de versos y voces">
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
     <h1>EL POEMARIO</h1>
     <p class="lema">
-      Antología viva de poesía en español
+      Un breviario de versos y voces
     </p>
     <hr class="ornate" />
     <p class="intro">
-      Un breviario de versos y voces, en construcción.
+      Una colección dirigida por
+      D. Alejandro de Morales y Loaiza
     </p>
   </section>
 </Base>
