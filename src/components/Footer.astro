@@ -1,0 +1,81 @@
+---
+const today = new Date();
+const startYear = 2026;
+const yearLabel =
+  today.getFullYear() === startYear
+    ? `${startYear}`
+    : `${startYear}–${today.getFullYear()}`;
+---
+
+<footer>
+  <div class="footer-inner">
+    <p class="cita">
+      OMNE TVLIT PVNCTVM QVI MISCVIT VTILE DVLCI
+    </p>
+    <p class="cita-fuente">
+      Horacio · Ars Poetica, 343
+    </p>
+
+    <hr class="ornate" />
+
+    <p class="meta">
+      © {yearLabel} El Poemario · Una colección dirigida por
+      don Alejandro de Morales y Loaiza
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: var(--space-2xl);
+    padding-block: var(--space-2xl);
+    background: var(--bg);
+    border-top: var(--rule-hairline) solid var(--oro);
+    position: relative;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    height: var(--rule-hairline);
+    background: var(--oro);
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-inline: var(--space-container);
+    text-align: center;
+  }
+  .cita {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-style: normal;
+    line-height: var(--lh-snug);
+    color: var(--text);
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-xs);
+  }
+  .cita-fuente {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    margin: 0 auto var(--space-xl);
+  }
+  footer hr.ornate {
+    margin-block: var(--space-xl);
+    max-width: 240px;
+  }
+  .meta {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin: var(--space-xs) auto;
+    max-width: var(--measure);
+  }
+  .meta a {
+    color: var(--link);
+  }
+</style>
