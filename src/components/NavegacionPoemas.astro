@@ -1,5 +1,5 @@
 ---
-import Luna from './ornaments/Luna.astro';
+import Logo from './Logo.astro';
 
 type PoemaVecino = {
   slug: string;
@@ -22,7 +22,7 @@ const { anterior, siguiente } = Astro.props;
       <span class="nav-poemas-titulo">{anterior.titulo}</span>
     </span>
   </a>
-  <span class="nav-poemas-ornamento"><Luna width="56px" /></span>
+  <span class="nav-poemas-ornamento"><Logo tamano={56} /></span>
   <a class="nav-poemas-enlace siguiente" href={`/poemas/${siguiente.slug}/`} rel="next">
     <span class="nav-poemas-meta">
       <span class="nav-poemas-rotulo">Poema siguiente</span>
@@ -92,13 +92,9 @@ const { anterior, siguiente } = Astro.props;
     color: var(--text);
     text-wrap: balance;
   }
-  /* Override the Luna ornament's default bottom margin within nav. */
   .nav-poemas-ornamento {
     flex-shrink: 0;
     line-height: 0;
-  }
-  .nav-poemas-ornamento :global(.luna) {
-    margin: 0;
   }
   @media (max-width: 640px) {
     .nav-poemas {
