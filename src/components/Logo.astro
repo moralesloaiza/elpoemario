@@ -1,4 +1,8 @@
 ---
+// Diamond rhombus logo for El Poemario. Sister to El Fabulario's F-mark,
+// inverted in palette (gold/ivory on dark vs gold/ivory on light navy).
+// Decorative (aria-hidden): when wrapped in a link, the link's aria-label
+// communicates intent to screen readers.
 interface Props {
   tamano?: number;
 }
@@ -8,19 +12,46 @@ const { tamano = 76 } = Astro.props;
 <svg
   width={tamano}
   height={tamano}
-  viewBox="0 0 200 200"
+  viewBox="0 0 1000 1000"
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true"
   focusable="false"
   class="logo-mark"
 >
-  <polygon points="100,10 190,100 100,190 10,100" fill="var(--oro)" />
-  <polygon points="100,16 184,100 100,184 16,100" fill="var(--text)" />
-  <polygon points="100,24 176,100 100,176 24,100" fill="var(--oro)" />
-  <polygon points="100,27 173,100 100,173 27,100" fill="var(--text)" />
-  <path
-    d="M 80 58 L 110 58 A 12 12 0 0 1 122 70 L 122 94 A 12 12 0 0 1 110 106 L 95 106 L 95 144 L 80 144 Z M 95 73 L 107 73 L 107 91 L 95 91 Z"
-    fill="var(--bg)"
-    fill-rule="evenodd"
-  />
+  <!-- Rhombus frame: gold outer, ivory gap, gold inner line, ivory ground -->
+  <path fill="var(--oro)"  d="M 500.00 18.34 L 43.86 496.01 L 500.00 976.08 L 956.14 496.81 Z"/>
+  <path fill="var(--text)" d="M 500.80 42.26 L 933.01 496.81 L 500.00 952.95 L 66.99 496.81 Z"/>
+  <path fill="var(--oro)"  d="M 500.80 56.62 L 81.34 496.01 L 499.20 937.80 L 918.66 496.81 Z"/>
+  <path fill="var(--text)" d="M 500.00 69.38 L 906.70 496.01 L 500.80 925.84 L 93.30 497.61 Z"/>
+
+  <!-- Sunburst rays in gold on ivory ground -->
+  <g fill="none" stroke="var(--oro)" stroke-linecap="round">
+    <line x1="499.20" y1="135.57" x2="499.20" y2="310.21" stroke-width="6.38"/>
+    <line x1="436.36" y1="224.05" x2="456.29" y2="309.99" stroke-width="6.99"/>
+    <line x1="541.43" y1="310.00" x2="562.42" y2="224.14" stroke-width="7.02"/>
+    <line x1="590.85" y1="310.18" x2="624.80" y2="248.23" stroke-width="7.06"/>
+    <line x1="375.10" y1="248.65" x2="407.87" y2="310.01" stroke-width="7.03"/>
+    <line x1="337.14" y1="309.43" x2="366.73" y2="344.58" stroke-width="6.88"/>
+    <line x1="635.98" y1="341.65" x2="662.88" y2="309.44" stroke-width="6.99"/>
+    <line x1="285.82" y1="346.44" x2="368.71" y2="408.71" stroke-width="7.18"/>
+    <line x1="661.95" y1="387.16" x2="714.85" y2="346.53" stroke-width="7.22"/>
+    <line x1="244.00" y1="413.92" x2="369.12" y2="454.84" stroke-width="7.06"/>
+    <line x1="671.27" y1="441.90" x2="760.17" y2="413.71" stroke-width="7.02"/>
+    <line x1="169.86" y1="494.42" x2="370.02" y2="494.42" stroke-width="6.38"/>
+    <line x1="657.89" y1="494.45" x2="830.14" y2="494.40" stroke-width="6.38"/>
+    <line x1="635.19" y1="535.36" x2="759.19" y2="579.69" stroke-width="7.23"/>
+    <line x1="245.51" y1="580.24" x2="369.13" y2="536.43" stroke-width="7.20"/>
+    <line x1="618.89" y1="574.86" x2="714.54" y2="647.74" stroke-width="7.37"/>
+    <line x1="287.00" y1="647.66" x2="369.55" y2="584.16" stroke-width="7.10"/>
+    <line x1="573.37" y1="582.81" x2="663.05" y2="688.68" stroke-width="7.11"/>
+    <line x1="551.37" y1="609.08" x2="622.52" y2="746.18" stroke-width="7.00"/>
+    <line x1="526.00" y1="630.66" x2="562.11" y2="773.55" stroke-width="6.92"/>
+    <line x1="337.71" y1="688.65" x2="367.72" y2="653.07" stroke-width="6.88"/>
+    <line x1="378.77" y1="746.40" x2="404.48" y2="697.86" stroke-width="6.90"/>
+    <line x1="437.16" y1="773.56" x2="454.36" y2="697.91" stroke-width="6.89"/>
+    <line x1="499.20" y1="697.77" x2="499.20" y2="861.24" stroke-width="6.38"/>
+  </g>
+
+  <!-- Letter P: ink on ivory for maximum legibility -->
+  <path fill="var(--bg)" fill-rule="evenodd" d="M 397.93 338.92 L 403.51 346.09 L 408.29 355.66 L 410.69 365.23 L 410.69 645.93 L 407.50 661.88 L 397.93 677.03 L 491.23 677.03 L 484.05 665.07 L 481.66 655.50 L 481.66 540.67 L 546.25 539.87 L 566.19 537.48 L 586.92 531.10 L 609.25 518.34 L 624.40 503.99 L 631.58 494.42 L 643.54 468.90 L 648.33 442.58 L 647.53 423.44 L 644.34 407.50 L 633.97 384.37 L 616.43 363.64 L 602.07 353.27 L 578.15 342.90 L 546.25 338.12 Z M 567.78 410.69 L 574.96 425.84 L 576.56 441.79 L 574.16 453.75 L 569.38 464.11 L 559.01 476.08 L 550.24 481.66 L 537.48 485.65 L 481.66 484.85 L 482.46 394.74 L 543.86 394.74 L 555.82 399.52 Z"/>
 </svg>
