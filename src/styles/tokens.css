@@ -21,8 +21,8 @@
   --granate:         #A14D6B;
 
   /* === Semantic aliases === */
-  --link:            var(--lavanda);
-  --link-hover:      var(--esmeralda);
+  --link:            var(--oro-texto);
+  --link-hover:      var(--oro);
   --rule:            var(--oro);
   --accent:          var(--coral);
 
