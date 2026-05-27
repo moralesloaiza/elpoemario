@@ -1,16 +1,16 @@
 ---
 import '../styles/tokens.css';
-import Logo from '../components/Logo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import BotonCrear from '../components/BotonCrear.astro';
-import Buscador from '../components/Buscador.astro';
+import { SITE_DESCRIPTION } from '../consts';
 
 interface Props {
   titulo: string;
   descripcion?: string;
 }
 
-const { titulo, descripcion = 'Antología viva de poesía en español.' } = Astro.props;
-const anio = new Date().getFullYear();
+const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,71 +30,20 @@ const anio = new Date().getFullYear();
     <slot name="head" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="logo-link" href="/" aria-label="El Poemario · inicio">
-        <Logo />
-      </a>
-      <nav class="site-nav">
-        <a href="/poemas/">Poemas</a>
-        <a href="/autores/">Autores</a>
-        <a href="/tipos/">Formas</a>
-        <a href="/temas/">Temas</a>
-        <a href="/sobre/">Sobre</a>
-        <Buscador />
-      </nav>
-    </header>
+    <Header />
 
     <main class="site-main">
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <hr class="ornate" />
-      <p>
-        © {anio} El Poemario · Una colección dirigida por
-        don Alejandro de Morales y Loaiza
-      </p>
-    </footer>
+    <Footer />
     <BotonCrear />
+
     <style>
-      .site-header {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2rem var(--space-container) 1rem;
-        text-align: center;
-      }
-      .logo-link {
-        display: inline-block;
-        border: none;
-        margin-bottom: 1.25rem;
-      }
-      .logo-link:hover,
-      .logo-link:focus-visible {
-        border: none;
-      }
-      .site-nav {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-        font-family: var(--font-display);
-        font-weight: 500;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
       .site-main {
         max-width: 720px;
         margin: 0 auto;
-        padding: 2rem var(--space-container);
-      }
-      .site-footer {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 1rem var(--space-container) 3rem;
-        text-align: center;
-        color: var(--text-muted);
-        font-size: 0.9rem;
+        padding: var(--space-2xl) var(--space-container);
       }
     </style>
   </body>
