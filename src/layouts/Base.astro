@@ -32,7 +32,7 @@ const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
   <body>
     <Header />
 
-    <main class="site-main">
+    <main class="page site-main">
       <slot />
     </main>
 
@@ -41,9 +41,7 @@ const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
 
     <style>
       .site-main {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: var(--space-2xl) var(--space-container);
+        padding-block: var(--space-2xl);
       }
     </style>
   </body>
