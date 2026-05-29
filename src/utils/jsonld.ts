@@ -122,6 +122,7 @@ type PoemaInput = CollectionEntry<'poemas'>['data'] & { id: string };
 export function buildPoemaJsonLd(
   poema: PoemaInput,
   autor: CollectionEntry<'autores'>,
+  traductor: CollectionEntry<'autores'> | null,
   site: URL,
 ): Record<string, unknown> {
   const canonical = absoluteUrl(`/poemas/${poema.id}/`, site);
@@ -145,7 +146,14 @@ export function buildPoemaJsonLd(
     publisher: PUBLISHER,
   };
 
-  if (poema.resumen) data.description = poema.resumen;
+  // Schema.org/CreativeWork.translator — only present when the poema
+  // is a translation. Reuses the same #person @id pattern as `author`
+  // so crawlers unify the Person entity across pages.
+  if (traductor) {
+    data.translator = personReference(traductor, site);
+  }
+
+  if (poema.resumen) data.description = poema.resumen;;
   if (poema.ilustracion) data.image = absoluteUrl(poema.ilustracion, site);
 
   const keywords = taxonomiaToKeywords(
