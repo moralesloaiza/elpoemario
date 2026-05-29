@@ -198,11 +198,14 @@ export function buildAutorJsonLd(
   };
 
   if (autor.descripcion) data.description = autor.descripcion;
-  if (autor.fecha_nacimiento) {
-    data.birthDate = autor.fecha_nacimiento.toISOString().slice(0, 10);
+  if (autor.nacionalidad) data.nationality = autor.nacionalidad;
+  if (autor.nacimiento) {
+    // Schema.org/Person.birthDate accepts xsd:gYear (4-digit year) for
+    // year-only precision. No fake 01-01 padding.
+    data.birthDate = String(autor.nacimiento);
   }
-  if (autor.fecha_muerte) {
-    data.deathDate = autor.fecha_muerte.toISOString().slice(0, 10);
+  if (autor.muerte) {
+    data.deathDate = String(autor.muerte);
   }
   if (autor.lugar_nacimiento) {
     data.birthPlace = { '@type': 'Place', name: autor.lugar_nacimiento };
