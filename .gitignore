@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Audit bundles generated for assistant context — not source
+*-audit.txt
+*-bundle*.txt
+poemario-pr*.txt
+bundle-*.txt

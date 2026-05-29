@@ -3,7 +3,7 @@ titulo: Fixture en verso libre
 resumen: ""
 fecha: 2026-05-23
 fecha_actualizada: 2026-05-23
-ilustracion: /img/poemas/chatgpt-image-20-may-2026-20_26_32.png
+ilustracion: /src/assets/uploads/chatgpt-image-20-may-2026-20_26_32.png
 spotify_url: ""
 borrador: false
 tipo: verso-libre
