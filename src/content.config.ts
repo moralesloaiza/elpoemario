@@ -111,19 +111,53 @@ const autores = defineCollection({
   }),
 });
 
+// Entries collection — bitácora (editorial notes) and correspondencia
+// (reader letters with curator's reply). The `tipo` field discriminates
+// the two formats. Correspondence-only fields are validated by .refine().
+// Mirrors the Fabulario schema, with `poema_referido` replacing
+// `fabula_referida`.
 const entradas = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/entradas' }),
-  schema: z.object({
-    titulo: z.string(),
-    resumen: optionalString(),
-    fecha: z.coerce.date(),
-    fecha_actualizada: optionalDate(),
-    ilustracion: optionalString(),
-    borrador: z.boolean().default(false),
-    tipo: z.enum(['bitacora', 'correspondencia']),
-    autor: reference('autores').optional(),
-    curador: z.string().default('Don Alejandro'),
-  }),
+  schema: z
+    .object({
+      titulo: z.string(),
+      resumen: optionalString(),
+      fecha: z.coerce.date(),
+      fecha_actualizada: optionalDate(),
+      ilustracion: optionalString(),
+      borrador: z.boolean().default(false),
+
+      // Curator signature (parity with poemas; supports pseudonyms).
+      curador: z.string().default('Don Alejandro'),
+      es_seudonimo: z.boolean().default(true),
+      nombre_real: optionalString(),
+
+      // Format discriminator. Defaults to 'bitacora' since editorial
+      // notes are the common case.
+      tipo: z.enum(['bitacora', 'correspondencia']).default('bitacora'),
+
+      // Correspondence-only fields.
+      // `remitente`: publishable signature of the letter writer.
+      //   Use 'Un lector' for anonymous letters. Required when
+      //   tipo='correspondencia' (validated by .refine() below).
+      // `poema_referido`: optional reference to a poem the letter
+      //   discusses; surfaced in CartaHeader.
+      remitente: optionalString(),
+      poema_referido: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        reference('poemas').optional(),
+      ),
+    })
+    .refine(
+      (data) =>
+        data.tipo !== 'correspondencia' ||
+        (typeof data.remitente === 'string' && data.remitente.length > 0),
+      {
+        message:
+          "Las entradas con tipo='correspondencia' requieren `remitente`. Usa 'Un lector' para cartas anónimas.",
+        path: ['remitente'],
+      },
+    ),
 });
 
 const destacado = defineCollection({

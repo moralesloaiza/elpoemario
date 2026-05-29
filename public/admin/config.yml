@@ -214,27 +214,65 @@ collections:
       - { label: "También figura en (hostname)", name: tambien_en, widget: string, required: false, hint: "Ej.: elfabulario.com. El slug debe ser idéntico en ambos portales." }
       - { label: "Cuerpo (biografía extendida)", name: body, widget: markdown }
 
-  - name: entradas
-    label: "Bitácora"
+  - name: "entradas"
+    label: "Entradas"
     label_singular: "Entrada"
+    identifier_field: "titulo"
     folder: "src/content/entradas"
     create: true
     slug: "{{slug}}"
-    identifier_field: titulo
-    extension: md
-    format: frontmatter
+    preview_path: "entradas/{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{borrador | ternary('[BORRADOR] ', '')}}{{titulo}} — {{tipo}} ({{fecha | date('YYYY-MM-DD')}})"
+    description: "Bitácora del blog (anuncios, hitos, notas) y correspondencia (cartas del público con réplica del curador)."
+    view_filters:
+      - { label: "Borradores", field: borrador, pattern: true }
+      - { label: "Publicadas", field: borrador, pattern: false }
+      - { label: "Bitácora", field: tipo, pattern: "bitacora" }
+      - { label: "Correspondencia", field: tipo, pattern: "correspondencia" }
+    view_groups:
+      - { label: "Tipo", field: tipo }
+      - { label: "Estado", field: borrador }
     fields:
-      - { label: "Título", name: titulo, widget: string }
-      - { label: "Resumen", name: resumen, widget: text, required: false }
-      - { label: "Fecha", name: fecha, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-      - label: "Tipo"
-        name: tipo
-        widget: select
-        options: [bitacora, correspondencia]
-        default: bitacora
-      - { label: "Autor", name: autor, widget: relation, collection: autores, value_field: "{{slug}}", search_fields: [nombre], display_fields: [nombre] }
-      - { label: "Borrador", name: borrador, widget: boolean, default: true }
-      - { label: "Cuerpo", name: body, widget: markdown }
+      # --- Identidad ---
+      - { name: "titulo", label: "Título", widget: "string" }
+      - { name: "fecha", label: "Fecha de publicación", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: "fecha_actualizada", label: "Fecha de actualización", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { name: "resumen", label: "Resumen", widget: "text", required: false }
+      - { name: "ilustracion", label: "Ilustración", widget: "string", required: false, hint: "Ruta absoluta a la imagen en /public, ej.: /entradas/mi-nota.webp" }
+      - { name: "borrador", label: "Borrador", widget: "boolean", default: false }
+
+      # --- Firma del curador ---
+      - { name: "curador", label: "Curador (firma pública)", widget: "string", default: "Don Alejandro" }
+      - { name: "es_seudonimo", label: "¿La firma es un seudónimo?", widget: "boolean", default: true }
+      - { name: "nombre_real", label: "Nombre real (privado)", widget: "string", required: false }
+
+      # --- Discriminador de formato ---
+      - name: "tipo"
+        label: "Tipo de entrada"
+        widget: "select"
+        required: true
+        default: "bitacora"
+        hint: "Bitácora = entrada editorial regular. Correspondencia = carta de un lector con réplica."
+        options:
+          - { label: "Bitácora", value: "bitacora" }
+          - { label: "Correspondencia (carta)", value: "correspondencia" }
+
+      # --- Campos exclusivos de correspondencia ---
+      - { name: "remitente", label: "Remitente", widget: "string", required: false, hint: "Solo correspondencia. Nombre publicable del autor de la carta; usa 'Un lector' para cartas anónimas. Obligatorio si Tipo = Correspondencia." }
+      - name: "poema_referido"
+        label: "Poema referido"
+        widget: "relation"
+        collection: "poemas"
+        value_field: "{{slug}}"
+        search_fields: ["titulo"]
+        display_fields: ["titulo"]
+        required: false
+        hint: "Solo correspondencia. Si la carta discute un poema concreto, selecciónalo."
+
+      # --- Cuerpo ---
+      - { name: "body", label: "Cuerpo", widget: "markdown", hint: "Para correspondencia: usa '## Carta' y '## Respuesta' como encabezados de las dos secciones." }
 
   - name: destacado
     label: "Destacado"

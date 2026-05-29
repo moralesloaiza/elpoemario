@@ -1,0 +1,179 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import EntradasTabs from '../../components/EntradasTabs.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const cartas = (
+  await getCollection(
+    'entradas',
+    ({ data }) => !data.borrador && data.tipo === 'correspondencia',
+  )
+).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+---
+
+<Base
+  titulo="Cartas · El Poemario"
+  descripcion="Correspondencia del público con el curador de El Poemario, publicada selectivamente."
+>
+  <main class="page bitacora">
+    <header class="title">
+      <h1>Cartas</h1>
+      <p class="subtitulo">
+        Correspondencia del público con el curador, publicada selectivamente.
+        Para escribir una carta, visita <a href="/correspondencia/">correspondencia</a>.
+      </p>
+    </header>
+
+    <hr class="ornate" />
+
+    <EntradasTabs activa="cartas" />
+
+    {cartas.length === 0 && (
+      <p class="vacio">Aún no hay cartas publicadas.</p>
+    )}
+
+    {cartas.length > 0 && (
+      <ul class="lista">
+        {cartas.map((entrada) => (
+          <li class="item">
+            <a href={`/entradas/${entrada.id}/`} class="item-link">
+              {entrada.data.ilustracion && (
+                <figure class="item-img">
+                  <img
+                    src={entrada.data.ilustracion}
+                    alt=""
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              )}
+              <div class="item-meta">
+                <p class="item-kicker">Carta</p>
+                <h2 class="item-titulo">{entrada.data.titulo}</h2>
+                {entrada.data.remitente && (
+                  <p class="item-remitente">de {entrada.data.remitente}</p>
+                )}
+                <p class="item-fecha">
+                  <FormattedDate date={entrada.data.fecha} />
+                </p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Base>
+
+<style>
+  .bitacora {
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--fs-3xl);
+    font-family: var(--font-display);
+    color: var(--text);
+  }
+  .subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+  .subtitulo a {
+    color: var(--text);
+    border-bottom: var(--rule-hairline) solid var(--oro);
+    text-decoration: none;
+  }
+  .subtitulo a:hover {
+    color: var(--oro-texto);
+  }
+  .vacio {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-soft);
+    margin-top: var(--space-2xl);
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2xl);
+  }
+  .item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .item-img {
+    margin: 0 0 var(--space-md);
+    overflow: hidden;
+  }
+  .item-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 400ms var(--ease-standard);
+  }
+  .item-link:hover .item-img img,
+  .item-link:focus-visible .item-img img {
+    transform: scale(1.02);
+  }
+  .item-kicker {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-2xs);
+    text-transform: uppercase;
+  }
+  .item-titulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+  }
+  .item-link:hover .item-titulo,
+  .item-link:focus-visible .item-titulo {
+    color: var(--oro-texto);
+  }
+  .item-remitente {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin: 0 0 var(--space-2xs);
+  }
+  .item-fecha {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--esmeralda);
+    margin: var(--space-2xs) 0 0;
+  }
+  @media (max-width: 720px) {
+    .lista {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>

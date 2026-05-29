@@ -1,0 +1,597 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  titulo="Correspondencia · El Poemario"
+  descripcion="Cartas del público al curador de El Poemario. Las seleccionadas se publican en la bitácora con réplica del curador."
+>
+  <main class="page correspondencia">
+    <header class="title">
+      <h1>Correspondencia</h1>
+    </header>
+
+    <hr class="ornate" />
+
+    <section class="prose">
+      <p>
+        <em>El Poemario</em> recibe cartas de lectores: comentarios sobre
+        un poema, interpretaciones, preguntas al curador, hallazgos sobre
+        autores. Las cartas seleccionadas se publican en la
+        <a href="/entradas/cartas/">sección de cartas de la bitácora</a> con
+        la réplica del curador.
+      </p>
+      <p>
+        Para escribir, completa el formulario y pulsa <em>Preparar carta</em>.
+        Te mostraremos el mensaje listo para enviar; podrás abrirlo en tu
+        cliente de correo o copiarlo y enviarlo a mano a
+        <a href="mailto:contacto@elpoemario.com">contacto@elpoemario.com</a>.
+      </p>
+    </section>
+
+    <form id="carta-form" class="carta-form" novalidate>
+      <fieldset class="campo">
+        <legend>¿Cómo firmas?</legend>
+        <label class="radio">
+          <input type="radio" name="modo" value="real" checked />
+          <span>Con mi nombre real</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="modo" value="seudonimo" />
+          <span>Con un seudónimo</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="modo" value="anonimo" />
+          <span>Anónimo (firmaré como «Un lector»)</span>
+        </label>
+      </fieldset>
+
+      <div class="campo">
+        <label for="firma">Firma</label>
+        <input
+          type="text"
+          id="firma"
+          name="firma"
+          required
+          maxlength="120"
+          autocomplete="name"
+          placeholder="Tu nombre o seudónimo"
+        />
+      </div>
+
+      <div class="campo">
+        <label for="poema">Poema referido <span class="opcional">(opcional)</span></label>
+        <input
+          type="text"
+          id="poema"
+          name="poema"
+          maxlength="200"
+          placeholder="Título o enlace de elpoemario.com"
+          aria-describedby="poema-ayuda poema-error"
+        />
+        <small id="poema-ayuda" class="ayuda">
+          Si la carta discute un poema concreto, escribe su título o pega
+          el enlace (solo se aceptan enlaces de <em>elpoemario.com</em>).
+          Si no, deja el campo vacío.
+        </small>
+        <p id="poema-error" class="error" role="alert" hidden></p>
+      </div>
+
+      <div class="campo">
+        <label for="asunto">Asunto</label>
+        <input
+          type="text"
+          id="asunto"
+          name="asunto"
+          required
+          maxlength="160"
+          placeholder="De qué trata tu carta"
+        />
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="10"
+          required
+          placeholder="Escribe aquí tu carta. Toma el tiempo que necesites."
+        ></textarea>
+      </div>
+
+      <div class="campo consent">
+        <label class="checkbox">
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>
+            Autorizo a <em>El Poemario</em> a publicar selectivamente esta
+            carta junto a la réplica del curador, con la firma indicada.
+          </span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="enviar">Preparar carta</button>
+      </div>
+    </form>
+
+    <section id="preview" class="preview" hidden aria-live="polite">
+      <hr class="ornate" />
+      <h2>Tu carta está lista</h2>
+      <p class="preview-intro">
+        Pulsa <em>Abrir cliente de correo</em> para enviarla desde tu app
+        predeterminada. Si no se abre, pulsa <em>Copiar al portapapeles</em>
+        y pega el mensaje en un correo manual a
+        <a href="mailto:contacto@elpoemario.com">contacto@elpoemario.com</a>.
+      </p>
+
+      <dl class="preview-meta">
+        <dt>Destinatario</dt>
+        <dd>contacto@elpoemario.com</dd>
+        <dt>Asunto</dt>
+        <dd id="preview-asunto"></dd>
+      </dl>
+
+      <pre id="preview-cuerpo" class="preview-cuerpo"></pre>
+
+      <div class="preview-actions">
+        <a id="preview-mailto" class="enviar" href="#">Abrir cliente de correo</a>
+        <button type="button" id="preview-copiar" class="enviar secundario">
+          Copiar al portapapeles
+        </button>
+      </div>
+      <p id="preview-feedback" class="preview-feedback" role="status"></p>
+    </section>
+
+    <noscript>
+      <p class="noscript-aviso">
+        Este formulario necesita JavaScript para preparar el correo. Si lo
+        tienes desactivado, escribe directamente a
+        <a href="mailto:contacto@elpoemario.com">contacto@elpoemario.com</a>.
+      </p>
+    </noscript>
+  </main>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('carta-form');
+      if (!form) return;
+
+      const firma = document.getElementById('firma');
+      const radios = document.querySelectorAll('input[name="modo"]');
+      const poemaInput = document.getElementById('poema');
+      const poemaError = document.getElementById('poema-error');
+      const preview = document.getElementById('preview');
+      const previewAsunto = document.getElementById('preview-asunto');
+      const previewCuerpo = document.getElementById('preview-cuerpo');
+      const previewMailto = document.getElementById('preview-mailto');
+      const previewCopiar = document.getElementById('preview-copiar');
+      const previewFeedback = document.getElementById('preview-feedback');
+
+      const HOSTS_PERMITIDOS = ['elpoemario.com', 'www.elpoemario.com'];
+
+      // Anonymous mode: firma forced to "Un lector" and field locked.
+      function aplicarModo() {
+        const modo = document.querySelector('input[name="modo"]:checked').value;
+        if (modo === 'anonimo') {
+          firma.value = 'Un lector';
+          firma.setAttribute('readonly', '');
+        } else {
+          firma.removeAttribute('readonly');
+          if (firma.value === 'Un lector') firma.value = '';
+        }
+      }
+      radios.forEach((r) => r.addEventListener('change', aplicarModo));
+      aplicarModo();
+
+      // Show/hide error on the "poema referido" field.
+      function mostrarErrorPoema(msg) {
+        poemaError.textContent = msg;
+        poemaError.hidden = false;
+        poemaInput.setAttribute('aria-invalid', 'true');
+      }
+      function limpiarErrorPoema() {
+        poemaError.textContent = '';
+        poemaError.hidden = true;
+        poemaInput.removeAttribute('aria-invalid');
+      }
+      poemaInput.addEventListener('input', limpiarErrorPoema);
+
+      // Validate the "poema" field: if it looks like a URL, must be on
+      // elpoemario.com. Free text (no "://") passes through.
+      function validarPoema(valor) {
+        if (!valor) return { ok: true };
+        if (!valor.includes('://')) return { ok: true };
+        let url;
+        try {
+          url = new URL(valor);
+        } catch (err) {
+          return {
+            ok: false,
+            msg: 'El enlace no es una URL válida. Escribe solo el título, o pega una URL completa de elpoemario.com.',
+          };
+        }
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+          return {
+            ok: false,
+            msg: 'Solo se aceptan enlaces http o https.',
+          };
+        }
+        if (!HOSTS_PERMITIDOS.includes(url.hostname)) {
+          return {
+            ok: false,
+            msg: 'Solo se aceptan enlaces de elpoemario.com. Si el poema está en otro sitio, escribe su título en su lugar.',
+          };
+        }
+        return { ok: true };
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const poema = poemaInput.value.trim();
+        const validacion = validarPoema(poema);
+        if (!validacion.ok) {
+          mostrarErrorPoema(validacion.msg);
+          poemaInput.focus();
+          return;
+        }
+        limpiarErrorPoema();
+
+        const modo = document.querySelector('input[name="modo"]:checked').value;
+        const modoEtiqueta = {
+          real: 'nombre real',
+          seudonimo: 'seudónimo',
+          anonimo: 'anónimo',
+        }[modo];
+
+        const valorFirma = firma.value.trim() || 'Un lector';
+        const asunto = document.getElementById('asunto').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        let cuerpo = '';
+        cuerpo += 'Firma: ' + valorFirma + ' (' + modoEtiqueta + ')\n';
+        if (poema) cuerpo += 'Poema referido: ' + poema + '\n';
+        cuerpo += '\n' + mensaje + '\n\n';
+        cuerpo += '---\n';
+        cuerpo += 'Autorizo la publicación selectiva de esta carta en El Poemario.';
+
+        const subject = '[El Poemario · Carta] ' + asunto;
+        const mailto =
+          'mailto:contacto@elpoemario.com' +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(cuerpo);
+
+        previewAsunto.textContent = subject;
+        previewCuerpo.textContent = cuerpo;
+        previewMailto.setAttribute('href', mailto);
+        previewFeedback.textContent = '';
+
+        preview.hidden = false;
+        preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      previewCopiar.addEventListener('click', async function () {
+        const texto =
+          'Para: contacto@elpoemario.com\n' +
+          'Asunto: ' + previewAsunto.textContent + '\n\n' +
+          previewCuerpo.textContent;
+        try {
+          await navigator.clipboard.writeText(texto);
+          previewFeedback.textContent = 'Mensaje copiado. Pégalo en un correo nuevo.';
+        } catch (err) {
+          const range = document.createRange();
+          range.selectNodeContents(previewCuerpo);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          previewFeedback.textContent =
+            'No pude copiar automáticamente. El mensaje quedó seleccionado: pulsa Ctrl+C (o Cmd+C).';
+        }
+      });
+    })();
+  </script>
+</Base>
+
+<style>
+  .correspondencia {
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .prose {
+    max-width: var(--measure);
+    margin-inline: auto;
+    margin-bottom: var(--space-2xl);
+  }
+  .prose p {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    line-height: var(--line-height-body);
+    margin-bottom: var(--space-md);
+    color: var(--text);
+  }
+  .prose a {
+    color: var(--link);
+  }
+
+  /* --- Form --- */
+  .carta-form {
+    max-width: var(--measure);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+  }
+  .campo > label,
+  .campo > legend {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .campo .opcional {
+    text-transform: none;
+    letter-spacing: normal;
+    font-family: inherit;
+    font-size: 0.85em;
+    color: var(--text-soft);
+    font-style: italic;
+  }
+  .campo .ayuda {
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    font-style: italic;
+    color: var(--text-soft);
+    line-height: var(--line-height-body);
+    margin-top: 0.2em;
+  }
+  .campo .error {
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    color: var(--accent);
+    line-height: var(--line-height-body);
+    margin: 0.3em 0 0;
+    padding: 0.5em 0.75em;
+    border-left: 3px solid var(--accent);
+    background: rgba(224, 122, 95, 0.10);
+  }
+
+  /* Inputs: dark-mode adapted. Light ivory fill on dark bg so the field
+     reads as "editable surface" rather than disappearing into the page. */
+  .campo input[type='text'],
+  .campo textarea {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    padding: 0.75em 0.9em;
+    min-height: 48px;
+    background: var(--bg-elevated);
+    color: var(--text);
+    border: 1.5px solid var(--rule);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+    outline-offset: 2px;
+    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .campo input[type='text']::placeholder,
+  .campo textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+    font-style: normal;
+  }
+  .campo input[type='text']:hover,
+  .campo textarea:hover {
+    background: #2A2440;
+    border-color: var(--accent);
+  }
+  .campo input[type='text']:focus,
+  .campo textarea:focus {
+    background: #2A2440;
+    border-color: var(--accent);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px rgba(224, 122, 95, 0.25);
+    outline: none;
+  }
+  .campo input[aria-invalid='true'] {
+    border-color: var(--accent);
+    background: rgba(224, 122, 95, 0.06);
+  }
+  .campo input[readonly] {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--bg-soft);
+    box-shadow: none;
+  }
+  .campo textarea {
+    resize: vertical;
+    min-height: 12em;
+    line-height: var(--line-height-body);
+  }
+
+  fieldset.campo {
+    border: 1px solid var(--rule);
+    padding: var(--space-md);
+    border-radius: 2px;
+  }
+  fieldset.campo legend {
+    padding: 0 0.5em;
+  }
+  .radio,
+  .checkbox {
+    display: flex;
+    gap: 0.7em;
+    align-items: flex-start;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: var(--line-height-body);
+    cursor: pointer;
+    padding: 0.4em 0;
+    min-height: 44px;
+    color: var(--text);
+  }
+  .radio input,
+  .checkbox input {
+    margin-top: 0.35em;
+    flex-shrink: 0;
+    width: 1.1em;
+    height: 1.1em;
+    cursor: pointer;
+    accent-color: var(--oro);
+  }
+
+  .consent {
+    padding: var(--space-md);
+    border: 1px dashed var(--rule);
+    border-radius: 2px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-top: var(--space-md);
+  }
+
+  .enviar {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.85em 2em;
+    min-height: 44px;
+    background: var(--oro-texto);
+    color: var(--bg);
+    border: 1px solid var(--oro-texto);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .enviar:hover,
+  .enviar:focus {
+    background: var(--bg);
+    color: var(--oro-texto);
+  }
+  .enviar.secundario {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--text);
+  }
+  .enviar.secundario:hover,
+  .enviar.secundario:focus {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  /* --- Preview --- */
+  .preview {
+    max-width: var(--measure);
+    margin-inline: auto;
+    margin-top: var(--space-2xl);
+  }
+  .preview h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    text-align: center;
+    margin: var(--space-lg) 0 var(--space-md);
+    color: var(--text);
+  }
+  .preview-intro {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    line-height: var(--line-height-body);
+    margin-bottom: var(--space-md);
+    color: var(--text);
+  }
+  .preview-meta {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4em 1em;
+    margin-bottom: var(--space-md);
+    font-size: var(--fs-md);
+  }
+  .preview-meta dt {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .preview-meta dd {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text);
+  }
+  .preview-cuerpo {
+    background: var(--bg-elevated);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: var(--space-md);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: var(--line-height-body);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 24em;
+    overflow-y: auto;
+    color: var(--text);
+  }
+  .preview-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-top: var(--space-md);
+  }
+  .preview-feedback {
+    text-align: center;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    min-height: 1.5em;
+    margin-top: var(--space-sm);
+  }
+
+  .noscript-aviso {
+    max-width: var(--measure);
+    margin-inline: auto;
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--accent);
+    font-size: var(--fs-md);
+    color: var(--text);
+  }
+
+  @media (max-width: 640px) {
+    .preview-actions {
+      flex-direction: column;
+    }
+    .preview-actions .enviar {
+      width: 100%;
+    }
+  }
+</style>

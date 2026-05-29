@@ -1,0 +1,45 @@
+---
+// Renders the letter attribution line on a correspondencia entry detail
+// page. Adapted from Fabulario: links to /poemas/ instead of /fabulas/,
+// uses Poemario token names (no --color- prefix).
+interface Props {
+  remitente: string;
+  poemaTitulo?: string;
+  poemaSlug?: string;
+}
+const { remitente, poemaTitulo, poemaSlug } = Astro.props;
+---
+
+<p class="carta-attribution">
+  Carta de <strong>{remitente}</strong>{poemaTitulo && poemaSlug && (
+    <>
+      , sobre <a href={`/poemas/${poemaSlug}/`}>«{poemaTitulo}»</a>
+    </>
+  )}
+</p>
+
+<style>
+  .carta-attribution {
+    text-align: center;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    margin: var(--space-md) 0 0;
+  }
+  .carta-attribution strong {
+    font-style: normal;
+    font-weight: var(--fw-regular);
+    color: var(--text);
+  }
+  .carta-attribution a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: var(--rule-hairline) solid var(--oro);
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+  .carta-attribution a:hover,
+  .carta-attribution a:focus-visible {
+    color: var(--oro-texto);
+  }
+</style>
