@@ -1,15 +1,22 @@
 ---
-titulo: "Nocturno a Rosario"
+titulo: Nocturno a Rosario
+resumen: Un poema de triste y final despedida a quien fuera el amor imposible del autor
 fecha: 2025-03-09
-ilustracion: /src/assets/uploads/777575056280780800_0.png
-borrador: true
+fecha_actualizada: 2026-05-29
+ilustracion: /src/assets/uploads/chatgpt-image-29-may-2026-17_22_26.png
+borrador: false
 tipo: verso-libre
 movimiento: romanticismo
 temas:
   - melancolia
+motivos:
+  - yo-lirico
 autor: manuel-acuna
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Originalmente intitulado Nocturno, dedicado a Rosario de la Peña y
+  Llerena. Este nocturno sirvió asimismo como la carta de suicidio de su autor.
 ---
 
 ¡Pues bien! yo necesito
@@ -139,5 +146,3 @@ la luz de mis tinieblas,
 la esencia de mis flores;
 mi lira de poeta,
 mi juventud, adiós!
-
-* Originalmente intitulado Nocturno, dedicado a Rosario de la Peña y Llerena. Este nocturno sirvió asimismo como la carta de suicidio de su autor. N. del E.
