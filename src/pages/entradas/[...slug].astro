@@ -1,0 +1,159 @@
+---
+import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CartaHeader from '../../components/CartaHeader.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import IconoEditar from '../../components/IconoEditar.astro';
+
+export async function getStaticPaths() {
+  const entradas = await getCollection('entradas', ({ data }) => !data.borrador);
+  return entradas.map((entrada) => ({
+    params: { slug: entrada.id },
+    props: entrada,
+  }));
+}
+
+type Props = CollectionEntry<'entradas'>;
+const entrada = Astro.props;
+const { titulo, fecha, ilustracion, curador, resumen, tipo, remitente, poema_referido } = entrada.data;
+const { Content } = await render(entrada);
+
+// If this is correspondence referring to a poem, resolve its title and
+// slug so CartaHeader can render the link.
+let poemaTitulo: string | undefined;
+let poemaSlug: string | undefined;
+if (tipo === 'correspondencia' && poema_referido) {
+  const p = await getEntry(poema_referido);
+  if (p) {
+    poemaTitulo = p.data.titulo;
+    poemaSlug = p.id;
+  }
+}
+
+const descripcion = resumen ?? titulo;
+---
+
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
+  <main class="page">
+    <article class="entrada" data-pagefind-body data-pagefind-meta={`tipo:${tipo}`}>
+      {ilustracion && (
+        <figure class="hero-image">
+          <img
+            src={ilustracion}
+            alt=""
+            width="1200"
+            height="800"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      )}
+
+      <header class="title">
+        <h1>{titulo}</h1>
+        <p class="fecha">
+          <FormattedDate date={fecha} />
+        </p>
+        {tipo === 'correspondencia' && remitente && (
+          <CartaHeader
+            remitente={remitente}
+            poemaTitulo={poemaTitulo}
+            poemaSlug={poemaSlug}
+          />
+        )}
+      </header>
+
+      <hr class="ornate" />
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      {curador && (
+        <p class="curaduria">
+          Por <strong data-pagefind-meta="author">{curador}</strong>.
+        </p>
+      )}
+    </article>
+  </main>
+
+  <IconoEditar slug={entrada.id} coleccion="entradas" />
+</Base>
+
+<style>
+  .entrada {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-block: var(--space-2xl);
+  }
+  .hero-image {
+    margin: 0 0 var(--space-2xl);
+  }
+  .hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border: var(--rule-hairline) solid var(--oro);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    color: var(--text);
+    text-wrap: balance;
+    letter-spacing: 0.04em;
+  }
+  .fecha {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin: 0;
+  }
+  .prose {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    line-height: var(--line-height-body);
+    color: var(--text);
+  }
+  .prose :global(p) {
+    margin: 0 0 var(--space-md);
+    hyphens: auto;
+  }
+  .prose :global(h2) {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    margin: var(--space-xl) 0 var(--space-md);
+    color: var(--text);
+  }
+  .prose :global(blockquote) {
+    margin: var(--space-lg) 0;
+    padding-inline: var(--space-md);
+    border-left: 2px solid var(--coral);
+    font-style: italic;
+    color: var(--text-soft);
+  }
+  .prose :global(a) {
+    color: var(--link);
+  }
+  .curaduria {
+    text-align: center;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-md);
+    border-top: var(--rule-hairline) solid var(--oro);
+  }
+  .curaduria strong {
+    font-style: normal;
+    color: var(--text);
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+// Tabs filter for the entries section: "Todas" (all) and "Solo cartas"
+// (correspondence only). Adapted from Fabulario to use the Poemario
+// token names (no --color- prefix).
+interface Props {
+  activa: 'todas' | 'cartas';
+}
+const { activa } = Astro.props;
+
+const claseTodas = activa === 'todas' ? 'tab active' : 'tab';
+const claseCartas = activa === 'cartas' ? 'tab active' : 'tab';
+const ariaTodas = activa === 'todas' ? 'page' : undefined;
+const ariaCartas = activa === 'cartas' ? 'page' : undefined;
+---
+
+<nav class="entradas-tabs" aria-label="Filtrar entradas">
+  <a href="/entradas/" class={claseTodas} aria-current={ariaTodas}>Todas las entradas</a>
+  <span class="tab-sep" aria-hidden="true">·</span>
+  <a href="/entradas/cartas/" class={claseCartas} aria-current={ariaCartas}>Solo cartas</a>
+</nav>
+
+<style>
+  .entradas-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0 var(--space-2xl);
+    flex-wrap: wrap;
+  }
+  .tab {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--text-soft);
+    text-decoration: none;
+    padding-block: var(--space-2xs);
+    border-bottom: 2px solid transparent;
+    transition:
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .tab:hover,
+  .tab:focus-visible {
+    color: var(--oro-texto);
+  }
+  .tab.active {
+    color: var(--text);
+    border-bottom-color: var(--oro);
+  }
+  .tab-sep {
+    color: var(--oro);
+    font-family: var(--font-display);
+  }
+</style>
