@@ -18,8 +18,8 @@ const {
   id,
   nombre,
   tipo,
-  fecha_nacimiento,
-  fecha_muerte,
+  nacimiento,
+  muerte,
   imagen,
   tambien_en,
 } = props;
@@ -29,8 +29,8 @@ const {
 // convention — sensible: living collaborators have birth dates but not
 // death dates.
 const anios =
-  tipo === 'clasico' && fecha_nacimiento && fecha_muerte
-    ? `${fecha_nacimiento.getUTCFullYear()}–${fecha_muerte.getUTCFullYear()}`
+  tipo === 'clasico' && nacimiento && muerte
+    ? `${nacimiento}–${muerte}`
     : null;
 
 // Sibling-portal cross-link. Mapping is local: only two valid values.

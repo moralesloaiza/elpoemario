@@ -200,8 +200,9 @@ collections:
         options: [clasico, colaborador]
         default: clasico
       - { label: "Descripción", name: descripcion, widget: text }
-      - { label: "Fecha de nacimiento", name: fecha_nacimiento, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
-      - { label: "Fecha de muerte", name: fecha_muerte, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { label: "Nacionalidad", name: nacionalidad, widget: string, required: false, hint: "Adjetivo gentilicio con género. Ej.: Venezolano, Cubana, Mexicano." }
+      - { label: "Año de nacimiento", name: nacimiento, widget: number, value_type: int, min: 0, max: 2100, required: false }
+      - { label: "Año de muerte", name: muerte, widget: number, value_type: int, min: 0, max: 2100, required: false }
       - { label: "Lugar de nacimiento", name: lugar_nacimiento, widget: string, required: false }
       - { label: "Lugar de muerte", name: lugar_muerte, widget: string, required: false }
       - { label: "Imagen", name: imagen, widget: image, required: false }

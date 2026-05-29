@@ -28,6 +28,12 @@ const optionalUrl = () =>
     z.string().url().optional(),
   );
 
+const optionalInt = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.coerce.number().int().optional(),
+  );
+
 const poemas = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/poemas' }),
   schema: z.object({
@@ -78,8 +84,15 @@ const autores = defineCollection({
     nombre: z.string(),
     tipo: z.enum(['clasico', 'colaborador']),
     descripcion: z.string(),
-    fecha_nacimiento: optionalDate(),
-    fecha_muerte: optionalDate(),
+    // Adjective form ("Venezolano", "Mexicana"). Mirrors El Fabulario.
+    // Optional because anonymous authors have no nationality.
+    nacionalidad: optionalString(),
+    // Birth/death years as integers. Day/month precision was unjustified:
+    // most corpus authors only have year-level data and writing "1836-01-01"
+    // for "born in 1836" is a typographic lie. Mirrors El Fabulario's
+    // nacimiento/muerte schema.
+    nacimiento: optionalInt(),
+    muerte: optionalInt(),
     lugar_nacimiento: optionalString(),
     lugar_muerte: optionalString(),
     imagen: optionalString(),

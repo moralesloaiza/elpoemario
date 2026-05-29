@@ -65,10 +65,10 @@ const site = Astro.site!;
 const jsonLd = buildPoemaJsonLd(props as Props, autor, traductor, site);
 
 // Author dates: "1836–1870" only if both years are known.
-const fnac = autor.data.fecha_nacimiento;
-const fmue = autor.data.fecha_muerte;
+const fnac = autor.data.nacimiento;
+const fmue = autor.data.muerte;
 const anios = fnac && fmue
-  ? `${fnac.getUTCFullYear()}–${fmue.getUTCFullYear()}`
+  ? `${fnac}–${fmue}`
   : null;
 
 // Curator note: inline Markdown (no <p> wrapper, sits inside a <p>).

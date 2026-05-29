@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { autor, conteo } = Astro.props;
-const { nombre, tipo, fecha_nacimiento, fecha_muerte, imagen } = autor.data;
+const { nombre, tipo, nacimiento, muerte, imagen } = autor.data;
 
 // Display rubric for tipo. Mirrors PoemaCard.card-tipo position and style:
 // small uppercase label above the name, primary disambiguator for an
@@ -19,8 +19,8 @@ const tipoLabel = tipo === 'clasico' ? 'CLÁSICO' : 'COLABORADOR';
 // Autor.astro — living collaborators have a birth date but no death date,
 // so we suppress the dash to avoid a misleading "1980–" string.
 const anios =
-  tipo === 'clasico' && fecha_nacimiento && fecha_muerte
-    ? `${fecha_nacimiento.getUTCFullYear()}–${fecha_muerte.getUTCFullYear()}`
+  tipo === 'clasico' && nacimiento && muerte
+    ? `${nacimiento}–${muerte}`
     : null;
 
 // Published-poem count. "—" for zero (author exists but has no poems yet),
