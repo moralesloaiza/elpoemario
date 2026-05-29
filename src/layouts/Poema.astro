@@ -40,6 +40,7 @@ const {
   temas,
   motivos,
   autor: autorRef,
+  traductor: traductorRef,
   curador,
   nota_curador,
 } = props;
@@ -50,9 +51,18 @@ if (!autor) {
   throw new Error(`Poema "${id}" referencia autor inexistente: ${autorRef.id}`);
 }
 
+// Resolve optional translator entry. Zod has already validated the
+// reference exists; we still guard against an unexpected null return.
+const traductor = traductorRef ? await getEntry(traductorRef) : null;
+if (traductorRef && !traductor) {
+  throw new Error(
+    `Poema "${id}" referencia traductor inexistente: ${traductorRef.id}`,
+  );
+}
+
 // JSON-LD for the Poem entity.
 const site = Astro.site!;
-const jsonLd = buildPoemaJsonLd(props as Props, autor, site);
+const jsonLd = buildPoemaJsonLd(props as Props, autor, traductor, site);
 
 // Author dates: "1836–1870" only if both years are known.
 const fnac = autor.data.fecha_nacimiento;
@@ -129,6 +139,11 @@ const siguiente = siguienteEntry
         <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
         {anios && <span class="poema-anios"> · {anios}</span>}
       </p>
+      {traductor && (
+        <p class="poema-traductor">
+          Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
+        </p>
+      )}
       <hr class="ornate" />
     </header>
 
@@ -214,6 +229,15 @@ const siguiente = siguienteEntry
           </dd>
         </div>
 
+        {traductor && (
+          <div class="taxo-grupo">
+            <dt>Traductor</dt>
+            <dd>
+              <a href={`/autores/${traductor.id}/`} class="chip">{traductor.data.nombre}</a>
+            </dd>
+          </div>
+        )}
+
         <div class="taxo-grupo">
           <dt>Ayuda</dt>
           <dd>
@@ -288,6 +312,22 @@ const siguiente = siguienteEntry
     font-style: normal;
     color: var(--text-muted);
     font-size: var(--fs-sm);
+  }
+  .poema-traductor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin: var(--space-2xs) 0 0;
+  }
+  .poema-traductor a {
+    color: inherit;
+    border-bottom-color: transparent;
+  }
+  .poema-traductor a:hover,
+  .poema-traductor a:focus-visible {
+    color: var(--link-hover);
+    border-bottom-color: currentColor;
   }
 
   /* ── Body (verse and prose-poetry) ───────────────────────────────── */

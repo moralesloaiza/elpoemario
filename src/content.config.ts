@@ -58,6 +58,13 @@ const poemas = defineCollection({
       z.array(z.enum(MOTIVOS)).default([]),
     ),
     autor: reference('autores'),
+    // Optional translator. Used when the poem is a translation; the
+    // referenced author entry represents whoever rendered the text into
+    // Spanish. Decap writes "" or null when the relation is cleared.
+    traductor: z.preprocess(
+      (v) => (v === '' || v === null ? undefined : v),
+      reference('autores').optional(),
+    ),
     curador: z.string().default('Don Alejandro'),
     es_seudonimo: z.boolean().default(true),
     nombre_real: optionalString(),

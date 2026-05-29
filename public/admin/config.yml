@@ -166,6 +166,15 @@ collections:
         value_field: "{{slug}}"
         search_fields: [nombre]
         display_fields: [nombre]
+      - label: "Traductor"
+        name: traductor
+        widget: relation
+        collection: autores
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: [nombre]
+        required: false
+        hint: "Solo para poemas traducidos. La ficha del traductor debe existir previamente en la colección Autores."
       - { label: "Curador", name: curador, widget: string, default: "Don Alejandro" }
       - { label: "Es seudónimo", name: es_seudonimo, widget: boolean, default: true }
       - { label: "Nombre real", name: nombre_real, widget: string, required: false }
