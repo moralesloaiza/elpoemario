@@ -7,8 +7,8 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: "public/img"
-public_folder: "/img"
+media_folder: "src/assets/uploads"
+public_folder: "/src/assets/uploads"
 
 site_url: https://elpoemario.com
 display_url: https://elpoemario.com
@@ -26,8 +26,6 @@ collections:
     identifier_field: titulo
     extension: md
     format: frontmatter
-    media_folder: "/public/img/poemas"
-    public_folder: "/img/poemas"
     fields:
       - { label: "Título", name: titulo, widget: string }
       - { label: "Resumen", name: resumen, widget: text, required: false }
@@ -190,8 +188,6 @@ collections:
     identifier_field: nombre
     extension: md
     format: frontmatter
-    media_folder: "/public/img/autores"
-    public_folder: "/img/autores"
     fields:
       - { label: "Nombre", name: nombre, widget: string }
       - label: "Tipo"
@@ -240,7 +236,7 @@ collections:
       - { name: "fecha", label: "Fecha de publicación", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { name: "fecha_actualizada", label: "Fecha de actualización", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
       - { name: "resumen", label: "Resumen", widget: "text", required: false }
-      - { name: "ilustracion", label: "Ilustración", widget: "string", required: false, hint: "Ruta absoluta a la imagen en /public, ej.: /entradas/mi-nota.webp" }
+      - { name: "ilustracion", label: "Ilustración", widget: "image", required: false }
       - { name: "borrador", label: "Borrador", widget: "boolean", default: false }
 
       # --- Firma del curador ---

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
 import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
 import { TIPOS_DISPLAY } from '../utils/taxonomia';
@@ -22,13 +23,13 @@ const tipoLabel = TIPOS_DISPLAY[tipo];
 <article class="card">
   <figure class:list={['card-img', { 'con-ornamento': !ilustracion }]}>
     {ilustracion ? (
-      <img
+      <Image
         src={ilustracion}
         alt=""
         loading="lazy"
         decoding="async"
-        width="900"
-        height="600"
+        width={900}
+        height={600}
       />
     ) : (
       <OrnamentoTarjeta />

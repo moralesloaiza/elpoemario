@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import CartaHeader from '../../components/CartaHeader.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -38,11 +39,11 @@ const descripcion = resumen ?? titulo;
     <article class="entrada" data-pagefind-body data-pagefind-meta={`tipo:${tipo}`}>
       {ilustracion && (
         <figure class="hero-image">
-          <img
+          <Image
             src={ilustracion}
             alt=""
-            width="1200"
-            height="800"
+            width={1200}
+            height={800}
             loading="eager"
             decoding="async"
           />

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import { marked } from 'marked';
 
 import Base from './Base.astro';
@@ -122,13 +123,13 @@ const siguiente = siguienteEntry
   <article class="poema" lang="es" data-pagefind-body>
     {ilustracion && (
       <figure class="poema-ilustracion">
-        <img
+        <Image
           src={ilustracion}
           alt=""
           loading="eager"
           decoding="async"
-          width="1200"
-          height="800"
+          width={1200}
+          height={800}
         />
       </figure>
     )}
