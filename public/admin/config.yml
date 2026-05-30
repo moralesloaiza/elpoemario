@@ -21,6 +21,8 @@ collections:
     label: "Poemas"
     label_singular: "Poema"
     folder: "src/content/poemas"
+    media_folder: "../../assets/uploads"
+    public_folder: "../../assets/uploads"
     create: true
     slug: "{{slug}}"
     identifier_field: titulo
@@ -183,6 +185,8 @@ collections:
     label: "Autores"
     label_singular: "Autor"
     folder: "src/content/autores"
+    media_folder: "../../assets/uploads"
+    public_folder: "../../assets/uploads"
     create: true
     slug: "{{slug}}"
     identifier_field: nombre
@@ -215,6 +219,8 @@ collections:
     label_singular: "Entrada"
     identifier_field: "titulo"
     folder: "src/content/entradas"
+    media_folder: "../../assets/uploads"
+    public_folder: "../../assets/uploads"
     create: true
     slug: "{{slug}}"
     preview_path: "entradas/{{slug}}"
