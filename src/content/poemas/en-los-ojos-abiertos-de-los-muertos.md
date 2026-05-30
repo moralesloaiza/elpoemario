@@ -1,7 +1,7 @@
-﻿---
-titulo: "En los ojos abiertos de los muertos"
+---
+titulo: En los ojos abiertos de los muertos
 fecha: 2025-11-01
-ilustracion: ../../assets/uploads/799023880422490112_0.png
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-10_50_50.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
@@ -12,7 +12,7 @@ temas:
   - muerte
   - poesia-misma
 autor: jaime-sabines
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
