@@ -128,12 +128,39 @@ const entradas = defineCollection({
 });
 
 const destacado = defineCollection({
-  loader: glob({ pattern: 'actual.md', base: './src/content/destacado' }),
-  schema: z.object({
-    tipo: z.enum(['poema', 'entrada', 'autor']),
-    referencia: z.string(),
-    nota: optionalString(),
-  }),
-});
+  loader: glob({ pattern: '*.md', base: './src/content/destacado' }),
+  schema: z
+    .object({
+      activo: z.boolean().default(true),
+      cintillo: z.string(),
+      tipo: z.enum(['poema', 'entrada', 'autor']),
+      poema_referido: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        reference('poemas').optional(),
+      ),
+      entrada_referida: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        reference('entradas').optional(),
+      ),
+      autor_referido: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        reference('autores').optional(),
+      ),
+    })
+    .refine(
+      (data) => {
+        if (!data.activo) return true;
+        if (data.tipo === 'poema') return data.poema_referido !== undefined;
+        if (data.tipo === 'entrada') return data.entrada_referida !== undefined;
+        if (data.tipo === 'autor') return data.autor_referido !== undefined;
+        return false;
+      },
+      {
+        message:
+          'Cuando `activo: true`, debes seleccionar el elemento referido del tipo correspondiente.',
+        path: ['tipo'],
+      },
+    ),
+});;
 
 export const collections = { poemas, autores, entradas, destacado };

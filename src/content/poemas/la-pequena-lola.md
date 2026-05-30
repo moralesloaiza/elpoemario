@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La pequeña Lola"
 fecha: 2025-02-12
-ilustracion: /src/assets/uploads/775283633552556032_0.png
+ilustracion: ../../assets/uploads/775283633552556032_0.png
 borrador: true
 tipo: verso-libre
 temas:

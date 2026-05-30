@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Te quiero"
 fecha: 2012-10-04
-ilustracion: /src/assets/uploads/32872684982_0.jpg
+ilustracion: ../../assets/uploads/32872684982_0.jpg
 borrador: true
 tipo: verso-libre
 movimiento: contemporaneo

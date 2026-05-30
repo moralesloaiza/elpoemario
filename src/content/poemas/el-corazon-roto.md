@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "El corazón roto"
 fecha: 2011-10-26
-ilustracion: /src/assets/uploads/11970496894_0.jpg
+ilustracion: ../../assets/uploads/11970496894_0.jpg
 borrador: true
 tipo: verso-libre
 movimiento: modernismo

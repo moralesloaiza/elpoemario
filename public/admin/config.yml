@@ -276,15 +276,49 @@ collections:
       # --- Cuerpo ---
       - { name: "body", label: "Cuerpo", widget: "markdown", hint: "Para correspondencia: usa '## Carta' y '## Respuesta' como encabezados de las dos secciones." }
 
-  - name: destacado
-    label: "Destacado"
+  - name: "destacado"
+    label: "Destacado de la home"
+    description: "Singleton: el elemento curado que aparece destacado en la home. Solo uno activo a la vez. Polimórfico (poema, entrada o autor)."
     files:
-      - name: actual
+      - name: "actual"
         label: "Destacado actual"
         file: "src/content/destacado/actual.md"
         fields:
-          - label: "Tipo de referencia"
-            name: tipo
-            widget: select
-            options: [poema, entrada, autor]
-          - { label: "Slug referenciado", name: referencia, widget: string, hint: "Slug exacto del poema, entrada o autor." }
+          - { name: "activo", label: "Activo", widget: "boolean", default: true, hint: "Desmarca para apagar el destacado sin borrar la referencia." }
+          - { name: "cintillo", label: "Cintillo (texto sobre el título)", widget: "string", hint: "Texto editorial breve. Se renderiza en mayúsculas. Ejemplos: 'En portada', 'Poema del mes', 'El curador recomienda'." }
+          - name: "tipo"
+            label: "Tipo de destacado"
+            widget: "select"
+            required: true
+            default: "poema"
+            options:
+              - { label: "Poema", value: "poema" }
+              - { label: "Entrada", value: "entrada" }
+              - { label: "Autor", value: "autor" }
+          - name: "poema_referido"
+            label: "Poema"
+            widget: "relation"
+            collection: "poemas"
+            value_field: "{{slug}}"
+            search_fields: ["titulo"]
+            display_fields: ["titulo"]
+            required: false
+            hint: "Selecciona si Tipo = Poema. El poema debe tener ilustración."
+          - name: "entrada_referida"
+            label: "Entrada"
+            widget: "relation"
+            collection: "entradas"
+            value_field: "{{slug}}"
+            search_fields: ["titulo"]
+            display_fields: ["titulo"]
+            required: false
+            hint: "Selecciona si Tipo = Entrada. La entrada debe tener ilustración."
+          - name: "autor_referido"
+            label: "Autor"
+            widget: "relation"
+            collection: "autores"
+            value_field: "{{slug}}"
+            search_fields: ["nombre"]
+            display_fields: ["nombre"]
+            required: false
+            hint: "Selecciona si Tipo = Autor. El autor debe tener retrato."

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Don Anselmo"
 fecha: 2013-08-08
-ilustracion: /src/assets/uploads/57749496808_0.jpg
+ilustracion: ../../assets/uploads/57749496808_0.jpg
 borrador: true
 tipo: verso-libre
 movimiento: contemporaneo
