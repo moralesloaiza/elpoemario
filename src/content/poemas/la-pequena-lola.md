@@ -1,16 +1,19 @@
-﻿---
-titulo: "La pequeña Lola"
+---
+titulo: La pequeña Lola
 fecha: 2025-02-12
-ilustracion: ../../assets/uploads/775283633552556032_0.png
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-15_04_41.png
 borrador: false
 tipo: verso-libre
+movimiento: popular-tradicional
 temas:
   - poesia-misma
 autor: anonimo
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: "Tomado de El mundo de los niños: poemas y cuentos (Salvat
+  Editores), donde figura sin autor."
 ---
-
 Cuando el salón barre la pequeña Lola,
 mejor que barrer, baila con la escoba.
 
@@ -31,5 +34,3 @@ el polvo enemigo va quedando atrás.
 
 Cuando el salón barre la pequeña Lola,
 más limpio que el oro lo deja su escoba.
-
-De El mundo de los niños: Poemas y cuentos (Salvat Editores)
