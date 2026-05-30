@@ -1,15 +1,22 @@
 ---
-titulo: "Existes"
+titulo: Existes
 fecha: 2025-03-05
+fecha_actualizada: 2026-05-30
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_30_23.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
-temas: [amor, deseo, dolor]
-motivos: [amada, yo-lirico]
+temas:
+  - amor
+  - deseo
+  - dolor
+motivos:
+  - amada
+  - yo-lirico
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
-es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
+curador: El Poemario
+es_seudonimo: false
+nombre_real: ""
 ---
 Existen miradas que en el alma se nos posan,
 que imploran como plegaria el amor sincero;
