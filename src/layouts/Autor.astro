@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -84,13 +85,13 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 
     {imagen && (
       <figure class="autor-retrato">
-        <img
+        <Image
           src={imagen}
           alt={`Retrato de ${nombre}`}
           loading="lazy"
           decoding="async"
-          width="900"
-          height="600"
+          width={900}
+          height={600}
         />
       </figure>
     )}
