@@ -199,7 +199,7 @@ collections:
         widget: select
         options: [clasico, colaborador]
         default: clasico
-      - { label: "Descripción", name: descripcion, widget: text }
+      - { label: "Descripción (para buscadores)", name: descripcion, widget: text, required: false, hint: "Resumen breve del autor para SEO (metadatos y JSON-LD). No se muestra en la ficha; la biografía visible va en el Cuerpo." }
       - { label: "Nacionalidad", name: nacionalidad, widget: string, required: false, hint: "Adjetivo gentilicio con género. Ej.: Venezolano, Cubana, Mexicano." }
       - { label: "Año de nacimiento", name: nacimiento, widget: number, value_type: int, min: 0, max: 2100, required: false }
       - { label: "Año de muerte", name: muerte, widget: number, value_type: int, min: 0, max: 2100, required: false }

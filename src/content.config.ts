@@ -75,7 +75,7 @@ const autores = defineCollection({
     z.object({
       nombre: z.string(),
       tipo: z.enum(['clasico', 'colaborador']),
-      descripcion: z.string(),
+      descripcion: optionalString(),
       nacionalidad: optionalString(),
       nacimiento: optionalInt(),
       muerte: optionalInt(),
