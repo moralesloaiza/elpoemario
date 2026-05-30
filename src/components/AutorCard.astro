@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
 
 interface Props {
@@ -32,13 +33,13 @@ const conteoLabel =
 <article class="card">
   <figure class:list={['card-img', { 'con-ornamento': !imagen }]}>
     {imagen ? (
-      <img
+      <Image
         src={imagen}
         alt={`Retrato de ${nombre}`}
         loading="lazy"
         decoding="async"
-        width="900"
-        height="600"
+        width={900}
+        height={600}
       />
     ) : (
       <OrnamentoTarjeta />
