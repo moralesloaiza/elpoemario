@@ -2,7 +2,7 @@
 titulo: Cuando encuentres un hombre
 fecha: 2025-11-30
 fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/801658927769141249_0.png
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-10_35_07.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
