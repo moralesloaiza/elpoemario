@@ -2,7 +2,7 @@
 titulo: Existes
 fecha: 2025-03-05
 fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_30_23.png
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_36_25.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
