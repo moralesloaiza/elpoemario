@@ -1,8 +1,103 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
+import Destacado from '../components/Destacado.astro';
+import PoemaCard from '../components/PoemaCard.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_SUBTITLE, SITE_TAGLINE } from '../consts';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
+
+// Latest non-draft poems, newest first, capped at 6.
+const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
+  .slice(0, 6);
+
+// Author id→name map, so the grid renders authors without per-row awaits.
+const autoresLista = await getCollection('autores');
+const autoresPorId = new Map(autoresLista.map((a) => [a.id, a.data.nombre]));
+
+// --- Destacado (curatorial singleton) ---
+// Polymorphic: the referenced item can be a poema, an entrada or an autor.
+// We resolve the reference here and validate the target has an image — Zod
+// cannot do cross-collection lookups, so this validation lives at build time.
+const destacadoEntries = await getCollection('destacado');
+const destacadoCfg = destacadoEntries[0]; // singleton
+
+type DestacadoRender = {
+  cintillo: string;
+  imagen: import('astro').ImageMetadata;
+  alt: string;
+  titulo: string;
+  href: string;
+  autorNombre?: string;
+  fecha?: Date;
+  nacionalidad?: string;
+  anios?: string;
+};
+
+let destacado: DestacadoRender | null = null;
+
+if (destacadoCfg && destacadoCfg.data.activo) {
+  const { tipo, cintillo } = destacadoCfg.data;
+
+  if (tipo === 'poema' && destacadoCfg.data.poema_referido) {
+    const poema = await getEntry(destacadoCfg.data.poema_referido);
+    if (!poema.data.ilustracion) {
+      throw new Error(
+        `[destacado] El poema "${poema.data.titulo}" no tiene ilustración. ` +
+          `El destacado activo requiere imagen. Añade una ilustración o cambia el destacado.`,
+      );
+    }
+    const autor = await getEntry(poema.data.autor);
+    destacado = {
+      cintillo,
+      imagen: poema.data.ilustracion,
+      alt: '',
+      titulo: poema.data.titulo,
+      href: `/poemas/${poema.id}/`,
+      autorNombre: autor.data.nombre,
+      fecha: poema.data.fecha,
+    };
+  } else if (tipo === 'entrada' && destacadoCfg.data.entrada_referida) {
+    const entrada = await getEntry(destacadoCfg.data.entrada_referida);
+    if (!entrada.data.ilustracion) {
+      throw new Error(
+        `[destacado] La entrada "${entrada.data.titulo}" no tiene ilustración. ` +
+          `El destacado activo requiere imagen. Añade una ilustración o cambia el destacado.`,
+      );
+    }
+    destacado = {
+      cintillo,
+      imagen: entrada.data.ilustracion,
+      alt: '',
+      titulo: entrada.data.titulo,
+      href: `/entradas/${entrada.id}/`,
+      fecha: entrada.data.fecha,
+    };
+  } else if (tipo === 'autor' && destacadoCfg.data.autor_referido) {
+    const autor = await getEntry(destacadoCfg.data.autor_referido);
+    if (!autor.data.imagen) {
+      throw new Error(
+        `[destacado] El autor "${autor.data.nombre}" no tiene retrato. ` +
+          `El destacado activo requiere imagen. Añade un retrato o cambia el destacado.`,
+      );
+    }
+    const aniosAutor =
+      autor.data.nacimiento && autor.data.muerte
+        ? `${autor.data.nacimiento}–${autor.data.muerte}`
+        : undefined;
+    destacado = {
+      cintillo,
+      imagen: autor.data.imagen,
+      alt: `Retrato de ${autor.data.nombre}`,
+      titulo: autor.data.nombre,
+      href: `/autores/${autor.id}/`,
+      nacionalidad: autor.data.nacionalidad,
+      anios: aniosAutor,
+    };
+  }
+}
 ---
 
 <Base titulo={`${SITE_TITLE} · ${SITE_TAGLINE}`}>
@@ -11,6 +106,79 @@ import { buildWebSiteJsonLd } from '../utils/jsonld';
   <section class="hero">
     <h1>{SITE_TITLE}</h1>
     <p class="subtitulo">{SITE_SUBTITLE}</p>
+  </section>
+
+  {destacado && (
+    <Destacado
+      cintillo={destacado.cintillo}
+      imagen={destacado.imagen}
+      alt={destacado.alt}
+      titulo={destacado.titulo}
+      href={destacado.href}
+    >
+      <Fragment slot="submeta">
+        {destacado.autorNombre && destacado.fecha && (
+          <p>por {destacado.autorNombre} · <FormattedDate date={destacado.fecha} /></p>
+        )}
+        {!destacado.autorNombre && destacado.fecha && (
+          <p><FormattedDate date={destacado.fecha} /></p>
+        )}
+        {(destacado.nacionalidad || destacado.anios) && (
+          <p>{[destacado.nacionalidad, destacado.anios].filter(Boolean).join(' · ')}</p>
+        )}
+      </Fragment>
+    </Destacado>
+  )}
+
+  {ultimos.length > 0 && (
+    <section class="seccion-poemas" aria-labelledby="ultimos-titulo">
+      <h2 id="ultimos-titulo" class="seccion-titulo">Últimos poemas</h2>
+      <ul class="poemas">
+        {ultimos.map((poema) => (
+          <li>
+            <PoemaCard
+              poema={poema}
+              autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="seccion-explorar" aria-labelledby="explorar-titulo">
+    <p class="eyebrow">— Explorar —</p>
+    <h2 id="explorar-titulo" class="seccion-titulo">Sigue leyendo</h2>
+    <ul class="exploracion">
+      <li>
+        <a href="/poemas/">
+          <span class="numeral" aria-hidden="true">I</span>
+          <h3 class="titulo-explorar">Catálogo</h3>
+          <p class="descripcion-explorar">Todos los poemas.</p>
+        </a>
+      </li>
+      <li>
+        <a href="/autores/">
+          <span class="numeral" aria-hidden="true">II</span>
+          <h3 class="titulo-explorar">Autores</h3>
+          <p class="descripcion-explorar">Clásicos y colaboradores.</p>
+        </a>
+      </li>
+      <li>
+        <button type="button" class="explorar-trigger" data-buscador-trigger>
+          <span class="numeral" aria-hidden="true">III</span>
+          <h3 class="titulo-explorar">Búsqueda</h3>
+          <p class="descripcion-explorar">Por título o autor.</p>
+        </button>
+      </li>
+      <li>
+        <a href="/colaborar/">
+          <span class="numeral" aria-hidden="true">IV</span>
+          <h3 class="titulo-explorar">Colaborar</h3>
+          <p class="descripcion-explorar">¿Escribes poesía?</p>
+        </a>
+      </li>
+    </ul>
   </section>
 </Base>
 
@@ -32,5 +200,110 @@ import { buildWebSiteJsonLd } from '../utils/jsonld';
     color: var(--text-soft);
     max-width: var(--measure-narrow);
     margin: 0 auto;
+  }
+
+  .seccion-poemas {
+    margin-bottom: var(--space-2xl);
+  }
+  .seccion-titulo {
+    text-align: center;
+    font-size: var(--fs-xl);
+    margin: 0 0 var(--space-xl);
+  }
+  ul.poemas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2xl);
+    max-width: none;
+  }
+
+  .seccion-explorar {
+    text-align: center;
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--esmeralda);
+    max-width: none;
+    margin: 0 0 var(--space-2xs);
+  }
+  .seccion-explorar .seccion-titulo {
+    margin: 0 0 var(--space-xl);
+  }
+  ul.exploracion {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--space-xl);
+    row-gap: var(--space-lg);
+  }
+  ul.exploracion a,
+  ul.exploracion .explorar-trigger {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: var(--space-md) 0;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    text-align: inherit;
+    cursor: pointer;
+  }
+  .numeral {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-2xs);
+  }
+  .titulo-explorar {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+    text-transform: uppercase;
+  }
+  ul.exploracion a:hover .titulo-explorar,
+  ul.exploracion a:focus-visible .titulo-explorar,
+  ul.exploracion .explorar-trigger:hover .titulo-explorar,
+  ul.exploracion .explorar-trigger:focus-visible .titulo-explorar {
+    color: var(--oro-texto);
+  }
+  .descripcion-explorar {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    ul.exploracion {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-2xl);
+    }
+  }
+  @media (max-width: 720px) {
+    ul.poemas {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+    ul.exploracion {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-xl);
+    }
   }
 </style>

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Volverán las oscuras golondrinas"
 fecha: 2025-02-20
-ilustracion: /src/assets/uploads/776037740727894016_0.jpg
+ilustracion: ../../assets/uploads/776037740727894016_0.jpg
 borrador: true
 tipo: verso-libre
 movimiento: romanticismo

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "En los ojos abiertos de los muertos"
 fecha: 2025-11-01
-ilustracion: /src/assets/uploads/799023880422490112_0.png
+ilustracion: ../../assets/uploads/799023880422490112_0.png
 borrador: true
 tipo: verso-libre
 movimiento: contemporaneo

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Al amor"
 fecha: 2012-11-10
-ilustracion: /src/assets/uploads/35442550839_0.jpg
+ilustracion: ../../assets/uploads/35442550839_0.jpg
 borrador: true
 tipo: verso-libre
 movimiento: modernismo

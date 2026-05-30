@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La ingratitud"
 fecha: 2025-08-13
-ilustracion: /src/assets/uploads/791779457747828736_0.png
+ilustracion: ../../assets/uploads/791779457747828736_0.png
 borrador: true
 tipo: verso-libre
 temas:
