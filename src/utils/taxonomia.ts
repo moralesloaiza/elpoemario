@@ -10,7 +10,8 @@
 
 export const TIPOS = [
   'soneto', 'silva', 'romance', 'decima', 'redondilla', 'cuarteta', 'cuarteto',
-  'terceto', 'octava-real', 'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada',
+  'terceto', 'quinteto', 'sexteto', 'octava-real', 'lira', 'oda', 'elegia',
+  'egloga', 'himno', 'balada',
   'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
   'verso-libre', 'prosa-poetica',
 ] as const;
@@ -26,7 +27,7 @@ export const TEMAS = [
   'soledad', 'memoria', 'infancia', 'patria', 'exilio', 'libertad', 'justicia',
   'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
   'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
-  'paz', 'arte', 'poesia-misma', 'silencio', 'identidad',
+  'paz', 'arte', 'poesia-misma', 'silencio', 'identidad', 'deseo', 'ausencia',
 ] as const;
 
 export const MOTIVOS = [
@@ -55,6 +56,8 @@ export const TIPOS_DISPLAY: Record<Tipo, string> = {
   'cuarteta': 'Cuarteta',
   'cuarteto': 'Cuarteto',
   'terceto': 'Terceto',
+  'quinteto': 'Quinteto',
+  'sexteto': 'Sexteto',
   'octava-real': 'Octava real',
   'lira': 'Lira',
   'oda': 'Oda',
@@ -124,6 +127,8 @@ export const TEMAS_DISPLAY: Record<Tema, string> = {
   'poesia-misma': 'Poesía misma',
   'silencio': 'Silencio',
   'identidad': 'Identidad',
+  'deseo': 'Deseo',
+  'ausencia': 'Ausencia',
 };
 
 export const MOTIVOS_DISPLAY: Record<Motivo, string> = {

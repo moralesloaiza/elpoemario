@@ -6,7 +6,7 @@ descripcion: Director y curador de El Poemario. Esta ficha sirve también como
 nacionalidad: Venezolano
 nacimiento: 1985
 lugar_nacimiento: Maracaibo
-imagen: /src/assets/uploads/chatgpt-image-29-may-2026-18_04_10.png
+imagen: ../../assets/uploads/chatgpt-image-29-may-2026-18_04_10.png
 tambien_en: ""
 ---
 Editor y antólogo. Dirige El Poemario y su gemelo El Fabulario, ambos publicados bajo el seudónimo Don Alejandro.

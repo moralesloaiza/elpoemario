@@ -48,6 +48,8 @@ collections:
           - cuarteta
           - cuarteto
           - terceto
+          - quinteto
+          - sexteto
           - octava-real
           - lira
           - oda
@@ -122,6 +124,8 @@ collections:
           - poesia-misma
           - silencio
           - identidad
+          - deseo
+          - ausencia
       - label: "Motivos (figuras concretas)"
         name: motivos
         widget: select
