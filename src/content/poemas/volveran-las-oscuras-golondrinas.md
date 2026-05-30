@@ -1,14 +1,15 @@
-﻿---
-titulo: "Volverán las oscuras golondrinas"
+---
+titulo: Volverán las oscuras golondrinas
 fecha: 2025-02-20
-ilustracion: ../../assets/uploads/776037740727894016_0.jpg
+fecha_actualizada: 2026-05-30
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_52_36.png
 borrador: false
 tipo: verso-libre
 movimiento: romanticismo
 temas:
   - poesia-misma
 autor: gustavo-adolfo-becquer
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
