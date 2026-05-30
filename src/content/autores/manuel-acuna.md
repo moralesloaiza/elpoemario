@@ -7,7 +7,7 @@ nacimiento: 1849
 muerte: 1873
 lugar_nacimiento: Saltillo, Coahuila, México
 lugar_muerte: Ciudad de México, México
-imagen: ../../assets/uploads/chatgpt-image-29-may-2026-17_52_48-2-.png
+imagen: ../../assets/uploads/chatgpt-image-29-may-2026-17_52_48-1-.png
 sameAs:
   - https://es.wikipedia.org/wiki/Manuel_Acuña
 ---
