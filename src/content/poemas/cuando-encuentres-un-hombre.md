@@ -1,6 +1,7 @@
-﻿---
-titulo: "Cuando encuentres un hombre*"
+---
+titulo: Cuando encuentres un hombre
 fecha: 2025-11-30
+fecha_actualizada: 2026-05-30
 ilustracion: ../../assets/uploads/801658927769141249_0.png
 borrador: false
 tipo: verso-libre
@@ -14,10 +15,10 @@ motivos:
   - amado
 autor: nizar-qabbani
 traductor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nota_curador: Traducción al español del año 2025.
 ---
-
 Cuando encuentres a un hombre
 que convierta cada parte de tu cuerpo
 en poesía;
@@ -38,5 +39,3 @@ No importa
 si perteneces a mí o a él.
 Lo que importa
 es que pertenezcas a la poesía.
-
-*Traducción al español de don Alejandro de Morales y Loaiza, MMXXV.
