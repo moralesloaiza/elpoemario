@@ -1,16 +1,23 @@
-﻿---
-titulo: "Oda rápida"
+---
+titulo: Oda rápida
 fecha: 2025-02-05
+fecha_actualizada: 2026-05-30
+ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-15_17_03.png
 borrador: false
 tipo: oda
 movimiento: contemporaneo
-temas: [amor, deseo, desamor]
-motivos: [amada, fuego]
+temas:
+  - amor
+  - deseo
+  - desamor
+motivos:
+  - amada
+  - fuego
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
-es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
-nota_curador: "Titulada también «Raps-Oda del Marqués de Richmond»."
+curador: El Fabulario
+es_seudonimo: false
+nombre_real: ""
+nota_curador: Titulada también «Raps-Oda del Marqués de Richmond».
 ---
 Nadie adora tanto la fragancia de las flores de un día
 como el veterano seductor, hastiado ya de tanto amar,
