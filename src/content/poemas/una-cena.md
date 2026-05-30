@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Una cena"
 fecha: 2011-11-15
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: siglo-de-oro
 temas:

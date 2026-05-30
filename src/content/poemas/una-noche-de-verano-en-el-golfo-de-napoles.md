@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Una noche de verano en el Golfo de Nápoles"
 fecha: 2012-05-20
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: romanticismo
 temas:

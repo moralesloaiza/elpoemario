@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Amor de madre"
 fecha: 2011-10-28
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: realismo
 temas:

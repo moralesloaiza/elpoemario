@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Flores y nubes"
 fecha: 2012-02-08
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

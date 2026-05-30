@@ -2,7 +2,7 @@
 titulo: "Don Blas y doña Tecla"
 fecha: 2025-02-12
 ilustracion: ../../assets/uploads/776059189815590912_0.png
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - poesia-misma

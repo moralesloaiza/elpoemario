@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "El mar"
 fecha: 2011-11-03
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: romanticismo
 temas:

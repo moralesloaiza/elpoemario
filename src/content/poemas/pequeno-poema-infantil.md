@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Pequeño poema infantil"
 fecha: 2012-10-03
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

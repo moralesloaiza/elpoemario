@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "No era amor"
 fecha: 2011-10-30
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

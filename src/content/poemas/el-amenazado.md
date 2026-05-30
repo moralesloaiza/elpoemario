@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "El amenazado"
 fecha: 2011-11-01
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: vanguardia
 temas:

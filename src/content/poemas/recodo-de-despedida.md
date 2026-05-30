@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Recodo de despedida"
 fecha: 2011-11-04
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

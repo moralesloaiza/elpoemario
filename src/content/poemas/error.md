@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Error"
 fecha: 2012-03-01
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

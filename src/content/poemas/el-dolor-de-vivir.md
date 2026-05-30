@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "El dolor de vivir"
 fecha: 2012-04-01
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - amor

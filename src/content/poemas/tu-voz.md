@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Tu voz"
 fecha: 2012-02-11
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

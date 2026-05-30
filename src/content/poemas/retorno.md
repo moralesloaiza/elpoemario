@@ -2,7 +2,7 @@
 titulo: "Retorno"
 fecha: 2020-09-16
 ilustracion: ../../assets/uploads/629474341687607296_0.webp
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

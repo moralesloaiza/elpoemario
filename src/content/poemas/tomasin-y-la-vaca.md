@@ -2,7 +2,7 @@
 titulo: "Tomasín y la vaca"
 fecha: 2024-10-30
 ilustracion: ../../assets/uploads/765805849999540224_0.png
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - poesia-misma

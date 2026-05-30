@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Las uvas del tiempo"
 fecha: 2011-10-28
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

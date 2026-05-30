@@ -1,0 +1,68 @@
+---
+titulo: "Glosa del amor vedado"
+fecha: 2011-08-09
+borrador: true
+tipo: verso-libre
+movimiento: contemporaneo
+temas:
+  - dios
+  - patria
+  - poesia-misma
+  - sueno
+motivos:
+  - amada
+autor: hector-guillermo-villalobos
+curador: "Don Alejandro"
+es_seudonimo: true
+---
+
+Privarme de que te vea,
+eso, lo podrán hacer.
+Privarme de que te quiera.
+¡sólo Dios con su poder!
+
+(Cancionero Popular Venezolano).
+
+Ando solo por el mundo,
+señora, con mi destino
+y es bueno cualquier camino
+para un juglar vagabundo.
+Por eso mi pie errabundo
+abre pica en donde sea
+y mi alma no titubea,
+cara o cruz la vida entera,
+ni me cuido del que quiera
+PRIVARME DE QUE TE VEA.
+
+Porque no verte es soñarte
+más linda de lo que eres
+y entre todas las mujeres
+el trono más alto darte.
+No verte nunca es guardarte
+inédita en el querer,
+niña en lugar de mujer,
+flor que en fruto no madura.
+¡Qué me importa tu clausura!
+ESO, LO PODRÁN HACER.
+
+Este amor es como un lazo
+que nos ata y nos desata
+que aprieta, pero no mata,
+cual si de Dios fuera el brazo.
+Mira tú qué extraño caso
+el de la gente insincera,
+que quiere que yo me muera
+de sed junto al agua clara.
+Comprende que es cosa rara
+PRIVARME DE QUE TE QUIERA.
+
+Mas la suerte ya está echada
+y a volverse no hay lugar,
+que estoy resuelto a ganar
+aun con bajara marcada.
+En la puesta va, resteada,
+la ve que aún arde en mi ser,
+y en las cosas del querer
+es legar cualquier chicana,
+y esta «mano» me la gana
+¡SÓLO DIOS CON SU PODER!

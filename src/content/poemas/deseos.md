@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Deseos"
 fecha: 2011-11-04
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "No te salves"
 fecha: 2012-10-04
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

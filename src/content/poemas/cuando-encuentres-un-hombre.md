@@ -2,7 +2,7 @@
 titulo: "Cuando encuentres un hombre*"
 fecha: 2025-11-30
 ilustracion: ../../assets/uploads/801658927769141249_0.png
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

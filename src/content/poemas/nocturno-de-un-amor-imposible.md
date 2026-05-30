@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Nocturno de un amor imposible"
 fecha: 2011-10-27
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - amor

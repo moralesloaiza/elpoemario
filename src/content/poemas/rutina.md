@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Rutina"
 fecha: 2011-11-24
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

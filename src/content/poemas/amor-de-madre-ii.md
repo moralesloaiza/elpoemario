@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Amor de madre (II)"
 fecha: 2011-10-30
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: realismo
 temas:

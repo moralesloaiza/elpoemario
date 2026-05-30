@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Hermosa poesía para recitársela a papaíto en el día del Padre"
 fecha: 2012-01-28
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

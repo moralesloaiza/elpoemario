@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La oruga y la presumida"
 fecha: 2011-11-10
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: siglo-de-oro
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Para desnudar a una mujer"
 fecha: 2011-11-01
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Poema 15"
 fecha: 2012-01-07
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: vanguardia
 temas:

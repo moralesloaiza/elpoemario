@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Los irresponsables"
 fecha: 2011-10-26
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: realismo
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Te amo"
 fecha: 2012-02-07
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

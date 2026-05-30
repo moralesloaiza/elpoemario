@@ -2,7 +2,7 @@
 titulo: "El Tabaco"
 fecha: 2025-02-17
 ilustracion: ../../assets/uploads/775785762179481600_0.png
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - poesia-misma

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Hombres necios"
 fecha: 2012-05-05
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: barroco
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Glosa del amor vedado"
 fecha: 2011-08-09
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:

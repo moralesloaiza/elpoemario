@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La burla del amor"
 fecha: 2011-10-26
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: neoclasicismo
 temas:

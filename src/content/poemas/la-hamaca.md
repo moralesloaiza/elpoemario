@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La hamaca"
 fecha: 2011-10-28
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: neoclasicismo
 temas:

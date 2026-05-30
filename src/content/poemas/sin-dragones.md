@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Sin dragones"
 fecha: 2011-11-14
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - patria

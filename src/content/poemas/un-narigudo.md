@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Un narigudo"
 fecha: 2011-11-15
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: barroco
 temas:

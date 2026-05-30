@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "El evangelio del olvido"
 fecha: 2011-10-26
-borrador: true
+borrador: false
 tipo: verso-libre
 temas:
   - desamor

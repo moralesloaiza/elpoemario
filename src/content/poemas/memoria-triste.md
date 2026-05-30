@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "Memoria triste"
 fecha: 2012-02-17
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:

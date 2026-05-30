@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "A la muerte"
 fecha: 2011-12-04
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: romanticismo
 temas:

@@ -1,7 +1,7 @@
----
+﻿---
 titulo: "La niña muda"
 fecha: 2012-01-09
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
