@@ -1,15 +1,22 @@
 ---
-titulo: "Poema III"
+titulo: Poema III
 fecha: 2014-10-27
+fecha_actualizada: 2026-05-31
+ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_23_37.png
 borrador: false
 tipo: romance
 movimiento: contemporaneo
-temas: [amor, memoria, juventud]
-motivos: [amada, camino]
+temas:
+  - amor
+  - memoria
+  - juventud
+motivos:
+  - amada
+  - camino
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
-es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
+curador: El Poemario
+es_seudonimo: false
+nombre_real: ""
 ---
 Cuando tú empezaste a amarme,
 cuando yo empecé a quererte,
