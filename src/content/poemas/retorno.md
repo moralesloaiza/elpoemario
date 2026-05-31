@@ -1,7 +1,8 @@
-﻿---
-titulo: "Retorno"
+---
+titulo: Retorno
 fecha: 2020-09-16
-ilustracion: ../../assets/uploads/629474341687607296_0.webp
+fecha_actualizada: 2026-05-31
+ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_10_05.png
 borrador: false
 tipo: verso-libre
 movimiento: modernismo
@@ -9,12 +10,10 @@ temas:
   - patria
   - poesia-misma
 autor: ruben-dario
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
-Rubén Darío - Nicaragüense (1867-1916).
-
 El retorno a la tierra natal ha sido tan
 sentimental, y tan mental, y tan divino,
 que aún las gotas del alba cristalinas están
