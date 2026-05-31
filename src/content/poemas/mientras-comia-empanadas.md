@@ -14,9 +14,9 @@ motivos:
   - amada
   - luna
 autor: alejandro-de-morales-y-loaiza
-curador: Don Alejandro
-es_seudonimo: true
-nombre_real: Alejandro Morales Loaiza
+curador: El Fabulario
+es_seudonimo: false
+nombre_real: ""
 ---
 Mientras comía empanadas,
 mientras mis dientes hacían lunas en la superficie blanda,
