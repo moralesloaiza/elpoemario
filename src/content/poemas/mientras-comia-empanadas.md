@@ -1,15 +1,22 @@
 ---
-titulo: "Mientras comía empanadas"
+titulo: Mientras comía empanadas
 fecha: 2014-05-04
+fecha_actualizada: 2026-05-31
+ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_35_07.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
-temas: [amor, ausencia, alegria]
-motivos: [amada, luna]
+temas:
+  - amor
+  - ausencia
+  - alegria
+motivos:
+  - amada
+  - luna
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
+nombre_real: Alejandro Morales Loaiza
 ---
 Mientras comía empanadas,
 mientras mis dientes hacían lunas en la superficie blanda,
