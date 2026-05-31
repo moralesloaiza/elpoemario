@@ -2,7 +2,7 @@
 titulo: Poema III
 fecha: 2014-10-27
 fecha_actualizada: 2026-05-31
-ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_23_37.png
+ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_19_58.png
 borrador: false
 tipo: romance
 movimiento: contemporaneo
