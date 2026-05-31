@@ -1,15 +1,23 @@
 ---
-titulo: "No me agradezcas"
+titulo: No me agradezcas
 fecha: 2020-10-04
+fecha_actualizada: 2026-05-31
+ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_00_26.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
-temas: [amor, naturaleza, mar]
-motivos: [amada, mar-figura, barco]
+temas:
+  - amor
+  - naturaleza
+  - mar
+motivos:
+  - amada
+  - mar-figura
+  - barco
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
-es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
+curador: El Fabulario
+es_seudonimo: false
+nombre_real: ""
 ---
 Mujer, no me des las gracias por quererte,
 que no me agradece el aire al respirarlo;
