@@ -1,15 +1,13 @@
 ---
 nombre: Alejandro de Morales y Loaiza
 tipo: colaborador
-descripcion: Director y curador de los portales El Fabulario y El Poemario.
+descripcion: ""
 nacionalidad: Venezolano
 nacimiento: 1985
-lugar_nacimiento: Maracaibo
+lugar_nacimiento: Maracaibo, Zulia, Venezuela
 imagen: ../../assets/uploads/chatgpt-image-31-may-2026-22_13_41.png
 tambien_en: ""
 ---
-Alejandro *René* Morales Loaiza nació en Maracaibo, Venezuela, en 1985. Abogado de formación, locutor, político y amante de las artes desde temprana edad, encontró desde niño en la palabra, la voz y la imagen distintas formas de expresión. En 1996 recibió un reconocimiento en la 1.ª Bienal de Ljubljana, una de sus primeras experiencias públicas vinculadas al arte y la creación.
+Nació en Maracaibo en 1985. Abogado de formación, locutor y hombre de letras, encontró desde niño en la palabra escrita su forma más constante de expresión —ya en 1996 fue premiado por un grabado en la 1.ª Bienal de Liubliana—, y a ella ha vuelto siempre por encima de sus otros oficios. Su escritura ha recorrido registros muy diversos, del artículo jurídico arbitrado a la crónica, el drama, el ensayo y la ficción, firmados unas veces con su nombre y otras bajo seudónimo; su poesía y su ensayo han aparecido en publicaciones como la revista literaria *Fatum*, de la Universidad Autónoma de Baja California Sur.
 
-Su pasión central ha sido siempre escribir. A lo largo de los años ha cultivado registros diversos: desde artículos arbitrados en el ámbito jurídico hasta crónicas, ficciones, dramas, ensayos y textos literarios publicados bajo su propio nombre y también bajo pseudónimos. Esa relación con la escritura ha atravesado sus distintas etapas vitales, combinando reflexión, memoria, imaginación y una búsqueda constante por dar forma estética a la experiencia humana.
-
-Residenciado en Québec desde 2014, donde trabaja en tecnologías de información, ha desarrollado diversos portales dedicados a la cultura, la literatura y la escritura. Entre ellos destacan **El Fabulario**, dedicado a la tradición de las fábulas, y **El Poemario**, concebido como una casa digital para la poesía en lengua española. En estos proyectos confluyen su vocación literaria, su interés por la preservación cultural y su deseo de acercar al presente la belleza perdurable de la palabra escrita.
+En el Poemario reúne su poesía, en buena parte inédita, escrita a lo largo de los años como ejercicio de memoria, imaginación y búsqueda de una forma para la experiencia. Residenciado en Quebec desde 2014, es el director de esta antología y el autor del corpus con que el portal echó a andar. El Poemario es, junto a su hermano El Fabulario, su manera de acercar al presente la belleza perdurable de la palabra.
