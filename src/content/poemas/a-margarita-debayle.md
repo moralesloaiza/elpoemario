@@ -3,6 +3,7 @@ titulo: A Margarita Debayle
 fecha: 2011-10-30
 fecha_actualizada: 2026-06-05
 ilustracion: ../../assets/uploads/chatgpt-image-5-jun-2026-21_02_32.png
+spotify_url: https://open.spotify.com/episode/1YGbvP23isEK8Nq9tfxIiO?si=LPFOeWC3QsCy07xBYWeXfA
 borrador: false
 tipo: verso-libre
 movimiento: modernismo
