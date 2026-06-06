@@ -4,7 +4,7 @@ tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezolano
 nacimiento: 1892
-muerte: 1929
+muerte: 1928
 lugar_nacimiento: Manicuare, Sucre, Venezuela
 lugar_muerte: Manicuare, Sucre, Venezuela
 imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-13_30_13.png
