@@ -1,7 +1,6 @@
 ﻿---
 titulo: "Cantares"
 fecha: 2013-08-30
-ilustracion: ../../assets/uploads/59813180742_0.jpg
 borrador: false
 tipo: verso-libre
 movimiento: generacion-98

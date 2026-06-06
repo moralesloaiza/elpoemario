@@ -1,7 +1,6 @@
 ﻿---
 titulo: "Reto"
 fecha: 2012-11-11
-ilustracion: ../../assets/uploads/35527927704_0.jpg
 borrador: false
 tipo: verso-libre
 movimiento: modernismo

@@ -1,7 +1,6 @@
 ﻿---
 titulo: "Elogio de los bardos de antaño"
 fecha: 2012-12-04
-ilustracion: ../../assets/uploads/37168684746_0.jpg
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
