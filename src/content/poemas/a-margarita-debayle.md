@@ -1,19 +1,21 @@
-﻿---
-titulo: "A Margarita Debayle"
+---
+titulo: A Margarita Debayle
 fecha: 2011-10-30
+fecha_actualizada: 2026-06-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jun-2026-21_02_32.png
 borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:
   - mar
   - poesia-misma
+motivos:
+  - estrella
 autor: ruben-dario
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
-**Rubén Darío **-* Nicaragüense* (1867-1916).
-
 Margarita, está linda la mar,
 y el viento
 lleva esencia sutil de azahar;
