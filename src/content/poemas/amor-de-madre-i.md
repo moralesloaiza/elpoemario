@@ -2,7 +2,7 @@
 titulo: Amor de madre (I)
 fecha: 2026-06-06
 fecha_actualizada: 2026-06-06
-borrador: true
+borrador: false
 tipo: balada
 movimiento: realismo
 temas:
