@@ -247,6 +247,7 @@ collections:
       - { name: "fecha_actualizada", label: "Fecha de actualización", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
       - { name: "resumen", label: "Resumen", widget: "text", required: false }
       - { name: "ilustracion", label: "Ilustración", widget: "image", required: false }
+      - { name: "spotify_url", label: "Enlace a Spotify", widget: "string", required: false, pattern: ['^https://open\.spotify\.com/', 'Debe empezar con https://open.spotify.com/'] }
       - { name: "borrador", label: "Borrador", widget: "boolean", default: false }
 
       # --- Firma del curador ---
