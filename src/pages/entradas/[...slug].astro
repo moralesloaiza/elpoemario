@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection, getEntry, render } from 'astro:con
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import CartaHeader from '../../components/CartaHeader.astro';
+import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import IconoEditar from '../../components/IconoEditar.astro';
 
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<'entradas'>;
 const entrada = Astro.props;
-const { titulo, fecha, ilustracion, curador, resumen, tipo, remitente, poema_referido } = entrada.data;
+const { titulo, fecha, ilustracion, curador, resumen, tipo, remitente, poema_referido, spotify_url } = entrada.data;
 const { Content } = await render(entrada);
 
 // If this is correspondence referring to a poem, resolve its title and
@@ -69,6 +70,8 @@ const descripcion = resumen ?? titulo;
       <div class="prose">
         <Content />
       </div>
+
+      {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
       {curador && (
         <p class="curaduria">

@@ -104,6 +104,7 @@ const entradas = defineCollection({
         fecha: z.coerce.date(),
         fecha_actualizada: optionalDate(),
         ilustracion: z.optional(image()),
+        spotify_url: optionalUrl(),
         borrador: z.boolean().default(false),
         curador: z.string().default('Don Alejandro'),
         es_seudonimo: z.boolean().default(true),
