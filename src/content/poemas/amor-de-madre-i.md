@@ -22,7 +22,7 @@ nota_curador: Esta dice de dónde viene. «Balada catalana», advierte bajo el
 
 (A Ismael Valdés Vergara)
 
-### I
+### \    I
 
 Perdidamente enamorado un mozo
 de una mujer soberbia y caprichosa,
@@ -36,7 +36,7 @@ Y la amorosa fiera
 replícale altanera:
 —«¡Quiero su corazón!»
 
-### II
+### \    II
 
 Corre volando loco, llega al lecho
 donde su madre anciana está dormida,
