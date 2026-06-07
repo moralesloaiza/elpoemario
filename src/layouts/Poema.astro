@@ -76,9 +76,10 @@ const anios = fnac && fmue
 const autorNacionalidad = autor.data.nacionalidad ?? null;
 const autorSubmeta = [autorNacionalidad, anios].filter(Boolean).join(' · ');
 
-// Curator note: inline Markdown (no <p> wrapper, sits inside a <p>).
+// Curator note: block-level Markdown (paragraphs, lists, blockquotes).
+// `breaks: true` honours single newlines as <br>, matching El Fabulario.
 const notaCuradorHtml = nota_curador
-  ? (marked.parseInline(nota_curador, { async: false }) as string)
+  ? (marked.parse(nota_curador, { async: false, breaks: true }) as string)
   : null;
 
 // Curator credit (decision 11).
@@ -161,7 +162,7 @@ const siguiente = siguienteEntry
     {notaCuradorHtml && (
       <aside class="nota-curador" aria-label={`Nota de ${curador}`}>
         <p class="nota-curador-rotulo">Nota de {curador}</p>
-        <p class="nota-curador-texto" set:html={notaCuradorHtml}></p>
+        <div class="nota-curador-texto" set:html={notaCuradorHtml}></div>
       </aside>
     )}
 
@@ -411,11 +412,40 @@ const siguiente = siguienteEntry
   }
   .nota-curador-texto {
     font-family: var(--font-body);
-    font-style: italic;
     font-size: var(--fs-base);
-    line-height: var(--line-height-body);
     color: var(--text-soft);
-    margin: 0;
+  }
+  .nota-curador-texto :global(p) {
+    font-style: italic;
+    line-height: var(--line-height-body);
+    margin: 0 0 var(--space-sm);
+  }
+  .nota-curador-texto :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  /* Inside an italic note, <em> flips to roman so emphasis stays visible. */
+  .nota-curador-texto :global(em) {
+    font-style: normal;
+  }
+  .nota-curador-texto :global(strong) {
+    font-weight: var(--fw-bold);
+  }
+  .nota-curador-texto :global(a) {
+    color: var(--link);
+  }
+  .nota-curador-texto :global(blockquote) {
+    margin: var(--space-sm) 0;
+    padding-inline: var(--space-md);
+    border-left: 2px solid var(--coral);
+  }
+  .nota-curador-texto :global(ul),
+  .nota-curador-texto :global(ol) {
+    margin: 0 0 var(--space-sm);
+    padding-inline-start: var(--space-lg);
+  }
+  .nota-curador-texto :global(li) {
+    font-style: italic;
+    line-height: var(--line-height-body);
   }
 
   /* ── Cierre ──────────────────────────────────────────────────────── */
