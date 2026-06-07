@@ -1,18 +1,24 @@
-﻿---
-titulo: "Amor de madre"
+---
+titulo: Amor de madre (III)
 fecha: 2011-10-28
+fecha_actualizada: 2026-06-06
 borrador: false
 tipo: verso-libre
 movimiento: realismo
 temas:
   - amor
-autor: jacinto-verdaguer
-curador: "Don Alejandro"
+  - muerte
+autor: felipe-tejera
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: >-
+  Adaptación de Felipe Tejera (1910), rama castellana de la leyenda del corazón
+  de la madre que Jacinto Verdaguer fijó en catalán.
+
+
+  La rama más dulce del árbol. Donde otras versiones cuentan el crimen, Tejera se detiene en la promesa: el tesoro que una madre ofrece antes de que la sangre hable. La misma leyenda, cantada por su lado tierno.
 ---
-
-**Jacinto Verdaguer** - *Español *(1845-1902).
-
 —Te daré rico tesoro,
 De mi eterno amor en prenda;
 Mas pide mayor ofrenda
@@ -37,7 +43,3 @@ Mas ya en el umbral sombrío
 De su amada cruel, cayó;
 Y aquel corazón gritó:
 « ¿Te has hecho daño, hijo mío? »
-
-_____________________
-
-Agradecimiento especial por el aporte a ***Tibor Barcza***.
