@@ -18,9 +18,12 @@ nota_curador: Esta dice de dónde viene. «Balada catalana», advierte bajo el
   que amaba las lenguas romances, devolvió al castellano lo que el catalán le
   había prestado.
 ---
-«Balada catalana»
+## «Balada catalana»
+
 (A Ismael Valdés Vergara)
-I
+
+### I
+
 Perdidamente enamorado un mozo
 de una mujer soberbia y caprichosa,
 gemía encadenado, sin rebozo,
@@ -32,7 +35,9 @@ Pídelas, tuyas son.»
 Y la amorosa fiera
 replícale altanera:
 —«¡Quiero su corazón!»
-II
+
+### II
+
 Corre volando loco, llega al lecho
 donde su madre anciana está dormida,
 y ¡cruel! le arranca el corazón del pecho
