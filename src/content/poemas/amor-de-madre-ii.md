@@ -1,6 +1,7 @@
-﻿---
-titulo: "Amor de madre (II)"
+---
+titulo: Amor de madre (II)
 fecha: 2011-10-30
+fecha_actualizada: 2026-06-06
 borrador: false
 tipo: verso-libre
 movimiento: realismo
@@ -11,12 +12,16 @@ temas:
 motivos:
   - amada
 autor: joaquin-dicenta
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: >-
+  Versión de Joaquín Dicenta (h. 1904) sobre la misma leyenda; la más extensa y
+  narrativa de las tres ramas.
+
+
+  Dicenta toma la leyenda y la despliega despacio, como quien no quiere perder ningún paso del horror. Es la versión que más se demora; también la que más se atreve a mirar de frente.
 ---
-
-**Joaquín Dicenta **- *Español* (1862-1917).
-
 Te adoro mi bien, decía
 lleno de insensato ardor
 un hombre a su amada un día
@@ -110,7 +115,3 @@ Y al dar en el pavimento
 ese ensangrentado lío
 murmuró con tierno acento:
 ¿Te has hecho daño, hijo mío?
-
-____________________________
-
-Agradecimiento especial a **Tibor Barcza**.
