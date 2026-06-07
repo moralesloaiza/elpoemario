@@ -1,5 +1,5 @@
-﻿---
-titulo: "Al amor"
+---
+titulo: Al amor
 fecha: 2012-11-10
 borrador: false
 tipo: verso-libre
@@ -8,8 +8,9 @@ temas:
   - amor
   - poesia-misma
 autor: manuel-gonzalez-prada
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Si eres un bien arrebatado al cielo,
