@@ -14,6 +14,7 @@ motivos:
 autor: joaquin-dicenta
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: >-
   Versión de Joaquín Dicenta (h. 1904) sobre la misma leyenda; la más extensa y
   narrativa de las tres ramas.
