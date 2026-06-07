@@ -73,6 +73,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       alt: '',
       titulo: entrada.data.titulo,
       href: `/entradas/${entrada.id}/`,
+      autorNombre: entrada.data.curador,
       fecha: entrada.data.fecha,
     };
   } else if (tipo === 'autor' && destacadoCfg.data.autor_referido) {
