@@ -182,7 +182,7 @@ collections:
       - { label: "Curador", name: curador, widget: string, default: "Don Alejandro" }
       - { label: "Es seudónimo", name: es_seudonimo, widget: boolean, default: true }
       - { label: "Nombre real", name: nombre_real, widget: string, required: false }
-      - { label: "Nota del curador", name: nota_curador, widget: text, required: false }
+      - { label: "Cuerpo del poema", name: body, widget: markdown }
       - { label: "Nota del curador", name: nota_curador, widget: markdown, required: false, hint: "Admite formato (párrafos, énfasis, listas, citas)." }
 
   - name: autores
