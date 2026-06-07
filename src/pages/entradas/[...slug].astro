@@ -67,11 +67,11 @@ const descripcion = resumen ?? titulo;
 
       <hr class="ornate" />
 
+      {spotify_url && <SpotifyEmbed url={spotify_url} />}
+
       <div class="prose">
         <Content />
       </div>
-
-      {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
       {curador && (
         <p class="curaduria">
