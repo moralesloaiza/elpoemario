@@ -365,6 +365,15 @@ const siguiente = siguienteEntry
     color: var(--text-soft);
   }
 
+  /* Verse block: shrink-to-fit to the longest line and center it
+     (like El Fabulario), capped at the reading measure so an
+     over-long line wraps instead of stretching the column. */
+  .prose--verso {
+    width: max-content;
+    max-width: min(var(--measure-narrow), 100%);
+    margin-inline: auto;
+  }
+
   /* Verse-specific: hanging indent for wrapped long lines. */
   .prose--verso :global(p) {
     margin: 0 0 1.5em;
