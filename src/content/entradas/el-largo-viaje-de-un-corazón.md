@@ -12,6 +12,7 @@ resumen: "Una misma leyenda —el corazón arrancado de la madre que, caído en
   reconociendo la deuda personal del Director con Barcza, que entre 2010 y 2013
   le fue entregando las piezas por correo."
 ilustracion: ../../assets/uploads/chatgpt-image-6-jun-2026-23_40_04.png
+spotify_url: https://open.spotify.com/episode/3tXonSc5eYmJFNaXCrjbh8?si=S69cU0SSRXeY43DhmhZmmg
 borrador: false
 curador: Alejandro de Morales y Loaiza
 es_seudonimo: true
