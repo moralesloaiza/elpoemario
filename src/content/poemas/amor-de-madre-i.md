@@ -13,10 +13,10 @@ autor: eduardo-de-la-barra
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: Esta dice de dónde viene. «Balada catalana», advierte bajo el
-  título, y con esas dos palabras nombra a Verdaguer sin nombrarlo. De la Barra,
-  que amaba las lenguas romances, devolvió al castellano lo que el catalán le
-  había prestado.
+nota_curador: Este poema dice de dónde viene. «Balada catalana», advierte bajo
+  el título, y con esas dos palabras nombra a Verdaguer sin nombrarlo. De la
+  Barra, que amaba las lenguas romances, devolvió al castellano lo que el
+  catalán le había prestado.
 ---
 ## «Balada catalana»
 
