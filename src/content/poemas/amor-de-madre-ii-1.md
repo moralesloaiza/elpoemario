@@ -17,8 +17,10 @@ nota_curador: "Esta llegó sin nombre, como llegan las leyendas verdaderas: de
   tanto repetirse, ya no recuerdan quién las dijo primero. México, 1887. El
   mismo corazón, la misma pregunta, otra voz anónima que la hizo suya."
 ---
-El corazón de una madre
-«Balada catalana»
+## El corazón de una madre
+
+### «Balada catalana»
+
 Rugiente pasión ardía
 en el alma del doncel;
 fuera de ella, nada había
