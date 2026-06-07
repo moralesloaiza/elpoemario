@@ -13,7 +13,7 @@ resumen: "Una misma leyenda —el corazón arrancado de la madre que, caído en
   le fue entregando las piezas por correo."
 ilustracion: ../../assets/uploads/chatgpt-image-6-jun-2026-23_40_04.png
 borrador: false
-curador: Alejandro de Morales y Loaiza
+curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 tipo: bitacora
