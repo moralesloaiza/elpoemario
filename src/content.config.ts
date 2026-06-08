@@ -166,4 +166,13 @@ const destacado = defineCollection({
     ),
 });;
 
-export const collections = { poemas, autores, entradas, destacado };
+const paginas = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/paginas' }),
+  schema: z.object({
+    titulo: optionalString(),
+    subtitulo: optionalString(),
+    descripcion: optionalString(),
+  }),
+});
+
+export const collections = { poemas, autores, entradas, destacado, paginas };

@@ -329,3 +329,91 @@ collections:
             display_fields: ["nombre"]
             required: false
             hint: "Selecciona si Tipo = Autor. El autor debe tener retrato."
+
+  - name: "paginas"
+    label: "Páginas"
+    description: "Textos fijos de las páginas del sitio: títulos, subtítulos, meta-descripciones y, donde aplica, el cuerpo. Un archivo por página."
+    files:
+      - name: "home"
+        label: "Inicio"
+        file: "src/content/paginas/home.md"
+        fields:
+          - { name: "titulo", label: "Lema (pestaña del navegador)", widget: "string", required: false, hint: "Aparece tras «El Poemario ·» en el título de la pestaña. No es el subtítulo visible." }
+          - { name: "subtitulo", label: "Subtítulo visible (hero)", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "poemas"
+        label: "Listado: Poemas"
+        file: "src/content/paginas/poemas.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "autores"
+        label: "Listado: Autores"
+        file: "src/content/paginas/autores.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "bitacora"
+        label: "Listado: Bitácora"
+        file: "src/content/paginas/bitacora.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "temas"
+        label: "Listado: Temas"
+        file: "src/content/paginas/temas.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "tipos"
+        label: "Listado: Formas"
+        file: "src/content/paginas/tipos.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "cartas"
+        label: "Listado: Cartas"
+        file: "src/content/paginas/cartas.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false, hint: "El enlace a «correspondencia» que sigue al subtítulo está fijado en la plantilla; no se edita aquí." }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "correspondencia"
+        label: "Correspondencia"
+        file: "src/content/paginas/correspondencia.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "body", label: "Texto de introducción", widget: "markdown", required: false, hint: "Solo la introducción sobre el formulario. El formulario está fijado en la plantilla." }
+      - name: "sobre"
+        label: "Acerca de"
+        file: "src/content/paginas/sobre.md"
+        fields:
+          - { name: "titulo", label: "Título (encabezado visible)", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "body", label: "Contenido", widget: "markdown", required: false }
+      - name: "colaborar"
+        label: "Colaborar"
+        file: "src/content/paginas/colaborar.md"
+        fields:
+          - { name: "titulo", label: "Título (encabezado visible)", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "body", label: "Contenido", widget: "markdown", required: false, hint: "Los enlaces externos abren en pestaña nueva automáticamente." }
+      - name: "buscar"
+        label: "Buscar"
+        file: "src/content/paginas/buscar.md"
+        fields:
+          - { name: "titulo", label: "Título (estado por defecto)", widget: "string", required: false, hint: "Solo se muestra cuando no hay búsqueda activa." }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "error-404"
+        label: "Página 404"
+        file: "src/content/paginas/error-404.md"
+        fields:
+          - { name: "titulo", label: "Título (encabezado visible)", widget: "string", required: false }
+          - { name: "subtitulo", label: "Texto de apoyo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }

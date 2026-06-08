@@ -5,19 +5,24 @@ import Base from '../../layouts/Base.astro';
 import EntradasTabs from '../../components/EntradasTabs.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 
+import { SITE_TITLE } from '../../consts';
+import { getPagina } from '../../utils/paginas';
+
 const entradas = (
   await getCollection('entradas', ({ data }) => !data.borrador)
 ).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+
+const pagina = await getPagina('bitacora');
 ---
 
 <Base
-  titulo="Bitácora · El Poemario"
-  descripcion="Anuncios, hitos, notas y correspondencia del Poemario."
+  titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+  descripcion={pagina.data.descripcion}
 >
   <main class="page bitacora">
     <header class="title">
-      <h1>Bitácora</h1>
-      <p class="subtitulo">Anuncios, hitos, notas y correspondencia del Poemario.</p>
+      <h1>{pagina.data.titulo}</h1>
+      <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
     <hr class="ornate" />
