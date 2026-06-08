@@ -216,6 +216,8 @@ collections:
         required: false
         field: { label: URL, name: url, widget: string }
       - { label: "También figura en (hostname)", name: tambien_en, widget: string, required: false, hint: "Ej.: elfabulario.com. El slug debe ser idéntico en ambos portales." }
+      - { label: "Usuario de GitHub", name: github_username, widget: string, required: false, hint: "Solo colaboradores. Tu handle de GitHub (sin @). Habilita el control de propiedad en los PR." }
+      - { label: "Nombre real (privado)", name: nombre_real, widget: string, required: false, hint: "Solo colaboradores que firman con seudónimo. Identidad legal; no se muestra en la ficha." }
       - { label: "Cuerpo (biografía extendida)", name: body, widget: markdown }
 
   - name: "entradas"

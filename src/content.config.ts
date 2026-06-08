@@ -91,6 +91,8 @@ const autores = defineCollection({
         z.array(z.string().url()).optional(),
       ),
       tambien_en: optionalString(),
+      github_username: optionalString(),
+      nombre_real: optionalString(),
     }),
 });
 
