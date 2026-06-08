@@ -1,59 +1,26 @@
 ﻿---
 import Base from '../layouts/Base.astro';
+import { getPagina } from '../utils/paginas';
+import { render } from 'astro:content';
 
-const titulo = 'Acerca de · El Poemario';
-const descripcion =
-  'Antología digital de poesía en español. Una colección de versos curados por D. Alejandro de Morales y Loaiza.';
+// Page heading + body come from src/content/paginas/sobre.md (editable in
+// Decap). The browser tab <title> stays hardcoded by design: the h1 already
+// contains "El Poemario", so deriving the <title> would read redundantly.
+const pagina = await getPagina('sobre');
+const { titulo, descripcion } = pagina.data;
+const { Content } = await render(pagina);
 ---
 
-<Base titulo={titulo} descripcion={descripcion}>
+<Base titulo="Acerca de · El Poemario" descripcion={descripcion}>
   <div class="sobre">
     <header class="title">
-      <h1>Acerca de El Poemario</h1>
+      <h1>{titulo}</h1>
     </header>
 
     <hr class="ornate" />
 
     <section class="prose">
-      <h2>¿Por qué un libro de poesía?</h2>
-
-      <p>
-        Escondida entre las páginas de un viejo poemario que mi madre atesora
-        en su biblioteca personal, puede leerse la siguiente dedicatoria:
-      </p>
-
-      <blockquote class="dedicatoria">
-        <p>Inés:</p>
-        <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p>
-      </blockquote>
-
-      <p>
-        Estas palabras fueron escritas de puño y letra por mi padre, y el libro
-        es el <em>Repertorio poético</em> de Luis Edgardo Ramírez. Inspirado
-        por esta gran obra, que reúne con delicado gusto las piezas líricas de
-        los más grandes bardos de habla hispana, he decidido crear este
-        espacio para reunir algunas de las poesías cuyos versos me han hecho
-        experimentar el sublime sentimiento con el que parecen haber sido
-        escritos: el amor y el dolor, la alegría y la ausencia, la ansiedad y
-        la nostalgia.
-      </p>
-
-      <p>
-        Debo advertir a mis queridísimos lectores que este libro no pretende
-        ser una herramienta más de quienes buscan algún elemento cursi que les
-        permita acortar el camino del amor hacia la negociación carnal.
-      </p>
-
-      <p>
-        Los enamorados de hoy, probablemente acostumbrados a la rima cancionera
-        que describe el amor como algo indigno y lo degrada al placer
-        inmediato, no encontrarán aquí más que una inocente selección de
-        piezas que, por su trascendencia emocional —cualquiera que esta
-        sea—, han marcado un hito importante en la literatura
-        hispanoamericana.
-      </p>
-
-      <p class="firma">D. Alejandro de Morales y Loaiza</p>
+      <Content />
     </section>
   </div>
 </Base>
@@ -74,7 +41,10 @@ const descripcion =
     max-width: var(--measure);
     margin-inline: auto;
   }
-  .prose h2 {
+  /* Body is rendered from markdown via <Content/>, so its inner elements
+     are not processed by Astro's scoped-style compiler. Target them
+     globally, anchored on the scoped .prose wrapper. */
+  .prose :global(h2) {
     font-family: var(--font-display);
     font-size: var(--fs-xl);
     font-weight: var(--fw-semibold);
@@ -82,22 +52,22 @@ const descripcion =
     margin: var(--space-xl) 0 var(--space-lg);
     text-wrap: balance;
   }
-  .prose p {
+  .prose :global(p) {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     margin-bottom: var(--space-md);
   }
-  .dedicatoria {
+  .prose :global(.dedicatoria) {
     font-style: italic;
     color: var(--text-soft);
     border-left: var(--rule-hairline) solid var(--oro);
     padding-left: var(--space-md);
     margin: var(--space-lg) 0 var(--space-lg) var(--space-md);
   }
-  .dedicatoria p:first-child {
+  .prose :global(.dedicatoria p:first-child) {
     margin-bottom: 0;
   }
-  .firma {
+  .prose :global(.firma) {
     text-align: right;
     font-style: italic;
     color: var(--oro-texto);

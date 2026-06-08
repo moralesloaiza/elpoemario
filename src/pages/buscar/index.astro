@@ -1,14 +1,21 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPagina } from '../../utils/paginas';
+
+// Default (no-query) heading from src/content/paginas/buscar.md. The "/"
+// shortcut hint stays in the template. Client JS overwrites the h1 when a
+// query is present, so this only affects the empty state.
+const pagina = await getPagina('buscar');
 ---
 
 <Base
-	titulo="Buscar · El Poemario"
-	descripcion="Buscar poemas, autores, formas, movimientos, temas y motivos en El Poemario."
+	titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+	descripcion={pagina.data.descripcion}
 >
 	<div class="serp">
 		<header class="serp-titulo">
-			<h1 data-titulo>Buscar</h1>
+			<h1 data-titulo>{pagina.data.titulo}</h1>
 			<p class="subtitulo" data-subtitulo>
 				Escribe en el campo de búsqueda del menú o pulsa <kbd>/</kbd>.
 			</p>

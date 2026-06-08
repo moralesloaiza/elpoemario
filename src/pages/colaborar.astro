@@ -1,106 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getPagina } from '../utils/paginas';
+import { render } from 'astro:content';
 
-const titulo = 'Colaborar · El Poemario';
-const descripcion =
-  'Cómo proponer y publicar poemas en El Poemario.';
+// Page heading + body come from src/content/paginas/colaborar.md (editable
+// in Decap). External links in the body open in a new tab via the global
+// rehype-external-links plugin. The browser tab <title> stays hardcoded by
+// design (the h1 already contains "El Poemario").
+const pagina = await getPagina('colaborar');
+const { titulo, descripcion } = pagina.data;
+const { Content } = await render(pagina);
 ---
 
-<Base titulo={titulo} descripcion={descripcion}>
+<Base titulo="Colaborar · El Poemario" descripcion={descripcion}>
   <div class="colaborar">
     <header class="title">
-      <h1>Colaborar con El Poemario</h1>
+      <h1>{titulo}</h1>
     </header>
 
     <hr class="ornate" />
 
     <section class="prose">
-      <p>
-        <em>El Poemario</em> recibe colaboraciones de quienes quieren sumar
-        versos —clásicos o contemporáneos— a esta antología.
-      </p>
-
-      <h2>Antes de empezar</h2>
-      <p>
-        Para colaborar necesitas una cuenta de
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>.
-        Una vez que tengamos contacto, te añado como colaborador del repositorio
-        y creo tu ficha de autor con la firma que prefieras: tu nombre real o un
-        seudónimo. Si firmas con seudónimo, conservo tu nombre real de forma
-        privada en la ficha, únicamente para fines de atribución y derechos.
-      </p>
-
-      <h2>Acceso al panel editorial</h2>
-      <p>
-        Entra a <a href="/admin/">elpoemario.com/admin</a> y pulsa
-        <em>Login with GitHub</em>. La autenticación te redirige a GitHub, autorizas
-        la aplicación y vuelves al panel.
-      </p>
-
-      <h2>Cómo se publica un poema</h2>
-      <p>
-        En el panel verás tres secciones: <strong>Poemas</strong>,
-        <strong>Entradas</strong> y <strong>Autores</strong>. Para publicar, crea un
-        poema nuevo y completa los campos del formulario. El sistema guarda tu
-        trabajo como borrador hasta que decidas enviarlo a revisión.
-      </p>
-      <p>El recorrido de un poema tiene cuatro estados:</p>
-      <ol>
-        <li><strong>Borrador</strong> — lo estás escribiendo, solo tú lo ves.</li>
-        <li><strong>En revisión</strong> — está listo para que yo lo revise.</li>
-        <li><strong>Aprobado</strong> — lo he revisado y aprobado.</li>
-        <li><strong>Publicado</strong> — al pulsar <em>Publicar</em>, el poema se integra a la rama principal y aparece en el sitio en pocos minutos.</li>
-      </ol>
-
-      <h2>Convenciones</h2>
-
-      <h3>Títulos de poemas clásicos</h3>
-      <p>
-        Si publicas un poema clásico, conservamos el título tal como aparece en
-        la edición original, aunque tenga grafías o acentuación en desuso (por
-        ejemplo, <em>«Rima LIII»</em> de Bécquer, o las formas antiguas de los
-        Siglos de Oro). No modernizamos.
-      </p>
-
-      <h3>Versos y estrofas</h3>
-      <p>
-        Escribe el poema tal como en el original. Un salto de línea simple
-        equivale a un nuevo verso; una línea en blanco, a una nueva estrofa. No
-        uses <code>&lt;br&gt;</code>.
-      </p>
-
-      <h3>Ilustración</h3>
-      <p>
-        Cada poema puede llevar una ilustración con estética Art Déco nocturna.
-        Si la tienes, súbela desde el campo <em>Ilustración</em>: proporción
-        3:2, resolución mínima 1200×800. Si no la tienes, publícalo sin ella y
-        la añadimos después.
-      </p>
-
-      <h3>Audio en Spotify</h3>
-      <p>
-        Si el poema tiene una declamación publicada en
-        <a href="https://open.spotify.com/show/033mtWcyHN6Z3STTh0xL0m" target="_blank" rel="noopener noreferrer">nuestro pódcast</a>,
-        donde reunimos recitados, análisis e historias sobre poesía, pega la URL
-        del episodio en el campo <em>Enlace a Spotify</em>. El sitio la embebe
-        automáticamente.
-      </p>
-
-      <h2>Lo que puedes editar</h2>
-      <p>
-        Solo puedes editar los poemas que llevan tu firma como curador. Para que
-        el sistema te reconozca como propietario, el <em>curador</em> de tus
-        poemas debe coincidir exactamente con el <em>nombre</em> de tu ficha de
-        autor. Al enviar tus cambios, una verificación automática lo comprueba:
-        si modificas un poema que no es tuyo, queda bloqueado.
-      </p>
-
-      <h2>¿Dudas?</h2>
-      <p>
-        Escríbeme a <a href="mailto:alejandro@elpoemario.com">alejandro@elpoemario.com</a>.
-        Estoy del otro lado para ayudar con el formato, la elección del texto, la
-        ilustración o lo que necesites.
-      </p>
+      <Content />
     </section>
   </div>
 </Base>
@@ -119,12 +40,14 @@ const descripcion =
     max-width: var(--measure);
     margin-inline: auto;
   }
-  .prose p {
+  /* Body is rendered from markdown via <Content/>; target inner elements
+     globally, anchored on the scoped .prose wrapper. */
+  .prose :global(p) {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     margin-bottom: var(--space-md);
   }
-  .prose h2 {
+  .prose :global(h2) {
     font-family: var(--font-display);
     font-size: var(--fs-xl);
     font-weight: var(--fw-semibold);
@@ -132,23 +55,23 @@ const descripcion =
     margin: var(--space-xl) 0 var(--space-lg);
     text-wrap: balance;
   }
-  .prose h3 {
+  .prose :global(h3) {
     font-family: var(--font-display);
     font-size: var(--fs-md);
     font-weight: var(--fw-semibold);
     margin-top: var(--space-lg);
     margin-bottom: var(--space-xs);
   }
-  .prose ol {
+  .prose :global(ol) {
     margin-bottom: var(--space-md);
     padding-left: 1.5em;
   }
-  .prose ol li {
+  .prose :global(ol li) {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     margin-bottom: var(--space-2xs);
   }
-  .prose code {
+  .prose :global(code) {
     font-family: ui-monospace, monospace;
     font-size: 0.9em;
     padding: 0.1em 0.3em;

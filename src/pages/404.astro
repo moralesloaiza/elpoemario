@@ -1,18 +1,18 @@
 ﻿---
 import Base from '../layouts/Base.astro';
+import { getPagina } from '../utils/paginas';
 
-const titulo = 'Página no encontrada · El Poemario';
-const descripcion = 'La página que buscabas no se encuentra en El Poemario.';
+// h1, lead and meta description from src/content/paginas/error-404.md.
+// The browser tab <title> stays hardcoded by design.
+const pagina = await getPagina('error-404');
+const { titulo, descripcion } = pagina.data;
 ---
 
-<Base titulo={titulo} descripcion={descripcion}>
+<Base titulo="Página no encontrada · El Poemario" descripcion={descripcion}>
   <div class="error-page">
     <header class="title">
-      <h1>Aquí no hay poema</h1>
-      <p class="lead">
-        La página que buscabas no se encuentra en el Poemario,
-        o quizá nunca estuvo.
-      </p>
+      <h1>{titulo}</h1>
+      <p class="lead">{pagina.data.subtitulo}</p>
     </header>
 
     <hr class="ornate" />

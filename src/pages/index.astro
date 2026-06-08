@@ -5,8 +5,14 @@ import JsonLd from '../components/JsonLd.astro';
 import Destacado from '../components/Destacado.astro';
 import PoemaCard from '../components/PoemaCard.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import { SITE_TITLE, SITE_SUBTITLE, SITE_TAGLINE } from '../consts';
+import { SITE_TITLE } from '../consts';
+import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
+
+// Home hero text from src/content/paginas/home.md (editable in Decap).
+// `titulo` here is the tagline (browser <title> suffix); the visible h1
+// is SITE_TITLE.
+const home = await getPagina('home');
 
 // Latest non-draft poems, newest first, capped at 6.
 const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
@@ -101,12 +107,12 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 }
 ---
 
-<Base titulo={`${SITE_TITLE} · ${SITE_TAGLINE}`}>
+<Base titulo={`${SITE_TITLE} · ${home.data.titulo}`} descripcion={home.data.descripcion}>
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
     <h1>{SITE_TITLE}</h1>
-    <p class="subtitulo">{SITE_SUBTITLE}</p>
+    <p class="subtitulo">{home.data.subtitulo}</p>
   </section>
 
   {destacado && (

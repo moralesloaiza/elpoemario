@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { TIPOS_DISPLAY, type Tipo } from '../../utils/taxonomia';
 
+import { SITE_TITLE } from '../../consts';
+import { getPagina } from '../../utils/paginas';
+
 const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
 
 // Count poemas per tipo (single-select, required). Only tipos with >=1
@@ -20,16 +23,18 @@ const items = Array.from(conteo.entries())
     if (b.conteo !== a.conteo) return b.conteo - a.conteo;
     return a.display.localeCompare(b.display, 'es');
   });
+
+const pagina = await getPagina('tipos');
 ---
 
 <Base
-  titulo="Formas · El Poemario"
-  descripcion="Sonetos, silvas, romances y demás formas métricas y estróficas en El Poemario."
+  titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+  descripcion={pagina.data.descripcion}
 >
   <div class="indice">
     <header class="title">
-      <h1>Formas</h1>
-      <p class="subtitulo">Sonetos, silvas, romances y demás formas métricas y estróficas.</p>
+      <h1>{pagina.data.titulo}</h1>
+      <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
     <hr class="ornate" />

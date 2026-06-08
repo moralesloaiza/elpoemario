@@ -1,32 +1,28 @@
 ﻿---
 import Base from '../../layouts/Base.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPagina } from '../../utils/paginas';
+import { render } from 'astro:content';
+
+// Intro prose comes from src/content/paginas/correspondencia.md (body),
+// editable in Decap. The form below stays in this template.
+const pagina = await getPagina('correspondencia');
+const { Content } = await render(pagina);
 ---
 
 <Base
-  titulo="Correspondencia · El Poemario"
-  descripcion="Cartas del público al curador de El Poemario. Las seleccionadas se publican en la bitácora con réplica del curador."
+  titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+  descripcion={pagina.data.descripcion}
 >
   <main class="page correspondencia">
     <header class="title">
-      <h1>Correspondencia</h1>
+      <h1>{pagina.data.titulo}</h1>
     </header>
 
     <hr class="ornate" />
 
     <section class="prose">
-      <p>
-        <em>El Poemario</em> recibe cartas de lectores: comentarios sobre
-        un poema, interpretaciones, preguntas al curador, hallazgos sobre
-        autores. Las cartas seleccionadas se publican en la
-        <a href="/entradas/cartas/">sección de cartas de la bitácora</a> con
-        la réplica del curador.
-      </p>
-      <p>
-        Para escribir, completa el formulario y pulsa <em>Preparar carta</em>.
-        Te mostraremos el mensaje listo para enviar; podrás abrirlo en tu
-        cliente de correo o copiarlo y enviarlo a mano a
-        <a href="mailto:contacto@elpoemario.com">contacto@elpoemario.com</a>.
-      </p>
+      <Content />
     </section>
 
     <form id="carta-form" class="carta-form" novalidate>
@@ -317,14 +313,16 @@ import Base from '../../layouts/Base.astro';
     margin-inline: auto;
     margin-bottom: var(--space-2xl);
   }
-  .prose p {
+/* Intro is rendered from markdown via <Content/>; target inner elements
+     globally, anchored on the scoped .prose wrapper. */
+  .prose :global(p) {
     font-family: var(--font-body);
     font-size: var(--fs-md);
     line-height: var(--line-height-body);
     margin-bottom: var(--space-md);
     color: var(--text);
   }
-  .prose a {
+  .prose :global(a) {
     color: var(--link);
   }
 

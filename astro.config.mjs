@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import pagefind from 'astro-pagefind';
 import remarkBreaks from 'remark-breaks';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,5 +19,11 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkBreaks],
+    // Global: every external http(s) link in any markdown body (poemas,
+    // entradas, curator notes, fixed pages) opens in a new tab. Internal
+    // and mailto links are untouched.
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+    ],
   },
 });
