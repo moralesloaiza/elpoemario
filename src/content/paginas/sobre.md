@@ -21,4 +21,4 @@ El paseo del **Repertorio** por distintas plataformas me permitió, además, con
 
 Esta presentación no sería completamente honesta si no mencionara a mi madre, de quien estoy seguro que escuché declamar poesía cuando aún estaba en su vientre. Ella era capaz de recitar de memoria las más bellas poesías infantiles y las sentidas canciones de Cri-Cri. A mi madre, muy enamorada y muy poco comprendida, agradezco haber compartido conmigo su tesoro más preciado: su **Repertorio poético**, quizá el único presente romántico que recibiera de manos de mi padre, quien coronase la primera página con la siguiente dedicatoria:
 
-<blockquote class="epígrade">  <p>Inés:</p>  <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p></blockquote>
+<blockquote class="epigrafe">  <p>Inés:</p>  <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p></blockquote>
