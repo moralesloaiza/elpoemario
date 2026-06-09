@@ -1,20 +1,20 @@
 ---
-titulo: "Acerca de El Poemario"
-descripcion: "Antología digital de poesía en español. Una colección de versos curados por D. Alejandro de Morales y Loaiza."
+titulo: ¿Por qué un poemario?
+descripcion: "El origen de El Poemario: de una dedicatoria escrita a mano y un
+  viejo repertorio de versos a una antología digital de poesía en lengua
+  castellana."
 ---
-## ¿Por qué un libro de poesía?
+> «El hombre sordo a la voz de la poesía es un bárbaro, venga de donde venga».
+> —Johann Wolfgang von Goethe
 
-Escondida entre las páginas de un viejo poemario que mi madre atesora en su biblioteca personal, puede leerse la siguiente dedicatoria:
+El 5 de julio de 2009 se publicó por primera vez en Blogger lo que entonces se llamó **Repertorio poético hispanoamericano**, inspirado en la obra de Luis Edgardo Ramírez. Con poca modestia y mucha ambición, el sitio aspiraba a ser lugar de encuentro para bardos, literatos y otros aficionados a la poesía en español. Aunque tuvo un buen comienzo, pasó por altos y bajos hasta resurgir, en 2026, con sitio propio y bajo el discreto título de **El Poemario**.
 
-<blockquote class="dedicatoria">
-<p>Inés:</p>
-<p>Cuando leas este libro, simplemente piensa cuánto te amo…</p>
-</blockquote>
+En sus inicios, joven y dogmático, advertía a los queridos lectores que la publicación del repertorio no obedecía a la intención de convertirse en una herramienta más para quienes buscaban algún elemento cursi que les permitiera acortar el camino del amor hacia la negociación carnal.
 
-Estas palabras fueron escritas de puño y letra por mi padre, y el libro es el *Repertorio poético* de Luis Edgardo Ramírez. Inspirado por esta gran obra, que reúne con delicado gusto las piezas líricas de los más grandes bardos de habla hispana, he decidido crear este espacio para reunir algunas de las poesías cuyos versos me han hecho experimentar el sublime sentimiento con el que parecen haber sido escritos: el amor y el dolor, la alegría y la ausencia, la ansiedad y la nostalgia.
+La tragedia de hallarme rescatando un género literario arrodillado ante la industria musical —y de ver con espanto el nacimiento de ritmos con letras denigrantes— me convirtió, quizá, en una suerte de paladín digital de la lengua y su buen uso. Presentaba entonces el repertorio como una inocente selección de piezas que, por su trascendencia emocional, habían marcado un hito importante entre los lectores hispanoamericanos.
 
-Debo advertir a mis queridísimos lectores que este libro no pretende ser una herramienta más de quienes buscan algún elemento cursi que les permita acortar el camino del amor hacia la negociación carnal.
+El paseo del **Repertorio** por distintas plataformas me permitió, además, conocer amantes y cultores líricos que me sacaron de la palabra escrita y me condujeron a la voz. Tras acumular varios pedidos de declamaciones para dedicar a alguien especial, me inicié en el arte con **A Margarita Debayle**, para la pequeña Margot, a petición de su madre, y con la **Rima LXI**, a pedido del doctor Brito Boadas. Década y media después, ese camino me llevaría a las puertas de Spotify.
 
-Los enamorados de hoy, probablemente acostumbrados a la rima cancionera que describe el amor como algo indigno y lo degrada al placer inmediato, no encontrarán aquí más que una inocente selección de piezas que, por su trascendencia emocional —cualquiera que esta sea—, han marcado un hito importante en la literatura hispanoamericana.
+Esta presentación no sería completamente honesta si no mencionara a mi madre, de quien estoy seguro que escuché declamar poesía cuando aún estaba en su vientre. Ella era capaz de recitar de memoria las más bellas poesías infantiles y las sentidas canciones de Cri-Cri. A mi madre, muy enamorada y muy poco comprendida, agradezco haber compartido conmigo su tesoro más preciado: su **Repertorio poético**, quizá el único presente romántico que recibiera de manos de mi padre, quien coronase la primera página con la siguiente dedicatoria:
 
-<p class="firma">D. Alejandro de Morales y Loaiza</p>
+<blockquote class="dedicatoria">  <p>Inés:</p>  <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p></blockquote>
