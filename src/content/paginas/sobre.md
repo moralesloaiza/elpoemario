@@ -1,11 +1,15 @@
 ---
-titulo: ¿Por qué un poemario?
+titulo: Acerca de
 descripcion: "El origen de El Poemario: de una dedicatoria escrita a mano y un
   viejo repertorio de versos a una antología digital de poesía en lengua
   castellana."
 ---
-> «El hombre sordo a la voz de la poesía es un bárbaro, venga de donde venga».
-> —Johann Wolfgang von Goethe
+## ¿Por qué un poemario?
+
+<blockquote class="epigrafe">
+  <p class="cita">«El hombre sordo a la voz de la poesía es un bárbaro, venga de donde venga».</p>
+  <p class="fuente"> —Johann Wolfgang von Goethe</p>
+</blockquote>
 
 El 5 de julio de 2009 se publicó por primera vez en Blogger lo que entonces se llamó **Repertorio poético hispanoamericano**, inspirado en la obra de Luis Edgardo Ramírez. Con poca modestia y mucha ambición, el sitio aspiraba a ser lugar de encuentro para bardos, literatos y otros aficionados a la poesía en español. Aunque tuvo un buen comienzo, pasó por altos y bajos hasta resurgir, en 2026, con sitio propio y bajo el discreto título de **El Poemario**.
 
@@ -17,4 +21,4 @@ El paseo del **Repertorio** por distintas plataformas me permitió, además, con
 
 Esta presentación no sería completamente honesta si no mencionara a mi madre, de quien estoy seguro que escuché declamar poesía cuando aún estaba en su vientre. Ella era capaz de recitar de memoria las más bellas poesías infantiles y las sentidas canciones de Cri-Cri. A mi madre, muy enamorada y muy poco comprendida, agradezco haber compartido conmigo su tesoro más preciado: su **Repertorio poético**, quizá el único presente romántico que recibiera de manos de mi padre, quien coronase la primera página con la siguiente dedicatoria:
 
-<blockquote class="dedicatoria">  <p>Inés:</p>  <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p></blockquote>
+<blockquote class="epígrade">  <p>Inés:</p>  <p>Cuando leas este libro, simplemente piensa cuánto te amo…</p></blockquote>
