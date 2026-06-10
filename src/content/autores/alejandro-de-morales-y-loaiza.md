@@ -2,7 +2,7 @@
 nombre: Alejandro de Morales y Loaiza
 tipo: director
 descripcion: ""
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1985
 lugar_nacimiento: Maracaibo, Zulia, Venezuela
 imagen: ../../assets/uploads/chatgpt-image-31-may-2026-22_13_41.png

@@ -2,7 +2,7 @@
 nombre: Héctor Guillermo Villalobos
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1911
 muerte: 1986
 lugar_nacimiento: Ciudad Bolívar, Bolívar, Venezuela

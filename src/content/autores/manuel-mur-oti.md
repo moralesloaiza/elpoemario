@@ -2,7 +2,7 @@
 nombre: Manuel Mur Oti
 tipo: clasico
 descripcion: Poeta español del siglo XX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1908
 muerte: 2003
 lugar_nacimiento: Vigo, España

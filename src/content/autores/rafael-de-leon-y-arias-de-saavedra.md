@@ -2,7 +2,7 @@
 nombre: Rafael de León y Arias de Saavedra
 tipo: clasico
 descripcion: Poeta español del siglo XX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1908
 muerte: 1982
 lugar_nacimiento: Sevilla, España

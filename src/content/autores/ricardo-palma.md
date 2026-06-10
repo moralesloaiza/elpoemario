@@ -2,7 +2,7 @@
 nombre: Ricardo Palma
 tipo: clasico
 descripcion: Poeta peruano del siglo XIX.
-nacionalidad: Peruano
+nacionalidad: Perú
 nacimiento: 1833
 muerte: 1919
 lugar_nacimiento: Lima, Perú

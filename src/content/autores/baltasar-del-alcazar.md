@@ -2,7 +2,7 @@
 nombre: Baltasar del Alcázar
 tipo: clasico
 descripcion: Poeta español del siglo XVI.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1530
 muerte: 1606
 lugar_nacimiento: Sevilla, España

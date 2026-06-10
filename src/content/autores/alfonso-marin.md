@@ -2,7 +2,7 @@
 nombre: Alfonso Marín
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1908
 muerte: 1989
 lugar_nacimiento: Burbusay, Trujillo, Venezuela

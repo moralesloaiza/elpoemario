@@ -2,7 +2,7 @@
 nombre: Carlos Borges
 tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1867
 muerte: 1932
 lugar_nacimiento: Caracas, Distrito Federal, Venezuela

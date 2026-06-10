@@ -2,7 +2,7 @@
 nombre: Duque de Rivas
 tipo: clasico
 descripcion: Poeta español del siglo XVIII.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1791
 muerte: 1865
 lugar_nacimiento: Córdoba, España

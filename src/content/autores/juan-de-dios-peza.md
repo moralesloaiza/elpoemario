@@ -2,7 +2,7 @@
 nombre: Juan de Dios Peza
 tipo: clasico
 descripcion: Poeta mexicano del siglo XIX.
-nacionalidad: Mexicano
+nacionalidad: México
 nacimiento: 1852
 muerte: 1910
 lugar_nacimiento: Ciudad de México, México

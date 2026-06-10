@@ -2,7 +2,7 @@
 nombre: Luis Ramón Landaeta
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 lugar_nacimiento: Caracas, Distrito Federal, Venezuela
 imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-13_18_45.png
 ---

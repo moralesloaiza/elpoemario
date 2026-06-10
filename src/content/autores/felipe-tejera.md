@@ -2,7 +2,7 @@
 nombre: Felipe Tejera
 tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1846
 muerte: 1924
 lugar_nacimiento: Caracas, Distrito Federal, Venezuela

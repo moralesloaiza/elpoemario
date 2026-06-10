@@ -2,7 +2,7 @@
 nombre: Pablo Neruda
 tipo: clasico
 descripcion: Poeta chileno del siglo XX.
-nacionalidad: Chileno
+nacionalidad: Chile
 nacimiento: 1904
 muerte: 1973
 lugar_nacimiento: Parral, Chile

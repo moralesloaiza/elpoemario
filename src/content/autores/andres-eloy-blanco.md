@@ -3,7 +3,7 @@ nombre: Andrés Eloy Blanco
 tipo: clasico
 descripcion: Poeta y político venezolano nacido en 1896, autor de "Píntame
   angelitos negros".
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1896
 muerte: 1955
 lugar_nacimiento: Cumaná, Sucre, Venezuela

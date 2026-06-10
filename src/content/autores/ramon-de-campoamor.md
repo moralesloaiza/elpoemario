@@ -2,7 +2,7 @@
 nombre: Ramón de Campoamor
 tipo: clasico
 descripcion: Poeta español del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1817
 muerte: 1901
 lugar_nacimiento: Navia, Asturias, España

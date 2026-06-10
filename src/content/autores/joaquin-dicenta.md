@@ -2,7 +2,7 @@
 nombre: Joaquín Dicenta
 tipo: clasico
 descripcion: Poeta español del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1862
 muerte: 1917
 lugar_nacimiento: Calatayud, Zaragoza, España

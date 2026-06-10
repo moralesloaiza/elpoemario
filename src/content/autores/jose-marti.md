@@ -2,7 +2,7 @@
 nombre: José Martí
 tipo: clasico
 descripcion: Poeta cubano del siglo XIX.
-nacionalidad: Cubano
+nacionalidad: Cuba
 nacimiento: 1853
 muerte: 1895
 lugar_nacimiento: La Habana, Cuba

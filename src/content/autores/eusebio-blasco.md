@@ -2,7 +2,7 @@
 nombre: Eusebio Blasco
 tipo: clasico
 descripcion: Poeta español del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1844
 muerte: 1903
 lugar_nacimiento: Aragón, España

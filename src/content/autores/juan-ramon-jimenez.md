@@ -2,7 +2,7 @@
 nombre: Juan Ramón Jiménez
 tipo: clasico
 descripcion: Poeta español del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1881
 muerte: 1958
 lugar_nacimiento: Moguer, Huelva, España

@@ -2,7 +2,7 @@
 nombre: Julio Flórez
 tipo: clasico
 descripcion: Poeta colombiano del siglo XIX.
-nacionalidad: Colombiano
+nacionalidad: Colombia
 nacimiento: 1867
 muerte: 1923
 lugar_nacimiento: Chiquinquirá, Boyacá, Colombia

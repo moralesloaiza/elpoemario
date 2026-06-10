@@ -2,7 +2,7 @@
 nombre: Rafael María Baralt
 tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1810
 muerte: 1860
 lugar_nacimiento: Maracaibo, Zulia, Venezuela

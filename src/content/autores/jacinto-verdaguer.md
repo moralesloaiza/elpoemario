@@ -2,7 +2,8 @@
 nombre: Jacint Verdaguer i Santaló
 tipo: clasico
 descripcion: Poeta catalán del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
+lengua_original: catalán
 nacimiento: 1845
 muerte: 1902
 lugar_nacimiento: Folgueroles, Barcelona, España

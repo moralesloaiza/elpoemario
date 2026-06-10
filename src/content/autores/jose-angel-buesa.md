@@ -2,7 +2,7 @@
 nombre: José Ángel Buesa
 tipo: clasico
 descripcion: Poeta cubano del siglo XX.
-nacionalidad: Cubano
+nacionalidad: Cuba
 nacimiento: 1910
 muerte: 1982
 lugar_nacimiento: Cruces, Cienfuegos, Cuba

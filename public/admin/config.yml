@@ -204,7 +204,18 @@ collections:
         options: [director, clasico, colaborador]
         default: clasico
       - { label: "Descripción (para buscadores)", name: descripcion, widget: text, required: false, hint: "Resumen breve del autor para SEO (metadatos y JSON-LD). No se muestra en la ficha; la biografía visible va en el Cuerpo." }
-      - { label: "Nacionalidad", name: nacionalidad, widget: string, required: false, hint: "Adjetivo gentilicio con género. Ej.: Venezolano, Cubana, Mexicano." }
+      - label: "Nacionalidad"
+        name: nacionalidad
+        widget: select
+        required: false
+        options: [España, Venezuela, Colombia, México, Cuba, Argentina, Uruguay, Perú, Chile, Siria, Puerto Rico, Nicaragua]
+        hint: "País del autor. La sección donde aparece (el gentilicio plural) se deriva automáticamente."
+      - label: "Lengua original"
+        name: lengua_original
+        widget: select
+        required: false
+        options: [catalán, árabe]
+        hint: "Solo si el autor escribió en una lengua distinta del castellano. Lo agrupa en «Poetas en otras lenguas»."
       - { label: "Año de nacimiento", name: nacimiento, widget: number, value_type: int, min: 0, max: 2100, required: false }
       - { label: "Año de muerte", name: muerte, widget: number, value_type: int, min: 0, max: 2100, required: false }
       - { label: "Lugar de nacimiento", name: lugar_nacimiento, widget: string, required: false }

@@ -2,7 +2,7 @@
 nombre: Pedro Junco Jr.
 tipo: clasico
 descripcion: Poeta cubano del siglo XX.
-nacionalidad: Cubano
+nacionalidad: Cuba
 nacimiento: 1920
 muerte: 1943
 lugar_nacimiento: Pinar del río, Cuba

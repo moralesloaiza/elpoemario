@@ -2,7 +2,7 @@
 nombre: Lázaro María Pérez
 tipo: clasico
 descripcion: Poeta colombiano del siglo XIX.
-nacionalidad: Colombiano
+nacionalidad: Colombia
 nacimiento: 1824
 muerte: 1892
 lugar_nacimiento: Cartagena, Colombia

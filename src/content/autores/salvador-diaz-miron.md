@@ -2,7 +2,7 @@
 nombre: Salvador Díaz Mirón
 tipo: clasico
 descripcion: Poeta mexicano del siglo XIX.
-nacionalidad: Mexicano
+nacionalidad: México
 nacimiento: 1853
 muerte: 1928
 lugar_nacimiento: Veracruz, México

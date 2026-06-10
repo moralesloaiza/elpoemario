@@ -2,7 +2,7 @@
 nombre: Bernardo de Balbuena
 tipo: clasico
 descripcion: Poeta puertorriqueño del siglo XVI.
-nacionalidad: Puertorriqueño
+nacionalidad: Puerto Rico
 nacimiento: 1568
 muerte: 1627
 lugar_nacimiento: Valdepeñas, Ciudad Real, España

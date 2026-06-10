@@ -2,7 +2,7 @@
 nombre: Pedro Calderón de la Barca
 tipo: clasico
 descripcion: Poeta español del siglo XVII.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1600
 muerte: 1681
 lugar_nacimiento: Madrid, España

@@ -2,7 +2,7 @@
 nombre: Hernán Osorio Falcón
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1929
 muerte: 1966
 lugar_nacimiento: Santa Inés, Anzoátegui, Venezuela

@@ -2,7 +2,7 @@
 nombre: Manuel Benítez Carrasco
 tipo: clasico
 descripcion: Poeta español del siglo XX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1922
 muerte: 1999
 lugar_nacimiento: Granada, España

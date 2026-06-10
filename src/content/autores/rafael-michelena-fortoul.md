@@ -2,7 +2,7 @@
 nombre: Rafael Michelena Fortoul
 tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1897
 muerte: 1933
 imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-22_36_00.png
