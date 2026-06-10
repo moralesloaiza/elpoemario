@@ -252,12 +252,12 @@ function checkCuradorOwnership(change, authorIndex, errors) {
     return;
   }
 
-  if (author.tipo !== 'colaborador') {
+  if (author.tipo !== 'colaborador' && author.tipo !== 'director') {
     errors.push(
       `✗ ${path}\n` +
       `  curador: "${fm.curador}" → ${AUTHORS_DIR}/${author.file}\n` +
-      `  This author is tipo: "${author.tipo}". Only 'colaborador' authors\n` +
-      `  may be set as curador in a contributor PR.`
+      `  This author is tipo: "${author.tipo}". Only 'colaborador' or\n` +
+      `  'director' authors may be set as curador in a contributor PR.`
     );
     return;
   }

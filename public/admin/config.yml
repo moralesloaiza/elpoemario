@@ -201,7 +201,7 @@ collections:
       - label: "Tipo"
         name: tipo
         widget: select
-        options: [clasico, colaborador]
+        options: [director, clasico, colaborador]
         default: clasico
       - { label: "Descripción (para buscadores)", name: descripcion, widget: text, required: false, hint: "Resumen breve del autor para SEO (metadatos y JSON-LD). No se muestra en la ficha; la biografía visible va en el Cuerpo." }
       - { label: "Nacionalidad", name: nacionalidad, widget: string, required: false, hint: "Adjetivo gentilicio con género. Ej.: Venezolano, Cubana, Mexicano." }
