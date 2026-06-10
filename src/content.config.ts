@@ -74,7 +74,7 @@ const autores = defineCollection({
   schema: ({ image }) =>
     z.object({
       nombre: z.string(),
-      tipo: z.enum(['clasico', 'colaborador']),
+      tipo: z.enum(['director', 'clasico', 'colaborador']),
       descripcion: optionalString(),
       nacionalidad: optionalString(),
       nacimiento: optionalInt(),

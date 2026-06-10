@@ -1,6 +1,6 @@
 ---
 nombre: Alejandro de Morales y Loaiza
-tipo: colaborador
+tipo: director
 descripcion: ""
 nacionalidad: Venezolano
 nacimiento: 1985

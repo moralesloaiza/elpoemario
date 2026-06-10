@@ -21,12 +21,18 @@ for (const p of poemas) {
 // Enrich + sort: poem count desc, alphabetical by name as tiebreak (es locale).
 // Mirrors El Fabulario's /autores/ ordering. Classics and collaborators are
 // not separated visually; the rubric in each AutorCard surfaces tipo inline.
+// Director is pinned to the end of the listing, outside the poem-count
+// ranking — a role marker, not a corpus comparable to the classics.
+// Everyone else: poem count desc, then alphabetical (es locale).
 const autoresConConteo = autores
   .map((a) => ({
     ...a,
     conteo: conteoPorId.get(a.id) ?? 0,
   }))
   .sort((a, b) => {
+    const aDir = a.data.tipo === 'director' ? 1 : 0;
+    const bDir = b.data.tipo === 'director' ? 1 : 0;
+    if (aDir !== bDir) return aDir - bDir;
     if (b.conteo !== a.conteo) return b.conteo - a.conteo;
     return a.data.nombre.localeCompare(b.data.nombre, 'es');
   });

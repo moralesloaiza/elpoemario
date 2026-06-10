@@ -14,7 +14,12 @@ const { nombre, tipo, nacimiento, muerte, imagen } = autor.data;
 // Display rubric for tipo. Mirrors PoemaCard.card-tipo position and style:
 // small uppercase label above the name, primary disambiguator for an
 // anthology that mixes dominio-público classics with living collaborators.
-const tipoLabel = tipo === 'clasico' ? 'CLÁSICO' : 'COLABORADOR';
+const tipoLabel =
+  tipo === 'clasico'
+    ? 'CLÁSICO'
+    : tipo === 'director'
+      ? 'DIRECTOR'
+      : 'COLABORADOR';
 
 // Life dates: only for classics with both years known. Same rule as
 // Autor.astro — living collaborators have a birth date but no death date,
