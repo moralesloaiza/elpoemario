@@ -2,7 +2,7 @@
 nombre: Juana Borrero
 tipo: clasico
 descripcion: Poeta cubana del siglo XIX.
-nacionalidad: Cubana
+nacionalidad: Cuba
 nacimiento: 1877
 muerte: 1896
 lugar_nacimiento: La Habana, Cuba

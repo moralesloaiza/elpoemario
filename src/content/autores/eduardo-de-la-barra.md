@@ -2,7 +2,7 @@
 nombre: Eduardo de la Barra
 tipo: clasico
 descripcion: Poeta chileno del siglo XIX.
-nacionalidad: Chileno
+nacionalidad: Chile
 nacimiento: 1839
 muerte: 1900
 lugar_nacimiento: Santiago de Chile, Chile

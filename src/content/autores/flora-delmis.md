@@ -2,7 +2,7 @@
 nombre: Flora Delmis
 tipo: clasico
 descripcion: Poeta venezolana.
-nacionalidad: Venezolana
+nacionalidad: Venezuela
 nacimiento: 0
 imagen: ../../assets/uploads/chatgpt-image-31-may-2026-19_38_14-1-.png
 ---

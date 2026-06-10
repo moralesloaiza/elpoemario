@@ -2,7 +2,7 @@
 nombre: Mario Benedetti
 tipo: clasico
 descripcion: Poeta uruguayo del siglo XX.
-nacionalidad: Uruguayo
+nacionalidad: Uruguay
 nacimiento: 1920
 muerte: 2009
 lugar_nacimiento: Paso de los Toros, Uruguay

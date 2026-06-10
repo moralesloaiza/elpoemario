@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { TIPOS, MOVIMIENTOS, TEMAS, MOTIVOS } from './utils/taxonomia';
+import { TIPOS, MOVIMIENTOS, TEMAS, MOTIVOS, NACIONALIDADES, LENGUAS } from './utils/taxonomia';
 
 // Decap stores cleared optional fields inconsistently:
 //   - cleared text: ""
@@ -76,7 +76,14 @@ const autores = defineCollection({
       nombre: z.string(),
       tipo: z.enum(['director', 'clasico', 'colaborador']),
       descripcion: optionalString(),
-      nacionalidad: optionalString(),
+      nacionalidad: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        z.enum(NACIONALIDADES).optional(),
+      ),
+      lengua_original: z.preprocess(
+        (v) => (v === '' || v === null ? undefined : v),
+        z.enum(LENGUAS).optional(),
+      ),
       nacimiento: optionalInt(),
       muerte: optionalInt(),
       lugar_nacimiento: optionalString(),
@@ -164,7 +171,7 @@ const destacado = defineCollection({
         path: ['tipo'],
       },
     ),
-});;
+});
 
 const paginas = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/paginas' }),

@@ -2,7 +2,7 @@
 nombre: Aquiles Nazoa
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1920
 muerte: 1976
 lugar_nacimiento: Caracas, Venezuela

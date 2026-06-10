@@ -2,7 +2,7 @@
 nombre: Sor Juana Inés de la Cruz
 tipo: clasico
 descripcion: Poeta mexicana del siglo XVII.
-nacionalidad: Mexicana
+nacionalidad: México
 nacimiento: 1651
 muerte: 1695
 lugar_nacimiento: San Miguel Nepantla, México

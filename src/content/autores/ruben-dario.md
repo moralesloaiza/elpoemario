@@ -2,7 +2,7 @@
 nombre: Rubén Darío
 tipo: clasico
 descripcion: Poeta nicaragüense del siglo XIX.
-nacionalidad: Nicaragüense
+nacionalidad: Nicaragua
 nacimiento: 1867
 muerte: 1916
 lugar_nacimiento: Metapa, Nicaragua

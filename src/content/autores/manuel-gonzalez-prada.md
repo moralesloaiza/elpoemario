@@ -2,7 +2,7 @@
 nombre: Manuel González Prada
 tipo: clasico
 descripcion: Poeta peruano del siglo XIX.
-nacionalidad: Peruano
+nacionalidad: Perú
 nacimiento: 1844
 muerte: 1918
 lugar_nacimiento: Lima, Perú

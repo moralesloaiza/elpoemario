@@ -2,7 +2,7 @@
 nombre: Gustavo Adolfo Bécquer
 tipo: clasico
 descripcion: Poeta español del siglo XIX.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1836
 muerte: 1870
 lugar_nacimiento: Sevilla, España

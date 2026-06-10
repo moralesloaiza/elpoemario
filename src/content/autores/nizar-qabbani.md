@@ -2,7 +2,8 @@
 nombre: Nizar Qabbani
 tipo: clasico
 descripcion: Poeta sirio del siglo XX.
-nacionalidad: Sirio
+nacionalidad: Siria
+lengua_original: árabe
 nacimiento: 1923
 muerte: 1998
 lugar_nacimiento: Damasco, Siria

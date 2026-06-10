@@ -2,7 +2,7 @@
 nombre: Gutierre de Cetina
 tipo: clasico
 descripcion: Poeta español del siglo XVI.
-nacionalidad: Español
+nacionalidad: España
 nacimiento: 1520
 muerte: 1557
 lugar_nacimiento: Sevilla, España

@@ -2,7 +2,7 @@
 nombre: Helí Colombani
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1932
 muerte: 1992
 lugar_nacimiento: Irapa, Sucre, Venezuela

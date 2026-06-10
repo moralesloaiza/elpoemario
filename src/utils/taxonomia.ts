@@ -38,12 +38,24 @@ export const MOTIVOS = [
   'sepulcro', 'ruinas',
 ] as const;
 
+// Author country. Stored verbatim in `autores.nacionalidad` (proper noun, with
+// accents). The /nacionalidades/<slug>/ URL slug is derived in templates (PR 3).
+export const NACIONALIDADES = [
+  'España', 'Venezuela', 'Colombia', 'México', 'Cuba', 'Argentina',
+  'Uruguay', 'Perú', 'Chile', 'Siria', 'Puerto Rico', 'Nicaragua',
+] as const;
+
+// Original language, for authors who wrote outside Castilian. Optional.
+export const LENGUAS = ['catalán', 'árabe'] as const;
+
 // ── Derived types ───────────────────────────────────────────────────────────
 
 export type Tipo = typeof TIPOS[number];
 export type Movimiento = typeof MOVIMIENTOS[number];
 export type Tema = typeof TEMAS[number];
 export type Motivo = typeof MOTIVOS[number];
+export type Nacionalidad = typeof NACIONALIDADES[number];
+export type Lengua = typeof LENGUAS[number];
 
 // ── Slug → display name maps ────────────────────────────────────────────────
 
@@ -164,9 +176,32 @@ export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
   'ruinas': 'Ruinas',
 };
 
+// País → gentilicio plural. Section heading on /nacionalidades/ (PR 3).
+export const NACIONALIDADES_DISPLAY: Record<Nacionalidad, string> = {
+  'España': 'españoles',
+  'Venezuela': 'venezolanos',
+  'Colombia': 'colombianos',
+  'México': 'mexicanos',
+  'Cuba': 'cubanos',
+  'Argentina': 'argentinos',
+  'Uruguay': 'uruguayos',
+  'Perú': 'peruanos',
+  'Chile': 'chilenos',
+  'Siria': 'sirios',
+  'Puerto Rico': 'puertorriqueños',
+  'Nicaragua': 'nicaragüenses',
+};
+
+// Stored value is lowercase; capitalize at sentence/heading start in templates.
+export const LENGUAS_DISPLAY: Record<Lengua, string> = {
+  'catalán': 'Catalán',
+  'árabe': 'Árabe',
+};
+
 // ── URL bases for taxonomy index pages ──────────────────────────────────────
 
 export const URL_TIPOS = '/tipos';
 export const URL_MOVIMIENTOS = '/movimientos';
 export const URL_TEMAS = '/temas';
 export const URL_MOTIVOS = '/motivos';
+export const URL_NACIONALIDADES = '/nacionalidades';

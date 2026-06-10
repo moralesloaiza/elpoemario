@@ -2,7 +2,7 @@
 nombre: Manuel Acuña
 tipo: clasico
 descripcion: Poeta mexicano del siglo XIX.
-nacionalidad: Mexicano
+nacionalidad: México
 nacimiento: 1849
 muerte: 1873
 lugar_nacimiento: Saltillo, Coahuila, México

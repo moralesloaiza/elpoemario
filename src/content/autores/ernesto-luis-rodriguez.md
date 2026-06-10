@@ -2,7 +2,7 @@
 nombre: Ernesto Luis Rodríguez
 tipo: clasico
 descripcion: Poeta venezolano del siglo XX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1916
 muerte: 1999
 lugar_nacimiento: Zaraza, Guárico, Venezuela

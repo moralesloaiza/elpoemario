@@ -2,7 +2,7 @@
 nombre: Miguel Teurbe y Tolón
 tipo: clasico
 descripcion: Poeta cubano del siglo XIX.
-nacionalidad: Cubano
+nacionalidad: Cuba
 nacimiento: 1820
 muerte: 1858
 lugar_nacimiento: Matanzas, Cuba

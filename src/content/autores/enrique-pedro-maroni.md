@@ -2,7 +2,7 @@
 nombre: Enrique Pedro Maroni
 tipo: clasico
 descripcion: Poeta argentino del siglo XIX.
-nacionalidad: Argentino
+nacionalidad: Argentina
 nacimiento: 1887
 muerte: 1957
 lugar_nacimiento: Bragado, Buenos Aires, Argentina

@@ -2,7 +2,7 @@
 nombre: Jaime Sabines
 tipo: clasico
 descripcion: Poeta mexicano del siglo XX.
-nacionalidad: Mexicano
+nacionalidad: México
 nacimiento: 1926
 muerte: 1999
 lugar_nacimiento: Tuxtla Gutiérrez, Chiapas, México

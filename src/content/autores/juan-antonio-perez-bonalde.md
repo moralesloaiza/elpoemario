@@ -2,7 +2,7 @@
 nombre: Juan Antonio Pérez Bonalde
 tipo: clasico
 descripcion: Poeta venezolano del siglo XIX.
-nacionalidad: Venezolano
+nacionalidad: Venezuela
 nacimiento: 1846
 muerte: 1892
 lugar_nacimiento: Caracas, Venezuela

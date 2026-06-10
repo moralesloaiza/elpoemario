@@ -2,7 +2,7 @@
 nombre: Jorge Luis Borges
 tipo: clasico
 descripcion: Poeta argentino del siglo XIX.
-nacionalidad: Argentino
+nacionalidad: Argentina
 nacimiento: 1899
 muerte: 1986
 lugar_nacimiento: Buenos Aires, Argentina

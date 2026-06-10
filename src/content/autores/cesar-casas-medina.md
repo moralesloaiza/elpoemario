@@ -2,7 +2,7 @@
 nombre: César Casas Medina
 tipo: clasico
 descripcion: Poeta colombiano del siglo XX.
-nacionalidad: Colombiano
+nacionalidad: Colombia
 nacimiento: 1900
 muerte: 1965
 lugar_nacimiento: Popayán, Cauca, Colombia

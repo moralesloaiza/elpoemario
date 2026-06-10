@@ -2,7 +2,7 @@
 nombre: Adolfo Berro
 tipo: clasico
 descripcion: Poeta uruguayo del siglo XIX.
-nacionalidad: Uruguayo
+nacionalidad: Uruguay
 nacimiento: 1819
 muerte: 1841
 lugar_nacimiento: Montevideo, Uruguay
