@@ -23,8 +23,13 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Audit bundles generated for assistant context — not source
+# Working artifacts generated for assistant context — not source.
+# Snapshots, audits, bundles, page-state dumps, token exports.
 *-audit.txt
+*-auditoria-*.txt
 *-bundle*.txt
-poemario-pr*.txt
 bundle-*.txt
+poemario-pr*.txt
+_estado-*.txt
+*-snapshot-*.txt
+*-tokens.txt
