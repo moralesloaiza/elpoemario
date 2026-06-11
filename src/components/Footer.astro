@@ -5,18 +5,70 @@ const yearLabel =
   today.getFullYear() === startYear
     ? `${startYear}`
     : `${startYear}–${today.getFullYear()}`;
+
+// Secondary site navigation ("fat footer"). The header carries the primary
+// sections; this footer surfaces the full taxonomy and utility pages so every
+// index is reachable from any page — the only persistent discovery surface
+// besides the header. Group labels are <p> (not headings) to keep the page
+// heading outline clean; each list is associated to its label via
+// aria-labelledby.
+const grupos = [
+  {
+    rotulo: 'Explorar',
+    enlaces: [
+      { href: '/poemas/', texto: 'Poemas' },
+      { href: '/autores/', texto: 'Autores' },
+      { href: '/entradas/', texto: 'Bitácora' },
+    ],
+  },
+  {
+    rotulo: 'Por forma y tema',
+    enlaces: [
+      { href: '/tipos/', texto: 'Formas' },
+      { href: '/temas/', texto: 'Temas' },
+    ],
+  },
+  {
+    rotulo: 'Por autor',
+    enlaces: [
+      { href: '/siglos/', texto: 'Siglos' },
+      { href: '/nacionalidades/', texto: 'Nacionalidades' },
+    ],
+  },
+  {
+    rotulo: 'El Poemario',
+    enlaces: [
+      { href: '/sobre/', texto: 'Acerca de' },
+      { href: '/colaborar/', texto: 'Colaborar' },
+      { href: '/buscar/', texto: 'Buscar' },
+    ],
+  },
+];
 ---
 
 <footer>
   <div class="page footer-inner">
-    <p class="cita">
-      OMNE TVLIT PVNCTVM QVI MISCVIT VTILE DVLCI
+    <nav class="footer-nav" aria-label="Mapa del sitio">
+      {grupos.map((grupo, i) => (
+        <div class="footer-grupo">
+          <p class="footer-rotulo" id={`footer-grupo-${i}`}>{grupo.rotulo}</p>
+          <ul class="footer-lista" aria-labelledby={`footer-grupo-${i}`}>
+            {grupo.enlaces.map((enlace) => (
+              <li><a href={enlace.href}>{enlace.texto}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+
+    <hr class="ornate" />
+
+    <p class="cita" lang="la">
+      Omne tulit punctum qui miscuit utile dulci
     </p>
     <p class="cita-fuente">
       Horacio · Ars Poetica, 343
     </p>
-
-    <hr class="ornate" />
 
     <p class="meta">
       © {yearLabel} El Poemario · Una colección dirigida por
@@ -45,10 +97,56 @@ const yearLabel =
   .footer-inner {
     text-align: center;
   }
+
+  /* ---------- Mapa del sitio ---------- */
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xl) var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+  .footer-grupo {
+    min-width: 140px;
+  }
+  .footer-rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-sm);
+  }
+  .footer-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+  .footer-lista a {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    border-bottom: none;
+  }
+  .footer-lista a:hover,
+  .footer-lista a:focus-visible {
+    color: var(--oro-texto);
+    border-bottom: none;
+  }
+
+  /* ---------- Cita y créditos ---------- */
   .cita {
     font-family: var(--font-body);
     font-size: var(--fs-lg);
     font-style: normal;
+    /* El versal epigráfico es presentación: el texto fuente queda en
+       minúsculas correctas (sin V por U) para accesibilidad y copia. */
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
     color: var(--text);
     max-width: var(--measure-narrow);
@@ -74,5 +172,11 @@ const yearLabel =
   }
   .meta a {
     color: var(--link);
+  }
+
+  @media (max-width: 540px) {
+    .footer-nav {
+      gap: var(--space-lg) var(--space-xl);
+    }
   }
 </style>
