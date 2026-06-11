@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import AutorCard from '../../components/AutorCard.astro';
+import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import { LENGUAS, LENGUAS_DISPLAY, type Lengua } from '../../utils/taxonomia';
+
+// Dedicated static route (resolves before the dynamic [slug].astro, which is
+// why country paths never collide here). Authors who wrote in a non-Castilian
+// original language live here instead of under their country, grouped by
+// `lengua_original`. With one author per language today this stays minimal,
+// but the section loop scales if the corpus grows.
+const autores = await getCollection('autores');
+const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+
+const conteoPorId = new Map<string, number>();
+for (const p of poemas) {
+  const k = p.data.autor.id;
+  conteoPorId.set(k, (conteoPorId.get(k) ?? 0) + 1);
+}
+
+// One section per LENGUA that has >=1 author, in the canonical LENGUAS order.
+const secciones = LENGUAS.map((lengua) => {
+  const deEsaLengua = autores
+    .filter((a) => a.data.lengua_original === lengua)
+    .sort((a, b) => {
+      const ca = conteoPorId.get(a.id) ?? 0;
+      const cb = conteoPorId.get(b.id) ?? 0;
+      if (cb !== ca) return cb - ca;
+      return a.data.nombre.localeCompare(b.data.nombre, 'es');
+    });
+  return { lengua: lengua as Lengua, autores: deEsaLengua };
+}).filter((s) => s.autores.length > 0);
+
+const total = secciones.reduce((n, s) => n + s.autores.length, 0);
+const contadorTexto =
+  total === 1 ? '1 poeta en otra lengua' : `${total} poetas en otras lenguas`;
+
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: 'Nacionalidades', path: '/nacionalidades/' },
+    { name: 'En otras lenguas', path: '/nacionalidades/otras-lenguas/' },
+  ],
+  Astro.site!,
+);
+---
+
+<Base
+  titulo="Poetas en otras lenguas · El Poemario"
+  descripcion="Poetas cuya obra original no se escribió en castellano, en El Poemario."
+>
+  <JsonLd slot="head" data={breadcrumbLd} />
+
+  <article class="page indice" lang="es">
+    <header class="title">
+      <p class="rotulo">Lengua original</p>
+      <h1>En otras lenguas</h1>
+    </header>
+
+    <hr class="ornate" />
+
+    <p class="intro">{contadorTexto}</p>
+
+    {secciones.map((s) => (
+      <section class="grupo-lengua" aria-label={LENGUAS_DISPLAY[s.lengua]}>
+        <h2 class="grupo-titulo">{LENGUAS_DISPLAY[s.lengua]}</h2>
+        <ul class="lista">
+          {s.autores.map((a) => (
+            <li class="item">
+              <AutorCard autor={a} conteo={conteoPorId.get(a.id) ?? 0} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </article>
+</Base>
+
+<style>
+  .indice {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+  .rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    text-transform: uppercase;
+    margin: var(--space-sm) 0 var(--space-2xs);
+  }
+  .title h1 {
+    margin: 0;
+    font-size: var(--fs-3xl);
+    text-wrap: balance;
+  }
+  .intro {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+    margin: var(--space-xl) 0 var(--space-lg);
+  }
+  .grupo-lengua {
+    margin-top: var(--space-2xl);
+  }
+  .grupo-titulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    letter-spacing: var(--ls-wide);
+    color: var(--text);
+    text-align: center;
+    margin: 0 0 var(--space-lg);
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  @media (min-width: 480px) {
+    .lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 720px) {
+    .lista {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .item {
+    margin: 0;
+  }
+</style>

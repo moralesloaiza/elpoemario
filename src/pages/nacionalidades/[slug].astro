@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ListadoAutores from '../../components/ListadoAutores.astro';
+import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import {
+  NACIONALIDADES,
+  NACIONALIDADES_DISPLAY,
+  paisASlug,
+  type Nacionalidad,
+} from '../../utils/taxonomia';
+
+export async function getStaticPaths() {
+  const autores = await getCollection('autores');
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+
+  // Published-poem count per author id. `p.data.autor` is a reference().
+  const conteoPorId = new Map<string, number>();
+  for (const p of poemas) {
+    const k = p.data.autor.id;
+    conteoPorId.set(k, (conteoPorId.get(k) ?? 0) + 1);
+  }
+
+  // One path per country with >=1 author, EXCLUDING authors that carry a
+  // `lengua_original` (those belong to /nacionalidades/otras-lenguas/).
+  return NACIONALIDADES.flatMap((pais) => {
+    const delPais = autores.filter(
+      (a) => a.data.nacionalidad === pais && !a.data.lengua_original,
+    );
+    if (delPais.length === 0) return [];
+
+    const ordenados = delPais.sort((a, b) => {
+      const ca = conteoPorId.get(a.id) ?? 0;
+      const cb = conteoPorId.get(b.id) ?? 0;
+      if (cb !== ca) return cb - ca;
+      return a.data.nombre.localeCompare(b.data.nombre, 'es');
+    });
+
+    return [
+      {
+        params: { slug: paisASlug(pais) },
+        props: { pais: pais as Nacionalidad, autores: ordenados, conteoPorId },
+      },
+    ];
+  });
+}
+
+const { pais, autores, conteoPorId } = Astro.props;
+
+const capitalizar = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const display = capitalizar(NACIONALIDADES_DISPLAY[pais]);
+const displayLower = NACIONALIDADES_DISPLAY[pais];
+
+const contadorTexto =
+  autores.length === 1
+    ? '1 poeta'
+    : `${autores.length} poetas ${displayLower}`;
+
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: 'Nacionalidades', path: '/nacionalidades/' },
+    { name: display, path: `/nacionalidades/${paisASlug(pais)}/` },
+  ],
+  Astro.site!,
+);
+---
+
+<Base
+  titulo={`Poetas ${displayLower} · El Poemario`}
+  descripcion={`Poetas ${displayLower} en El Poemario.`}
+>
+  <JsonLd slot="head" data={breadcrumbLd} />
+  <ListadoAutores
+    rotulo="Nacionalidad"
+    display={display}
+    autores={autores}
+    conteoPorId={conteoPorId}
+    contadorTexto={contadorTexto}
+    vacioTexto={`Aún no hay poetas ${displayLower} en El Poemario.`}
+  />
+</Base>

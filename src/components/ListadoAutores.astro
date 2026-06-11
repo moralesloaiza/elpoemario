@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import AutorCard from './AutorCard.astro';
+
+// Flat author grid for a single grouping leaf (one country, one century).
+// Mirrors ListadoPoemasTaxonomia: rotulo (axis label) + display (group name)
+// header, ornate rule, count heading, then the card grid. Reuses AutorCard
+// verbatim — no per-axis variant. The /nacionalidades/otras-lenguas/ page
+// renders its own sectioned layout and does not use this component.
+interface Props {
+  rotulo: string;
+  display: string;
+  autores: CollectionEntry<'autores'>[];
+  conteoPorId: Map<string, number>;
+  contadorTexto: string;
+  vacioTexto: string;
+}
+
+const { rotulo, display, autores, conteoPorId, contadorTexto, vacioTexto } =
+  Astro.props;
+---
+
+<article class="page indice" lang="es">
+  <header class="title">
+    <p class="rotulo">{rotulo}</p>
+    <h1>{display}</h1>
+  </header>
+
+  <hr class="ornate" />
+
+  <section class="autores-de-grupo" aria-labelledby="lista-titulo">
+    <h2 id="lista-titulo">{contadorTexto}</h2>
+
+    {autores.length === 0 ? (
+      <p class="vacio">{vacioTexto}</p>
+    ) : (
+      <ul class="lista">
+        {autores.map((a) => (
+          <li class="item">
+            <AutorCard autor={a} conteo={conteoPorId.get(a.id) ?? 0} />
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</article>
+
+<style>
+  .indice {
+    max-width: var(--measure);
+    margin-inline: auto;
+    padding-block: var(--space-2xl);
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+  .rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--oro-texto);
+    text-transform: uppercase;
+    margin: var(--space-sm) 0 var(--space-2xs);
+  }
+  .title h1 {
+    margin: 0;
+    font-size: var(--fs-3xl);
+    text-wrap: balance;
+  }
+  .autores-de-grupo h2 {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+    margin: var(--space-xl) 0 var(--space-lg);
+  }
+  .vacio {
+    text-align: center;
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--text-soft);
+    margin: var(--space-2xl) auto;
+  }
+  /* Same responsive grid as /autores/: 1 → 2 (≥480px) → 3 (≥720px) cols. */
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2xl) 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  @media (min-width: 480px) {
+    .lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 720px) {
+    .lista {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .item {
+    margin: 0;
+  }
+</style>
