@@ -1,12 +1,19 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import AutorCard from './AutorCard.astro';
+import ExplorarAutoresPor from './ExplorarAutoresPor.astro';
 
 // Flat author grid for a single grouping leaf (one country, one century).
-// Mirrors ListadoPoemasTaxonomia: rotulo (axis label) + display (group name)
-// header, ornate rule, count heading, then the card grid. Reuses AutorCard
-// verbatim — no per-axis variant. The /nacionalidades/otras-lenguas/ page
-// renders its own sectioned layout and does not use this component.
+// Mirrors ListadoPoemasTaxonomia: a visible breadcrumb, rotulo + display
+// header, ornate rule, a cross-axis "explorar por" link, the count heading,
+// then the card grid. Reuses AutorCard verbatim — no per-axis variant. The
+// /nacionalidades/otras-lenguas/ page renders its own sectioned layout and
+// does not use this component.
+//
+// Grid spans the full page width (.page) like /autores/. An earlier version
+// clamped the container to --measure (672px), which crammed the 3-column grid
+// and shrank the cards; the clamp is reading-measure for prose, wrong for a
+// card grid.
 interface Props {
   rotulo: string;
   display: string;
@@ -14,19 +21,43 @@ interface Props {
   conteoPorId: Map<string, number>;
   contadorTexto: string;
   vacioTexto: string;
+  // Breadcrumb + cross-axis link. ejeTitulo/ejeHref name the parent index;
+  // `actual` tells ExplorarAutoresPor which self-link to omit.
+  ejeTitulo: string;
+  ejeHref: string;
+  actual: 'siglos' | 'nacionalidades';
 }
 
-const { rotulo, display, autores, conteoPorId, contadorTexto, vacioTexto } =
-  Astro.props;
+const {
+  rotulo,
+  display,
+  autores,
+  conteoPorId,
+  contadorTexto,
+  vacioTexto,
+  ejeTitulo,
+  ejeHref,
+  actual,
+} = Astro.props;
 ---
 
 <article class="page indice" lang="es">
+  <nav class="migas" aria-label="Ruta de navegación">
+    <a href="/">Inicio</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <a href={ejeHref}>{ejeTitulo}</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <span class="actual" aria-current="page">{display}</span>
+  </nav>
+
   <header class="title">
     <p class="rotulo">{rotulo}</p>
     <h1>{display}</h1>
   </header>
 
   <hr class="ornate" />
+
+  <ExplorarAutoresPor actual={actual} />
 
   <section class="autores-de-grupo" aria-labelledby="lista-titulo">
     <h2 id="lista-titulo">{contadorTexto}</h2>
@@ -47,10 +78,38 @@ const { rotulo, display, autores, conteoPorId, contadorTexto, vacioTexto } =
 
 <style>
   .indice {
-    max-width: var(--measure);
-    margin-inline: auto;
     padding-block: var(--space-2xl);
   }
+
+  /* ---------- Migas ---------- */
+  .migas {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    margin-bottom: var(--space-lg);
+  }
+  .migas a {
+    color: var(--text-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .migas a:hover,
+  .migas a:focus-visible {
+    color: var(--oro-texto);
+    border-bottom-color: currentColor;
+  }
+  .migas .sep {
+    color: var(--oro);
+  }
+  .migas .actual {
+    color: var(--text-muted);
+  }
+
   .title {
     text-align: center;
     margin-bottom: var(--space-lg);
@@ -83,7 +142,8 @@ const { rotulo, display, autores, conteoPorId, contadorTexto, vacioTexto } =
     color: var(--text-soft);
     margin: var(--space-2xl) auto;
   }
-  /* Same responsive grid as /autores/: 1 → 2 (≥480px) → 3 (≥720px) cols. */
+  /* Same responsive grid as /autores/: 1 → 2 (≥480px) → 3 (≥720px) cols,
+     now at full page width. */
   .lista {
     list-style: none;
     padding: 0;

@@ -1,0 +1,77 @@
+---
+// Secondary "browse authors by —" affordance. Plain nav, NOT tabs: each link
+// jumps to a different index-page structure, so tab semantics would be a false
+// promise. Used on /autores/ (both axes shown) and on the siglo/nacionalidad
+// leaf pages (cross-link to the sibling axis only). `actual` omits the
+// self-link so a page never links to its own axis.
+interface Props {
+  actual?: 'siglos' | 'nacionalidades';
+}
+const { actual } = Astro.props;
+
+const ejes = [
+  { id: 'siglos', texto: 'Siglos', href: '/siglos/' },
+  { id: 'nacionalidades', texto: 'Nacionalidades', href: '/nacionalidades/' },
+] as const;
+
+const visibles = ejes.filter((e) => e.id !== actual);
+---
+
+<nav class="explorar-por" aria-label="Explorar autores por">
+  <span class="etiqueta">Explorar por</span>
+  <ul class="ejes">
+    {visibles.map((e) => (
+      <li><a href={e.href}>{e.texto}</a></li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .explorar-por {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-xl) 0 var(--space-2xl);
+  }
+  .etiqueta {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .ejes {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* Gold middot between sibling axes; absent when only one axis is shown. */
+  .ejes li + li::before {
+    content: '·';
+    color: var(--oro);
+    font-family: var(--font-display);
+    margin-right: var(--space-sm);
+  }
+  .explorar-por a {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--text-soft);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-block: var(--space-2xs);
+    transition: color var(--dur-fast) var(--ease-standard),
+                border-color var(--dur-fast) var(--ease-standard);
+  }
+  .explorar-por a:hover,
+  .explorar-por a:focus-visible {
+    color: var(--oro-texto);
+    border-bottom-color: var(--oro);
+  }
+</style>

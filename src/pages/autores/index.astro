@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import AutorCard from '../../components/AutorCard.astro';
-
+import ExplorarAutoresPor from '../../components/ExplorarAutoresPor.astro';
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
 
@@ -51,7 +51,7 @@ const pagina = await getPagina('autores');
     </header>
 
     <hr class="ornate" />
-
+    <ExplorarAutoresPor />
     {autoresConConteo.length === 0 ? (
       <p class="vacio">Aún no hay autores en El Poemario.</p>
     ) : (
