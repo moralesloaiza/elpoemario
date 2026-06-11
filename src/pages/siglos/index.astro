@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import {
+  sigloDeNacimiento,
+  intARomano,
+  SIGLO_SIN_FECHA_SLUG,
+  SIGLO_SIN_FECHA_LABEL,
+} from '../../utils/taxonomia';
+
+import { SITE_TITLE } from '../../consts';
+import { getPagina } from '../../utils/paginas';
+
+const autores = await getCollection('autores');
+
+// Chronological axis, derived from `autores.nacimiento` (no stored field).
+// Falsy/invalid years (absent or sentinel 0) collapse into the "sin fecha"
+// bucket. Lengua exclusion does NOT apply here — Verdaguer (1845) sits in
+// the XIX century normally; language only affects the by-origin axis.
+const conteoSiglo = new Map<number, number>();
+let conteoSinFecha = 0;
+
+for (const a of autores) {
+  const siglo = sigloDeNacimiento(a.data.nacimiento);
+  if (siglo === null) {
+    conteoSinFecha += 1;
+  } else {
+    conteoSiglo.set(siglo, (conteoSiglo.get(siglo) ?? 0) + 1);
+  }
+}
+
+// Tiles in ascending chronological order; "sin fecha" pinned last.
+const tiles = Array.from(conteoSiglo.entries())
+  .sort((a, b) => a[0] - b[0])
+  .map(([siglo, n]) => ({
+    href: `/siglos/${intARomano(siglo).toLowerCase()}/`,
+    display: `Siglo ${intARomano(siglo)}`,
+    conteo: n,
+  }));
+
+if (conteoSinFecha > 0) {
+  tiles.push({
+    href: `/siglos/${SIGLO_SIN_FECHA_SLUG}/`,
+    display: SIGLO_SIN_FECHA_LABEL,
+    conteo: conteoSinFecha,
+  });
+}
+
+const pagina = await getPagina('siglos');
+---
+
+<Base
+  titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+  descripcion={pagina.data.descripcion}
+>
+  <div class="indice">
+    <header class="title">
+      <h1>{pagina.data.titulo}</h1>
+      <p class="subtitulo">{pagina.data.subtitulo}</p>
+    </header>
+
+    <hr class="ornate" />
+
+    <ul class="lista">
+      {tiles.map((item) => (
+        <li class="item">
+          <a href={item.href} class="item-link">
+            <h2 class="item-nombre">{item.display}</h2>
+            <p class="item-conteo">
+              {item.conteo === 1 ? '1 poeta' : `${item.conteo} poetas`}
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .indice {
+  }
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0 0 var(--space-sm);
+    font-size: var(--fs-3xl);
+  }
+  .subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2xl) 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-md);
+  }
+  .item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: var(--space-md);
+    border: var(--rule-hairline) solid var(--oro);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .item-link:hover,
+  .item-link:focus-visible {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .item-nombre {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-2xs);
+    color: var(--text);
+    text-transform: none;
+  }
+  .item-link:hover .item-nombre {
+    color: var(--oro-texto);
+  }
+  .item-conteo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    color: var(--esmeralda);
+    margin: 0;
+  }
+</style>

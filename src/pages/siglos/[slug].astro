@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ListadoAutores from '../../components/ListadoAutores.astro';
+import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import {
+  sigloDeNacimiento,
+  intARomano,
+  SIGLO_SIN_FECHA_SLUG,
+  SIGLO_SIN_FECHA_LABEL,
+} from '../../utils/taxonomia';
+
+export async function getStaticPaths() {
+  const autores = await getCollection('autores');
+  const poemas = await getCollection('poemas', ({ data }) => !data.borrador);
+
+  const conteoPorId = new Map<string, number>();
+  for (const p of poemas) {
+    const k = p.data.autor.id;
+    conteoPorId.set(k, (conteoPorId.get(k) ?? 0) + 1);
+  }
+
+  // Group authors by derived century; null → "sin fecha".
+  const porSiglo = new Map<number, typeof autores>();
+  const sinFecha: typeof autores = [];
+
+  for (const a of autores) {
+    const siglo = sigloDeNacimiento(a.data.nacimiento);
+    if (siglo === null) {
+      sinFecha.push(a);
+    } else {
+      if (!porSiglo.has(siglo)) porSiglo.set(siglo, []);
+      porSiglo.get(siglo)!.push(a);
+    }
+  }
+
+  // Poem count desc, alphabetical (es) tiebreak. No director pinning — that
+  // rule belongs only to the global /autores/ listing.
+  const ordenar = (lista: typeof autores) =>
+    lista.sort((a, b) => {
+      const ca = conteoPorId.get(a.id) ?? 0;
+      const cb = conteoPorId.get(b.id) ?? 0;
+      if (cb !== ca) return cb - ca;
+      return a.data.nombre.localeCompare(b.data.nombre, 'es');
+    });
+
+  const paths = Array.from(porSiglo.entries()).map(([siglo, lista]) => ({
+    params: { slug: intARomano(siglo).toLowerCase() },
+    props: {
+      display: `Siglo ${intARomano(siglo)}`,
+      autores: ordenar(lista),
+      conteoPorId,
+    },
+  }));
+
+  if (sinFecha.length > 0) {
+    paths.push({
+      params: { slug: SIGLO_SIN_FECHA_SLUG },
+      props: {
+        display: SIGLO_SIN_FECHA_LABEL,
+        autores: ordenar(sinFecha),
+        conteoPorId,
+      },
+    });
+  }
+
+  return paths;
+}
+
+const { display, autores, conteoPorId } = Astro.props;
+
+const contadorTexto =
+  autores.length === 1 ? '1 poeta' : `${autores.length} poetas`;
+
+const breadcrumbLd = buildBreadcrumbJsonLd(
+  [
+    { name: 'Inicio', path: '/' },
+    { name: 'Siglos', path: '/siglos/' },
+    { name: display, path: `/siglos/${Astro.params.slug}/` },
+  ],
+  Astro.site!,
+);
+---
+
+<Base titulo={`${display} · El Poemario`} descripcion={`Poetas del ${display} en El Poemario.`}>
+  <JsonLd slot="head" data={breadcrumbLd} />
+  <ListadoAutores
+    rotulo="Cronología"
+    display={display}
+    autores={autores}
+    conteoPorId={conteoPorId}
+    contadorTexto={contadorTexto}
+    vacioTexto="Aún no hay poetas en este periodo."
+  />
+</Base>

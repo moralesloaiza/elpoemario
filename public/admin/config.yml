@@ -387,6 +387,20 @@ collections:
           - { name: "titulo", label: "Título", widget: "string", required: false }
           - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "nacionalidades"
+        label: "Listado: Nacionalidades"
+        file: "src/content/paginas/nacionalidades.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+      - name: "siglos"
+        label: "Listado: Siglos"
+        file: "src/content/paginas/siglos.md"
+        fields:
+          - { name: "titulo", label: "Título", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
       - name: "cartas"
         label: "Listado: Cartas"
         file: "src/content/paginas/cartas.md"

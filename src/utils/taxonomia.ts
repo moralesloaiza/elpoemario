@@ -205,3 +205,50 @@ export const URL_MOVIMIENTOS = '/movimientos';
 export const URL_TEMAS = '/temas';
 export const URL_MOTIVOS = '/motivos';
 export const URL_NACIONALIDADES = '/nacionalidades';
+
+// ── Slug + century helpers (author grouping, PR 3) ──────────────────────────
+
+export const URL_SIGLOS = '/siglos';
+
+// "No birth year" bucket on /siglos/. Catches authors with absent `nacimiento`
+// AND the sentinel `nacimiento: 0` (e.g. flora-delmis).
+export const SIGLO_SIN_FECHA_SLUG = 'sin-fecha';
+export const SIGLO_SIN_FECHA_LABEL = 'Sin fecha / Tradición anónima';
+
+// Country name → URL slug. Strips diacritics, lowercases, spaces → hyphen.
+// 'España' → 'espana', 'Puerto Rico' → 'puerto-rico'. Inverse is rebuilt in
+// templates by mapping over NACIONALIDADES (no reverse table stored).
+export function paisASlug(pais: Nacionalidad): string {
+  return pais
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, '-');
+}
+
+// Strict century from a birth year: 1801–1900 → 19, 1901–2000 → 20.
+// `Math.ceil` enforces the convention (1900 is XIX, not XX). Returns null for
+// falsy/invalid years (0, undefined, null), which map to the "sin fecha" group.
+export function sigloDeNacimiento(nacimiento?: number | null): number | null {
+  if (!nacimiento || nacimiento < 1) return null;
+  return Math.ceil(nacimiento / 100);
+}
+
+// Integer → uppercase Roman numeral (standard subtractive algorithm). Used for
+// century labels/slugs: intARomano(19) → 'XIX'; slug is the lowercase form.
+export function intARomano(n: number): string {
+  const tabla: Array<[number, string]> = [
+    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+    [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+    [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],
+  ];
+  let resto = n;
+  let out = '';
+  for (const [valor, simbolo] of tabla) {
+    while (resto >= valor) {
+      out += simbolo;
+      resto -= valor;
+    }
+  }
+  return out;
+}
