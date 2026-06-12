@@ -8,6 +8,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://elpoemario.com',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       // /buscar/ es una SERP (resultados de búsqueda), no contenido

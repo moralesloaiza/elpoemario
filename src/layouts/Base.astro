@@ -11,6 +11,11 @@ interface Props {
 }
 
 const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
+
+// Canonical absoluto, siempre en forma con barra final (coherente con
+// trailingSlash: 'always' y con el sitemap). Punto único para todo el sitio.
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site);
+
 ---
 
 <!doctype html>
@@ -19,6 +24,7 @@ const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
