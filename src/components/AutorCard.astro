@@ -9,25 +9,25 @@ interface Props {
 }
 
 const { autor, conteo } = Astro.props;
-const { nombre, tipo, nacimiento, muerte, imagen } = autor.data;
+const { nombre, nacionalidad, nacimiento, muerte, imagen } = autor.data;
 
-// Display rubric for tipo. Mirrors PoemaCard.card-tipo position and style:
-// small uppercase label above the name, primary disambiguator for an
-// anthology that mixes dominio-público classics with living collaborators.
-const tipoLabel =
-  tipo === 'clasico'
-    ? 'CLÁSICO'
-    : tipo === 'director'
-      ? 'DIRECTOR'
-      : 'COLABORADOR';
+// Eyebrow line above the name: the author's country. Replaces the former
+// `tipo` badge (CLÁSICO/DIRECTOR/COLABORADOR) — near-constant across an
+// anthology that is overwhelmingly public-domain classics, so it carried
+// no discriminating signal. Country sorts the corpus and reads editorial.
+// Rendered uppercase via CSS (text-transform), so "Venezuela" → "VENEZUELA".
+// Suppressed entirely when absent (e.g. Anónimo).
 
-// Life dates: only for classics with both years known. Same rule as
-// Autor.astro — living collaborators have a birth date but no death date,
-// so we suppress the dash to avoid a misleading "1980–" string.
+// Life dates:
+//   both years  → "1896–1955" (en dash range)
+//   birth only  → "n. 1985"   (living author: director, collaborators)
+//   neither     → suppressed  (e.g. Anónimo)
 const anios =
-  tipo === 'clasico' && nacimiento && muerte
+  nacimiento && muerte
     ? `${nacimiento}–${muerte}`
-    : null;
+    : nacimiento
+      ? `n. ${nacimiento}`
+      : null;
 
 // Published-poem count. "—" for zero (author exists but has no poems yet),
 // singular/plural otherwise.
@@ -51,7 +51,7 @@ const conteoLabel =
     )}
   </figure>
   <div class="card-meta">
-    <p class="card-tipo">{tipoLabel}</p>
+    {nacionalidad && <p class="card-nacionalidad">{nacionalidad}</p>}
     <h3 class="card-nombre">
       <a href={`/autores/${autor.id}/`}>{nombre}</a>
     </h3>
@@ -108,7 +108,9 @@ const conteoLabel =
     transform: scale(1.02);
   }
 
-  .card-tipo {
+  /* Country eyebrow. Inherits the exact visual treatment of the former
+     .card-tipo slot: small Cinzel small-caps in gold above the name. */
+  .card-nacionalidad {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-widest);
@@ -147,7 +149,7 @@ const conteoLabel =
   .card-anios {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-soft);
     margin: 0;
   }
