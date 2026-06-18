@@ -2,6 +2,7 @@
 titulo: Amor de madre (II)
 fecha: 2026-06-06
 fecha_actualizada: 2026-06-06
+ilustracion: ../../assets/uploads/chatgpt-image-17-jun-2026-21_42_36.png
 borrador: false
 tipo: balada
 movimiento: realismo
