@@ -55,7 +55,9 @@ const grupos = [
       ))}
     </nav>
 
-    <hr class="ornate" />
+    <div class="divisor-footer" role="separator" aria-hidden="true">
+      <span class="rombo"></span>
+    </div>
 
     <p class="cita" lang="la">
       Omne tulit punctum qui miscuit utile dulci
@@ -65,8 +67,7 @@ const grupos = [
     </p>
 
     <p class="meta">
-      © {yearLabel} El Poemario · Una colección dirigida por
-      don Alejandro de Morales y Loaiza
+      © {yearLabel} El Poemario
     </p>
   </div>
 </footer>
@@ -79,15 +80,6 @@ const grupos = [
     border-top: var(--rule-hairline) solid var(--oro);
     position: relative;
   }
-  footer::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 5px;
-    height: var(--rule-hairline);
-    background: var(--oro);
-  }
   .footer-inner {
     text-align: center;
   }
@@ -97,8 +89,8 @@ const grupos = [
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-xl) var(--space-2xl);
-    margin-bottom: var(--space-xl);
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
   }
   .footer-grupo {
     min-width: 140px;
@@ -124,7 +116,7 @@ const grupos = [
   /* Enlaces en Cormorant caja mixta (como la maqueta). */
   .footer-lista a {
     font-family: var(--font-body);
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-soft);
     border-bottom: none;
   }
@@ -134,13 +126,38 @@ const grupos = [
     border-bottom: none;
   }
 
+  /* ---------- Divisor de rombo (─◆─), solo footer ---------- */
+  /* CSS puro, sin SVG: dos líneas hairline oro flanqueando un
+     cuadrado rotado 45°. No afecta la regla global hr.ornate. */
+  .divisor-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    max-width: 220px;
+    margin: var(--space-2xl) auto;
+  }
+  .divisor-footer::before,
+  .divisor-footer::after {
+    content: '';
+    flex: 1;
+    height: var(--rule-hairline);
+    background: var(--oro);
+  }
+  .divisor-footer .rombo {
+    flex: none;
+    width: 7px;
+    height: 7px;
+    background: var(--oro);
+    transform: rotate(45deg);
+  }
+
   /* ---------- Cita y créditos ---------- */
+  /* Itálica caja mixta, discreta: no debe pesar más que la nav. */
   .cita {
     font-family: var(--font-body);
     font-size: var(--fs-lg);
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: var(--ls-wide);
+    font-style: italic;
     line-height: var(--lh-snug);
     color: var(--text);
     max-width: var(--measure-narrow);
@@ -154,11 +171,7 @@ const grupos = [
     letter-spacing: var(--ls-widest);
     text-transform: uppercase;
     color: var(--oro-texto);
-    margin: 0 auto var(--space-xl);
-  }
-  footer hr.ornate {
-    margin-block: var(--space-xl);
-    max-width: 240px;
+    margin: 0 auto var(--space-2xl);
   }
   .meta {
     font-family: var(--font-body);
@@ -173,7 +186,7 @@ const grupos = [
 
   @media (max-width: 540px) {
     .footer-nav {
-      gap: var(--space-lg) var(--space-xl);
+      gap: var(--space-xl);
     }
   }
 </style>
