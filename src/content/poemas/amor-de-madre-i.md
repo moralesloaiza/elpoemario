@@ -1,7 +1,8 @@
 ---
 titulo: Amor de madre (I)
 fecha: 2026-06-06
-fecha_actualizada: 2026-06-06
+fecha_actualizada: 2026-06-18
+ilustracion: ../../assets/uploads/chatgpt-image-18-jun-2026-21_59_35.png
 borrador: false
 tipo: balada
 movimiento: realismo
@@ -22,7 +23,7 @@ nota_curador: Este poema dice de dónde viene. «Balada catalana», advierte baj
 
 (A Ismael Valdés Vergara)
 
-### \    I
+### I
 
 Perdidamente enamorado un mozo
 de una mujer soberbia y caprichosa,
@@ -36,7 +37,7 @@ Y la amorosa fiera
 replícale altanera:
 —«¡Quiero su corazón!»
 
-### \    II
+### II
 
 Corre volando loco, llega al lecho
 donde su madre anciana está dormida,
