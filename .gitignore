@@ -33,3 +33,5 @@ poemario-pr*.txt
 _estado-*.txt
 *-snapshot-*.txt
 *-tokens.txt
+pr-body.md
+public/logo.svg
