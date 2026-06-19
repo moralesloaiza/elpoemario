@@ -36,6 +36,8 @@ type DestacadoRender = {
   alt: string;
   titulo: string;
   href: string;
+  cta: string;
+  resumen?: string;
   autorNombre?: string;
   fecha?: Date;
   nacionalidad?: string;
@@ -62,6 +64,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       alt: '',
       titulo: poema.data.titulo,
       href: `/poemas/${poema.id}/`,
+      cta: 'Leer el poema',
+      resumen: poema.data.resumen,
       autorNombre: autor.data.nombre,
       fecha: poema.data.fecha,
     };
@@ -79,6 +83,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       alt: '',
       titulo: entrada.data.titulo,
       href: `/entradas/${entrada.id}/`,
+      cta: 'Leer la entrada',
+      resumen: entrada.data.resumen,
       autorNombre: entrada.data.curador,
       fecha: entrada.data.fecha,
     };
@@ -100,6 +106,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       alt: `Retrato de ${autor.data.nombre}`,
       titulo: autor.data.nombre,
       href: `/autores/${autor.id}/`,
+      cta: 'Ver la ficha',
       nacionalidad: autor.data.nacionalidad,
       anios: aniosAutor,
     };
@@ -128,6 +135,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       alt={destacado.alt}
       titulo={destacado.titulo}
       href={destacado.href}
+      cta={destacado.cta}
+      resumen={destacado.resumen}
     >
       <Fragment slot="submeta">
         {destacado.autorNombre && destacado.fecha && (
@@ -271,9 +280,19 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     margin-bottom: var(--space-2xl);
   }
   .seccion-titulo {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
     font-size: var(--fs-xl);
     margin: 0 0 var(--space-xl);
+  }
+  .seccion-titulo::before,
+  .seccion-titulo::after {
+    content: '';
+    height: 0;
+    border-top: var(--rule-hairline) solid var(--oro);
+    width: clamp(2rem, 12%, 6rem);
   }
   ul.poemas {
     list-style: none;
