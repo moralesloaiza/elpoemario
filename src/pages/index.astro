@@ -10,8 +10,8 @@ import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 
 // Home hero text from src/content/paginas/home.md (editable in Decap).
-// `titulo` here is the tagline (browser <title> suffix); the visible h1
-// is SITE_TITLE.
+// `titulo` here is the long descriptor (browser <title> suffix / og:title);
+// `subtitulo` is the tagline antetítulo. The visible h1 is SITE_TITLE.
 const home = await getPagina('home');
 
 // Latest non-draft poems, newest first, capped at 6.
@@ -111,8 +111,14 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
+    <div class="rayos" aria-hidden="true"></div>
+    <p class="antetitulo">{home.data.subtitulo}</p>
     <h1>{SITE_TITLE}</h1>
-    <p class="subtitulo">{home.data.subtitulo}</p>
+    <div class="divisor-rombo" role="presentation">
+      <span class="divisor-rombo-pieza"></span>
+      <span class="divisor-rombo-diamante"></span>
+      <span class="divisor-rombo-pieza"></span>
+    </div>
   </section>
 
   {destacado && (
@@ -190,25 +196,77 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 </Base>
 
 <style>
+  /* ── Héroe ────────────────────────────────────────────────────────── */
   .hero {
+    position: relative;
     text-align: center;
     margin-bottom: var(--space-2xl);
+    padding-block: var(--space-2xl);
+    overflow: hidden;
   }
+  /* Líneas radiantes Art Déco: rayos finos de oro emanando tras el título,
+     enmascarados con degradado radial para desvanecerse en los bordes.
+     CSS puro, sin SVG. Faint by design. */
+  .hero .rayos {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: repeating-conic-gradient(
+      from 0deg at 50% 42%,
+      color-mix(in srgb, var(--oro) 32%, transparent) 0deg 0.4deg,
+      transparent 0.4deg 9deg
+    );
+    -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 42%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse 58% 62% at 50% 42%, #000 0%, transparent 70%);
+    opacity: 0.55;
+  }
+  .hero > :not(.rayos) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .antetitulo {
+    font-family: var(--font-meta);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-sm);
+  }
+
   .hero h1 {
     margin: 0 0 var(--space-md);
     font-size: var(--fs-4xl);
     text-wrap: balance;
   }
-  .subtitulo {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-lg);
-    line-height: var(--lh-snug);
-    color: var(--text-soft);
-    max-width: var(--measure-narrow);
+
+  /* ── Divisor de rombo (mismo lenguaje que la página de poema) ──────── */
+  .divisor-rombo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
     margin: 0 auto;
+    max-width: 80%;
+  }
+  .divisor-rombo-pieza {
+    flex: 1;
+    height: 0;
+    border-top: var(--rule-hairline) solid var(--oro);
+    max-width: 8rem;
+  }
+  .divisor-rombo-diamante {
+    width: 0.6rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    border: 1px solid var(--oro);
+    background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
 
+  /* ── Secciones ────────────────────────────────────────────────────── */
   .seccion-poemas {
     margin-bottom: var(--space-2xl);
   }
@@ -231,10 +289,12 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     text-align: center;
   }
   .eyebrow {
-    font-family: var(--font-display);
+    font-family: var(--font-meta);
     font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-widest);
-    color: var(--esmeralda);
+    text-transform: uppercase;
+    color: var(--oro-texto);
     max-width: none;
     margin: 0 0 var(--space-2xs);
   }
@@ -312,5 +372,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       grid-template-columns: 1fr;
       row-gap: var(--space-xl);
     }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero .rayos { opacity: 0.4; }
   }
 </style>
