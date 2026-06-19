@@ -17,7 +17,7 @@ const home = await getPagina('home');
 // Latest non-draft poems, newest first, capped at 6.
 const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
   .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
-  .slice(0, 6);
+  .slice(0, 8);
 
 // Author id→name map, so the grid renders authors without per-row awaits.
 const autoresLista = await getCollection('autores');
@@ -165,12 +165,14 @@ if (destacadoCfg && destacadoCfg.data.activo) {
           </li>
         ))}
       </ul>
+      <p class="ver-todo">
+        <a href="/poemas/">Ver todo el catálogo</a>
+      </p>
     </section>
   )}
 
   <section class="seccion-explorar" aria-labelledby="explorar-titulo">
-    <p class="eyebrow">— Explorar —</p>
-    <h2 id="explorar-titulo" class="seccion-titulo">Sigue leyendo</h2>
+    <p id="explorar-titulo" class="eyebrow">— Explorar —</p>
     <ul class="exploracion">
       <li>
         <a href="/poemas/">
@@ -299,9 +301,29 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-2xl);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--space-xl);
+    row-gap: var(--space-2xl);
     max-width: none;
+  }
+  .ver-todo {
+    text-align: center;
+    margin: var(--space-2xl) 0 0;
+  }
+  .ver-todo a {
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--oro) 45%, transparent);
+    padding-bottom: 0.2em;
+  }
+  .ver-todo a:hover,
+  .ver-todo a:focus-visible {
+    border-bottom-color: var(--oro);
   }
 
   .seccion-explorar {
@@ -376,6 +398,11 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     margin: 0;
   }
 
+  @media (max-width: 1000px) {
+    ul.poemas {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   @media (max-width: 900px) {
     ul.exploracion {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -385,7 +412,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   @media (max-width: 720px) {
     ul.poemas {
       grid-template-columns: 1fr;
-      gap: var(--space-xl);
+      row-gap: var(--space-xl);
     }
     ul.exploracion {
       grid-template-columns: 1fr;
