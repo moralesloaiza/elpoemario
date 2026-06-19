@@ -9,10 +9,13 @@
   --text-soft:       #B8AE9C;
   --text-muted:      #9A9283;
 
-  /* === Structural gold (bridge with El Fabulario) === */
-  --oro:             #D4B05A;
-  --oro-texto:       #E0C46F;
-  --oro-suave:       #A8884A;
+  /* === Structural gold (Art Déco nocturna) === */
+  --oro:             #c8a86a;
+  --oro-texto:       #dcc189;
+  --oro-suave:       #9c8450;
+
+  /* === Cian (títulos y encabezados) === */
+  --cian:            #8fd0ce;
 
   /* === Accents rebalanced for dark background === */
   --esmeralda:       #3FAE7E;
@@ -29,6 +32,7 @@
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;
+  --font-meta:           'Josefin Sans', sans-serif;
   --font-body-weight:    500;
   --line-height-body:    1.7;
 
@@ -87,6 +91,31 @@
   :root {
     --dur-fast: 1ms;
   }
+}
+
+/* === Modo pergamino =========================================================
+   Solo activo cuando un ancestro (la página de poema) fija data-theme.
+   Inerte en el resto del sitio. Valores con contraste WCAG verificado
+   contra el fondo #efe3c8. El oro de enlace de cuerpo (--link) es más
+   oscuro que el oro estructural (--oro) porque es texto normal (≥4.5),
+   mientras la regla/firma es decorativa (≥3.0). */
+[data-theme='pergamino'] {
+  --bg:              #efe3c8;
+  --bg-elevated:     #e7d9ba;
+  --bg-soft:         #f4ead4;
+
+  --text:            #2a2218;
+  --text-soft:       #4a3f2e;
+  --text-muted:      #6b5d44;
+
+  --oro:             #8a6d34;
+  --oro-texto:       #7a5f2c;
+  --oro-suave:       #9c7d3e;
+
+  --cian:            #185a57;
+
+  --link:            #7a5f2c;
+  --link-hover:      #5c4720;
 }
 
 html {
