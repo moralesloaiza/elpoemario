@@ -67,8 +67,7 @@ const grupos = [
     </p>
 
     <p class="meta">
-      © {yearLabel} El Poemario · Una colección dirigida por
-      don Alejandro de Morales y Loaiza
+      © {yearLabel} El Poemario
     </p>
   </div>
 </footer>
@@ -80,15 +79,6 @@ const grupos = [
     background: var(--bg-soft);
     border-top: var(--rule-hairline) solid var(--oro);
     position: relative;
-  }
-  footer::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 5px;
-    height: var(--rule-hairline);
-    background: var(--oro);
   }
   .footer-inner {
     text-align: center;
@@ -126,7 +116,7 @@ const grupos = [
   /* Enlaces en Cormorant caja mixta (como la maqueta). */
   .footer-lista a {
     font-family: var(--font-body);
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-soft);
     border-bottom: none;
   }
@@ -166,7 +156,7 @@ const grupos = [
   /* Itálica caja mixta, discreta: no debe pesar más que la nav. */
   .cita {
     font-family: var(--font-body);
-    font-size: var(--fs-md);
+    font-size: var(--fs-lg);
     font-style: italic;
     line-height: var(--lh-snug);
     color: var(--text);
