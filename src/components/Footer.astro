@@ -4,14 +4,8 @@ const startYear = 2026;
 const yearLabel =
   today.getFullYear() === startYear
     ? `${startYear}`
-    : `${startYear}–${today.getFullYear()}`;
+    : `${startYear}-${today.getFullYear()}`;
 
-// Secondary site navigation ("fat footer"). The header carries the primary
-// sections; this footer surfaces the full taxonomy and utility pages so every
-// index is reachable from any page — the only persistent discovery surface
-// besides the header. Group labels are <p> (not headings) to keep the page
-// heading outline clean; each list is associated to its label via
-// aria-labelledby.
 const grupos = [
   {
     rotulo: 'Explorar',
@@ -81,7 +75,7 @@ const grupos = [
   footer {
     margin-top: var(--space-2xl);
     padding-block: var(--space-2xl);
-    background: var(--bg);
+    background: var(--bg-soft);
     border-top: var(--rule-hairline) solid var(--oro);
     position: relative;
   }
@@ -109,10 +103,11 @@ const grupos = [
   .footer-grupo {
     min-width: 140px;
   }
+  /* Rótulos de grupo: antetítulo versalita en Josefin Sans (rediseño). */
   .footer-rotulo {
-    font-family: var(--font-display);
+    font-family: var(--font-meta);
     font-size: var(--fs-3xs);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-widest);
     text-transform: uppercase;
     color: var(--oro-texto);
@@ -126,10 +121,14 @@ const grupos = [
     flex-direction: column;
     gap: var(--space-2xs);
   }
+  /* Enlaces en Josefin versalita, uniformes con la nav del header. */
   .footer-lista a {
-    font-family: var(--font-body);
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
+    font-family: var(--font-meta);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text);
     border-bottom: none;
   }
   .footer-lista a:hover,
@@ -143,8 +142,6 @@ const grupos = [
     font-family: var(--font-body);
     font-size: var(--fs-lg);
     font-style: normal;
-    /* El versal epigráfico es presentación: el texto fuente queda en
-       minúsculas correctas (sin V por U) para accesibilidad y copia. */
     text-transform: uppercase;
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
@@ -152,10 +149,13 @@ const grupos = [
     max-width: var(--measure-narrow);
     margin: 0 auto var(--space-xs);
   }
+  /* Fuente de la cita: metadato versalita en Josefin Sans (rediseño). */
   .cita-fuente {
-    font-family: var(--font-display);
+    font-family: var(--font-meta);
     font-size: var(--fs-xs);
+    font-weight: 500;
     letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
     color: var(--oro-texto);
     margin: 0 auto var(--space-xl);
   }

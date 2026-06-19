@@ -74,11 +74,13 @@ import Logo from './Logo.astro';
     justify-content: center;
     align-items: center;
   }
+  /* Nav en Josefin Sans versalita; estados en oro (rediseño cian/oro). */
   .internal-links :global(a) {
-    font-family: var(--font-display);
+    font-family: var(--font-meta);
     font-size: var(--fs-xs);
-    font-weight: var(--fw-regular);
-    letter-spacing: var(--ls-widest);
+    font-weight: 500;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
     padding-block: var(--space-2xs);
@@ -91,7 +93,8 @@ import Logo from './Logo.astro';
     color: var(--oro-texto);
   }
   .internal-links :global(a.active) {
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-semibold);
+    color: var(--oro-texto);
     border-bottom-color: var(--oro);
     text-decoration: none;
   }
