@@ -15,7 +15,7 @@
   --oro-suave:       #9c8450;
 
   /* === Cian (títulos y encabezados) === */
-  --cian:            #8fd0ce;
+  --cian:            var(--text);
 
   /* === Accents rebalanced for dark background === */
   --esmeralda:       #3FAE7E;
@@ -32,7 +32,7 @@
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;
-  --font-meta:           'Josefin Sans', sans-serif;
+  --font-meta:           'Cinzel', serif;
   --font-body-weight:    500;
   --line-height-body:    1.7;
 
@@ -112,7 +112,7 @@
   --oro-texto:       #7a5f2c;
   --oro-suave:       #9c7d3e;
 
-  --cian:            #185a57;
+  --cian:            var(--text);
 
   --link:            #7a5f2c;
   --link-hover:      #5c4720;
