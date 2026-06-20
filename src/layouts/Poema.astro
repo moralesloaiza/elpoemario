@@ -375,20 +375,9 @@ const siguiente = siguienteEntry
     background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
 
-  /* ── Illustration (doble filete oro) ─────────────────────────────── */
+  /* ── Illustration (sin marco) ─────────────────────────────── */
   .poema-ilustracion {
-    position: relative;
     margin: 0 0 var(--space-2xl);
-    padding: 6px;
-    border: 1.5px solid var(--oro);
-  }
-  .poema-ilustracion::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: var(--rule-hairline) solid var(--oro-suave);
-    pointer-events: none;
-    z-index: 1;
   }
   .poema-ilustracion img {
     display: block;
