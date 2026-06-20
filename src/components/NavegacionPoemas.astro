@@ -16,7 +16,7 @@ const { anterior, siguiente } = Astro.props;
 
 <nav class="nav-poemas" aria-label="Navegación entre poemas">
   <a class="nav-poemas-enlace anterior" href={`/poemas/${anterior.slug}/`} rel="prev">
-    <span class="nav-poemas-flecha" aria-hidden="true">←</span>
+    <span class="galon galon--izq" aria-hidden="true"></span>
     <span class="nav-poemas-meta">
       <span class="nav-poemas-rotulo">Poema anterior</span>
       <span class="nav-poemas-titulo">{anterior.titulo}</span>
@@ -28,7 +28,7 @@ const { anterior, siguiente } = Astro.props;
       <span class="nav-poemas-rotulo">Poema siguiente</span>
       <span class="nav-poemas-titulo">{siguiente.titulo}</span>
     </span>
-    <span class="nav-poemas-flecha" aria-hidden="true">→</span>
+    <span class="galon galon--der" aria-hidden="true"></span>
   </a>
 </nav>
 
@@ -63,12 +63,18 @@ const { anterior, siguiente } = Astro.props;
     justify-content: flex-end;
     text-align: right;
   }
-  .nav-poemas-flecha {
-    font-family: var(--font-display);
-    font-size: var(--fs-2xl);
-    color: var(--oro);
-    line-height: 1;
+  /* Galon: hereda de la utilidad global; aqui solo el deslizamiento en hover. */
+  .nav-poemas-enlace .galon {
     flex-shrink: 0;
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .nav-poemas-enlace.anterior:hover .galon,
+  .nav-poemas-enlace.anterior:focus-visible .galon {
+    transform: translateX(-3px);
+  }
+  .nav-poemas-enlace.siguiente:hover .galon,
+  .nav-poemas-enlace.siguiente:focus-visible .galon {
+    transform: translateX(3px);
   }
   .nav-poemas-meta {
     display: flex;
