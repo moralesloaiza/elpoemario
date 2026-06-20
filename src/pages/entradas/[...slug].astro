@@ -1,4 +1,4 @@
-﻿---
+---
 import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
@@ -33,6 +33,13 @@ if (tipo === 'correspondencia' && poema_referido) {
 }
 
 const descripcion = resumen ?? titulo;
+
+// Back-link: las cartas (correspondencia) viven en /entradas/cartas/;
+// el resto, en la bitacora /entradas/.
+const volver =
+  tipo === 'correspondencia'
+    ? { href: '/entradas/cartas/', label: 'Volver a las cartas' }
+    : { href: '/entradas/', label: 'Volver a la bitácora' };
 ---
 
 <Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
@@ -78,6 +85,13 @@ const descripcion = resumen ?? titulo;
           Por <strong data-pagefind-meta="author">{curador}</strong>.
         </p>
       )}
+
+      <nav class="volver" aria-label="Volver al índice">
+        <a class="volver-enlace" href={volver.href}>
+          <span class="galon galon--izq" aria-hidden="true"></span>
+          <span>{volver.label}</span>
+        </a>
+      </nav>
     </article>
   </main>
 
@@ -158,5 +172,34 @@ const descripcion = resumen ?? titulo;
   .curaduria strong {
     font-style: normal;
     color: var(--text);
+  }
+  .volver {
+    margin-top: var(--space-2xl);
+    text-align: center;
+  }
+  .volver-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-decoration: none;
+    border-bottom: none;
+  }
+  .volver-enlace .galon {
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .volver-enlace:hover,
+  .volver-enlace:focus-visible {
+    color: var(--oro);
+    border-bottom: none;
+  }
+  .volver-enlace:hover .galon,
+  .volver-enlace:focus-visible .galon {
+    transform: translateX(-3px);
   }
 </style>

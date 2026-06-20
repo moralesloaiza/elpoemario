@@ -23,6 +23,13 @@ const { Content } = await render(pagina);
     <section class="prose">
       <Content />
     </section>
+
+    <div class="acciones">
+      <a class="boton-galon" href="mailto:alejandro@elpoemario.com">
+        <span>Escribir al curador</span>
+        <span class="galon galon--der galon--solo" aria-hidden="true"></span>
+      </a>
+    </div>
   </div>
 </Base>
 
@@ -77,5 +84,31 @@ const { Content } = await render(pagina);
     padding: 0.1em 0.3em;
     background: var(--bg-elevated);
     border-radius: 3px;
+  }
+  .acciones {
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+  .boton-galon {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-decoration: none;
+    border: 1px solid var(--oro);
+    padding: 0.85em 1.75em;
+    transition: background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .boton-galon:hover,
+  .boton-galon:focus-visible {
+    background: var(--oro);
+    color: var(--bg);
+    border-bottom: 1px solid var(--oro);
   }
 </style>

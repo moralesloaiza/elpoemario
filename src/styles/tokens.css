@@ -185,6 +185,42 @@ hr.ornate {
   pointer-events: none;
 }
 
+/* Galon Art Deco: linea fina + punta a 45 grados. Motivo unico direccional
+   (hermano del rombo divisor). Reutilizado en navegacion, CTAs y back-links. */
+.galon {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.galon::before {
+  content: '';
+  width: 1.5rem;
+  height: 1px;
+  background: var(--oro);
+}
+.galon::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid var(--oro);
+  border-right: 1px solid var(--oro);
+  transform: rotate(45deg);
+  margin-left: -5px;
+}
+/* Izquierda: punta primero (orden), bordes espejados. */
+.galon--izq::before { order: 1; }
+.galon--izq::after {
+  order: 0;
+  margin-left: 0;
+  margin-right: -5px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--oro);
+  border-left: 1px solid var(--oro);
+}
+/* Compacto: solo la punta, sin linea (galon corto). */
+.galon--solo::before { display: none; }
+
 /* Canonical page-width container. Used by Header, Footer, and the
    main content area so they share an axis and visually align. */
 .page {

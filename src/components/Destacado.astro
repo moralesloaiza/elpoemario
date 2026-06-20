@@ -37,7 +37,7 @@ const { cintillo, imagen, alt = '', titulo, href, cta, resumen } = Astro.props;
         <slot name="submeta" />
       </div>
 
-      <a class="destacado-cta" href={href}>{cta}</a>
+      <a class="destacado-cta" href={href}>{cta}<span class="galon galon--der" aria-hidden="true"></span></a>
     </div>
   </article>
 </section>
@@ -143,9 +143,11 @@ const { cintillo, imagen, alt = '', titulo, href, cta, resumen } = Astro.props;
     margin: 0;
   }
 
-  /* CTA con caja de filete oro */
+  /* CTA de lectura: rotulo en versalita + galon (no caja). */
   .destacado-cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
     font-family: var(--font-meta);
     font-size: var(--fs-2xs);
     font-weight: var(--fw-semibold);
@@ -153,16 +155,19 @@ const { cintillo, imagen, alt = '', titulo, href, cta, resumen } = Astro.props;
     text-transform: uppercase;
     color: var(--oro-texto);
     text-decoration: none;
-    border: 1px solid var(--oro);
-    border-bottom: 1px solid var(--oro);
-    padding: 0.85em 1.75em;
-    transition: background var(--dur-fast) var(--ease-standard),
-      color var(--dur-fast) var(--ease-standard);
+    border-bottom: none;
+  }
+  .destacado-cta .galon {
+    transition: transform var(--dur-fast) var(--ease-standard);
   }
   .destacado-cta:hover,
   .destacado-cta:focus-visible {
-    background: var(--oro);
-    color: var(--bg);
+    color: var(--oro);
+    border-bottom: none;
+  }
+  .destacado-cta:hover .galon,
+  .destacado-cta:focus-visible .galon {
+    transform: translateX(3px);
   }
 
   @media (max-width: 720px) {
