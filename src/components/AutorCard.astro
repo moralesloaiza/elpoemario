@@ -24,7 +24,7 @@ const { nombre, nacionalidad, nacimiento, muerte, imagen } = autor.data;
 //   neither     → suppressed  (e.g. Anónimo)
 const anios =
   nacimiento && muerte
-    ? `${nacimiento}–${muerte}`
+    ? `${nacimiento} – ${muerte}`
     : nacimiento
       ? `n. ${nacimiento}`
       : null;

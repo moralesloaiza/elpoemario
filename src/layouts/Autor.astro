@@ -9,6 +9,7 @@ import IconoEditar from '../components/IconoEditar.astro';
 import PoemaCard from '../components/PoemaCard.astro';
 
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
+import { paisASlug } from '../utils/taxonomia';
 
 // Receives the author's frontmatter spread plus its id (slug). Same
 // pattern as Poema.astro.
@@ -23,6 +24,7 @@ const {
   muerte,
   imagen,
   tambien_en,
+  lengua_original,
 } = props;
 
 // Life dates:
@@ -33,10 +35,19 @@ const {
 // birth year now shows "n. 1985" instead of nothing.
 const anios =
   nacimiento && muerte
-    ? `${nacimiento}–${muerte}`
+    ? `${nacimiento} – ${muerte}`
     : nacimiento
       ? `n. ${nacimiento}`
       : null;
+
+// Country eyebrow link target. Authors carrying `lengua_original` live on
+// /nacionalidades/otras-lenguas/, not on a per-country page; everyone else
+// links to their country's slug. Null when no nacionalidad (e.g. Anonimo).
+const nacionalidadHref = nacionalidad
+  ? lengua_original
+    ? '/nacionalidades/otras-lenguas/'
+    : `/nacionalidades/${paisASlug(nacionalidad)}/`
+  : null;
 
 // Sibling-portal cross-link. Mapping is local: only two valid values.
 // Falls back to the literal hostname if a typo lands in the CMS, so the
@@ -83,7 +94,15 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 
   <article class="autor" lang="es">
     <header class="autor-cabecera">
-      {nacionalidad && <p class="autor-nacionalidad">{nacionalidad}</p>}
+      {nacionalidad && (
+        <p class="autor-nacionalidad">
+          {nacionalidadHref ? (
+            <a href={nacionalidadHref}>{nacionalidad}</a>
+          ) : (
+            nacionalidad
+          )}
+        </p>
+      )}
       <h1 class="autor-nombre">{nombre}</h1>
       {anios && <p class="autor-anios">{anios}</p>}
     </header>
@@ -111,7 +130,11 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
       </p>
     )}
 
-    <hr class="ornate" />
+    <div class="divisor-rombo" role="presentation">
+      <span class="divisor-rombo-pieza"></span>
+      <span class="divisor-rombo-diamante"></span>
+      <span class="divisor-rombo-pieza"></span>
+    </div>
 
     <section class="autor-poemas" aria-labelledby="lista-titulo">
       <h2 id="lista-titulo">{headingPoemas}</h2>
@@ -190,6 +213,16 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     line-height: var(--lh-snug);
     margin: 0 0 var(--space-2xs);
   }
+  .autor-nacionalidad a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+  .autor-nacionalidad a:hover,
+  .autor-nacionalidad a:focus-visible {
+    border-bottom-color: var(--oro);
+  }
   .autor-nombre {
     font-family: var(--font-display);
     font-size: var(--fs-3xl);
@@ -253,6 +286,30 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     font-size: var(--fs-base);
     color: var(--text-soft);
     text-align: center;
+  }
+
+/* ── Divisor de rombo (mismo lenguaje que poema/portada) ─────────── */
+  .divisor-rombo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin: var(--space-xl) auto;
+    max-width: 80%;
+  }
+  .divisor-rombo-pieza {
+    flex: 1;
+    height: 0;
+    border-top: var(--rule-hairline) solid var(--oro);
+    max-width: 8rem;
+  }
+  .divisor-rombo-diamante {
+    width: 0.6rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    border: 1px solid var(--oro);
+    background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
 
   /* ── Poems section ───────────────────────────────────────────────── */
