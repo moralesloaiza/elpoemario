@@ -1,4 +1,4 @@
-﻿---
+---
 import Base from '../../layouts/Base.astro';
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
@@ -366,12 +366,12 @@ const { Content } = await render(pagina);
   .campo .error {
     font-family: var(--font-body);
     font-size: 0.95em;
-    color: var(--accent);
+    color: var(--error);
     line-height: var(--line-height-body);
     margin: 0.3em 0 0;
     padding: 0.5em 0.75em;
-    border-left: 3px solid var(--accent);
-    background: rgba(224, 122, 95, 0.10);
+    border-left: 3px solid var(--error);
+    background: rgba(161, 77, 107, 0.10);
   }
 
   /* Inputs: dark-mode adapted. Light ivory fill on dark bg so the field
@@ -399,19 +399,19 @@ const { Content } = await render(pagina);
   .campo input[type='text']:hover,
   .campo textarea:hover {
     background: #2A2440;
-    border-color: var(--accent);
+    border-color: var(--oro);
   }
   .campo input[type='text']:focus,
   .campo textarea:focus {
     background: #2A2440;
-    border-color: var(--accent);
+    border-color: var(--oro);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25),
-      0 0 0 3px rgba(224, 122, 95, 0.25);
+      0 0 0 3px rgba(200, 168, 106, 0.25);
     outline: none;
   }
   .campo input[aria-invalid='true'] {
-    border-color: var(--accent);
-    background: rgba(224, 122, 95, 0.06);
+    border-color: var(--error);
+    background: rgba(161, 77, 107, 0.06);
   }
   .campo input[readonly] {
     opacity: 0.7;
@@ -578,7 +578,7 @@ const { Content } = await render(pagina);
     margin-inline: auto;
     margin-top: var(--space-lg);
     padding: var(--space-md);
-    border: 1px solid var(--accent);
+    border: 1px solid var(--error);
     font-size: var(--fs-md);
     color: var(--text);
   }
