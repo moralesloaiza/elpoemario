@@ -15,20 +15,14 @@
   --oro-texto:       #dcc189;
   --oro-suave:       #9c8450;
 
-  /* === Cian (títulos y encabezados) === */
-  --cian:            var(--text);
-
   /* === Accents rebalanced for dark background === */
-  --esmeralda:       #3FAE7E;
-  --coral:           #E07A5F;
-  --lavanda:         #B5A3E3;
   --granate:         #A14D6B;
 
   /* === Semantic aliases === */
   --link:            var(--oro-texto);
   --link-hover:      var(--oro);
   --rule:            var(--oro);
-  --accent:          var(--coral);
+  --error:           var(--granate);
 
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
@@ -113,8 +107,6 @@
   --oro:             #8a6d34;
   --oro-texto:       #7a5f2c;
   --oro-suave:       #9c7d3e;
-
-  --cian:            var(--text);
 
   --link:            #7a5f2c;
   --link-hover:      #5c4720;
