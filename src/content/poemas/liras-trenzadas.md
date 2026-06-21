@@ -1,30 +1,47 @@
 ---
 titulo: Liras trenzadas
 fecha: 2014-02-11
-fecha_actualizada: 2026-05-31
+fecha_actualizada: 2026-06-21
 ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_55_27.png
+spotify_url: https://open.spotify.com/episode/4AIpEYz2R3l4f4kk10Mf7h?si=iI_ojsJtSiioZaHS9Qw8Jg
 borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:
   - patria
   - poesia-misma
+  - exilio
+  - ausencia
+motivos:
+  - libro
+  - amada
+  - luna
+  - sol
+  - barco
+  - lira
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
+nota_curador: "«Liras trenzadas» abre *Giraluna*, el libro que [Andrés Eloy
+  Blanco](https://elpoemario.com/autores/andres-eloy-blanco/) escribió en el
+  exilio para su esposa. El poeta no retrata a la amada: imagina un libro que
+  pueda contenerla, y dentro de ese sueño la forma se vuelve abrazo. Las liras
+  se enlazan unas con otras como él quisiera enlazarse con ella; de ahí el
+  título. La métrica, aquí, es una manera de querer."
 ---
 ### I
 
-Libro de amor le haría
+   Libro de amor le haría
 que fuera alcoba de soñar con ella,
 alcoba de hostería
 con fama de querella,
 colchón de nube y tragaluz de estrella.
-cuentos de “aquel” y “aquella”
+
+   Cuentos de “aquel” y “aquella”
 contaría la voz del hostelero,
 del mozo y la doncella
-que allí, en noche de enero.
+que allí, en noche de enero,
 ella jugó de altar y él de altarero.
 
    Romance de viajero
