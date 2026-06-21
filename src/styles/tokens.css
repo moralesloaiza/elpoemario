@@ -8,6 +8,7 @@
   --text:            #EDE4D3;
   --text-soft:       #B8AE9C;
   --text-muted:      #9A9283;
+  --verse:           #ece6d8;  /* poem body — slightly brighter than --text */
 
   /* === Structural gold (Art Déco nocturna) === */
   --oro:             #c8a86a;
@@ -107,6 +108,7 @@
   --text:            #2a2218;
   --text-soft:       #4a3f2e;
   --text-muted:      #6b5d44;
+      --verse:           #262318;
 
   --oro:             #8a6d34;
   --oro-texto:       #7a5f2c;
