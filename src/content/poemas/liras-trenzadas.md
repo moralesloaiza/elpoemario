@@ -3,12 +3,22 @@ titulo: Liras trenzadas
 fecha: 2014-02-11
 fecha_actualizada: 2026-06-21
 ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_55_27.png
+spotify_url: https://open.spotify.com/episode/4AIpEYz2R3l4f4kk10Mf7h?si=iI_ojsJtSiioZaHS9Qw8Jg
 borrador: false
 tipo: verso-libre
 movimiento: modernismo
 temas:
   - patria
   - poesia-misma
+  - exilio
+  - ausencia
+motivos:
+  - libro
+  - amada
+  - luna
+  - sol
+  - barco
+  - lira
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true
@@ -31,7 +41,7 @@ colchón de nube y tragaluz de estrella.
    Cuentos de “aquel” y “aquella”
 contaría la voz del hostelero,
 del mozo y la doncella
-que allí, en noche de enero.
+que allí, en noche de enero,
 ella jugó de altar y él de altarero.
 
    Romance de viajero
