@@ -23,6 +23,11 @@ const pagina = await getPagina('buscar');
 
 		<hr class="ornate" />
 
+		<section class="sugerencias" hidden data-sugerencias>
+			<p class="sugerencias-rotulo">Sugerencias</p>
+			<ul class="sugerencias-lista" data-sugerencias-lista></ul>
+		</section>
+
 		<section class="resultados" hidden data-seccion-entidades>
 			<h2>Coincidencias en la taxonomía</h2>
 			<ul class="lista-entidades" data-lista-entidades></ul>
@@ -84,6 +89,45 @@ const pagina = await getPagina('buscar');
 		titulo.textContent = `Resultados para «${q}»`;
 		subtitulo.hidden = true;
 		ejecutar(q);
+	} else {
+		mostrarSugerencias();
+	}
+
+	async function mostrarSugerencias() {
+		const sec = document.querySelector<HTMLElement>('[data-sugerencias]');
+		const lista = document.querySelector<HTMLElement>('[data-sugerencias-lista]');
+		if (!sec || !lista) return;
+		try {
+			const ents: Entidad[] = await fetch('/buscar/entidades.json').then((r) => r.json());
+			// Top-2 per type. The JSON arrives grouped by type, each group
+			// already sorted by count desc, so the first two of each are the
+			// strongest. Output order follows the canonical axis order.
+			const orden: TipoEntidad[] = ['autor', 'forma', 'movimiento', 'tema', 'motivo'];
+			const porTipo = new Map<TipoEntidad, Entidad[]>();
+			for (const e of ents) {
+				const arr = porTipo.get(e.tipo) ?? [];
+				if (arr.length < 2) {
+					arr.push(e);
+					porTipo.set(e.tipo, arr);
+				}
+			}
+			const chips: Entidad[] = [];
+			for (const tipo of orden) {
+				for (const e of porTipo.get(tipo) ?? []) chips.push(e);
+			}
+			if (chips.length === 0) return;
+			lista.innerHTML = chips
+				.map(
+					(e) =>
+						`<li><a class="chip" href="/buscar/?q=${encodeURIComponent(e.nombre)}">` +
+							`${escape(e.nombre)}` +
+						`</a></li>`,
+				)
+				.join('');
+			sec.hidden = false;
+		} catch {
+			/* sin entidades disponibles, no mostramos sugerencias */
+		}
 	}
 
 	async function ejecutar(query: string) {
@@ -179,6 +223,47 @@ const pagina = await getPagina('buscar');
 		padding: 0 var(--space-2xs);
 		margin: 0 var(--space-3xs);
 		color: var(--oro-texto);
+	}
+
+	.sugerencias {
+		max-width: var(--measure);
+		margin: var(--space-2xl) auto 0;
+		text-align: center;
+	}
+	.sugerencias-rotulo {
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-widest);
+		text-transform: uppercase;
+		color: var(--oro-texto);
+		margin: 0 0 var(--space-md);
+	}
+	.sugerencias-lista {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--space-2xs);
+	}
+	.sugerencias-lista :global(.chip) {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-wide);
+		text-transform: uppercase;
+		color: var(--text-soft);
+		text-decoration: none;
+		border: var(--rule-hairline) solid var(--oro-suave);
+		padding: var(--space-2xs) var(--space-sm);
+		transition:
+			color var(--dur-fast) var(--ease-standard),
+			border-color var(--dur-fast) var(--ease-standard);
+	}
+	.sugerencias-lista :global(.chip:hover) {
+		color: var(--oro-texto);
+		border-color: var(--oro);
 	}
 
 	.resultados {
