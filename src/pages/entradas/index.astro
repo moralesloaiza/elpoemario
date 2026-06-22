@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import EntradasTabs from '../../components/EntradasTabs.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -38,27 +37,15 @@ const pagina = await getPagina('bitacora');
         {entradas.map((entrada) => (
           <li class="item">
             <a href={`/entradas/${entrada.id}/`} class="item-link">
-              {entrada.data.ilustracion && (
-                <figure class="item-img">
-                  <Image
-                    src={entrada.data.ilustracion}
-                    alt=""
-                    width={600}
-                    height={400}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
-              )}
-              <div class="item-meta">
-                {entrada.data.tipo === 'correspondencia' && (
-                  <p class="item-kicker">Carta</p>
-                )}
-                <h2 class="item-titulo">{entrada.data.titulo}</h2>
-                <p class="item-fecha">
-                  <FormattedDate date={entrada.data.fecha} />
-                </p>
-              </div>
+              <span class="item-texto">
+                <span class="item-marca">
+                  {entrada.data.tipo === 'correspondencia' ? 'Carta' : 'Bitácora'}
+                </span>
+                <span class="item-titulo">{entrada.data.titulo}</span>
+              </span>
+              <span class="item-fecha">
+                <FormattedDate date={entrada.data.fecha} />
+              </span>
             </a>
           </li>
         ))}
@@ -68,8 +55,6 @@ const pagina = await getPagina('bitacora');
 </Base>
 
 <style>
-  .bitacora {
-  }
   .title {
     text-align: center;
     margin-bottom: var(--space-md);
@@ -97,48 +82,51 @@ const pagina = await getPagina('bitacora');
   .lista {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: var(--space-2xl) 0 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-2xl);
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background-color: color-mix(in srgb, var(--oro) 16%, transparent);
+    border: var(--rule-hairline) solid color-mix(in srgb, var(--oro) 16%, transparent);
   }
   .item-link {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2xs) var(--space-lg);
     text-decoration: none;
     color: inherit;
+    background-color: var(--bg);
+    padding: var(--space-md);
     border-bottom: none;
+    transition: background-color var(--dur-fast) var(--ease-standard);
   }
-  .item-img {
-    margin: 0 0 var(--space-md);
-    overflow: hidden;
+  .item-link:hover,
+  .item-link:focus-visible {
+    background-color: var(--bg-elevated);
   }
-  .item-img img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-    transition: transform 400ms var(--ease-standard);
+  .item-texto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm) var(--space-md);
+    min-width: 0;
   }
-  .item-link:hover .item-img img,
-  .item-link:focus-visible .item-img img {
-    transform: scale(1.02);
-  }
-  .item-kicker {
+  .item-marca {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    margin: 0 0 var(--space-2xs);
     text-transform: uppercase;
+    color: var(--oro-texto);
+    flex: none;
   }
   .item-titulo {
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-regular);
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
     color: var(--text);
   }
   .item-link:hover .item-titulo,
@@ -146,17 +134,10 @@ const pagina = await getPagina('bitacora');
     color: var(--oro-texto);
   }
   .item-fecha {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    margin: var(--space-2xs) 0 0;
-  }
-  @media (max-width: 720px) {
-    .lista {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    flex: none;
   }
 </style>

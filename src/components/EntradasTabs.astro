@@ -15,7 +15,7 @@ const ariaCartas = activa === 'cartas' ? 'page' : undefined;
 
 <nav class="entradas-tabs" aria-label="Filtrar entradas">
   <a href="/entradas/" class={claseTodas} aria-current={ariaTodas}>Todas las entradas</a>
-  <span class="tab-sep" aria-hidden="true">·</span>
+  <span class="tab-sep" aria-hidden="true"></span>
   <a href="/entradas/cartas/" class={claseCartas} aria-current={ariaCartas}>Solo cartas</a>
 </nav>
 
@@ -49,7 +49,10 @@ const ariaCartas = activa === 'cartas' ? 'page' : undefined;
     border-bottom-color: var(--oro);
   }
   .tab-sep {
-    color: var(--oro);
-    font-family: var(--font-display);
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    background: color-mix(in srgb, var(--oro) 60%, transparent);
   }
 </style>
