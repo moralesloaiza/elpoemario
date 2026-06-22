@@ -15,13 +15,17 @@ const { titulo, descripcion } = pagina.data;
       <p class="lead">{pagina.data.subtitulo}</p>
     </header>
 
-    <hr class="ornate" />
+    <div class="divisor-rombo" role="presentation">
+        <span class="divisor-rombo-pieza"></span>
+        <span class="divisor-rombo-diamante"></span>
+        <span class="divisor-rombo-pieza"></span>
+      </div>
 
     <nav class="acciones" aria-label="Navegación de rescate">
       <a class="accion" href="/"><span class="galon galon--izq" aria-hidden="true"></span><span>Volver al inicio</span></a>
-      <span aria-hidden="true">·</span>
+      <span class="sep-diamante" aria-hidden="true"></span>
       <a class="accion" href="/poemas/"><span>Ver todos los poemas</span><span class="galon galon--der" aria-hidden="true"></span></a>
-      <span aria-hidden="true">·</span>
+      <span class="sep-diamante" aria-hidden="true"></span>
       <a class="accion" href="/autores/"><span>Ver autores</span><span class="galon galon--der" aria-hidden="true"></span></a>
     </nav>
   </div>
@@ -92,5 +96,37 @@ const { titulo, descripcion } = pagina.data;
   .acciones span {
     margin-inline: var(--space-xs);
     color: var(--oro);
+  }
+
+  .divisor-rombo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin: 0 auto var(--space-2xl);
+    max-width: 80%;
+  }
+  .divisor-rombo-pieza {
+    flex: 1;
+    height: 0;
+    border-top: var(--rule-hairline) solid var(--oro);
+    max-width: 8rem;
+  }
+  .divisor-rombo-diamante {
+    width: 0.6rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    border: 1px solid var(--oro);
+    background: color-mix(in srgb, var(--oro) 30%, transparent);
+  }
+
+  .acciones .sep-diamante {
+    display: inline-block;
+    vertical-align: middle;
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: color-mix(in srgb, var(--oro) 60%, transparent);
   }
 </style>
