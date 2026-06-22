@@ -72,7 +72,11 @@ const volver =
         )}
       </header>
 
-      <hr class="ornate" />
+      <div class="divisor-rombo" role="presentation">
+        <span class="divisor-rombo-pieza"></span>
+        <span class="divisor-rombo-diamante"></span>
+        <span class="divisor-rombo-pieza"></span>
+      </div>
 
       {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
@@ -112,7 +116,6 @@ const volver =
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    border: var(--rule-hairline) solid var(--oro);
   }
   .title {
     text-align: center;
@@ -132,6 +135,28 @@ const volver =
     font-size: var(--fs-sm);
     color: var(--text-soft);
     margin: 0;
+  }
+  .divisor-rombo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin: 0 auto var(--space-2xl);
+    max-width: 80%;
+  }
+  .divisor-rombo-pieza {
+    flex: 1;
+    height: 0;
+    border-top: var(--rule-hairline) solid var(--oro);
+    max-width: 8rem;
+  }
+  .divisor-rombo-diamante {
+    width: 0.6rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+    border: 1px solid var(--oro);
+    background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
   .prose {
     font-family: var(--font-body);
@@ -161,17 +186,18 @@ const volver =
   }
   .curaduria {
     text-align: center;
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
+    font-family: var(--font-display);
+    font-size: var(--fs-2xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
     margin-top: var(--space-2xl);
     padding-top: var(--space-md);
     border-top: var(--rule-hairline) solid var(--oro);
   }
   .curaduria strong {
-    font-style: normal;
-    color: var(--text);
+    font-weight: var(--fw-regular);
+    color: var(--oro-texto);
   }
   .volver {
     margin-top: var(--space-2xl);
