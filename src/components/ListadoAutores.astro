@@ -44,9 +44,9 @@ const {
 <article class="page indice" lang="es">
   <nav class="migas" aria-label="Ruta de navegación">
     <a href="/">Inicio</a>
-    <span class="sep" aria-hidden="true">›</span>
+    <span class="sep-diamante" aria-hidden="true"></span>
     <a href={ejeHref}>{ejeTitulo}</a>
-    <span class="sep" aria-hidden="true">›</span>
+    <span class="sep-diamante" aria-hidden="true"></span>
     <span class="actual" aria-current="page">{display}</span>
   </nav>
 
@@ -103,8 +103,12 @@ const {
     color: var(--oro-texto);
     border-bottom-color: currentColor;
   }
-  .migas .sep {
-    color: var(--oro);
+  .migas .sep-diamante {
+    align-self: center;
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+    background: color-mix(in srgb, var(--oro) 60%, transparent);
   }
   .migas .actual {
     color: var(--text-muted);
