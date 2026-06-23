@@ -2,6 +2,7 @@
 titulo: "¿Por qué debemos leer a los poetas?"
 fecha: 2011-10-25
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

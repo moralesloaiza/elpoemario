@@ -2,6 +2,7 @@
 titulo: "Nuestra primera dÃ©cada"
 fecha: 2021-10-26
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

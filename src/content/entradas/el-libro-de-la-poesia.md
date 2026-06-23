@@ -2,6 +2,7 @@
 titulo: "El libro de la poesía"
 fecha: 2025-06-23
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

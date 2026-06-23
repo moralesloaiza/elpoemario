@@ -2,6 +2,7 @@
 titulo: "La poesía didascálica"
 fecha: 2011-10-28
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 
