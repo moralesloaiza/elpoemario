@@ -108,6 +108,19 @@ const conteoLabel =
     transform: scale(1.02);
   }
 
+/* Meta block: uniform vertical rhythm across all cards. A single flex
+     gap replaces the former per-element margins (which are reset below at
+     higher specificity so they cannot stack with the gap), keeping eyebrow,
+     title, secondary line, and footer evenly spaced and impossible to desync. */
+  .card .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .card .card-meta > * {
+    margin: 0;
+  }
+
   /* Country eyebrow. Inherits the exact visual treatment of the former
      .card-tipo slot: small Cinzel small-caps in gold above the name. */
   .card-nacionalidad {
