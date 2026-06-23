@@ -52,6 +52,10 @@ if (!autor) {
   throw new Error(`Poema "${id}" referencia autor inexistente: ${autorRef.id}`);
 }
 
+// (i) Curator-author: when the author is the director (i.e. the curator),
+// the "Selección de…" credit is nonsensical and the note is the author's own.
+const esCuradorAutor = autor.data.tipo === 'director';
+
 // Resolve optional translator entry. Zod has already validated the
 // reference exists; we still guard against an unexpected null return.
 const traductor = traductorRef ? await getEntry(traductorRef) : null;
@@ -83,9 +87,14 @@ const notaCuradorHtml = nota_curador
   : null;
 
 // Curator credit (decision 11).
-const creditoCurador = notaCuradorHtml
-  ? `Selección y nota de ${curador}.`
-  : `Selección de ${curador}.`;
+const creditoCurador = esCuradorAutor
+  ? null
+  : notaCuradorHtml
+    ? `Selección y nota de ${curador}.`
+    : `Selección de ${curador}.`;
+
+// (i) Note label: the author's own note vs the curator selecting another's poem.
+const rotuloNota = esCuradorAutor ? 'Nota del autor' : `Nota de ${curador}`;
 
 // Body class: verse vs prose-poetry.
 const bodyClass = tipo === 'prosa-poetica' ? 'prose' : 'prose prose--verso';
@@ -183,14 +192,14 @@ const siguiente = siguienteEntry
     </div>
 
     {notaCuradorHtml && (
-      <aside class="nota-curador" aria-label={`Nota de ${curador}`}>
-        <p class="nota-curador-rotulo">Nota de {curador}</p>
+      <aside class="nota-curador" aria-label={rotuloNota}>
+        <p class="nota-curador-rotulo">{rotuloNota}</p>
         <div class="nota-curador-texto" set:html={notaCuradorHtml}></div>
       </aside>
     )}
 
     <footer class="poema-cierre">
-      <p class="poema-credito">{creditoCurador}</p>
+      {creditoCurador && <p class="poema-credito">{creditoCurador}</p>}
       <p class="poema-fecha">
         Publicado el <FormattedDate date={fecha} />
         {fecha_actualizada && (
