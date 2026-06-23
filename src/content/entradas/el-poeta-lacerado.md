@@ -2,6 +2,7 @@
 titulo: "El poeta lacerado"
 fecha: 2011-11-01
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

@@ -2,6 +2,7 @@
 titulo: "La poesía es la música de las palabras"
 fecha: 2011-11-15
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

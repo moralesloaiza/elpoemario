@@ -2,6 +2,7 @@
 titulo: "Origen de la poesía"
 fecha: 2011-11-15
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 

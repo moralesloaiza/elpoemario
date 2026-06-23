@@ -2,6 +2,7 @@
 titulo: "La producción poética hispanoamericana"
 fecha: 2011-11-16
 tipo: bitacora
+curador: "Don Alejandro"
 borrador: true
 ---
 
