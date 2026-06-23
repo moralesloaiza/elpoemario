@@ -27,10 +27,8 @@ const SITE_ORIGIN = 'https://elpoemario.com';
 // Logo must live in /public/ (not /src/assets/) so the URL is stable
 // across builds — crawlers cache it.
 //
-// NOTE: /logo.svg does not exist yet. The JSON-LD is still valid
-// markup; the only consequence is a 404 if a crawler resolves the URL.
-// Will be supplied when the final Poemario logo is designed (decision
-// §13.3 of the design doc).
+// /logo.svg is the circular Art Déco publisher mark (ink-on-ivory),
+// 1000×1000 with explicit width/height. Served from /public/.
 export const PUBLISHER = {
   '@type': 'Organization',
   '@id': `${SITE_ORIGIN}/#publisher`,
