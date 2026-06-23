@@ -15,6 +15,11 @@ autor: alejandro-de-morales-y-loaiza
 curador: Alejandro de Morales y Loaiza
 es_seudonimo: false
 nombre_real: Alejandro Morales Loaiza
+nota_curador: "Hay despedidas que no piden olvido sino custodia. *Memento Amare*
+  —«recuerda amar»— invierte el viejo *memento mori*: no nos manda mirar la
+  muerte, sino guardar lo vivido. Quien se va deja calles, cartas, canciones; la
+  prosa propone no borrarlas, sino volverlas territorio íntimo, intransferible.
+  La memoria, aquí, no es herida abierta: es forma de fidelidad."
 ---
 Cuando debas despedirte de alguien a quien has amado libre y sinceramente, por tu propia voluntad y quizá con algo de idílica sinrazón ante el mundo, atesora su recuerdo.
 
