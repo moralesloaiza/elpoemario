@@ -23,7 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Working artifacts generated for assistant context — not source.
+# Working artifacts generated for assistant context â€” not source.
 # Snapshots, audits, bundles, page-state dumps, token exports.
 *-audit.txt
 *-auditoria-*.txt
@@ -34,4 +34,3 @@ _estado-*.txt
 *-snapshot-*.txt
 *-tokens.txt
 pr-body.md
-public/logo.svg
