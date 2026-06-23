@@ -500,6 +500,12 @@ const siguiente = siguienteEntry
     text-indent: -2ch;
   }
 
+  /* Prose-poetry: match the verse reading size and tone, keep prose flow. */
+  .prose:not(.prose--verso) {
+    font-size: clamp(20px, 3.4vw, 24px);
+    color: var(--verse);
+  }
+
   /* Prose-poetry: first-letter drop cap on the first paragraph. */
   .prose:not(.prose--verso) :global(p:first-of-type::first-letter) {
     font-family: var(--font-display);
