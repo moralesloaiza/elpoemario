@@ -22,8 +22,8 @@ nombre_real: Alejandro de Morales y Loaiza
 > eso, lo podrán hacer.
 > Privarme de que te quiera,
 > ¡sólo Dios con su poder!*
->
-> — Cancionero Popular Venezolano.
+
+*— Cancionero Popular Venezolano.*
 
 Ando solo por el mundo,
 señora, con mi destino
