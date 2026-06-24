@@ -1,27 +1,29 @@
-﻿---
-titulo: "Glosa del amor vedado"
+---
+titulo: Glosa del amor vedado
 fecha: 2011-08-09
+fecha_actualizada: 2026-06-24
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
   - dios
   - patria
-  - poesia-misma
   - sueno
+  - ausencia
+  - deseo
 motivos:
   - amada
 autor: hector-guillermo-villalobos
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro de Morales y Loaiza
 ---
-
-Privarme de que te vea,
+*Privarme de que te vea,
 eso, lo podrán hacer.
-Privarme de que te quiera.
-¡sólo Dios con su poder!
+Privarme de que te quiera,
+¡sólo Dios con su poder!*
 
-(Cancionero Popular Venezolano).
+— Cancionero Popular Venezolano.
 
 Ando solo por el mundo,
 señora, con mi destino
@@ -59,7 +61,7 @@ PRIVARME DE QUE TE QUIERA.
 Mas la suerte ya está echada
 y a volverse no hay lugar,
 que estoy resuelto a ganar
-aun con bajara marcada.
+aun con baraja marcada.
 En la puesta va, resteada,
 la ve que aún arde en mi ser,
 y en las cosas del querer
