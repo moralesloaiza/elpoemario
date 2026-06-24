@@ -18,12 +18,12 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro de Morales y Loaiza
 ---
-*Privarme de que te vea,
-eso, lo podrán hacer.
-Privarme de que te quiera,
-¡sólo Dios con su poder!*
-
-— Cancionero Popular Venezolano.
+> *Privarme de que te vea,
+> eso, lo podrán hacer.
+> Privarme de que te quiera,
+> ¡sólo Dios con su poder!*
+>
+> — Cancionero Popular Venezolano.
 
 Ando solo por el mundo,
 señora, con mi destino
