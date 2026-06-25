@@ -17,6 +17,21 @@ autor: hector-guillermo-villalobos
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro de Morales y Loaiza
+nota_curador: >-
+  Hay poemas que uno no escribe y, sin embargo, dicen lo suyo mejor de lo que
+  uno sabría decirlo.
+
+
+  La madrugada del 25 de octubre de 2011 no quise cerrar los ojos sin enviársela a una mujer que me estaba vedada. No la reescribí: la tomé entera, con su copla desafiante y sus cuatro décimas, y le antepuse unas líneas mías:
+
+
+  > «Esta madrugada no he querido cerrar mis ojos sin antes dedicarte un poema. Este poema no está entre los más elegantes, ni es por mucho el más sutil, pero he querido dedicártelo porque quizá con él te robe una sonrisa…»
+
+
+  Mi recato de entonces no me dejaba decirle de frente lo que el poema decía sin pudor: que podrán privarme de verte, pero de quererte, solo Dios. Villalobos le prestaba a mi silencio la vehemencia que yo me negaba. Lo leyera como lo leyera, venía a decirle: «quiero ir a verte».
+
+
+  Ella lo leyó al día siguiente. Guardé la dedicatoria. Hoy, por fin, la dejo ver.
 ---
 > *Privarme de que te vea,
 > eso, lo podrán hacer.
@@ -63,8 +78,8 @@ y a volverse no hay lugar,
 que estoy resuelto a ganar
 aun con baraja marcada.
 En la puesta va, resteada,
-la ve que aún arde en mi ser,
+la fe que aún arde en mi ser,
 y en las cosas del querer
-es legar cualquier chicana,
+es legal cualquier chicana,
 y esta «mano» me la gana
 ¡SÓLO DIOS CON SU PODER!
