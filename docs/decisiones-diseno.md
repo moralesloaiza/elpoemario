@@ -88,8 +88,10 @@ Implementación: regla global
 6. Footer sin atribución del director
 Decisión: el footer no lleva `· Una colección dirigida por don Alejandro de Morales y Loaiza`. Se queda en `© {año} El Poemario`.
 Estado: ya es así en `main` (cambio de código = no-op). El §1 del Documento de Diseño v1
-("footer canónico" con atribución) queda obsoleto y debe anotarse como tal en ese
-documento externo (no vive en el repo).
+("footer canónico" con atribución del director) queda ANULADO: la cadena
+`· Una colección dirigida por don Alejandro de Morales y Loaiza` no se usa ni se usará.
+El v1 vive fuera del repo y no es editable por git; este Registro de decisiones es la
+fuente de verdad y prevalece sobre aquel §1.
 ---
 7. Navegación móvil: sin burger
 Decisión: se conserva el nav que se reajusta (`flex-wrap` + reducción de gap). No se
@@ -115,7 +117,7 @@ Glifo lunar `☾` del conmutador pergamino: color → `var(--accent)` (confirmar
 exacta del glifo en una Fase 0-bis antes de escribir el script).
 Cierre: build verde + contrastes AA verificados (ya calculados en §3 y §4).
 PR-B · Foco visible. Según §5.
-Doc (externo, no repo): anotar como obsoleto el §1 del Documento de Diseño v1.
+Doc (externo, no repo): el §1 del Documento de Diseño v1 queda anulado por §6 de este Registro (fuente de verdad sobre el footer). HECHO.
 ---
 9. Descartado / no-op (confirmado por auditoría)
 Burger móvil: descartado (§7).
