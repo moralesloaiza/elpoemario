@@ -158,6 +158,18 @@ a:focus-visible {
   border-bottom-color: currentColor;
 }
 
+/* Foco de teclado visible (WCAG 2.4.7). El outline usa la variable, asi que
+   se adapta a ambos temas. Componentes con anillo propio o outline:none lo
+   sobreescriben por mayor especificidad. El tratamiento de color del enlace
+   (regla anterior) se conserva: estas propiedades son disjuntas. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--oro-texto);
+  outline-offset: 3px;
+}
+
 hr.ornate {
   border: 0;
   height: 6px;
