@@ -1,4 +1,4 @@
-﻿---
+---
 import { getCollection } from 'astro:content';
 
 import Base from '../../layouts/Base.astro';
@@ -89,6 +89,9 @@ const pagina = await getPagina('poemas');
     gap: 0;
     border-top: 1px solid var(--line);
     border-left: 1px solid var(--line);
+  }
+  .lista > li {
+    display: grid;
   }
 
   @media (max-width: 680px) {

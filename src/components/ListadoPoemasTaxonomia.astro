@@ -118,6 +118,9 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
     font-style: italic;
     color: var(--text-soft);
   }
+  .item:not([hidden]) {
+    display: grid;
+  }
   .lista {
     list-style: none;
     padding: 0;

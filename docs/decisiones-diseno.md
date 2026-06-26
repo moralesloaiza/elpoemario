@@ -77,7 +77,7 @@ Estado: implementado en `main` (PR-A). Confirmado en `src/styles/tokens.css`.
 
 El modo pergamino tenía tres fallos de contraste y dos valores al límite. Como `--oro`
 se usa como texto en `Poema.astro`, el umbral aplicable es 4.5:1. Correcciones (solo
-afectan a `\[data-theme='pergamino']`, que solo se renderiza en el poema):
+afectan a `\\\[data-theme='pergamino']`, que solo se renderiza en el poema):
 
 * `--oro`: `#8a6d34` (3.82 ✗) → `#6a5223` (5.80 ✓)
 * `--text-muted`: `#6b5d44` (5.04) → `#615338` (5.88 ✓)
@@ -100,7 +100,7 @@ Decisión: indicador de foco de teclado real con `outline`, cubriendo enlaces, b
 inputs (el `a:focus-visible` previo solo cambiaba color/subrayado).
 
 Implementación: regla global
-`a, button, input, \[tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
+`a, button, input, \\\[tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
 El `outline` usa la variable, así que se adapta a ambos temas. El tratamiento de color
 del enlace se conserva (propiedades disjuntas).
 
@@ -155,15 +155,27 @@ pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, desc
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
 Estado: R1 y R2 HECHOS y mergeados; pendientes R3 → R4 → R5 → R6 → R8.
-Cabo de R1 (meta desalineada al envolver el pie a dos líneas): RESUELTO en
+Tarjetas de rejilla (PoemaCard/AutorCard): la meta se desalineaba por DOS causas.
 
-PR-R1b. `PoemaCard` y `AutorCard` reservan dos líneas de alto al pie
+(1) Dominante — `.card { height: 100% }` no resolvía contra la pista de la
 
-(`min-height: 2.6em`, igual que el título) y lo bottom-alinean, de modo que el
+rejilla: el contenido (\~246px) excedía la pista (\~197px) y cada tarjeta
 
-autor anclado ya no sube cuando el pie envuelve. `OrnamentoTarjeta` sigue
+desbordaba \~49px, pisando la fila siguiente (medido por render). RESUELTO en
 
-huérfano, reservado para el fallback de retrato en R6 (§12).
+PR-R1c: `.card` pasa a `height: auto` y cada `> li` de las seis rejillas (home,
+
+/poemas, /autores, ListadoAutores, ListadoPoemasTaxonomia, otras-lenguas) usa
+
+`display: grid` para estirar la tarjeta a la pista; en taxonomía el li lleva
+
+`:not(\[hidden])` para no revelar las ocultas. (2) Secundaria — un pie de dos
+
+líneas subía el autor anclado frente a vecinos de una línea. RESUELTO en PR-R1b:
+
+el pie reserva dos líneas (`min-height: 2.6em`) y se bottom-alinea.
+
+`OrnamentoTarjeta` sigue huérfano, reservado para el fallback de retrato en R6 (§12).
 
 Rediseñar `PoemaCard` y `AutorCard`: de figura 3:2 + meta a celda de texto en rejilla
 bordeada (título recortado a 2 líneas, autor en itálica, línea "Forma · Movimiento"
@@ -230,7 +242,7 @@ en bitácora).
 11. Mapa maqueta ↔ páginas vivas
 
 La maqueta es un único archivo combinado con selector interno de 12 vistas (`data-screen`).
-No hay archivos `\*\_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
+No hay archivos `\\\*\\\_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
 nombre de archivo. Correspondencias:
 
 * inicio → `pages/index.astro`
@@ -240,7 +252,7 @@ nombre de archivo. Correspondencias:
 * tema (taxonomía) → `components/ListadoPoemasTaxonomia.astro` + páginas de eje
 * buscar → `pages/buscar/`
 * bitacora → `pages/entradas/index.astro`
-* entrada → `pages/entradas/\[...slug].astro`
+* entrada → `pages/entradas/\\\[...slug].astro`
 * colaborar → `pages/colaborar.astro`
 * contacto → `pages/correspondencia/index.astro`
 * 404 → `pages/404.astro`
@@ -275,6 +287,6 @@ renombrado de "Contacto").
 Apéndice — método de verificación de contraste
 
 Ratios calculados con la fórmula WCAG 2.x de luminancia relativa (linealización sRGB,
-coeficientes 0.2126 / 0.7152 / 0.0722, `(L\_claro + 0.05) / (L\_oscuro + 0.05)`). Umbrales:
+coeficientes 0.2126 / 0.7152 / 0.0722, `(L\\\_claro + 0.05) / (L\\\_oscuro + 0.05)`). Umbrales:
 texto normal 4.5:1, texto grande 3:1, elementos no textuales (bordes, iconos) 3:1.
 
