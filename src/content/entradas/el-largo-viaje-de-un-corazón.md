@@ -1,16 +1,13 @@
 ---
 titulo: El largo viaje de un corazón
 fecha: 2026-06-06
-fecha_actualizada: 2026-06-06
+fecha_actualizada: 2026-06-26
 resumen: "Una misma leyenda —el corazón arrancado de la madre que, caído en
   tierra, pregunta al hijo si se ha hecho daño— viajó del mundo árabe y libanés
   al castellano, pasó por Richepin en Francia y por Verdaguer en catalán, y echó
   cuatro raíces castellanas que hoy conviven en El Poemario: las firmadas de
   Eduardo de la Barra (1887), Joaquín Dicenta y Felipe Tejera (1910), más una
-  versión anónima impresa en México en 1887. El relato se apoya en el estudio de
-  Tibor Barcza y Carola Duran Tort (Anuari Verdaguer 19, 2011) y cierra
-  reconociendo la deuda personal del Director con Barcza, que entre 2010 y 2013
-  le fue entregando las piezas por correo."
+  versión anónima impresa en México en 1887."
 ilustracion: ../../assets/uploads/chatgpt-image-6-jun-2026-23_40_04.png
 spotify_url: https://open.spotify.com/episode/3tXonSc5eYmJFNaXCrjbh8?si=S69cU0SSRXeY43DhmhZmmg
 borrador: false
