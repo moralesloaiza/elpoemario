@@ -143,6 +143,9 @@ const destacado = defineCollection({
     .object({
       activo: z.boolean().default(true),
       cintillo: z.string(),
+      // Verse extract for the poema variant: one verse per line. Ignored for
+      // entrada/autor (those use the referred item's resumen/descripcion).
+      extracto: optionalString(),
       tipo: z.enum(['poema', 'entrada', 'autor']),
       poema_referido: z.preprocess(
         (v) => (v === '' || v === null ? undefined : v),

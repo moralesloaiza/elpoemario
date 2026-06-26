@@ -144,15 +144,20 @@ Decisiones (sesión de rediseño, junio de 2026):
 
 ---
 
-9. Plan de rediseño (PRs) — trabajo pendiente
+9. Plan de rediseño (PRs)
 
 Cada PR se ejecuta en su propia conversación, empezando por leer este archivo + tarball
 fresco de `main`. Un PR = un scope. PR-A (color) y PR-B (foco) ya están en `main`; lo
 pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, descartado §7).
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
+Estado: R1 y R2 HECHOS y mergeados; pendientes R3 → R4 → R5 → R6 → R8.
+Cabo abierto de R1: la meta de tarjeta puede desalinearse cuando el pie
+"Forma · Movimiento" envuelve a dos líneas (el autor anclado sube). Interior de
+tarjeta, fuera de R2; resolver en micro-PR de tarjeta (PR-R1b). `OrnamentoTarjeta`
+sigue huérfano, reservado para el fallback de retrato en R6 (§12).
 
-PR-R1 · Tarjeta sin imagen (raíz).
+PR-R1 · Tarjeta sin imagen (raíz). HECHO.
   Rediseñar `PoemaCard` y `AutorCard`: de figura 3:2 + meta a celda de texto en rejilla
   bordeada (título recortado a 2 líneas, autor en itálica, línea "Forma · Movimiento"
   anclada al pie), sin imagen. Confinar la rejilla a la columna de lectura (~760px) en vez
@@ -160,9 +165,13 @@ PR-R1 · Tarjeta sin imagen (raíz).
   /poemas, /autores, ficha de autor y taxonomía. Nota: el retrato del autor sobrevive solo
   en la ficha (§12), no en las tarjetas del índice.
 
-PR-R2 · Destacado text/verso.
-  Variante de `Destacado` sin imagen, con extracto de versos en vez de resumen en prosa.
-  Solo afecta al inicio.
+PR-R2 · Destacado text/verso. HECHO.
+  Variante de `Destacado` sin imagen, una sola columna centrada. Modo poema:
+  extracto de versos (campo `extracto` del singleton `destacado`, un verso por
+  línea, versos planos sin sangría). Modo entrada/autor: párrafo de prosa
+  (resumen / descripción) al mismo tamaño de lectura. Se eliminó la exigencia de
+  imagen del destacado en `index.astro` y de los hints de Decap. Solo afecta al
+  inicio.
 
 PR-R3 · Inicio (resto).
   Tagline en itálica bajo el `<h1>`; bloque "El Poemario en voz alta" (pódcast Spotify);
