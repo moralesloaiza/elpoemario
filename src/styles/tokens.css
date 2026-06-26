@@ -23,6 +23,7 @@
   --link:            var(--oro-texto);
   --link-hover:      var(--oro);
   --rule:            var(--oro);
+  --line:            color-mix(in srgb, var(--oro) 20%, transparent);
   --error:           var(--granate);
 
   /* === Typography (base) === */
@@ -73,6 +74,7 @@
   --measure-narrow: 36rem;
   --measure:        42rem;
   --measure-wide:   56rem;   /* 896px — destacado, igual que El Fabulario */
+  --measure-grid:   47.5rem; /* 760px - columna de lectura para rejillas de tarjetas */
   --page-max:       72rem;   /* 1152px — ancho máx. del sitio, igual que El Fabulario */
 
   /* === Ornamental rules === */

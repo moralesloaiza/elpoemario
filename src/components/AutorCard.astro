@@ -1,7 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
 
 interface Props {
   autor: CollectionEntry<'autores'>;
@@ -9,25 +7,20 @@ interface Props {
 }
 
 const { autor, conteo } = Astro.props;
-const { nombre, nacionalidad, nacimiento, muerte, imagen } = autor.data;
+const { nombre, nacionalidad, nacimiento, muerte } = autor.data;
 
-// Eyebrow line above the name: the author's country. Replaces the former
-// `tipo` badge (CLÁSICO/DIRECTOR/COLABORADOR) — near-constant across an
-// anthology that is overwhelmingly public-domain classics, so it carried
-// no discriminating signal. Country sorts the corpus and reads editorial.
-// Rendered uppercase via CSS (text-transform), so "Venezuela" → "VENEZUELA".
-// Suppressed entirely when absent (e.g. Anónimo).
-
-// Life dates:
-//   both years  → "1896–1955" (en dash range)
-//   birth only  → "n. 1985"   (living author: director, collaborators)
-//   neither     → suppressed  (e.g. Anónimo)
+// Secondary line under the name: country and life dates joined by a middot.
+//   both years  → "Chile · 1839–1900"
+//   birth only  → "Chile · n. 1985"   (living author)
+//   no dates    → "Chile"
+//   no country  → dates alone, or suppressed entirely (e.g. Anónimo)
 const anios =
   nacimiento && muerte
-    ? `${nacimiento} – ${muerte}`
+    ? `${nacimiento}–${muerte}`
     : nacimiento
       ? `n. ${nacimiento}`
       : null;
+const subLinea = [nacionalidad, anios].filter(Boolean).join(' · ') || null;
 
 // Published-poem count. "—" for zero (author exists but has no poems yet),
 // singular/plural otherwise.
@@ -36,112 +29,50 @@ const conteoLabel =
 ---
 
 <article class="card">
-  <figure class:list={['card-img', { 'con-ornamento': !imagen }]}>
-    {imagen ? (
-      <Image
-        src={imagen}
-        alt={`Retrato de ${nombre}`}
-        loading="lazy"
-        decoding="async"
-        width={900}
-        height={600}
-      />
-    ) : (
-      <OrnamentoTarjeta />
-    )}
-  </figure>
-  <div class="card-meta">
-    {nacionalidad && <p class="card-nacionalidad">{nacionalidad}</p>}
-    <h3 class="card-nombre">
-      <a href={`/autores/${autor.id}/`}>{nombre}</a>
-    </h3>
-    {anios && <p class="card-anios">{anios}</p>}
-    <p class="card-conteo">{conteoLabel}</p>
-  </div>
+  <h3 class="card-nombre">
+    <a href={`/autores/${autor.id}/`}>{nombre}</a>
+  </h3>
+  {subLinea && <p class="card-sub">{subLinea}</p>}
+  <p class="card-conteo">{conteoLabel}</p>
 </article>
 
 <style>
-  /* Structure mirrors PoemaCard for visual coherence across the anthology.
-     Block-link pattern: <a> wraps only the name; its ::before overlay
-     extends the click target across the whole .card. */
+  /* Mirrors PoemaCard: text cell in a bordered grid, no image. Container draws
+     top/left rules; each cell draws right/bottom. Block-link ::before overlay
+     makes the whole cell clickable. */
   .card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
-  }
-
-  .card-img {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    margin: 0 0 var(--space-md);
-  }
-
-  /* Ornament-only variant: double gold border, mirrors the .frame primitive
-     in global.css. Same rule as PoemaCard.card-img.con-ornamento. */
-  .card-img.con-ornamento {
-    position: relative;
-    background: var(--bg-elevated);
-    border: 1.5px solid var(--oro);
-  }
-  .card-img.con-ornamento::before {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border: var(--rule-hairline) solid var(--oro);
-    pointer-events: none;
-  }
-
-  .card-img :global(img) {
-    display: block;
-    width: 100%;
+    align-items: center;
+    text-align: center;
     height: 100%;
-    object-fit: cover;
-    transition: transform var(--dur-fast) var(--ease-standard);
+    min-height: 148px;
+    padding: var(--space-lg) var(--space-md);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background-color var(--dur-fast) var(--ease-standard);
   }
-  .card-img :global(svg.ornamento) {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .card:has(.card-nombre a:hover) .card-img :global(img),
-  .card:has(.card-nombre a:focus-visible) .card-img :global(img) {
-    transform: scale(1.02);
-  }
-
-/* Meta block: uniform vertical rhythm across all cards. A single flex
-     gap replaces the former per-element margins (which are reset below at
-     higher specificity so they cannot stack with the gap), keeping eyebrow,
-     title, secondary line, and footer evenly spaced and impossible to desync. */
-  .card .card-meta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-  .card .card-meta > * {
-    margin: 0;
-  }
-
-  /* Country eyebrow. Inherits the exact visual treatment of the former
-     .card-tipo slot: small Cinzel small-caps in gold above the name. */
-  .card-nacionalidad {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
+  .card:has(.card-nombre a:hover),
+  .card:has(.card-nombre a:focus-visible) {
+    background-color: rgba(200, 168, 106, 0.05);
   }
 
   .card-nombre {
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
     color: var(--text);
     text-transform: none;
+    text-wrap: balance;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 2.6em;
   }
 
   .card-nombre a {
@@ -159,18 +90,28 @@ const conteoLabel =
     color: var(--oro-texto);
   }
 
-  .card-anios {
+  /* Sub-line (country · years) and count anchored to the bottom of the cell. */
+  .card-sub {
     font-family: var(--font-body);
     font-style: italic;
     font-size: var(--fs-md);
     color: var(--text-soft);
-    margin: 0;
+    margin: var(--space-md) 0 0;
+    margin-top: auto;
   }
   .card-conteo {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    margin: var(--space-2xs) 0 0;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: var(--lh-snug);
+    margin: var(--space-sm) 0 0;
+  }
+  .card-sub + .card-conteo {
+    margin-top: var(--space-sm);
+  }
+  .card > .card-conteo:nth-child(2) {
+    margin-top: auto;
   }
 </style>

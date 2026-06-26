@@ -17,7 +17,7 @@ const home = await getPagina('home');
 // Latest non-draft poems, newest first, capped at 6.
 const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
   .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
-  .slice(0, 8);
+  .slice(0, 6);
 
 // Author id→name map, so the grid renders authors without per-row awaits.
 const autoresLista = await getCollection('autores');
@@ -299,12 +299,13 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   ul.poemas {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: var(--measure-grid);
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: var(--space-xl);
-    row-gap: var(--space-2xl);
-    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
   }
   .ver-todo {
     text-align: center;
@@ -398,11 +399,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     margin: 0;
   }
 
-  @media (max-width: 1000px) {
-    ul.poemas {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
   @media (max-width: 900px) {
     ul.exploracion {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -410,13 +406,14 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     }
   }
   @media (max-width: 720px) {
-    ul.poemas {
-      grid-template-columns: 1fr;
-      row-gap: var(--space-xl);
-    }
     ul.exploracion {
       grid-template-columns: 1fr;
       row-gap: var(--space-xl);
+    }
+  }
+  @media (max-width: 680px) {
+    ul.poemas {
+      grid-template-columns: 1fr;
     }
   }
   @media (prefers-reduced-motion: reduce) {

@@ -121,11 +121,13 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
   .lista {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: var(--measure-grid);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: var(--space-xl);
-    row-gap: var(--space-2xl);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
   }
   /* Hidden batches for "cargar mas": overrides the grid's implicit display. */
   [hidden] {
@@ -149,15 +151,9 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
   .cargar-mas:focus-visible {
     background-color: rgba(255, 255, 255, 0.04);
   }
-  @media (max-width: 1000px) {
-    .lista {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 720px) {
+  @media (max-width: 680px) {
     .lista {
       grid-template-columns: 1fr;
-      row-gap: var(--space-xl);
     }
   }
 </style>
