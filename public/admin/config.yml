@@ -352,6 +352,7 @@ collections:
         fields:
           - { name: "titulo", label: "Lema (pestaña del navegador)", widget: "string", required: false, hint: "Aparece tras «El Poemario ·» en el título de la pestaña. No es el subtítulo visible." }
           - { name: "subtitulo", label: "Subtítulo visible (hero)", widget: "string", required: false }
+          - { name: "lema", label: "Tagline en cursiva (bajo el título)", widget: "string", required: false, hint: "Frase en cursiva que aparece bajo «El Poemario» en la portada. Tono ambiental, no SEO." }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
       - name: "poemas"
         label: "Listado: Poemas"

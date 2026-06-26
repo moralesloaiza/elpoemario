@@ -181,6 +181,8 @@ const paginas = defineCollection({
   schema: z.object({
     titulo: optionalString(),
     subtitulo: optionalString(),
+    // Italic tagline under the home <h1>. Only the home page renders it.
+    lema: optionalString(),
     descripcion: optionalString(),
   }),
 });

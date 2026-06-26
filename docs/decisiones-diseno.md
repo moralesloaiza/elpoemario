@@ -77,7 +77,7 @@ Estado: implementado en `main` (PR-A). Confirmado en `src/styles/tokens.css`.
 
 El modo pergamino tenía tres fallos de contraste y dos valores al límite. Como `--oro`
 se usa como texto en `Poema.astro`, el umbral aplicable es 4.5:1. Correcciones (solo
-afectan a `\\\[data-theme='pergamino']`, que solo se renderiza en el poema):
+afectan a `\\\\\\\[data-theme='pergamino']`, que solo se renderiza en el poema):
 
 * `--oro`: `#8a6d34` (3.82 ✗) → `#6a5223` (5.80 ✓)
 * `--text-muted`: `#6b5d44` (5.04) → `#615338` (5.88 ✓)
@@ -100,7 +100,7 @@ Decisión: indicador de foco de teclado real con `outline`, cubriendo enlaces, b
 inputs (el `a:focus-visible` previo solo cambiaba color/subrayado).
 
 Implementación: regla global
-`a, button, input, \\\[tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
+`a, button, input, \\\\\\\[tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
 El `outline` usa la variable, así que se adapta a ambos temas. El tratamiento de color
 del enlace se conserva (propiedades disjuntas).
 
@@ -154,7 +154,7 @@ fresco de `main`. Un PR = un scope. PR-A (color) y PR-B (foco) ya están en `mai
 pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, descartado §7).
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
-Estado: R1 y R2 HECHOS y mergeados; pendientes R3 → R4 → R5 → R6 → R8.
+Estado: R1, R2 y R3 HECHOS y mergeados; pendientes R4 → R5 → R6 → R8.
 Tarjetas de rejilla (PoemaCard/AutorCard): la meta se desalineaba por DOS causas.
 
 (1) Dominante — `.card { height: 100% }` no resolvía contra la pista de la
@@ -169,7 +169,7 @@ PR-R1c: `.card` pasa a `height: auto` y cada `> li` de las seis rejillas (home,
 
 `display: grid` para estirar la tarjeta a la pista; en taxonomía el li lleva
 
-`:not(\[hidden])` para no revelar las ocultas. (2) Secundaria — un pie de dos
+`:not(\\\[hidden])` para no revelar las ocultas. (2) Secundaria — un pie de dos
 
 líneas subía el autor anclado frente a vecinos de una línea. RESUELTO en PR-R1b:
 
@@ -192,12 +192,39 @@ línea, versos planos sin sangría). Modo entrada/autor: párrafo de prosa
 imagen del destacado en `index.astro` y de los hints de Decap. Solo afecta al
 inicio.
 
-PR-R3 · Inicio (resto).
-Tagline en itálica bajo el `<h1>`; bloque "El Poemario en voz alta" (pódcast Spotify);
-ELIMINAR la sección "Explorar" (I–IV). Decisión cerrada: el descubrimiento queda a cargo
-del footer, que ya ofrece los cuatro grupos de exploración.
+PR-R3 · Inicio (resto). HECHO.
 
-PR-R4 · Página de poema.
+Tagline en cursiva bajo el `<h1>` del home, editable desde Decap: nuevo campo
+
+`lema` en el singleton `paginas/home` (schema Zod + `config.yml`). Distinto de
+
+`titulo` (sufijo del `<title>`/og) y de `subtitulo` (antetítulo sobre el `<h1>`).
+
+Bloque "El Poemario en voz alta": tarjeta de enlace externo (no embed) al show de
+
+Spotify, replicando la maqueta. La URL es identidad fija del sitio (como el footer),
+
+en `consts.ts` como `SPOTIFY\_SHOW\_URL`, no campo de contenido: una URL de show que
+
+casi nunca cambia no justifica superficie en Decap. `SpotifyEmbed` no se tocó (solo
+
+soporta track/episode; un embed de show es pesado y rompe la home sobria).
+
+Sección "Explorar" (I–IV) ELIMINADA junto con su CSS huérfano (`.seccion-explorar`,
+
+`.eyebrow`, `ul.exploracion` y derivados, `.numeral`, `.titulo-explorar`,
+
+`.descripcion-explorar`, media queries 900px/720px). El descubrimiento queda a cargo
+
+del footer, que ofrece los cuatro grupos (Poemas/Autores/Buscar/Colaborar entre
+
+ellos). El `data-buscador-trigger` que vivía en Explorar era secundario: el trigger
+
+primario del buscador está en `Header.astro` (presente en todas las páginas), así que
+
+el overlay sigue funcionando sin script huérfano. La media query 680px de `ul.poemas`
+
+(de R1) se conserva.PR-R4 · Página de poema.
 Antetítulo "POEMA" sobre el `<h1>`; taxonomía inline centrada (retirar el `<dl>` tabular,
 los chips y las filas extra Autor/Traductor/Ayuda); nota de curador a filete `border-left`
 en vez de caja; reposición del conmutador pergamino. El resto de la página (ilustración a
@@ -242,7 +269,7 @@ en bitácora).
 11. Mapa maqueta ↔ páginas vivas
 
 La maqueta es un único archivo combinado con selector interno de 12 vistas (`data-screen`).
-No hay archivos `\\\*\\\_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
+No hay archivos `\\\\\\\*\\\\\\\_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
 nombre de archivo. Correspondencias:
 
 * inicio → `pages/index.astro`
@@ -252,7 +279,7 @@ nombre de archivo. Correspondencias:
 * tema (taxonomía) → `components/ListadoPoemasTaxonomia.astro` + páginas de eje
 * buscar → `pages/buscar/`
 * bitacora → `pages/entradas/index.astro`
-* entrada → `pages/entradas/\\\[...slug].astro`
+* entrada → `pages/entradas/\\\\\\\[...slug].astro`
 * colaborar → `pages/colaborar.astro`
 * contacto → `pages/correspondencia/index.astro`
 * 404 → `pages/404.astro`
@@ -287,6 +314,6 @@ renombrado de "Contacto").
 Apéndice — método de verificación de contraste
 
 Ratios calculados con la fórmula WCAG 2.x de luminancia relativa (linealización sRGB,
-coeficientes 0.2126 / 0.7152 / 0.0722, `(L\\\_claro + 0.05) / (L\\\_oscuro + 0.05)`). Umbrales:
+coeficientes 0.2126 / 0.7152 / 0.0722, `(L\\\\\\\_claro + 0.05) / (L\\\\\\\_oscuro + 0.05)`). Umbrales:
 texto normal 4.5:1, texto grande 3:1, elementos no textuales (bordes, iconos) 3:1.
 
