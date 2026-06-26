@@ -4,13 +4,14 @@ import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Destacado from '../components/Destacado.astro';
 import PoemaCard from '../components/PoemaCard.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 
 // Home hero text from src/content/paginas/home.md (editable in Decap).
 // `titulo` here is the long descriptor (browser <title> suffix / og:title);
-// `subtitulo` is the tagline antetítulo. The visible h1 is SITE_TITLE.
+// `subtitulo` is the tagline antetitulo; `lema` is the italic tagline under
+// the h1. The visible h1 is SITE_TITLE.
 const home = await getPagina('home');
 
 // Latest non-draft poems, newest first, capped at 6.
@@ -18,7 +19,7 @@ const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
   .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
   .slice(0, 6);
 
-// Author id→name map, so the grid renders authors without per-row awaits.
+// Author id->name map, so the grid renders authors without per-row awaits.
 const autoresLista = await getCollection('autores');
 const autoresPorId = new Map(autoresLista.map((a) => [a.id, a.data.nombre]));
 
@@ -96,6 +97,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     <div class="rayos" aria-hidden="true"></div>
     <p class="antetitulo">{home.data.subtitulo}</p>
     <h1>{SITE_TITLE}</h1>
+    {home.data.lema && <p class="lema">{home.data.lema}</p>}
     <div class="divisor-rombo" role="presentation">
       <span class="divisor-rombo-pieza"></span>
       <span class="divisor-rombo-diamante"></span>
@@ -134,43 +136,28 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     </section>
   )}
 
-  <section class="seccion-explorar" aria-labelledby="explorar-titulo">
-    <p id="explorar-titulo" class="eyebrow">— Explorar —</p>
-    <ul class="exploracion">
-      <li>
-        <a href="/poemas/">
-          <span class="numeral" aria-hidden="true">I</span>
-          <h3 class="titulo-explorar">Catálogo</h3>
-          <p class="descripcion-explorar">Todos los poemas.</p>
-        </a>
-      </li>
-      <li>
-        <a href="/autores/">
-          <span class="numeral" aria-hidden="true">II</span>
-          <h3 class="titulo-explorar">Autores</h3>
-          <p class="descripcion-explorar">Clásicos y colaboradores.</p>
-        </a>
-      </li>
-      <li>
-        <button type="button" class="explorar-trigger" data-buscador-trigger>
-          <span class="numeral" aria-hidden="true">III</span>
-          <h3 class="titulo-explorar">Búsqueda</h3>
-          <p class="descripcion-explorar">Por título o autor.</p>
-        </button>
-      </li>
-      <li>
-        <a href="/colaborar/">
-          <span class="numeral" aria-hidden="true">IV</span>
-          <h3 class="titulo-explorar">Colaborar</h3>
-          <p class="descripcion-explorar">¿Escribes poesía?</p>
-        </a>
-      </li>
-    </ul>
+  <section class="seccion-podcast" aria-labelledby="podcast-titulo">
+    <h2 id="podcast-titulo" class="seccion-titulo">El Poemario en voz alta</h2>
+    <p class="podcast-subtitulo">Nuestro pódcast: cada selección, leída para la noche</p>
+    <a class="podcast" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
+      <span class="podcast-play" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <polygon points="20,16 20,32 34,24" fill="currentColor" />
+        </svg>
+      </span>
+      <span class="podcast-cuerpo">
+        <span class="podcast-eyebrow">Pódcast · Spotify</span>
+        <span class="podcast-titulo">Escuchar El Poemario</span>
+        <span class="podcast-glosa">Don Alejandro lee la antología en voz alta.</span>
+      </span>
+      <span class="podcast-ext" aria-hidden="true">↗</span>
+    </a>
   </section>
 </Base>
 
 <style>
-  /* ── Héroe ────────────────────────────────────────────────────────── */
+  /* ── Héroe ─────────────────────────────────────────────────────────── */
   .hero {
     position: relative;
     text-align: center;
@@ -216,7 +203,18 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     text-wrap: balance;
   }
 
-  /* ── Divisor de rombo (mismo lenguaje que la página de poema) ──────── */
+  /* Tagline en cursiva bajo el título (editable: home.lema). */
+  .lema {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--text-soft);
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-md);
+  }
+
+  /* ── Divisor de rombo (mismo lenguaje que la página de poema) ───────── */
   .divisor-rombo {
     display: flex;
     align-items: center;
@@ -240,7 +238,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
 
-  /* ── Secciones ────────────────────────────────────────────────────── */
+  /* ── Secciones ─────────────────────────────────────────────────────── */
   .seccion-poemas {
     margin-bottom: var(--space-2xl);
   }
@@ -293,93 +291,100 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     border-bottom-color: var(--oro);
   }
 
-  .seccion-explorar {
+  /* ── Pódcast · El Poemario en voz alta ─────────────────────────────── */
+  .seccion-podcast {
     text-align: center;
   }
-  .eyebrow {
+  .podcast-subtitulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-muted);
+    margin: calc(-1 * var(--space-md)) 0 var(--space-xl);
+  }
+  .podcast {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    max-width: var(--measure-narrow);
+    margin: 0 auto;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid var(--oro-suave);
+    padding: var(--space-lg) var(--space-xl);
+    transition: border-color var(--dur-fast) var(--ease-standard),
+                background var(--dur-fast) var(--ease-standard);
+  }
+  .podcast:hover,
+  .podcast:focus-visible {
+    border-color: var(--oro);
+    background: color-mix(in srgb, var(--oro) 5%, transparent);
+  }
+  .podcast-play {
+    flex: none;
+    display: inline-flex;
+    line-height: 0;
+    color: var(--oro-texto);
+  }
+  .podcast-play svg {
+    width: 48px;
+    height: 48px;
+  }
+  .podcast-cuerpo {
+    flex: 1;
+    display: block;
+  }
+  .podcast-eyebrow {
+    display: block;
     font-family: var(--font-meta);
     font-size: var(--fs-3xs);
     font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-widest);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
-    max-width: none;
     margin: 0 0 var(--space-2xs);
   }
-  .seccion-explorar .seccion-titulo {
-    margin: 0 0 var(--space-xl);
-  }
-  ul.exploracion {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: none;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: var(--space-xl);
-    row-gap: var(--space-lg);
-  }
-  ul.exploracion a,
-  ul.exploracion .explorar-trigger {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-    padding: var(--space-md) 0;
-    background: transparent;
-    border: 0;
-    font: inherit;
-    text-align: inherit;
-    cursor: pointer;
-  }
-  .numeral {
+  .podcast-titulo {
     display: block;
     font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    font-weight: var(--fw-bold);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wide);
-    color: var(--oro-texto);
-    margin: 0 0 var(--space-2xs);
-  }
-  .titulo-explorar {
-    font-family: var(--font-display);
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-bold);
-    letter-spacing: var(--ls-wide);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
     color: var(--text);
-    text-transform: uppercase;
   }
-  ul.exploracion a:hover .titulo-explorar,
-  ul.exploracion a:focus-visible .titulo-explorar,
-  ul.exploracion .explorar-trigger:hover .titulo-explorar,
-  ul.exploracion .explorar-trigger:focus-visible .titulo-explorar {
+  .podcast:hover .podcast-titulo,
+  .podcast:focus-visible .podcast-titulo {
     color: var(--oro-texto);
   }
-  .descripcion-explorar {
+  .podcast-glosa {
+    display: block;
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-soft);
-    margin: 0;
+    margin-top: var(--space-2xs);
+  }
+  .podcast-ext {
+    flex: none;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    color: var(--oro-texto);
   }
 
-  @media (max-width: 900px) {
-    ul.exploracion {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: var(--space-2xl);
-    }
-  }
-  @media (max-width: 720px) {
-    ul.exploracion {
-      grid-template-columns: 1fr;
-      row-gap: var(--space-xl);
-    }
-  }
   @media (max-width: 680px) {
     ul.poemas {
       grid-template-columns: 1fr;
+    }
+    .podcast {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-md);
+    }
+    .podcast-cuerpo {
+      text-align: center;
+    }
+    .podcast-ext {
+      display: none;
     }
   }
   @media (prefers-reduced-motion: reduce) {
