@@ -1,4 +1,4 @@
-﻿---
+---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import AutorCard from '../../components/AutorCard.astro';
@@ -114,5 +114,6 @@ const pagina = await getPagina('autores');
   }
   .item {
     margin: 0;
+    display: grid;
   }
 </style>
