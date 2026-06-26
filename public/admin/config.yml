@@ -304,6 +304,7 @@ collections:
         fields:
           - { name: "activo", label: "Activo", widget: "boolean", default: true, hint: "Desmarca para apagar el destacado sin borrar la referencia." }
           - { name: "cintillo", label: "Cintillo (texto sobre el título)", widget: "string", hint: "Texto editorial breve. Se renderiza en mayúsculas. Ejemplos: 'En portada', 'Poema del mes', 'El curador recomienda'." }
+          - { name: "extracto", label: "Extracto de versos (solo para Tipo = Poema)", widget: "text", required: false, hint: "Versos elegidos a mano para la home; un verso por línea. Solo se muestra cuando Tipo = Poema. Entrada y Autor usan su propio resumen/descripción." }
           - name: "tipo"
             label: "Tipo de destacado"
             widget: "select"
@@ -321,7 +322,7 @@ collections:
             search_fields: ["titulo"]
             display_fields: ["titulo"]
             required: false
-            hint: "Selecciona si Tipo = Poema. El poema debe tener ilustración."
+            hint: "Selecciona si Tipo = Poema."
           - name: "entrada_referida"
             label: "Entrada"
             widget: "relation"
@@ -330,7 +331,7 @@ collections:
             search_fields: ["titulo"]
             display_fields: ["titulo"]
             required: false
-            hint: "Selecciona si Tipo = Entrada. La entrada debe tener ilustración."
+            hint: "Selecciona si Tipo = Entrada."
           - name: "autor_referido"
             label: "Autor"
             widget: "relation"
@@ -339,7 +340,7 @@ collections:
             search_fields: ["nombre"]
             display_fields: ["nombre"]
             required: false
-            hint: "Selecciona si Tipo = Autor. El autor debe tener retrato."
+            hint: "Selecciona si Tipo = Autor."
 
   - name: "paginas"
     label: "Páginas"
