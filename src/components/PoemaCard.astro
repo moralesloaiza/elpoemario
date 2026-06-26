@@ -1,9 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import FormattedDate from './FormattedDate.astro';
-import OrnamentoTarjeta from './ornaments/OrnamentoTarjeta.astro';
-import { TIPOS_DISPLAY } from '../utils/taxonomia';
+import { TIPOS_DISPLAY, MOVIMIENTOS_DISPLAY } from '../utils/taxonomia';
 
 interface Props {
   poema: CollectionEntry<'poemas'>;
@@ -12,125 +9,68 @@ interface Props {
 }
 
 const { poema, autorNombre, mostrarAutor = true } = Astro.props;
-const { titulo, ilustracion, fecha, tipo } = poema.data;
+const { titulo, tipo, movimiento } = poema.data;
 
-// Display label for the metric/strophic form. Used as a small uppercase
-// rubric above the title — primary literary disambiguator in an anthology
-// of mixed forms (soneto vs verso libre vs romance, etc.).
+// Foot line: metric form, optionally followed by the historical-aesthetic
+// movement. "Soneto · Modernismo", or just "Soneto" when no movement is set
+// (110 of 121 poems carry one; the rest fall back to form alone).
 const tipoLabel = TIPOS_DISPLAY[tipo];
+const movimientoLabel = movimiento ? MOVIMIENTOS_DISPLAY[movimiento] : null;
+const piePoema = movimientoLabel ? `${tipoLabel} · ${movimientoLabel}` : tipoLabel;
 ---
 
 <article class="card">
-  <figure class:list={['card-img', { 'con-ornamento': !ilustracion }]}>
-    {ilustracion ? (
-      <Image
-        src={ilustracion}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        width={900}
-        height={600}
-      />
-    ) : (
-      <OrnamentoTarjeta />
-    )}
-  </figure>
-  <div class="card-meta">
-    <p class="card-tipo">{tipoLabel}</p>
-    <h3 class="card-titulo">
-      <a href={`/poemas/${poema.id}/`}>{titulo}</a>
-    </h3>
-    {mostrarAutor && <p class="card-autor">por {autorNombre}</p>}
-    <p class="card-fecha">
-      <FormattedDate date={fecha} />
-    </p>
-  </div>
+  <h3 class="card-titulo">
+    <a href={`/poemas/${poema.id}/`}>{titulo}</a>
+  </h3>
+  {mostrarAutor && <p class="card-autor">{autorNombre}</p>}
+  <p class="card-pie">{piePoema}</p>
 </article>
 
 <style>
-  /* The card is the positioning context for the block-link pseudo-element. */
+  /* Text cell in a bordered grid (no image). The container draws the top and
+     left rules; each cell draws its own right and bottom rule, so the grid is
+     closed regardless of how many cells are present. The card is also the
+     positioning context for the block-link ::before overlay. */
   .card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
-  }
-
-  /* Frame: aspect ratio shared by both image and ornament-only variants. */
-  .card-img {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    margin: 0 0 var(--space-md);
-  }
-
-  /* Ornament-only variant: double gold border, mirrors the .frame primitive. */
-  .card-img.con-ornamento {
-    position: relative;
-    background: var(--bg-elevated);
-    border: 1.5px solid var(--oro);
-  }
-  .card-img.con-ornamento::before {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border: var(--rule-hairline) solid var(--oro);
-    pointer-events: none;
-  }
-
-  .card-img :global(img) {
-    display: block;
-    width: 100%;
+    align-items: center;
+    text-align: center;
     height: 100%;
-    object-fit: cover;
-    transition: transform var(--dur-fast) var(--ease-standard);
+    min-height: 148px;
+    padding: var(--space-lg) var(--space-md);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    transition: background-color var(--dur-fast) var(--ease-standard);
   }
-  .card-img :global(svg.ornamento) {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .card:has(.card-titulo a:hover) .card-img :global(img),
-  .card:has(.card-titulo a:focus-visible) .card-img :global(img) {
-    transform: scale(1.02);
+  .card:has(.card-titulo a:hover),
+  .card:has(.card-titulo a:focus-visible) {
+    background-color: rgba(200, 168, 106, 0.05);
   }
 
-/* Meta block: uniform vertical rhythm across all cards. A single flex
-     gap replaces the former per-element margins (which are reset below at
-     higher specificity so they cannot stack with the gap), keeping eyebrow,
-     title, secondary line, and footer evenly spaced and impossible to desync. */
-  .card .card-meta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-  .card .card-meta > * {
-    margin: 0;
-  }
-
-  /* Form rubric: small uppercase label above the title. Reads as the
-     literary category (soneto, romance, verso libre). */
-  .card-tipo {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
-  }
-
+  /* Title: clamped to 2 lines with reserved height, so a one-line title does
+     not shrink its cell. The full title lives on the poem page. */
   .card-titulo {
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
     color: var(--text);
     text-transform: none;
+    text-wrap: balance;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 2.6em;
   }
 
-  /* Block-link: the <a> wraps only the title, but its ::before overlay
-     extends the clickable area across the whole .card. */
+  /* Block-link: the <a> wraps only the title; its ::before overlay extends the
+     clickable area across the whole cell. */
   .card-titulo a {
     text-decoration: none;
     color: inherit;
@@ -146,18 +86,32 @@ const tipoLabel = TIPOS_DISPLAY[tipo];
     color: var(--oro-texto);
   }
 
+  /* Author and foot rubric are anchored to the bottom of the cell: margin-top
+     auto on the first of them pushes the pair down to a common baseline across
+     columns, leaving the title at the top. */
   .card-autor {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
-    margin: 0;
+    font-size: var(--fs-md);
+    color: var(--oro-texto);
+    margin: var(--space-md) 0 0;
+    margin-top: auto;
   }
-  .card-fecha {
+  .card-pie {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    margin: var(--space-2xs) 0 0;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: var(--lh-snug);
+    margin: var(--space-sm) 0 0;
+  }
+  /* When the author line is suppressed (mostrarAutor=false, on the author
+     page), the foot rubric becomes the bottom-anchored element instead. */
+  .card-autor + .card-pie {
+    margin-top: var(--space-sm);
+  }
+  .card > .card-pie:nth-child(2) {
+    margin-top: auto;
   }
 </style>

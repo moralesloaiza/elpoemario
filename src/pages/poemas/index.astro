@@ -82,24 +82,18 @@ const pagina = await getPagina('poemas');
   .lista {
     list-style: none;
     padding: 0;
-    margin: var(--space-2xl) 0 0;
+    margin: var(--space-2xl) auto 0;
+    max-width: var(--measure-grid);
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: var(--space-xl);
-    row-gap: var(--space-2xl);
-    max-width: none;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
   }
 
-  @media (max-width: 1000px) {
-    .lista {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 720px) {
+  @media (max-width: 680px) {
     .lista {
       grid-template-columns: 1fr;
-      row-gap: var(--space-xl);
     }
   }
 </style>

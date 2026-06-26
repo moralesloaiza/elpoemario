@@ -94,27 +94,22 @@ const pagina = await getPagina('autores');
     margin: var(--space-2xl) auto;
   }
 
-  /* Responsive grid: 1 col móvil → 2 cols tablet (≥480px) → 3 cols desktop
-     (≥720px). Same breakpoint convention as El Fabulario. gap --space-xl
-     (32px) is denser than /poemas/ (--space-2xl): author cards are more
-     compact than poem cards. */
+  /* Bordered text-cell grid: 3 cols, single 680px breakpoint to 1 col,
+     confined to the reading column. See PR-R1. */
   .lista {
     list-style: none;
     padding: 0;
-    margin: var(--space-2xl) 0 0;
-    max-width: none;
+    margin: var(--space-2xl) auto 0;
+    max-width: var(--measure-grid);
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
   }
-  @media (min-width: 480px) {
+  @media (max-width: 680px) {
     .lista {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (min-width: 720px) {
-    .lista {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1fr;
     }
   }
   .item {
