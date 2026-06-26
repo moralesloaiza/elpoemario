@@ -12,7 +12,7 @@ Origen: sesión de auditoría de junio de 2026 sobre `main` (color, foco, pergam
 ampliada por la sesión de diagnóstico de rediseño de junio de 2026, que contrastó
 página por página la maqueta de rediseño contra el sitio vivo.
 
----
+\---
 
 1. Objetivo de diseño vigente: converger a las maquetas
 
@@ -30,7 +30,7 @@ sitio vivo ya superaba a la maqueta y que esta solo aportaba dirección visual. 
 lectura queda ANULADA. El diagnóstico página por página mostró divergencias
 estructurales reales que el rediseño debe cerrar (ver §10–§11).
 
----
+\---
 
 2. Nomenclatura de tokens (repo manda)
 
@@ -41,7 +41,7 @@ trabajo futuro usa los nombres del repo, no los de la maqueta.
 
 Estado: vigente.
 
----
+\---
 
 3. Sistema de acento: Oro + Marfil + Verdís (IMPLEMENTADO)
 
@@ -50,14 +50,16 @@ oro-como-accent que la maqueta ofrecía a modo de selector; el conmutador de ace
 maqueta era ayuda de revisión, no UI de producción. El acento queda fijo en Verdís.
 
 Verdís — valores (dependientes de tema):
-- `--accent` noche (`:root`): `#66a08f` — 6.09:1 sobre `#161320`.
-- `--accent` pergamino: `#356152` — 5.53:1 sobre `#efe3c8`.
+
+* `--accent` noche (`:root`): `#66a08f` — 6.09:1 sobre `#161320`.
+* `--accent` pergamino: `#356152` — 5.53:1 sobre `#efe3c8`.
 
 Mapeo de `--accent` — un solo rol, scopeado al poema ("la otra voz"):
-- `.prose :global(blockquote)` en `Poema.astro` — `border-left` en `var(--accent)`.
-  Marca la voz citada/secundaria, distinta del verso del poeta.
-- Glifo lunar `☾` del conmutador pergamino — color `var(--accent)`. Única afordancia
-  interactiva del poema que no es un enlace.
+
+* `.prose :global(blockquote)` en `Poema.astro` — `border-left` en `var(--accent)`.
+Marca la voz citada/secundaria, distinta del verso del poeta.
+* Glifo lunar `☾` del conmutador pergamino — color `var(--accent)`. Única afordancia
+interactiva del poema que no es un enlace.
 
 No usa Verdís (se mantienen en oro): `divisor-rombo`, borde y rótulo de `nota-curador`,
 `chips` de taxonomía, y todos los enlaces.
@@ -69,20 +71,20 @@ significado (WCAG 1.4.1): el blockquote ya se distingue por sangrado e itálica.
 
 Estado: implementado en `main` (PR-A). Confirmado en `src/styles/tokens.css`.
 
----
+\---
 
 4. Paleta pergamino corregida (contraste WCAG) (IMPLEMENTADO)
 
 El modo pergamino tenía tres fallos de contraste y dos valores al límite. Como `--oro`
 se usa como texto en `Poema.astro`, el umbral aplicable es 4.5:1. Correcciones (solo
-afectan a `[data-theme='pergamino']`, que solo se renderiza en el poema):
+afectan a `\[data-theme='pergamino']`, que solo se renderiza en el poema):
 
-- `--oro`: `#8a6d34` (3.82 ✗) → `#6a5223` (5.80 ✓)
-- `--text-muted`: `#6b5d44` (5.04) → `#615338` (5.88 ✓)
-- `--oro-suave`: `#9c7d3e` (3.04 ⚠) → `#75592b` (5.12 ✓)
-- `--oro-texto`: `#7a5f2c` (4.71) → `#5f4a1f` (6.63 ✓)
-- `--link`: `#7a5f2c` (4.71) → `#5f4a1f` (6.63 ✓)
-- `--link-hover`: `#5c4720` (6.94) sin cambio ✓
+* `--oro`: `#8a6d34` (3.82 ✗) → `#6a5223` (5.80 ✓)
+* `--text-muted`: `#6b5d44` (5.04) → `#615338` (5.88 ✓)
+* `--oro-suave`: `#9c7d3e` (3.04 ⚠) → `#75592b` (5.12 ✓)
+* `--oro-texto`: `#7a5f2c` (4.71) → `#5f4a1f` (6.63 ✓)
+* `--link`: `#7a5f2c` (4.71) → `#5f4a1f` (6.63 ✓)
+* `--link-hover`: `#5c4720` (6.94) sin cambio ✓
 
 Ratios sobre el fondo pergamino `#efe3c8`. El modo noche pasa AA en todos sus pares y no
 se toca. Jerarquía oro/enlace en pergamino: el oro estructural (5.80) recede tras el
@@ -90,7 +92,7 @@ texto de enlace (6.63), restaurando la intención original.
 
 Estado: implementado en `main` (PR-A). Valores confirmados en `src/styles/tokens.css`.
 
----
+\---
 
 5. Foco visible (WCAG 2.4.7) (IMPLEMENTADO)
 
@@ -98,13 +100,13 @@ Decisión: indicador de foco de teclado real con `outline`, cubriendo enlaces, b
 inputs (el `a:focus-visible` previo solo cambiaba color/subrayado).
 
 Implementación: regla global
-`a, button, input, [tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
+`a, button, input, \[tabindex] { :focus-visible { outline: 2px solid var(--oro-texto); outline-offset: 3px; } }`.
 El `outline` usa la variable, así que se adapta a ambos temas. El tratamiento de color
 del enlace se conserva (propiedades disjuntas).
 
 Estado: implementado en `main` (PR-B). Confirmado en `src/styles/tokens.css`.
 
----
+\---
 
 6. Footer sin atribución del director
 
@@ -115,7 +117,7 @@ Estado: ya es así en `main` (cambio de código = no-op). El §1 del Documento d
 ("footer canónico" con atribución del director) queda ANULADO: esa cadena no se usa ni se
 usará. El v1 vive fuera del repo; este registro es la fuente de verdad y prevalece.
 
----
+\---
 
 7. Navegación móvil: sin burger (REAFIRMADO)
 
@@ -131,18 +133,19 @@ navegación infrecuente rinde poco. Comprobado en móvil real: el reflow funcion
 comodidad. Si el nav crece, el punto medio preferido al burger es una fila con scroll
 horizontal o "primarios + Más".
 
----
+\---
 
 8. Arquitectura de información: nav y páginas
 
 Decisiones (sesión de rediseño, junio de 2026):
-- El enlace "Correspondencia" del nav se renombra a "Contacto". La RUTA se mantiene en
-  `/correspondencia/` (no se renombra URL ni carpeta); solo cambia el texto del enlace en
-  `Header.astro`. Se ejecuta en PR-R8.
-- `/sobre/` se conserva como página propia. "Acerca de" sigue enlazando a `/sobre/`; no se
-  absorbe en `/colaborar/` pese a que la maqueta así lo insinúa.
 
----
+* El enlace "Correspondencia" del nav se renombra a "Contacto". La RUTA se mantiene en
+`/correspondencia/` (no se renombra URL ni carpeta); solo cambia el texto del enlace en
+`Header.astro`. Se ejecuta en PR-R8.
+* `/sobre/` se conserva como página propia. "Acerca de" sigue enlazando a `/sobre/`; no se
+absorbe en `/colaborar/` pese a que la maqueta así lo insinúa.
+
+\---
 
 9. Plan de rediseño (PRs)
 
@@ -152,53 +155,57 @@ pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, desc
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
 Estado: R1 y R2 HECHOS y mergeados; pendientes R3 → R4 → R5 → R6 → R8.
-Cabo abierto de R1: la meta de tarjeta puede desalinearse cuando el pie
-"Forma · Movimiento" envuelve a dos líneas (el autor anclado sube). Interior de
-tarjeta, fuera de R2; resolver en micro-PR de tarjeta (PR-R1b). `OrnamentoTarjeta`
-sigue huérfano, reservado para el fallback de retrato en R6 (§12).
+Cabo de R1 (meta desalineada al envolver el pie a dos líneas): RESUELTO en
 
-PR-R1 · Tarjeta sin imagen (raíz). HECHO.
-  Rediseñar `PoemaCard` y `AutorCard`: de figura 3:2 + meta a celda de texto en rejilla
-  bordeada (título recortado a 2 líneas, autor en itálica, línea "Forma · Movimiento"
-  anclada al pie), sin imagen. Confinar la rejilla a la columna de lectura (~760px) en vez
-  de `max-width:none`. Breakpoint único 680px (3→1). Es el PR raíz: se propaga a inicio,
-  /poemas, /autores, ficha de autor y taxonomía. Nota: el retrato del autor sobrevive solo
-  en la ficha (§12), no en las tarjetas del índice.
+PR-R1b. `PoemaCard` y `AutorCard` reservan dos líneas de alto al pie
+
+(`min-height: 2.6em`, igual que el título) y lo bottom-alinean, de modo que el
+
+autor anclado ya no sube cuando el pie envuelve. `OrnamentoTarjeta` sigue
+
+huérfano, reservado para el fallback de retrato en R6 (§12).
+
+Rediseñar `PoemaCard` y `AutorCard`: de figura 3:2 + meta a celda de texto en rejilla
+bordeada (título recortado a 2 líneas, autor en itálica, línea "Forma · Movimiento"
+anclada al pie), sin imagen. Confinar la rejilla a la columna de lectura (\~760px) en vez
+de `max-width:none`. Breakpoint único 680px (3→1). Es el PR raíz: se propaga a inicio,
+/poemas, /autores, ficha de autor y taxonomía. Nota: el retrato del autor sobrevive solo
+en la ficha (§12), no en las tarjetas del índice.
 
 PR-R2 · Destacado text/verso. HECHO.
-  Variante de `Destacado` sin imagen, una sola columna centrada. Modo poema:
-  extracto de versos (campo `extracto` del singleton `destacado`, un verso por
-  línea, versos planos sin sangría). Modo entrada/autor: párrafo de prosa
-  (resumen / descripción) al mismo tamaño de lectura. Se eliminó la exigencia de
-  imagen del destacado en `index.astro` y de los hints de Decap. Solo afecta al
-  inicio.
+Variante de `Destacado` sin imagen, una sola columna centrada. Modo poema:
+extracto de versos (campo `extracto` del singleton `destacado`, un verso por
+línea, versos planos sin sangría). Modo entrada/autor: párrafo de prosa
+(resumen / descripción) al mismo tamaño de lectura. Se eliminó la exigencia de
+imagen del destacado en `index.astro` y de los hints de Decap. Solo afecta al
+inicio.
 
 PR-R3 · Inicio (resto).
-  Tagline en itálica bajo el `<h1>`; bloque "El Poemario en voz alta" (pódcast Spotify);
-  ELIMINAR la sección "Explorar" (I–IV). Decisión cerrada: el descubrimiento queda a cargo
-  del footer, que ya ofrece los cuatro grupos de exploración.
+Tagline en itálica bajo el `<h1>`; bloque "El Poemario en voz alta" (pódcast Spotify);
+ELIMINAR la sección "Explorar" (I–IV). Decisión cerrada: el descubrimiento queda a cargo
+del footer, que ya ofrece los cuatro grupos de exploración.
 
 PR-R4 · Página de poema.
-  Antetítulo "POEMA" sobre el `<h1>`; taxonomía inline centrada (retirar el `<dl>` tabular,
-  los chips y las filas extra Autor/Traductor/Ayuda); nota de curador a filete `border-left`
-  en vez de caja; reposición del conmutador pergamino. El resto de la página (ilustración a
-  sangre, verso centrado, paginador) ya está alineado.
+Antetítulo "POEMA" sobre el `<h1>`; taxonomía inline centrada (retirar el `<dl>` tabular,
+los chips y las filas extra Autor/Traductor/Ayuda); nota de curador a filete `border-left`
+en vez de caja; reposición del conmutador pergamino. El resto de la página (ilustración a
+sangre, verso centrado, paginador) ya está alineado.
 
 PR-R5 · Antetítulos de índice.
-  Cintillo/antetítulo sobre el `<h1>` en /poemas ("ANTOLOGÍA") y /autores ("LAS VOCES").
-  La taxonomía ya lo tiene (`.rotulo`).
+Cintillo/antetítulo sobre el `<h1>` en /poemas ("ANTOLOGÍA") y /autores ("LAS VOCES").
+La taxonomía ya lo tiene (`.rotulo`).
 
 PR-R6 · Ficha de autor.
-  Mantener el retrato `<Image>` (divergencia deliberada, §12) con fallback de ornamento para
-  autores sin retrato; rejilla de poemas del autor de 2-col a 3-col, heredando la celda-texto
-  de R1.
+Mantener el retrato `<Image>` (divergencia deliberada, §12) con fallback de ornamento para
+autores sin retrato; rejilla de poemas del autor de 2-col a 3-col, heredando la celda-texto
+de R1.
 
 PR-R8 · Menores.
-  Renombrar "Correspondencia" → "Contacto" en `Header.astro` (ruta intacta, §8); número "404"
-  display en la página de error; anatomía de fila en bitácora; tipografía de buscar. Limpiar
-  de paso el comentario obsoleto "Nav en Josefin Sans" en `Header.astro` (§13).
+Renombrar "Correspondencia" → "Contacto" en `Header.astro` (ruta intacta, §8); número "404"
+display en la página de error; anatomía de fila en bitácora; tipografía de buscar. Limpiar
+de paso el comentario obsoleto "Nav en Josefin Sans" en `Header.astro` (§13).
 
----
+\---
 
 10. Divergencias estructurales detectadas (diagnóstico de rediseño)
 
@@ -218,55 +225,56 @@ Locales: ver el desglose por PR en §9 (destacado sin imagen, antetítulos de í
 poema, taxonomía inline del poema, nota de curador a filete, número 404, anatomía de fila
 en bitácora).
 
----
+\---
 
 11. Mapa maqueta ↔ páginas vivas
 
 La maqueta es un único archivo combinado con selector interno de 12 vistas (`data-screen`).
-No hay archivos `*_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
+No hay archivos `\*\_dc.html` sueltos. Las vistas se identifican por su `<h1>`/rótulo, no por
 nombre de archivo. Correspondencias:
 
-- inicio → `pages/index.astro`
-- poemas → `pages/poemas/index.astro`
-- autores → `pages/autores/index.astro`
-- autor → `layouts/Autor.astro`
-- tema (taxonomía) → `components/ListadoPoemasTaxonomia.astro` + páginas de eje
-- buscar → `pages/buscar/`
-- bitacora → `pages/entradas/index.astro`
-- entrada → `pages/entradas/[...slug].astro`
-- colaborar → `pages/colaborar.astro`
-- contacto → `pages/correspondencia/index.astro`
-- 404 → `pages/404.astro`
-- poema → `layouts/Poema.astro`
+* inicio → `pages/index.astro`
+* poemas → `pages/poemas/index.astro`
+* autores → `pages/autores/index.astro`
+* autor → `layouts/Autor.astro`
+* tema (taxonomía) → `components/ListadoPoemasTaxonomia.astro` + páginas de eje
+* buscar → `pages/buscar/`
+* bitacora → `pages/entradas/index.astro`
+* entrada → `pages/entradas/\[...slug].astro`
+* colaborar → `pages/colaborar.astro`
+* contacto → `pages/correspondencia/index.astro`
+* 404 → `pages/404.astro`
+* poema → `layouts/Poema.astro`
 
 Sin equivalencia: `/sobre/` (vivo) no tiene maqueta; "Acerca de" en la maqueta enlaza a
 colaborar (resuelto en §8: /sobre se conserva). La maqueta no modela `/correspondencia/cartas`
 ni los índices de taxonomía.
 
----
+\---
 
 12. Divergencias deliberadas de la maqueta
 
 No todo converge a la maqueta. Excepciones decididas:
-- Nav sin burger (§7).
-- Retrato del autor en la ficha: la maqueta pone un ornamento hairline; se conserva el
-  retrato `<Image>` del sitio vivo, con fallback de ornamento cuando el autor no tiene
-  imagen (R6). En el índice /autores, en cambio, sí se adopta la celda-texto sin imagen (R1).
-- Ruta `/correspondencia/` intacta pese a renombrar el enlace a "Contacto" (§8).
-- `/sobre/` como página propia (§8).
 
----
+* Nav sin burger (§7).
+* Retrato del autor en la ficha: la maqueta pone un ornamento hairline; se conserva el
+retrato `<Image>` del sitio vivo, con fallback de ornamento cuando el autor no tiene
+imagen (R6). En el índice /autores, en cambio, sí se adopta la celda-texto sin imagen (R1).
+* Ruta `/correspondencia/` intacta pese a renombrar el enlace a "Contacto" (§8).
+* `/sobre/` como página propia (§8).
+
+\---
 
 13. Notas menores
+* `Header.astro` tiene un comentario obsoleto ("Nav en Josefin Sans"); Josefin Sans fue
+descartada y la meta usa Cinzel. Limpiar en PR-R8 (cuando se toque el archivo para el
+renombrado de "Contacto").
 
-- `Header.astro` tiene un comentario obsoleto ("Nav en Josefin Sans"); Josefin Sans fue
-  descartada y la meta usa Cinzel. Limpiar en PR-R8 (cuando se toque el archivo para el
-  renombrado de "Contacto").
-
----
+\---
 
 Apéndice — método de verificación de contraste
 
 Ratios calculados con la fórmula WCAG 2.x de luminancia relativa (linealización sRGB,
-coeficientes 0.2126 / 0.7152 / 0.0722, `(L_claro + 0.05) / (L_oscuro + 0.05)`). Umbrales:
+coeficientes 0.2126 / 0.7152 / 0.0722, `(L\_claro + 0.05) / (L\_oscuro + 0.05)`). Umbrales:
 texto normal 4.5:1, texto grande 3:1, elementos no textuales (bordes, iconos) 3:1.
+
