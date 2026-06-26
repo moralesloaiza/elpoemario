@@ -4,7 +4,6 @@ import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Destacado from '../components/Destacado.astro';
 import PoemaCard from '../components/PoemaCard.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE } from '../consts';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
@@ -32,16 +31,12 @@ const destacadoCfg = destacadoEntries[0]; // singleton
 
 type DestacadoRender = {
   cintillo: string;
-  imagen: import('astro').ImageMetadata;
-  alt: string;
   titulo: string;
   href: string;
   cta: string;
+  byline?: string;
+  versos?: string[];
   resumen?: string;
-  autorNombre?: string;
-  fecha?: Date;
-  nacionalidad?: string;
-  anios?: string;
 };
 
 let destacado: DestacadoRender | null = null;
@@ -51,64 +46,44 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 
   if (tipo === 'poema' && destacadoCfg.data.poema_referido) {
     const poema = await getEntry(destacadoCfg.data.poema_referido);
-    if (!poema.data.ilustracion) {
-      throw new Error(
-        `[destacado] El poema "${poema.data.titulo}" no tiene ilustración. ` +
-          `El destacado activo requiere imagen. Añade una ilustración o cambia el destacado.`,
-      );
-    }
     const autor = await getEntry(poema.data.autor);
+    // Verse extract is curator-set on the destacado singleton: one verse per
+    // line. Falls back to no extract if the field is empty.
+    const versos = (destacadoCfg.data.extracto ?? '')
+      .split(/\r?\n/)
+      .map((linea) => linea.trim())
+      .filter(Boolean);
     destacado = {
       cintillo,
-      imagen: poema.data.ilustracion,
-      alt: '',
       titulo: poema.data.titulo,
       href: `/poemas/${poema.id}/`,
       cta: 'Leer el poema',
-      resumen: poema.data.resumen,
-      autorNombre: autor.data.nombre,
-      fecha: poema.data.fecha,
+      byline: autor.data.nombre,
+      versos,
     };
   } else if (tipo === 'entrada' && destacadoCfg.data.entrada_referida) {
     const entrada = await getEntry(destacadoCfg.data.entrada_referida);
-    if (!entrada.data.ilustracion) {
-      throw new Error(
-        `[destacado] La entrada "${entrada.data.titulo}" no tiene ilustración. ` +
-          `El destacado activo requiere imagen. Añade una ilustración o cambia el destacado.`,
-      );
-    }
     destacado = {
       cintillo,
-      imagen: entrada.data.ilustracion,
-      alt: '',
       titulo: entrada.data.titulo,
       href: `/entradas/${entrada.id}/`,
       cta: 'Leer la entrada',
+      byline: entrada.data.curador,
       resumen: entrada.data.resumen,
-      autorNombre: entrada.data.curador,
-      fecha: entrada.data.fecha,
     };
   } else if (tipo === 'autor' && destacadoCfg.data.autor_referido) {
     const autor = await getEntry(destacadoCfg.data.autor_referido);
-    if (!autor.data.imagen) {
-      throw new Error(
-        `[destacado] El autor "${autor.data.nombre}" no tiene retrato. ` +
-          `El destacado activo requiere imagen. Añade un retrato o cambia el destacado.`,
-      );
-    }
     const aniosAutor =
       autor.data.nacimiento && autor.data.muerte
         ? `${autor.data.nacimiento}–${autor.data.muerte}`
         : undefined;
     destacado = {
       cintillo,
-      imagen: autor.data.imagen,
-      alt: `Retrato de ${autor.data.nombre}`,
       titulo: autor.data.nombre,
       href: `/autores/${autor.id}/`,
       cta: 'Ver la ficha',
-      nacionalidad: autor.data.nacionalidad,
-      anios: aniosAutor,
+      byline: [autor.data.nacionalidad, aniosAutor].filter(Boolean).join(' · ') || undefined,
+      resumen: autor.data.descripcion,
     };
   }
 }
@@ -131,25 +106,13 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   {destacado && (
     <Destacado
       cintillo={destacado.cintillo}
-      imagen={destacado.imagen}
-      alt={destacado.alt}
       titulo={destacado.titulo}
       href={destacado.href}
       cta={destacado.cta}
+      byline={destacado.byline}
+      versos={destacado.versos}
       resumen={destacado.resumen}
-    >
-      <Fragment slot="submeta">
-        {destacado.autorNombre && destacado.fecha && (
-          <p>por {destacado.autorNombre} · <FormattedDate date={destacado.fecha} /></p>
-        )}
-        {!destacado.autorNombre && destacado.fecha && (
-          <p><FormattedDate date={destacado.fecha} /></p>
-        )}
-        {(destacado.nacionalidad || destacado.anios) && (
-          <p>{[destacado.nacionalidad, destacado.anios].filter(Boolean).join(' · ')}</p>
-        )}
-      </Fragment>
-    </Destacado>
+    />
   )}
 
   {ultimos.length > 0 && (
