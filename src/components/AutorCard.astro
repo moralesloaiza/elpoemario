@@ -107,6 +107,14 @@ const conteoLabel =
     color: var(--text-muted);
     line-height: var(--lh-snug);
     margin: var(--space-sm) 0 0;
+    /* Reserve two lines of height so the count line keeps a stable box height
+       and the bottom-anchored sub-line stays aligned across columns of the same
+       row. Mirrors PoemaCard; same 2-line strategy the name uses. Bottom-aligned
+       to keep a common baseline. */
+    min-height: 2.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   .card-sub + .card-conteo {
     margin-top: var(--space-sm);
