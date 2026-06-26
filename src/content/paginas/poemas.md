@@ -1,5 +1,5 @@
 ---
-titulo: "Poemas"
-subtitulo: "El catálogo completo, del más reciente al más antiguo."
-descripcion: "El catálogo completo de poemas en El Poemario."
+titulo: Poemas
+subtitulo: El catálogo completo, desde nuestra selección reciente a la más antigua.
+descripcion: El catálogo completo de poemas en El Poemario.
 ---
