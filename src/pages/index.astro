@@ -94,7 +94,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
-    <div class="rayos" aria-hidden="true"></div>
     <p class="antetitulo">{home.data.subtitulo}</p>
     <h1>{SITE_TITLE}</h1>
     {home.data.lema && <p class="lema">{home.data.lema}</p>}
@@ -163,28 +162,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     text-align: center;
     margin-bottom: var(--space-2xl);
     padding-block: var(--space-2xl);
-    overflow: hidden;
-  }
-  /* Líneas radiantes Art Déco: rayos finos de oro emanando tras el título,
-     enmascarados con degradado radial para desvanecerse en los bordes.
-     CSS puro, sin SVG. Faint by design. */
-  .hero .rayos {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: repeating-conic-gradient(
-      from 0deg at 50% 42%,
-      color-mix(in srgb, var(--oro) 32%, transparent) 0deg 0.4deg,
-      transparent 0.4deg 9deg
-    );
-    -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 42%, #000 0%, transparent 70%);
-    mask-image: radial-gradient(ellipse 58% 62% at 50% 42%, #000 0%, transparent 70%);
-    opacity: 0.55;
-  }
-  .hero > :not(.rayos) {
-    position: relative;
-    z-index: 1;
   }
 
   .antetitulo {
@@ -386,8 +363,5 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     .podcast-ext {
       display: none;
     }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero .rayos { opacity: 0.4; }
   }
 </style>
