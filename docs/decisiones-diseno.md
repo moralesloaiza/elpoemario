@@ -154,7 +154,7 @@ fresco de `main`. Un PR = un scope. PR-A (color) y PR-B (foco) ya están en `mai
 pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, descartado §7).
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
-Estado: R1, R2, R3 y R4 HECHOS y mergeados; pendientes R5 → R6 → R8.
+Estado: R1, R2, R3, R4 y R5 HECHOS y mergeados; pendientes R6 → R8.
 Tarjetas de rejilla (PoemaCard/AutorCard): la meta se desalineaba por DOS causas.
 
 (1) Dominante — `.card { height: 100% }` no resolvía contra la pista de la
@@ -249,9 +249,15 @@ con el resto del sitio; cambiarlos desincronizaría los antetítulos que R5 aña
 confirmados (submeta 18, nota 18, rótulo taxo 14). El resto de la página (ilustración a
 sangre, verso centrado, paginador) ya estaba alineado.
 
-PR-R5 · Antetítulos de índice.
-Cintillo/antetítulo sobre el `<h1>` en /poemas ("ANTOLOGÍA") y /autores ("LAS VOCES").
-La taxonomía ya lo tiene (`.rotulo`).
+PR-R5 · Antetítulos de índice. HECHO.
+Antetítulo sobre el `<h1>` en /poemas ("Antología") y /autores ("Las voces"), reutilizando
+la clase `.rotulo` ya usada en los índices hermanos /tipos y /temas (Cinzel, `--fs-3xs`,
+`--ls-widest`, `--oro-texto`, uppercase, margen `--space-2xs`) — el mismo patrón que
+`.poema-antetitulo` de R4. No se introduce un cuarto estilo: `/poemas` y `/autores` comparten
+el `header.title` (rótulo → h1 → subtítulo) de /tipos y /temas, así que se adopta su `.rotulo`
+idéntico. Texto fuente en caja natural; la mayúscula la aplica el CSS (igual que "Repertorio
+por forma"). Los índices no llevan BOM en `main` (verificado en tarball: ambos abren con LF).
+Verificado: build verde, render Chromium de /poemas/ y /autores/ con el cintillo dorado.
 
 PR-R6 · Ficha de autor.
 Mantener el retrato `<Image>` (divergencia deliberada, §12) con fallback de ornamento para
