@@ -58,7 +58,7 @@ Mapeo de `--accent` — un solo rol, scopeado al poema ("la otra voz"):
 
 * `.prose :global(blockquote)` en `Poema.astro` — `border-left` en `var(--accent)`.
 Marca la voz citada/secundaria, distinta del verso del poeta.
-* Glifo lunar `☾` del conmutador pergamino — color `var(--accent)`. Única afordancia
+* Glifo lunar `◑` del conmutador pergamino — color `var(--accent)`. Única afordancia
 interactiva del poema que no es un enlace.
 
 No usa Verdís (se mantienen en oro): `divisor-rombo`, borde y rótulo de `nota-curador`,
@@ -154,7 +154,7 @@ fresco de `main`. Un PR = un scope. PR-A (color) y PR-B (foco) ya están en `mai
 pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, descartado §7).
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
-Estado: R1, R2 y R3 HECHOS y mergeados; pendientes R4 → R5 → R6 → R8.
+Estado: R1, R2, R3 y R4 HECHOS y mergeados; pendientes R5 → R6 → R8.
 Tarjetas de rejilla (PoemaCard/AutorCard): la meta se desalineaba por DOS causas.
 
 (1) Dominante — `.card { height: 100% }` no resolvía contra la pista de la
@@ -224,11 +224,30 @@ primario del buscador está en `Header.astro` (presente en todas las páginas), 
 
 el overlay sigue funcionando sin script huérfano. La media query 680px de `ul.poemas`
 
-(de R1) se conserva.PR-R4 · Página de poema.
-Antetítulo "POEMA" sobre el `<h1>`; taxonomía inline centrada (retirar el `<dl>` tabular,
-los chips y las filas extra Autor/Traductor/Ayuda); nota de curador a filete `border-left`
-en vez de caja; reposición del conmutador pergamino. El resto de la página (ilustración a
-sangre, verso centrado, paginador) ya está alineado.
+(de R1) se conserva.PR-R4 · Pagina de poema (estructura + tipografia). HECHO.
+Antetítulo "POEMA" sobre el `<h1>` (clase `.poema-antetitulo`, replicando el patrón
+`.rotulo`: Cinzel, `--fs-3xs`, `--ls-widest`, `--oro-texto`, no los valores literales de la
+maqueta). Taxonomía inline centrada: se retiró la `<section><dl>` tabular con `.chip` y las
+filas extra Autor/Traductor/Ayuda; queda un contenedor flex centrado con un grupo por eje
+(rótulo Cinzel oro + valores enlazados `.taxo-valor`, separador `·` entre valores). Se
+conservan los CUATRO ejes Tipo · Movimiento · Temas · Motivos: `motivos` es eje taxonómico
+real (como `temas`), no una "fila extra"; el traductor sigue visible en la cabecera, no se
+pierde. Nota de curador a filete: `.nota-curador` pasa de caja (`border` + `background`
++ padding completo) a `border-left: 2px solid var(--oro)` con texto a la izquierda; borde y
+rótulo se mantienen en oro (§3, la nota no usa Verdís). Conmutador pergamino: SIN cambios —
+ya estaba arriba a la derecha sobre la ilustración, igual que la maqueta, no había
+reposición que hacer; el glifo `◑` se conserva (cumple su función; no se fuerza el `☾` de
+la maqueta).
+Tipografía alineada a la maqueta (token más cercano por valor renderizado, no px fijos):
+submeta país·años y línea de traductor `--fs-sm`→`--fs-md` (18); texto de la nota
+`--fs-base`→`--fs-md` (18; la maqueta pide 20, pero `--fs-lg` rinde ~24 en escritorio y
+competiría con el verso, así que `--fs-md` es el más cercano sin sobrepasar); rótulo de
+taxonomía `--fs-3xs`→`--fs-xs` (14). NO se tocan dos casi-coincidencias de 1px a propósito:
+el antetítulo (12 vs 13) y la fecha (12 vs 11) usan los sistemas `.rotulo`/meta compartidos
+con el resto del sitio; cambiarlos desincronizaría los antetítulos que R5 añadirá a los
+índices. Verificado: build verde, render Chromium en noche y pergamino, tamaños computados
+confirmados (submeta 18, nota 18, rótulo taxo 14). El resto de la página (ilustración a
+sangre, verso centrado, paginador) ya estaba alineado.
 
 PR-R5 · Antetítulos de índice.
 Cintillo/antetítulo sobre el `<h1>` en /poemas ("ANTOLOGÍA") y /autores ("LAS VOCES").

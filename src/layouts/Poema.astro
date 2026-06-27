@@ -168,6 +168,7 @@ const siguiente = siguienteEntry
     )}
 
     <header class="poema-cabecera">
+      <p class="poema-antetitulo">Poema</p>
       <h1 class="poema-titulo">{titulo}</h1>
       <p class="poema-autor">
         <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
@@ -211,78 +212,47 @@ const siguiente = siguienteEntry
     </footer>
 
     <section class="poema-taxonomia" aria-label="Categorías de este poema">
-      <dl>
-        <div class="taxo-grupo">
-          <dt>Tipo</dt>
-          <dd>
-            <a href={`${URL_TIPOS}/${tipo}/`} class="chip">{TIPOS_DISPLAY[tipo]}</a>
-          </dd>
-        </div>
+      <span class="taxo-grupo">
+        <span class="taxo-rotulo">Tipo</span>
+        <a href={`${URL_TIPOS}/${tipo}/`} class="taxo-valor">{TIPOS_DISPLAY[tipo]}</a>
+      </span>
 
-        {movimiento && (
-          <div class="taxo-grupo">
-            <dt>Movimiento</dt>
-            <dd>
-              <a href={`${URL_MOVIMIENTOS}/${movimiento}/`} class="chip">
-                {MOVIMIENTOS_DISPLAY[movimiento]}
-              </a>
-            </dd>
-          </div>
-        )}
+      {movimiento && (
+        <span class="taxo-grupo">
+          <span class="taxo-rotulo">Movimiento</span>
+          <a href={`${URL_MOVIMIENTOS}/${movimiento}/`} class="taxo-valor">
+            {MOVIMIENTOS_DISPLAY[movimiento]}
+          </a>
+        </span>
+      )}
 
-        {temas.length > 0 && (
-          <div class="taxo-grupo">
-            <dt>Temas</dt>
-            <dd>
-              <ul class="chips">
-                {temas.map((t) => (
-                  <li>
-                    <a href={`${URL_TEMAS}/${t}/`} class="chip">{TEMAS_DISPLAY[t]}</a>
-                  </li>
-                ))}
-              </ul>
-            </dd>
-          </div>
-        )}
+      {temas.length > 0 && (
+        <span class="taxo-grupo">
+          <span class="taxo-rotulo">Temas</span>
+          <span class="taxo-valores">
+            {temas.map((t, i) => (
+              <>
+                {i > 0 && <span class="taxo-sep" aria-hidden="true">·</span>}
+                <a href={`${URL_TEMAS}/${t}/`} class="taxo-valor">{TEMAS_DISPLAY[t]}</a>
+              </>
+            ))}
+          </span>
+        </span>
+      )}
 
-        {motivos.length > 0 && (
-          <div class="taxo-grupo">
-            <dt>Motivos</dt>
-            <dd>
-              <ul class="chips">
-                {motivos.map((m) => (
-                  <li>
-                    <a href={`${URL_MOTIVOS}/${m}/`} class="chip">{MOTIVOS_DISPLAY[m]}</a>
-                  </li>
-                ))}
-              </ul>
-            </dd>
-          </div>
-        )}
-
-        <div class="taxo-grupo">
-          <dt>Autor</dt>
-          <dd>
-            <a href={`/autores/${autor.id}/`} class="chip">{autor.data.nombre}</a>
-          </dd>
-        </div>
-
-        {traductor && (
-          <div class="taxo-grupo">
-            <dt>Traductor</dt>
-            <dd>
-              <a href={`/autores/${traductor.id}/`} class="chip">{traductor.data.nombre}</a>
-            </dd>
-          </div>
-        )}
-
-        <div class="taxo-grupo">
-          <dt>Ayuda</dt>
-          <dd>
-            <a href="/colaborar/" class="chip">¿Cómo colaborar?</a>
-          </dd>
-        </div>
-      </dl>
+      {motivos.length > 0 && (
+        <span class="taxo-grupo">
+          <span class="taxo-rotulo">Motivos</span>
+          <span class="taxo-valores">
+            {motivos.map((m, i) => (
+              <>
+                {i > 0 && <span class="taxo-sep" aria-hidden="true">·</span>}
+                <a href={`${URL_MOTIVOS}/${m}/`} class="taxo-valor">{MOTIVOS_DISPLAY[m]}</a>
+              </>
+            ))}
+          </span>
+        </span>
+      )}
     </section>
 
     {anterior && siguiente && (
@@ -402,6 +372,14 @@ const siguiente = siguienteEntry
     text-align: center;
     margin-bottom: var(--space-xl);
   }
+  .poema-antetitulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-sm);
+  }
   .poema-titulo {
     font-family: var(--font-display);
     font-size: var(--fs-3xl);
@@ -430,14 +408,14 @@ const siguiente = siguienteEntry
   .poema-autor-submeta {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-muted);
     margin: var(--space-2xs) 0 0;
   }
   .poema-traductor {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     color: var(--text-muted);
     margin: var(--space-2xs) 0 0;
   }
@@ -527,13 +505,13 @@ const siguiente = siguienteEntry
     color: var(--oro-texto);
   }
 
-  /* ── Curator note ────────────────────────────────────────────────── */
+  /* ── Curator note (filete) ───────────────────────────────────────── */
   .nota-curador {
     margin: var(--space-2xl) auto 0;
     max-width: var(--measure-narrow);
-    padding: var(--space-lg);
-    border: var(--rule-hairline) solid var(--oro);
-    background: var(--bg-elevated);
+    padding: var(--space-2xs) 0 var(--space-2xs) var(--space-md);
+    border-left: 2px solid var(--oro);
+    text-align: left;
   }
   .nota-curador-rotulo {
     font-family: var(--font-meta);
@@ -546,7 +524,7 @@ const siguiente = siguienteEntry
   }
   .nota-curador-texto {
     font-family: var(--font-body);
-    font-size: var(--fs-base);
+    font-size: var(--fs-md);
     color: var(--text-soft);
   }
   .nota-curador-texto :global(p) {
@@ -602,70 +580,58 @@ const siguiente = siguienteEntry
     color: var(--text-muted);
   }
 
-  /* ── Taxonomy footer ─────────────────────────────────────────────── */
+  /* ── Taxonomy footer (inline, centered) ──────────────────────────── */
   .poema-taxonomia {
     margin-top: var(--space-2xl);
     padding-top: var(--space-lg);
     border-top: var(--rule-hairline) solid var(--oro);
-  }
-  .poema-taxonomia dl {
-    margin: 0;
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: var(--space-xs) var(--space-lg);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-xl);
   }
   .taxo-grupo {
-    display: contents;
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-xs);
   }
-  .poema-taxonomia dt {
+  .taxo-rotulo {
     font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
     font-weight: var(--fw-semibold);
-    padding-top: var(--space-2xs);
   }
-  .poema-taxonomia dd {
-    margin: 0;
+  .taxo-valores {
+    display: inline;
   }
-  .chips {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xs);
+  .taxo-sep {
+    color: var(--oro-suave);
+    margin: 0 var(--space-3xs);
   }
-  .chip {
-    display: inline-block;
+  .taxo-valor {
     font-family: var(--font-body);
-    font-size: var(--fs-sm);
-    padding: var(--space-3xs) var(--space-xs);
-    border: var(--rule-hairline) solid var(--oro-suave);
-    color: var(--text);
+    font-size: var(--fs-md);
+    color: var(--link);
     text-decoration: none;
+    border-bottom: var(--rule-hairline) solid transparent;
     transition:
       border-color var(--dur-fast) var(--ease-standard),
       color var(--dur-fast) var(--ease-standard);
   }
-  .chip:hover,
-  .chip:focus-visible {
-    border-color: var(--oro);
-    color: var(--oro-texto);
+  .taxo-valor:hover,
+  .taxo-valor:focus-visible {
+    color: var(--link-hover);
+    border-bottom-color: currentColor;
   }
 
   @media (max-width: 640px) {
-    .poema-taxonomia dl {
-      grid-template-columns: 1fr;
-      gap: var(--space-2xs);
-    }
-    .taxo-grupo {
-      display: block;
-      margin-bottom: var(--space-sm);
-    }
-    .poema-taxonomia dt {
-      margin-bottom: var(--space-2xs);
+    .poema-taxonomia {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
     }
   }
 </style>
