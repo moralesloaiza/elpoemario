@@ -28,6 +28,7 @@ const pagina = await getPagina('poemas');
 >
   <section class="indice" aria-labelledby="indice-titulo">
     <header class="title">
+      <p class="rotulo">Antología</p>
       <h1 id="indice-titulo">{pagina.data.titulo}</h1>
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
@@ -58,6 +59,14 @@ const pagina = await getPagina('poemas');
   .title {
     text-align: center;
     margin-bottom: var(--space-md);
+  }
+  .rotulo {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-2xs);
   }
   .title h1 {
     margin: 0 0 var(--space-sm);
