@@ -154,7 +154,7 @@ fresco de `main`. Un PR = un scope. PR-A (color) y PR-B (foco) ya están en `mai
 pendiente es el rediseño estructural R1–R8 (no existe R7: era el burger, descartado §7).
 
 Orden de ejecución: R1 → R2/R3 → R4 → R5 → R6 → R8.
-Estado: R1, R2, R3, R4 y R5 HECHOS y mergeados; pendientes R6 → R8.
+Estado: R1, R2, R3, R4, R5 y R6 HECHOS y mergeados; pendiente R8.
 Tarjetas de rejilla (PoemaCard/AutorCard): la meta se desalineaba por DOS causas.
 
 (1) Dominante — `.card { height: 100% }` no resolvía contra la pista de la
@@ -175,7 +175,7 @@ líneas subía el autor anclado frente a vecinos de una línea. RESUELTO en PR-R
 
 el pie reserva dos líneas (`min-height: 2.6em`) y se bottom-alinea.
 
-`OrnamentoTarjeta` sigue huérfano, reservado para el fallback de retrato en R6 (§12).
+`OrnamentoTarjeta` se consume en R6 como fallback de retrato (§12): ya no está huérfano.
 
 Rediseñar `PoemaCard` y `AutorCard`: de figura 3:2 + meta a celda de texto en rejilla
 bordeada (título recortado a 2 líneas, autor en itálica, línea "Forma · Movimiento"
@@ -259,10 +259,27 @@ idéntico. Texto fuente en caja natural; la mayúscula la aplica el CSS (igual q
 por forma"). Los índices no llevan BOM en `main` (verificado en tarball: ambos abren con LF).
 Verificado: build verde, render Chromium de /poemas/ y /autores/ con el cintillo dorado.
 
-PR-R6 · Ficha de autor.
-Mantener el retrato `<Image>` (divergencia deliberada, §12) con fallback de ornamento para
-autores sin retrato; rejilla de poemas del autor de 2-col a 3-col, heredando la celda-texto
-de R1.
+PR-R6 · Ficha de autor. HECHO.
+Tres cambios en `layouts/Autor.astro`:
+(1) Retrato `<Image>` conservado (divergencia deliberada, §12) pero SIN borde: se retiró el
+`border: var(--rule-hairline) solid var(--oro)` que llevaba `.autor-retrato img`, en
+cumplimiento de la regla "cero marcos en cualquier imagen". El marco Art Déco que se ve en
+algunos retratos es parte de la propia ilustración, no CSS.
+(2) Fallback de ornamento para autores sin imagen: se renderiza `OrnamentoTarjeta` (antes
+huérfano) dentro de `figure.autor-ornamento`. El placeholder conserva el doble borde dorado
+(única excepción a "cero marcos": es placeholder, no imagen enmarcada). El contenedor padre
+original (`.card-img.con-ornamento` de `PoemaCard`) fue eliminado en R1, así que el marco se
+recrea aquí replicando el `.frame` canónico (1.5px oro + filete interno 6px en oro-suave),
+dimensionado al hueco 3:2 que ocuparía el retrato.
+(3) Rejilla de poemas del autor de 2-col a 3-col, adoptando el sistema R1 exacto de /poemas y
+ListadoPoemasTaxonomia: `.lista` confinada a `--measure-grid` (760px), `grid-template-columns:
+repeat(3, ...)`, `gap: 0`, borde hairline `border-top`+`border-left` en `var(--line)` (cada
+PoemaCard dibuja su derecha/abajo), `.item:not([hidden]) { display: grid }` para estirar las
+celdas visibles sin revelar los lotes ocultos de cargar-mas, y breakpoint único 680px (3→1).
+Se eliminó el grid previo (2-col, `gap: var(--space-lg)`, breakpoint 720px). PoemaCard se usa
+con `mostrarAutor={false}` (sin cambios). Verificado: build verde; render Chromium (HTTP) de
+una ficha CON retrato (borde 0px, grid 3-col a 760px) y otra SIN retrato (fallback de
+ornamento con doble marco); colapso a 1 columna confirmado a 640px.
 
 PR-R8 · Menores.
 Renombrar "Correspondencia" → "Contacto" en `Header.astro` (ruta intacta, §8); número "404"
