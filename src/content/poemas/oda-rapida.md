@@ -1,8 +1,8 @@
 ---
 titulo: Oda rápida
 fecha: 2025-02-05
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-15_17_03.png
+fecha_actualizada: 2026-06-28
+ilustracion: ../../assets/uploads/chatgpt-image-28-jun-2026-07_21_19.png
 borrador: false
 tipo: oda
 movimiento: contemporaneo
