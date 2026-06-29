@@ -37,14 +37,18 @@ const pagina = await getPagina('bitacora');
         {entradas.map((entrada) => (
           <li class="item">
             <a href={`/entradas/${entrada.id}/`} class="item-link">
-              <span class="item-texto">
-                <span class="item-marca">
-                  {entrada.data.tipo === 'correspondencia' ? 'Carta' : 'Bitácora'}
-                </span>
-                <span class="item-titulo">{entrada.data.titulo}</span>
-              </span>
-              <span class="item-fecha">
+              <span class="item-meta">
                 <FormattedDate date={entrada.data.fecha} />
+                <span class="item-meta-sep"> · </span>
+                {entrada.data.tipo === 'correspondencia' ? 'Carta' : 'Bitácora'}
+              </span>
+              <span class="item-titulo">{entrada.data.titulo}</span>
+              {entrada.data.resumen && (
+                <span class="item-resumen">{entrada.data.resumen}</span>
+              )}
+              <span class="item-seguir">
+                <span>Seguir leyendo</span>
+                <span class="galon galon--der" aria-hidden="true"></span>
               </span>
             </a>
           </li>
@@ -82,49 +86,41 @@ const pagina = await getPagina('bitacora');
   .lista {
     list-style: none;
     padding: 0;
-    margin: var(--space-2xl) 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-    background-color: color-mix(in srgb, var(--oro) 16%, transparent);
-    border: var(--rule-hairline) solid color-mix(in srgb, var(--oro) 16%, transparent);
+    margin: var(--space-2xl) auto 0;
+    max-width: var(--measure);
   }
   .item-link {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-2xs) var(--space-lg);
+    display: block;
     text-decoration: none;
     color: inherit;
-    background-color: var(--bg);
-    padding: var(--space-md);
-    border-bottom: none;
+    padding: var(--space-lg) var(--space-md);
+    border-bottom: var(--rule-hairline) solid var(--line);
     transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .item:last-child .item-link {
+    border-bottom: 0;
   }
   .item-link:hover,
   .item-link:focus-visible {
     background-color: var(--bg-elevated);
   }
-  .item-texto {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-sm) var(--space-md);
-    min-width: 0;
-  }
-  .item-marca {
+  .item-meta {
+    display: block;
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-widest);
     text-transform: uppercase;
     color: var(--oro-texto);
-    flex: none;
+    margin-bottom: var(--space-xs);
+  }
+  .item-meta-sep {
+    color: var(--oro-suave);
   }
   .item-titulo {
+    display: block;
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-snug);
     color: var(--text);
@@ -133,11 +129,30 @@ const pagina = await getPagina('bitacora');
   .item-link:focus-visible .item-titulo {
     color: var(--oro-texto);
   }
-  .item-fecha {
+  .item-resumen {
+    display: block;
     font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
+    line-height: 1.65;
     color: var(--text-soft);
-    flex: none;
+    margin-top: var(--space-xs);
+  }
+  .item-seguir {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin-top: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+  .item-seguir .galon {
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .item-link:hover .item-seguir .galon,
+  .item-link:focus-visible .item-seguir .galon {
+    transform: translateX(var(--space-3xs));
   }
 </style>
