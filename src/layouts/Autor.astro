@@ -7,6 +7,7 @@ import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import IconoEditar from '../components/IconoEditar.astro';
 import PoemaCard from '../components/PoemaCard.astro';
+import OrnamentoTarjeta from '../components/ornaments/OrnamentoTarjeta.astro';
 
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
 import { paisASlug } from '../utils/taxonomia';
@@ -107,7 +108,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
       {anios && <p class="autor-anios">{anios}</p>}
     </header>
 
-    {imagen && (
+    {imagen ? (
       <figure class="autor-retrato">
         <Image
           src={imagen}
@@ -117,6 +118,10 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
           width={900}
           height={600}
         />
+      </figure>
+    ) : (
+      <figure class="autor-ornamento" aria-hidden="true">
+        <OrnamentoTarjeta />
       </figure>
     )}
 
@@ -241,6 +246,8 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   }
 
   /* ── Portrait ────────────────────────────────────────────────────── */
+  /* Deliberate divergence from the mockup (decision 12): the live portrait is
+     kept. No frame on the image itself (decision 6: zero frames on any image). */
   .autor-retrato {
     margin: 0 auto var(--space-xl);
     max-width: var(--measure-narrow);
@@ -252,7 +259,36 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    border: var(--rule-hairline) solid var(--oro);
+  }
+
+  /* ── Ornament fallback (no portrait) ─────────────────────────────── */
+  /* Reuses the orphaned OrnamentoTarjeta (decision 9/12). The double gold frame
+     is the one closed exception to "zero frames" (decision A): this is a
+     placeholder, not a framed image. The parent that used to draw it
+     (.card-img.con-ornamento in PoemaCard) was removed in R1, so the frame is
+     recreated here replicating the canonical .frame (1.5px oro + 6px inset
+     hairline oro-suave). Sized to the 3:2 footprint the portrait would occupy. */
+  .autor-ornamento {
+    position: relative;
+    margin: 0 auto var(--space-xl);
+    max-width: var(--measure-narrow);
+    aspect-ratio: 3 / 2;
+    padding: var(--space-md);
+    border: 1.5px solid var(--oro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .autor-ornamento::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--oro-suave);
+    pointer-events: none;
+  }
+  .autor-ornamento :global(svg) {
+    width: 60%;
+    height: auto;
   }
 
   /* ── Bio ─────────────────────────────────────────────────────────── */
@@ -321,13 +357,23 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--oro-texto);
     margin: var(--space-xl) 0 var(--space-lg);
   }
+  /* Card grid: same R1 system as /poemas and taxonomy. Container draws the top
+     and left rules; each PoemaCard draws its own right and bottom rule. Confined
+     to the reading column (--measure-grid). 3-col, collapsing to 1 at 680px. */
   .lista {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: var(--measure-grid);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  /* Visible cells stretch to the track; hidden batches (cargar-mas) stay out. */
+  .item:not([hidden]) {
+    display: grid;
   }
   /* Hidden batches for cargar-mas: overrides the grid's implicit display. */
   [hidden] {
@@ -359,10 +405,9 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     outline-offset: 2px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 680px) {
     .lista {
       grid-template-columns: 1fr;
-      gap: var(--space-md);
     }
   }
 </style>
