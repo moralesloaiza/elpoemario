@@ -16,11 +16,7 @@ const { titulo, descripcion } = pagina.data;
       <p class="lead">{pagina.data.subtitulo}</p>
     </header>
 
-    <div class="divisor-rombo" role="presentation">
-        <span class="divisor-rombo-pieza"></span>
-        <span class="divisor-rombo-diamante"></span>
-        <span class="divisor-rombo-pieza"></span>
-      </div>
+    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
     <nav class="acciones" aria-label="Navegación de rescate">
       <a class="accion" href="/"><span class="galon galon--izq" aria-hidden="true"></span><span>Volver al inicio</span></a>
@@ -108,28 +104,6 @@ const { titulo, descripcion } = pagina.data;
     color: var(--oro);
   }
 
-  .divisor-rombo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    margin: 0 auto var(--space-2xl);
-    max-width: 80%;
-  }
-  .divisor-rombo-pieza {
-    flex: 1;
-    height: 0;
-    border-top: var(--rule-hairline) solid var(--oro);
-    max-width: 8rem;
-  }
-  .divisor-rombo-diamante {
-    width: 0.6rem;
-    height: 0.6rem;
-    flex-shrink: 0;
-    transform: rotate(45deg);
-    border: 1px solid var(--oro);
-    background: color-mix(in srgb, var(--oro) 30%, transparent);
-  }
 
   .acciones .sep-diamante {
     display: inline-block;
