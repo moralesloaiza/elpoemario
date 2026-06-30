@@ -185,7 +185,7 @@ input:focus-visible,
 .divisor > span:last-child {
   flex: 1;
   max-width: 8rem;
-  height: var(--rule-hairline);
+  height: 1px;
 }
 .divisor > span:first-child { background: linear-gradient(to left,  var(--oro), transparent); }
 .divisor > span:last-child  { background: linear-gradient(to right, var(--oro), transparent); }
