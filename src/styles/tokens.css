@@ -172,14 +172,29 @@ input:focus-visible,
   outline-offset: 3px;
 }
 
-hr.ornate {
-  border: 0;
-  height: 6px;
-  border-top: 1px solid var(--oro);
-  border-bottom: 1px solid var(--oro);
-  background: transparent;
-  margin: 2rem auto;
+
+.divisor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-2xl) auto;
   max-width: 80%;
+}
+.divisor > span:first-child,
+.divisor > span:last-child {
+  flex: 1;
+  max-width: 8rem;
+  height: var(--rule-hairline);
+}
+.divisor > span:first-child { background: linear-gradient(to left,  var(--oro), transparent); }
+.divisor > span:last-child  { background: linear-gradient(to right, var(--oro), transparent); }
+.divisor > span:nth-child(2) {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--oro);
+  transform: rotate(45deg);
 }
 
 .frame {

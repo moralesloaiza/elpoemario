@@ -55,9 +55,7 @@ const grupos = [
       ))}
     </nav>
 
-    <div class="divisor-footer" role="separator" aria-hidden="true">
-      <span class="rombo"></span>
-    </div>
+    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
     <p class="cita" lang="la">
       Omne tulit punctum qui miscuit utile dulci
@@ -126,31 +124,6 @@ const grupos = [
     border-bottom: none;
   }
 
-  /* ---------- Divisor de rombo (─◆─), solo footer ---------- */
-  /* CSS puro, sin SVG: dos líneas hairline oro flanqueando un
-     cuadrado rotado 45°. No afecta la regla global hr.ornate. */
-  .divisor-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    max-width: 220px;
-    margin: var(--space-2xl) auto;
-  }
-  .divisor-footer::before,
-  .divisor-footer::after {
-    content: '';
-    flex: 1;
-    height: var(--rule-hairline);
-    background: var(--oro);
-  }
-  .divisor-footer .rombo {
-    flex: none;
-    width: 7px;
-    height: 7px;
-    background: var(--oro);
-    transform: rotate(45deg);
-  }
 
   /* ---------- Cita y créditos ---------- */
   /* Itálica caja mixta, discreta: no debe pesar más que la nav. */

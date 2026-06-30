@@ -33,7 +33,7 @@ const pagina = await getPagina('poemas');
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
-    <hr class="ornate" />
+    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
     {poemas.length === 0 ? (
       <p class="vacio">Aún no hay poemas publicados.</p>

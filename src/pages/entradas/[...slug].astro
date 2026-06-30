@@ -72,11 +72,7 @@ const volver =
         )}
       </header>
 
-      <div class="divisor-rombo" role="presentation">
-        <span class="divisor-rombo-pieza"></span>
-        <span class="divisor-rombo-diamante"></span>
-        <span class="divisor-rombo-pieza"></span>
-      </div>
+      <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
       {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
@@ -135,28 +131,6 @@ const volver =
     font-size: var(--fs-sm);
     color: var(--text-soft);
     margin: 0;
-  }
-  .divisor-rombo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    margin: 0 auto var(--space-2xl);
-    max-width: 80%;
-  }
-  .divisor-rombo-pieza {
-    flex: 1;
-    height: 0;
-    border-top: var(--rule-hairline) solid var(--oro);
-    max-width: 8rem;
-  }
-  .divisor-rombo-diamante {
-    width: 0.6rem;
-    height: 0.6rem;
-    flex-shrink: 0;
-    transform: rotate(45deg);
-    border: 1px solid var(--oro);
-    background: color-mix(in srgb, var(--oro) 30%, transparent);
   }
   .prose {
     font-family: var(--font-body);
