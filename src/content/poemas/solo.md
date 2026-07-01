@@ -1,19 +1,19 @@
-﻿---
-titulo: "Solo"
+---
+titulo: Solo
 fecha: 2011-10-27
+fecha_actualizada: 2026-07-01
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: vanguardia
 temas:
   - poesia-misma
   - soledad
 autor: enrique-pedro-maroni
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: \* Romance de arte mayor polimétrico.
 ---
-
-**Enrique Pedro Maroni** - *Argentino* (1887 - 1957).
-
 ¿Qué por qué soy triste y mi pena es tanta?
 ¿Qué por qué ando siempre cantando dolores?…
 Debe ser, seguro, porque tengo el alma
