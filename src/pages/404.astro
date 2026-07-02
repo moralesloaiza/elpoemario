@@ -12,6 +12,7 @@ const { titulo, descripcion } = pagina.data;
   <div class="error-page">
     <p class="error-numero">404</p>
     <header class="title">
+      {pagina.data.rotulo && <p class="rotulo">{pagina.data.rotulo}</p>}
       <h1>{titulo}</h1>
       <p class="lead">{pagina.data.subtitulo}</p>
     </header>

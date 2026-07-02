@@ -1,4 +1,6 @@
 ---
+rotulo: "Buzón del curador"
+subtitulo: "Escribe al curador sobre un poema, una duda o un hallazgo."
 titulo: Contacto
 descripcion: Cartas del público al curador de El Poemario. Las seleccionadas se
   publican en la bitácora con réplica del curador.

@@ -359,3 +359,49 @@ Ratios calculados con la fórmula WCAG 2.x de luminancia relativa (linealizació
 coeficientes 0.2126 / 0.7152 / 0.0722, `(L\\\\\\\_claro + 0.05) / (L\\\\\\\_oscuro + 0.05)`). Umbrales:
 texto normal 4.5:1, texto grande 3:1, elementos no textuales (bordes, iconos) 3:1.
 
+\---
+
+14. Plan estético aparte: separador único (PR-1, IMPLEMENTADO)
+
+Decisión: unificar los tres separadores existentes (`hr.ornate`, `divisor-rombo`,
+`divisor-footer`) en una sola clase `.divisor` en `tokens.css`. Diseño: dos líneas
+hairline con degradado oro→transparente y un rombo sólido central en oro plano
+(`--oro`, `#c8a86a`). Altura fija en `1px` (bug post-fusión corregido: `0.5px` vía
+`--rule-hairline` redondeaba a cero en pantallas no-Retina). CSS-only,
+`aria-hidden="true"`, margen único `var(--space-2xl) auto`.
+
+Justificación: tres implementaciones visualmente equivalentes duplicaban la misma
+intención (separador ornamental en oro) sin necesidad. Una sola clase reduce la
+superficie de mantenimiento y garantiza consistencia entre la página de poema, la
+ficha de autor y el footer.
+
+Estado: fusionado en `main`.
+
+\---
+
+15. Plan estético aparte: esquema de cabecera rótulo/título/subtítulo (PR-2, IMPLEMENTADO)
+
+Decisión: toda página de la colección `paginas` expone tres campos editables en
+Decap — `rotulo` (antetítulo corto), `titulo`, `subtitulo` — renderizados de forma
+condicional (`{pagina.data.rotulo && <p class="rotulo">...}`) para no romper el
+build si faltan. Cero texto de cabecera hardcodeado en plantillas.
+
+Excepción documentada — home: el `<h1>` de portada sigue siendo `SITE_TITLE` fijo;
+la marca no depende de Decap. El campo `rotulo` alimenta el antetítulo visual ya
+existente (`.antetitulo`, estilo propio del hero, distinto del `.rotulo` global de
+listados). El campo `subtitulo` pasa de hacer de antetítulo (uso previo, no
+coincidía con su propio nombre) a ser el subtítulo visible real bajo el `<h1>`. El
+campo `titulo` sigue usándose solo en el `<title>` del navegador, sin cambio de rol.
+
+Página nueva en `paginas`: `otras-lenguas` (antes hardcodeada por completo en
+`nacionalidades/otras-lenguas.astro`, sin `.md` propio ni edición vía Decap). No
+lleva `subtitulo`: su segunda línea es el conteo dinámico de poetas, no texto fijo.
+
+Unificación adicional en la misma PR (mismos archivos, mismas líneas ya tocadas):
+las clases `.rotulo` (5 bloques CSS duplicados idénticos o casi idénticos) y
+`.subtitulo` (9 bloques CSS duplicados idénticos) pasan a `tokens.css` como clases
+globales. Mismo criterio que `.divisor` en PR-1 (§14).
+
+Estado: fusionado en `main`.
+
+

@@ -179,6 +179,7 @@ const destacado = defineCollection({
 const paginas = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/paginas' }),
   schema: z.object({
+    rotulo: optionalString(),
     titulo: optionalString(),
     subtitulo: optionalString(),
     // Italic tagline under the home <h1>. Only the home page renders it.

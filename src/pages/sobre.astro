@@ -7,14 +7,16 @@ import { render } from 'astro:content';
 // Decap). The browser tab <title> stays hardcoded by design: the h1 already
 // contains "El Poemario", so deriving the <title> would read redundantly.
 const pagina = await getPagina('sobre');
-const { titulo, descripcion } = pagina.data;
+const { rotulo, titulo, subtitulo, descripcion } = pagina.data;
 const { Content } = await render(pagina);
 ---
 
 <Base titulo="Acerca de · El Poemario" descripcion={descripcion}>
   <div class="sobre">
     <header class="title">
+      {rotulo && <p class="rotulo">{rotulo}</p>}
       <h1>{titulo}</h1>
+      {subtitulo && <p class="subtitulo">{subtitulo}</p>}
     </header>
 
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>

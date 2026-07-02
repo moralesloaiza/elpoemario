@@ -262,3 +262,27 @@ input:focus-visible,
 }
 
 .invert a { color: var(--granate); }
+
+/* Antetitulo (eyebrow) de cabecera. Unificado desde 5 bloques identicos/casi
+   identicos duplicados en poemas/, autores/, tipos/, temas/ y
+   nacionalidades/otras-lenguas.astro (PR-2, plan estetico). */
+.rotulo {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--oro-texto);
+  margin: 0 0 var(--space-2xs);
+}
+
+/* Subtitulo de cabecera de listados e indices. Unificado desde 9 bloques
+   identicos duplicados (PR-2, plan estetico). */
+.subtitulo {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--text-soft);
+  max-width: var(--measure-narrow);
+  margin: 0 auto;
+}
+
