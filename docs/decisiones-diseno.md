@@ -405,3 +405,23 @@ globales. Mismo criterio que `.divisor` en PR-1 (§14).
 Estado: fusionado en `main`.
 
 
+---
+
+16. Plan estético aparte: alineación de tamaño de fuente en entradas vs poemas (PR-3, IMPLEMENTADO)
+
+Decisión: --fs-md (18px fijo) se usa para dos propósitos distintos que no debían
+tratarse igual: UI corta/metadatos (15 usos: bylines, tarjetas, footer, nav,
+buscador — sin cambios) y prosa larga de lectura (4 usos: cuerpo de entradas,
+bio de autor, paginas sobre/colaborar). Tocar --fs-md directamente habria roto
+los 15 usos no relacionados.
+
+Se crea un token nuevo, --fs-prosa: clamp(1.125rem, 1.025rem + 0.5vw, 1.3125rem)
+(18-21px), y --lh-prosa: 1.8, aplicados en los 4 consumidores de prosa larga.
+Deliberadamente distinto del clamp(20px, 3.4vw, 24px) / 1.85 que usan los poemas
+(Poema.astro, Destacado.astro): la prosa de entradas y la voz curatorial no
+debian igualarse al cuerpo del poema, solo acercarse.
+
+Fuera de scope: el clamp de poemas sigue sin tokenizar (valor literal repetido
+en 4 sitios); pendiente para una PR futura si se decide unificarlo tambien.
+
+Estado: fusionado en main.

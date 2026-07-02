@@ -52,8 +52,8 @@ const { Content } = await render(pagina);
   /* Body is rendered from markdown via <Content/>; target inner elements
      globally, anchored on the scoped .prose wrapper. */
   .prose :global(p) {
-    font-size: var(--fs-md);
-    line-height: var(--lh-relaxed);
+    font-size: var(--fs-prosa);
+    line-height: var(--lh-prosa);
     margin-bottom: var(--space-md);
   }
   .prose :global(h2) {
@@ -76,8 +76,8 @@ const { Content } = await render(pagina);
     padding-left: 1.5em;
   }
   .prose :global(ol li) {
-    font-size: var(--fs-md);
-    line-height: var(--lh-relaxed);
+    font-size: var(--fs-prosa);
+    line-height: var(--lh-prosa);
     margin-bottom: var(--space-2xs);
   }
   .prose :global(code) {

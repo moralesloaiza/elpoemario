@@ -41,6 +41,7 @@
   --fs-sm:   0.938rem;  /* 15px */
   --fs-base: 1rem;      /* 16px */
   --fs-md:   1.125rem;  /* 18px — cuerpo preferido en poemas */
+  --fs-prosa: clamp(1.125rem, 1.025rem + 0.5vw, 1.3125rem); /* 18-21px - prosa larga: entradas, autor, sobre, colaborar */
   --fs-lg:   clamp(1.25rem,  1.15rem + 0.5vw, 1.5rem);
   --fs-xl:   clamp(1.5rem,   1.30rem + 1.0vw, 2rem);
   --fs-2xl:  clamp(1.875rem, 1.50rem + 1.5vw, 2.625rem);
@@ -54,6 +55,7 @@
   --lh-tight:   1.15;
   --lh-snug:    1.3;
   --lh-relaxed: 1.75;
+  --lh-prosa:   1.8;  /* prosa larga: entradas, autor, sobre, colaborar */
 
   --ls-wide:    0.05em;
   --ls-wider:   0.12em;
