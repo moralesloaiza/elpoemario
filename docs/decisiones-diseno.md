@@ -439,3 +439,23 @@ en las 8 mayoritarias, eliminando el gap adicional entre el h1 y el subtitulo
 en toda la web.
 
 Estado: fusionado en main.
+
+---
+
+18. Plan estético aparte: tokenizar el tamaño de fuente y line-height del cuerpo de poemas (PR-4)
+
+Decision: clamp(20px, 3.4vw, 24px) estaba repetido como valor literal en 4 sitios
+(Poema.astro: .prose--verso y .prose:not(.prose--verso); Destacado.astro:
+.destacado-versos y .destacado-resumen). Se tokeniza como --fs-poema en
+tokens.css, junto a --fs-prosa. Se decide tokenizar tambien el line-height: 1.85
+asociado (literal en Destacado.astro en 2 sitios; en Poema.astro solo aparecia
+una vez, en la regla base .prose, heredada por las reglas hijas) como
+--lh-poema, junto a --lh-prosa. No existia previamente ningun --fs-* o --lh-*
+con estos valores exactos en tokens.css (el mas cercano era --lh-relaxed: 1.75,
+distinto).
+
+Este cambio es puramente de tokenizacion: no altera el valor visual resultante,
+solo su representacion en el codigo. Queda cerrado el pendiente identificado en
+PR-3 (§16).
+
+Estado: PR abierto, pendiente de merge.
