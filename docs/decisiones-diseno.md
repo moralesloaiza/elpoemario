@@ -425,3 +425,17 @@ Fuera de scope: el clamp de poemas sigue sin tokenizar (valor literal repetido
 en 4 sitios); pendiente para una PR futura si se decide unificarlo tambien.
 
 Estado: fusionado en main.
+
+---
+
+17. Plan estético aparte: unificar margin-bottom de .title h1 (sin gap h1->subtitulo)
+
+Decision: .title h1 usaba dos valores de margin inconsistentes entre paginas:
+margin: 0 0 var(--space-sm) en 8 paginas de indice/listado (siglos, autores,
+poemas, entradas/cartas, entradas/index-bitacora, temas, nacionalidades, tipos)
+vs margin: 0 en las 3 paginas de la coleccion paginas con prosa larga
+(sobre, correspondencia, colaborar). Se unifica al segundo patron: margin: 0
+en las 8 mayoritarias, eliminando el gap adicional entre el h1 y el subtitulo
+en toda la web.
+
+Estado: fusionado en main.
