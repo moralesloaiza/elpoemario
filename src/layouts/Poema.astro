@@ -406,7 +406,7 @@ const siguiente = siguienteEntry
   .prose {
     font-family: var(--font-body);
     font-size: var(--fs-md);
-    line-height: 1.85;
+    line-height: var(--lh-poema);
     color: var(--text);
     max-width: var(--measure-narrow);
     margin-inline: auto;
@@ -450,7 +450,7 @@ const siguiente = siguienteEntry
     width: max-content;
     max-width: min(var(--measure-narrow), 100%);
     margin-inline: auto;
-    font-size: clamp(20px, 3.4vw, 24px);
+    font-size: var(--fs-poema);
     color: var(--verse);
   }
 
@@ -463,7 +463,7 @@ const siguiente = siguienteEntry
 
   /* Prose-poetry: match the verse reading size and tone, keep prose flow. */
   .prose:not(.prose--verso) {
-    font-size: clamp(20px, 3.4vw, 24px);
+    font-size: var(--fs-poema);
     color: var(--verse);
   }
 
