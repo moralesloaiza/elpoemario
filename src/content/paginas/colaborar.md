@@ -1,4 +1,6 @@
 ---
+rotulo: "Sumar tu voz"
+subtitulo: "Cómo proponer y publicar poemas en El Poemario."
 titulo: "Colaborar con El Poemario"
 descripcion: "Cómo proponer y publicar poemas en El Poemario."
 ---

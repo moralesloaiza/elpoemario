@@ -4,7 +4,11 @@ import Base from '../../layouts/Base.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import AutorCard from '../../components/AutorCard.astro';
 import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import { getPagina } from '../../utils/paginas';
+import { SITE_TITLE } from '../../consts';
 import { LENGUAS, LENGUAS_DISPLAY, type Lengua } from '../../utils/taxonomia';
+
+const pagina = await getPagina('otras-lenguas');
 
 // Dedicated static route (resolves before the dynamic [slug].astro, which is
 // why country paths never collide here). Authors who wrote in a non-Castilian
@@ -48,15 +52,15 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
 ---
 
 <Base
-  titulo="Poetas en otras lenguas · El Poemario"
-  descripcion="Poetas cuya obra original no se escribió en castellano, en El Poemario."
+  titulo={`${pagina.data.titulo} · ${SITE_TITLE}`}
+  descripcion={pagina.data.descripcion}
 >
   <JsonLd slot="head" data={breadcrumbLd} />
 
   <article class="page indice" lang="es">
     <header class="title">
-      <p class="rotulo">Lengua original</p>
-      <h1>En otras lenguas</h1>
+      {pagina.data.rotulo && <p class="rotulo">{pagina.data.rotulo}</p>}
+      <h1>{pagina.data.titulo}</h1>
     </header>
 
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -87,14 +91,6 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
   .title {
     text-align: center;
     margin-bottom: var(--space-lg);
-  }
-  .rotulo {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    text-transform: uppercase;
-    margin: var(--space-sm) 0 var(--space-2xs);
   }
   .title h1 {
     margin: 0;

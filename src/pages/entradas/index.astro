@@ -20,6 +20,7 @@ const pagina = await getPagina('bitacora');
 >
   <main class="page bitacora">
     <header class="title">
+      {pagina.data.rotulo && <p class="rotulo">{pagina.data.rotulo}</p>}
       <h1>{pagina.data.titulo}</h1>
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
@@ -68,14 +69,6 @@ const pagina = await getPagina('bitacora');
     font-size: var(--fs-3xl);
     font-family: var(--font-display);
     color: var(--text);
-  }
-  .subtitulo {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-md);
-    color: var(--text-soft);
-    max-width: var(--measure-narrow);
-    margin: 0 auto;
   }
   .vacio {
     text-align: center;

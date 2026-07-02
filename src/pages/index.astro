@@ -9,9 +9,10 @@ import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 
 // Home hero text from src/content/paginas/home.md (editable in Decap).
-// `titulo` here is the long descriptor (browser <title> suffix / og:title);
-// `subtitulo` is the tagline antetitulo; `lema` is the italic tagline under
-// the h1. The visible h1 is SITE_TITLE.
+// `rotulo` is the short antetitulo above the h1; `titulo` is the long
+// descriptor (browser <title> suffix / og:title) and is not rendered
+// visibly; `subtitulo` is the real visible subtitle under the h1; `lema`
+// is the italic tagline further below. The visible h1 is SITE_TITLE.
 const home = await getPagina('home');
 
 // Latest non-draft poems, newest first, capped at 6.
@@ -94,8 +95,9 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
   <section class="hero">
-    <p class="antetitulo">{home.data.subtitulo}</p>
+    {home.data.rotulo && <p class="antetitulo">{home.data.rotulo}</p>}
     <h1>{SITE_TITLE}</h1>
+    {home.data.subtitulo && <p class="subtitulo">{home.data.subtitulo}</p>}
     {home.data.lema && <p class="lema">{home.data.lema}</p>}
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
   </section>

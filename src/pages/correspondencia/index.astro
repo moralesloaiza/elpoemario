@@ -16,7 +16,9 @@ const { Content } = await render(pagina);
 >
   <main class="page correspondencia">
     <header class="title">
+      {pagina.data.rotulo && <p class="rotulo">{pagina.data.rotulo}</p>}
       <h1>{pagina.data.titulo}</h1>
+      {pagina.data.subtitulo && <p class="subtitulo">{pagina.data.subtitulo}</p>}
     </header>
 
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>

@@ -1,4 +1,5 @@
 ---
+rotulo: "Antología digital"
 titulo: Versos y voces de la literatura hispanoamericana
 subtitulo: Repertorio de obras poéticas en español
 lema: Poemas elegidos a mano y devueltos a la luz de la luna.
