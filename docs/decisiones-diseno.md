@@ -530,3 +530,39 @@ internos hardcodeados en entradas/el-largo-viaje-de-un-corazón.md que
 apuntaban a los slugs viejos de la serie Amor de madre.
 
 Estado: fusionado en main.
+
+---
+
+22. Eliminar lineas de rejilla en tarjetas de poemas/autores, en cuadros de siglos/nacionalidades/tipos/temas, y rediseno de la caja de invitacion a Spotify en Inicio
+
+Decision: se elimina el sistema de reglas visuales (--line, hairline solid oro)
+que dibujaba la cuadricula alrededor de PoemaCard.astro y AutorCard.astro
+(border-right/bottom en cada celda, border-top/left en el contenedor), en los
+cinco listados que lo consumen: ListadoPoemasTaxonomia.astro,
+ListadoAutores.astro, poemas/index.astro, autores/index.astro, la seccion de
+poemas del layout Autor.astro (poemas de un autor) y el grid de poemas
+destacados en Inicio (ul.poemas). No se anade gap alguno: las celdas quedan
+contiguas, separadas solo por su padding interno.
+
+Mismo criterio en los cuadros de .item-link de siglos/index.astro y
+nacionalidades/index.astro (border: rule-hairline solid oro, eliminado). En
+tipos/index.astro y temas/index.astro las lineas de rejilla se generaban por
+contraste de color (gap: 1px + background-color del contenedor asomando entre
+celdas con background-color propio); se elimina el background-color y el
+border del contenedor, dejando el gap de 1px intacto pero sin contraste
+visible.
+
+Ademas, se rediseña la caja de invitacion a Spotify en Inicio (.podcast):
+se elimina el borde (1px solid oro-suave) y su transicion de border-color;
+se elimina el glifo de flecha externa (podcast-ext, unicode ↗) del marcado y
+su regla CSS; el layout pasa de fila (icono izquierda, texto izquierda) a
+columna centrada, adoptando como base permanente el mismo layout que antes
+solo aplicaba en el breakpoint movil (max-width 680px), que por tanto queda
+sin overrides propios de .podcast en ese media query.
+
+El token --line permanece vivo (unico consumidor restante: el separador de
+lista en entradas/index.astro, un patron distinto de lista apilada, no de
+cuadricula).
+
+Estado: fusionado en main.
+

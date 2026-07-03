@@ -148,7 +148,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
         <span class="podcast-titulo">{home.data.podcast_cta}</span>
         <span class="podcast-glosa">{home.data.podcast_glosa}</span>
       </span>
-      <span class="podcast-ext" aria-hidden="true">↗</span>
     </a>
   </section>
 </Base>
@@ -225,8 +224,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
   }
   ul.poemas > li {
     display: grid;
@@ -264,20 +261,18 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   }
   .podcast {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     max-width: var(--measure-narrow);
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
-    border: 1px solid var(--oro-suave);
     padding: var(--space-lg) var(--space-xl);
-    transition: border-color var(--dur-fast) var(--ease-standard),
-                background var(--dur-fast) var(--ease-standard);
+    transition: background var(--dur-fast) var(--ease-standard);
   }
   .podcast:hover,
   .podcast:focus-visible {
-    border-color: var(--oro);
     background: color-mix(in srgb, var(--oro) 5%, transparent);
   }
   .podcast-play {
@@ -324,27 +319,10 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     color: var(--text-soft);
     margin-top: var(--space-2xs);
   }
-  .podcast-ext {
-    flex: none;
-    font-family: var(--font-display);
-    font-size: var(--fs-md);
-    color: var(--oro-texto);
-  }
 
   @media (max-width: 680px) {
     ul.poemas {
       grid-template-columns: 1fr;
-    }
-    .podcast {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--space-md);
-    }
-    .podcast-cuerpo {
-      text-align: center;
-    }
-    .podcast-ext {
-      display: none;
     }
   }
 </style>

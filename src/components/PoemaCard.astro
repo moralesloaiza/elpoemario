@@ -28,9 +28,7 @@ const piePoema = movimientoLabel ? `${tipoLabel} · ${movimientoLabel}` : tipoLa
 </article>
 
 <style>
-  /* Text cell in a bordered grid (no image). The container draws the top and
-     left rules; each cell draws its own right and bottom rule, so the grid is
-     closed regardless of how many cells are present. The card is also the
+  /* Text cell in the grid (no image, no rules). The card is also the
      positioning context for the block-link ::before overlay. */
   .card {
     position: relative;
@@ -41,8 +39,6 @@ const piePoema = movimientoLabel ? `${tipoLabel} · ${movimientoLabel}` : tipoLa
     height: auto;
     min-height: 148px;
     padding: var(--space-lg) var(--space-md);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
     transition: background-color var(--dur-fast) var(--ease-standard);
   }
   .card:has(.card-titulo a:hover),
