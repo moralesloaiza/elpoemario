@@ -1,17 +1,14 @@
 ---
 activo: true
-cintillo: Poema del día
-extracto: |
-  «...
-
-  Ah, ¡bendita sea la farsa que en nuestros cuerpos se enciende!
-  la caricia breve, la tristeza oculta tras el dulce disfraz,
-  bendita sea la noche y su tibio manto de serena paz,
-  que hoy cobija a esta extraña, que quedarse no pretende.
-
-  ...».
-tipo: poema
-poema_referido: oda-rapida
-entrada_referida: ""
-autor_referido: alejandro-de-morales-y-loaiza
+cintillo: Pregunta del día
+extracto: >
+  Los buenos poetas son pocos, y sería necio suponer que, por el hecho de saber
+  nosotros cómo se riman las palabras unas con otras, podemos escribir buenos
+  versos. La poesía no consiste en la rima solamente, y aun se da el caso de que
+  abundan mucho los hábiles versificadores, que hacen excelentes versos, pero no
+  verdadera poesía, por carecer de la necesaria inspiración.
+tipo: entrada
+poema_referido: ""
+entrada_referida: por-que-debemos-leer-a-los-poetas
+autor_referido: ""
 ---
