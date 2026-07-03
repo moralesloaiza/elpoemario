@@ -174,7 +174,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 
   .hero h1 {
     margin: 0 0 var(--space-md);
-    font-size: var(--fs-4xl);
+    font-size: var(--fs-3xl);
     text-wrap: balance;
   }
 
@@ -189,6 +189,13 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     margin: 0 auto var(--space-md);
   }
 
+  /* Overrides solo-Inicio: no tocar .subtitulo ni .divisor globales */
+  .subtitulo {
+    font-size: 1.25rem; /* 20px, +2px sobre --fs-md */
+  }
+  .hero .divisor {
+    margin-bottom: var(--space-lg); /* 24px, era 48px */
+  }
 
   /* ── Secciones ─────────────────────────────────────────────────────── */
   .seccion-poemas {

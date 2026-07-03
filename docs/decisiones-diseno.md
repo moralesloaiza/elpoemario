@@ -458,4 +458,29 @@ Este cambio es puramente de tokenizacion: no altera el valor visual resultante,
 solo su representacion en el codigo. Queda cerrado el pendiente identificado en
 PR-3 (§16).
 
-Estado: PR abierto, pendiente de merge.
+Estado: fusionado en main.
+
+---
+
+19. Plan estético aparte: linea de navegacion simple, escala h1 Inicio, subtitulo Inicio, espacio separador->En Portada
+
+Decision: cuatro ajustes puntuales de Inicio, sin tocar tokens ni clases globales.
+
+(a) header::after (linea doble ornamental bajo la navegacion) se elimina de
+Header.astro. Queda solo el border-bottom existente.
+
+(b) .hero h1 pasa de --fs-4xl a --fs-3xl (un paso hacia abajo en la escala).
+
+(c) .subtitulo es clase global (tokens.css), reutilizada en 9+ paginas de
+listado. No se toca el token --fs-md. Se anade un override local en el
+<style> scoped de index.astro (.subtitulo { font-size: 1.25rem }), que por
+especificidad de Astro (data-astro-cid) solo afecta Inicio.
+
+(d) El espacio entre el .divisor y "En Portada" (Destacado.astro, exclusivo
+de Inicio) se acumulaba en tres puntos: margen inferior de .divisor (48px,
+global), padding-bottom de .hero (48px) y el margen colapsado hero->Destacado
+(48px). Se reduce solo el primero via override scoped (.hero .divisor,
+margin-bottom: var(--space-lg), 24px), el cambio de menor riesgo por no tocar
+mas de un punto de la cadena.
+
+Estado: fusionado en main.
