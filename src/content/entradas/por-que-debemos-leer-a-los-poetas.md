@@ -2,20 +2,24 @@
 titulo: ¿Por qué debemos leer a los poetas?
 fecha: 2011-10-25
 fecha_actualizada: 2026-07-03
+resumen: Los buenos poetas son pocos, y sería necio suponer que, por el hecho de
+  saber nosotros cómo se riman las palabras unas con otras, podemos escribir
+  buenos versos. La poesía no consiste en la rima solamente, y aun se da el caso
+  de que abundan mucho los hábiles versificadores, que hacen excelentes versos,
+  pero no verdadera poesía, por carecer de la necesaria inspiración.
 borrador: false
-curador: El tesoro de la juventud
+curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: true
 nombre_real: Alejandro de Morales y Loaiza
 tipo: bitacora
 ---
+## El Libro de la poesía*
 
-El Libro de la poesía
-
-LA POESÍA Y EL SENTIMIENTO
+### La poesía y el sentimiento
 
 HAY muchas personas que consideran inútil el leer poesía, por creer que ningún bien inmediato puede reportarles. Por eso es que dicen que no pueden leer versos, que no tienen tiempo para ello. El caso es que nunca lo intentaron seriamente. Pero como nosotros tenemos a la poesía un verdadero amor, un amor creciente, no podemos contarnos entre esas personas para quienes la poesía es algo superficial y sin importancia, una cosa sin valor positivo. La poesía sirve para afinar nuestra sensibilidad, poblando de bellas imágenes nuestro pensamiento: de modo que amándola y entendiéndola nos ponemos en la situación de descubrir los aspectos más bellos de la vida, que nos será tanto más grata cuanto más hermosa llegue a parecernos. Tiene, pues, una utilidad considerable leer poesía. El hombre incapaz de sentir y gozar sus bellezas es algo así como el ciego, para quien no existen las magnificencias de la forma, de la luz y del color: un infeliz, condenado a tener una noción imperfecta de la vida y el universo.
 
-¿POR QUÉ DEBEMOS LEER A LOS POETAS?
+### ¿Por qué debemos leer a los poetas?
 
 DE la misma manera podríamos preguntar por qué cantan los pájaros y por qué nos gustan tanto sus trinos. Natural es que aquellos que tienen amor a la música amen igualmente los buenos versos. Uno de los sentimientos más nobles de la naturaleza humana es el sentimiento estético. Este sentimiento de lo hermoso y elevado nos dignifica y ennoblece, y ha contribuido considerablemente a impulsar nuestra civilización. De jóvenes le tomamos a la vida más gusto y afición que de viejos, y así el amor a la poesía, en nuestra juventud, es tan natural como el gusto de los sonidos gratos al oído, del perfume de las flores y de los maravillosos juegos de luz de una puesta de sol.
 
@@ -35,4 +39,4 @@ Por esto, ellos nos ayudan a penetrar con sus obras en lo íntimo de la Naturale
 
 Bendigamos, pues, a la poesía y a los hombres que supieron expresar sus sentimientos poéticamente; porque ellos serán nuestros amables compañeros en nuestras horas de soledad y meditación, dulcificando nuestra propia melancolía con la música de sus versos. Serán los poetas nuestros mejores amigos si nosotros lo somos de ellos, y con sus nobles palabras consolarán nuestro dolor y nuestras dudas en los momentos de desaliento, que ningún hombre logra evitar. Nos describirán con bellas imágenes las bellezas del mundo, y las múltiples facetas del espíritu humano, y contribuirán a preparar nuestro corazón, haciéndolo fuerte y generoso, para la lucha por la vida.
 
-Extraído de EL TESORO DE LA JUVENTUD o ENCICLOPEDIA DE CONOCIMIENTOS, Tomo V, p 1575. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.
+*\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo V, p 1575. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
