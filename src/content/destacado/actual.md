@@ -1,6 +1,6 @@
 ---
 activo: true
-cintillo: Pregunta del día
+cintillo: ¿Te has hecho daño, hijo mío?
 extracto: "\n"
 tipo: entrada
 poema_referido: ""
