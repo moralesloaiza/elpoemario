@@ -1,8 +1,8 @@
 ---
-rotulo: "Sumar tu voz"
-subtitulo: "Cómo proponer y publicar poemas en El Poemario."
-titulo: "Colaborar con El Poemario"
-descripcion: "Cómo proponer y publicar poemas en El Poemario."
+rotulo: ""
+titulo: Cómo colaborar
+subtitulo: Cómo convertirte en curador de El Poemario
+descripcion: Cómo proponer y publicar poemas en El Poemario.
 ---
 *El Poemario* recibe colaboraciones de quienes quieren sumar versos —clásicos o contemporáneos— a esta antología.
 
