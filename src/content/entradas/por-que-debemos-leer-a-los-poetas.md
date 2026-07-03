@@ -1,9 +1,12 @@
 ---
-titulo: "¿Por qué debemos leer a los poetas?"
+titulo: ¿Por qué debemos leer a los poetas?
 fecha: 2011-10-25
+fecha_actualizada: 2026-07-03
+borrador: false
+curador: El tesoro de la juventud
+es_seudonimo: true
+nombre_real: Alejandro de Morales y Loaiza
 tipo: bitacora
-curador: "Don Alejandro"
-borrador: true
 ---
 
 El Libro de la poesía
