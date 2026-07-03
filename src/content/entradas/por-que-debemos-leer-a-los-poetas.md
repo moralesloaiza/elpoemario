@@ -15,9 +15,9 @@ tipo: bitacora
 ---
 ## El Libro de la poesía*
 
-### La poesía y el sentimiento
-
-HAY muchas personas que consideran inútil el leer poesía, por creer que ningún bien inmediato puede reportarles. Por eso es que dicen que no pueden leer versos, que no tienen tiempo para ello. El caso es que nunca lo intentaron seriamente. Pero como nosotros tenemos a la poesía un verdadero amor, un amor creciente, no podemos contarnos entre esas personas para quienes la poesía es algo superficial y sin importancia, una cosa sin valor positivo. La poesía sirve para afinar nuestra sensibilidad, poblando de bellas imágenes nuestro pensamiento: de modo que amándola y entendiéndola nos ponemos en la situación de descubrir los aspectos más bellos de la vida, que nos será tanto más grata cuanto más hermosa llegue a parecernos. Tiene, pues, una utilidad considerable leer poesía. El hombre incapaz de sentir y gozar sus bellezas es algo así como el ciego, para quien no existen las magnificencias de la forma, de la luz y del color: un infeliz, condenado a tener una noción imperfecta de la vida y el universo.
+> ### *La poesía y el sentimiento*
+>
+> *HAY muchas personas que consideran inútil el leer poesía, por creer que ningún bien inmediato puede reportarles. Por eso es que dicen que no pueden leer versos, que no tienen tiempo para ello. El caso es que nunca lo intentaron seriamente. Pero como nosotros tenemos a la poesía un verdadero amor, un amor creciente, no podemos contarnos entre esas personas para quienes la poesía es algo superficial y sin importancia, una cosa sin valor positivo. La poesía sirve para afinar nuestra sensibilidad, poblando de bellas imágenes nuestro pensamiento: de modo que amándola y entendiéndola nos ponemos en la situación de descubrir los aspectos más bellos de la vida, que nos será tanto más grata cuanto más hermosa llegue a parecernos. Tiene, pues, una utilidad considerable leer poesía. El hombre incapaz de sentir y gozar sus bellezas es algo así como el ciego, para quien no existen las magnificencias de la forma, de la luz y del color: un infeliz, condenado a tener una noción imperfecta de la vida y el universo.*
 
 ### ¿Por qué debemos leer a los poetas?
 
