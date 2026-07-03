@@ -504,3 +504,29 @@ Resultado: bloque divisor -> En Portada baja de ~120px a ~72px
 (24px divisor + 24px padding-bottom hero + 24px margin-top destacado).
 
 Estado: fusionado en main.
+
+---
+
+21. Renombrar slugs ilegibles heredados de Tumblr y renumerar serie «Amor de madre»
+
+Decisión: 7 poemas conservaban el slug autogenerado por Tumblr al migrarse
+sin título (sin-titulo-<id-numérico>), sin valor de lectura ni SEO. Se
+renombran a slugs derivados de su título real (ej. sin-titulo-12046411380
+-> pintame-angelitos-negros).
+
+La serie «Amor de madre» (4 versiones de la misma balada catalana, por
+distintos autores) tenía slugs desordenados frente a su numeración en el
+título (amor-de-madre-i/-ii-1/-ii/sin-numero para I/II/III/IV respectivamente).
+Se renumeran con dígitos arábigos (amor-de-madre-1..4) en vez de romanos:
+un esquema en romanos generaría una cadena de colisión, ya que en Cloudflare
+Pages una regla de _redirects se aplica siempre, incluso si existe un asset
+real en esa misma ruta (a diferencia de Netlify). Usar el slug viejo de un
+poema como slug nuevo de otro habría dejado esa ruta redirigida de forma
+permanente, sin servir jamás el contenido real.
+
+Se crea public/_redirects (301) por primera vez en el proyecto; no existía
+ningún mecanismo de redirects previo. Se actualizan también los 4 enlaces
+internos hardcodeados en entradas/el-largo-viaje-de-un-corazón.md que
+apuntaban a los slugs viejos de la serie Amor de madre.
+
+Estado: fusionado en main.
