@@ -6,8 +6,8 @@ lema: ""
 descripcion: Antología digital de poesía en español. Sonetos, silvas, romances y
   verso libre, con ilustración Art Déco nocturna.
 podcast_titulo: En voz alta
-podcast_subtitulo: Declamaciones e historias para el día y la noche
+podcast_subtitulo: ""
 podcast_eyebrow: Pódcast · Spotify
 podcast_cta: Escuchar El Poemario
-podcast_glosa: El repertorio declamado y comentado
+podcast_glosa: ""
 ---
