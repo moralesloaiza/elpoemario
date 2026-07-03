@@ -355,6 +355,11 @@ collections:
           - { name: "subtitulo", label: "Subtítulo visible (hero)", widget: "string", required: false }
           - { name: "lema", label: "Tagline en cursiva (bajo el título)", widget: "string", required: false, hint: "Frase en cursiva que aparece bajo «El Poemario» en la portada. Tono ambiental, no SEO." }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "podcast_titulo", label: "Pódcast: título de la sección", widget: "string", required: false }
+          - { name: "podcast_subtitulo", label: "Pódcast: subtítulo de la sección", widget: "string", required: false }
+          - { name: "podcast_eyebrow", label: "Pódcast: rótulo pequeño (ej. «Pódcast · Spotify»)", widget: "string", required: false }
+          - { name: "podcast_cta", label: "Pódcast: texto del enlace", widget: "string", required: false }
+          - { name: "podcast_glosa", label: "Pódcast: línea descriptiva", widget: "string", required: false }
       - name: "poemas"
         label: "Listado: Poemas"
         file: "src/content/paginas/poemas.md"
