@@ -87,8 +87,8 @@ const pagina = await getPagina('autores');
     margin: var(--space-2xl) auto;
   }
 
-  /* Bordered text-cell grid: 3 cols, single 680px breakpoint to 1 col,
-     confined to the reading column. See PR-R1. */
+  /* Text-cell grid: 3 cols, single 680px breakpoint to 1 col, confined to
+     the reading column. See PR-R1. */
   .lista {
     list-style: none;
     padding: 0;
@@ -97,8 +97,6 @@ const pagina = await getPagina('autores');
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
   }
   @media (max-width: 680px) {
     .lista {

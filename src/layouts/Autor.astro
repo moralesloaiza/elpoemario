@@ -330,9 +330,8 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--oro-texto);
     margin: var(--space-xl) 0 var(--space-lg);
   }
-  /* Card grid: same R1 system as /poemas and taxonomy. Container draws the top
-     and left rules; each PoemaCard draws its own right and bottom rule. Confined
-     to the reading column (--measure-grid). 3-col, collapsing to 1 at 680px. */
+  /* Card grid: same system as /poemas and taxonomy, no rules. Confined to
+     the reading column (--measure-grid). 3-col, collapsing to 1 at 680px. */
   .lista {
     list-style: none;
     padding: 0;
@@ -341,8 +340,6 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
   }
   /* Visible cells stretch to the track; hidden batches (cargar-mas) stay out. */
   .item:not([hidden]) {

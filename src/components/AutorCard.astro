@@ -37,9 +37,8 @@ const conteoLabel =
 </article>
 
 <style>
-  /* Mirrors PoemaCard: text cell in a bordered grid, no image. Container draws
-     top/left rules; each cell draws right/bottom. Block-link ::before overlay
-     makes the whole cell clickable. */
+  /* Mirrors PoemaCard: text cell in the grid, no image, no rules. Block-link
+     ::before overlay makes the whole cell clickable. */
   .card {
     position: relative;
     display: flex;
@@ -49,8 +48,6 @@ const conteoLabel =
     height: auto;
     min-height: 148px;
     padding: var(--space-lg) var(--space-md);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
     transition: background-color var(--dur-fast) var(--ease-standard);
   }
   .card:has(.card-nombre a:hover),
