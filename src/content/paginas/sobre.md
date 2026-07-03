@@ -1,7 +1,7 @@
 ---
 rotulo: ""
 titulo: Acerca de
-subtitulo: De un repertorio escrito a mano a una antología digital.
+subtitulo: De un repertorio escrito a mano a una antología digital
 descripcion: "El origen de El Poemario: de una dedicatoria escrita a mano y un
   viejo repertorio de versos a una antología digital de poesía en lengua
   castellana."
