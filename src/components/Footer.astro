@@ -18,10 +18,10 @@ const grupos = [
   {
     rotulo: 'Descubrir',
     enlaces: [
-      { href: '/tipos/', texto: 'Formas' },
-      { href: '/temas/', texto: 'Temas' },
-      { href: '/siglos/', texto: 'Siglos' },
-      { href: '/nacionalidades/', texto: 'Países' },
+      { href: '/tipos/', texto: 'Por forma' },
+      { href: '/temas/', texto: 'Por tema' },
+      { href: '/siglos/', texto: 'Por siglo' },
+      { href: '/nacionalidades/', texto: 'Por país' },
     ],
   },
   {
@@ -83,6 +83,7 @@ const grupos = [
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: left;
     gap: var(--space-2xl);
     margin-bottom: var(--space-2xl);
   }
@@ -106,6 +107,7 @@ const grupos = [
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
+    align-items: flex-start;
   }
   /* Enlaces en Cormorant caja mixta (como la maqueta). */
   .footer-lista a {
