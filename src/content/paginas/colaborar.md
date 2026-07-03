@@ -1,7 +1,7 @@
 ---
 rotulo: ""
 titulo: Cómo colaborar
-subtitulo: Cómo convertirte en curador de El Poemario
+subtitulo: Cómo convertirse en curador de El Poemario
 descripcion: Cómo proponer y publicar poemas en El Poemario.
 ---
 *El Poemario* recibe colaboraciones de quienes quieren sumar versos —clásicos o contemporáneos— a esta antología.
