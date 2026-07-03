@@ -6,7 +6,7 @@ extracto: |-
   la caricia breve, la tristeza oculta tras el dulce disfraz,
   bendita sea la noche y su tibio manto de serena paz,
   que hoy cobija a esta extraña, que quedarse no pretende.
-tipo: entrada
+tipo: poema
 poema_referido: oda-rapida
 entrada_referida: ""
 autor_referido: alejandro-de-morales-y-loaiza
