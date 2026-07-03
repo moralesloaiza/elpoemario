@@ -185,6 +185,12 @@ const paginas = defineCollection({
     // Italic tagline under the home <h1>. Only the home page renders it.
     lema: optionalString(),
     descripcion: optionalString(),
+    // Podcast card copy on the home page. Only home.md uses these.
+    podcast_titulo: optionalString(),
+    podcast_subtitulo: optionalString(),
+    podcast_eyebrow: optionalString(),
+    podcast_cta: optionalString(),
+    podcast_glosa: optionalString(),
   }),
 });
 

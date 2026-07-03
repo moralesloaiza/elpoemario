@@ -134,8 +134,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   )}
 
   <section class="seccion-podcast" aria-labelledby="podcast-titulo">
-    <h2 id="podcast-titulo" class="seccion-titulo">El Poemario en voz alta</h2>
-    <p class="podcast-subtitulo">Nuestro pódcast: cada selección, leída para la noche</p>
+    <h2 id="podcast-titulo" class="seccion-titulo">{home.data.podcast_titulo}</h2>
+    <p class="podcast-subtitulo">{home.data.podcast_subtitulo}</p>
     <a class="podcast" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
       <span class="podcast-play" aria-hidden="true">
         <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
@@ -144,9 +144,9 @@ if (destacadoCfg && destacadoCfg.data.activo) {
         </svg>
       </span>
       <span class="podcast-cuerpo">
-        <span class="podcast-eyebrow">Pódcast · Spotify</span>
-        <span class="podcast-titulo">Escuchar El Poemario</span>
-        <span class="podcast-glosa">Don Alejandro lee la antología en voz alta.</span>
+        <span class="podcast-eyebrow">{home.data.podcast_eyebrow}</span>
+        <span class="podcast-titulo">{home.data.podcast_cta}</span>
+        <span class="podcast-glosa">{home.data.podcast_glosa}</span>
       </span>
       <span class="podcast-ext" aria-hidden="true">↗</span>
     </a>
