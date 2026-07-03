@@ -15,7 +15,7 @@ curador: Alejandro de Morales y Loaiza
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 tipo: bitacora
-poema_referido: ""
+poema_referido: amor-de-madre-1
 ---
 Hay poemas que nacen una sola vez. Este nació muchas, en muchas lenguas, y siempre con el mismo grito al final.
 
