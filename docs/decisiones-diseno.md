@@ -484,3 +484,23 @@ margin-bottom: var(--space-lg), 24px), el cambio de menor riesgo por no tocar
 mas de un punto de la cadena.
 
 Estado: fusionado en main.
+
+---
+
+20. Plan estetico aparte: reducir espacio hero -> En Portada (segunda pasada)
+
+Decision: tras la seccion 19, quedaban dos contribuyentes sin tocar en el
+espacio hero->Destacado: el padding-bottom de .hero (48px, no colapsa con
+nada al ser padding) y el margen colapsado hero.margin-bottom / 
+destacado-seccion.margin-top (ambos 48px, colapsan al mayor de los dos,
+no a la suma).
+
+Se reduce .hero.padding-bottom a var(--space-lg) (24px) y su margin-bottom
+a 0, dejando que el margin-top de .destacado-seccion (tambien reducido a
+var(--space-lg), 24px) defina el espacio de transicion. El padding-top de
+.hero (espacio sobre el antetitulo, tope de la seccion) no se toca.
+
+Resultado: bloque divisor -> En Portada baja de ~120px a ~72px
+(24px divisor + 24px padding-bottom hero + 24px margin-top destacado).
+
+Estado: fusionado en main.
