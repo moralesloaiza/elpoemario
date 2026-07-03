@@ -8,7 +8,7 @@ resumen: "Una misma leyenda —el corazón arrancado de la madre que, caído en
   cuatro raíces castellanas que hoy conviven en El Poemario: las firmadas de
   Eduardo de la Barra (1887), Joaquín Dicenta y Felipe Tejera (1910), más una
   versión anónima impresa en México en 1887."
-ilustracion: ../../assets/uploads/chatgpt-image-6-jun-2026-23_40_04.png
+ilustracion: ../../assets/uploads/chatgpt-image-3-jul-2026-16_27_58.png
 spotify_url: https://open.spotify.com/episode/3tXonSc5eYmJFNaXCrjbh8?si=S69cU0SSRXeY43DhmhZmmg
 borrador: false
 curador: Alejandro de Morales y Loaiza
