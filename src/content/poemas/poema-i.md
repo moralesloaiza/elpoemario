@@ -36,9 +36,8 @@ nota_curador: >-
   > « Está muy lindo. Gracias ».
 
 
-  Era evidente que no podía esperar más de ella. Entre sus limitaciones estaba el no mostrarse nunca demasiado sublime. Yo lo entendía y, aún así, la amaba. Me contentaba con mostrar mi cariño sin demasiados reconocimientos ni retribuciones.\
+  Era evidente que no podía esperar más de ella. Entre sus limitaciones estaba el no mostrarse nunca demasiado sublime. Yo lo entendía y, aún así, la amaba. Me contentaba con mostrar mi cariño sin demasiados reconocimientos ni retribuciones.
 
-  \
 
   Nunca llegaríamos a vernos.
 ---
