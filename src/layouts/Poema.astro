@@ -134,26 +134,7 @@ const siguiente = siguienteEntry
 <Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
   <JsonLd slot="head" data={jsonLd} />
 
-  <script slot="head" is:inline>
-    // Aplica el tema persistido (elp-theme) antes del primer pintado para
-    // evitar flash. Solo se ejecuta en la página de poema; el resto del
-    // sitio nunca fija data-theme y permanece en modo nocturno.
-    (function () {
-      try {
-        var t = localStorage.getItem('elp-theme');
-        if (t === 'pergamino') document.documentElement.setAttribute('data-theme', 'pergamino');
-      } catch (e) {}
-    })();
-  </script>
-
   <article class="poema" lang="es" data-pagefind-body>
-    <div class="poema-tema" data-pagefind-ignore>
-      <button type="button" class="poema-tema-boton" aria-pressed="false">
-        <span class="poema-tema-icono" aria-hidden="true">◑</span>
-        <span class="poema-tema-texto">Pergamino</span>
-      </button>
-    </div>
-
     {ilustracion && (
       <figure class="poema-ilustracion">
         <Image
@@ -256,32 +237,6 @@ const siguiente = siguienteEntry
   </article>
 
   <IconoEditar slug={id} coleccion="poemas" />
-
-  <script is:inline>
-    (function () {
-      var btn = document.querySelector('.poema-tema-boton');
-      if (!btn) return;
-      var root = document.documentElement;
-      function sync() {
-        var on = root.getAttribute('data-theme') === 'pergamino';
-        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        var txt = btn.querySelector('.poema-tema-texto');
-        if (txt) txt.textContent = on ? 'Nocturno' : 'Pergamino';
-      }
-      sync();
-      btn.addEventListener('click', function () {
-        var on = root.getAttribute('data-theme') === 'pergamino';
-        if (on) {
-          root.removeAttribute('data-theme');
-          try { localStorage.setItem('elp-theme', 'nocturno'); } catch (e) {}
-        } else {
-          root.setAttribute('data-theme', 'pergamino');
-          try { localStorage.setItem('elp-theme', 'pergamino'); } catch (e) {}
-        }
-        sync();
-      });
-    })();
-  </script>
 </Base>
 
 <style>
@@ -291,41 +246,6 @@ const siguiente = siguienteEntry
     margin: 0 auto;
     padding-inline: var(--space-md);
   }
-
-  /* ── Botón de tema (solo página de poema) ────────────────────────── */
-  .poema-tema {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--space-md);
-  }
-  .poema-tema-boton {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    background: transparent;
-    border: var(--rule-hairline) solid var(--oro-suave);
-    color: var(--oro-texto);
-    font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-wide);
-    text-transform: uppercase;
-    padding: var(--space-2xs) var(--space-sm);
-    cursor: pointer;
-    transition:
-      border-color var(--dur-fast) var(--ease-standard),
-      color var(--dur-fast) var(--ease-standard);
-  }
-  .poema-tema-boton:hover,
-  .poema-tema-boton:focus-visible {
-    border-color: var(--oro);
-    color: var(--oro);
-  }
-  .poema-tema-icono {
-    font-size: 1em;
-    line-height: 1;
-    color: var(--accent);
-  }
-
 
   /* ── Illustration (sin marco) ─────────────────────────────── */
   .poema-ilustracion {

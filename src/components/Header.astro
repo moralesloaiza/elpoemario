@@ -18,9 +18,49 @@ import Logo from './Logo.astro';
       <HeaderLink href="/correspondencia/">Contacto</HeaderLink>
       <HeaderLink href="/sobre/">Acerca de</HeaderLink>
       <Buscador />
+      <button
+        type="button"
+        class="tema-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar entre modo noche y día"
+      >
+        <span class="tema-toggle-icono" aria-hidden="true">☀</span>
+        <span class="tema-toggle-texto">Día</span>
+      </button>
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  // Conmutador día/noche site-wide. El anti-flash de Base.astro ya fijó
+  // data-theme antes del pintado; este script sincroniza la etiqueta del
+  // botón (que anuncia el tema DESTINO) y persiste la elección.
+  (function () {
+    var btn = document.querySelector('.tema-toggle');
+    if (!btn) return;
+    var root = document.documentElement;
+    var icono = btn.querySelector('.tema-toggle-icono');
+    var texto = btn.querySelector('.tema-toggle-texto');
+    function sync() {
+      var esDia = root.getAttribute('data-theme') === 'day';
+      btn.setAttribute('aria-pressed', esDia ? 'true' : 'false');
+      if (icono) icono.textContent = esDia ? '☾' : '☀';
+      if (texto) texto.textContent = esDia ? 'Noche' : 'Día';
+    }
+    sync();
+    btn.addEventListener('click', function () {
+      var esDia = root.getAttribute('data-theme') === 'day';
+      if (esDia) {
+        root.removeAttribute('data-theme');
+        try { localStorage.setItem('poemario-theme', 'night'); } catch (e) {}
+      } else {
+        root.setAttribute('data-theme', 'day');
+        try { localStorage.setItem('poemario-theme', 'day'); } catch (e) {}
+      }
+      sync();
+    });
+  })();
+</script>
 
 <style>
   header {
@@ -88,6 +128,35 @@ import Logo from './Logo.astro';
     border-bottom-color: var(--oro);
     text-decoration: none;
   }
+  /* Conmutador día/noche · borde oro, versalita Cinzel como el nav. */
+  .tema-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    background: transparent;
+    border: var(--rule-hairline) solid var(--oro-suave);
+    color: var(--oro-texto);
+    font-family: var(--font-meta);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    padding: var(--space-2xs) var(--space-sm);
+    cursor: pointer;
+    transition:
+      border-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .tema-toggle:hover,
+  .tema-toggle:focus-visible {
+    border-color: var(--oro);
+    color: var(--oro);
+  }
+  .tema-toggle-icono {
+    font-size: 1em;
+    line-height: 1;
+  }
+
   @media (max-width: 540px) {
     .logo :global(.logo-mark) {
       width: 64px;
