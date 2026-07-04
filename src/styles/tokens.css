@@ -20,7 +20,7 @@
   --text:            #ece4d2;  /* handoff --ink       · titulares / texto fuerte */
   --text-soft:       #cdd3dd;  /* handoff --ink-soft  · párrafo */
   --text-muted:      #98a0af;  /* handoff --ink-mute  · secundario / cursivas */
-  --text-faint:      #7a828f;  /* handoff --ink-faint · metadatos, créditos */
+  --text-faint:      #868e9b;  /* metadatos, créditos · aclarado del handoff (#7a828f→) para AA 4.5:1 */
   --verse:           #ece4d2;  /* cuerpo de poema · = tinta principal */
 
   /* Oro (acento) — handoff define 2 oros; se mapean a la escala del sitio */
@@ -135,15 +135,18 @@
   /* Texto (tinta) */
   --text:            #1a2233;  /* handoff --ink */
   --text-soft:       #3a4457;  /* handoff --ink-soft */
-  --text-muted:      #5a6479;  /* handoff --ink-mute */
-  --text-faint:      #6a7488;  /* handoff --ink-faint */
+  --text-muted:      #4c566a;  /* secundario/cursiva · oscurecido del handoff (#5a6479→) para AA 4.5:1 en superficies elevadas */
+  --text-faint:      #565f72;  /* metadatos · oscurecido del handoff (#6a7488→) para AA 4.5:1 */
   --verse:           #1a2233;
 
-  /* Oro */
-  --oro:             #8a6a15;  /* handoff --gold        · apagado, legible sobre papel */
-  --oro-texto:       #c3a24a;  /* handoff --gold-bright · acento vivo */
-  --oro-suave:       #a98a3a;  /* filete interior del marco (derivado) */
-  --num:             #a9855f;  /* handoff --num */
+  /* Oro — OSCURECIDO respecto al handoff por accesibilidad: el papel crema es
+     muy claro, así que el oro del handoff (--gold #8a6a15 = 4.0:1, --gold-bright
+     #c3a24a = 1.93:1) no alcanza AA como texto. Estos tonos, más profundos,
+     cumplen 4.5:1 en kickers, rótulos y enlaces sin perder el registro dorado. */
+  --oro:             #705410;  /* enlaces, kickers, divisor · 5.6:1 sobre papel */
+  --oro-texto:       #6a5010;  /* rótulos/eyebrows de énfasis · 6.0:1 */
+  --oro-suave:       #a98a3a;  /* filete interior del marco (decorativo) */
+  --num:             #7a5920;  /* numeración de índice (aún no en uso) · legible */
 
   /* Botón primario (en día: tinta sólida con texto crema) */
   --btn-bg:          #1a2233;  /* handoff --btn-bg */
@@ -154,8 +157,8 @@
   --accent:          #356152;
 
   /* Semantic aliases */
-  --link:            var(--oro);   /* #8a6a15 · legible como texto de cuerpo */
-  --link-hover:      #6d5410;
+  --link:            var(--oro);   /* #705410 · legible como texto de cuerpo (AA) */
+  --link-hover:      #57410c;
   --rule:            var(--oro);
   --rule-soft:       rgba(26, 34, 51, 0.13);  /* handoff --rule-soft */
   --line:            color-mix(in srgb, var(--oro) 22%, transparent);
