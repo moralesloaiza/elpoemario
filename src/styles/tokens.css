@@ -48,6 +48,7 @@
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;
+  --font-prose:          'EB Garamond', Georgia, serif;  /* texto corrido de prosa larga (handoff) */
   --font-meta:           'Cinzel', serif;
   --font-body-weight:    500;
   --line-height-body:    1.7;

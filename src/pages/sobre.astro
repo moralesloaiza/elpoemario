@@ -55,6 +55,7 @@ const { Content } = await render(pagina);
     text-wrap: balance;
   }
   .prose :global(p) {
+    font-family: var(--font-prose);
     font-size: var(--fs-prosa);
     line-height: var(--lh-prosa);
     margin-bottom: var(--space-md);
@@ -74,6 +75,13 @@ const { Content } = await render(pagina);
     font-style: italic;
     color: var(--oro-texto);
     margin-top: var(--space-2xl);
+  }
+  /* Cita/dedicatoria y firma: cursivas de cita → Cormorant (no EB Garamond),
+     según la división tipográfica del handoff. */
+  .prose :global(.dedicatoria),
+  .prose :global(.dedicatoria p),
+  .prose :global(.firma) {
+    font-family: var(--font-body);
   }
 
 </style>
