@@ -376,8 +376,9 @@ const { Content } = await render(pagina);
     background: rgba(161, 77, 107, 0.10);
   }
 
-  /* Inputs: dark-mode adapted. Light ivory fill on dark bg so the field
-     reads as "editable surface" rather than disappearing into the page. */
+  /* Inputs: superficie editable con relleno --bg-elevated (adaptable a tema)
+     para que el campo se lea como "editable" sin desaparecer en la página.
+     Hover/focus se señalan con borde oro + anillo, sin fondo hardcodeado. */
   .campo input[type='text'],
   .campo textarea {
     font-family: var(--font-body);
@@ -400,15 +401,15 @@ const { Content } = await render(pagina);
   }
   .campo input[type='text']:hover,
   .campo textarea:hover {
-    background: #2A2440;
+    background: var(--bg-elevated);
     border-color: var(--oro);
   }
   .campo input[type='text']:focus,
   .campo textarea:focus {
-    background: #2A2440;
+    background: var(--bg-elevated);
     border-color: var(--oro);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25),
-      0 0 0 3px rgba(200, 168, 106, 0.25);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),
+      0 0 0 3px var(--line);
     outline: none;
   }
   .campo input[aria-invalid='true'] {

@@ -43,6 +43,7 @@
   --rule:            var(--oro);
   --rule-soft:       rgba(236, 228, 210, 0.10);  /* handoff --rule-soft · separadores de lista */
   --line:            color-mix(in srgb, var(--oro) 20%, transparent);
+  --hover-tint:      rgba(236, 228, 210, 0.05);  /* realce de fila en hover · aclara sobre oscuro */
   --error:           var(--granate);
 
   /* === Typography (base) === */
@@ -158,6 +159,7 @@
   --rule:            var(--oro);
   --rule-soft:       rgba(26, 34, 51, 0.13);  /* handoff --rule-soft */
   --line:            color-mix(in srgb, var(--oro) 22%, transparent);
+  --hover-tint:      rgba(26, 34, 51, 0.05);  /* realce de fila en hover · oscurece sobre papel */
 }
 
 html {
