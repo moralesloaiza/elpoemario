@@ -22,13 +22,13 @@ nombre_real: Alejandro Morales Loaiza
 nota_curador: >-
   El poema segundo estuvo felizmente inspirado, pero por orgullo nunca se dedicó
   a nadie. La musa del momento leyó y aprobó en silencio. Evitó comentarios por
-  correspondido orgullo.
+  corresponder al sentimiento.
 
 
   Considerada una genialidad de la lengua francesa, este sería el primer y hasta ahora único préstamo que hiciera de la elisión, que sirvió de licencia poética sincera de mi composición.
 
 
-  En cuanto a la musa, solo nos veríamos una vez. Y el tiempo —y la compartida soberbia— no quisieron concedernos un beso.
+  En cuanto a la musa, solo nos veríamos una vez. Y el tiempo —y la compartida soberbia— rehusaron concedernos un beso.
 ---
 Permite que te quiera en este instante
 en el que día o noche poco importan si vienes a dormir conmigo,
