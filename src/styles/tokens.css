@@ -1,21 +1,39 @@
 :root {
-  /* === Backgrounds === */
-  --bg:              #161320;
-  --bg-elevated:     #1F1A2E;
-  --bg-soft:         #0F0C18;
+  /* ===================================================================
+     TEMA — dirección «1c editorial» del handoff. Dos paletas gemelas:
+     NOCHE es el modo por defecto (:root); DÍA se activa con
+     [data-theme='day']. Valores tomados literalmente del handoff (README
+     «Design Tokens»); los NOMBRES se conservan en el vocabulario del sitio
+     (--text/--oro/…) para no tocar los componentes existentes. Los tokens
+     nuevos del handoff (--panel, --mat, --btn-*, --num, --text-faint,
+     --rule-soft) se añaden para las fases siguientes.
+     === Noche (por defecto) ============================================ */
 
-  /* === Text === */
-  --text:            #EDE4D3;
-  --text-soft:       #B8AE9C;
-  --text-muted:      #9A9283;
-  --verse:           #ece6d8;  /* poem body — slightly brighter than --text */
+  /* Fondos */
+  --bg:              #141b28;  /* handoff --bg    · fondo de página */
+  --bg-elevated:     #1b2334;  /* handoff --mat   · passe-partout / realce */
+  --bg-soft:         #111825;  /* handoff --panel · franjas alternas */
+  --panel:           #111825;  /* handoff --panel */
+  --mat:             #1b2334;  /* handoff --mat · passe-partout detrás de imágenes */
 
-  /* === Structural gold (Art Déco nocturna) === */
-  --oro:             #c8a86a;
-  --oro-texto:       #dcc189;
-  --oro-suave:       #9c8450;
+  /* Texto (tinta) */
+  --text:            #ece4d2;  /* handoff --ink       · titulares / texto fuerte */
+  --text-soft:       #cdd3dd;  /* handoff --ink-soft  · párrafo */
+  --text-muted:      #98a0af;  /* handoff --ink-mute  · secundario / cursivas */
+  --text-faint:      #7a828f;  /* handoff --ink-faint · metadatos, créditos */
+  --verse:           #ece4d2;  /* cuerpo de poema · = tinta principal */
 
-  /* === Accents rebalanced for dark background === */
+  /* Oro (acento) — handoff define 2 oros; se mapean a la escala del sitio */
+  --oro:             #c3a24a;  /* handoff --gold        · kickers, enlaces, cifras */
+  --oro-texto:       #d8b755;  /* handoff --gold-bright · acento vivo, subrayado activo */
+  --oro-suave:       #8f7433;  /* filete interior del marco (derivado) */
+  --num:             #b5924f;  /* handoff --num · numeración de índice de poemas */
+
+  /* Botón primario (en noche: oro sólido con tinta oscura) */
+  --btn-bg:          #c3a24a;  /* handoff --btn-bg */
+  --btn-ink:         #141b28;  /* handoff --btn-ink */
+
+  /* === Accents heredados (Art Déco); fuera del sistema tinta+oro del handoff === */
   --granate:         #A14D6B;
   --accent:          #66a08f;
 
@@ -23,6 +41,7 @@
   --link:            var(--oro-texto);
   --link-hover:      var(--oro);
   --rule:            var(--oro);
+  --rule-soft:       rgba(236, 228, 210, 0.10);  /* handoff --rule-soft · separadores de lista */
   --line:            color-mix(in srgb, var(--oro) 20%, transparent);
   --error:           var(--granate);
 
@@ -95,30 +114,49 @@
   }
 }
 
-/* === Modo pergamino =========================================================
-   Solo activo cuando un ancestro (la página de poema) fija data-theme.
-   Inerte en el resto del sitio. Valores con contraste WCAG verificado
-   contra el fondo #efe3c8. El oro de enlace de cuerpo (--link) es más
-   oscuro que el oro estructural (--oro) porque es texto normal (≥4.5),
-   mientras la regla/firma es decorativa (≥3.0). */
+/* === Día (gemelo invertido) =================================================
+   Papel crema, tinta azul-noche, oro apagado. Se activa con
+   [data-theme='day']. El alias [data-theme='pergamino'] se mantiene MIENTRAS
+   se migra el conmutador: Poema.astro aún fija 'pergamino'. Se retirará al
+   mover el toggle a Header/Base (fase siguiente). Enlaces en oro OSCURO
+   (--gold #8a6a15) por contraste WCAG sobre el papel; el oro vivo
+   (--gold-bright) queda para acentos decorativos. */
+[data-theme='day'],
 [data-theme='pergamino'] {
-  --bg:              #efe3c8;
-  --bg-elevated:     #e7d9ba;
-  --bg-soft:         #f4ead4;
+  /* Fondos */
+  --bg:              #ece4d2;  /* handoff --bg    · papel crema */
+  --bg-elevated:     #e3d9c4;  /* handoff --mat */
+  --bg-soft:         #e7ddc8;  /* handoff --panel */
+  --panel:           #e7ddc8;  /* handoff --panel */
+  --mat:             #e3d9c4;  /* handoff --mat */
 
-  --text:            #2a2218;
-  --text-soft:       #4a3f2e;
-  --text-muted:      #615338;
-      --verse:           #262318;
+  /* Texto (tinta) */
+  --text:            #1a2233;  /* handoff --ink */
+  --text-soft:       #3a4457;  /* handoff --ink-soft */
+  --text-muted:      #5a6479;  /* handoff --ink-mute */
+  --text-faint:      #6a7488;  /* handoff --ink-faint */
+  --verse:           #1a2233;
 
-  --oro:             #6a5223;
-  --oro-texto:       #5f4a1f;
-  --oro-suave:       #75592b;
+  /* Oro */
+  --oro:             #8a6a15;  /* handoff --gold        · apagado, legible sobre papel */
+  --oro-texto:       #c3a24a;  /* handoff --gold-bright · acento vivo */
+  --oro-suave:       #a98a3a;  /* filete interior del marco (derivado) */
+  --num:             #a9855f;  /* handoff --num */
 
-  --link:            #5f4a1f;
-  --link-hover:      #5c4720;
+  /* Botón primario (en día: tinta sólida con texto crema) */
+  --btn-bg:          #1a2233;  /* handoff --btn-bg */
+  --btn-ink:         #ece4d2;  /* handoff --btn-ink */
 
+  /* Accents heredados retunados para papel */
+  --granate:         #8a3d56;
   --accent:          #356152;
+
+  /* Semantic aliases */
+  --link:            var(--oro);   /* #8a6a15 · legible como texto de cuerpo */
+  --link-hover:      #6d5410;
+  --rule:            var(--oro);
+  --rule-soft:       rgba(26, 34, 51, 0.13);  /* handoff --rule-soft */
+  --line:            color-mix(in srgb, var(--oro) 22%, transparent);
 }
 
 html {
