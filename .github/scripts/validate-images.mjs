@@ -1,5 +1,5 @@
 // Valida que toda referencia de imagen en el contenido apunte a un archivo existente.
-// Cubre: poemas (campo 'ilustracion') y autores (campo 'imagen').
+// Cubre: poemas (campo 'ilustracion'), autores (campo 'imagen') y entradas (campo 'ilustracion').
 // Falla (exit 1) listando cada archivo con imagen faltante.
 // Convierte el criptico [ImageNotFound] de Astro/Vite en un mensaje claro
 // antes del build, y evita que una referencia huerfana llegue a main.
@@ -11,13 +11,17 @@ import { join, dirname, resolve } from 'node:path';
 const TARGETS = [
   { glob: 'src/content/poemas/*.md', field: 'ilustracion' },
   { glob: 'src/content/autores/*.md', field: 'imagen' },
+  { glob: 'src/content/entradas/*.md', field: 'ilustracion' },
 ];
 
 let hasError = false;
 let checked = 0;
 
 for (const { glob, field } of TARGETS) {
-  const files = execSync(`git ls-files "${glob}"`, { encoding: 'utf8' })
+  // core.quotePath=false evita que git escape nombres con tildes/ñ como
+  // "archivo" con octales \303\263 en vez de UTF-8 crudo (se manifesto al
+  // sumar 'entradas', unica coleccion con nombres de archivo no-ASCII).
+  const files = execSync(`git -c core.quotePath=false ls-files "${glob}"`, { encoding: 'utf8' })
     .split('\n')
     .map((f) => f.trim())
     .filter(Boolean);
