@@ -5,6 +5,7 @@ resumen: "Segundo poema del autor, dedicado a la ilusión del amor presente, con
   oscura. "
 fecha: 2011-05-13
 fecha_actualizada: 2026-07-04
+ilustracion: ../../assets/uploads/chatgpt-image-4-jul-2026-14_56_27.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
