@@ -34,3 +34,6 @@ _estado-*.txt
 *-snapshot-*.txt
 *-tokens.txt
 pr-body.md
+
+# Archived old scripts/bundles, kept locally for reference only
+_archivo/
