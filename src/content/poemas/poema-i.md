@@ -6,6 +6,7 @@ resumen: Un primer poema del autor dedicado al amor en la distancia, sostenido
   crisis de un país divido.
 fecha: 2009-01-22
 fecha_actualizada: 2026-07-04
+ilustracion: ../../assets/uploads/chatgpt-image-4-jul-2026-14_28_42.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
