@@ -134,18 +134,6 @@ const siguiente = siguienteEntry
 <Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
   <JsonLd slot="head" data={jsonLd} />
 
-  <script slot="head" is:inline>
-    // Aplica el tema persistido (elp-theme) antes del primer pintado para
-    // evitar flash. Solo se ejecuta en la página de poema; el resto del
-    // sitio nunca fija data-theme y permanece en modo nocturno.
-    (function () {
-      try {
-        var t = localStorage.getItem('elp-theme');
-        if (t === 'pergamino') document.documentElement.setAttribute('data-theme', 'pergamino');
-      } catch (e) {}
-    })();
-  </script>
-
   <article class="poema" lang="es" data-pagefind-body>
     <div class="poema-tema" data-pagefind-ignore>
       <button type="button" class="poema-tema-boton" aria-pressed="false">
@@ -263,20 +251,20 @@ const siguiente = siguienteEntry
       if (!btn) return;
       var root = document.documentElement;
       function sync() {
-        var on = root.getAttribute('data-theme') === 'pergamino';
+        var on = root.getAttribute('data-theme') === 'day';
         btn.setAttribute('aria-pressed', on ? 'true' : 'false');
         var txt = btn.querySelector('.poema-tema-texto');
         if (txt) txt.textContent = on ? 'Nocturno' : 'Pergamino';
       }
       sync();
       btn.addEventListener('click', function () {
-        var on = root.getAttribute('data-theme') === 'pergamino';
+        var on = root.getAttribute('data-theme') === 'day';
         if (on) {
           root.removeAttribute('data-theme');
-          try { localStorage.setItem('elp-theme', 'nocturno'); } catch (e) {}
+          try { localStorage.setItem('poemario-theme', 'night'); } catch (e) {}
         } else {
-          root.setAttribute('data-theme', 'pergamino');
-          try { localStorage.setItem('elp-theme', 'pergamino'); } catch (e) {}
+          root.setAttribute('data-theme', 'day');
+          try { localStorage.setItem('poemario-theme', 'day'); } catch (e) {}
         }
         sync();
       });
