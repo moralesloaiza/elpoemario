@@ -1,16 +1,28 @@
-﻿---
-titulo: "Verdades amargas"
+---
+titulo: Verdades amargas
+resumen: Un poema de autoría discutida que mira con pesimismo las realidades del
+  mundo, con incómoda franqueza en algunos versos, lo cual podría explicar por
+  qué su autor haya decidido permanecer anónimo.
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-04
 borrador: false
 tipo: verso-libre
 temas:
   - amistad
   - dios
-motivos:
-  - amado
+  - dolor
+motivos: null
 autor: anonimo
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nota_curador: "*Verdades amargas* permanece catalogado como
+  [anónimo](https://elpoemario.com/autores/anonimo/). La atribución más repetida
+  en la tradición oral y editorial hispanoamericana señala al poeta hondureño
+  Ramón Ortega (Comayagua, 1885 – Tegucigalpa, 1932), pero ninguna fuente
+  primaria —edición firmada, manuscrito, archivo— la sostiene sin margen de
+  duda. El propio texto circula en variantes discordantes entre sí, señal de una
+  obra transmitida de memoria antes que de imprenta. **Se prefiere la humildad
+  del anónimo a la certeza prestada.**"
 ---
 
 Yo no quiero ver lo que he mirado
