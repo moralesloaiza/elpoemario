@@ -23,6 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Claude Code local tooling (launch.json con rutas de maquina, settings.local.json)
+.claude/
+
 # Working artifacts generated for assistant context â€” not source.
 # Snapshots, audits, bundles, page-state dumps, token exports.
 *-audit.txt

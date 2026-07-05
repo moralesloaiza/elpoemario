@@ -118,13 +118,12 @@
 
 /* === Día (gemelo invertido) =================================================
    Papel crema, tinta azul-noche, oro apagado. Se activa con
-   [data-theme='day']. El alias [data-theme='pergamino'] se mantiene MIENTRAS
-   se migra el conmutador: Poema.astro aún fija 'pergamino'. Se retirará al
-   mover el toggle a Header/Base (fase siguiente). Enlaces en oro OSCURO
-   (--gold #8a6a15) por contraste WCAG sobre el papel; el oro vivo
-   (--gold-bright) queda para acentos decorativos. */
-[data-theme='day'],
-[data-theme='pergamino'] {
+   [data-theme='day']. Enlaces en oro OSCURO (--gold #8a6a15) por contraste
+   WCAG sobre el papel; el oro vivo (--gold-bright) queda para acentos
+   decorativos. La clave vieja 'pergamino' ya no se emite: el conmutador vive
+   en Base/Header con la clave canónica 'poemario-theme' (day|night) y la
+   retro-compat de Base.astro mapea el valor antiguo a 'day'. */
+[data-theme='day'] {
   /* Fondos */
   --bg:              #ece4d2;  /* handoff --bg    · papel crema */
   --bg-elevated:     #e3d9c4;  /* handoff --mat */
@@ -302,14 +301,6 @@ input:focus-visible,
   margin-inline: auto;
   padding-inline: var(--space-container);
 }
-
-.invert {
-  background: #EDE4D3;
-  color: #161320;
-  padding: var(--space-container);
-}
-
-.invert a { color: var(--granate); }
 
 /* Antetitulo (eyebrow) de cabecera. Unificado desde 5 bloques identicos/casi
    identicos duplicados en poemas/, autores/, tipos/, temas/ y

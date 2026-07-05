@@ -1,0 +1,90 @@
+---
+// Rejilla de términos de una faceta (handoff): grid de 3 columnas de celdas
+// con borde, cada una «nombre del término» + «recuento» en oro. Compartida por
+// las cuatro páginas índice de facetas (tipos, temas, siglos, nacionalidades).
+// Los bordes se solapan con margin:-0.5px para dibujar una sola retícula fina.
+interface Item {
+  href: string;
+  display: string;
+  conteo: number;
+}
+
+interface Props {
+  items: Item[];
+  // Unidad del recuento: los poemas se cuentan por «poema», los ejes de autor
+  // (siglo, país) por «poeta».
+  unidad?: 'poema' | 'poeta';
+}
+
+const { items, unidad = 'poema' } = Astro.props;
+const plural = unidad === 'poeta' ? 'poetas' : 'poemas';
+const singular = unidad === 'poeta' ? '1 poeta' : '1 poema';
+---
+
+<ul class="grilla-terminos">
+  {items.map((item) => (
+    <li>
+      <a href={item.href} class="termino">
+        <span class="termino-nombre">{item.display}</span>
+        <span class="termino-conteo">
+          {item.conteo === 1 ? singular : `${item.conteo} ${plural}`}
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .grilla-terminos {
+    list-style: none;
+    margin: var(--space-xl) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grilla-terminos > li {
+    display: flex;
+  }
+  .termino {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    /* Borde fino solapado: los -0.5px funden bordes contiguos en 1px. */
+    border: 1px solid var(--rule-soft);
+    margin: -0.5px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .termino:hover,
+  .termino:focus-visible {
+    background-color: var(--hover-tint);
+    border-color: var(--rule-soft);
+  }
+  .termino-nombre {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    color: var(--text);
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+  .termino:hover .termino-nombre,
+  .termino:focus-visible .termino-nombre {
+    color: var(--oro-texto);
+  }
+  .termino-conteo {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    color: var(--oro-texto);
+  }
+
+  @media (max-width: 680px) {
+    .grilla-terminos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
