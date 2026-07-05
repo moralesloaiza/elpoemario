@@ -10,10 +10,12 @@ import { buildWebSiteJsonLd } from '../utils/jsonld';
 import type { ImageMetadata } from 'astro';
 
 // Home hero text from src/content/paginas/home.md (editable in Decap).
-// `rotulo` is the short antetitulo above the h1; `titulo` is the long
-// descriptor (browser <title> suffix / og:title) and is not rendered
-// visibly; `subtitulo` is the real visible subtitle under the h1; `lema`
-// is the italic tagline further below. The visible h1 is SITE_TITLE.
+// `rotulo` is the short antetitulo above the heading; `titulo` is the long
+// descriptor (browser <title> suffix / og:title), not rendered visibly;
+// `subtitulo` is the italic tagline, which now IS the page <h1> (the body no
+// longer repeats "El Poemario" — the wordmark lives in the masthead — but the
+// page keeps a real h1 for SEO/a11y, falling back to SITE_TITLE if empty);
+// `lema` is an optional secondary italic line below.
 const home = await getPagina('home');
 
 // Latest non-draft poems, newest first, capped at 6.
@@ -116,10 +118,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 
   <section class="hero">
     {home.data.rotulo && <p class="antetitulo">{home.data.rotulo}</p>}
-    <h1>{SITE_TITLE}</h1>
-    {home.data.subtitulo && <p class="subtitulo">{home.data.subtitulo}</p>}
+    <h1 class="hero-titulo">{home.data.subtitulo || SITE_TITLE}</h1>
     {home.data.lema && <p class="lema">{home.data.lema}</p>}
-    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
   </section>
 
   {destacado && (
@@ -193,9 +193,13 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   .hero {
     position: relative;
     text-align: center;
+    /* El layout (.site-main) ya aporta 48px arriba; subimos el héroe para que
+       el tagline quede cerca del masthead (~24px) sin tocar el espaciado
+       global del resto de páginas. */
+    margin-top: calc(-1 * var(--space-lg));
     margin-bottom: 0;
-    padding-top: var(--space-2xl);
-    padding-bottom: var(--space-lg);
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .antetitulo {
@@ -208,13 +212,26 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     margin: 0 0 var(--space-sm);
   }
 
-  .hero h1 {
-    margin: 0 0 var(--space-md);
-    font-size: var(--fs-3xl);
+  /* Encabezado del Inicio: el tagline ES el h1 (semántico), en cursiva
+     Cormorant como el subtítulo del handoff — no el titular grande en
+     versalita. Resetea las reglas del h1 global (versalita, letter-spacing,
+     bold). El «El Poemario» del cuerpo se retira: el wordmark vive en el
+     masthead. */
+  .hero-titulo {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: var(--font-body-weight);
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-md);
     text-wrap: balance;
   }
 
-  /* Tagline en cursiva bajo el título (editable: home.lema). */
+  /* Línea secundaria en cursiva bajo el tagline (editable: home.lema). */
   .lema {
     font-family: var(--font-body);
     font-style: italic;
@@ -223,14 +240,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     color: var(--text-soft);
     max-width: var(--measure-narrow);
     margin: 0 auto var(--space-md);
-  }
-
-  /* Overrides solo-Inicio: no tocar .subtitulo ni .divisor globales */
-  .subtitulo {
-    font-size: 1.25rem; /* 20px, +2px sobre --fs-md */
-  }
-  .hero .divisor {
-    margin-bottom: var(--space-lg); /* 24px, era 48px */
   }
 
   /* ── Secciones ─────────────────────────────────────────────────────── */
