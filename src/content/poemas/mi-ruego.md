@@ -1,5 +1,5 @@
-﻿---
-titulo: "Mi ruego"
+---
+titulo: Mi ruego
 fecha: 2011-10-26
 borrador: false
 tipo: verso-libre
@@ -8,12 +8,9 @@ temas:
   - patria
   - poesia-misma
 autor: flora-delmis
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
-**Flora Delmis** - *Venezolana*.
-
 Señor, si yo tan sólo te pedí una cosa:
 ¡amar!, ¡amar! desde una rosa.
 Amar, amar, tan sólo yo quería
