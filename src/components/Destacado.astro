@@ -45,7 +45,7 @@ const tieneVersos = Array.isArray(versos) && versos.length > 0;
       resumen && <p class="destacado-resumen">{resumen}</p>
     )}
 
-    <a class="destacado-cta" href={href}>{cta}<span class="galon galon--der" aria-hidden="true"></span></a>
+    <a class="destacado-cta" href={href}>{cta}</a>
   </article>
 </section>
 
@@ -147,31 +147,30 @@ const tieneVersos = Array.isArray(versos) && versos.length > 0;
     color: var(--verse);
   }
 
+  /* CTA primario en tinta solida (handoff): fondo --btn-bg, texto --btn-ink.
+     En dia = tinta azul-noche sobre crema; en noche = oro sobre oscuro.
+     Hover invierte a contorno (borde siempre presente: sin salto geometrico). */
   .destacado-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
+    display: inline-block;
     margin-top: var(--space-xl);
     font-family: var(--font-meta);
     font-size: var(--fs-2xs);
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: var(--oro-texto);
+    color: var(--btn-ink);
+    background: var(--btn-bg);
+    padding: 0.85em 1.75em;
+    border: 1px solid var(--btn-bg);
     text-decoration: none;
-    border-bottom: none;
-  }
-  .destacado-cta .galon {
-    transition: transform var(--dur-fast) var(--ease-standard);
+    transition: background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
   }
   .destacado-cta:hover,
   .destacado-cta:focus-visible {
-    color: var(--oro);
-    border-bottom: none;
-  }
-  .destacado-cta:hover .galon,
-  .destacado-cta:focus-visible .galon {
-    transform: translateX(3px);
+    background: transparent;
+    color: var(--btn-bg);
+    border-bottom: 1px solid var(--btn-bg);
   }
 
   @media (max-width: 720px) {
