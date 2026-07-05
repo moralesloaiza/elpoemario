@@ -21,6 +21,11 @@ import {
   URL_MOVIMIENTOS,
   URL_TEMAS,
   URL_MOTIVOS,
+  URL_NACIONALIDADES,
+  URL_SIGLOS,
+  sigloDeNacimiento,
+  intARomano,
+  paisASlug,
 } from '../utils/taxonomia';
 
 // Receives the poema's frontmatter spread plus its id (slug). Same
@@ -69,16 +74,38 @@ if (traductorRef && !traductor) {
 const site = Astro.site!;
 const jsonLd = buildPoemaJsonLd(props as Props, autor, traductor, site);
 
-// Author dates: "1836–1870" only if both years are known.
-const fnac = autor.data.nacimiento;
-const fmue = autor.data.muerte;
-const anios = fnac && fmue
-  ? `${fnac}–${fmue}`
-  : null;
+// ── Ficha de 4 columnas (handoff): Forma · Movimiento · Siglo · País ────────
+// Cada celda enlaza a su faceta cuando existe (preserva la navegación que antes
+// daba la taxonomía inline y añade siglo/país). El siglo se deriva del año de
+// nacimiento del autor; el país es su `nacionalidad` (proper noun literal).
+const sigloNum = sigloDeNacimiento(autor.data.nacimiento);
+const sigloRomano = sigloNum ? intARomano(sigloNum) : null;
+const pais = autor.data.nacionalidad ?? null;
 
-// Author nationality + dates line, e.g. "mexicano · 1849–1873".
-const autorNacionalidad = autor.data.nacionalidad ?? null;
-const autorSubmeta = [autorNacionalidad, anios].filter(Boolean).join(' · ');
+const ficha: { rotulo: string; valor: string | null; href: string | null }[] = [
+  { rotulo: 'Forma', valor: TIPOS_DISPLAY[tipo], href: `${URL_TIPOS}/${tipo}/` },
+  {
+    rotulo: 'Movimiento',
+    valor: movimiento ? MOVIMIENTOS_DISPLAY[movimiento] : null,
+    href: movimiento ? `${URL_MOVIMIENTOS}/${movimiento}/` : null,
+  },
+  {
+    rotulo: 'Siglo',
+    valor: sigloRomano,
+    href: sigloRomano ? `${URL_SIGLOS}/${sigloRomano.toLowerCase()}/` : null,
+  },
+  {
+    rotulo: 'País',
+    valor: pais,
+    href: pais ? `${URL_NACIONALIDADES}/${paisASlug(pais)}/` : null,
+  },
+];
+
+// Theme + motif chips (handoff), all linked to their facet pages.
+const chips = [
+  ...temas.map((t) => ({ label: TEMAS_DISPLAY[t], href: `${URL_TEMAS}/${t}/` })),
+  ...motivos.map((m) => ({ label: MOTIVOS_DISPLAY[m], href: `${URL_MOTIVOS}/${m}/` })),
+];
 
 // Curator note: block-level Markdown (paragraphs, lists, blockquotes).
 // `breaks: true` honours single newlines as <br>, matching El Fabulario.
@@ -135,32 +162,41 @@ const siguiente = siguienteEntry
   <JsonLd slot="head" data={jsonLd} />
 
   <article class="poema" lang="es" data-pagefind-body>
-    {ilustracion && (
-      <figure class="poema-ilustracion">
-        <Image
-          src={ilustracion}
-          alt=""
-          loading="eager"
-          decoding="async"
-          width={1200}
-          height={800}
-        />
-      </figure>
-    )}
+    <p class="poema-backlink">
+      <a href="/poemas/">← Catálogo</a>
+    </p>
 
     <header class="poema-cabecera">
+      <p class="poema-kicker">{TIPOS_DISPLAY[tipo]}</p>
       <h1 class="poema-titulo">{titulo}</h1>
       <p class="poema-autor">
         <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
       </p>
-      {autorSubmeta && <p class="poema-autor-submeta">{autorSubmeta}</p>}
       {traductor && (
         <p class="poema-traductor">
           Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
         </p>
       )}
-      <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
     </header>
+
+    <dl class="poema-ficha">
+      {ficha.map((celda) => (
+        <div class="ficha-celda">
+          <dt class="ficha-rotulo">{celda.rotulo}</dt>
+          <dd class="ficha-valor">
+            {celda.valor
+              ? (celda.href ? <a href={celda.href}>{celda.valor}</a> : celda.valor)
+              : '—'}
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    {ilustracion && (
+      <figure class="poema-ilustracion">
+        <Image src={ilustracion} alt="" loading="eager" decoding="async" />
+      </figure>
+    )}
 
     {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
@@ -168,11 +204,21 @@ const siguiente = siguienteEntry
       <slot />
     </div>
 
+    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
+
     {notaCuradorHtml && (
       <aside class="nota-curador" aria-label={rotuloNota}>
         <p class="nota-curador-rotulo">{rotuloNota}</p>
         <div class="nota-curador-texto" set:html={notaCuradorHtml}></div>
       </aside>
+    )}
+
+    {chips.length > 0 && (
+      <nav class="poema-chips" aria-label="Temas y motivos de este poema">
+        {chips.map((c) => (
+          <a class="poema-chip" href={c.href}>{c.label}</a>
+        ))}
+      </nav>
     )}
 
     <footer class="poema-cierre">
@@ -187,50 +233,6 @@ const siguiente = siguienteEntry
       </p>
     </footer>
 
-    <section class="poema-taxonomia" aria-label="Categorías de este poema">
-      <span class="taxo-grupo">
-        <span class="taxo-rotulo">Tipo</span>
-        <a href={`${URL_TIPOS}/${tipo}/`} class="taxo-valor">{TIPOS_DISPLAY[tipo]}</a>
-      </span>
-
-      {movimiento && (
-        <span class="taxo-grupo">
-          <span class="taxo-rotulo">Movimiento</span>
-          <a href={`${URL_MOVIMIENTOS}/${movimiento}/`} class="taxo-valor">
-            {MOVIMIENTOS_DISPLAY[movimiento]}
-          </a>
-        </span>
-      )}
-
-      {temas.length > 0 && (
-        <span class="taxo-grupo">
-          <span class="taxo-rotulo">Temas</span>
-          <span class="taxo-valores">
-            {temas.map((t, i) => (
-              <>
-                {i > 0 && <span class="taxo-sep" aria-hidden="true">·</span>}
-                <a href={`${URL_TEMAS}/${t}/`} class="taxo-valor">{TEMAS_DISPLAY[t]}</a>
-              </>
-            ))}
-          </span>
-        </span>
-      )}
-
-      {motivos.length > 0 && (
-        <span class="taxo-grupo">
-          <span class="taxo-rotulo">Motivos</span>
-          <span class="taxo-valores">
-            {motivos.map((m, i) => (
-              <>
-                {i > 0 && <span class="taxo-sep" aria-hidden="true">·</span>}
-                <a href={`${URL_MOTIVOS}/${m}/`} class="taxo-valor">{MOTIVOS_DISPLAY[m]}</a>
-              </>
-            ))}
-          </span>
-        </span>
-      )}
-    </section>
-
     {anterior && siguiente && (
       <NavegacionPoemas anterior={anterior} siguiente={siguiente} />
     )}
@@ -240,37 +242,62 @@ const siguiente = siguienteEntry
 </Base>
 
 <style>
-  /* ── Article wrapper ─────────────────────────────────────────────── */
+  /* ── Article wrapper ─────────────────────────────────────────────────
+     Más ancho que la columna de lectura: la cabecera, la ficha y la
+     ilustración se despliegan a lo ancho (handoff), mientras que el cuerpo
+     del poema, la nota y el cierre se estrechan y centran para leer bien. */
   .poema {
-    max-width: var(--measure);
+    max-width: var(--measure-wide);
     margin: 0 auto;
     padding-inline: var(--space-md);
   }
 
-  /* ── Illustration (sin marco) ─────────────────────────────── */
-  .poema-ilustracion {
-    margin: 0 0 var(--space-2xl);
+  /* ── Back-link «← Catálogo» ───────────────────────────────────────── */
+  .poema-backlink {
+    margin: 0 0 var(--space-lg);
   }
-  .poema-ilustracion img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+  .poema-backlink a {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-decoration: none;
+    border-bottom: none;
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+  .poema-backlink a:hover,
+  .poema-backlink a:focus-visible {
+    color: var(--oro);
+    border-bottom: none;
   }
 
-  /* ── Header ──────────────────────────────────────────────────────── */
+  /* ── Header ──────────────────────────────────────────────────────────
+     Kicker (forma) + título en Cormorant caja mixta (handoff) + autor. */
   .poema-cabecera {
     text-align: center;
     margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--rule);
+  }
+  .poema-kicker {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-md);
   }
   .poema-titulo {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: var(--fs-3xl);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-md);
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: none;
+    margin: 0 0 var(--space-sm);
     color: var(--text);
-    letter-spacing: 0.04em;
     text-wrap: balance;
   }
   .poema-autor {
@@ -289,13 +316,6 @@ const siguiente = siguienteEntry
     color: var(--link-hover);
     border-bottom-color: currentColor;
   }
-  .poema-autor-submeta {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-md);
-    color: var(--text-muted);
-    margin: var(--space-2xs) 0 0;
-  }
   .poema-traductor {
     font-family: var(--font-body);
     font-style: italic;
@@ -311,6 +331,66 @@ const siguiente = siguienteEntry
   .poema-traductor a:focus-visible {
     color: var(--link-hover);
     border-bottom-color: currentColor;
+  }
+
+  /* ── Ficha de 4 columnas ─────────────────────────────────────────────
+     Forma · Movimiento · Siglo · País, con filetes finos entre celdas. */
+  .poema-ficha {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 var(--space-2xl);
+    border-bottom: 1px solid var(--rule);
+  }
+  .ficha-celda {
+    padding: var(--space-md) var(--space-sm);
+    text-align: center;
+    border-right: 1px solid var(--rule-soft);
+  }
+  .ficha-celda:last-child {
+    border-right: none;
+  }
+  .ficha-rotulo {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 var(--space-2xs);
+  }
+  .ficha-valor {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    color: var(--text);
+    margin: 0;
+  }
+  .ficha-valor a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .ficha-valor a:hover,
+  .ficha-valor a:focus-visible {
+    color: var(--oro-texto);
+    border-bottom-color: currentColor;
+  }
+
+  /* ── Illustration (passe-partout, handoff) ───────────────────────────
+     Marco: borde --rule + padding sobre --mat. Aspecto natural (sin recorte);
+     al no fijar width/height en <Image>, Astro emite las dimensiones reales
+     y no hay CLS. */
+  .poema-ilustracion {
+    margin: 0 0 var(--space-2xl);
+    border: 1px solid var(--rule);
+    padding: var(--space-xs);
+    background: var(--mat);
+  }
+  .poema-ilustracion img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   /* ── Body (verse and prose-poetry) ───────────────────────────────── */
@@ -389,6 +469,11 @@ const siguiente = siguienteEntry
     color: var(--oro-texto);
   }
 
+  /* Rombo divisor bajo el cuerpo del poema (handoff). */
+  .poema .divisor {
+    margin-block: var(--space-2xl);
+  }
+
   /* ── Curator note (filete) ───────────────────────────────────────── */
   .nota-curador {
     margin: var(--space-2xl) auto 0;
@@ -444,6 +529,34 @@ const siguiente = siguienteEntry
     line-height: var(--line-height-body);
   }
 
+  /* ── Chips de tema/motivo (handoff) ──────────────────────────────── */
+  .poema-chips {
+    max-width: var(--measure-narrow);
+    margin: var(--space-lg) auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+  .poema-chip {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.5em 1em;
+    transition:
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .poema-chip:hover,
+  .poema-chip:focus-visible {
+    color: var(--oro-texto);
+    border-color: var(--oro);
+    border-bottom-color: var(--oro);
+  }
+
   /* ── Cierre ──────────────────────────────────────────────────────── */
   .poema-cierre {
     margin-top: var(--space-2xl);
@@ -464,58 +577,16 @@ const siguiente = siguienteEntry
     color: var(--text-muted);
   }
 
-  /* ── Taxonomy footer (inline, centered) ──────────────────────────── */
-  .poema-taxonomia {
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-lg);
-    border-top: var(--rule-hairline) solid var(--oro);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: center;
-    gap: var(--space-sm) var(--space-xl);
-  }
-  .taxo-grupo {
-    display: inline-flex;
-    align-items: baseline;
-    gap: var(--space-xs);
-  }
-  .taxo-rotulo {
-    font-family: var(--font-meta);
-    font-size: var(--fs-xs);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    font-weight: var(--fw-semibold);
-  }
-  .taxo-valores {
-    display: inline;
-  }
-  .taxo-sep {
-    color: var(--oro-suave);
-    margin: 0 var(--space-3xs);
-  }
-  .taxo-valor {
-    font-family: var(--font-body);
-    font-size: var(--fs-md);
-    color: var(--link);
-    text-decoration: none;
-    border-bottom: var(--rule-hairline) solid transparent;
-    transition:
-      border-color var(--dur-fast) var(--ease-standard),
-      color var(--dur-fast) var(--ease-standard);
-  }
-  .taxo-valor:hover,
-  .taxo-valor:focus-visible {
-    color: var(--link-hover);
-    border-bottom-color: currentColor;
-  }
-
   @media (max-width: 640px) {
-    .poema-taxonomia {
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
+    /* Ficha 4-col → 2×2 en móvil (handoff). */
+    .poema-ficha {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ficha-celda:nth-child(2n) {
+      border-right: none;
+    }
+    .ficha-celda:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--rule-soft);
     }
   }
 </style>
