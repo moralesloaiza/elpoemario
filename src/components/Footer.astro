@@ -1,4 +1,7 @@
 ---
+import { SITE_TITLE } from '../consts';
+import Logo from './Logo.astro';
+
 const today = new Date();
 const startYear = 2026;
 const yearLabel =
@@ -38,18 +41,25 @@ const grupos = [
 
 <footer>
   <div class="page footer-inner">
-    <nav class="footer-nav" aria-label="Mapa del sitio">
-      {grupos.map((grupo, i) => (
-        <div class="footer-grupo">
-          <p class="footer-rotulo" id={`footer-grupo-${i}`}>{grupo.rotulo}</p>
-          <ul class="footer-lista" aria-labelledby={`footer-grupo-${i}`}>
-            {grupo.enlaces.map((enlace) => (
-              <li><a href={enlace.href}>{enlace.texto}</a></li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </nav>
+    <div class="footer-top">
+      <a href="/" class="footer-brand" aria-label={`${SITE_TITLE} · inicio`}>
+        <Logo tamano={30} />
+        <span class="footer-wordmark">{SITE_TITLE}</span>
+      </a>
+
+      <nav class="footer-nav" aria-label="Mapa del sitio">
+        {grupos.map((grupo, i) => (
+          <div class="footer-grupo">
+            <p class="footer-rotulo" id={`footer-grupo-${i}`}>{grupo.rotulo}</p>
+            <ul class="footer-lista" aria-labelledby={`footer-grupo-${i}`}>
+              {grupo.enlaces.map((enlace) => (
+                <li><a href={enlace.href}>{enlace.texto}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </div>
 
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
@@ -57,11 +67,7 @@ const grupos = [
       Omne tulit punctum qui miscuit utile dulci
     </p>
     <p class="cita-fuente">
-      Horacio · Ars Poetica, 343
-    </p>
-
-    <p class="meta">
-      © {yearLabel} El Poemario
+      Horacio · Ars Poetica, 343 · © {yearLabel} El Poemario
     </p>
   </div>
 </footer>
@@ -78,17 +84,53 @@ const grupos = [
     text-align: center;
   }
 
+  /* ---------- Fila superior: marca | mapa del sitio ---------- */
+  .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    text-align: left;
+  }
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: none;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+  .footer-brand:hover,
+  .footer-brand:focus-visible {
+    border-bottom: none;
+  }
+  .footer-brand :global(.logo-mark) {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+  .footer-wordmark {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    letter-spacing: var(--ls-wide);
+    line-height: 1;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
   /* ---------- Mapa del sitio ---------- */
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     text-align: left;
     gap: var(--space-2xl);
-    margin-bottom: var(--space-2xl);
   }
   .footer-grupo {
-    min-width: 140px;
+    min-width: 120px;
   }
   /* Rótulos de grupo: antetítulo versalita en Cinzel. */
   .footer-rotulo {
@@ -98,7 +140,7 @@ const grupos = [
     letter-spacing: var(--ls-widest);
     text-transform: uppercase;
     color: var(--oro-texto);
-    text-align: center;
+    text-align: left;
     margin: 0 0 var(--space-sm);
   }
   .footer-lista {
@@ -135,29 +177,28 @@ const grupos = [
     max-width: var(--measure-narrow);
     margin: 0 auto var(--space-xs);
   }
-  /* Fuente de la cita: metadato versalita en Cinzel. */
+  /* Fuente de la cita + créditos, en una línea (handoff): metadato versalita
+     Cinzel discreto en tinta tenue (no oro), para no competir con la cita. */
   .cita-fuente {
     font-family: var(--font-meta);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-3xs);
     font-weight: 500;
-    letter-spacing: var(--ls-widest);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: var(--oro-texto);
-    margin: 0 auto var(--space-2xl);
-  }
-  .meta {
-    font-family: var(--font-body);
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
-    margin: var(--space-xs) auto;
-    max-width: var(--measure);
-  }
-  .meta a {
-    color: var(--link);
+    color: var(--text-faint);
+    margin: 0;
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 700px) {
+    /* Móvil: marca sobre columnas, todo centrado en una columna. */
+    .footer-top {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-xl);
+    }
     .footer-nav {
+      justify-content: center;
       gap: var(--space-xl);
     }
   }

@@ -7,10 +7,24 @@ import Logo from './Logo.astro';
 
 <header>
   <div class="page header-inner">
-    <a href="/" class="logo" aria-label={`${SITE_TITLE} · inicio`}>
-      <Logo />
+    <a href="/" class="brand" aria-label={`${SITE_TITLE} · inicio`}>
+      <Logo tamano={40} />
+      <span class="wordmark">{SITE_TITLE}</span>
     </a>
-    <nav class="internal-links" aria-label="Navegación principal">
+
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="nav-principal"
+      aria-label="Abrir menú"
+    >
+      <span class="nav-toggle-barra" aria-hidden="true"></span>
+      <span class="nav-toggle-barra" aria-hidden="true"></span>
+      <span class="nav-toggle-barra" aria-hidden="true"></span>
+    </button>
+
+    <nav id="nav-principal" class="internal-links" aria-label="Navegación principal">
       <HeaderLink href="/">Inicio</HeaderLink>
       <HeaderLink href="/poemas/">Poemas</HeaderLink>
       <HeaderLink href="/autores/">Autores</HeaderLink>
@@ -60,48 +74,90 @@ import Logo from './Logo.astro';
       sync();
     });
   })();
+
+  // Menú hamburguesa (solo móvil). Despliega el nav completo bajo el masthead.
+  (function () {
+    var header = document.querySelector('header');
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('nav-principal');
+    if (!header || !toggle || !nav) return;
+    function setOpen(open) {
+      header.classList.toggle('nav-abierto', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+    toggle.addEventListener('click', function () {
+      setOpen(!header.classList.contains('nav-abierto'));
+    });
+    // Al pulsar un enlace del menú, ciérralo (la navegación recarga la página,
+    // pero esto cubre anclas y transiciones suaves).
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+    // Escape cierra el menú.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('nav-abierto')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  })();
 </script>
 
 <style>
+  /* Masthead editorial (handoff): fila horizontal, marca a la izquierda, nav a
+     la derecha, separada por una regla fuerte 2px en tinta (--text). */
   header {
     background: var(--bg);
-    border-bottom: var(--rule-hairline) solid var(--oro);
+    border-bottom: 2px solid var(--text);
     position: relative;
   }
   .header-inner {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
-    padding-block: var(--space-lg);
-    text-align: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding-block: var(--space-md);
   }
-  .logo {
+
+  /* Marca: logo-rombo + wordmark «El Poemario» (Cormorant). */
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
     text-decoration: none;
     color: var(--text);
-    display: inline-block;
+    border-bottom: none;
     line-height: 0;
+  }
+  .brand:hover,
+  .brand:focus-visible {
     border-bottom: none;
   }
-  .logo:hover,
-  .logo:focus-visible {
-    border-bottom: none;
-  }
-  .logo :global(.logo-mark) {
+  .brand :global(.logo-mark) {
     display: block;
-    width: 76px;
-    height: 76px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
     transition: transform var(--dur-fast) var(--ease-standard);
   }
-  .logo:hover :global(.logo-mark),
-  .logo:focus-visible :global(.logo-mark) {
+  .brand:hover :global(.logo-mark),
+  .brand:focus-visible :global(.logo-mark) {
     transform: scale(1.04);
   }
+  .wordmark {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.75rem;
+    letter-spacing: var(--ls-wide);
+    line-height: 1;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
   .internal-links {
     display: flex;
     gap: var(--space-lg);
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
   }
   /* Nav en versalita Cinzel; estados en oro. */
@@ -125,9 +181,10 @@ import Logo from './Logo.astro';
   .internal-links :global(a.active) {
     font-weight: var(--fw-semibold);
     color: var(--oro-texto);
-    border-bottom-color: var(--oro);
+    border-bottom-color: var(--oro-texto);
     text-decoration: none;
   }
+
   /* Conmutador día/noche · borde oro, versalita Cinzel como el nav. */
   .tema-toggle {
     display: inline-flex;
@@ -143,6 +200,7 @@ import Logo from './Logo.astro';
     text-transform: uppercase;
     padding: var(--space-2xs) var(--space-sm);
     cursor: pointer;
+    white-space: nowrap;
     transition:
       border-color var(--dur-fast) var(--ease-standard),
       color var(--dur-fast) var(--ease-standard);
@@ -157,13 +215,70 @@ import Logo from './Logo.astro';
     line-height: 1;
   }
 
-  @media (max-width: 540px) {
-    .logo :global(.logo-mark) {
-      width: 64px;
-      height: 64px;
+  /* Botón hamburguesa · oculto en escritorio, visible en móvil. */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav-toggle-barra {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin-inline: auto;
+    background: var(--text);
+    transition: transform var(--dur-fast) var(--ease-standard),
+                opacity var(--dur-fast) var(--ease-standard);
+  }
+
+  /* ---------- Móvil: nav tras la hamburguesa ---------- */
+  @media (max-width: 860px) {
+    .nav-toggle {
+      display: flex;
     }
     .internal-links {
-      gap: var(--space-md);
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+      background: var(--bg);
+      border-bottom: 2px solid var(--text);
+      padding: var(--space-lg) var(--space-container);
+      z-index: 50;
+    }
+    header.nav-abierto .internal-links {
+      display: flex;
+    }
+    /* Hamburguesa → aspa cuando el menú está abierto. */
+    header.nav-abierto .nav-toggle-barra:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    header.nav-abierto .nav-toggle-barra:nth-child(2) {
+      opacity: 0;
+    }
+    header.nav-abierto .nav-toggle-barra:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .brand :global(.logo-mark) {
+      width: 32px;
+      height: 32px;
+    }
+    .wordmark {
+      font-size: 1.375rem;
     }
   }
 </style>
