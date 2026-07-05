@@ -3,8 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Destacado from '../components/Destacado.astro';
-import PoemaCard from '../components/PoemaCard.astro';
 import { SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
+import { TIPOS_DISPLAY } from '../utils/taxonomia';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 import type { ImageMetadata } from 'astro';
@@ -137,39 +137,54 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 
   {ultimos.length > 0 && (
     <section class="seccion-poemas" aria-labelledby="ultimos-titulo">
-      <h2 id="ultimos-titulo" class="seccion-titulo">Últimos poemas</h2>
-      <ul class="poemas">
-        {ultimos.map((poema) => (
-          <li>
-            <PoemaCard
-              poema={poema}
-              autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
-            />
+      <div class="seccion-cab">
+        <h2 id="ultimos-titulo" class="seccion-titulo">Últimos poemas</h2>
+        <a class="ver-todo" href="/poemas/">Ver todo el catálogo →</a>
+      </div>
+      <ul class="lista-poemas">
+        {ultimos.map((poema, i) => (
+          <li class="fila-poema">
+            <span class="fila-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="fila-titulo">
+              <a href={`/poemas/${poema.id}/`}>{poema.data.titulo}</a>
+            </h3>
+            <span class="fila-autor">{autoresPorId.get(poema.data.autor.id) ?? ''}</span>
+            <span class="fila-tag">{TIPOS_DISPLAY[poema.data.tipo]}</span>
           </li>
         ))}
       </ul>
-      <p class="ver-todo">
-        <a href="/poemas/">Ver todo el catálogo</a>
-      </p>
     </section>
   )}
 
-  <section class="seccion-podcast" aria-labelledby="podcast-titulo">
-    <h2 id="podcast-titulo" class="seccion-titulo">{home.data.podcast_titulo}</h2>
-    <p class="podcast-subtitulo">{home.data.podcast_subtitulo}</p>
-    <a class="podcast" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
-      <span class="podcast-play" aria-hidden="true">
-        <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <polygon points="20,16 20,32 34,24" fill="currentColor" />
-        </svg>
-      </span>
-      <span class="podcast-cuerpo">
-        <span class="podcast-eyebrow">{home.data.podcast_eyebrow}</span>
-        <span class="podcast-titulo">{home.data.podcast_cta}</span>
-        <span class="podcast-glosa">{home.data.podcast_glosa}</span>
-      </span>
+  <nav class="descubrir-bar" aria-label="Descubrir por facetas">
+    <a class="descubrir-celda" href="/tipos/">
+      <span class="descubrir-eyebrow">Descubrir</span>
+      <span class="descubrir-nombre">Por forma</span>
     </a>
+    <a class="descubrir-celda" href="/temas/">
+      <span class="descubrir-eyebrow">Descubrir</span>
+      <span class="descubrir-nombre">Por tema</span>
+    </a>
+    <a class="descubrir-celda" href="/siglos/">
+      <span class="descubrir-eyebrow">Descubrir</span>
+      <span class="descubrir-nombre">Por siglo</span>
+    </a>
+    <a class="descubrir-celda" href="/nacionalidades/">
+      <span class="descubrir-eyebrow">Descubrir</span>
+      <span class="descubrir-nombre">Por país</span>
+    </a>
+  </nav>
+
+  <section class="seccion-podcast">
+    <div class="podcast-fila">
+      <h2 class="podcast-texto">
+        <span class="podcast-eyebrow">{home.data.podcast_titulo}</span>
+        <span class="podcast-desc">{home.data.podcast_eyebrow}</span>
+      </h2>
+      <a class="podcast-boton" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
+        {home.data.podcast_cta}
+      </a>
+    </div>
   </section>
 </Base>
 
@@ -222,95 +237,134 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   .seccion-poemas {
     margin-bottom: var(--space-2xl);
   }
-  .seccion-titulo {
+  /* Cabecera de sección: título a la izquierda, «ver todo» a la derecha
+     (handoff). */
+  .seccion-cab {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: baseline;
+    justify-content: space-between;
     gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+  .seccion-titulo {
+    font-family: var(--font-body);
     font-size: var(--fs-xl);
-    margin: 0 0 var(--space-xl);
-  }
-  .seccion-titulo::before,
-  .seccion-titulo::after {
-    content: '';
-    height: 0;
-    border-top: var(--rule-hairline) solid var(--oro);
-    width: clamp(2rem, 12%, 6rem);
-  }
-  ul.poemas {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: var(--measure-grid);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-  }
-  ul.poemas > li {
-    display: grid;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0;
+    color: var(--text);
   }
   .ver-todo {
-    text-align: center;
-    margin: var(--space-2xl) 0 0;
-  }
-  .ver-todo a {
     font-family: var(--font-meta);
-    font-size: var(--fs-2xs);
+    font-size: var(--fs-3xs);
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
     text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--oro) 45%, transparent);
-    padding-bottom: 0.2em;
+    white-space: nowrap;
+    border-bottom: none;
   }
-  .ver-todo a:hover,
-  .ver-todo a:focus-visible {
-    border-bottom-color: var(--oro);
+  .ver-todo:hover,
+  .ver-todo:focus-visible {
+    color: var(--oro);
+    border-bottom: none;
   }
 
-  /* ── Pódcast · El Poemario en voz alta ─────────────────────────────── */
-  .seccion-podcast {
-    text-align: center;
+  /* Índice «Últimos poemas» como lista (handoff): nº · título · autor ·
+     etiqueta, separados por filetes de 1px. Fila-enlace: el ::before del
+     título extiende el área clicable a toda la fila. */
+  .lista-poemas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  .podcast-subtitulo {
+  .fila-poema {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.4rem 1fr auto auto;
+    grid-template-areas: 'num titulo autor tag';
+    align-items: baseline;
+    column-gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--rule-soft);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .fila-poema:has(.fila-titulo a:hover),
+  .fila-poema:has(.fila-titulo a:focus-visible) {
+    background-color: var(--hover-tint);
+  }
+  .fila-num {
+    grid-area: num;
     font-family: var(--font-body);
-    font-style: italic;
     font-size: var(--fs-md);
-    color: var(--text-muted);
-    margin: calc(-1 * var(--space-md)) 0 var(--space-xl);
+    color: var(--num);
   }
-  .podcast {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    max-width: var(--measure-narrow);
-    margin: 0 auto;
-    text-align: center;
+  .fila-titulo {
+    grid-area: titulo;
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    line-height: var(--lh-snug);
+    margin: 0;
+    color: var(--text);
+  }
+  .fila-titulo a {
     text-decoration: none;
-    padding: var(--space-lg) var(--space-xl);
-    transition: background var(--dur-fast) var(--ease-standard);
+    color: inherit;
+    border-bottom: none;
   }
-  .podcast:hover,
-  .podcast:focus-visible {
-    background: color-mix(in srgb, var(--oro) 5%, transparent);
+  .fila-titulo a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
   }
-  .podcast-play {
-    flex: none;
-    display: inline-flex;
-    line-height: 0;
+  .fila-poema:has(.fila-titulo a:hover) .fila-titulo,
+  .fila-poema:has(.fila-titulo a:focus-visible) .fila-titulo {
     color: var(--oro-texto);
   }
-  .podcast-play svg {
-    width: 48px;
-    height: 48px;
+  .fila-autor {
+    grid-area: autor;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
   }
-  .podcast-cuerpo {
-    flex: 1;
-    display: block;
+  .fila-tag {
+    grid-area: tag;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-align: right;
   }
-  .podcast-eyebrow {
+
+  /* ── Barra «Descubrir»: 4 celdas con borde (handoff) ───────────────── */
+  .descubrir-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--rule);
+    margin: var(--space-2xl) 0;
+  }
+  .descubrir-celda {
+    padding: var(--space-lg);
+    text-align: center;
+    text-decoration: none;
+    border-right: 1px solid var(--rule);
+    border-bottom: none;
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .descubrir-celda:last-child {
+    border-right: none;
+  }
+  .descubrir-celda:hover,
+  .descubrir-celda:focus-visible {
+    background-color: var(--hover-tint);
+    border-bottom: none;
+  }
+  .descubrir-eyebrow {
     display: block;
     font-family: var(--font-meta);
     font-size: var(--fs-3xs);
@@ -318,32 +372,103 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
-    margin: 0 0 var(--space-2xs);
+    margin-bottom: var(--space-2xs);
   }
-  .podcast-titulo {
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-wide);
-    color: var(--text);
-  }
-  .podcast:hover .podcast-titulo,
-  .podcast:focus-visible .podcast-titulo {
-    color: var(--oro-texto);
-  }
-  .podcast-glosa {
+  .descubrir-nombre {
     display: block;
     font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-md);
-    color: var(--text-soft);
-    margin-top: var(--space-2xs);
+    font-size: var(--fs-lg);
+    color: var(--text);
+  }
+  .descubrir-celda:hover .descubrir-nombre,
+  .descubrir-celda:focus-visible .descubrir-nombre {
+    color: var(--oro-texto);
+  }
+
+  /* ── Pódcast «En voz alta»: fila con botón fantasma (handoff) ───────── */
+  .seccion-podcast {
+    margin-top: var(--space-2xl);
+  }
+  .podcast-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .podcast-texto {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+  }
+  .podcast-eyebrow {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+  .podcast-desc {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    color: var(--text);
+  }
+  /* Botón fantasma: contorno en tinta que se rellena al hover. */
+  .podcast-boton {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--text);
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .podcast-boton:hover,
+  .podcast-boton:focus-visible {
+    background: var(--text);
+    color: var(--bg);
+    border-bottom: 1px solid var(--text);
   }
 
   @media (max-width: 680px) {
-    ul.poemas {
-      grid-template-columns: 1fr;
+    .fila-poema {
+      grid-template-columns: 2.4rem 1fr;
+      grid-template-areas:
+        'num titulo'
+        'num autor'
+        'num tag';
+      row-gap: var(--space-3xs);
+    }
+    .fila-tag {
+      text-align: left;
+    }
+    .descubrir-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .descubrir-celda {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .descubrir-celda:nth-child(2n) {
+      border-right: none;
+    }
+    .descubrir-celda:nth-child(n + 3) {
+      border-bottom: none;
+    }
+    .podcast-fila {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
