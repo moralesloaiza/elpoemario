@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ChipsFacetas from '../../components/ChipsFacetas.astro';
+import GrillaTerminos from '../../components/GrillaTerminos.astro';
 import {
   NACIONALIDADES_DISPLAY,
   paisASlug,
@@ -67,26 +69,13 @@ const pagina = await getPagina('nacionalidades');
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
-    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
+    <ChipsFacetas activa="pais" />
 
-    <ul class="lista">
-      {tiles.map((item) => (
-        <li class="item">
-          <a href={item.href} class="item-link">
-            <h2 class="item-nombre">{item.display}</h2>
-            <p class="item-conteo">
-              {item.conteo === 1 ? '1 poeta' : `${item.conteo} poetas`}
-            </p>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <GrillaTerminos items={tiles} unidad="poeta" />
   </div>
 </Base>
 
 <style>
-  .indice {
-  }
   .title {
     text-align: center;
     margin-bottom: var(--space-md);
@@ -94,45 +83,5 @@ const pagina = await getPagina('nacionalidades');
   .title h1 {
     margin: 0;
     font-size: var(--fs-3xl);
-  }
-  .lista {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-2xl) 0 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: var(--space-md);
-  }
-  .item-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    padding: var(--space-md);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .item-link:hover,
-  .item-link:focus-visible {
-    background-color: var(--hover-tint);
-  }
-  .item-nombre {
-    font-family: var(--font-display);
-    font-size: var(--fs-md);
-    font-weight: var(--fw-bold);
-    letter-spacing: var(--ls-wide);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
-    color: var(--text);
-    text-transform: none;
-  }
-  .item-link:hover .item-nombre {
-    color: var(--oro-texto);
-  }
-  .item-conteo {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    margin: 0;
   }
 </style>

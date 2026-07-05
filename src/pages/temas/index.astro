@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ChipsFacetas from '../../components/ChipsFacetas.astro';
+import GrillaTerminos from '../../components/GrillaTerminos.astro';
 import { TEMAS_DISPLAY, type Tema } from '../../utils/taxonomia';
 
 import { SITE_TITLE } from '../../consts';
@@ -19,7 +21,7 @@ for (const p of poemas) {
 
 // Sort by count desc, alphabetical Spanish as tiebreaker.
 const items = Array.from(conteo.entries())
-  .map(([slug, n]) => ({ slug, conteo: n, display: TEMAS_DISPLAY[slug] }))
+  .map(([slug, n]) => ({ href: `/temas/${slug}/`, conteo: n, display: TEMAS_DISPLAY[slug] }))
   .sort((a, b) => {
     if (b.conteo !== a.conteo) return b.conteo - a.conteo;
     return a.display.localeCompare(b.display, 'es');
@@ -39,26 +41,13 @@ const pagina = await getPagina('temas');
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
-    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
+    <ChipsFacetas activa="tema" />
 
-    <ul class="lista">
-      {items.map((item) => (
-        <li class="item">
-          <a href={`/temas/${item.slug}/`} class="item-link">
-            <h2 class="item-nombre">{item.display}</h2>
-            <p class="item-conteo">
-              {item.conteo === 1 ? '1 poema' : `${item.conteo} poemas`}
-            </p>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <GrillaTerminos items={items} unidad="poema" />
   </div>
 </Base>
 
 <style>
-  .indice {
-  }
   .title {
     text-align: center;
     margin-bottom: var(--space-md);
@@ -66,49 +55,5 @@ const pagina = await getPagina('temas');
   .title h1 {
     margin: 0;
     font-size: var(--fs-3xl);
-  }
-  .lista {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-2xl) 0 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1px;
-  }
-  .item-link {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-sm);
-    text-decoration: none;
-    color: inherit;
-    background-color: var(--bg);
-    padding: var(--space-md);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .item-link:hover,
-  .item-link:focus-visible {
-    background-color: var(--bg-elevated);
-  }
-  .item-nombre {
-    font-family: var(--font-display);
-    font-size: var(--fs-md);
-    font-weight: var(--fw-regular);
-    letter-spacing: var(--ls-wide);
-    line-height: var(--lh-snug);
-    margin: 0;
-    color: var(--text);
-    text-transform: none;
-  }
-  .item-link:hover .item-nombre {
-    color: var(--oro-texto);
-  }
-  .item-conteo {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    color: var(--oro-texto);
-    flex: none;
-    margin: 0;
   }
 </style>
