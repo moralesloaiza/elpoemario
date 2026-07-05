@@ -1,5 +1,5 @@
-﻿---
-titulo: "Los irresponsables"
+---
+titulo: Los irresponsables
 fecha: 2011-10-26
 borrador: false
 tipo: verso-libre
@@ -10,12 +10,9 @@ motivos:
   - amada
   - amado
 autor: joaquin-dicenta
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
-**Joaquín Dicenta** - *Español* (1862-1917).
-
 De un hogar rico y dichoso
 disfrutaban por igual
 un marido cariñoso,
