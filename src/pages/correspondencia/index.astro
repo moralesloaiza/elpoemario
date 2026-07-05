@@ -482,10 +482,11 @@ const { Content } = await render(pagina);
     text-transform: uppercase;
     padding: 0.85em 2em;
     min-height: 44px;
-    background: var(--oro-texto);
-    color: var(--bg);
-    border: 1px solid var(--oro-texto);
-    border-radius: 2px;
+    /* CTA primario en tinta solida (handoff): --btn-bg/--btn-ink, sin radio. */
+    background: var(--btn-bg);
+    color: var(--btn-ink);
+    border: 1px solid var(--btn-bg);
+    border-radius: 0;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -494,8 +495,8 @@ const { Content } = await render(pagina);
   }
   .enviar:hover,
   .enviar:focus {
-    background: var(--bg);
-    color: var(--oro-texto);
+    background: transparent;
+    color: var(--btn-bg);
   }
   .enviar.secundario {
     background: transparent;
