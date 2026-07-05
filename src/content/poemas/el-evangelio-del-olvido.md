@@ -1,5 +1,5 @@
-﻿---
-titulo: "El evangelio del olvido"
+---
+titulo: El evangelio del olvido
 fecha: 2011-10-26
 borrador: false
 tipo: verso-libre
@@ -8,12 +8,9 @@ temas:
   - patria
   - poesia-misma
 autor: alfonso-marin
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
-**Alfonso Marín** - *Venezolano.*
-
 Esta noche nos hemos olvidado de todo.
 ¡Qué hermoso es el olvido!
 Tu corazón es un reloj de arena
