@@ -1,0 +1,68 @@
+---
+// Fila de chips para explorar el catálogo por faceta (handoff): Por forma /
+// tema / siglo / país. Compartida por el catálogo (/poemas/) y las cuatro
+// páginas índice de facetas. `activa` marca (aria-current) el chip de la
+// faceta en curso; en el catálogo se omite (ninguno activo).
+type Faceta = 'forma' | 'tema' | 'siglo' | 'pais';
+
+interface Props {
+  activa?: Faceta;
+}
+
+const { activa } = Astro.props;
+
+const chips: { key: Faceta; texto: string; href: string }[] = [
+  { key: 'forma', texto: 'Por forma', href: '/tipos/' },
+  { key: 'tema', texto: 'Por tema', href: '/temas/' },
+  { key: 'siglo', texto: 'Por siglo', href: '/siglos/' },
+  { key: 'pais', texto: 'Por país', href: '/nacionalidades/' },
+];
+---
+
+<nav class="chips-facetas" aria-label="Explorar por faceta">
+  {chips.map((c) => (
+    <a
+      href={c.href}
+      class:list={['chip', { 'chip--activa': c.key === activa }]}
+      aria-current={c.key === activa ? 'page' : undefined}
+    >
+      {c.texto}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .chips-facetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin: var(--space-xl) 0;
+  }
+  .chip {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: 500;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-soft);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.6em 1.2em;
+    transition:
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard),
+      background-color var(--dur-fast) var(--ease-standard);
+  }
+  .chip:hover,
+  .chip:focus-visible {
+    color: var(--oro-texto);
+    border-color: var(--oro);
+  }
+  /* Faceta en curso: relleno en oro tenue + tinta oro. */
+  .chip--activa {
+    color: var(--oro-texto);
+    border-color: var(--oro);
+    background-color: var(--hover-tint);
+  }
+</style>

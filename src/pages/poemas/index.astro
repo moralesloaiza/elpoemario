@@ -2,23 +2,27 @@
 import { getCollection } from 'astro:content';
 
 import Base from '../../layouts/Base.astro';
-import PoemaCard from '../../components/PoemaCard.astro';
+import ChipsFacetas from '../../components/ChipsFacetas.astro';
 
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
+import { TIPOS_DISPLAY } from '../../utils/taxonomia';
 
 // All non-draft poems, newest first. Full anthology, no pagination in v1.
-// For ~86 Bécquer Rimas a flat grid is fine. Revisit when the corpus
+// For ~86 Bécquer Rimas a flat list is fine. Revisit when the corpus
 // grows to several hundred entries.
 const poemas = (await getCollection('poemas', ({ data }) => !data.borrador)).sort(
   (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime(),
 );
 
-// Author names live in the `autores` collection; the `autor` field on a
-// poem is a reference (`{ collection, id }`), not a string. Build an
-// id->name map once so the template renders without per-row awaits.
+// Author names and countries live in the `autores` collection; the `autor`
+// field on a poem is a reference. Build id->name and id->country maps once so
+// the list renders without per-row awaits. `nacionalidad` stores the country
+// verbatim ("Chile", "España"…) — that is the "lugar" column of the catalog.
 const autoresLista = await getCollection('autores');
 const autoresPorId = new Map(autoresLista.map((a) => [a.id, a.data.nombre]));
+const paisPorId = new Map(autoresLista.map((a) => [a.id, a.data.nacionalidad]));
+
 const pagina = await getPagina('poemas');
 ---
 
@@ -33,29 +37,35 @@ const pagina = await getPagina('poemas');
       <p class="subtitulo">{pagina.data.subtitulo}</p>
     </header>
 
-    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
+    <ChipsFacetas />
 
     {poemas.length === 0 ? (
       <p class="vacio">Aún no hay poemas publicados.</p>
     ) : (
-      <ul class="lista">
-        {poemas.map((poema) => (
-          <li>
-            <PoemaCard
-              poema={poema}
-              autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
-            />
-          </li>
-        ))}
+      <ul class="catalogo">
+        {poemas.map((poema, i) => {
+          const autorNombre = autoresPorId.get(poema.data.autor.id) ?? '';
+          const lugar = paisPorId.get(poema.data.autor.id);
+          return (
+            <li class="fila">
+              <span class="fila-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div class="fila-obra">
+                <h2 class="fila-titulo">
+                  <a href={`/poemas/${poema.id}/`}>{poema.data.titulo}</a>
+                </h2>
+                {autorNombre && <p class="fila-autor">{autorNombre}</p>}
+              </div>
+              <span class="fila-tag">{TIPOS_DISPLAY[poema.data.tipo]}</span>
+              {lugar && <span class="fila-lugar">{lugar}</span>}
+            </li>
+          );
+        })}
       </ul>
     )}
   </section>
 </Base>
 
 <style>
-  .indice {
-  }
-
   .title {
     text-align: center;
     margin-bottom: var(--space-md);
@@ -72,22 +82,100 @@ const pagina = await getPagina('poemas');
     margin-top: var(--space-2xl);
   }
 
-  .lista {
+  /* Catálogo como lista de filas (handoff): nº · (título + autor) · etiqueta ·
+     lugar, separadas por filetes de 1px. Fila-enlace: el ::before del título
+     extiende el área clicable a toda la fila. */
+  .catalogo {
     list-style: none;
+    margin: 0;
     padding: 0;
-    margin: var(--space-2xl) auto 0;
-    max-width: var(--measure-grid);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
   }
-  .lista > li {
+  .fila {
+    position: relative;
     display: grid;
+    grid-template-columns: 2.6rem 1fr auto auto;
+    grid-template-areas: 'num obra tag lugar';
+    align-items: baseline;
+    column-gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--rule-soft);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .fila:has(.fila-titulo a:hover),
+  .fila:has(.fila-titulo a:focus-visible) {
+    background-color: var(--hover-tint);
+  }
+  .fila-num {
+    grid-area: num;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--num);
+  }
+  .fila-obra {
+    grid-area: obra;
+  }
+  .fila-titulo {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    line-height: var(--lh-snug);
+    margin: 0 0 var(--space-3xs);
+    color: var(--text);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .fila-titulo a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .fila-titulo a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .fila:has(.fila-titulo a:hover) .fila-titulo,
+  .fila:has(.fila-titulo a:focus-visible) .fila-titulo {
+    color: var(--oro-texto);
+  }
+  .fila-autor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .fila-tag {
+    grid-area: tag;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-align: right;
+  }
+  .fila-lugar {
+    grid-area: lugar;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+    text-align: right;
+    min-width: 5rem;
   }
 
   @media (max-width: 680px) {
-    .lista {
-      grid-template-columns: 1fr;
+    .fila {
+      grid-template-columns: 2.6rem 1fr;
+      grid-template-areas:
+        'num obra'
+        'num tag'
+        'num lugar';
+      row-gap: var(--space-3xs);
+    }
+    .fila-tag,
+    .fila-lugar {
+      text-align: left;
     }
   }
 </style>
