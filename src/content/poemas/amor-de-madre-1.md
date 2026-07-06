@@ -1,8 +1,8 @@
 ---
 titulo: Amor de madre (I)
 fecha: 2026-06-06
-fecha_actualizada: 2026-06-18
-ilustracion: ../../assets/uploads/chatgpt-image-18-jun-2026-21_59_35.png
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_22_43.png
 borrador: false
 tipo: balada
 movimiento: realismo
@@ -14,10 +14,12 @@ autor: eduardo-de-la-barra
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: Este poema dice de dónde viene. «Balada catalana», advierte bajo
-  el título, y con esas dos palabras nombra a Verdaguer sin nombrarlo. De la
-  Barra, que amaba las lenguas romances, devolvió al castellano lo que el
-  catalán le había prestado.
+nota_curador: Un poema de la serie [Amor de
+  madre](https://elpoemario.com/entradas/el-largo-viaje-de-un-coraz%C3%B3n/),
+  cuyo título dice de dónde viene. «Balada catalana», advierte bajo el título, y
+  con esas dos palabras nombra a Verdaguer sin nombrarlo. De la Barra, que amaba
+  las lenguas romances, devolvió al castellano lo que el catalán le había
+  prestado.
 ---
 ## «Balada catalana»
 

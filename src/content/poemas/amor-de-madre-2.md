@@ -1,8 +1,8 @@
 ---
 titulo: Amor de madre (II)
 fecha: 2026-06-06
-fecha_actualizada: 2026-06-06
-ilustracion: ../../assets/uploads/chatgpt-image-18-jun-2026-22_09_32.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_06_50.png
 borrador: false
 tipo: balada
 movimiento: realismo
@@ -14,9 +14,22 @@ autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "Esta llegó sin nombre, como llegan las leyendas verdaderas: de
-  tanto repetirse, ya no recuerdan quién las dijo primero. México, 1887. El
-  mismo corazón, la misma pregunta, otra voz anónima que la hizo suya."
+nota_curador: >-
+  Esta versión de la serie [Amor de
+  madre](https://elpoemario.com/entradas/el-largo-viaje-de-un-coraz%C3%B3n/)
+  —que comienza «Rugiente pasión ardía…»— apareció de forma anónima en la
+  revista mexicana La Familia (año IV, núm. 26, 24 de febrero de 1887). No es
+  una traducción literal, sino una recreación libre en castellano del Amor de
+  mare de [Jacint Verdaguer](https://elpoemario.com/autores/jacinto-verdaguer/),
+  poema catalán de 1881 nacido de una idea que **Joaquim M. Bartrina**, ya
+  moribundo, confió al poeta; de ahí el subtítulo «Balada catalana» que acompaña
+  a sus ramas hispanoamericanas.
+
+
+  La firma «Vicente Balaguer» —a veces «V. Balaguer»— no aparece ligada al texto hasta 1940, en El Correo Literario, más de medio siglo después de su publicación original. Se trata de una atribución tardía, sin autor identificable, que no consta en la fuente de 1887 y que conviene no confundir con la del catalán Víctor Balaguer, descartada por la crítica. Por fidelidad a su primera aparición, este poema se conserva aquí como **anónimo**.
+
+
+  *—Fuente: Tibor Barcza y Carola Duran Tort, «Sobre l'Amor de mare verdaguerià. Notes sobre algunes versions del tema», Anuari Verdaguer, núm. 19 (2011).*
 ---
 ## El corazón de una madre
 
