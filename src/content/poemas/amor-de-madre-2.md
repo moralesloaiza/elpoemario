@@ -2,7 +2,7 @@
 titulo: Amor de madre (II)
 fecha: 2026-06-06
 fecha_actualizada: 2026-06-06
-ilustracion: ../../assets/uploads/chatgpt-image-18-jun-2026-22_09_32.png
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_06_50.png
 borrador: false
 tipo: balada
 movimiento: realismo
@@ -14,9 +14,12 @@ autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "Esta llegó sin nombre, como llegan las leyendas verdaderas: de
-  tanto repetirse, ya no recuerdan quién las dijo primero. México, 1887. El
-  mismo corazón, la misma pregunta, otra voz anónima que la hizo suya."
+nota_curador: "Este poema, de la misma serie de [Amor de
+  madre](https://elpoemario.com/entradas/el-largo-viaje-de-un-coraz%C3%B3n/),
+  llegó como llegan las leyendas verdaderas: que de tanto repetirse, ya no
+  recuerdan quién las dijo primero. Se sabe que fue publicado en México, en
+  1887, con el mismo corazón, la misma pregunta y una voz anónima que la hizo
+  suya."
 ---
 ## El corazón de una madre
 
