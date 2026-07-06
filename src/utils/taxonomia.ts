@@ -9,11 +9,12 @@
 // ── Slug arrays ─────────────────────────────────────────────────────────────
 
 export const TIPOS = [
-  'soneto', 'silva', 'romance', 'decima', 'redondilla', 'cuarteta', 'cuarteto',
-  'terceto', 'quinteto', 'sexteto', 'octava-real', 'lira', 'oda', 'elegia',
-  'egloga', 'himno', 'balada',
+  'soneto', 'silva', 'madrigal', 'romance', 'romance-heroico', 'romancillo',
+  'endecha', 'decima', 'redondilla', 'cuarteta', 'cuarteto', 'serventesio',
+  'quintilla', 'terceto', 'pareado', 'quinteto', 'sexteto', 'octava-real',
+  'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada', 'glosa',
   'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
-  'verso-libre', 'prosa-poetica',
+  'polimetrico', 'verso-libre', 'prosa-poetica',
 ] as const;
 
 export const MOVIMIENTOS = [
@@ -62,12 +63,19 @@ export type Lengua = typeof LENGUAS[number];
 export const TIPOS_DISPLAY: Record<Tipo, string> = {
   'soneto': 'Soneto',
   'silva': 'Silva',
+  'madrigal': 'Madrigal',
   'romance': 'Romance',
+  'romance-heroico': 'Romance heroico',
+  'romancillo': 'Romancillo',
+  'endecha': 'Endecha',
   'decima': 'Décima',
   'redondilla': 'Redondilla',
   'cuarteta': 'Cuarteta',
   'cuarteto': 'Cuarteto',
+  'serventesio': 'Serventesio',
+  'quintilla': 'Quintilla',
   'terceto': 'Terceto',
+  'pareado': 'Pareado',
   'quinteto': 'Quinteto',
   'sexteto': 'Sexteto',
   'octava-real': 'Octava real',
@@ -77,12 +85,14 @@ export const TIPOS_DISPLAY: Record<Tipo, string> = {
   'egloga': 'Égloga',
   'himno': 'Himno',
   'balada': 'Balada',
+  'glosa': 'Glosa',
   'copla': 'Copla',
   'seguidilla': 'Seguidilla',
   'letrilla': 'Letrilla',
   'villancico': 'Villancico',
   'haiku': 'Haiku',
   'tanka': 'Tanka',
+  'polimetrico': 'Polimétrico',
   'verso-libre': 'Verso libre',
   'prosa-poetica': 'Prosa poética',
 };

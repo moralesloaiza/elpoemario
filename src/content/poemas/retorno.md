@@ -4,7 +4,7 @@ fecha: 2020-09-16
 fecha_actualizada: 2026-05-31
 ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_10_05.png
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - patria

@@ -2,7 +2,7 @@
 titulo: "Las uvas del tiempo"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - patria
@@ -12,8 +12,6 @@ autor: andres-eloy-blanco
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Andrés Eloy Blanco **- *Venezolano* (1897-1955).
 
 Madre: esta noche se nos muere un año.
 En esta ciudad grande, todos están de fiesta;

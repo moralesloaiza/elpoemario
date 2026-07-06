@@ -2,7 +2,7 @@
 titulo: "Maternidad"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: vanguardia
 temas:
   - poesia-misma
@@ -12,8 +12,6 @@ autor: jose-pedroni
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José Pedroni** - *Argentino* (1899-1968).
 
 Mujer: en un silencio que me sabrá a ternura
 durante nueve lunas crecerá tu cintura;

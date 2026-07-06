@@ -4,7 +4,7 @@ fecha: 2025-08-13
 fecha_actualizada: 2026-05-30
 ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_38_44.png
 borrador: false
-tipo: verso-libre
+tipo: pareado
 temas:
   - poesia-misma
 autor: anonimo

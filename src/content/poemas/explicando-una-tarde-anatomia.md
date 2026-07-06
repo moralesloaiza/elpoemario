@@ -2,7 +2,7 @@
 titulo: "Explicando una tarde anatomía"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: realismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Eusebio Blasco **- *Español* (1844-1903).
 
 Explicando una tarde anatomía
 un sabio profesor,

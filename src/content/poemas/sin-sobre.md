@@ -2,7 +2,7 @@
 titulo: "Sin sobre"
 fecha: 2011-10-30
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: romanticismo
 temas:
   - amor

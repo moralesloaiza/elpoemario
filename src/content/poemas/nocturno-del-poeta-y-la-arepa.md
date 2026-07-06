@@ -2,7 +2,7 @@
 titulo: "Nocturno del poeta y la arepa"
 fecha: 2012-01-03
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: contemporaneo
 temas:
   - noche

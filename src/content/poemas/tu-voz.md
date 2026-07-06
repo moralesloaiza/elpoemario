@@ -2,7 +2,7 @@
 titulo: "Tu voz"
 fecha: 2012-02-11
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: modernismo
 temas:
   - amor
@@ -12,8 +12,6 @@ autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1847-1892).
 
 Tu voz, tu voz…recuerdo bien la hora
 primera en que la oí, blando rüido

@@ -2,7 +2,7 @@
 titulo: "Memoria triste"
 fecha: 2012-02-17
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - alegria
@@ -16,8 +16,6 @@ autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
 
 ¡Quién pudiera volver a aquellos tiempos
 en que era el porvenir sueño de oro

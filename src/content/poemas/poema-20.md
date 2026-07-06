@@ -16,8 +16,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Pablo Neruda** - *Chileno* (1904-1973).
-
 Puedo escribir los versos más tristes esta noche.
 Escribir, por ejemplo: «La noche está estrellada,
 y tiritan, azules, los astros, a lo lejos.»

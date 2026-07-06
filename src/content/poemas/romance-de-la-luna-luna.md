@@ -2,7 +2,7 @@
 titulo: "Romance de la luna, luna"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: generacion-27
 temas:
   - poesia-misma
@@ -12,8 +12,6 @@ autor: federico-garcia-lorca
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Federico García Lorca** -* Español *(1898 - 1936).
 
 La luna vino a la fragua
 con su polisón de nardos.

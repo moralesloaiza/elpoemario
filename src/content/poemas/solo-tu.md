@@ -2,7 +2,7 @@
 titulo: "Sólo tú"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 temas:
   - amor
   - poesia-misma
@@ -10,8 +10,6 @@ autor: cesar-casas-medina
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**César Casas Medina** - *Colombiano.*
 
 Amor como este amor nunca he sentido;
 como a ti con el alma a nadie quise;

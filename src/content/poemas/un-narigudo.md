@@ -2,7 +2,7 @@
 titulo: "Un narigudo"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: barroco
 temas:
   - poesia-misma
@@ -12,8 +12,6 @@ autor: francisco-de-quevedo
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Francisco de Quevedo** - *Español* (1580-1645).
 
 Érase un hombre a una nariz pegado,
 Érase una nariz superlativa,

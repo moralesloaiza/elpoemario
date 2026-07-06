@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Rodríguez** - *Venezolano*.
-
 Ese gato muerto en la puerta de mi casa
 se lleva todo aquello que no fue,
 que no pudo ser.

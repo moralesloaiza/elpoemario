@@ -2,7 +2,7 @@
 titulo: "Heroicidad"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: silva
 movimiento: romanticismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: ricardo-palma
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Ricardo Palma** – *Peruano* (1833-1919).
 
 — ¡No bebo más! ¡No bebo!—repetía
 Uno a quien siempre conocí borracho. —

@@ -2,7 +2,7 @@
 titulo: "Recodo de despedida"
 fecha: 2011-11-04
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: contemporaneo
 temas:
   - patria
@@ -11,8 +11,6 @@ autor: heli-colombani
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Heli Colombani **- *Venezolano* (1932)
 
 Con el dolor del viajero
 que deja la casa sola

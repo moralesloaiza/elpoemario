@@ -5,7 +5,7 @@ fecha_actualizada: 2026-06-21
 ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_55_27.png
 spotify_url: https://open.spotify.com/episode/4AIpEYz2R3l4f4kk10Mf7h?si=iI_ojsJtSiioZaHS9Qw8Jg
 borrador: false
-tipo: verso-libre
+tipo: lira
 movimiento: modernismo
 temas:
   - patria

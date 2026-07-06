@@ -2,7 +2,7 @@
 titulo: "La flor de la Maravilla"
 fecha: 2011-11-16
 borrador: false
-tipo: verso-libre
+tipo: letrilla
 movimiento: barroco
 temas:
   - poesia-misma
@@ -14,8 +14,6 @@ autor: luis-de-gongora
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Luis de Góngora** - *Español* (1561-1621).
 
 *Aprended, flores, de mí*
 *Lo que va de ayer a hoy;*

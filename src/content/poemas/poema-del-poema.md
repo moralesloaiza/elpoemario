@@ -2,7 +2,7 @@
 titulo: "Poema del poema"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José Ángel Buesa** -* Cubano* (1910-1982).
 
 *Quizá pases con otro que te diga al oído*
 *esas frases que nadie como yo te dirá;*

@@ -2,7 +2,7 @@
 titulo: "Siempre..."
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: modernismo
 temas:
   - patria
@@ -11,8 +11,6 @@ autor: rafael-michelena-fortoul
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Rafael Michelena Fortoul** – *Venezolano *(1897-1933).
 
 La tarde está en nosotros, con un poco de bruma:
 adiós, pequeña mía de sonrisa de espuma.

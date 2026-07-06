@@ -2,7 +2,7 @@
 titulo: "La hamaca"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: neoclasicismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: jose-fernandez-madrid
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José Fernández Madrid** - *Colombiano* (1789-1830).
 
 No canto los primores
 Que otros poetas cantan.

@@ -2,7 +2,7 @@
 titulo: Al amor
 fecha: 2012-11-10
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: modernismo
 temas:
   - amor

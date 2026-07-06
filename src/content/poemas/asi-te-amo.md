@@ -2,7 +2,7 @@
 titulo: "Así te amo"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 temas:
   - amor
   - patria
@@ -11,8 +11,6 @@ autor: flora-delmis
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Flora Delmis** - *Venezolana.*
 
 Cuando se quiere así como te quiero,
 con tanto furor, ¡con ansias tantas…!,

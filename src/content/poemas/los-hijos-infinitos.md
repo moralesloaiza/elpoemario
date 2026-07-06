@@ -5,7 +5,7 @@ fecha_actualizada: 2026-06-24
 ilustracion: ../../assets/uploads/chatgpt-image-24-jun-2026-22_01_00.png
 spotify_url: https://open.spotify.com/episode/1tENtcv4DOQoyHBBmdcHSC?si=oaCYWCEkTdqrR-7XsqPm6w
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - poesia-misma

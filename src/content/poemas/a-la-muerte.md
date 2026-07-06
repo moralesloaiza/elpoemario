@@ -2,7 +2,7 @@
 titulo: "A la muerte"
 fecha: 2011-12-04
 borrador: false
-tipo: verso-libre
+tipo: endecha
 movimiento: romanticismo
 temas:
   - muerte
@@ -13,8 +13,6 @@ autor: adolfo-berro
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Adolfo Berro** - *Uruguayo* (1819-1841).
 
 EN vano, cruda Muerte,
 En mí tu saña apuras;

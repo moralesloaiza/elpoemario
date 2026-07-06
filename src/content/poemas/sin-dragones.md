@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Rodríguez **- *Venezolano.*
-
 Esa mujer se salva sola.
 Su armario quedó congestionado
 de armaduras de cartón y hojalata,

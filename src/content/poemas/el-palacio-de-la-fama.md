@@ -2,7 +2,7 @@
 titulo: "El palacio de la fama"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: octava-real
 movimiento: siglo-de-oro
 temas:
   - muerte
@@ -11,8 +11,6 @@ autor: bernardo-de-balbuena
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Bernardo de Balbuena** -* Puertorriqueño* (1568-1627).
 
 Entre la tierra, el cielo, el mar y el viento
 Un soberbio castillo está labrado,

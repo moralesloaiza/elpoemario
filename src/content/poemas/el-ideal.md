@@ -2,7 +2,7 @@
 titulo: "El ideal"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: juana-borrero
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Juana Borrero** - *Cubana *(1877-1896).
 
 ¡Yo lo siento en mi alma!… Él me reanima
 Y me presta el calor del entusiasmo,

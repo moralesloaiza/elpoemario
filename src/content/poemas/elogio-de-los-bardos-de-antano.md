@@ -2,7 +2,7 @@
 titulo: "Elogio de los bardos de antaño"
 fecha: 2012-12-04
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: contemporaneo
 temas:
   - patria

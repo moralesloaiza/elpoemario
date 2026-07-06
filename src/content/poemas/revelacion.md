@@ -2,7 +2,7 @@
 titulo: "Revelación"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: quinteto
 movimiento: posguerra
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: jose-maria-peman
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José María Pemán** - *Español* (1897-1981).
 
 ¡Cómo volaba el pensamiento mío!…
 Fue un dulce anochecer. Se adivinaba

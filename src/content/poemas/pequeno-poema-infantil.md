@@ -2,7 +2,7 @@
 titulo: "Pequeño poema infantil"
 fecha: 2012-10-03
 borrador: false
-tipo: verso-libre
+tipo: polimetrico
 movimiento: modernismo
 temas:
   - infancia
@@ -11,8 +11,6 @@ autor: ruben-dario
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-Rubén Darío - Nicaragüense (1867-1916).
 
 Las hadas, las bellas hadas,
 existen, mi dulce niña,

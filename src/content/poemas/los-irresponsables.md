@@ -2,7 +2,7 @@
 titulo: Los irresponsables
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: quintilla
 movimiento: realismo
 temas:
   - poesia-misma

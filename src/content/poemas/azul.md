@@ -3,7 +3,7 @@ titulo: Azul
 fecha: 2011-11-01
 fecha_actualizada: 2026-06-06
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: modernismo
 temas:
   - patria

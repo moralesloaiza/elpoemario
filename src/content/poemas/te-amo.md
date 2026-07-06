@@ -2,7 +2,7 @@
 titulo: "Te amo"
 fecha: 2012-02-07
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: modernismo
 temas:
   - amor
@@ -12,8 +12,6 @@ autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
 
 ¡Te amo! ¿Sabes mi vida,
 lo que encierra esa palabra

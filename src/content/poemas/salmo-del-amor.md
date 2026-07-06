@@ -2,7 +2,7 @@
 titulo: "Salmo del amor"
 fecha: 2012-01-03
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - amor
@@ -14,8 +14,6 @@ autor: eduardo-marquina
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Eduardo Marquina** - *Español *(1879-1946).
 
 ¡Dios te bendiga, amor, porque eres bella!
 ¡Dios te bendiga, amor, porque eres mía!

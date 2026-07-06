@@ -2,7 +2,7 @@
 titulo: "Cantares"
 fecha: 2013-08-30
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: generacion-98
 temas:
   - poesia-misma

@@ -2,7 +2,7 @@
 titulo: "Tus ojos tienen algo"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: contemporaneo
 temas:
   - patria
@@ -11,8 +11,6 @@ autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Ernesto Luis Rodríguez **- *Venezolano* (1917 - 1965).
 
 Tus ojos tienen algo de lo que nunca llega,
 distantes, infinitos, profundos como el mar,

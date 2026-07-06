@@ -2,7 +2,7 @@
 titulo: "Deseos"
 fecha: 2011-11-04
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
@@ -11,8 +11,6 @@ autor: salvador-diaz-miron
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Salvador Díaz Mirón** -* Mexicano *(1853-1928).
 
 Yo quisiera salvar esa distancia,
 ese abismo fatal que nos divide,

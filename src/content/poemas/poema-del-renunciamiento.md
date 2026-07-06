@@ -3,7 +3,7 @@ titulo: Poema del renunciamiento
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-05
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - poesia-misma

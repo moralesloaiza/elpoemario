@@ -2,7 +2,7 @@
 titulo: "Pleito de amar y querer"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: polimetrico
 movimiento: modernismo
 temas:
   - amor

@@ -2,7 +2,7 @@
 titulo: "Rutina"
 fecha: 2011-11-24
 borrador: false
-tipo: verso-libre
+tipo: prosa-poetica
 movimiento: contemporaneo
 temas:
   - patria
@@ -11,8 +11,6 @@ autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Rafael Cadenas** – *Venezolano *(1930)
 
 Me fustigo.
 Me abro la carne.

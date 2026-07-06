@@ -2,7 +2,7 @@
 titulo: "Flores y nubes"
 fecha: 2012-02-08
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: modernismo
 temas:
   - amor
@@ -13,8 +13,6 @@ autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
 
 *Balada.*
 

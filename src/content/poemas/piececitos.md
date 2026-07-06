@@ -2,7 +2,7 @@
 titulo: "Piececitos"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: modernismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: gabriela-mistral
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Gabriela Mistral** - *Chilena *(1889 -1957).
 
 Piececitos de niño,
 azulosos de frío,

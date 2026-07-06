@@ -3,7 +3,7 @@ titulo: Solo
 fecha: 2011-10-27
 fecha_actualizada: 2026-07-01
 borrador: false
-tipo: romance
+tipo: romance-heroico
 movimiento: vanguardia
 temas:
   - poesia-misma

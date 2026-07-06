@@ -42,12 +42,19 @@ collections:
         options:
           - soneto
           - silva
+          - madrigal
           - romance
+          - romance-heroico
+          - romancillo
+          - endecha
           - decima
           - redondilla
           - cuarteta
           - cuarteto
+          - serventesio
+          - quintilla
           - terceto
+          - pareado
           - quinteto
           - sexteto
           - octava-real
@@ -57,12 +64,14 @@ collections:
           - egloga
           - himno
           - balada
+          - glosa
           - copla
           - seguidilla
           - letrilla
           - villancico
           - haiku
           - tanka
+          - polimetrico
           - verso-libre
           - prosa-poetica
       - label: "Movimiento histórico-estético"

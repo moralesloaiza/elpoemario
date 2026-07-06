@@ -2,7 +2,7 @@
 titulo: "La oruga y la presumida"
 fecha: 2011-11-10
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: siglo-de-oro
 temas:
   - belleza
@@ -13,8 +13,6 @@ autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Lope de Vega** - *Español *(1562-1635).
 
 —¡Vil oruga! ¡bicho infame,
 Que en la pobre flor te ensañas,

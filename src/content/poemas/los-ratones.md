@@ -2,7 +2,7 @@
 titulo: "Los ratones"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: siglo-de-oro
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Lope de Vega** - *Español* (1562-1635).
 
 Juntáronse los ratones,
 Para librarse del gato;

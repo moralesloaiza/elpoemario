@@ -2,7 +2,7 @@
 titulo: "Don Anselmo"
 fecha: 2013-08-08
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - patria

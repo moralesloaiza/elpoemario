@@ -2,7 +2,7 @@
 titulo: "El corazón roto"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: modernismo
 temas:
   - poesia-misma

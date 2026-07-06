@@ -2,7 +2,7 @@
 titulo: "El niño bien criado"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: barroco
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: pedro-calderon-de-la-barca
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Pedro Calderón de la Barca** - *Español* (1600-1681).
 
 A cuatro o cinco chiquillos
 Daba de comer su padre

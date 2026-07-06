@@ -2,7 +2,7 @@
 titulo: "Un poema"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: modernismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: jose-asuncion-silva
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José Asunción Silva** – *Colombiano* (1860-1896).
 
 Soñaba en ese entonces en forjar un poema,
 De arte nervioso, obra audaz y suprema.

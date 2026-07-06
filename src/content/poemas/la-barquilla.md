@@ -2,7 +2,7 @@
 titulo: "La barquilla"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: siglo-de-oro
 temas:
   - mar
@@ -11,8 +11,6 @@ autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Lope de Vega** - *Español *(1562-1635).
 
 Pobre, barquilla mía
 Entre peñascos rota,

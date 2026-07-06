@@ -2,7 +2,7 @@
 titulo: El duelo
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: posguerra
 temas:
   - amor

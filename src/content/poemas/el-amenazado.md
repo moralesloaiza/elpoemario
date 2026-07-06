@@ -2,7 +2,7 @@
 titulo: "El amenazado"
 fecha: 2011-11-01
 borrador: false
-tipo: verso-libre
+tipo: prosa-poetica
 movimiento: vanguardia
 temas:
   - amor
@@ -13,8 +13,6 @@ autor: jorge-luis-borges
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Jorge Luis Borges **- *Argentino* (1899-1986).
 
 (De su obra** El oro de los tigres**, 1972).
 

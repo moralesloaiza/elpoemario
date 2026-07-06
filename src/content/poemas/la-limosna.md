@@ -2,7 +2,7 @@
 titulo: "La limosna"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: romanticismo
 temas:
   - dios
@@ -11,8 +11,6 @@ autor: lazaro-maria-perez
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Lázaro María Pérez** - *Colombiano* (1824-1892).
 
 Oye, hija mía: cuando el pobre toca
 De puerta en puerta mendigando un pan,

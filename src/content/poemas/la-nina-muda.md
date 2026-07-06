@@ -2,7 +2,7 @@
 titulo: "La niña muda"
 fecha: 2012-01-09
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - amor
@@ -12,8 +12,6 @@ autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Ernesto Luis Rodríguez** - *Venezolano* (1916-1999).
 
 La vi sentada sobre el duro banco
 de la plaza del pueblo; parecía

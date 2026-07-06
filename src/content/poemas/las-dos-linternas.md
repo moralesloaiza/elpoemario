@@ -2,7 +2,7 @@
 titulo: "Las dos linternas"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: cuarteta
 movimiento: realismo
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Ramón de Campoamor** - *Español* (1817-1901).
 
 **I**
 

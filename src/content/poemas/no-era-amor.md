@@ -2,7 +2,7 @@
 titulo: "No era amor"
 fecha: 2011-10-30
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
@@ -11,8 +11,6 @@ autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**José Ángel Buesa** - *Cubano *(1910-1982).
 
 No era amor, fue otra cosa;
 pero, según murmuran en la ciudad aquella,

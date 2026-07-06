@@ -2,7 +2,7 @@
 titulo: "Poema 15"
 fecha: 2012-01-07
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: vanguardia
 temas:
   - muerte
@@ -12,8 +12,6 @@ autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Pablo Neruda** - *Chileno* (1904-1973).
 
 Me gustas cuando callas porque estás como ausente,
 y me oyes desde lejos y mi voz no te toca.

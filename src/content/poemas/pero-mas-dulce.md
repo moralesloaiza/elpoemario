@@ -2,7 +2,7 @@
 titulo: "Pero más dulce"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - dios
@@ -12,8 +12,6 @@ autor: carlos-borges
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Carlos Borges** - *Venezolano *(1867-1932).
 
 Ante la imagen de Jesús rezaba
 con místico fervor mi devoción,

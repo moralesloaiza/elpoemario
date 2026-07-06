@@ -2,7 +2,7 @@
 titulo: "Soleá del amor indiferente"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: decima
 movimiento: posguerra
 temas:
   - amor
@@ -11,8 +11,6 @@ autor: manuel-benitez-carrasco
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Manuel Benítez Carrasco** - *Español* (1922-1999).
 
 *Ni rencores ni perdón;*
 *no me grites…, no me llores;*

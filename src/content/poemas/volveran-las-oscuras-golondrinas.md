@@ -4,7 +4,7 @@ fecha: 2025-02-20
 fecha_actualizada: 2026-05-30
 ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_52_36.png
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: romanticismo
 temas:
   - poesia-misma

@@ -2,7 +2,7 @@
 titulo: "Una cena"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: siglo-de-oro
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: baltasar-del-alcazar
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Baltasar del Alcázar **-* Español* (1530-1606).
 
    En Jaén, donde resido,
 Vive don Lope de Sosa,

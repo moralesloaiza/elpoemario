@@ -2,7 +2,7 @@
 titulo: "A unos ojos"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: madrigal
 movimiento: siglo-de-oro
 temas:
   - poesia-misma
@@ -10,8 +10,6 @@ autor: gutierre-de-cetina
 curador: "Don Alejandro"
 es_seudonimo: true
 ---
-
-**Gutierre de Cetina** - *Español *(1520-1557).
 
 Ojos claros, serenos,
 Si de dulce mirar sois alabados,
