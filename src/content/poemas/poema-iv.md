@@ -1,8 +1,8 @@
 ---
 titulo: Poema IV
 fecha: 2025-08-17
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_30_23.png
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-22_38_58.png
 borrador: false
 tipo: redondilla
 movimiento: contemporaneo
@@ -14,9 +14,14 @@ motivos:
   - amada
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
-curador: El Poemario
+curador: Alejandro de Morales y Loaiza
 es_seudonimo: true
-nombre_real: ""
+nombre_real: Alejandro Morales Loaiza
+nota_curador: El poema cuarto está dedicado al amor imposible; a la suerte del
+  romance cortés cuya principal fuerza es su propia inviabilidad. La anáfora de
+  tono condicional marca el ritmo de los versos, pero quien los escribe sabe que
+  el encanto mismo de este idilio al que canta perecería ante cualquier intento
+  de hacerlo real y presente.
 ---
 Qué bonito, amor, sería,
 que yo pudiera quererte,
