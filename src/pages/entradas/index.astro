@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import EntradasTabs from '../../components/EntradasTabs.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -35,25 +36,43 @@ const pagina = await getPagina('bitacora');
 
     {entradas.length > 0 && (
       <ul class="lista">
-        {entradas.map((entrada) => (
-          <li class="item">
-            <a href={`/entradas/${entrada.id}/`} class="item-link">
-              <span class="item-meta">
-                <FormattedDate date={entrada.data.fecha} />
-                <span class="item-meta-sep"> · </span>
-                {entrada.data.tipo === 'correspondencia' ? 'Carta' : 'Bitácora'}
-              </span>
-              <span class="item-titulo">{entrada.data.titulo}</span>
-              {entrada.data.resumen && (
-                <span class="item-resumen">{entrada.data.resumen}</span>
-              )}
-              <span class="item-seguir">
-                <span>Seguir leyendo</span>
-                <span class="galon galon--der" aria-hidden="true"></span>
-              </span>
-            </a>
-          </li>
-        ))}
+        {entradas.map((entrada) => {
+          const kind =
+            entrada.data.tipo === 'correspondencia' ? 'Carta' : 'Bitácora';
+          return (
+            <li class="fila">
+              <div class="fila-imagen" aria-hidden="true">
+                {entrada.data.ilustracion ? (
+                  <Image
+                    src={entrada.data.ilustracion}
+                    alt=""
+                    width={480}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span class="fila-inicial">
+                    {entrada.data.titulo.trim().charAt(0).toUpperCase()}
+                  </span>
+                )}
+              </div>
+              <div class="fila-texto">
+                <p class="fila-meta">
+                  <FormattedDate date={entrada.data.fecha} />
+                  <span class="fila-meta-sep"> · </span>
+                  {kind}
+                </p>
+                <h3 class="fila-titulo">
+                  <a href={`/entradas/${entrada.id}/`}>{entrada.data.titulo}</a>
+                </h3>
+                {entrada.data.resumen && (
+                  <p class="fila-resumen">{entrada.data.resumen}</p>
+                )}
+                <span class="fila-leer">Leer la entrada →</span>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     )}
   </main>
@@ -79,73 +98,115 @@ const pagina = await getPagina('bitacora');
   .lista {
     list-style: none;
     padding: 0;
-    margin: var(--space-2xl) auto 0;
-    max-width: var(--measure);
+    margin: var(--space-xl) auto 0;
+    max-width: var(--measure-wide);
   }
-  .item-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    padding: var(--space-lg) var(--space-md);
-    border-bottom: var(--rule-hairline) solid var(--line);
+
+  /* Entry row (handoff §6): framed image | text, whole row clickable via the
+     title link's ::before overlay. Bottom hairline separates rows. */
+  .fila {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.9fr 2fr;
+    gap: var(--space-xl);
+    align-items: center;
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--rule-soft);
     transition: background-color var(--dur-fast) var(--ease-standard);
   }
-  .item:last-child .item-link {
-    border-bottom: 0;
+  .fila:has(.fila-titulo a:hover),
+  .fila:has(.fila-titulo a:focus-visible) {
+    background-color: var(--hover-tint);
   }
-  .item-link:hover,
-  .item-link:focus-visible {
-    background-color: var(--bg-elevated);
+
+  /* Passe-partout frame: --mat backing + --rule hairline, no radius. */
+  .fila-imagen {
+    border: 1px solid var(--rule);
+    background: var(--mat);
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
-  .item-meta {
+  .fila-imagen img {
     display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center 28%;
+  }
+  .fila-inicial {
+    font-family: var(--font-body);
+    font-size: var(--fs-3xl);
+    font-weight: 500;
+    color: var(--oro-texto);
+    line-height: 1;
+    padding-block: calc((180px - 1em) / 2);
+  }
+
+  .fila-texto {
+    min-width: 0;
+  }
+  .fila-meta {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
-    margin-bottom: var(--space-xs);
+    margin: 0 0 var(--space-2xs);
   }
-  .item-meta-sep {
+  .fila-meta-sep {
     color: var(--oro-suave);
   }
-  .item-titulo {
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-wide);
+  .fila-titulo {
+    font-family: var(--font-body);
+    font-size: var(--fs-2xl);
+    font-weight: 500;
     line-height: var(--lh-snug);
     color: var(--text);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 var(--space-2xs);
+    text-wrap: balance;
   }
-  .item-link:hover .item-titulo,
-  .item-link:focus-visible .item-titulo {
+  .fila-titulo a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .fila-titulo a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .fila:has(.fila-titulo a:hover) .fila-titulo,
+  .fila:has(.fila-titulo a:focus-visible) .fila-titulo {
     color: var(--oro-texto);
   }
-  .item-resumen {
-    display: block;
-    font-family: var(--font-body);
+  .fila-resumen {
+    font-family: var(--font-prose);
     font-size: var(--fs-md);
-    line-height: 1.65;
+    line-height: 1.62;
     color: var(--text-soft);
-    margin-top: var(--space-xs);
+    margin: 0 0 var(--space-sm);
   }
-  .item-seguir {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    margin-top: var(--space-sm);
+  .fila-leer {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-wide);
     text-transform: uppercase;
     color: var(--oro-texto);
   }
-  .item-seguir .galon {
-    transition: transform var(--dur-fast) var(--ease-standard);
-  }
-  .item-link:hover .item-seguir .galon,
-  .item-link:focus-visible .item-seguir .galon {
-    transform: translateX(var(--space-3xs));
+
+  /* Móvil (handoff): imagen apilada sobre el texto, una columna. */
+  @media (max-width: 640px) {
+    .fila {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    .fila-imagen img {
+      height: 200px;
+    }
   }
 </style>
