@@ -1,6 +1,8 @@
-﻿---
-titulo: "Soleá del amor indiferente"
+---
+titulo: Soleá del amor indiferente
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-21_40_47.png
 borrador: false
 tipo: decima
 movimiento: posguerra
@@ -8,8 +10,9 @@ temas:
   - amor
   - poesia-misma
 autor: manuel-benitez-carrasco
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nota_curador: ""
 ---
 
 *Ni rencores ni perdón;*
