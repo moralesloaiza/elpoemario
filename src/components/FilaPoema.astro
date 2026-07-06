@@ -1,0 +1,175 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { TIPOS_DISPLAY } from '../utils/taxonomia';
+
+// Shared "one poem in a list" row (handoff editorial treatment). Renders an
+// <li> that is a positioning context for the block-link overlay: the <a> wraps
+// only the title, and its ::before extends the clickable area over the whole
+// row. Columns are opt-in so the same component serves the Home index, the
+// full catalog and the faceta term pages:
+//   nº? · (título + autor?) · etiqueta(forma) · lugar?
+interface Props {
+  poema: CollectionEntry<'poemas'>;
+  autorNombre: string;
+  /** 1-based ordinal shown in the left column. Omit to hide the number. */
+  indice?: number;
+  /** Country/place shown in the right column (catálogo). Omit to hide it. */
+  lugar?: string;
+  /** Render the author line beneath the title (off on the author's own page). */
+  mostrarAutor?: boolean;
+  /** Heading level: h2 when the row sits directly under the page h1 (catálogo),
+   *  h3 when there is an intervening section heading (Home, facetas). */
+  encabezado?: 'h2' | 'h3';
+  /** Hidden batch for the "cargar más" progressive disclosure (facetas). */
+  oculto?: boolean;
+}
+
+const {
+  poema,
+  autorNombre,
+  indice,
+  lugar,
+  mostrarAutor = true,
+  encabezado = 'h3',
+  oculto = false,
+} = Astro.props;
+
+const Encabezado = encabezado;
+const tag = TIPOS_DISPLAY[poema.data.tipo];
+const claseFila = ['fila', indice !== undefined && 'con-num', lugar && 'con-lugar']
+  .filter(Boolean)
+  .join(' ');
+---
+
+<li class={claseFila} hidden={oculto || undefined}>
+  {indice !== undefined && (
+    <span class="fila-num" aria-hidden="true">{String(indice).padStart(2, '0')}</span>
+  )}
+  <div class="fila-obra">
+    <Encabezado class="fila-titulo">
+      <a href={`/poemas/${poema.id}/`}>{poema.data.titulo}</a>
+    </Encabezado>
+    {mostrarAutor && autorNombre && <p class="fila-autor">{autorNombre}</p>}
+  </div>
+  <span class="fila-tag">{tag}</span>
+  {lugar && <span class="fila-lugar">{lugar}</span>}
+</li>
+
+<style>
+  /* Row grid. The obra cell (título + autor) is the flexible column; the number
+     and lugar columns are opt-in via modifier classes so unused columns reserve
+     no space. Auto-flow follows source order: num, obra, tag, lugar. */
+  .fila {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 'obra tag';
+    align-items: baseline;
+    column-gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--rule-soft);
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  .fila.con-num {
+    grid-template-columns: 2.6rem 1fr auto;
+    grid-template-areas: 'num obra tag';
+  }
+  .fila.con-lugar {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: 'obra tag lugar';
+  }
+  .fila.con-num.con-lugar {
+    grid-template-columns: 2.6rem 1fr auto auto;
+    grid-template-areas: 'num obra tag lugar';
+  }
+  .fila[hidden] {
+    display: none;
+  }
+  .fila:has(.fila-titulo a:hover),
+  .fila:has(.fila-titulo a:focus-visible) {
+    background-color: var(--hover-tint);
+  }
+
+  .fila-num {
+    grid-area: num;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--num);
+  }
+
+  .fila-obra {
+    grid-area: obra;
+  }
+
+  /* Title: caja mixta Cormorant (resets the versalita/spacing of the global
+     heading rules). The <a> is the block-link; its ::before covers the row. */
+  .fila-titulo {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+    margin: 0 0 var(--space-3xs);
+  }
+  .fila-titulo a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .fila-titulo a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .fila:has(.fila-titulo a:hover) .fila-titulo,
+  .fila:has(.fila-titulo a:focus-visible) .fila-titulo {
+    color: var(--oro-texto);
+  }
+
+  .fila-autor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .fila-tag {
+    grid-area: tag;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-align: right;
+  }
+
+  .fila-lugar {
+    grid-area: lugar;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+    text-align: right;
+    min-width: 5rem;
+  }
+
+  @media (max-width: 680px) {
+    .fila,
+    .fila.con-lugar {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'obra' 'tag' 'lugar';
+    }
+    .fila.con-num,
+    .fila.con-num.con-lugar {
+      grid-template-columns: 2.6rem 1fr;
+      grid-template-areas: 'num obra' 'num tag' 'num lugar';
+    }
+    .fila-tag,
+    .fila-lugar {
+      text-align: left;
+    }
+  }
+</style>

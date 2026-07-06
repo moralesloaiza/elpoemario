@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 
 import Base from '../../layouts/Base.astro';
 import ChipsFacetas from '../../components/ChipsFacetas.astro';
+import FilaPoema from '../../components/FilaPoema.astro';
 
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
-import { TIPOS_DISPLAY } from '../../utils/taxonomia';
 
 // All non-draft poems, newest first. Full anthology, no pagination in v1.
 // For ~86 Bécquer Rimas a flat list is fine. Revisit when the corpus
@@ -43,23 +43,15 @@ const pagina = await getPagina('poemas');
       <p class="vacio">Aún no hay poemas publicados.</p>
     ) : (
       <ul class="catalogo">
-        {poemas.map((poema, i) => {
-          const autorNombre = autoresPorId.get(poema.data.autor.id) ?? '';
-          const lugar = paisPorId.get(poema.data.autor.id);
-          return (
-            <li class="fila">
-              <span class="fila-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <div class="fila-obra">
-                <h2 class="fila-titulo">
-                  <a href={`/poemas/${poema.id}/`}>{poema.data.titulo}</a>
-                </h2>
-                {autorNombre && <p class="fila-autor">{autorNombre}</p>}
-              </div>
-              <span class="fila-tag">{TIPOS_DISPLAY[poema.data.tipo]}</span>
-              {lugar && <span class="fila-lugar">{lugar}</span>}
-            </li>
-          );
-        })}
+        {poemas.map((poema, i) => (
+          <FilaPoema
+            poema={poema}
+            autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
+            indice={i + 1}
+            lugar={paisPorId.get(poema.data.autor.id)}
+            encabezado="h2"
+          />
+        ))}
       </ul>
     )}
   </section>
@@ -82,100 +74,11 @@ const pagina = await getPagina('poemas');
     margin-top: var(--space-2xl);
   }
 
-  /* Catálogo como lista de filas (handoff): nº · (título + autor) · etiqueta ·
-     lugar, separadas por filetes de 1px. Fila-enlace: el ::before del título
-     extiende el área clicable a toda la fila. */
+  /* Catálogo como lista de filas compartidas (FilaPoema): nº · (título +
+     autor) · etiqueta · lugar. Cada fila trae su propio filete superior. */
   .catalogo {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .fila {
-    position: relative;
-    display: grid;
-    grid-template-columns: 2.6rem 1fr auto auto;
-    grid-template-areas: 'num obra tag lugar';
-    align-items: baseline;
-    column-gap: var(--space-lg);
-    padding: var(--space-md) 0;
-    border-top: 1px solid var(--rule-soft);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .fila:has(.fila-titulo a:hover),
-  .fila:has(.fila-titulo a:focus-visible) {
-    background-color: var(--hover-tint);
-  }
-  .fila-num {
-    grid-area: num;
-    font-family: var(--font-body);
-    font-size: var(--fs-md);
-    color: var(--num);
-  }
-  .fila-obra {
-    grid-area: obra;
-  }
-  .fila-titulo {
-    font-family: var(--font-body);
-    font-size: var(--fs-lg);
-    font-weight: 500;
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-3xs);
-    color: var(--text);
-    text-transform: none;
-    letter-spacing: 0;
-  }
-  .fila-titulo a {
-    text-decoration: none;
-    color: inherit;
-    border-bottom: none;
-  }
-  .fila-titulo a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-  .fila:has(.fila-titulo a:hover) .fila-titulo,
-  .fila:has(.fila-titulo a:focus-visible) .fila-titulo {
-    color: var(--oro-texto);
-  }
-  .fila-autor {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-muted);
-    margin: 0;
-  }
-  .fila-tag {
-    grid-area: tag;
-    font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    text-align: right;
-  }
-  .fila-lugar {
-    grid-area: lugar;
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-faint);
-    text-align: right;
-    min-width: 5rem;
-  }
-
-  @media (max-width: 680px) {
-    .fila {
-      grid-template-columns: 2.6rem 1fr;
-      grid-template-areas:
-        'num obra'
-        'num tag'
-        'num lugar';
-      row-gap: var(--space-3xs);
-    }
-    .fila-tag,
-    .fila-lugar {
-      text-align: left;
-    }
   }
 </style>

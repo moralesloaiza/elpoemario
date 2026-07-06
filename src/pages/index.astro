@@ -3,8 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Destacado from '../components/Destacado.astro';
+import FilaPoema from '../components/FilaPoema.astro';
 import { SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
-import { TIPOS_DISPLAY } from '../utils/taxonomia';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 import type { ImageMetadata } from 'astro';
@@ -143,14 +143,11 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       </div>
       <ul class="lista-poemas">
         {ultimos.map((poema, i) => (
-          <li class="fila-poema">
-            <span class="fila-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-            <h3 class="fila-titulo">
-              <a href={`/poemas/${poema.id}/`}>{poema.data.titulo}</a>
-            </h3>
-            <span class="fila-autor">{autoresPorId.get(poema.data.autor.id) ?? ''}</span>
-            <span class="fila-tag">{TIPOS_DISPLAY[poema.data.tipo]}</span>
-          </li>
+          <FilaPoema
+            poema={poema}
+            autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
+            indice={i + 1}
+          />
         ))}
       </ul>
     </section>
@@ -281,73 +278,12 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     border-bottom: none;
   }
 
-  /* Índice «Últimos poemas» como lista (handoff): nº · título · autor ·
-     etiqueta, separados por filetes de 1px. Fila-enlace: el ::before del
-     título extiende el área clicable a toda la fila. */
+  /* Índice «Últimos poemas» como lista de filas compartidas (FilaPoema): nº ·
+     título · autor · etiqueta. Cada fila trae su propio filete superior. */
   .lista-poemas {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .fila-poema {
-    position: relative;
-    display: grid;
-    grid-template-columns: 2.4rem 1fr auto auto;
-    grid-template-areas: 'num titulo autor tag';
-    align-items: baseline;
-    column-gap: var(--space-lg);
-    padding: var(--space-md) 0;
-    border-top: 1px solid var(--rule-soft);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .fila-poema:has(.fila-titulo a:hover),
-  .fila-poema:has(.fila-titulo a:focus-visible) {
-    background-color: var(--hover-tint);
-  }
-  .fila-num {
-    grid-area: num;
-    font-family: var(--font-body);
-    font-size: var(--fs-md);
-    color: var(--num);
-  }
-  .fila-titulo {
-    grid-area: titulo;
-    font-family: var(--font-body);
-    font-size: var(--fs-lg);
-    font-weight: 500;
-    line-height: var(--lh-snug);
-    margin: 0;
-    color: var(--text);
-  }
-  .fila-titulo a {
-    text-decoration: none;
-    color: inherit;
-    border-bottom: none;
-  }
-  .fila-titulo a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-  .fila-poema:has(.fila-titulo a:hover) .fila-titulo,
-  .fila-poema:has(.fila-titulo a:focus-visible) .fila-titulo {
-    color: var(--oro-texto);
-  }
-  .fila-autor {
-    grid-area: autor;
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-muted);
-  }
-  .fila-tag {
-    grid-area: tag;
-    font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    text-align: right;
   }
 
   /* ── Barra «Descubrir»: 4 celdas con borde (handoff) ───────────────── */
@@ -451,17 +387,6 @@ if (destacadoCfg && destacadoCfg.data.activo) {
   }
 
   @media (max-width: 680px) {
-    .fila-poema {
-      grid-template-columns: 2.4rem 1fr;
-      grid-template-areas:
-        'num titulo'
-        'num autor'
-        'num tag';
-      row-gap: var(--space-3xs);
-    }
-    .fila-tag {
-      text-align: left;
-    }
     .descubrir-bar {
       grid-template-columns: repeat(2, 1fr);
     }

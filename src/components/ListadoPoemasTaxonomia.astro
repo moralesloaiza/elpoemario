@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import PoemaCard from './PoemaCard.astro';
+import FilaPoema from './FilaPoema.astro';
 
 interface Props {
   rotulo: string;
@@ -32,13 +32,12 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
     {poemas.length > 0 && (
       <ul class="lista">
         {poemas.map((p, i) => (
-          <li class="item" hidden={i >= 18}>
-            <PoemaCard
-              poema={p}
-              autorNombre={autorMap.get(p.data.autor.id) ?? 'Desconocido'}
-              mostrarAutor={true}
-            />
-          </li>
+          <FilaPoema
+            poema={p}
+            autorNombre={autorMap.get(p.data.autor.id) ?? 'Desconocido'}
+            indice={i + 1}
+            oculto={i >= 18}
+          />
         ))}
       </ul>
     )}
@@ -52,7 +51,7 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
 </main>
 
 <script>
-  // Progressive disclosure: reveal additional batches of 18 cards on click.
+  // Progressive disclosure: reveal additional batches of 18 rows on click.
   // Replicates the Fabulario pattern; remains inert when the list is short.
   const PASO = 18;
   const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
@@ -67,14 +66,14 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
 
       lote.forEach((el) => el.removeAttribute('hidden'));
 
-      // Move focus to the first card of the just-revealed batch.
-      const primera = lote[0]?.querySelector<HTMLElement>('.card');
+      // Move focus to the title link of the first just-revealed row.
+      const primera = lote[0]?.querySelector<HTMLElement>('.fila-titulo a');
       if (primera) {
         primera.setAttribute('tabindex', '-1');
         primera.focus();
       }
 
-      // Hide the button once no hidden cards remain.
+      // Hide the button once no hidden rows remain.
       if (ocultos.length <= PASO) {
         boton.setAttribute('hidden', '');
       }
@@ -118,21 +117,11 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
     font-style: italic;
     color: var(--text-soft);
   }
-  .item:not([hidden]) {
-    display: grid;
-  }
+  /* List of shared FilaPoema rows (each row carries its own top rule). */
   .lista {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: var(--measure-grid);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-  }
-  /* Hidden batches for "cargar mas": overrides the grid's implicit display. */
-  [hidden] {
-    display: none !important;
+    margin: 0;
   }
   .cargar-mas {
     display: block;
@@ -148,13 +137,11 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
     cursor: pointer;
     transition: background-color var(--dur-fast) var(--ease-standard);
   }
+  .cargar-mas[hidden] {
+    display: none;
+  }
   .cargar-mas:hover,
   .cargar-mas:focus-visible {
     background-color: var(--hover-tint);
-  }
-  @media (max-width: 680px) {
-    .lista {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
