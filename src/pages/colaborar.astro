@@ -39,11 +39,15 @@ const { Content } = await render(pagina);
   }
   .title h1 {
     margin: 0;
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: var(--fs-3xl);
+    text-transform: none;
+    letter-spacing: 0;
     text-wrap: balance;
   }
   .prose {
-    max-width: var(--measure);
+    max-width: var(--measure-grid);
     margin-inline: auto;
   }
   /* Body is rendered from markdown via <Content/>; target inner elements

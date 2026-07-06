@@ -20,10 +20,26 @@ const pagina = await getPagina('buscar');
 			<p class="subtitulo" data-subtitulo>{pagina.data.subtitulo}</p>
 		</header>
 
+		<form class="campo-buscar" action="/buscar/" method="get" role="search">
+			<svg class="campo-lupa" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+				<circle cx="6" cy="6" r="4.4" stroke="currentColor" stroke-width="1.2"></circle>
+				<line x1="9.3" y1="9.3" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.2"></line>
+			</svg>
+			<input
+				type="search"
+				name="q"
+				data-campo-q
+				placeholder="Título, autor, verso, tema…"
+				aria-label="Buscar en el repertorio"
+				autocomplete="off"
+			/>
+			<button type="submit" class="campo-boton">Buscar</button>
+		</form>
+
 		<div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
 		<section class="sugerencias" hidden data-sugerencias>
-			<p class="sugerencias-rotulo">Sugerencias</p>
+			<p class="sugerencias-rotulo">Búsquedas frecuentes</p>
 			<ul class="sugerencias-lista" data-sugerencias-lista></ul>
 		</section>
 
@@ -74,6 +90,11 @@ const pagina = await getPagina('buscar');
 
 	const params = new URLSearchParams(window.location.search);
 	const q = (params.get('q') ?? '').trim();
+
+	// Prefill the on-page search field with the active query (static build,
+	// so this is set client-side).
+	const campoQ = document.querySelector<HTMLInputElement>('[data-campo-q]');
+	if (campoQ) campoQ.value = q;
 
 	const titulo = document.querySelector<HTMLElement>('[data-titulo]')!;
 	const subtitulo = document.querySelector<HTMLElement>('[data-subtitulo]')!;
@@ -204,7 +225,72 @@ const pagina = await getPagina('buscar');
 	}
 	.serp-titulo h1 {
 		margin: 0 0 var(--space-sm);
+		font-family: var(--font-body);
+		font-weight: 500;
 		font-size: var(--fs-3xl);
+		text-transform: none;
+		letter-spacing: 0;
+	}
+
+	/* Campo de búsqueda en la página (handoff §11): lupa + input + botón
+	   «Buscar» en tinta sólida, dentro de un marco 1px --text. Envía por GET a
+	   /buscar/?q= (funciona sin JS; el script existente lee ?q=). */
+	.campo-buscar {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		max-width: var(--measure-grid);
+		margin: var(--space-xl) auto 0;
+		border: 1px solid var(--text);
+		padding: 6px 6px 6px var(--space-md);
+	}
+	.campo-buscar:focus-within {
+		outline: 2px solid var(--oro-texto);
+		outline-offset: 2px;
+	}
+	.campo-lupa {
+		flex: none;
+		width: 20px;
+		height: 20px;
+		color: var(--oro-texto);
+	}
+	.campo-buscar input {
+		flex: 1;
+		min-width: 0;
+		background: transparent;
+		border: 0;
+		color: var(--text);
+		font-family: var(--font-body);
+		font-size: var(--fs-lg);
+		padding: 0.5em 0;
+	}
+	.campo-buscar input:focus,
+	.campo-buscar input:focus-visible {
+		outline: none;
+	}
+	.campo-buscar input::placeholder {
+		color: var(--text-muted);
+		opacity: 0.8;
+	}
+	.campo-boton {
+		flex: none;
+		font-family: var(--font-meta);
+		font-size: var(--fs-3xs);
+		letter-spacing: var(--ls-wide);
+		text-transform: uppercase;
+		color: var(--btn-ink);
+		background: var(--btn-bg);
+		border: 1px solid var(--btn-bg);
+		padding: 0.85em 1.4em;
+		cursor: pointer;
+		transition:
+			background var(--dur-fast) var(--ease-standard),
+			color var(--dur-fast) var(--ease-standard);
+	}
+	.campo-boton:hover,
+	.campo-boton:focus-visible {
+		background: transparent;
+		color: var(--btn-bg);
 	}
 	.subtitulo kbd {
 		font-family: monospace;
@@ -217,16 +303,16 @@ const pagina = await getPagina('buscar');
 	}
 
 	.sugerencias {
-		max-width: var(--measure);
+		max-width: var(--measure-grid);
 		margin: var(--space-2xl) auto 0;
-		text-align: center;
+		text-align: left;
 	}
 	.sugerencias-rotulo {
 		font-family: var(--font-display);
 		font-size: var(--fs-3xs);
-		letter-spacing: var(--ls-widest);
+		letter-spacing: var(--ls-wider);
 		text-transform: uppercase;
-		color: var(--oro-texto);
+		color: var(--text-muted);
 		margin: 0 0 var(--space-md);
 	}
 	.sugerencias-lista {
@@ -235,26 +321,28 @@ const pagina = await getPagina('buscar');
 		margin: 0;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--space-2xs);
+		gap: var(--space-sm);
 	}
+	/* Chips de búsqueda frecuente (handoff): Cormorant caja mixta, borde --rule. */
 	.sugerencias-lista :global(.chip) {
 		display: inline-block;
-		font-family: var(--font-display);
-		font-size: var(--fs-3xs);
-		letter-spacing: var(--ls-wide);
-		text-transform: uppercase;
-		color: var(--text-soft);
+		font-family: var(--font-body);
+		font-size: var(--fs-md);
+		letter-spacing: 0;
+		text-transform: none;
+		color: var(--text);
 		text-decoration: none;
-		border: var(--rule-hairline) solid var(--oro-suave);
-		padding: var(--space-2xs) var(--space-sm);
+		border: 1px solid var(--rule);
+		padding: var(--space-2xs) var(--space-md);
 		transition:
 			color var(--dur-fast) var(--ease-standard),
-			border-color var(--dur-fast) var(--ease-standard);
+			border-color var(--dur-fast) var(--ease-standard),
+			background-color var(--dur-fast) var(--ease-standard);
 	}
 	.sugerencias-lista :global(.chip:hover) {
 		color: var(--oro-texto);
 		border-color: var(--oro);
+		background-color: var(--hover-tint);
 	}
 
 	.resultados {
