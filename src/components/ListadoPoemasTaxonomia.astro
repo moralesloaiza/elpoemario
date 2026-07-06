@@ -22,6 +22,8 @@ const { rotulo, display, poemas, autorMap, contadorTexto, vacioTexto } = Astro.p
 
   <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
+  <slot name="intro" />
+
   <section class="poemas-de-taxonomia" aria-labelledby="lista-titulo">
     <h2 id="lista-titulo">{contadorTexto}</h2>
 

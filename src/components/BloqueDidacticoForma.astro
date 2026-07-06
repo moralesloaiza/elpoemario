@@ -1,0 +1,110 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { marked } from 'marked';
+
+interface Props {
+  forma: CollectionEntry<'formas'>;
+}
+
+const { forma } = Astro.props;
+const { descripcion, ejemplo_autor, ejemplo_obra, metrica } = forma.data;
+
+// Inline markdown for the prose description: allows *italics* for work titles
+// without wrapping the text in a <p> (parseInline emits no block wrapper).
+const descripcionHtml = marked.parseInline(descripcion, { async: false }) as string;
+
+// The example verse is the .md body; remark-breaks turns each line into a
+// verse, same as poema bodies.
+const { Content } = await render(forma);
+
+// Metric line joins `medida` and `rima` with a middot; omit the whole line
+// when neither is present (e.g. verso-libre, prosa-poetica).
+const metricaTexto = [metrica?.medida, metrica?.rima].filter(Boolean).join(' · ');
+---
+
+<section class="bloque-forma" aria-label="Sobre esta forma">
+  <p class="descripcion" set:html={descripcionHtml} />
+
+  <figure class="especimen">
+    <figcaption class="especimen-rotulo">Ejemplo</figcaption>
+    <div class="verso prose--verso">
+      <Content />
+    </div>
+    {metricaTexto && <p class="metrica">{metricaTexto}</p>}
+    <p class="atribucion">
+      {ejemplo_autor}{ejemplo_obra && <>, <cite>{ejemplo_obra}</cite></>}
+    </p>
+  </figure>
+</section>
+
+<style>
+  .bloque-forma {
+    max-width: var(--measure);
+    margin: var(--space-xl) auto var(--space-2xl);
+  }
+
+  /* Prose description: Cormorant 500, left-aligned, soft ink. */
+  .descripcion {
+    max-width: var(--measure-grid);
+    margin: 0 auto var(--space-xl);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-relaxed);
+    color: var(--text-soft);
+  }
+  .descripcion :global(em) {
+    font-style: italic;
+  }
+
+  /* Specimen: accent hairline rule (no full box → honours "cero marcos"),
+     reusing the site's accent-quote pattern from Poema.astro. */
+  .especimen {
+    max-width: var(--measure-grid);
+    margin: 0 auto;
+    padding: var(--space-2xs) 0 var(--space-2xs) var(--space-lg);
+    border-left: 2px solid var(--accent);
+  }
+  .especimen-rotulo {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-md);
+  }
+
+  /* Verse: same treatment as Poema.astro (hanging indent, verse ink,
+     poema line-height). Left-aligned inside the specimen, not centered. */
+  .verso {
+    font-family: var(--font-body);
+    font-size: var(--fs-poema);
+    line-height: var(--lh-poema);
+    color: var(--verse);
+  }
+  .verso :global(p) {
+    margin: 0;
+    padding-inline-start: 2ch;
+    text-indent: -2ch;
+  }
+
+  /* Metric line: Cinzel micro, uppercase, muted. */
+  .metrica {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: var(--space-md) 0 var(--space-2xs);
+  }
+  .atribucion {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .atribucion cite {
+    font-style: italic;
+  }
+</style>

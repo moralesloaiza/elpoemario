@@ -176,6 +176,30 @@ const destacado = defineCollection({
     ),
 });
 
+// Non-routed didactic collection. One .md per `tipo` slug feeds the intro
+// block on /tipos/<slug>/ (rendered conditionally: no file → page unchanged).
+// The body is the public-domain example verse (remark-breaks turns each line
+// into a verse). Slug ∈ TIPOS is asserted at build in src/utils/formas.ts.
+const formas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/formas' }),
+  schema: z.object({
+    descripcion: z.string(),
+    ejemplo_autor: z.string(),
+    ejemplo_obra: optionalString(),
+    // Optional structured metrics. Decap sends "" / null when the object or
+    // its fields are cleared; normalize both the object and each inner field.
+    metrica: z.preprocess(
+      (v) => (v === '' || v === null ? undefined : v),
+      z
+        .object({
+          medida: optionalString(),
+          rima: optionalString(),
+        })
+        .optional(),
+    ),
+  }),
+});
+
 const paginas = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/paginas' }),
   schema: z.object({
@@ -194,4 +218,4 @@ const paginas = defineCollection({
   }),
 });
 
-export const collections = { poemas, autores, entradas, destacado, paginas };
+export const collections = { poemas, autores, entradas, destacado, paginas, formas };
