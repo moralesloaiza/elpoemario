@@ -1,8 +1,8 @@
 ---
 titulo: Existes
 fecha: 2025-03-05
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_36_25.png
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_30_29.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
@@ -14,9 +14,13 @@ motivos:
   - amada
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
-curador: El Poemario
-es_seudonimo: false
-nombre_real: ""
+curador: Alejandro de Morales y Loaiza
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Este poema se erige como la contrapartida dialéctica de mis
+  composiciones previas sobre el amor imposible o lejano. Si aquellos versos
+  idealizaban la distancia, estos cantan a un amor presente, tangible y a ratos
+  irresistible, del que el yo lírico siente la paradojal necesidad de escapar
 ---
 Existen miradas que en el alma se nos posan,
 que imploran como plegaria el amor sincero;
