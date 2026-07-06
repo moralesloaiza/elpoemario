@@ -2,8 +2,9 @@
 titulo: Glosa del amor vedado
 fecha: 2011-08-09
 fecha_actualizada: 2026-06-24
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-20_41_54.png
 borrador: false
-tipo: glosa
+tipo: verso-libre
 movimiento: contemporaneo
 temas:
   - dios
