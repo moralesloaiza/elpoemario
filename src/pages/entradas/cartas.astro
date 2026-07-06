@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import EntradasTabs from '../../components/EntradasTabs.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
+import FilaEntrada from '../../components/FilaEntrada.astro';
 
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
@@ -42,20 +42,7 @@ const pagina = await getPagina('cartas');
     {cartas.length > 0 && (
       <ul class="lista">
         {cartas.map((entrada) => (
-          <li class="item">
-            <a href={`/entradas/${entrada.id}/`} class="item-link">
-              <span class="item-texto">
-                <span class="item-marca">Carta</span>
-                <span class="item-titulo">{entrada.data.titulo}</span>
-                {entrada.data.remitente && (
-                  <span class="item-remitente">de {entrada.data.remitente}</span>
-                )}
-              </span>
-              <span class="item-fecha">
-                <FormattedDate date={entrada.data.fecha} />
-              </span>
-            </a>
-          </li>
+          <FilaEntrada entrada={entrada} />
         ))}
       </ul>
     )}
@@ -90,69 +77,7 @@ const pagina = await getPagina('cartas');
   .lista {
     list-style: none;
     padding: 0;
-    margin: var(--space-2xl) 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-    background-color: color-mix(in srgb, var(--oro) 16%, transparent);
-    border: var(--rule-hairline) solid color-mix(in srgb, var(--oro) 16%, transparent);
-  }
-  .item-link {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-2xs) var(--space-lg);
-    text-decoration: none;
-    color: inherit;
-    background-color: var(--bg);
-    padding: var(--space-md);
-    border-bottom: none;
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .item-link:hover,
-  .item-link:focus-visible {
-    background-color: var(--bg-elevated);
-  }
-  .item-texto {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-sm) var(--space-md);
-    min-width: 0;
-  }
-  .item-marca {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--oro-texto);
-    flex: none;
-  }
-  .item-titulo {
-    font-family: var(--font-display);
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-regular);
-    letter-spacing: var(--ls-wide);
-    line-height: var(--lh-snug);
-    color: var(--text);
-  }
-  .item-link:hover .item-titulo,
-  .item-link:focus-visible .item-titulo {
-    color: var(--oro-texto);
-  }
-  .item-remitente {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
-    flex: none;
-  }
-  .item-fecha {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-soft);
-    flex: none;
+    margin: var(--space-xl) auto 0;
+    max-width: var(--measure-wide);
   }
 </style>

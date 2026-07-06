@@ -566,3 +566,35 @@ cuadricula).
 
 Estado: fusionado en main.
 
+---
+
+23. Cierre de Fase 2: reversion de «cero marcos» a passe-partout, y baja de PoemaCard
+
+Este registro es append-only: no reescribe las entradas previas, las anota. Dos
+hechos de la Fase 2 dejaron secciones anteriores desalineadas con el codigo; se
+consignan aqui para que el log no se contradiga.
+
+(a) Reversion de «cero marcos». La direccion austera de R1–R6 —celda de texto
+sin imagen (R1), retrato de autor sin borde (R6), y la regla explicita «cero
+marcos en cualquier imagen» (§9 R6, §12)— fue REVERTIDA por el trabajo editorial
+posterior de la Fase 2 (paginas de lectura / anatomia de fila de bitacora). El
+patron vigente ya no es «sin marco»: toda miniatura o imagen de fila va montada
+en un passe-partout —fondo --mat + filete hairline --rule, sin radio, con la
+imagen respirando dentro de un padding—, visible hoy en las filas de entrada de
+/entradas/ (bitacora) y /entradas/cartas/. El fallback cuando no hay ilustracion
+es la inicial del titulo dentro del mismo marco, no un ornamento. Los tokens
+--mat y --rule son la superficie de este tratamiento. La regla «cero marcos»
+queda ANULADA como principio general; sobrevive solo como nota historica de la
+etapa R1–R6.
+
+(b) Baja de PoemaCard. `PoemaCard.astro` fue ELIMINADO al unificar «un poema en
+una lista» en el componente compartido `FilaPoema.astro` (rama
+refactor/fila-poema-unificada, PR #348). Toda mencion a `PoemaCard` en este
+registro —§9 (R1, R6), §10 y §22— es historica: describe el estado del codigo en
+su momento, no el actual. Las vistas que consumian PoemaCard (Home, /poemas,
+taxonomia, poemas de la ficha de autor) hoy renderizan filas via `FilaPoema`.
+`AutorCard` y `OrnamentoTarjeta` siguen vivos (este ultimo como fallback de
+retrato en la ficha de autor, §9 R6).
+
+Estado: documentado; el codigo referido ya esta en main.
+
