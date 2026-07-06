@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Lope de Vega** - *Español* (1562-1635).
-
 Juntáronse los ratones,
 Para librarse del gato;
 Y después de un largo rato

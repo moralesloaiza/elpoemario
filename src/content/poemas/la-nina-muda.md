@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ernesto Luis Rodríguez** - *Venezolano* (1916-1999).
-
 La vi sentada sobre el duro banco
 de la plaza del pueblo; parecía
 una flor a la orilla de un barranco;

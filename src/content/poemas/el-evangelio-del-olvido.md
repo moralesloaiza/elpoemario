@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Alfonso Marín** - *Venezolano.*
-
 Esta noche nos hemos olvidado de todo.
 ¡Qué hermoso es el olvido!
 Tu corazón es un reloj de arena

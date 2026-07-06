@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Andrés Bello** - *Venezolano* (1781-1865).
-
 No dudes, hermosa Elvira,
 que eres mi bien, mi tesoro,
 que te idolatro y adoro;

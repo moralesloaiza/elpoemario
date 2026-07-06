@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**César Casas Medina** - *Colombiano.*
-
 Amor como este amor nunca he sentido;
 como a ti con el alma a nadie quise;
 yo todos los amores los deshice

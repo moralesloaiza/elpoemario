@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1847-1892).
-
 Tu voz, tu voz…recuerdo bien la hora
 primera en que la oí, blando rüido
 de céfiro entre flores escondido,

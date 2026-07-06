@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Pedro Calderón de la Barca** - *Español* (1600-1681).
-
 A cuatro o cinco chiquillos
 Daba de comer su padre
 Cada día; y como eran

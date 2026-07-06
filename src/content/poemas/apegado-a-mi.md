@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Gabriela Mistral **- *Chilena* (1889-1957).
-
 Velloncito de mi carne,
 que en mi entraña yo tejí,
 velloncito friolento,

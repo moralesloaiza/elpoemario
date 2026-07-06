@@ -14,8 +14,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
-
 *Balada.*
 
 — Di, madre, ¿por qué la flor,

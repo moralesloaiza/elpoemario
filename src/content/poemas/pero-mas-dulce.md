@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Carlos Borges** - *Venezolano *(1867-1932).
-
 Ante la imagen de Jesús rezaba
 con místico fervor mi devoción,
 cuando cerca de mí pasó una hermana,

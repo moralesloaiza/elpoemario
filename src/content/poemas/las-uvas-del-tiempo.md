@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Andrés Eloy Blanco **- *Venezolano* (1897-1955).
-
 Madre: esta noche se nos muere un año.
 En esta ciudad grande, todos están de fiesta;
 zambombas, serenatas, gritos, ¡ah, cómo gritan!;

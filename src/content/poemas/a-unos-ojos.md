@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Gutierre de Cetina** - *Español *(1520-1557).
-
 Ojos claros, serenos,
 Si de dulce mirar sois alabados,
 ¿Por qué, si me miráis, miráis airados?

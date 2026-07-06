@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Heli Colombani **- *Venezolano* (1932)
-
 Con el dolor del viajero
 que deja la casa sola
 quisiera escribir mis versos

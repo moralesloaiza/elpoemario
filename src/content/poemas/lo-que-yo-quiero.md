@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Pedro Junco Jr.** - *Cubano* (1920-1943).
-
 Lo que yo quiero
 es encontrarte una noche
 que la luna haya hecho bella

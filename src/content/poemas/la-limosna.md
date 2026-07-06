@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Lázaro María Pérez** - *Colombiano* (1824-1892).
-
 Oye, hija mía: cuando el pobre toca
 De puerta en puerta mendigando un pan,
 Nos lo pide por Dios, y el Dios que invoca

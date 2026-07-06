@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Bernardo de Balbuena** -* Puertorriqueño* (1568-1627).
-
 Entre la tierra, el cielo, el mar y el viento
 Un soberbio castillo está labrado,
 Que aunque de huecos aires su cimiento

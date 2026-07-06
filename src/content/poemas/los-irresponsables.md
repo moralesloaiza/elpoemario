@@ -14,8 +14,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Joaquín Dicenta** - *Español* (1862-1917).
-
 De un hogar rico y dichoso
 disfrutaban por igual
 un marido cariñoso,

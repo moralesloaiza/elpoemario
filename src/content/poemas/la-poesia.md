@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ricardo Palma** –* Peruano* (1833-1919).
-
 — ¿Es arte del demonio o brujería
 Esto de escribir versos? (le decía
 No sé si a Calderón o Garcilaso

@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Federico García Lorca** -* Español *(1898 - 1936).
-
 La luna vino a la fragua
 con su polisón de nardos.
 El niño la mira, mira.

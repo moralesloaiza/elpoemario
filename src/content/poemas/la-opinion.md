@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ramón de Campoamor** -* Español* (1817-1901).
-
 ¡Pobre Carolina mía!
 Nunca la podré olvidar.
 Ved lo que el mundo decía

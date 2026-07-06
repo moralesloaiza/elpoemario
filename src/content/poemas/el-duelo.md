@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Manuel Mur Oti **- *Español *(1908-2003).
-
 ¿Qué cómo fue, señora?…
 Como son las cosas cuando son del alma,
 Ella era muy linda, y él era muy hombre,

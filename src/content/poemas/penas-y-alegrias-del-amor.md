@@ -15,8 +15,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Rafael de León y Arias de Saavedra **- *Español *(1908-1982).
-
 Mira cómo se me pone
 la piel cuando te recuerdo…
 

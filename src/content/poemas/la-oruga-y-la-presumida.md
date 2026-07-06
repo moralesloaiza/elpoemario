@@ -14,8 +14,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Lope de Vega** - *Español *(1562-1635).
-
 —¡Vil oruga! ¡bicho infame,
 Que en la pobre flor te ensañas,
 Y asquerosa el árbol dañas!

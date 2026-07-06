@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Flora Delmis** - *Venezolana.*
-
 Cuando se quiere así como te quiero,
 con tanto furor, ¡con ansias tantas…!,
 no importa nada; tú eres lo primero:

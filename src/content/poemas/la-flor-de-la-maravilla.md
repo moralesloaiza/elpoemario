@@ -15,8 +15,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Luis de Góngora** - *Español* (1561-1621).
-
 *Aprended, flores, de mí*
 *Lo que va de ayer a hoy;*
 *Que ayer Maravilla fuí,*

@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Martí **- *Cubano* (1853-1895).
-
 Por las mañanas
 Mi pequeñuelo
 Me despertaba

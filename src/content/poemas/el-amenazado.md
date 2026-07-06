@@ -14,8 +14,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Jorge Luis Borges **- *Argentino* (1899-1986).
-
 (De su obra** El oro de los tigres**, 1972).
 
 Es el amor. Tendré que ocultarme o que huir.

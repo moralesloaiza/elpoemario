@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José María Pemán** - *Español* (1897-1981).
-
 ¡Cómo volaba el pensamiento mío!…
 Fue un dulce anochecer. Se adivinaba
 por su rumor, bajo la peña, el Río,

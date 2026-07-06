@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Eusebio Blasco **- *Español* (1844-1903).
-
 Explicando una tarde anatomía
 un sabio profesor,
 del corazón a sus alumnos daba

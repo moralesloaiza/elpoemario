@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Rodríguez** - *Venezolano*.
-
 Me encantaría invitarte
 a escapar para siempre del neón y del concreto.
 Bajo árboles inconscientes de la muerte,

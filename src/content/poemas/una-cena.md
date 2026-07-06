@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Baltasar del Alcázar **-* Español* (1530-1606).
-
    En Jaén, donde resido,
 Vive don Lope de Sosa,
 Y diréte, Inés, la cosa

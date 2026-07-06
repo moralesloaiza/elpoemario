@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ramón de Campoamor** - *Español* (1817-1901).
-
 **I**
 
 De Diógenes compré un día

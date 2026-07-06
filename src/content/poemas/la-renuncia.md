@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Andrés Eloy Blanco** - *Venezolano* (1897-1955).
-
 He renunciado a ti. No era posible.
 Fueron vapores de la fantasía;
 son ficciones que a veces dan a lo inaccesible

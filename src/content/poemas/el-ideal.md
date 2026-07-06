@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juana Borrero** - *Cubana *(1877-1896).
-
 ¡Yo lo siento en mi alma!… Él me reanima
 Y me presta el calor del entusiasmo,
 Él me muestra a lo lejos, siempre verde,

@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Pedroni** - *Argentino* (1899-1968).
-
 Mujer: en un silencio que me sabrá a ternura
 durante nueve lunas crecerá tu cintura;
 y en el mes de la siega tendrás color de espiga,

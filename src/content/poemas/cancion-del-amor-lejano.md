@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Ángel Buesa** -* Cubano *(1910-1982).
-
 Ella no fue, entre todas, la más bella,
 pero me dio el amor más hondo y largo.
 Otras me amaron más, y, sin embargo,

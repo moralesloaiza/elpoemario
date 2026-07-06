@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ernesto Luis Rodríguez **- *Venezolano* (1917 - 1965).
-
 Tus ojos tienen algo de lo que nunca llega,
 distantes, infinitos, profundos como el mar,
 de luz inaccesible como de niña ciega,

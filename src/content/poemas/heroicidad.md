@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Ricardo Palma** – *Peruano* (1833-1919).
-
 — ¡No bebo más! ¡No bebo!—repetía
 Uno a quien siempre conocí borracho. —
 No quiero ser más débil que un muchacho.

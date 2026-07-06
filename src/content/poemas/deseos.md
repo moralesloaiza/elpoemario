@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Salvador Díaz Mirón** -* Mexicano *(1853-1928).
-
 Yo quisiera salvar esa distancia,
 ese abismo fatal que nos divide,
 y embriagarme de amor con la fragancia

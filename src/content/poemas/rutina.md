@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Rafael Cadenas** – *Venezolano *(1930)
-
 Me fustigo.
 Me abro la carne.
 Me exhibo sobre un escenario.

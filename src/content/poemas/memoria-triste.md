@@ -17,8 +17,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
-
 ¡Quién pudiera volver a aquellos tiempos
 en que era el porvenir sueño de oro
 de juventud lozana y de alegría,

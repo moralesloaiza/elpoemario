@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-Rubén Darío - Nicaragüense (1867-1916).
-
 Las hadas, las bellas hadas,
 existen, mi dulce niña,
 Juana de Arco las vio aladas,

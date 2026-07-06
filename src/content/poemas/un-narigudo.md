@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Francisco de Quevedo** - *Español* (1580-1645).
-
 Érase un hombre a una nariz pegado,
 Érase una nariz superlativa,
 Érase una nariz sayón y escriba,

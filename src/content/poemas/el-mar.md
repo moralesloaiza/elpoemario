@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Rafael María Baralt** - *Venezolano* (1810-1860).
-
 Te admiro, ¡oh mar!, si la movible arena
 besas rendida al pie de tu muralla,
 o si bramas furioso cuando estalla

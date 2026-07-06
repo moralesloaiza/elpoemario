@@ -15,8 +15,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Eduardo Marquina** - *Español *(1879-1946).
-
 ¡Dios te bendiga, amor, porque eres bella!
 ¡Dios te bendiga, amor, porque eres mía!
 ¡Dios te bendiga, amor, cuando te miro!

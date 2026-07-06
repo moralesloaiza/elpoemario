@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Manuel Benítez Carrasco** - *Español* (1922-1999).
-
 *Ni rencores ni perdón;*
 *no me grites…, no me llores;*
 *lo nuestro ya se acabó.*

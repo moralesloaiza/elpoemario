@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Ángel Buesa** - *Cubano *(1910-1982).
-
 No era amor, fue otra cosa;
 pero, según murmuran en la ciudad aquella,
 yo cometí el delito de inventarte una estrella,

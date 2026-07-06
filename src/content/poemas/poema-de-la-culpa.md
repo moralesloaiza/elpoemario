@@ -15,8 +15,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Ángel Buesa **- *Cubano* (1910-1982).
-
 Yo la amé, y era de otro que también la quería.
 Perdónala, Señor, porque la culpa es mía.
 

@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Pablo Neruda** - *Chileno* (1904-1973).
-
 Me gustas cuando callas porque estás como ausente,
 y me oyes desde lejos y mi voz no te toca.
 Parece que los ojos se te hubieran volado

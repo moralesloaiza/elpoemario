@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Gabriela Mistral** - *Chilena *(1889 -1957).
-
 Piececitos de niño,
 azulosos de frío,
 ¡cómo os ven y no os cubren,

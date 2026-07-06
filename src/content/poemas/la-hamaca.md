@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Fernández Madrid** - *Colombiano* (1789-1830).
-
 No canto los primores
 Que otros poetas cantan.
 Ni cosas que eran viejas

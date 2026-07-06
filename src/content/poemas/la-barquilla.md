@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Lope de Vega** - *Español *(1562-1635).
-
 Pobre, barquilla mía
 Entre peñascos rota,
 Sin velas desvelada,

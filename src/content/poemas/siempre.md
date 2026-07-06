@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Rafael Michelena Fortoul** – *Venezolano *(1897-1933).
-
 La tarde está en nosotros, con un poco de bruma:
 adiós, pequeña mía de sonrisa de espuma.
 El mar, la tarde… y todo lo que al soñar vivimos,

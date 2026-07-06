@@ -14,8 +14,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Adolfo Berro** - *Uruguayo* (1819-1841).
-
 EN vano, cruda Muerte,
 En mí tu saña apuras;
 Si están mis manos puras,

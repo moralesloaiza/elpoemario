@@ -13,8 +13,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Juan Antonio Pérez Bonalde** - *Venezolano* (1846-1892).
-
 ¡Te amo! ¿Sabes mi vida,
 lo que encierra esa palabra
 cuando el labio la pronuncia

@@ -12,8 +12,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**Flora Delmis** - *Venezolana*.
-
 Señor, si yo tan sólo te pedí una cosa:
 ¡amar!, ¡amar! desde una rosa.
 Amar, amar, tan sólo yo quería

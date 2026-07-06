@@ -11,8 +11,6 @@ curador: "Don Alejandro"
 es_seudonimo: true
 ---
 
-**José Asunción Silva** – *Colombiano* (1860-1896).
-
 Soñaba en ese entonces en forjar un poema,
 De arte nervioso, obra audaz y suprema.
 
