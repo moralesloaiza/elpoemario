@@ -1,9 +1,9 @@
-﻿---
+---
 titulo: Nocturno a Rosario
-resumen: Un poema de triste y final despedida a quien fuera el amor imposible del autor
+resumen: Un poema de triste y final despedida a quien fuera el amor imposible del autor.
 fecha: 2025-03-09
 fecha_actualizada: 2026-05-29
-ilustracion: ../../assets/uploads/chatgpt-image-29-may-2026-17_52_48-2-.png
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_27_19.png
 borrador: false
 tipo: verso-libre
 movimiento: romanticismo
@@ -18,6 +18,7 @@ nombre_real: Alejandro Morales Loaiza
 nota_curador: Originalmente intitulado Nocturno, dedicado a Rosario de la Peña y
   Llerena. Este nocturno sirvió asimismo como la carta de suicidio de su autor.
 ---
+## I
 
 ¡Pues bien! yo necesito
 decirte que te adoro
