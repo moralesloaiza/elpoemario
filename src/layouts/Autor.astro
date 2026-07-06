@@ -6,11 +6,14 @@ import { Image } from 'astro:assets';
 import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import IconoEditar from '../components/IconoEditar.astro';
-import PoemaCard from '../components/PoemaCard.astro';
 import OrnamentoTarjeta from '../components/ornaments/OrnamentoTarjeta.astro';
 
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
-import { paisASlug } from '../utils/taxonomia';
+import {
+  paisASlug,
+  TIPOS_DISPLAY,
+  MOVIMIENTOS_DISPLAY,
+} from '../utils/taxonomia';
 
 // Receives the author's frontmatter spread plus its id (slug). Same
 // pattern as Poema.astro.
@@ -23,6 +26,7 @@ const {
   nacionalidad,
   nacimiento,
   muerte,
+  lugar_nacimiento,
   imagen,
   tambien_en,
   lengua_original,
@@ -32,11 +36,9 @@ const {
 //   both years  → "1836–1870" (en dash range)
 //   birth only  → "n. 1985"   (living author: director, collaborators)
 //   neither     → suppressed  (e.g. Anónimo)
-// No longer gated on `tipo === 'clasico'`: a living director with only a
-// birth year now shows "n. 1985" instead of nothing.
 const anios =
   nacimiento && muerte
-    ? `${nacimiento} – ${muerte}`
+    ? `${nacimiento}–${muerte}`
     : nacimiento
       ? `n. ${nacimiento}`
       : null;
@@ -60,8 +62,7 @@ const PORTAL_LABEL: Record<string, string> = {
 const tambienEnLabel = tambien_en ? (PORTAL_LABEL[tambien_en] ?? tambien_en) : null;
 const tambienEnUrl = tambien_en ? `https://${tambien_en}/autores/${id}/` : null;
 
-// JSON-LD: Person + Breadcrumb. Breadcrumb points to /autores/ which
-// lands in PR 7; until then it 404s. Valid schema markup either way.
+// JSON-LD: Person + Breadcrumb.
 const site = Astro.site!;
 const personLd = buildAutorJsonLd(props as Props, site);
 const breadcrumbLd = buildBreadcrumbJsonLd(
@@ -73,11 +74,22 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
   site,
 );
 
-// Poems by this author, non-draft, newest first.
+// Poems by this author, non-draft, newest first. Each row shows an optional
+// illustration thumbnail plus a "forma · movimiento" tag (handoff).
 const todosLosPoemas = await getCollection('poemas', ({ data }) => !data.borrador);
 const poemasDelAutor = todosLosPoemas
   .filter((p) => p.data.autor.id === id)
-  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime());
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
+  .map((p) => {
+    const forma = TIPOS_DISPLAY[p.data.tipo];
+    const mov = p.data.movimiento ? MOVIMIENTOS_DISPLAY[p.data.movimiento] : null;
+    return {
+      id: p.id,
+      titulo: p.data.titulo,
+      ilustracion: p.data.ilustracion,
+      tag: [forma, mov].filter(Boolean).join(' · '),
+    };
+  });
 
 const headingPoemas =
   poemasDelAutor.length === 0
@@ -94,48 +106,56 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   <JsonLd slot="head" data={breadcrumbLd} />
 
   <article class="autor" lang="es">
-    <header class="autor-cabecera">
-      {nacionalidad && (
-        <p class="autor-nacionalidad">
-          {nacionalidadHref ? (
-            <a href={nacionalidadHref}>{nacionalidad}</a>
-          ) : (
-            nacionalidad
+    <p class="autor-backlink">
+      <a href="/autores/">← Autores</a>
+    </p>
+
+    <div class="autor-intro">
+      {imagen ? (
+        <figure class="autor-retrato">
+          <Image
+            src={imagen}
+            alt={`Retrato de ${nombre}`}
+            loading="eager"
+            decoding="async"
+          />
+          {lugar_nacimiento && (
+            <figcaption>{lugar_nacimiento}</figcaption>
           )}
-        </p>
+        </figure>
+      ) : (
+        <figure class="autor-retrato autor-retrato--ornamento" aria-hidden="true">
+          <OrnamentoTarjeta />
+        </figure>
       )}
-      <h1 class="autor-nombre">{nombre}</h1>
-      {anios && <p class="autor-anios">{anios}</p>}
-    </header>
 
-    {imagen ? (
-      <figure class="autor-retrato">
-        <Image
-          src={imagen}
-          alt={`Retrato de ${nombre}`}
-          loading="lazy"
-          decoding="async"
-          width={900}
-          height={600}
-        />
-      </figure>
-    ) : (
-      <figure class="autor-ornamento" aria-hidden="true">
-        <OrnamentoTarjeta />
-      </figure>
-    )}
+      <div class="autor-cuerpo">
+        <h1 class="autor-nombre">{nombre}</h1>
+        {(anios || nacionalidad) && (
+          <p class="autor-meta">
+            {anios}
+            {anios && nacionalidad && ' · '}
+            {nacionalidad && (
+              nacionalidadHref ? (
+                <a href={nacionalidadHref}>{nacionalidad}</a>
+              ) : (
+                nacionalidad
+              )
+            )}
+          </p>
+        )}
 
-    <div class="autor-bio prose">
-      <slot />
+        <div class="autor-bio prose">
+          <slot />
+        </div>
+
+        {tambienEnLabel && tambienEnUrl && (
+          <p class="autor-tambien-en">
+            También figura en <a href={tambienEnUrl}>{tambienEnLabel}</a>.
+          </p>
+        )}
+      </div>
     </div>
-
-    {tambienEnLabel && tambienEnUrl && (
-      <p class="autor-tambien-en">
-        También figura en <a href={tambienEnUrl}>{tambienEnLabel}</a>.
-      </p>
-    )}
-
-    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
     <section class="autor-poemas" aria-labelledby="lista-titulo">
       <h2 id="lista-titulo">{headingPoemas}</h2>
@@ -143,8 +163,25 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
       {poemasDelAutor.length > 0 && (
         <ul class="lista">
           {poemasDelAutor.map((p, i) => (
-            <li class="item" hidden={i >= 18}>
-              <PoemaCard poema={p} autorNombre={nombre} mostrarAutor={false} />
+            <li class="obra" hidden={i >= 18}>
+              {p.ilustracion && (
+                <div class="obra-thumb" aria-hidden="true">
+                  <Image
+                    src={p.ilustracion}
+                    alt=""
+                    width={200}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+              <div class="obra-texto">
+                <h3 class="obra-titulo">
+                  <a href={`/poemas/${p.id}/`}>{p.titulo}</a>
+                </h3>
+                {p.tag && <p class="obra-tag">{p.tag}</p>}
+              </div>
+              <span class="obra-leer" aria-hidden="true">Leer →</span>
             </li>
           ))}
         </ul>
@@ -164,7 +201,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 <script>
   const PASO = 18;
   const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
-  const lista = document.querySelector<HTMLUListElement>('.lista');
+  const lista = document.querySelector<HTMLUListElement>('.autor-poemas .lista');
 
   if (boton && lista) {
     const items = Array.from(lista.children) as HTMLElement[];
@@ -175,14 +212,14 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 
       lote.forEach((el) => el.removeAttribute('hidden'));
 
-      // Move focus to the first card of the just-revealed batch.
-      const primera = lote[0]?.querySelector<HTMLElement>('.card');
+      // Move focus to the first revealed row's link.
+      const primera = lote[0]?.querySelector<HTMLElement>('.obra-titulo a');
       if (primera) {
         primera.setAttribute('tabindex', '-1');
         primera.focus();
       }
 
-      // Hide the button once no hidden cards remain.
+      // Hide the button once no hidden rows remain.
       if (ocultos.length <= PASO) {
         boton.setAttribute('hidden', '');
       }
@@ -192,105 +229,105 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 
 <style>
   .autor {
-    max-width: var(--measure);
+    max-width: var(--measure-wide);
     margin: 0 auto;
     padding-inline: var(--space-md);
     padding-block: var(--space-2xl);
   }
 
-  /* ── Header ──────────────────────────────────────────────────────── */
-  .autor-cabecera {
-    text-align: center;
-    margin-bottom: var(--space-xl);
+  /* ── Back-link «← Autores» ────────────────────────────────────────── */
+  .autor-backlink {
+    margin: 0 0 var(--space-lg);
   }
-  /* Country eyebrow above the name. Same small-caps gold treatment as the
-     card's .card-nacionalidad, scaled for the detail header. */
-  .autor-nacionalidad {
-    font-family: var(--font-display);
-    font-size: var(--fs-xs);
-    letter-spacing: var(--ls-widest);
+  .autor-backlink a {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     color: var(--oro-texto);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
-  }
-  .autor-nacionalidad a {
-    color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--dur-fast) var(--ease-standard);
+    border-bottom: none;
+    transition: color var(--dur-fast) var(--ease-standard);
   }
-  .autor-nacionalidad a:hover,
-  .autor-nacionalidad a:focus-visible {
-    border-bottom-color: var(--oro);
-  }
-  .autor-nombre {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xl);
-    line-height: var(--lh-snug);
-    margin: 0 0 var(--space-2xs);
-    color: var(--text);
-    letter-spacing: 0.04em;
-    text-wrap: balance;
-  }
-  .autor-anios {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-md);
-    color: var(--text-soft);
-    margin: 0;
+  .autor-backlink a:hover,
+  .autor-backlink a:focus-visible {
+    color: var(--oro);
   }
 
-  /* ── Portrait ────────────────────────────────────────────────────── */
-  /* Deliberate divergence from the mockup (decision 12): the live portrait is
-     kept. No frame on the image itself (decision 6: zero frames on any image). */
+  /* ── Intro: retrato | biografía (handoff 0.85fr / 1.15fr) ─────────── */
+  .autor-intro {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--space-2xl);
+    align-items: start;
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Portrait in passe-partout (handoff): --mat backing + --rule border,
+     natural aspect ratio (no crop). Caption from `lugar_nacimiento`. */
   .autor-retrato {
-    margin: 0 auto var(--space-xl);
-    max-width: var(--measure-narrow);
-    padding: 0;
+    margin: 0;
+    border: 1px solid var(--rule);
+    padding: var(--space-xs);
+    background: var(--mat);
   }
   .autor-retrato img {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
   }
-
-  /* ── Ornament fallback (no portrait) ─────────────────────────────── */
-  /* Reuses the orphaned OrnamentoTarjeta (decision 9/12). The double gold frame
-     is the one closed exception to "zero frames" (decision A): this is a
-     placeholder, not a framed image. The parent that used to draw it
-     (.card-img.con-ornamento in PoemaCard) was removed in R1, so the frame is
-     recreated here replicating the canonical .frame (1.5px oro + 6px inset
-     hairline oro-suave). Sized to the 3:2 footprint the portrait would occupy. */
-  .autor-ornamento {
-    position: relative;
-    margin: 0 auto var(--space-xl);
-    max-width: var(--measure-narrow);
+  .autor-retrato figcaption {
+    text-align: center;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    padding: var(--space-sm) var(--space-2xs) var(--space-2xs);
+  }
+  /* Ornament fallback (no portrait). Kept inside the passe-partout frame. */
+  .autor-retrato--ornamento {
     aspect-ratio: 3 / 2;
-    padding: var(--space-md);
-    border: 1.5px solid var(--oro);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .autor-ornamento::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: 1px solid var(--oro-suave);
-    pointer-events: none;
-  }
-  .autor-ornamento :global(svg) {
+  .autor-retrato--ornamento :global(svg) {
     width: 60%;
     height: auto;
   }
 
-  /* ── Bio ─────────────────────────────────────────────────────────── */
+  /* ── Name + meta + bio (right column) ─────────────────────────────── */
+  .autor-nombre {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-3xl);
+    line-height: 1.04;
+    margin: 0 0 var(--space-xs);
+    color: var(--text);
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .autor-meta {
+    font-family: var(--font-meta);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-lg);
+  }
+  .autor-meta a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+  .autor-meta a:hover,
+  .autor-meta a:focus-visible {
+    border-bottom-color: var(--oro);
+  }
+
   .autor-bio {
-    max-width: var(--measure-narrow);
-    margin: 0 auto var(--space-xl);
     font-family: var(--font-body);
     font-size: var(--fs-prosa);
     line-height: var(--lh-prosa);
@@ -299,6 +336,9 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   .autor-bio :global(p) {
     font-family: var(--font-prose);
     margin: 0 0 var(--space-lg);
+  }
+  .autor-bio :global(p:last-child) {
+    margin-bottom: 0;
   }
   .autor-bio :global(em) {
     font-style: italic;
@@ -310,43 +350,104 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--link);
   }
 
-  /* ── Cross-portal link ───────────────────────────────────────────── */
   .autor-tambien-en {
-    max-width: var(--measure-narrow);
-    margin: 0 auto var(--space-xl);
+    margin: var(--space-lg) 0 0;
     font-family: var(--font-body);
     font-style: italic;
     font-size: var(--fs-base);
     color: var(--text-soft);
-    text-align: center;
   }
 
-
-  /* ── Poems section ───────────────────────────────────────────────── */
+  /* ── Obras en El Poemario (lista con miniatura) ───────────────────── */
+  .autor-poemas {
+    margin-top: var(--space-2xl);
+  }
   .autor-poemas h2 {
-    text-align: center;
     font-family: var(--font-display);
-    font-size: var(--fs-md);
-    letter-spacing: var(--ls-wide);
-    color: var(--oro-texto);
-    margin: var(--space-xl) 0 var(--space-lg);
+    font-weight: 500;
+    font-size: var(--fs-xl);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+    margin: 0 0 var(--space-md);
   }
-  /* Card grid: same system as /poemas and taxonomy, no rules. Confined to
-     the reading column (--measure-grid). 3-col, collapsing to 1 at 680px. */
   .lista {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: var(--measure-grid);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
+    margin: 0;
   }
-  /* Visible cells stretch to the track; hidden batches (cargar-mas) stay out. */
-  .item:not([hidden]) {
-    display: grid;
+  .obra {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md) var(--space-2xs);
+    border-top: 1px solid var(--rule-soft);
+    transition: background-color var(--dur-fast) var(--ease-standard);
   }
-  /* Hidden batches for cargar-mas: overrides the grid's implicit display. */
+  .obra:has(.obra-titulo a:hover),
+  .obra:has(.obra-titulo a:focus-visible) {
+    background-color: var(--hover-tint);
+  }
+  /* Work thumbnail: small framed illustration (handoff 96×60). */
+  .obra-thumb {
+    flex: none;
+    width: 96px;
+    height: 60px;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .obra-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .obra-texto {
+    flex: 1;
+    min-width: 0;
+  }
+  .obra-titulo {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--text);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 var(--space-3xs);
+  }
+  .obra-titulo a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .obra-titulo a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .obra:has(.obra-titulo a:hover) .obra-titulo,
+  .obra:has(.obra-titulo a:focus-visible) .obra-titulo {
+    color: var(--oro-texto);
+  }
+  .obra-tag {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .obra-leer {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+
+  /* Hidden batches for cargar-mas. */
   [hidden] {
     display: none !important;
   }
@@ -376,9 +477,21 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     outline-offset: 2px;
   }
 
-  @media (max-width: 680px) {
-    .lista {
+  /* ── Móvil: una columna ───────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .autor-intro {
       grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+    .autor-retrato {
+      max-width: 320px;
+      margin-inline: auto;
+    }
+    .obra {
+      gap: var(--space-md);
+    }
+    .obra-leer {
+      display: none;
     }
   }
 </style>

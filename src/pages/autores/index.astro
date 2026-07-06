@@ -87,18 +87,20 @@ const pagina = await getPagina('autores');
     margin: var(--space-2xl) auto;
   }
 
-  /* Text-cell grid: 3 cols, single 680px breakpoint to 1 col, confined to
-     the reading column. See PR-R1. */
+  /* Author rows in a 2-column grid (handoff), gap 0 — each row carries its
+     own bottom rule. Confined to the reading measure; collapses to 1 col on
+     narrow viewports. */
   .lista {
     list-style: none;
     padding: 0;
     margin: var(--space-2xl) auto 0;
     max-width: var(--measure-grid);
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-2xl);
+    row-gap: 0;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 640px) {
     .lista {
       grid-template-columns: 1fr;
     }
