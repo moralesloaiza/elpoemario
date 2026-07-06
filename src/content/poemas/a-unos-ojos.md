@@ -2,7 +2,7 @@
 titulo: "A unos ojos"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: madrigal
 movimiento: siglo-de-oro
 temas:
   - poesia-misma

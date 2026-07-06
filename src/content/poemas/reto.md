@@ -2,7 +2,7 @@
 titulo: "Reto"
 fecha: 2012-11-11
 borrador: false
-tipo: verso-libre
+tipo: decima
 movimiento: modernismo
 temas:
   - amor

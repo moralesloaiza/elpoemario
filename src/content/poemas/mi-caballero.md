@@ -2,7 +2,7 @@
 titulo: "Mi caballero"
 fecha: 2011-10-29
 borrador: false
-tipo: verso-libre
+tipo: romancillo
 movimiento: modernismo
 temas:
   - poesia-misma

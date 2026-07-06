@@ -2,7 +2,7 @@
 titulo: "Soleá del amor indiferente"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: decima
 movimiento: posguerra
 temas:
   - amor

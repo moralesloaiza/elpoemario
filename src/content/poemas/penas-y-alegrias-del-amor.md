@@ -2,7 +2,7 @@
 titulo: "Penas y alegrías del amor"
 fecha: 2011-10-30
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: posguerra
 temas:
   - alegria

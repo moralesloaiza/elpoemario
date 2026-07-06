@@ -2,7 +2,7 @@
 titulo: "La barquilla"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: siglo-de-oro
 temas:
   - mar

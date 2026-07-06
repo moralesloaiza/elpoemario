@@ -2,7 +2,7 @@
 titulo: "La limosna"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: romanticismo
 temas:
   - dios

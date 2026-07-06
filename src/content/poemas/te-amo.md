@@ -2,7 +2,7 @@
 titulo: "Te amo"
 fecha: 2012-02-07
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: modernismo
 temas:
   - amor

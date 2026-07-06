@@ -2,7 +2,7 @@
 titulo: "Un narigudo"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: barroco
 temas:
   - poesia-misma

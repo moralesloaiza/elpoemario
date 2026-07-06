@@ -2,7 +2,7 @@
 titulo: "El mar"
 fecha: 2011-11-03
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: romanticismo
 temas:
   - mar

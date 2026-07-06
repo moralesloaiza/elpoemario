@@ -2,7 +2,7 @@
 titulo: "La niña muda"
 fecha: 2012-01-09
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - amor

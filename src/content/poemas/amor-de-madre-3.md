@@ -4,7 +4,7 @@ fecha: 2011-10-30
 fecha_actualizada: 2026-06-06
 ilustracion: ../../assets/uploads/chatgpt-image-17-jun-2026-21_40_38.png
 borrador: false
-tipo: verso-libre
+tipo: silva
 movimiento: realismo
 temas:
   - amor

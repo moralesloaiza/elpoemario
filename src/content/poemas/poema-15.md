@@ -2,7 +2,7 @@
 titulo: "Poema 15"
 fecha: 2012-01-07
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: vanguardia
 temas:
   - muerte

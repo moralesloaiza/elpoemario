@@ -2,7 +2,7 @@
 titulo: "Piececitos"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: modernismo
 temas:
   - poesia-misma

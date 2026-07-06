@@ -2,7 +2,7 @@
 titulo: "Poema del amor ajeno"
 fecha: 2012-04-08
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - amor

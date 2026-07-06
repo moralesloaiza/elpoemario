@@ -2,7 +2,7 @@
 titulo: "Maternidad"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: vanguardia
 temas:
   - poesia-misma

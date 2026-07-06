@@ -2,7 +2,7 @@
 titulo: "Error"
 fecha: 2012-03-01
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor

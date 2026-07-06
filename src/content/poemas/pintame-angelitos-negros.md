@@ -3,7 +3,7 @@ titulo: Píntame angelitos negros
 fecha: 2011-10-28
 fecha_actualizada: 2026-06-21
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: modernismo
 temas:
   - patria

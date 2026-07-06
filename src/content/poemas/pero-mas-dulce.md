@@ -2,7 +2,7 @@
 titulo: "Pero más dulce"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - dios

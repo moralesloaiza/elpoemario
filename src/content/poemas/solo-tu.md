@@ -2,7 +2,7 @@
 titulo: "Sólo tú"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 temas:
   - amor
   - poesia-misma

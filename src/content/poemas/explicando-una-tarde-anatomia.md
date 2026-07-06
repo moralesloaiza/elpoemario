@@ -2,7 +2,7 @@
 titulo: "Explicando una tarde anatomía"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: realismo
 temas:
   - poesia-misma

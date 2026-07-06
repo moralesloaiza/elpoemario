@@ -2,7 +2,7 @@
 titulo: "El dolor de vivir"
 fecha: 2012-04-01
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 temas:
   - amor
   - dolor

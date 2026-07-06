@@ -2,7 +2,7 @@
 titulo: "La oruga y la presumida"
 fecha: 2011-11-10
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: siglo-de-oro
 temas:
   - belleza

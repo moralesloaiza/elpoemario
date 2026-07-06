@@ -4,7 +4,7 @@ fecha: 2011-10-31
 fecha_actualizada: 2026-06-02
 ilustracion: ../../assets/uploads/chatgpt-image-2-jun-2026-18_19_44.png
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: romanticismo
 temas:
   - muerte

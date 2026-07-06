@@ -2,7 +2,7 @@
 titulo: "A la muerte"
 fecha: 2011-12-04
 borrador: false
-tipo: verso-libre
+tipo: endecha
 movimiento: romanticismo
 temas:
   - muerte

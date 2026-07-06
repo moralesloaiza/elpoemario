@@ -2,7 +2,7 @@
 titulo: "Tus ojos tienen algo"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: contemporaneo
 temas:
   - patria

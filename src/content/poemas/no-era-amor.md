@@ -2,7 +2,7 @@
 titulo: "No era amor"
 fecha: 2011-10-30
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor

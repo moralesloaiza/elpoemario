@@ -2,7 +2,7 @@
 titulo: "Hombres necios"
 fecha: 2012-05-05
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: barroco
 temas:
   - poesia-misma

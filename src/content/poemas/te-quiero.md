@@ -2,7 +2,7 @@
 titulo: "Te quiero"
 fecha: 2012-10-04
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: contemporaneo
 temas:
   - amor

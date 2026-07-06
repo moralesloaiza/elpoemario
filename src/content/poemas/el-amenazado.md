@@ -2,7 +2,7 @@
 titulo: "El amenazado"
 fecha: 2011-11-01
 borrador: false
-tipo: verso-libre
+tipo: prosa-poetica
 movimiento: vanguardia
 temas:
   - amor

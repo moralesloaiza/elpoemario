@@ -2,7 +2,7 @@
 titulo: "Las dos linternas"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: cuarteta
 movimiento: realismo
 temas:
   - poesia-misma

@@ -2,7 +2,7 @@
 titulo: "El niño bien criado"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: barroco
 temas:
   - poesia-misma

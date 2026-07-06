@@ -4,7 +4,7 @@ fecha: 2025-02-12
 fecha_actualizada: 2026-05-30
 ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-14_57_35.png
 borrador: false
-tipo: verso-libre
+tipo: romancillo
 movimiento: popular-tradicional
 temas:
   - poesia-misma

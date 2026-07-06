@@ -2,7 +2,7 @@
 titulo: "Recodo de despedida"
 fecha: 2011-11-04
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: contemporaneo
 temas:
   - patria

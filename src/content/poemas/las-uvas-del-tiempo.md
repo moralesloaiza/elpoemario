@@ -2,7 +2,7 @@
 titulo: "Las uvas del tiempo"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - patria

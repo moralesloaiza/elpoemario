@@ -2,7 +2,7 @@
 titulo: "Salmo del amor"
 fecha: 2012-01-03
 borrador: false
-tipo: verso-libre
+tipo: romance-heroico
 movimiento: modernismo
 temas:
   - amor

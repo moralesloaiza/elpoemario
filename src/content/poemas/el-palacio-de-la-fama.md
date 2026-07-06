@@ -2,7 +2,7 @@
 titulo: "El palacio de la fama"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: octava-real
 movimiento: siglo-de-oro
 temas:
   - muerte

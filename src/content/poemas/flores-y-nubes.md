@@ -2,7 +2,7 @@
 titulo: "Flores y nubes"
 fecha: 2012-02-08
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: modernismo
 temas:
   - amor

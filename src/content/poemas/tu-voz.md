@@ -2,7 +2,7 @@
 titulo: "Tu voz"
 fecha: 2012-02-11
 borrador: false
-tipo: verso-libre
+tipo: soneto
 movimiento: modernismo
 temas:
   - amor

@@ -2,7 +2,7 @@
 titulo: "La hamaca"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: neoclasicismo
 temas:
   - poesia-misma

@@ -2,7 +2,7 @@
 titulo: "Memoria triste"
 fecha: 2012-02-17
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - alegria

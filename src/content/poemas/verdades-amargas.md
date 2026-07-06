@@ -6,7 +6,7 @@ resumen: Un poema de autoría discutida que mira con pesimismo las realidades de
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-04
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 temas:
   - amistad
   - dios

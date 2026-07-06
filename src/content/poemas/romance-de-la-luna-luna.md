@@ -2,7 +2,7 @@
 titulo: "Romance de la luna, luna"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: romance
 movimiento: generacion-27
 temas:
   - poesia-misma

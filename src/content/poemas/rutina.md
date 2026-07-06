@@ -2,7 +2,7 @@
 titulo: "Rutina"
 fecha: 2011-11-24
 borrador: false
-tipo: verso-libre
+tipo: prosa-poetica
 movimiento: contemporaneo
 temas:
   - patria

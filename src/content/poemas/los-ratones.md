@@ -2,7 +2,7 @@
 titulo: "Los ratones"
 fecha: 2011-11-15
 borrador: false
-tipo: verso-libre
+tipo: redondilla
 movimiento: siglo-de-oro
 temas:
   - poesia-misma

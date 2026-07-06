@@ -3,7 +3,7 @@ titulo: Glosa del amor vedado
 fecha: 2011-08-09
 fecha_actualizada: 2026-06-24
 borrador: false
-tipo: verso-libre
+tipo: glosa
 movimiento: contemporaneo
 temas:
   - dios

@@ -4,7 +4,7 @@ fecha: 2014-04-05
 fecha_actualizada: 2026-05-31
 ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_41_02.png
 borrador: false
-tipo: cuarteto
+tipo: quintilla
 movimiento: contemporaneo
 temas:
   - amor

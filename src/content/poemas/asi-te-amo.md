@@ -2,7 +2,7 @@
 titulo: "Así te amo"
 fecha: 2011-10-26
 borrador: false
-tipo: verso-libre
+tipo: serventesio
 temas:
   - amor
   - patria

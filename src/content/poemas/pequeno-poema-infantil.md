@@ -2,7 +2,7 @@
 titulo: "Pequeño poema infantil"
 fecha: 2012-10-03
 borrador: false
-tipo: verso-libre
+tipo: polimetrico
 movimiento: modernismo
 temas:
   - infancia

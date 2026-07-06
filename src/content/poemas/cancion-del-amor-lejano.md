@@ -2,7 +2,7 @@
 titulo: "Canción del amor lejano"
 fecha: 2011-10-27
 borrador: false
-tipo: verso-libre
+tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor

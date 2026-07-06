@@ -2,7 +2,7 @@
 titulo: "A mi hermana Teresa"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: polimetrico
 movimiento: romanticismo
 temas:
   - poesia-misma

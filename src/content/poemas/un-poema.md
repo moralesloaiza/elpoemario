@@ -2,7 +2,7 @@
 titulo: "Un poema"
 fecha: 2011-10-28
 borrador: false
-tipo: verso-libre
+tipo: pareado
 movimiento: modernismo
 temas:
   - poesia-misma

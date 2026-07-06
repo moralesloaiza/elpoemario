@@ -2,7 +2,7 @@
 titulo: "La flor de la Maravilla"
 fecha: 2011-11-16
 borrador: false
-tipo: verso-libre
+tipo: letrilla
 movimiento: barroco
 temas:
   - poesia-misma
