@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
   autor: CollectionEntry<'autores'>;
@@ -7,11 +8,11 @@ interface Props {
 }
 
 const { autor, conteo } = Astro.props;
-const { nombre, nacionalidad, nacimiento, muerte } = autor.data;
+const { nombre, nacionalidad, nacimiento, muerte, imagen } = autor.data;
 
-// Secondary line under the name: country and life dates joined by a middot.
-//   both years  → "Chile · 1839–1900"
-//   birth only  → "Chile · n. 1985"   (living author)
+// Secondary line under the name: life dates and country joined by a middot.
+//   both years  → "1839–1900 · Chile"
+//   birth only  → "n. 1985 · Chile"   (living author)
 //   no dates    → "Chile"
 //   no country  → dates alone, or suppressed entirely (e.g. Anónimo)
 const anios =
@@ -20,58 +21,100 @@ const anios =
     : nacimiento
       ? `n. ${nacimiento}`
       : null;
-const subLinea = [nacionalidad, anios].filter(Boolean).join(' · ') || null;
+const subLinea = [anios, nacionalidad].filter(Boolean).join(' · ') || null;
 
 // Published-poem count. "—" for zero (author exists but has no poems yet),
 // singular/plural otherwise.
 const conteoLabel =
   conteo === 0 ? '—' : conteo === 1 ? '1 poema' : `${conteo} poemas`;
+
+// Initial fallback for the miniature when an author has no portrait. Every
+// author currently carries `imagen`, so this is a robustness guard, not a
+// common path.
+const inicial = nombre.trim().charAt(0).toUpperCase();
 ---
 
 <article class="card">
-  <h3 class="card-nombre">
-    <a href={`/autores/${autor.id}/`}>{nombre}</a>
-  </h3>
-  {subLinea && <p class="card-sub">{subLinea}</p>}
-  <p class="card-conteo">{conteoLabel}</p>
+  <div class="card-mini" aria-hidden="true">
+    {imagen ? (
+      <Image
+        src={imagen}
+        alt=""
+        width={148}
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <span class="card-inicial">{inicial}</span>
+    )}
+  </div>
+  <div class="card-texto">
+    <h3 class="card-nombre">
+      <a href={`/autores/${autor.id}/`}>{nombre}</a>
+    </h3>
+    {subLinea && <p class="card-sub">{subLinea}</p>}
+    <p class="card-conteo">{conteoLabel}</p>
+  </div>
 </article>
 
 <style>
-  /* Mirrors PoemaCard: text cell in the grid, no image, no rules. Block-link
-     ::before overlay makes the whole cell clickable. */
+  /* Author row (handoff): square miniature + name / dates·country / count.
+     Block-link ::before overlay makes the whole row clickable. The bottom
+     rule separates rows within each grid column. */
   .card {
     position: relative;
     display: flex;
-    flex-direction: column;
+    gap: var(--space-md);
     align-items: center;
-    text-align: center;
-    height: auto;
-    min-height: 148px;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--space-2xs);
+    border-bottom: 1px solid var(--rule-soft);
     transition: background-color var(--dur-fast) var(--ease-standard);
   }
   .card:has(.card-nombre a:hover),
   .card:has(.card-nombre a:focus-visible) {
-    background-color: rgba(200, 168, 106, 0.05);
+    background-color: var(--hover-tint);
   }
 
+  /* Passe-partout miniature: --mat backing + --rule border, no radius. */
+  .card-mini {
+    flex: none;
+    width: 74px;
+    height: 74px;
+    border: 1px solid var(--rule);
+    background: var(--mat);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .card-inicial {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    color: var(--oro-texto);
+    line-height: 1;
+  }
+
+  .card-texto {
+    flex: 1;
+    min-width: 0;
+  }
   .card-nombre {
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-wide);
+    font-weight: 500;
     line-height: var(--lh-snug);
     color: var(--text);
     text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 var(--space-3xs);
     text-wrap: balance;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    min-height: 2.6em;
   }
-
   .card-nombre a {
     text-decoration: none;
     color: inherit;
@@ -87,36 +130,20 @@ const conteoLabel =
     color: var(--oro-texto);
   }
 
-  /* Sub-line (country · years) and count anchored to the bottom of the cell. */
   .card-sub {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: var(--fs-md);
+    font-size: var(--fs-sm);
     color: var(--text-soft);
-    margin: var(--space-md) 0 0;
-    margin-top: auto;
+    margin: 0 0 var(--space-2xs);
   }
   .card-conteo {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--oro-texto);
     line-height: var(--lh-snug);
-    margin: var(--space-sm) 0 0;
-    /* Reserve two lines of height so the count line keeps a stable box height
-       and the bottom-anchored sub-line stays aligned across columns of the same
-       row. Mirrors PoemaCard; same 2-line strategy the name uses. Bottom-aligned
-       to keep a common baseline. */
-    min-height: 2.6em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .card-sub + .card-conteo {
-    margin-top: var(--space-sm);
-  }
-  .card > .card-conteo:nth-child(2) {
-    margin-top: auto;
+    margin: 0;
   }
 </style>
