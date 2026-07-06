@@ -598,3 +598,42 @@ retrato en la ficha de autor, §9 R6).
 
 Estado: documentado; el codigo referido ya esta en main.
 
+\---
+
+24. Bloque didactico en las paginas de forma (/tipos/<slug>/)
+
+Decision: anadir, encima de la lista de poemas de cada forma, un bloque en prosa que
+explica la forma metrica y muestra un verso de ejemplo en dominio publico. Alcance:
+solo /tipos/; render condicional (si existe la ficha, se muestra; si no, la pagina
+queda identica a hoy).
+
+Contenido — coleccion nueva `formas` (`src/content/formas/`, no enrutada, editable en
+Decap con editorial_workflow). Un `.md` por slug de `tipo`: frontmatter con `descripcion`
+(markdown inline via `marked.parseInline`, permite *cursiva* para titulos de obra),
+`ejemplo_autor`, `ejemplo_obra` (opcional) y `metrica` (objeto opcional con `medida` y
+`rima`, ambos opcionales); el cuerpo del `.md` es el verso de ejemplo (aprovecha
+`remark-breaks`: salto de linea = verso). El slug del archivo debe pertenecer al enum
+`tipo`: `src/utils/formas.ts` (`getForma()`) lo verifica en build y lanza si no, igual
+contrato ruidoso que `getPagina()`. No se exige lo inverso: no toda forma necesita ficha.
+
+Render (variante B) — el bloque va entre la regla ornamental y la grilla, via un `<slot
+name="intro">` opcional anadido a `ListadoPoemasTaxonomia.astro`. Solo /tipos/ rellena el
+slot; los otros ejes que comparten ese componente (temas, movimientos, motivos) quedan
+identicos. El componente propio es `BloqueDidacticoForma.astro`: descripcion en prosa
+(Cormorant 500, medida de lectura, `--text-soft`) y el ejemplo como especimen con filete
+de acento (`border-left: 2px solid var(--accent)`, sin caja completa -> respeta el
+principio de no encajonar), reutilizando el patron de cita de `Poema.astro`. Dentro:
+micro-rotulo Cinzel "Ejemplo" en oro, verso con el tratamiento de verso de `Poema.astro`
+(sangria francesa `2ch`, `--lh-poema`, `--verse`), linea metrica Cinzel micro que une
+`medida` y `rima` con `·` solo si estan presentes (se omite entera en formas sin metro
+fijo como verso-libre o prosa-poetica), y atribucion en cursiva `--text-muted`.
+
+Dominio publico: regla editorial, no forzada por codigo en v1. El verso debe ser de un
+autor en dominio publico; el criterio queda documentado en el help de los campos de Decap
+(sin umbral numerico fijo) y aqui. Un check automatizado solo si se vuelve frecuente.
+
+Ficha semilla: `formas/soneto.md` (Garcilaso de la Vega, Soneto XXIII, primer cuarteto;
+dominio publico incuestionable).
+
+Estado: implementado.
+

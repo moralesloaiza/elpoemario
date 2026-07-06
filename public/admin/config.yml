@@ -194,6 +194,69 @@ collections:
       - { label: "Cuerpo del poema", name: body, widget: markdown }
       - { label: "Nota del curador", name: nota_curador, widget: markdown, required: false, hint: "Admite formato (párrafos, énfasis, listas, citas)." }
 
+  - name: formas
+    label: "Formas"
+    label_singular: "Forma"
+    description: "Ficha didáctica de una forma métrica: prosa explicativa + un verso de ejemplo en dominio público. Alimenta el bloque introductorio de /tipos/<forma>/. No todas las formas necesitan ficha."
+    folder: "src/content/formas"
+    create: true
+    slug: "{{fields.forma}}"
+    identifier_field: forma
+    extension: md
+    format: frontmatter
+    fields:
+      - label: "Forma (determina en qué página aparece)"
+        name: forma
+        widget: select
+        hint: "El archivo se guarda con este nombre y la ficha aparece en /tipos/<forma>/. Debe coincidir con una forma existente."
+        options:
+          - soneto
+          - silva
+          - madrigal
+          - romance
+          - romance-heroico
+          - romancillo
+          - endecha
+          - decima
+          - redondilla
+          - cuarteta
+          - cuarteto
+          - serventesio
+          - quintilla
+          - terceto
+          - pareado
+          - quinteto
+          - sexteto
+          - octava-real
+          - lira
+          - oda
+          - elegia
+          - egloga
+          - himno
+          - balada
+          - glosa
+          - copla
+          - seguidilla
+          - letrilla
+          - villancico
+          - haiku
+          - tanka
+          - polimetrico
+          - verso-libre
+          - prosa-poetica
+      - { label: "Descripción", name: descripcion, widget: text, hint: "Prosa breve que explica en qué consiste la forma. Admite *cursiva* para títulos de obra (p. ej. *Cantos de vida y esperanza*)." }
+      - { label: "Autor del ejemplo", name: ejemplo_autor, widget: string, hint: "Regla editorial: el verso debe ser de un autor en dominio público. Reproduce el texto tal cual." }
+      - { label: "Obra del ejemplo", name: ejemplo_obra, widget: string, required: false, hint: "Opcional. Título de la obra o del poema del que procede el ejemplo." }
+      - label: "Métrica"
+        name: metrica
+        widget: object
+        required: false
+        hint: "Opcional. Déjalo vacío en formas sin metro fijo (verso libre, prosa poética)."
+        fields:
+          - { label: "Medida", name: medida, widget: string, required: false, hint: "P. ej.: Endecasílabos, Octosílabos." }
+          - { label: "Rima", name: rima, widget: string, required: false, hint: "P. ej.: Consonante ABBA ABBA CDE DCE." }
+      - { label: "Verso de ejemplo", name: body, widget: markdown, hint: "El verso de dominio público. Un salto de línea = un verso; una línea en blanco = nueva estrofa." }
+
   - name: autores
     label: "Autores"
     label_singular: "Autor"

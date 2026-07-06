@@ -3,7 +3,9 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import ListadoPoemasTaxonomia from '../../components/ListadoPoemasTaxonomia.astro';
+import BloqueDidacticoForma from '../../components/BloqueDidacticoForma.astro';
 import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
+import { getForma } from '../../utils/formas';
 import { TIPOS_DISPLAY, type Tipo } from '../../utils/taxonomia';
 
 export async function getStaticPaths() {
@@ -32,6 +34,9 @@ export async function getStaticPaths() {
 
 const { slug, poemas, autorMap } = Astro.props;
 const display = TIPOS_DISPLAY[slug];
+
+// Didactic intro block, rendered only when src/content/formas/<slug>.md exists.
+const forma = await getForma(slug);
 const displayLower = display.toLowerCase();
 const contadorTexto =
   poemas.length === 1
@@ -60,5 +65,7 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
     autorMap={autorMap}
     contadorTexto={contadorTexto}
     vacioTexto={`Aún no hay poemas publicados en ${displayLower}.`}
-  />
+  >
+    {forma && <BloqueDidacticoForma slot="intro" forma={forma} />}
+  </ListadoPoemasTaxonomia>
 </Base>
