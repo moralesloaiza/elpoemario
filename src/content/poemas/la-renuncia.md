@@ -1,5 +1,5 @@
-﻿---
-titulo: "La renuncia"
+---
+titulo: La renuncia
 fecha: 2011-10-26
 borrador: false
 tipo: silva
@@ -8,10 +8,9 @@ temas:
   - patria
   - sueno
 autor: andres-eloy-blanco
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
 He renunciado a ti. No era posible.
 Fueron vapores de la fantasía;
 son ficciones que a veces dan a lo inaccesible

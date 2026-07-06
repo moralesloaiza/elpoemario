@@ -1,5 +1,5 @@
-﻿---
-titulo: "La burla del amor"
+---
+titulo: La burla del amor
 fecha: 2011-10-26
 borrador: false
 tipo: redondilla
@@ -9,10 +9,9 @@ temas:
   - patria
   - poesia-misma
 autor: andres-bello
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
 No dudes, hermosa Elvira,
 que eres mi bien, mi tesoro,
 que te idolatro y adoro;

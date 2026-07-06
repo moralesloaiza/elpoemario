@@ -1,5 +1,5 @@
-﻿---
-titulo: "Los irresponsables"
+---
+titulo: Los irresponsables
 fecha: 2011-10-26
 borrador: false
 tipo: quintilla
@@ -10,10 +10,9 @@ motivos:
   - amada
   - amado
 autor: joaquin-dicenta
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
 De un hogar rico y dichoso
 disfrutaban por igual
 un marido cariñoso,

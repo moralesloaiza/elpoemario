@@ -190,7 +190,10 @@ const grupos = [
   }
 
   @media (max-width: 700px) {
-    /* Móvil: marca sobre columnas, todo centrado en una columna. */
+    /* Móvil: marca arriba y los tres grupos apilados en UNA columna centrada.
+       Antes hacían flex-wrap con justify-content:center → reflujo 2+1 con «La
+       obra» huérfana y descentrada (mala UX). Ahora se apilan limpio y
+       centrado, coherente con el resto del footer centrado en móvil. */
     .footer-top {
       flex-direction: column;
       align-items: center;
@@ -198,8 +201,16 @@ const grupos = [
       gap: var(--space-xl);
     }
     .footer-nav {
-      justify-content: center;
-      gap: var(--space-xl);
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .footer-rotulo {
+      text-align: center;
+    }
+    .footer-lista {
+      align-items: center;
     }
   }
 </style>

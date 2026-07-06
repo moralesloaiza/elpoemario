@@ -1,5 +1,5 @@
-﻿---
-titulo: "El duelo"
+---
+titulo: El duelo
 fecha: 2011-10-26
 borrador: false
 tipo: romance-heroico
@@ -9,10 +9,9 @@ temas:
   - muerte
   - poesia-misma
 autor: manuel-mur-oti
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
-
 ¿Qué cómo fue, señora?…
 Como son las cosas cuando son del alma,
 Ella era muy linda, y él era muy hombre,
