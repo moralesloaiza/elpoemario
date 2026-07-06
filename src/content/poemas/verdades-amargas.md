@@ -4,7 +4,8 @@ resumen: Un poema de autoría discutida que mira con pesimismo las realidades de
   mundo, con incómoda franqueza en algunos versos, lo cual podría explicar por
   qué su autor haya decidido permanecer anónimo.
 fecha: 2011-10-26
-fecha_actualizada: 2026-07-04
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-20_56_04.png
 borrador: false
 tipo: serventesio
 temas:
