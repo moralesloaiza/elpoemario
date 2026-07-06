@@ -1,8 +1,8 @@
 ---
 titulo: Cuando encuentres un hombre
 fecha: 2025-11-30
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-10_35_07.png
+fecha_actualizada: 2026-07-05
+ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-22_59_37.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
@@ -17,7 +17,9 @@ autor: nizar-qabbani
 traductor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro
 es_seudonimo: true
-nota_curador: Traducción al español del año 2025.
+nota_curador: Traducción del inglés al español del año 2025. Para esta versión
+  también se consultó con expertos del idioma árabe, para asegurarnos de que
+  conservara la mayor fidelidad posible al original.
 ---
 Cuando encuentres a un hombre
 que convierta cada parte de tu cuerpo
