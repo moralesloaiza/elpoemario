@@ -1,7 +1,7 @@
 ---
 titulo: La producción poética hispanoamericana
 fecha: 2011-11-16
-borrador: true
+borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false
 tipo: bitacora
