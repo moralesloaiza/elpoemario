@@ -298,14 +298,20 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   }
 
   /* ── Name + meta + bio (right column) ─────────────────────────────── */
+  /* Nombre de autor = entidad de catalogo (decision de diseno §25): Cinzel
+     semibold en versalitas, un escalon bajo el masthead bold de los titulos de
+     indice. Convive con el titulo de obra (poema/entrada) que va en Garamond.
+     Las mayusculas se aplican por CSS para no alterar el accessible name que
+     leen los lectores de pantalla. */
   .autor-nombre {
     font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--fs-3xl);
-    line-height: 1.04;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-2xl);
+    line-height: 1.1;
     margin: 0 0 var(--space-xs);
     color: var(--text);
-    letter-spacing: 0.02em;
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
     text-wrap: balance;
   }
   .autor-meta {
@@ -364,10 +370,9 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   }
   .autor-poemas h2 {
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: var(--fw-semibold);
     font-size: var(--fs-xl);
-    letter-spacing: 0;
-    text-transform: none;
+    letter-spacing: var(--ls-wide);
     color: var(--text);
     margin: 0 0 var(--space-md);
   }
