@@ -1,8 +1,8 @@
 ---
 titulo: Don Blas y doña Tecla
 fecha: 2025-02-12
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-14_57_35.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_44_54.png
 borrador: false
 tipo: romancillo
 movimiento: popular-tradicional
