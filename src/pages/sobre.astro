@@ -50,10 +50,14 @@ const { Content } = await render(pagina);
   /* Body is rendered from markdown via <Content/>, so its inner elements
      are not processed by Astro's scoped-style compiler. Target them
      globally, anchored on the scoped .prose wrapper. */
+  /* Encabezado de seccion en voz literaria (§26): Cormorant Garamond, no Cinzel.
+     Se conserva el centrado propio de esta pagina editorial. */
   .prose :global(h2) {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: var(--fs-xl);
     font-weight: var(--fw-semibold);
+    font-style: normal;
+    letter-spacing: 0;
     text-align: center;
     margin: var(--space-xl) 0 var(--space-lg);
     text-wrap: balance;

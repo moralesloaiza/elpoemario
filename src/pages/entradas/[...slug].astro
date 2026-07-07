@@ -138,6 +138,9 @@ const volver = esCarta
   .kicker-sep {
     color: var(--oro-suave);
   }
+  /* Titulo de entrada = OBRA que se lee (§25): Garamond caja normal, identico al
+     titulo de poema. Anula el text-transform:uppercase heredado del h1 base; sin
+     este reset el titulo salia en versalitas, incoherente con .poema-titulo. */
   .cabecera h1 {
     margin: 0 0 var(--space-sm);
     font-family: var(--font-body);
@@ -145,6 +148,7 @@ const volver = esCarta
     font-size: var(--fs-3xl);
     line-height: var(--lh-snug);
     color: var(--text);
+    text-transform: none;
     text-wrap: balance;
     letter-spacing: 0;
   }
@@ -188,11 +192,61 @@ const volver = esCarta
     margin: 0 0 var(--space-md);
     hyphens: auto;
   }
+  /* Subtitulos del cuerpo (h2-h6, editables en Decap) = voz literaria (§25):
+     Cormorant Garamond, NO Cinzel. Jerarquia por tamano -> italica -> color,
+     no por cambio de fuente. Garamond tiene italica real, asi que un encabezado
+     en italica (p.ej. `### *...*` dentro de una cita) sale bien, sin la
+     faux-italic que producia Cinzel. Los niveles altos van en font-style:normal
+     para no heredar la italica del blockquote; h5-h6 van en italica a proposito.
+     Un h1 en el cuerpo se evita: el h1 es el titulo de la pagina. */
   .prose :global(h2) {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
     font-size: var(--fs-xl);
-    margin: var(--space-xl) 0 var(--space-md);
+    font-style: normal;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
     color: var(--text);
+    margin: var(--space-xl) 0 var(--space-sm);
+    text-wrap: balance;
+  }
+  .prose :global(h3) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-lg);
+    font-style: normal;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
+    color: var(--text);
+    margin: var(--space-lg) 0 var(--space-sm);
+    text-wrap: balance;
+  }
+  .prose :global(h4) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-md);
+    font-style: normal;
+    letter-spacing: 0;
+    color: var(--text);
+    margin: var(--space-lg) 0 var(--space-xs);
+  }
+  .prose :global(h5) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-base);
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--text);
+    margin: var(--space-md) 0 var(--space-xs);
+  }
+  .prose :global(h6) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--text-muted);
+    margin: var(--space-md) 0 var(--space-xs);
   }
   /* Pull-quote: big centered italic in Cormorant, no side rule (handoff). */
   .prose :global(blockquote) {

@@ -404,14 +404,62 @@ const siguiente = siguienteEntry
   }
   .prose--verso :global(h2),
   .prose--verso :global(h3),
-  .prose--verso :global(h4) {
+  .prose--verso :global(h4),
+  .prose--verso :global(h5),
+  .prose--verso :global(h6) {
     text-align: center;
-    margin-block: var(--space-xl) var(--space-md);
   }
-  .prose :global(h2),
-  .prose :global(h3),
-  .prose :global(h4) {
+  /* Subtitulos del cuerpo (h2-h6, editables en Decap) = voz literaria (§25):
+     Cormorant Garamond, NO Cinzel; jerarquia por tamano -> italica -> color.
+     Mismo sistema que en las entradas de la bitacora. */
+  .prose :global(h2) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-xl);
+    font-style: normal;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
     color: var(--text);
+    margin-block: var(--space-xl) var(--space-sm);
+    text-wrap: balance;
+  }
+  .prose :global(h3) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-lg);
+    font-style: normal;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
+    color: var(--text);
+    margin-block: var(--space-lg) var(--space-sm);
+    text-wrap: balance;
+  }
+  .prose :global(h4) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-md);
+    font-style: normal;
+    letter-spacing: 0;
+    color: var(--text);
+    margin-block: var(--space-lg) var(--space-xs);
+  }
+  .prose :global(h5) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-base);
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--text);
+    margin-block: var(--space-md) var(--space-xs);
+  }
+  .prose :global(h6) {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    font-style: italic;
+    letter-spacing: 0;
+    color: var(--text-muted);
+    margin-block: var(--space-md) var(--space-xs);
   }
   .prose :global(p) {
     margin: 0 0 var(--space-lg);
