@@ -39,4 +39,6 @@ Por esto, ellos nos ayudan a penetrar con sus obras en lo íntimo de la Naturale
 
 Bendigamos, pues, a la poesía y a los hombres que supieron expresar sus sentimientos poéticamente; porque ellos serán nuestros amables compañeros en nuestras horas de soledad y meditación, dulcificando nuestra propia melancolía con la música de sus versos. Serán los poetas nuestros mejores amigos si nosotros lo somos de ellos, y con sus nobles palabras consolarán nuestro dolor y nuestras dudas en los momentos de desaliento, que ningún hombre logra evitar. Nos describirán con bellas imágenes las bellezas del mundo, y las múltiples facetas del espíritu humano, y contribuirán a preparar nuestro corazón, haciéndolo fuerte y generoso, para la lucha por la vida.
 
+- - -
+
 *\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo V, p 1575. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
