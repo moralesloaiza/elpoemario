@@ -1,8 +1,8 @@
 ---
 titulo: Retorno
 fecha: 2020-09-16
-fecha_actualizada: 2026-05-31
-ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_10_05.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_31_02.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
