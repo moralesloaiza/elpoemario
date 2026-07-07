@@ -1,15 +1,18 @@
 ---
 titulo: Poema del renunciamiento
 fecha: 2011-10-26
-fecha_actualizada: 2026-07-05
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-22_24_44.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
   - poesia-misma
+  - desamor
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro de Morales y Loaiza
 ---
 Pasarás por mi vida sin saber que pasaste.
 Pasarás en silencio por mi amor, y, al pasar,
