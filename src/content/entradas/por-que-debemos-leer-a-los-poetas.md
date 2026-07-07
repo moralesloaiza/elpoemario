@@ -9,8 +9,8 @@ resumen: «Los buenos poetas son pocos, y sería necio suponer que, por el hecho
   pero no verdadera poesía, por carecer de la necesaria inspiración».
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
-es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+es_seudonimo: false
+nombre_real: ""
 tipo: bitacora
 ---
 ## El Libro de la poesía*
@@ -38,5 +38,7 @@ Decía en cierta ocasión un poeta, hablando de otros grandes poetas, que su pen
 Por esto, ellos nos ayudan a penetrar con sus obras en lo íntimo de la Naturaleza, comunicándonos algo de su percepción sutil. Puede decirse que nos prestan sus ojos, para que veamos mejor la belleza de las cosas. Y a la vez nos prestan también su corazón, su fina sensibilidad, que llega a nuestra comprensión, mediante el lenguaje poético, mucho mejor que a través de los escritos prosaicos. No hay un modo mejor de educarse espiritualmente que ponerse en contacto, por medio de la lectura, con los grandes talentos que se maduraron viviendo la vida en sus horas sentimentales de esperanza, de dolor, o de alegría. La poesía sirve para hacernos sentir y comprender la vida en toda su intensidad e infinitos matices.
 
 Bendigamos, pues, a la poesía y a los hombres que supieron expresar sus sentimientos poéticamente; porque ellos serán nuestros amables compañeros en nuestras horas de soledad y meditación, dulcificando nuestra propia melancolía con la música de sus versos. Serán los poetas nuestros mejores amigos si nosotros lo somos de ellos, y con sus nobles palabras consolarán nuestro dolor y nuestras dudas en los momentos de desaliento, que ningún hombre logra evitar. Nos describirán con bellas imágenes las bellezas del mundo, y las múltiples facetas del espíritu humano, y contribuirán a preparar nuestro corazón, haciéndolo fuerte y generoso, para la lucha por la vida.
+
+- - -
 
 *\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo V, p 1575. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
