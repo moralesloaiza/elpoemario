@@ -3,7 +3,7 @@ titulo: Reflexión sobre un beso
 resumen: Meditación brevísima sobre el inicio de un beso.
 fecha: 2013-08-12
 fecha_actualizada: 2026-07-07
-borrador: true
+borrador: false
 tipo: prosa-poetica
 movimiento: contemporaneo
 temas:
