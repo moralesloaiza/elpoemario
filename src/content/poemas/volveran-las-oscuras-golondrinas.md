@@ -1,8 +1,8 @@
 ---
 titulo: Volverán las oscuras golondrinas
 fecha: 2025-02-20
-fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-13_52_36.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-22_37_46.png
 borrador: false
 tipo: romance-heroico
 movimiento: romanticismo
