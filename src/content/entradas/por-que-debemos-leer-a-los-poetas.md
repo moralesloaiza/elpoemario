@@ -9,8 +9,8 @@ resumen: «Los buenos poetas son pocos, y sería necio suponer que, por el hecho
   pero no verdadera poesía, por carecer de la necesaria inspiración».
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
-es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+es_seudonimo: false
+nombre_real: ""
 tipo: bitacora
 ---
 ## El Libro de la poesía*
