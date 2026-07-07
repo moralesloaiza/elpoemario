@@ -1,8 +1,10 @@
 ---
 titulo: Memento Amare
+resumen: Recuerda amar. Una prosa poética escrita en uno de los veranos más
+  tristes del autor.
 fecha: 2023-05-03
-fecha_actualizada: 2026-06-22
-ilustracion: ../../assets/uploads/chatgpt-image-22-jun-2026-21_07_15.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_01_37.png
 spotify_url: https://open.spotify.com/episode/1LUbmQsCMwjc42BpeZaoD2?si=0aeQdk3xQmSBpqSmn1tAcQ
 borrador: false
 tipo: prosa-poetica
