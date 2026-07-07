@@ -1,13 +1,15 @@
-﻿---
-titulo: "Poema del poema"
+---
+titulo: Poema del poema
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-22_30_44.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
   - poesia-misma
 autor: jose-angel-buesa
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
