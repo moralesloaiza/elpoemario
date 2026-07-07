@@ -28,9 +28,9 @@ pepitas de melón.
 Pero a su sobrina,
 María Encarnación,
 el mirarles tan feos
-le oprime el corazón.“
+le oprime el corazón.
 
-¿Se han vuelto así?”
+“¿Se han vuelto así?”
 —pregúntase un día—
 “por no comer jamón
 y tomar para postre

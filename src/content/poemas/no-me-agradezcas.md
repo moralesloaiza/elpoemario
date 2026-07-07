@@ -1,8 +1,8 @@
 ---
 titulo: No me agradezcas
 fecha: 2020-10-04
-fecha_actualizada: 2026-05-31
-ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-14_00_26.png
+fecha_actualizada: 2026-07-06
+ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_07_17.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
@@ -18,6 +18,7 @@ autor: alejandro-de-morales-y-loaiza
 curador: El Fabulario
 es_seudonimo: false
 nombre_real: ""
+nota_curador: ""
 ---
 Mujer, no me des las gracias por quererte,
 que no me agradece el aire al respirarlo;
