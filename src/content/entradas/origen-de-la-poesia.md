@@ -30,7 +30,7 @@ Y en verso escribió D. José Zorrilla:
 
 De igual manera, se escriben versos que no son verdaderamente poéticos, ya por falta de inspiración y sentimiento, o bien porque tratran un asunto vulgar o festivo; pero, ello no obstante, en verso se expresan generalmente las ideas más hermosas, aquellas que, por su elevación moral, por su contenido de soñación, porque son hijas de lo que llamamos nuestro mundo *ideal*, o reino de la fantasía, requieren se expresadas en un lenguaje que se parezca a la música, el más puro y divino de los lenguajes.
 
-Téngase presente que ahora, al tratar de la poesía en particular, nos referimos al lenguaje en verso, y exclusivamente a los veros poéticos.
+Téngase presente que ahora, al tratar de la poesía en particular, nos referimos al lenguaje en verso, y exclusivamente a los versos poéticos.
 
 Hay tres clases de poesía: la *dramática*, que es la que se escribe para el teatro; la *épica*; que se inspira en los grandes acontecimientos de la historia de los pueblos y nos habla de los héroes y las más famosas batallas, y la *lírica*, la más musical de todas, inspirada en hermosos sueños, en los más puros ideales, la que *canta* la vida. Se llama *lírica* porque con esta palabra se recuerda la lira de los primeros poetas, que no escribían sus versos, sino que los cantaban en la plaza pública.
 
