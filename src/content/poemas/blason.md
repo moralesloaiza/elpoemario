@@ -1,0 +1,34 @@
+---
+titulo: "Blasón"
+fecha: 2026-07-07
+borrador: false
+tipo: soneto
+movimiento: modernismo
+temas:
+  - identidad
+  - patria
+  - poesia-misma
+motivos:
+  - lira
+  - sol
+  - sangre
+autor: jose-santos-chocano
+---
+
+Soy el cantor de América autóctono y salvaje:
+mi lira tiene un alma, mi canto un ideal.
+Mi verso no se mece colgado de un ramaje
+con vaivén pausado de hamaca tropical…
+
+Cuando me siento inca, le rindo vasallaje
+al Sol, que me da el cetro de su poder real;
+cuando me siento hispano y evoco el coloniaje
+parecen mis estrofas trompetas de cristal.
+
+Mi fantasía viene de un abolengo moro:
+los Andes son de plata, pero el león, de oro,
+y las dos castas fundo con épico fragor.
+
+La sangre es española e incaico es el latido;
+y de no ser Poeta, quizá yo hubiera sido
+un blanco aventurero o un indio emperador.

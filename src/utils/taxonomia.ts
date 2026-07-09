@@ -10,8 +10,9 @@
 
 export const TIPOS = [
   'soneto', 'silva', 'madrigal', 'romance', 'romance-heroico', 'romancillo',
-  'endecha', 'decima', 'redondilla', 'cuarteta', 'cuarteto', 'serventesio',
-  'quintilla', 'terceto', 'pareado', 'quinteto', 'sexteto', 'octava-real',
+  'endecha', 'decima', 'redondilla', 'cuarteta', 'cuarteto', 'cuarteto-lira',
+  'serventesio', 'quintilla', 'sextilla', 'terceto', 'pareado', 'quinteto',
+  'sexteto', 'octava-real',
   'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada', 'glosa',
   'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
   'polimetrico', 'verso-libre', 'prosa-poetica',
@@ -29,6 +30,7 @@ export const TEMAS = [
   'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
   'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
   'paz', 'arte', 'poesia-misma', 'silencio', 'identidad', 'deseo', 'ausencia',
+  'humor-negro', 'virtud',
 ] as const;
 
 export const MOTIVOS = [
@@ -36,14 +38,15 @@ export const MOTIVOS = [
   'luna', 'sol', 'mar-figura', 'rio', 'montana', 'jardin', 'rosa', 'ruisenor',
   'reloj', 'espejo', 'ventana', 'puerta', 'camino', 'barco', 'estrella',
   'ceniza', 'lagrima', 'sangre', 'fuego', 'sombra', 'espada', 'libro', 'lira',
-  'sepulcro', 'ruinas',
+  'sepulcro', 'ruinas', 'ojo', 'noche', 'caballo', 'ciudad', 'palma', 'condor',
+  'muneca', 'cruz',
 ] as const;
 
 // Author country. Stored verbatim in `autores.nacionalidad` (proper noun, with
 // accents). The /nacionalidades/<slug>/ URL slug is derived in templates (PR 3).
 export const NACIONALIDADES = [
   'España', 'Venezuela', 'Colombia', 'México', 'Cuba', 'Argentina',
-  'Uruguay', 'Perú', 'Chile', 'Siria', 'Puerto Rico', 'Nicaragua',
+  'Uruguay', 'Perú', 'Chile', 'Ecuador', 'Siria', 'Puerto Rico', 'Nicaragua',
 ] as const;
 
 // Original language, for authors who wrote outside Castilian. Optional.
@@ -72,8 +75,10 @@ export const TIPOS_DISPLAY: Record<Tipo, string> = {
   'redondilla': 'Redondilla',
   'cuarteta': 'Cuarteta',
   'cuarteto': 'Cuarteto',
+  'cuarteto-lira': 'Cuarteto-lira',
   'serventesio': 'Serventesio',
   'quintilla': 'Quintilla',
+  'sextilla': 'Sextilla',
   'terceto': 'Terceto',
   'pareado': 'Pareado',
   'quinteto': 'Quinteto',
@@ -151,6 +156,8 @@ export const TEMAS_DISPLAY: Record<Tema, string> = {
   'identidad': 'Identidad',
   'deseo': 'Deseo',
   'ausencia': 'Ausencia',
+  'humor-negro': 'Humor negro',
+  'virtud': 'Virtud',
 };
 
 export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
@@ -184,6 +191,14 @@ export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
   'lira': 'Lira',
   'sepulcro': 'Sepulcro',
   'ruinas': 'Ruinas',
+  'ojo': 'Ojo',
+  'noche': 'Noche',
+  'caballo': 'Caballo',
+  'ciudad': 'Ciudad',
+  'palma': 'Palma',
+  'condor': 'Cóndor',
+  'muneca': 'Muñeca',
+  'cruz': 'Cruz',
 };
 
 // País → gentilicio plural. Section heading on /nacionalidades/ (PR 3).
@@ -197,6 +212,7 @@ export const NACIONALIDADES_DISPLAY: Record<Nacionalidad, string> = {
   'Uruguay': 'uruguayos',
   'Perú': 'peruanos',
   'Chile': 'chilenos',
+  'Ecuador': 'ecuatorianos',
   'Siria': 'sirios',
   'Puerto Rico': 'puertorriqueños',
   'Nicaragua': 'nicaragüenses',
