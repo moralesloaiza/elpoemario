@@ -2,16 +2,12 @@
 titulo: La producción poética hispanoamericana
 fecha: 2011-11-16
 fecha_actualizada: 2026-07-09
-resumen: «La producción poética de la literatura hispanoamericana es tan rica y
-  variada, que puede ponérsela en primera línea entre las más copiosas del
-  mundo. Todos los grandiosos, terribles o risueños espectáculos de la
-  Naturaleza y sus admirables producciones, todos los arrojos del heroísmo,
-  todos los grandes triunfos de la inteligencia humana, todas las alegrías y
-  tristezas del ánimo, todos los afectos del corazón y los matices del
-  sentimiento, todos los anhelos del alma "a su origen primera esclarecida", en
-  suma, cuanto de elevado y hermoso hay en los órdenes físico, intelectual y
-  moral, ha sido cantado, con estro insuperable, en armoniosas composiciones de
-  singular mérito artístico».
+resumen: "«Todos los espectáculos de la Naturaleza, todos los triunfos del
+  heroísmo y de la inteligencia, todas las alegrías y tristezas del alma, todos
+  los afectos del corazón: cuanto de elevado y hermoso existe en el orden
+  físico, intelectual y moral ha sido cantado, con estro insuperable, en
+  composiciones de singular mérito artístico»."
+ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-07_59_34.png
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false
