@@ -1,6 +1,8 @@
 ---
-titulo: "A buen juez, mejor testigo"
+titulo: A buen juez, mejor testigo
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-09
+ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-16_43_42.png
 borrador: false
 tipo: romance
 movimiento: romanticismo
@@ -13,9 +15,11 @@ motivos:
   - ciudad
   - rio
 autor: jose-zorrilla
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
-— I —
+## I
 
 Entre pardos nubarrones
 pasando la blanca luna,
@@ -124,7 +128,7 @@ hizo cara a Iván de Acuña,
 y huyeron en el embozo
 velando la catadura.
 
-— II —
+## II
 
 Clara, apacible y serena
 pasa la siguiente tarde,
@@ -293,7 +297,7 @@ Contestó el mozo:
 "¡Sí juro!",
 y ambos del templo se salen.
 
-— III —
+## III
 
 Pasó un día y otro día
 un mes y otro mes pasó,
@@ -445,7 +449,7 @@ el rostro a Toledo dan,
 y a trote cruzando van
 las oscuras callejuelas.
 
-— IV —
+## IV
 
 Así por sus altos fines
 dispone y permite el cielo
@@ -512,7 +516,7 @@ en la mantilla envolviendo,
 a pasos desatentados
 salióse del aposento.
 
-— V —
+## V
 
 Era entonces de Toledo
 por el rey, gobernador,
@@ -663,7 +667,7 @@ Escribano, al caer el sol
 al Cristo que está en la Vega
 tomaréis declaración."
 
-— VI —
+## VI
 
 Es una tarde serena,
 cuya luz tornasolada
@@ -748,7 +752,7 @@ la vista a la imagen santa…
 Los labios tenía abiertos
 y una mano desclavada.
 
-Conclusión
+## Conclusión
 
 Las vanidades del mundo
 renunció allí mismo Inés,
