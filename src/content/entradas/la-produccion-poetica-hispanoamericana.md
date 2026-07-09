@@ -13,8 +13,7 @@ curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false
 tipo: bitacora
 ---
-La producción poética de la literatura hispanoamericana es tan rica y variada, que puede ponérsela en primera línea entre las más copiosas del mundo. Todos los grandiosos, terribles o risueños espectáculos de la Naturaleza y sus admirables producciones, todos los arrojos del heroísmo, todos los grandes triunfos de la inteligencia humana, todas las alegrías y tristezas del ánimo, todos los afectos del corazón y los matices del sentimiento, todos los anhelos del alma *« a su origen primera esclarecida »*, en suma, cuanto de elevado y hermoso hay en los órdenes físico, intelectual y moral, ha sido cantado, con estro insuperable, en armoniosas composiciones de
-singular mérito artístico.
+La producción poética de la literatura hispanoamericana es tan rica y variada, que puede ponérsela en primera línea entre las más copiosas del mundo. Todos los grandiosos, terribles o risueños espectáculos de la Naturaleza y sus admirables producciones, todos los arrojos del heroísmo, todos los grandes triunfos de la inteligencia humana, todas las alegrías y tristezas del ánimo, todos los afectos del corazón y los matices del sentimiento, todos los anhelos del alma *« a su origen primera esclarecida »*, en suma, cuanto de elevado y hermoso hay en los órdenes físico, intelectual y moral, ha sido cantado, con estro insuperable, en armoniosas composiciones de singular mérito artístico.
 
 En cuanto a la pompa y galanura del lenguaje, riqueza de color y variedad de metros y de rimas, la literatura hispanoamericana no tiene rival en lengua alguna, antigua ni moderna. Fácilmente puede comprobarse esto, admirando:
 
