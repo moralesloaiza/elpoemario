@@ -1,9 +1,9 @@
 ---
 activo: true
-cintillo: ¿Te has hecho daño, hijo mío?
+cintillo: Destacado en Bitácora
 extracto: "\n"
 tipo: entrada
 poema_referido: ""
-entrada_referida: el-largo-viaje-de-un-corazón
-autor_referido: alejandro-de-morales-y-loaiza
+entrada_referida: la-produccion-poetica-hispanoamericana
+autor_referido: ""
 ---
