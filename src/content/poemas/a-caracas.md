@@ -1,6 +1,8 @@
 ---
-titulo: "A Caracas"
+titulo: A Caracas
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-09
+ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-17_00_31.png
 borrador: false
 tipo: cuarteto-lira
 movimiento: romanticismo
@@ -13,6 +15,9 @@ motivos:
   - ciudad
   - montana
 autor: jose-heriberto-garcia-de-quevedo
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 En la falda de un monte que engalana
