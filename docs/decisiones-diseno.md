@@ -637,3 +637,120 @@ dominio publico incuestionable).
 
 Estado: implementado.
 
+\---
+
+25. Sistema tipografico de titulos: dos voces por rol semantico
+
+Diagnostico: el `h1` de pagina se renderizaba de TRES formas sin regla, y por eso
+el sitio se leia inconsistente: (A) Cinzel bold en versalitas — heredado de la base
+en los titulos de indice (/poemas, /autores, /temas, /tipos, /siglos,
+/nacionalidades); (B) Cormorant Garamond 500 en caja normal — titulo de poema
+(Poema.astro), de entrada (entradas/[...slug].astro) y paginas editoriales de prosa
+(sobre "Acerca de", correspondencia "Contacto", colaborar, buscar); (C) Cinzel
+peso 500 en caja mixta — nombre de autor (Autor.astro `.autor-nombre`, AutorCard
+`.card-nombre`) y el h2 "Obras" del autor. El (C) era el verdadero outlier: Cinzel
+es una fuente titling de caja alta (sus "minusculas" son versalitas), asi que pedirle
+caja mixta a peso 500 era un mal uso.
+
+Decision: se formaliza un sistema de DOS voces asignadas por rol semantico, no por
+pagina. La consistencia es por funcion (heuristica de Nielsen #4), no ad hoc.
+
+* Voz de catalogo/estructura — Cinzel, VERSALITAS via `text-transform: uppercase`,
+  tracking `--ls-wider` (o `--ls-wide` a escala menor). Solo cadenas cortas. Dos pesos
+  por jerarquia: `--fw-bold` (700) para el masthead/H1 de pagina (titulos de indice:
+  AUTORES, BITACORA...) y `--fw-semibold` (600) para instancias secundarias (nombre de
+  autor, encabezados de seccion, nombre en tarjeta). Cubre: titulos de indice, NOMBRE
+  DE AUTOR (se decide tratarlo como entidad de catalogo, no como obra: tradicion
+  editorial de nombres en versalitas), rotulos/kickers, nav, footer, chips, encabezados
+  de seccion.
+* Voz literaria — Cormorant Garamond (`--font-body`) 500, caja normal. Cadenas largas,
+  legibles. Cubre: titulo de OBRA que se lee (poema, entrada) y paginas editoriales
+  en primera persona (Acerca de, Contacto, Colaborar, Buscar).
+
+Base a11y (se conserva): las mayusculas SIEMPRE via CSS `text-transform`, nunca escritas
+a mano, para que el accessible name que leen los lectores de pantalla quede en caja
+natural. Las versalitas se reservan a cadenas cortas (evita la penalizacion de lectura
+del all-caps en titulos largos): por eso los titulos de obra/prosa se quedan en Garamond
+caja mixta.
+
+Alcance del cambio: el 90% del sitio ya cumplia la regla una vez nombrada; solo se
+corrigieron los TRES puntos del outlier (C):
+* `layouts/Autor.astro` `.autor-nombre` (h1): 500/mixta -> `--fw-semibold` + uppercase +
+  `--ls-wider`, tamano `--fs-2xl` (bajado un escalon desde `--fs-3xl`: en versalitas y a
+  ese tamano el nombre largo formaba un bloque de 3 lineas demasiado pesado).
+* `components/AutorCard.astro` `.card-nombre` (h3): 500/mixta -> `--fw-semibold` + uppercase +
+  `--ls-wide` (tracking menor por escala `--fs-lg`).
+* `layouts/Autor.astro` `.autor-poemas h2` ("N poemas en El Poemario"): 500 + `ls:0` +
+  `text-transform:none` -> `--fw-semibold` + `--ls-wide`, caja normal, alineado con los
+  demas encabezados de seccion (sobre/colaborar `.prose h2`).
+* `pages/entradas/[...slug].astro` `.cabecera h1` (titulo de la PAGINA de entrada): se
+  anadio `text-transform: none`. Bug preexistente: el h1 sobreescribia font-family (Garamond)
+  y letter-spacing pero NO el `text-transform: uppercase` que hereda del h1 base, asi que el
+  titulo de entrada salia en Garamond VERSALITAS, incoherente con el titulo de poema
+  (`.poema-titulo`, que si lo anula). Ahora ambos titulos de obra son identicos: Garamond 500
+  caja normal. Nota: la FILA de la bitacora (`FilaEntrada.astro` `.fila-titulo`) ya estaba
+  bien (caja normal); la discrepancia vivia solo en la pagina de detalle.
+Los indices (voz A) no se tocan. La voz B (obra: poema, entrada, editoriales) queda ahora
+uniforme en Garamond caja normal; una entrada es OBRA que se lee, misma voz que el poema,
+distinta del nombre de autor (entidad). No se pasa a Cinzel.
+
+Verificado (Chromium sobre dev): nombre de autor largo con diacritico ("GUSTAVO ADOLFO
+BECQUER") en Cinzel 600 versalitas `--fs-2xl` (~38px, 2 lineas); tarjeta de /autores en
+Cinzel 600 versalitas coherente con el titulo "AUTORES" (700); h2 de obras en Cinzel 600
+caja normal; titulo de poema ("A la muerte") y de entrada ("Confesiones nocturnas (I)")
+ahora identicos en Cormorant Garamond 500 caja normal. Sin errores de consola.
+
+Estado: implementado.
+
+\---
+
+26. Encabezados internos del cuerpo (h2-h6) en entradas y poemas: voz literaria
+
+Contexto: dentro del cuerpo de una entrada o un poema, Decap permite insertar
+encabezados h2-h6. Heredaban el h1-h6 base (Cinzel bold, `--ls-wide`), asi que
+salian en VERSALITAS Cinzel bold, pesadas, interrumpiendo el rio de lectura en
+Garamond. Ademas habia dos defectos concretos: (1) un h3 en italica dentro de una
+cita (`> ### *La poesia y el sentimiento*`) forzaba `font-style: italic` sobre
+Cinzel, que NO tiene italica cargada -> el navegador la sintetizaba (faux-italic
+torcida); (2) `.prose h3` no tenia tamano propio y heredaba el `--fs-2xl` del
+blockquote (~45px), quedando mas grande que el h2.
+
+Decision (coherente con §25): los encabezados DENTRO del cuerpo de lectura son voz
+LITERARIA -> Cormorant Garamond (`--font-body`), no Cinzel. La jerarquia se marca
+por tamano -> italica -> color, no por cambio de fuente. Escala (h2-h6), identica en
+`pages/entradas/[...slug].astro` y `layouts/Poema.astro`:
+
+* h2 `--fs-xl`, semibold, recta, `--text`.
+* h3 `--fs-lg`, semibold, recta, `--text`.
+* h4 `--fs-md`, semibold, recta, `--text`.
+* h5 `--fs-base`, semibold, ITALICA, `--text`.
+* h6 `--fs-sm`, semibold, ITALICA, `--text-muted`.
+
+Todos con `letter-spacing: 0` (anula el `--ls-wide` del h base) y `font-style:normal`
+explicito en h2-h4 para no heredar la italica del blockquote; h5-h6 van en italica a
+proposito. Como Cormorant SI tiene italica real (400/500/600-italic cargadas en
+Base.astro), un encabezado enfatizado sale en italica autentica, sin faux-italic. Un
+h1 en el cuerpo se evita por semantica (el h1 es el titulo de pagina); no se estiliza.
+En `Poema.astro`, `.prose--verso` centra h2-h6 (antes solo h2-h4).
+
+Justificacion: los subtitulos viven en la columna de lectura; mantenerlos en la misma
+familia que el cuerpo (Garamond) los integra en vez de cortar la lectura con titling
+caps. Reserva Cinzel para etiquetas cortas estructurales (§25).
+
+Paginas editoriales (sobre.astro, colaborar.astro): sus `.prose h2` (y el h3 de
+colaborar) tambien se migraron a Cormorant Garamond (font-family, `font-style:normal`,
+`letter-spacing:0`), para uniformidad total de "encabezado en prosa" en todo el sitio.
+Se conservan sus particularidades de pagina: el h2 sigue CENTRADO (parte del diseno
+centrado de esas paginas) y colaborar mantiene su h3 a `--fs-md` (sub-rotulo de lista,
+mas pequeno que el h3 `--fs-lg` de la escala de lectura de entradas/poemas). Con esto,
+NINGUN encabezado de cuerpo queda en Cinzel: la voz A (Cinzel) es solo para etiquetas
+cortas y titulos de indice.
+
+Verificado (Chromium sobre dev): entrada por-que-debemos-leer-a-los-poetas con h2
+(Cormorant 600, 30px), h3 en cita (Cormorant 600, 23px, italica REAL via `em`, antes
+45px faux-italic Cinzel) y h3 normal; sonda h2-h6 con escala descendente correcta
+(30/23/18/16/15px, h5-h6 italica, h6 en `--text-muted`); poema nocturno-a-rosario con
+sus h2 de seccion (I-X) en Cormorant 600 centrados. Sin errores de consola.
+
+Estado: implementado.
+

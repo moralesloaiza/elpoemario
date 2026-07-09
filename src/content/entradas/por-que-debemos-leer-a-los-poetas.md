@@ -1,23 +1,23 @@
 ---
 titulo: ¿Por qué debemos leer a los poetas?
 fecha: 2011-10-25
-fecha_actualizada: 2026-07-03
-resumen: Los buenos poetas son pocos, y sería necio suponer que, por el hecho de
-  saber nosotros cómo se riman las palabras unas con otras, podemos escribir
+fecha_actualizada: 2026-07-07
+resumen: «Los buenos poetas son pocos, y sería necio suponer que, por el hecho
+  de saber nosotros cómo se riman las palabras unas con otras, podemos escribir
   buenos versos. La poesía no consiste en la rima solamente, y aun se da el caso
   de que abundan mucho los hábiles versificadores, que hacen excelentes versos,
-  pero no verdadera poesía, por carecer de la necesaria inspiración.
+  pero no verdadera poesía, por carecer de la necesaria inspiración».
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
-es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+es_seudonimo: false
+nombre_real: ""
 tipo: bitacora
 ---
 ## El Libro de la poesía*
 
-> ### *La poesía y el sentimiento*
->
-> *HAY muchas personas que consideran inútil el leer poesía, por creer que ningún bien inmediato puede reportarles. Por eso es que dicen que no pueden leer versos, que no tienen tiempo para ello. El caso es que nunca lo intentaron seriamente. Pero como nosotros tenemos a la poesía un verdadero amor, un amor creciente, no podemos contarnos entre esas personas para quienes la poesía es algo superficial y sin importancia, una cosa sin valor positivo. La poesía sirve para afinar nuestra sensibilidad, poblando de bellas imágenes nuestro pensamiento: de modo que amándola y entendiéndola nos ponemos en la situación de descubrir los aspectos más bellos de la vida, que nos será tanto más grata cuanto más hermosa llegue a parecernos. Tiene, pues, una utilidad considerable leer poesía. El hombre incapaz de sentir y gozar sus bellezas es algo así como el ciego, para quien no existen las magnificencias de la forma, de la luz y del color: un infeliz, condenado a tener una noción imperfecta de la vida y el universo.*
+### *La poesía y el sentimiento*
+
+*HAY muchas personas que consideran inútil el leer poesía, por creer que ningún bien inmediato puede reportarles. Por eso es que dicen que no pueden leer versos, que no tienen tiempo para ello. El caso es que nunca lo intentaron seriamente. Pero como nosotros tenemos a la poesía un verdadero amor, un amor creciente, no podemos contarnos entre esas personas para quienes la poesía es algo superficial y sin importancia, una cosa sin valor positivo. La poesía sirve para afinar nuestra sensibilidad, poblando de bellas imágenes nuestro pensamiento: de modo que amándola y entendiéndola nos ponemos en la situación de descubrir los aspectos más bellos de la vida, que nos será tanto más grata cuanto más hermosa llegue a parecernos. Tiene, pues, una utilidad considerable leer poesía. El hombre incapaz de sentir y gozar sus bellezas es algo así como el ciego, para quien no existen las magnificencias de la forma, de la luz y del color: un infeliz, condenado a tener una noción imperfecta de la vida y el universo.*
 
 ### ¿Por qué debemos leer a los poetas?
 
@@ -38,5 +38,7 @@ Decía en cierta ocasión un poeta, hablando de otros grandes poetas, que su pen
 Por esto, ellos nos ayudan a penetrar con sus obras en lo íntimo de la Naturaleza, comunicándonos algo de su percepción sutil. Puede decirse que nos prestan sus ojos, para que veamos mejor la belleza de las cosas. Y a la vez nos prestan también su corazón, su fina sensibilidad, que llega a nuestra comprensión, mediante el lenguaje poético, mucho mejor que a través de los escritos prosaicos. No hay un modo mejor de educarse espiritualmente que ponerse en contacto, por medio de la lectura, con los grandes talentos que se maduraron viviendo la vida en sus horas sentimentales de esperanza, de dolor, o de alegría. La poesía sirve para hacernos sentir y comprender la vida en toda su intensidad e infinitos matices.
 
 Bendigamos, pues, a la poesía y a los hombres que supieron expresar sus sentimientos poéticamente; porque ellos serán nuestros amables compañeros en nuestras horas de soledad y meditación, dulcificando nuestra propia melancolía con la música de sus versos. Serán los poetas nuestros mejores amigos si nosotros lo somos de ellos, y con sus nobles palabras consolarán nuestro dolor y nuestras dudas en los momentos de desaliento, que ningún hombre logra evitar. Nos describirán con bellas imágenes las bellezas del mundo, y las múltiples facetas del espíritu humano, y contribuirán a preparar nuestro corazón, haciéndolo fuerte y generoso, para la lucha por la vida.
+
+- - -
 
 *\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo V, p 1575. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
