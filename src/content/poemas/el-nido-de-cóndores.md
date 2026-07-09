@@ -1,7 +1,8 @@
 ---
 titulo: El nido de cóndores
 fecha: 2026-07-08
-fecha_actualizada: 2026-07-08
+fecha_actualizada: 2026-07-09
+ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-09_27_32.png
 borrador: false
 tipo: polimetrico
 movimiento: romanticismo
