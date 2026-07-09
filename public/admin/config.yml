@@ -51,8 +51,10 @@ collections:
           - redondilla
           - cuarteta
           - cuarteto
+          - cuarteto-lira
           - serventesio
           - quintilla
+          - sextilla
           - terceto
           - pareado
           - quinteto
@@ -135,6 +137,8 @@ collections:
           - identidad
           - deseo
           - ausencia
+          - humor-negro
+          - virtud
       - label: "Motivos (figuras concretas)"
         name: motivos
         widget: select
@@ -172,6 +176,14 @@ collections:
           - lira
           - sepulcro
           - ruinas
+          - ojo
+          - noche
+          - caballo
+          - ciudad
+          - palma
+          - condor
+          - muneca
+          - cruz
       - label: "Autor"
         name: autor
         widget: relation
@@ -221,8 +233,10 @@ collections:
           - redondilla
           - cuarteta
           - cuarteto
+          - cuarteto-lira
           - serventesio
           - quintilla
+          - sextilla
           - terceto
           - pareado
           - quinteto
@@ -280,7 +294,7 @@ collections:
         name: nacionalidad
         widget: select
         required: false
-        options: [España, Venezuela, Colombia, México, Cuba, Argentina, Uruguay, Perú, Chile, Siria, Puerto Rico, Nicaragua]
+        options: [España, Venezuela, Colombia, México, Cuba, Argentina, Uruguay, Perú, Chile, Ecuador, Siria, Puerto Rico, Nicaragua]
         hint: "País del autor. La sección donde aparece (el gentilicio plural) se deriva automáticamente."
       - label: "Lengua original"
         name: lengua_original
