@@ -1,6 +1,8 @@
 ---
-titulo: "El poeta y el vulgo"
+titulo: El poeta y el vulgo
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_42_02.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo
@@ -8,6 +10,9 @@ temas:
   - poesia-misma
 motivos: []
 autor: eusebio-lillo
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Al altanero y encumbrado pino
