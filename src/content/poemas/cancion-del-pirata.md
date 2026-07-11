@@ -1,6 +1,8 @@
 ---
-titulo: "Canción del pirata"
+titulo: Canción del pirata
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_32_38.png
 borrador: false
 tipo: polimetrico
 movimiento: romanticismo
@@ -12,6 +14,9 @@ motivos:
   - mar-figura
   - luna
 autor: jose-de-espronceda
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Con diez cañones por banda,
