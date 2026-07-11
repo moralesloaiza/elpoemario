@@ -1,6 +1,8 @@
 ---
-titulo: "Al Atoyac"
+titulo: Al Atoyac
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_07_33.png
 borrador: false
 tipo: serventesio
 movimiento: romanticismo
@@ -13,8 +15,10 @@ motivos:
   - luna
   - sol
 autor: ignacio-manuel-altamirano
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
 Ábrase el sol de Julio las playas arenosas
 Que azota con sus tumbos embravecido el mar,
 Y opongan en su lucha, las aguas orgullosas,
@@ -50,7 +54,7 @@ El mango con sus pomas de oro y de carmín;
 Y en los ilamos saltan, gozoso el papagayo,
 El ronco carpintero y el dulce colorín.
 
-A veces tus cristales se apartan bulluciosos
+A veces tus cristales se apartan bulliciosos
 De tus morenas ninfas, jugando en derredor:
 Y amante las prodigas abrazos misteriosos
 Y lánguido recibes sus ósculos de amor.
