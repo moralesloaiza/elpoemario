@@ -1,6 +1,8 @@
 ---
-titulo: "Al partir"
+titulo: Al partir
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_19_47.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo
@@ -13,8 +15,11 @@ motivos:
   - mar-figura
   - noche
 autor: gertrudis-gomez-de-avellaneda
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: ""
 ---
-
 ¡Perla del mar! ¡Estrella de occidente!
 ¡Hermosa Cuba! Tu brillante cielo,
 la noche cubre con su opaco velo,
@@ -25,10 +30,10 @@ para arrancarme del nativo suelo
 las velas iza, y pronta a su desvelo
 la brisa acude de tu zona ardiente.
 
-A Dios, patria feliz! Edén querido!
-Do quier que el hado en su furor me impela
-tu dulce nombre alhagará mi oido.
+¡Adiós, patria feliz, edén querido!
+¡Doquier que el hado en su furor me impela,
+tu dulce nombre halagará mi oido!
 
-Ay! que ya cruje la turgente vela,
+¡Ay! ¡Que ya cruje la turgente vela,
 el ancla se alza, el buque estremecido
 las olas corta y silencioso vuela!
