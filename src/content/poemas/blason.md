@@ -1,6 +1,8 @@
 ---
-titulo: "Blasón"
+titulo: Blasón
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_25_25.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
@@ -13,6 +15,9 @@ motivos:
   - sol
   - sangre
 autor: jose-santos-chocano
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Soy el cantor de América autóctono y salvaje:
