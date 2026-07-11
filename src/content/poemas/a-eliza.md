@@ -1,6 +1,8 @@
 ---
-titulo: "A Eliza"
+titulo: A Eliza
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-22_42_10.png
 borrador: false
 tipo: silva
 movimiento: neoclasicismo
@@ -11,6 +13,9 @@ temas:
 motivos:
   - jardin
 autor: jose-joaquin-de-olmedo
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro de Morales y Loaiza
 ---
 
 ¿No ves cuán pronto por la azul esfera
