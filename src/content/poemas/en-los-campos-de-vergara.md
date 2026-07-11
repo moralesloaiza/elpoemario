@@ -1,6 +1,8 @@
 ---
-titulo: "A la terminación de la guerra civil en los campos de Vergara, 1840"
+titulo: A la terminación de la guerra civil en los campos de Vergara, 1840
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_54_31.png
 borrador: false
 tipo: soneto
 movimiento: neoclasicismo
@@ -9,6 +11,9 @@ temas:
   - patria
 motivos: []
 autor: juan-nicasio-gallego
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¿Que inusitada aclamación festiva
