@@ -1,17 +1,21 @@
 ---
-titulo: "El ramo del soldado"
+titulo: El ramo del soldado
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-10
+ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_45_57.png
 borrador: false
 tipo: romance
 movimiento: popular-tradicional
 temas:
   - desamor
   - dolor
-motivos: []
+motivos: null
 autor: antonio-de-trueba
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
-— I —
+## I
 
 «Un soldado me dio un ramo,
 yo le recibí con pena»
@@ -38,7 +42,7 @@ al son de la pandereta
 que de mano del soldado
 nunca vino cosa buena.
 
-— II —
+## II
 
 Busco paz en el sueño
 y si duermo, duermo inquieta...
@@ -65,7 +69,7 @@ nunca admitas sus ofertas,
 que de mano del soldado
 nunca vino cosa buena.»
 
-— III —
+## III
 
 Apenas despunta el alba,
 como el amor me desvela,
@@ -94,7 +98,7 @@ bien dijiste, verdad era
 que de mano del soldado
 nunca vino cosa buena!
 
-— IV —
+## IV
 
 Ya cantan los pajaritos
 en la vecina arboleda,
