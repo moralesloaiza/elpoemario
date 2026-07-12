@@ -1,5 +1,5 @@
 ---
-titulo: "Tristezas"
+titulo: Tristezas
 fecha: 2026-07-07
 borrador: false
 tipo: sexteto
@@ -12,13 +12,15 @@ temas:
 motivos:
   - dios-figura
 autor: gaspar-nunez-de-arce
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
 Cuando recuerdo la piedad sincera
 con que en mi edad primera
 entraba en nuestras viejas catedrales,
 donde postrado ante la cruz de hinojos
-alzaba a Dios mi ojos
+alzaba a Dios mis ojos
 soñando en las venturas celestiales;
 
 Hoy que mi frente atónito golpeo,
@@ -29,7 +31,7 @@ como en la edad aquélla,
 ¡desgraciado de mí! diera la vida.
 
 ¡Con qué profundo amor, niño inocente,
-prosternaba mis frente
+prosternaba mi frente
 en las losas del templo sacrosanto!
 Llenábase mi joven fantasía
 de luz, de poesía,
