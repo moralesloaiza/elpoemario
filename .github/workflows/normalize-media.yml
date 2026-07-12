@@ -1,0 +1,50 @@
+name: Normalize media
+
+# Tras un merge a main (p. ej. cuando Decap publica una entrada con una imagen
+# recien subida y nombre 'chatgpt-...'), renombra la imagen segun el slug de su
+# entrada y reescribe la referencia del frontmatter en el mismo commit.
+#
+# No hay bucle infinito: los push hechos con el GITHUB_TOKEN por defecto no
+# disparan nuevos workflows. Cloudflare Pages (App aparte) si reconstruye con
+# los nombres nuevos, dejando el sitio consistente.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/**'
+      - 'src/assets/uploads/**'
+
+# Evita solapes si llegan varios merges seguidos.
+concurrency:
+  group: normalize-media
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    name: Normalizar nombres de imagen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Normalize media filenames
+        run: node .github/scripts/normalize-media.mjs
+
+      - name: Commit changes if any
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -A
+            git commit -m 'Normalizar nombres de imagen segun su entrada'
+            git push
+          else
+            echo 'Sin cambios que commitear.'
+          fi
