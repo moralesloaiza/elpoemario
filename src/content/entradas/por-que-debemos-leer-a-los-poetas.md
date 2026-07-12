@@ -7,6 +7,7 @@ resumen: «Los buenos poetas son pocos, y sería necio suponer que, por el hecho
   buenos versos. La poesía no consiste en la rima solamente, y aun se da el caso
   de que abundan mucho los hábiles versificadores, que hacen excelentes versos,
   pero no verdadera poesía, por carecer de la necesaria inspiración».
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-08_21_52.png
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false

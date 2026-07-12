@@ -1,7 +1,7 @@
 ---
 titulo: Poema III
 fecha: 2014-10-27
-fecha_actualizada: 2026-07-06
+fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_25_30.png
 borrador: false
 tipo: romance
@@ -14,9 +14,20 @@ motivos:
   - amada
   - camino
 autor: alejandro-de-morales-y-loaiza
-curador: El Poemario
-es_seudonimo: false
-nombre_real: ""
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: >-
+  El poema III tuvo una directa y muy sentida dedicatoria, que reluce aún en el
+  tiempo en que se renueva el poemario en 2026. Tras haber escrito estos versos
+  en medio de un exilio necesario, que me condenaría una vez más a vivir el amor
+  en la distancia, añadí la siguiente nota, en diciembre de 2014:
+
+
+  > *Ahora entiendes que para mí estás en todos los autobuses que ruedan por el mundo… Y siento que vienes a verme en cada uno de ellos.*
+
+
+  Tras haber compartido la historia con el gran *Danny Ruggiero —*uno de esos bardos que solo tienen por lenguaje el amor a la vida y que rara vez se conocen—, por esas mismas fechas él escribiría un Haiku en inglés que parece haberse perdido entre las redes sociales y que llevaba por motivo el **autobús número 2**.
 ---
 Cuando tú empezaste a amarme,
 cuando yo empecé a quererte,

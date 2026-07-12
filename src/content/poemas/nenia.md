@@ -1,6 +1,8 @@
 ---
-titulo: "Nenia"
+titulo: Nenia
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-12
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-18_03_07.png
 borrador: false
 tipo: letrilla
 movimiento: romanticismo
@@ -10,6 +12,9 @@ temas:
   - patria
 motivos: []
 autor: carlos-guido-y-spano
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Llora, llora urutaú

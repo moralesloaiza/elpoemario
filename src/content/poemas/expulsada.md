@@ -1,6 +1,8 @@
 ---
-titulo: "Expulsada"
+titulo: Expulsada
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-12
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-00_21_37.png
 borrador: false
 tipo: silva
 movimiento: romanticismo
@@ -11,6 +13,9 @@ temas:
 motivos:
   - sombra
 autor: aurelia-castillo-de-gonzalez
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Te fuiste para siempre. Quedé en el mundo sola.

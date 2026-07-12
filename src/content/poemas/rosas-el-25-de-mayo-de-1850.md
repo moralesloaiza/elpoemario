@@ -1,5 +1,5 @@
 ---
-titulo: "Rosas. El 25 de mayo de 1850"
+titulo: Rosas. El 25 de mayo de 1850
 fecha: 2026-07-07
 borrador: false
 tipo: serventesio
@@ -13,8 +13,10 @@ motivos:
   - sepulcro
   - espada
 autor: jose-marmol
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
-
 Rosas ! Rosas ! un genio sin segundo
 Formó á su antojo tu destino extraño :
 Después de Satanás, nadie en el mundo,
@@ -142,7 +144,7 @@ Al descender á tu primer abismo.
 
 Te nombrarán las madres á sus hijos
 Cuando asustarlos en la cuna quieran;
-Y ellos temblando y en tu imágen fijos
+Y ellos temblando y en tu imájen fijos
 Se dormirán soñando que te vieran.
 
 Los trovadores pagarán tributo

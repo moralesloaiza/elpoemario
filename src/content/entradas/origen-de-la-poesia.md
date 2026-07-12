@@ -6,12 +6,13 @@ resumen: «(...) El instinto poético, el sentimiento, tiene sus raíces en el
   fondo de la naturaleza humana; y aunque en edades remotísimas no se supiera
   leer ni escribir, de alguna manera se buscó expresión adecuada para los
   diversos estados de ánimo, y ahí tuvo su origen la poesía».
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-09_38_02.png
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false
 tipo: bitacora
 ---
-## El Libro de la poesía*
+## El libro de la poesía
 
 Acaso comenzó la poesía la primera vez que el hombre sintió el deseo de cantar, para dar desahogo a un poderoso sentimiento de alegría o de tristeza. El instinto poético, el sentimiento, tiene sus raíces en el fondo de la naturaleza humana; y aunque en edades remotísimas no se supiera leer ni escribir, de alguna manera se buscó expresión adecuada para los diversos estados de ánimo, y ahí tuvo su origen la poesía. Desde luego se nos habla de los *bardos*, poetas que celebraban las victorias obtenidas por los guerreros, y que cantaban sus versos al son de la lira, escogiendo siempre las palabras más musicales, es decir, las que, en su rudo lenguaje primitivo, tenían un sonido más agradable. El príncipe de la poesía griega, Homero, que se supone vivió ocho siglos antes de Jesucristo, recitaba en público sus composiciones poéticas, describiendo las guerras de aquellos tiempos, que hoy conocemos generalmente con el nombre de *tiempos heroicos*. Todos los héroes legendarios de la antigua Grecia figuran en las poesías de Homero, el poeta ciego que iba de ciudad en ciudad y de pueblo en pueblo haciendo oir sus cantos épicos.
 
@@ -36,4 +37,4 @@ Hay tres clases de poesía: la *dramática*, que es la que se escribe para el te
 
 - - -
 
-*\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo I, p 116. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
+\*El tesoro de la juventud o Enciclopedia de conocimientos. Tomo I, p 116. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.
