@@ -12,9 +12,13 @@ autor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: Este es oficialmente mi primer sexteto flexible, aún lejos del
-  sexteto clásico, que construí a partir de una dedicatoria que hiciera en
-  prosa, una noche de noviembre de 2011.
+nota_curador: >-
+  Este es oficialmente mi primer sexteto flexible, aún lejos del sexteto
+  clásico, que construí a partir de una dedicatoria que hiciera en prosa, una
+  noche de noviembre de 2011:
+
+
+  > *Pondré como emisario de mis labios al más fiel y sincero beso, que habrá de esperar hasta el día en que sus ojos quieran posarse sobre los míos para entregarle mi recuerdo.*
 ---
 Desde esta, mi distancia, nombraré de mis labios
 como fiel emisario, al beso más sincero,
