@@ -1,6 +1,8 @@
 ---
-titulo: "La muñeca"
+titulo: La muñeca
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-12
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-00_27_06.png
 borrador: false
 tipo: romance
 movimiento: realismo
@@ -13,6 +15,9 @@ motivos:
   - noche
   - ciudad
 autor: vital-aza
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 En una noche de Enero
