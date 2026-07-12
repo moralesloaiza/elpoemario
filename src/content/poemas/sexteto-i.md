@@ -1,15 +1,22 @@
 ---
-titulo: "Sexteto I"
+titulo: Malquerencia
 fecha: 2013-07-25
+fecha_actualizada: 2026-07-12
 borrador: false
-tipo: sexteto
+tipo: verso-libre
 movimiento: contemporaneo
-temas: [amor, desamor]
-motivos: [amada]
+temas:
+  - amor
+  - desamor
+motivos:
+  - amada
 autor: alejandro-de-morales-y-loaiza
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
-nombre_real: "Alejandro Morales Loaiza"
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Este poema fue inicialmente bautizado como Sexteto I, empleando
+  una definición demasiado amplia. Tras volver al purismo, he decidido darle un
+  nuevo nombre a partir de esta publicación.
 ---
 Amor ajeno, amor robado
 que llegas hasta mí sin haberte anunciado,
