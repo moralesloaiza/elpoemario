@@ -2,7 +2,7 @@
 titulo: Al Atoyac
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_07_33.png
+ilustracion: ../../assets/uploads/poema-al-atoyac.png
 borrador: false
 tipo: serventesio
 movimiento: romanticismo

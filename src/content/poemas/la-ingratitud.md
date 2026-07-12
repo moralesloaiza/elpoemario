@@ -2,7 +2,7 @@
 titulo: La ingratitud
 fecha: 2025-08-13
 fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-22_08_36.png
+ilustracion: ../../assets/uploads/poema-la-ingratitud.png
 borrador: false
 tipo: pareado
 temas:

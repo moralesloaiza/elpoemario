@@ -7,7 +7,7 @@ nacimiento: 1600
 muerte: 1681
 lugar_nacimiento: Madrid, España
 lugar_muerte: Madrid, España
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-22_13_26.png
+imagen: ../../assets/uploads/autor-pedro-calderon-de-la-barca.png
 sameAs: []
 ---
 Nació en Madrid en 1600 y cerró con su obra el gran ciclo del Siglo de Oro. Soldado, sacerdote y dramaturgo de cámara, llevó el verso castellano a una arquitectura de pensamiento que no tiene igual en el teatro de su tiempo. Su lírica no vive en cancioneros sino dentro de sus dramas: son poemas las décimas de Segismundo en *La vida es sueño* —«sueña el rey que es rey»—, esa meditación sobre la ilusión y el desengaño que resume todo el barroco español.

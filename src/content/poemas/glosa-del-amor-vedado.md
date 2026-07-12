@@ -2,7 +2,7 @@
 titulo: Glosa del amor vedado
 fecha: 2011-08-09
 fecha_actualizada: 2026-06-24
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-20_41_54.png
+ilustracion: ../../assets/uploads/poema-glosa-del-amor-vedado.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

@@ -7,7 +7,7 @@ nacimiento: 1920
 muerte: 1976
 lugar_nacimiento: Caracas, Venezuela
 lugar_muerte: Caracas, Venezuela
-imagen: ../../assets/uploads/chatgpt-image-31-may-2026-18_46_10.png
+imagen: ../../assets/uploads/autor-aquiles-nazoa.png
 sameAs: []
 tambien_en: elfabulario.com
 ---

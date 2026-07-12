@@ -2,7 +2,7 @@
 titulo: Sobre la piel de su espalda
 fecha: 2014-04-05
 fecha_actualizada: 2026-05-31
-ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-16_41_02.png
+ilustracion: ../../assets/uploads/poema-sobre-la-piel-de-su-espalda.png
 borrador: false
 tipo: quintilla
 movimiento: contemporaneo

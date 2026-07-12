@@ -2,7 +2,7 @@
 titulo: A buen juez, mejor testigo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-09
-ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-16_43_42.png
+ilustracion: ../../assets/uploads/poema-a-buen-juez-mejor-testigo.png
 borrador: false
 tipo: romance
 movimiento: romanticismo

@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "normalize:media": "node .github/scripts/normalize-media.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

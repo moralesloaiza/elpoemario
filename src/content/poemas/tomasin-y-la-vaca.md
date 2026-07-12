@@ -2,7 +2,7 @@
 titulo: Tomasín y la vaca
 fecha: 2024-10-30
 fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-30-may-2026-21_46_27.png
+ilustracion: ../../assets/uploads/poema-tomasin-y-la-vaca.png
 borrador: false
 tipo: romancillo
 movimiento: popular-tradicional

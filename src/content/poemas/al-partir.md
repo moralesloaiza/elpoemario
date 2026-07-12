@@ -2,7 +2,7 @@
 titulo: Al partir
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_19_47.png
+ilustracion: ../../assets/uploads/poema-al-partir.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo

@@ -7,7 +7,7 @@ nacimiento: 1853
 muerte: 1928
 lugar_nacimiento: Veracruz, México
 lugar_muerte: Veracruz, México
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-22_40_37.png
+imagen: ../../assets/uploads/autor-salvador-diaz-miron.png
 sameAs:
   - https://es.wikipedia.org/wiki/Salvador_Díaz_Mirón
 ---

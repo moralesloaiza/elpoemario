@@ -2,7 +2,7 @@
 titulo: El ramo del soldado
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_45_57.png
+ilustracion: ../../assets/uploads/poema-el-ramo-del-soldado.png
 borrador: false
 tipo: romance
 movimiento: popular-tradicional

@@ -2,7 +2,7 @@
 titulo: Soleá del amor indiferente
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-05
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-21_40_47.png
+ilustracion: ../../assets/uploads/poema-solea-del-amor-indiferente.png
 borrador: false
 tipo: decima
 movimiento: posguerra

@@ -2,7 +2,7 @@
 titulo: Retorno
 fecha: 2020-09-16
 fecha_actualizada: 2026-07-06
-ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_31_02.png
+ilustracion: ../../assets/uploads/poema-retorno.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
