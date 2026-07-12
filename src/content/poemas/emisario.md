@@ -1,0 +1,24 @@
+---
+titulo: Emisario
+fecha: 2026-07-12
+fecha_actualizada: 2026-07-12
+borrador: true
+tipo: sexteto
+movimiento: contemporaneo
+temas:
+  - ausencia
+motivos: []
+autor: alejandro-de-morales-y-loaiza
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Este es oficialmente mi primer sexteto flexible, aún lejos del
+  sexteto clásico, que construí a partir de una dedicatoria que hiciera en
+  prosa, una noche de noviembre de 2011.
+---
+Desde esta, mi distancia, nombraré de mis labios
+como fiel emisario, al beso más sincero,
+que cruzará los mares, sabrá vencer agravios;
+la buscará paciente, sin queja ni lamento;
+procurará sus ojos, que buscarán los míos
+y al hallarla serena, le dará mi recuerdo.
