@@ -8,7 +8,7 @@ nacimiento: 1896
 muerte: 1955
 lugar_nacimiento: Cumaná, Sucre, Venezuela
 lugar_muerte: Ciudad de México, México
-imagen: ../../assets/uploads/chatgpt-image-31-may-2026-17_46_06.png
+imagen: ../../assets/uploads/autor-andres-eloy-blanco.png
 sameAs: []
 ---
 Nació en Cumaná en 1896 y fue el poeta más querido de la Venezuela de su tiempo,capaz de unir la maestría formal con el latido popular. Ganó en 1923 los Juegos Florales de Santander con su «Canto a España», pero el pueblo lo hizo suyo por piezas como «Píntame angelitos negros» —alegato contra el racismo hecho canción—y «Los muertos», o por la ternura de «La Renuncia». Sufrió cárcel y destierro porsu oposición a la dictadura de Juan Vicente Gómez.

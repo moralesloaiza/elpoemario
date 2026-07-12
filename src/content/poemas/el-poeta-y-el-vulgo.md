@@ -2,7 +2,7 @@
 titulo: El poeta y el vulgo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_42_02.png
+ilustracion: ../../assets/uploads/poema-el-poeta-y-el-vulgo.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo

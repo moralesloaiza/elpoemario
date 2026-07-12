@@ -2,7 +2,7 @@
 titulo: A Margarita Debayle
 fecha: 2011-10-30
 fecha_actualizada: 2026-07-09
-ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-09_11_34.png
+ilustracion: ../../assets/uploads/poema-a-margarita-debayle.png
 spotify_url: https://open.spotify.com/episode/1YGbvP23isEK8Nq9tfxIiO?si=LPFOeWC3QsCy07xBYWeXfA
 borrador: false
 tipo: cuarteta

@@ -2,7 +2,7 @@
 titulo: A la terminación de la guerra civil en los campos de Vergara, 1840
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_54_31.png
+ilustracion: ../../assets/uploads/poema-en-los-campos-de-vergara.png
 borrador: false
 tipo: soneto
 movimiento: neoclasicismo

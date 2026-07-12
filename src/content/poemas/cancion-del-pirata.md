@@ -2,7 +2,7 @@
 titulo: Canción del pirata
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_32_38.png
+ilustracion: ../../assets/uploads/poema-cancion-del-pirata.png
 borrador: false
 tipo: polimetrico
 movimiento: romanticismo

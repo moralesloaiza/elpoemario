@@ -7,7 +7,7 @@ nacimiento: 1887
 muerte: 1957
 lugar_nacimiento: Bragado, Buenos Aires, Argentina
 lugar_muerte: Buenos Aires, Argentina
-imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-13_57_14.png
+imagen: ../../assets/uploads/autor-enrique-pedro-maroni.png
 ---
 Nació en Bragado, provincia de Buenos Aires, en 1887. Fue ante todo letrista de tango, autor teatral y locutor radial: junto a Pascual Contursi puso letra en 1924 a *La cumparsita* —«Si supieras, que aún dentro de mi alma…»—, una de las canciones más universales del idioma. Esa vena popular y sentimental define su lugar.
 

@@ -2,7 +2,7 @@
 titulo: Cuando lejos, muy lejos
 fecha: 2012-11-17
 fecha_actualizada: 2026-07-03
-ilustracion: ../../assets/uploads/chatgpt-image-3-jul-2026-14_43_14.png
+ilustracion: ../../assets/uploads/poema-cuando-lejos-muy-lejos.png
 spotify_url: https://open.spotify.com/episode/2LDCPlRyplL4h5TcmOYd7t?si=YoDhgX3nQamgoP8LmN4XMQ
 borrador: false
 tipo: serventesio

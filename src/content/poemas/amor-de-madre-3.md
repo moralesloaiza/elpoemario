@@ -2,7 +2,7 @@
 titulo: Amor de madre (III)
 fecha: 2011-10-30
 fecha_actualizada: 2026-06-06
-ilustracion: ../../assets/uploads/chatgpt-image-17-jun-2026-21_40_38.png
+ilustracion: ../../assets/uploads/poema-amor-de-madre-3.png
 borrador: false
 tipo: silva
 movimiento: realismo

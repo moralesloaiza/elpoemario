@@ -1,7 +1,7 @@
 ---
 titulo: En los ojos abiertos de los muertos
 fecha: 2025-11-01
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-22_05_06.png
+ilustracion: ../../assets/uploads/poema-en-los-ojos-abiertos-de-los-muertos.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

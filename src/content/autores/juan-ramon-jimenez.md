@@ -7,7 +7,7 @@ nacimiento: 1881
 muerte: 1958
 lugar_nacimiento: Moguer, Huelva, España
 lugar_muerte: San Juan, Puerto Rico
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-17_31_48.png
+imagen: ../../assets/uploads/autor-juan-ramon-jimenez.png
 sameAs: []
 ---
 Nació en Moguer, Huelva, en 1881, y consagró su vida entera a una idea casi religiosa de la poesía. Tras una primera etapa de musicalidad modernista, buscó con obstinación lo que llamó la «poesía desnuda»: el poema despojado de adorno, reducido a su esencia, en busca de lo absoluto. *Diario de un poeta reciencasado* (1917) abre la poesía española a la modernidad; *Platero y yo*, su elegía en prosa, es de los libros más leídos de la lengua.

@@ -2,7 +2,7 @@
 titulo: A España, después de la revolución de marzo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-22_55_49.png
+ilustracion: ../../assets/uploads/poema-a-espana-despues-de-la-revolucion-de-marzo.png
 borrador: false
 tipo: silva
 movimiento: neoclasicismo

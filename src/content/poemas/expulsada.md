@@ -2,7 +2,7 @@
 titulo: Expulsada
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
-ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-00_21_37.png
+ilustracion: ../../assets/uploads/poema-expulsada.png
 borrador: false
 tipo: silva
 movimiento: romanticismo

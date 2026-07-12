@@ -4,7 +4,7 @@ resumen: Un poema a verso libre que empezó como prosa poética y fue publicado
   como unas líneas breves a la mujer ajena.
 fecha: 2012-03-01
 fecha_actualizada: 2026-07-06
-ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-22_21_13.png
+ilustracion: ../../assets/uploads/poema-lineas-breves-a-la-mujer-ajena.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

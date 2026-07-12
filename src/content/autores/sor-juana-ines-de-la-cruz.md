@@ -7,7 +7,7 @@ nacimiento: 1651
 muerte: 1695
 lugar_nacimiento: San Miguel Nepantla, México
 lugar_muerte: Ciudad de México, México
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-22_43_29.png
+imagen: ../../assets/uploads/autor-sor-juana-ines-de-la-cruz.png
 sameAs: []
 ---
 Nació en San Miguel Nepantla, al pie de los volcanes, hacia 1648 —la fecha se dio largo tiempo como 1651, hasta que un acta de bautismo adelantó el año—, y fue niña prodigio antes de ser monja jerónima. En el convento de San Jerónimo reunió biblioteca, instrumentos y saberes, y desde allí escribió la cima de la lírica barroca americana: sonetos amorosos de perfecta factura, redondillas que defienden a las mujeres con ironía demoledora («Hombres necios que acusáis…») y el ambicioso *Primero sueño*, viaje nocturno del alma hacia el conocimiento.

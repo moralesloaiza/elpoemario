@@ -2,7 +2,7 @@
 titulo: No me agradezcas
 fecha: 2020-10-04
 fecha_actualizada: 2026-07-06
-ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-23_07_17.png
+ilustracion: ../../assets/uploads/poema-no-me-agradezcas.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo

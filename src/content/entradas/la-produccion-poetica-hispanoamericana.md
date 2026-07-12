@@ -7,7 +7,7 @@ resumen: "«Todos los espectáculos de la Naturaleza, todos los triunfos del
   los afectos del corazón: cuanto de elevado y hermoso existe en el orden
   físico, intelectual y moral ha sido cantado, con estro insuperable, en
   composiciones de singular mérito artístico»."
-ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-07_59_34.png
+ilustracion: ../../assets/uploads/entrada-la-produccion-poetica-hispanoamericana.png
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false

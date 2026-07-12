@@ -2,7 +2,7 @@
 titulo: Poema IV
 fecha: 2025-08-17
 fecha_actualizada: 2026-07-05
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-22_38_58.png
+ilustracion: ../../assets/uploads/poema-poema-iv.png
 borrador: false
 tipo: redondilla
 movimiento: contemporaneo

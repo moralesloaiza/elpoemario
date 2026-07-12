@@ -2,7 +2,7 @@
 titulo: El Tabaco
 fecha: 2025-02-17
 fecha_actualizada: 2026-05-30
-ilustracion: ../../assets/uploads/chatgpt-image-6-jul-2026-22_43_15.png
+ilustracion: ../../assets/uploads/poema-el-tabaco.png
 borrador: false
 tipo: pareado
 movimiento: popular-tradicional

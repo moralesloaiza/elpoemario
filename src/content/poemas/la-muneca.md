@@ -2,7 +2,7 @@
 titulo: La muñeca
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
-ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-00_27_06.png
+ilustracion: ../../assets/uploads/poema-la-muneca.png
 borrador: false
 tipo: romance
 movimiento: realismo

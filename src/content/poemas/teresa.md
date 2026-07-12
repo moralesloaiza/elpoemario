@@ -2,7 +2,7 @@
 titulo: Teresa
 fecha: 2026-07-08
 fecha_actualizada: 2026-07-08
-ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-09_56_51.png
+ilustracion: ../../assets/uploads/poema-teresa.png
 borrador: false
 tipo: romance
 movimiento: romanticismo

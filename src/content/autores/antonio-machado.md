@@ -7,7 +7,7 @@ nacimiento: 1875
 muerte: 1939
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Colliure, Francia
-imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-11_24_55.png
+imagen: ../../assets/uploads/autor-antonio-machado.png
 sameAs: []
 ---
 Nació en Sevilla en 1875 y se crió en Madrid, en el ambiente liberal de la Institución Libre de Enseñanza. Profesor de francés en Soria, allí conoció y perdió a Leonor, herida que marca para siempre su obra. De *Soledades* (1903) a *Campos de Castilla* (1912) fue despojando el verso de toda ornamentación hasta una desnudez grave y meditativa: el paisaje castellano, el tiempo, los caminos —«caminante, no hay camino»— como materia de un pensar hondo y sobrio.

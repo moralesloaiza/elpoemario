@@ -2,7 +2,7 @@
 titulo: Nenia
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
-ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-18_03_07.png
+ilustracion: ../../assets/uploads/poema-nenia.png
 borrador: false
 tipo: letrilla
 movimiento: romanticismo

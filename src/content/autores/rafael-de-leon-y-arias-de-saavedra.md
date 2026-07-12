@@ -7,7 +7,7 @@ nacimiento: 1908
 muerte: 1982
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Madrid, España
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-22_28_16.png
+imagen: ../../assets/uploads/autor-rafael-de-leon-y-arias-de-saavedra.png
 sameAs: []
 ---
 Nacido en Sevilla en 1908, aristócrata andaluz, fue poeta cercano a la generación del 27 y, sobre todo, el gran letrista de la copla española del siglo XX: del trío Quintero, León y Quiroga salieron «Ojos verdes», «La zarzamora», «Tatuaje», «María de la O». Esa doble cara —el poeta culto de *Pena y alegría del amor* y el autor de canciones que cantó todo un país— define su lugar singular. Amigo de Lorca, sufrió cárcel al estallar la guerra.

@@ -2,7 +2,7 @@
 titulo: Para cantar
 fecha: 2013-12-01
 fecha_actualizada: 2026-05-31
-ilustracion: ../../assets/uploads/chatgpt-image-31-may-2026-17_13_38.png
+ilustracion: ../../assets/uploads/poema-para-cantar.png
 borrador: false
 tipo: romance
 movimiento: modernismo

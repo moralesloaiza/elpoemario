@@ -2,7 +2,7 @@
 titulo: Epístola de Jovino a sus amigos de Salamanca
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
-ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-00_13_59.png
+ilustracion: ../../assets/uploads/poema-epistola-de-jovino-a-sus-amigos-de-salamanca.png
 borrador: false
 tipo: silva
 movimiento: neoclasicismo

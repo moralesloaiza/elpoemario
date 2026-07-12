@@ -3,7 +3,7 @@ titulo: Nocturno a Rosario
 resumen: Un poema de triste y final despedida a quien fuera el amor imposible del autor.
 fecha: 2025-03-09
 fecha_actualizada: 2026-05-29
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_27_19.png
+ilustracion: ../../assets/uploads/poema-nocturno-a-rosario.png
 borrador: false
 tipo: verso-libre
 movimiento: romanticismo

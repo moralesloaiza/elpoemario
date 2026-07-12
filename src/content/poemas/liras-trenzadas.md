@@ -2,7 +2,7 @@
 titulo: Liras trenzadas
 fecha: 2014-02-11
 fecha_actualizada: 2026-06-21
-ilustracion: ../../assets/uploads/chatgpt-image-9-jul-2026-08_45_35.png
+ilustracion: ../../assets/uploads/poema-liras-trenzadas.png
 spotify_url: https://open.spotify.com/episode/4AIpEYz2R3l4f4kk10Mf7h?si=iI_ojsJtSiioZaHS9Qw8Jg
 borrador: false
 tipo: lira

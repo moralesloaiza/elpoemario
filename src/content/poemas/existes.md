@@ -2,7 +2,7 @@
 titulo: Existes
 fecha: 2025-03-05
 fecha_actualizada: 2026-07-05
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_30_29.png
+ilustracion: ../../assets/uploads/poema-existes.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo

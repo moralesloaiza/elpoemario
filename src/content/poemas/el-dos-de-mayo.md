@@ -2,7 +2,7 @@
 titulo: El Dos de Mayo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
-ilustracion: ../../assets/uploads/chatgpt-image-10-jul-2026-23_35_25.png
+ilustracion: ../../assets/uploads/poema-el-dos-de-mayo.png
 borrador: false
 tipo: silva
 movimiento: neoclasicismo

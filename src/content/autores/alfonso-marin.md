@@ -6,7 +6,7 @@ nacionalidad: Venezuela
 nacimiento: 1908
 muerte: 1989
 lugar_nacimiento: Burbusay, Trujillo, Venezuela
-imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-11_02_02.png
+imagen: ../../assets/uploads/autor-alfonso-marin.png
 ---
 Alfonso Antonio Marín Pacheco nació en Burbusay, estado Trujillo, en 1908. Periodista, historiador, funcionario y diputado, hizo sus primeras armas en el diario *Panorama* de Maracaibo y en 1940 se estableció en Valencia, ciudad que lo adoptó y de la que llegó a ser su segundo *cronista*. Dedicó la vida a fijar la memoria de Carabobo en una extensa obra histórica.
 

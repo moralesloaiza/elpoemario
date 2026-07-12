@@ -2,7 +2,7 @@
 titulo: Amor de madre (I)
 fecha: 2026-06-06
 fecha_actualizada: 2026-07-05
-ilustracion: ../../assets/uploads/chatgpt-image-5-jul-2026-23_22_43.png
+ilustracion: ../../assets/uploads/poema-amor-de-madre-1.png
 borrador: false
 tipo: balada
 movimiento: realismo

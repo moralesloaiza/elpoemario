@@ -7,7 +7,7 @@ nacimiento: 1867
 muerte: 1916
 lugar_nacimiento: Metapa, Nicaragua
 lugar_muerte: León, Nicaragua
-imagen: ../../assets/uploads/chatgpt-image-31-may-2026-19_17_14.png
+imagen: ../../assets/uploads/autor-ruben-dario.png
 sameAs: []
 ---
 Félix Rubén García Sarmiento nació en Metapa, hoy Ciudad Darío, en 1867, y desde muy joven asombró con una facilidad de verso que parecía no tener fondo. Con *Azul…* (1888) encendió la mecha del modernismo, y con *Prosas profanas* (1896) lo llevó a su plenitud de cisnes, princesas y música verbal. No fundó una escuela: refundó el idioma poético. Devolvió al castellano ritmos olvidados, ensanchó el alejandrino, hizo del verso un instrumento de orfebrería sonora que cambió para siempre el oído de la lengua a ambos lados del Atlántico.

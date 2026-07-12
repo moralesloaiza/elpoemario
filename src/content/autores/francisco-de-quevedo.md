@@ -7,7 +7,7 @@ nacimiento: 1580
 muerte: 1645
 lugar_nacimiento: Madrid, España
 lugar_muerte: Villanueva de los Infantes, Ciudad Real, España
-imagen: ../../assets/uploads/chatgpt-image-6-jun-2026-20_37_45.png
+imagen: ../../assets/uploads/autor-francisco-de-quevedo.png
 sameAs: []
 ---
 Nació en Madrid en 1580, en una familia de servidores de palacio, y se formó en las aulas de Alcalá y en la cerrada vida cortesana que nunca lo abandonó, ni siquiera cuando esa misma corte lo llevó a la prisión de San Marcos de León. De aquella inteligencia febril salió la cumbre del conceptismo: una poesía que no busca la melodía sino la agudeza, el verso que piensa, la palabra cargada hasta el filo. Cultivó todos los registros con la misma maestría inquietante —el amoroso, el grave, el burlesco— y en cada uno dejó piezas que la lengua no ha podido olvidar.

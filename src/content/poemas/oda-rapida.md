@@ -2,7 +2,7 @@
 titulo: Oda rápida
 fecha: 2025-02-05
 fecha_actualizada: 2026-06-28
-ilustracion: ../../assets/uploads/chatgpt-image-28-jun-2026-07_21_19.png
+ilustracion: ../../assets/uploads/poema-oda-rapida.png
 spotify_url: https://open.spotify.com/episode/1HKh4FcryNP4OAExLVfgfN?si=mZq3WZvqT3KeSUQSu4Bu1A
 borrador: false
 tipo: oda

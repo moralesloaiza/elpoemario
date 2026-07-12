@@ -7,7 +7,7 @@ nacimiento: 1561
 muerte: 1621
 lugar_nacimiento: Córdoba, España
 lugar_muerte: Córdoba, España
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-17_42_02.png
+imagen: ../../assets/uploads/autor-luis-de-gongora.png
 sameAs: []
 ---
 Nació en Córdoba en 1561, hijo de un juez de bienes confiscados, y tomó órdenes menores para vivir de una ración en la catedral de su ciudad, que apenas le bastó. Su nombre quedó unido para siempre a una manera de escribir: el culteranismo, o gongorismo, que lleva la lengua poética a su máxima tensión de hipérbaton, latinismo y metáfora deslumbrante. Pocos poetas han dividido tanto a sus lectores; ninguno ha sido imitado con tanta devoción ni combatido con tanta saña.

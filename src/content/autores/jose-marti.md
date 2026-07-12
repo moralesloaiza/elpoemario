@@ -7,7 +7,7 @@ nacimiento: 1853
 muerte: 1895
 lugar_nacimiento: La Habana, Cuba
 lugar_muerte: Dos Ríos, Cuba
-imagen: ../../assets/uploads/chatgpt-image-9-jun-2026-17_24_22.png
+imagen: ../../assets/uploads/autor-jose-marti.png
 sameAs:
   - https://es.wikipedia.org/wiki/José_Martí
 ---
