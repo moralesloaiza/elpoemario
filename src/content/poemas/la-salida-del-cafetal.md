@@ -1,7 +1,9 @@
 ---
-titulo: "La salida del cafetal"
+titulo: La salida del cafetal
 fecha: 2026-07-07
-borrador: false
+fecha_actualizada: 2026-07-12
+ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-17_57_46.png
+borrador: true
 tipo: soneto
 movimiento: neoclasicismo
 temas:
@@ -11,6 +13,9 @@ motivos:
   - caballo
   - amada
 autor: joaquin-lorenzo-luaces
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Tasca espumante el argentino freno
