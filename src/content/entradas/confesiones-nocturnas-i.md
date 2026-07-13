@@ -2,7 +2,7 @@
 autor: alejandro-de-morales-y-loaiza
 titulo: Confesiones nocturnas (I)
 fecha: 2013-08-13
-borrador: false
+borrador: true
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
