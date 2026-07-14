@@ -1,6 +1,8 @@
-﻿---
-titulo: "Cantares"
+---
+titulo: Cantares
 fecha: 2013-08-30
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/chatgpt-image-14-jul-2026-10_33_22.png
 borrador: false
 tipo: romance
 movimiento: generacion-98
@@ -9,7 +11,7 @@ temas:
 motivos:
   - camino
 autor: antonio-machado
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
