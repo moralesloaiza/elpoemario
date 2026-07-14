@@ -1,6 +1,8 @@
 ---
-titulo: "Nostalgias"
+titulo: Nostalgias
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/poema-nostalgias.png
 borrador: false
 tipo: sextilla
 movimiento: modernismo
@@ -12,6 +14,9 @@ motivos:
   - luna
   - estrella
 autor: julian-del-casal
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Suspiro por las regiones
