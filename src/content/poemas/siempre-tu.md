@@ -2,7 +2,7 @@
 titulo: Siempre tú…!
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_06_38.png
+ilustracion: ../../assets/uploads/poema-siempre-tu.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
