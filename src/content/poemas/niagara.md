@@ -1,6 +1,8 @@
 ---
-titulo: "Niágara"
+titulo: Niágara
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_06_06.png
 borrador: false
 tipo: silva
 movimiento: romanticismo
@@ -14,6 +16,9 @@ motivos:
   - palma
   - sepulcro
 autor: jose-maria-heredia
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Templad mi lira, dádmela, que siento
