@@ -1,6 +1,8 @@
 ---
-titulo: "Quintilla del duelo"
+titulo: Quintilla del duelo
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_54_33.png
 borrador: false
 tipo: quintilla
 movimiento: neoclasicismo
@@ -10,6 +12,9 @@ temas:
 motivos:
   - ojo
 autor: manuel-breton-de-los-herreros
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Dejóme el sumo poder
