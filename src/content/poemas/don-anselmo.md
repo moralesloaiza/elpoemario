@@ -1,6 +1,8 @@
-﻿---
-titulo: "Don Anselmo"
+---
+titulo: Don Anselmo
 fecha: 2013-08-08
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/poema-don-anselmo.png
 borrador: false
 tipo: romance-heroico
 movimiento: contemporaneo
@@ -8,7 +10,7 @@ temas:
   - patria
   - poesia-misma
 autor: aquiles-nazoa
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
