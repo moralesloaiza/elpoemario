@@ -2,7 +2,7 @@
 titulo: Oda a la libertad
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_36_04.png
+ilustracion: ../../assets/uploads/poema-oda-a-la-libertad.png
 borrador: false
 tipo: oda
 movimiento: romanticismo
