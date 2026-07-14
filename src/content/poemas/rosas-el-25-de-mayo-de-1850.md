@@ -1,6 +1,8 @@
 ---
 titulo: Rosas. El 25 de mayo de 1850
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/poema-rosas-el-25-de-mayo-de-1850.png
 borrador: false
 tipo: serventesio
 movimiento: romanticismo
