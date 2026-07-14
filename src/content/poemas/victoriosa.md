@@ -1,6 +1,8 @@
 ---
-titulo: "¡Victoriosa!"
+titulo: ¡Victoriosa!
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_30_28.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo
@@ -10,6 +12,9 @@ temas:
   - alegria
 motivos: []
 autor: aurelia-castillo-de-gonzalez
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡La Bandera en el Morro! ¿No es un sueño?
