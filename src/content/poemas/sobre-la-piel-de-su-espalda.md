@@ -18,7 +18,7 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 nota_curador: "**«Muchos caminos le hacían / sobre la piel de su
-  espalda».** *Originalmente escrita en 2014, este poema fue publicado en  2017
+  espalda».** *Originalmente escrito en 2014, este poema fue publicado en  2017
   en el ejemplar n.°19 (pág. 24) de la revista Fatum, de la Universidad autónoma
   de Baja California Sur (UABCS), México.*"
 ---
