@@ -1,7 +1,8 @@
 ---
 titulo: La pequeña Lola
 fecha: 2025-02-12
-ilustracion: ../../assets/uploads/poema-la-pequena-lola.png
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-22_19_13.png
 borrador: false
 tipo: pareado
 movimiento: popular-tradicional
