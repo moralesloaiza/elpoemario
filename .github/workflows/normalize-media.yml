@@ -1,24 +1,31 @@
 name: Normalize media
 
-# Tras un merge a main (p. ej. cuando Decap publica una entrada con una imagen
-# recien subida y nombre 'chatgpt-...'), renombra la imagen segun el slug de su
-# entrada y reescribe la referencia del frontmatter en el mismo commit.
+# Normaliza los nombres de imagen EN LA RAMA DEL PR, antes del merge a main.
 #
-# No hay bucle infinito: los push hechos con el GITHUB_TOKEN por defecto no
-# disparan nuevos workflows. Cloudflare Pages (App aparte) si reconstruye con
-# los nombres nuevos, dejando el sitio consistente.
+# Por que no se empuja a main: main esta gobernada por un ruleset (PR obligatorio
+# + 2 required status checks). El GITHUB_TOKEN por defecto no lo cruza (GH013).
+#
+# Por que hace falta un PAT y no basta el GITHUB_TOKEN: los push hechos con el
+# GITHUB_TOKEN no disparan workflows. Un commit suyo sobre la rama del PR dejaria
+# los 2 required checks en estado 'expected' sobre el nuevo HEAD SHA y el PR seria
+# immergeable. El push con PAT (secreto NORMALIZE_MEDIA_TOKEN, Contents: rw) si
+# dispara validate-pr.yml sobre el SHA nuevo.
+#
+# Por que no hay bucle: el push con PAT genera un evento 'synchronize' que vuelve
+# a correr este workflow, pero normalize-media.mjs es idempotente: en la segunda
+# pasada no encuentra nada que cambiar y termina sin commit.
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
     branches: [main]
     paths:
       - 'src/content/**'
       - 'src/assets/uploads/**'
 
-# Evita solapes si llegan varios merges seguidos.
 concurrency:
-  group: normalize-media
-  cancel-in-progress: false
+  group: normalize-media-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -26,9 +33,16 @@ permissions:
 jobs:
   normalize:
     name: Normalizar nombres de imagen
+    # Solo ramas de Decap del propio repo: en un fork el PAT no puede empujar.
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'cms/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.NORMALIZE_MEDIA_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -37,14 +51,14 @@ jobs:
       - name: Normalize media filenames
         run: node .github/scripts/normalize-media.mjs
 
-      - name: Commit changes if any
+      - name: Commit and push if any
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add -A
             git commit -m 'Normalizar nombres de imagen segun su entrada'
-            git push
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
           else
             echo 'Sin cambios que commitear.'
           fi

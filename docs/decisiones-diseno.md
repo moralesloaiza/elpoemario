@@ -754,3 +754,44 @@ sus h2 de seccion (I-X) en Cormorant 600 centrados. Sin errores de consola.
 
 Estado: implementado.
 
+\---
+
+27. Normalizacion de nombres de imagen: en la rama del PR, no en main
+
+Regla de nombre: cada imagen se llama `<prefijo>-<slug>.<ext>`, donde el prefijo
+marca el tipo de entrada a la que pertenece (`poema-`, `autor-`, `entrada-`) y el
+slug es el de esa entrada. `.github/scripts/normalize-media.mjs` (comando local
+`npm run normalize:media`) aplica la regla: renombra el fichero recien subido y
+reescribe el campo `ilustracion` del frontmatter en el mismo paso. Es idempotente:
+si el nombre ya cumple la regla, no toca nada.
+
+Donde ocurre: la normalizacion corre EN LA RAMA DEL PR de Decap (`cms/...`), antes
+del merge, NO sobre main. Asi main nunca ve el nombre sucio, el ruleset queda
+intacto y Cloudflare Pages construye una sola vez, ya con el nombre bueno.
+
+Por que no sobre main: main esta gobernada por un ruleset (PR obligatorio + 2
+required status checks: `Build site` y `Ownership check`). Un `git push` directo a
+main con el GITHUB_TOKEN por defecto es rechazado con GH013 ("Changes must be made
+through a pull request"). El bot nunca logro empujar; ese era el fallo original.
+
+Por que hace falta un PAT y no basta el GITHUB_TOKEN: los push hechos con el
+GITHUB_TOKEN por defecto NO disparan workflows. Si el bot empujara a la rama del PR
+con ese token, los 2 required checks quedarian en estado `expected` sobre el nuevo
+HEAD SHA y el PR seria immergeable. Por eso el push del normalizador se hace con un
+PAT: su push si dispara `validate-pr.yml` sobre el SHA nuevo, los checks corren y
+el PR puede mergearse.
+
+Secreto: `NORMALIZE_MEDIA_TOKEN`, PAT fine-grained con permiso Contents:
+read/write sobre este repo. CADUCA: hay que rotarlo antes de su vencimiento; si
+caduca, el workflow falla en el checkout y el normalizador deja de operar.
+
+Hueco conocido y aceptado: los PRs abiertos desde un fork (colaboradores externos)
+quedan fuera del normalizador. El PAT no puede empujar a la rama de un fork, asi
+que el job se salta esos PRs (guarda `head.repo.full_name == github.repository`).
+Sus imagenes, si las hubiera, se normalizan a mano con `npm run normalize:media`.
+
+`npm run normalize:media` sigue disponible en local para arreglos manuales sobre
+cualquier rama.
+
+Estado: implementado.
+
