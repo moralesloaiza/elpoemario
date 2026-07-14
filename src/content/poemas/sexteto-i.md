@@ -1,7 +1,8 @@
 ---
 titulo: Malquerencia
 fecha: 2013-07-25
-fecha_actualizada: 2026-07-12
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/malquerencia.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
