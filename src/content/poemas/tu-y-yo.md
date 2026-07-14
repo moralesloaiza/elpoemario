@@ -1,6 +1,8 @@
 ---
-titulo: "Tú y yo"
+titulo: Tú y yo
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_19_58.png
 borrador: false
 tipo: romance-heroico
 movimiento: romanticismo
@@ -11,6 +13,9 @@ motivos:
   - luna
   - lagrima
 autor: juan-zorrilla-de-san-martin
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Perfume de una flor que, al desprenderse,
