@@ -2,7 +2,7 @@
 titulo: Tú y yo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_19_58.png
+ilustracion: ../../assets/uploads/poema-tu-y-yo.png
 borrador: false
 tipo: romance-heroico
 movimiento: romanticismo
