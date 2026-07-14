@@ -2,7 +2,7 @@
 titulo: Niágara
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_06_06.png
+ilustracion: ../../assets/uploads/poema-niagara.png
 borrador: false
 tipo: silva
 movimiento: romanticismo
