@@ -1,6 +1,8 @@
 ---
-titulo: "Por la victoria de Lepanto"
+titulo: Por la victoria de Lepanto
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/poema-por-la-victoria-de-lepanto.png
 borrador: false
 tipo: oda
 movimiento: siglo-de-oro
@@ -12,6 +14,9 @@ motivos:
   - mar-figura
   - luna
 autor: fernando-de-herrera
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Cantemos al Señor, que en la llanura
