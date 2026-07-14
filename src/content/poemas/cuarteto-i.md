@@ -2,7 +2,7 @@
 titulo: Cuarteto I
 fecha: 2013-07-19
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/cuarteto-i.png
+ilustracion: ../../assets/uploads/poema-cuarteto-i.png
 borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
