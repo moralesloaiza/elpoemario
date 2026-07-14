@@ -1,6 +1,8 @@
 ---
-titulo: "Siempre tú…!"
+titulo: Siempre tú…!
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/poema-siempre-tu.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
@@ -12,6 +14,9 @@ motivos:
   - amada
   - ojo
 autor: hermanos-uhrbach
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Ya lejanas, mi amor, muy lejanas
