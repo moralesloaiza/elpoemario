@@ -2,7 +2,7 @@
 titulo: ¡Victoriosa!
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_30_28.png
+ilustracion: ../../assets/uploads/poema-victoriosa.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo
