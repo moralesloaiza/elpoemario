@@ -2,7 +2,7 @@
 titulo: Nostalgias
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_16_13.png
+ilustracion: ../../assets/uploads/poema-nostalgias.png
 borrador: false
 tipo: sextilla
 movimiento: modernismo
