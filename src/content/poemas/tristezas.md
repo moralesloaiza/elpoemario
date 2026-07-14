@@ -2,7 +2,7 @@
 titulo: Tristezas
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-21_14_57.png
+ilustracion: ../../assets/uploads/poema-tristezas.png
 borrador: false
 tipo: sexteto
 movimiento: realismo
