@@ -1,6 +1,8 @@
 ---
-titulo: "Oda a la vida retirada"
+titulo: Oda a la vida retirada
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_49_32.png
 borrador: false
 tipo: lira
 movimiento: siglo-de-oro
@@ -12,6 +14,9 @@ motivos:
   - rio
   - montana
 autor: fray-luis-de-leon
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Qué descansada vida
