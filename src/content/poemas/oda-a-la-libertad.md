@@ -1,6 +1,8 @@
 ---
-titulo: "Oda a la libertad"
+titulo: Oda a la libertad
 fecha: 2026-07-07
+fecha_actualizada: 2026-07-13
+ilustracion: ../../assets/uploads/poema-oda-a-la-libertad.png
 borrador: false
 tipo: oda
 movimiento: romanticismo
@@ -11,6 +13,9 @@ temas:
 motivos:
   - espada
 autor: jose-heriberto-garcia-de-quevedo
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No armada del puñal de la venganza,
