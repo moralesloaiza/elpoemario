@@ -13,6 +13,7 @@ motivos:
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Todo pasa y todo queda,
