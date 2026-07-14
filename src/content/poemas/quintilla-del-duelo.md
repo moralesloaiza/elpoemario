@@ -2,7 +2,7 @@
 titulo: Quintilla del duelo
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_54_33.png
+ilustracion: ../../assets/uploads/poema-quintilla-del-duelo.png
 borrador: false
 tipo: quintilla
 movimiento: neoclasicismo

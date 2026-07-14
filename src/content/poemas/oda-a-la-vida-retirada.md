@@ -2,7 +2,7 @@
 titulo: Oda a la vida retirada
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
-ilustracion: ../../assets/uploads/chatgpt-image-13-jul-2026-20_49_32.png
+ilustracion: ../../assets/uploads/poema-oda-a-la-vida-retirada.png
 borrador: false
 tipo: lira
 movimiento: siglo-de-oro
