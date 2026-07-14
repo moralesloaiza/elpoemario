@@ -2,7 +2,7 @@
 titulo: Cantares
 fecha: 2013-08-30
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/chatgpt-image-14-jul-2026-10_33_22.png
+ilustracion: ../../assets/uploads/poema-cantares.png
 borrador: false
 tipo: romance
 movimiento: generacion-98
@@ -13,6 +13,7 @@ motivos:
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Todo pasa y todo queda,
