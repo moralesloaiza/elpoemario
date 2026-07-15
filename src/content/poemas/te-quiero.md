@@ -2,7 +2,7 @@
 titulo: Te quiero
 fecha: 2012-10-04
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/te-quiero.png
+ilustracion: ../../assets/uploads/poema-te-quiero.png
 borrador: false
 tipo: redondilla
 movimiento: contemporaneo
