@@ -1,6 +1,8 @@
-﻿---
-titulo: "Gracias"
+---
+titulo: Gracias
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/poema-gracias.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
@@ -8,8 +10,9 @@ temas:
   - patria
   - poesia-misma
 autor: andres-eloy-blanco
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Gracias, mujer; tú me quisiste un poco.
