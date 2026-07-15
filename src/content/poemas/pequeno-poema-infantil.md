@@ -1,6 +1,8 @@
-﻿---
-titulo: "Pequeño poema infantil"
+---
+titulo: Pequeño poema infantil
 fecha: 2012-10-03
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/pequeño-poema-infantil.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo
@@ -8,10 +10,11 @@ temas:
   - infancia
   - poesia-misma
 autor: ruben-dario
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Agradecimiento especial a Yini Capo Castro.
 ---
-
 Las hadas, las bellas hadas,
 existen, mi dulce niña,
 Juana de Arco las vio aladas,
@@ -38,7 +41,7 @@ Y había una jorobada,
 la de profecía odiosa:
 la llamada
 Carabosa.
- 
+
 Si ésta llegaba a la cuna
 de las suaves princesitas,
 no se libraba ninguna
@@ -75,5 +78,3 @@ que perfume tus anhelos
 su nombre que el mal destierra,
 pues ella aroma los cielos
 y la tierra.
-
-Agradecimiento especial a Yini Capo Castro.
