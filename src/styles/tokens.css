@@ -46,6 +46,25 @@
   --hover-tint:      rgba(236, 228, 210, 0.05);  /* realce de fila en hover · aclara sobre oscuro */
   --error:           var(--granate);
 
+  /* === Colores fijos del hero inmersivo (handoff «colores fijos») ==========
+     La nav y el título flotan sobre una ilustración a sangre con degradado
+     oscuro; deben leerse igual en DÍA y en NOCHE, así que NO se redefinen en
+     [data-theme='day']. Garantizan contraste AA del título sobre la imagen. */
+  --hero-title:    #f2ecdc;              /* titular/wordmark sobre imagen */
+  --hero-ink:      #e6ddc9;              /* nav / texto claro sobre imagen */
+  --hero-ink-soft: #cdd3dd;             /* sumario / secundario sobre imagen */
+  --hero-accent:   #e9c96a;              /* eyebrow, autor, enlace activo */
+  --hero-rule:     #c3a24a;              /* subrayado activo, borde del toggle */
+  --hero-surface:  rgba(10, 14, 22, 0.96); /* panel del menú móvil desplegado */
+  /* Degradado del hero con imagen (desktop 740px, handoff 4a). */
+  --hero-gradiente: linear-gradient(
+    180deg,
+    rgba(10, 14, 22, 0.86) 0%,
+    rgba(10, 14, 22, 0.30) 40%,
+    rgba(10, 14, 22, 0.60) 74%,
+    rgba(10, 14, 22, 0.99) 100%
+  );
+
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;

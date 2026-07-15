@@ -158,26 +158,64 @@ const siguiente = siguienteEntry
   : null;
 ---
 
-<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={!!ilustracion}>
   <JsonLd slot="head" data={jsonLd} />
 
-  <article class="poema" lang="es" data-pagefind-body>
+  {ilustracion && (
+    <div class="poema-hero" slot="hero">
+      <Image
+        src={ilustracion}
+        alt=""
+        class="poema-hero-img"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="poema-hero-degradado" aria-hidden="true"></div>
+      <div class="poema-hero-contenido page">
+        <p class="poema-hero-kicker">{TIPOS_DISPLAY[tipo]}</p>
+        <h1 class="poema-hero-titulo">{titulo}</h1>
+        <p class="poema-hero-autor">
+          <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>
+        </p>
+        {traductor && (
+          <p class="poema-hero-traductor">
+            Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
+          </p>
+        )}
+      </div>
+    </div>
+  )}
+
+  <article class:list={['poema', { 'poema--con-hero': !!ilustracion }]} lang="es" data-pagefind-body>
     <p class="poema-backlink">
       <a href="/poemas/">← Catálogo</a>
     </p>
 
-    <header class="poema-cabecera">
-      <p class="poema-kicker">{TIPOS_DISPLAY[tipo]}</p>
-      <h1 class="poema-titulo">{titulo}</h1>
-      <p class="poema-autor">
-        <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
-      </p>
-      {traductor && (
-        <p class="poema-traductor">
-          Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
+    {ilustracion ? (
+      /* Con hero inmersivo, el título y el autor viven sobre la imagen (fuera
+         de este [data-pagefind-body]). Preservamos el meta de búsqueda con
+         spans ocultos, como en las cartas de la bitácora. */
+      <>
+        <span hidden data-pagefind-meta="title">{titulo}</span>
+        <span hidden data-pagefind-meta="author">{autor.data.nombre}</span>
+      </>
+    ) : (
+      <header class="poema-cabecera">
+        <p class="poema-kicker">{TIPOS_DISPLAY[tipo]}</p>
+        <h1 class="poema-titulo">{titulo}</h1>
+        <p class="poema-autor">
+          <a href={`/autores/${autor.id}/`}><span data-pagefind-meta="author">{autor.data.nombre}</span></a>
         </p>
-      )}
-    </header>
+        {traductor && (
+          <p class="poema-traductor">
+            Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
+          </p>
+        )}
+      </header>
+    )}
 
     <dl class="poema-ficha">
       {ficha.map((celda) => (
@@ -191,12 +229,6 @@ const siguiente = siguienteEntry
         </div>
       ))}
     </dl>
-
-    {ilustracion && (
-      <figure class="poema-ilustracion">
-        <Image src={ilustracion} alt="" loading="eager" decoding="async" />
-      </figure>
-    )}
 
     {spotify_url && <SpotifyEmbed url={spotify_url} />}
 
@@ -250,6 +282,102 @@ const siguiente = siguienteEntry
     max-width: var(--measure-wide);
     margin: 0 auto;
     padding-inline: var(--space-md);
+  }
+  /* Tras un hero inmersivo, .site-main pierde su padding superior; el artículo
+     recupera aquí el respiro para no pegar el back-link a la imagen. */
+  .poema--con-hero {
+    padding-top: var(--space-2xl);
+  }
+
+  /* ── Hero inmersivo (poema con imagen, handoff 4a) ───────────────────
+     Ilustración a sangre 740px con la nav flotando encima (Base) y el título
+     anclado abajo sobre el degradado. Colores fijos claros (--hero-*),
+     legibles en día y noche. Sustituye al antiguo passe-partout enmarcado. */
+  .poema-hero {
+    position: relative;
+    height: 740px;
+    overflow: hidden;
+  }
+  .poema-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .poema-hero-degradado {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-gradiente);
+  }
+  /* Bloque de título anclado abajo, centrado dentro del contenedor de página
+     (.page aporta max-width + margen auto + gutter lateral). */
+  .poema-hero-contenido {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: var(--space-2xl);
+    text-align: center;
+  }
+  .poema-hero-kicker {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--hero-accent);
+    margin: 0 0 var(--space-sm);
+  }
+  .poema-hero-titulo {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-4xl);
+    line-height: 1.02;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--hero-title);
+    margin: 0 0 var(--space-sm);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+    text-wrap: balance;
+  }
+  .poema-hero-autor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    color: var(--hero-accent);
+    margin: 0;
+  }
+  .poema-hero-autor a {
+    color: inherit;
+    border-bottom-color: transparent;
+  }
+  .poema-hero-autor a:hover,
+  .poema-hero-autor a:focus-visible {
+    color: var(--hero-title);
+    border-bottom-color: currentColor;
+  }
+  .poema-hero-traductor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--hero-ink-soft);
+    margin: var(--space-2xs) 0 0;
+  }
+  .poema-hero-traductor a {
+    color: inherit;
+    border-bottom-color: transparent;
+  }
+  .poema-hero-traductor a:hover,
+  .poema-hero-traductor a:focus-visible {
+    color: var(--hero-title);
+    border-bottom-color: currentColor;
+  }
+  @media (max-width: 900px) {
+    .poema-hero {
+      height: 520px;
+    }
   }
 
   /* ── Back-link «← Catálogo» ───────────────────────────────────────── */
@@ -375,22 +503,6 @@ const siguiente = siguienteEntry
   .ficha-valor a:focus-visible {
     color: var(--oro-texto);
     border-bottom-color: currentColor;
-  }
-
-  /* ── Illustration (passe-partout, handoff) ───────────────────────────
-     Marco: borde --rule + padding sobre --mat. Aspecto natural (sin recorte);
-     al no fijar width/height en <Image>, Astro emite las dimensiones reales
-     y no hay CLS. */
-  .poema-ilustracion {
-    margin: 0 0 var(--space-2xl);
-    border: 1px solid var(--rule);
-    padding: var(--space-xs);
-    background: var(--mat);
-  }
-  .poema-ilustracion img {
-    display: block;
-    width: 100%;
-    height: auto;
   }
 
   /* ── Body (verse and prose-poetry) ───────────────────────────────── */
