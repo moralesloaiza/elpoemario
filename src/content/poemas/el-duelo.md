@@ -1,6 +1,8 @@
 ---
 titulo: El duelo
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/poema-el-duelo.png
 borrador: false
 tipo: romance-heroico
 movimiento: posguerra
@@ -11,6 +13,7 @@ temas:
 autor: manuel-mur-oti
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 ¿Qué cómo fue, señora?…
 Como son las cosas cuando son del alma,
