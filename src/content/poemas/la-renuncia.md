@@ -2,7 +2,7 @@
 titulo: La renuncia
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/la-renuncia.png
+ilustracion: ../../assets/uploads/poema-la-renuncia.png
 borrador: false
 tipo: silva
 movimiento: modernismo
