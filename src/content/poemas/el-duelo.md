@@ -2,7 +2,7 @@
 titulo: El duelo
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/el-duelo.png
+ilustracion: ../../assets/uploads/poema-el-duelo.png
 borrador: false
 tipo: romance-heroico
 movimiento: posguerra
