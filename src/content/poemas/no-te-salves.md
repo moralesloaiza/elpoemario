@@ -1,14 +1,17 @@
-﻿---
-titulo: "No te salves"
+---
+titulo: No te salves
 fecha: 2012-10-04
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/poema-no-te-salves.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
   - poesia-misma
 autor: mario-benedetti
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No te quedes inmóvil al borde del camino,
