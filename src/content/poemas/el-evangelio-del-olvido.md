@@ -1,6 +1,8 @@
 ---
 titulo: El evangelio del olvido
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/el-evangelio-del-olvido.png
 borrador: false
 tipo: verso-libre
 temas:
@@ -10,6 +12,7 @@ temas:
 autor: alfonso-marin
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 Esta noche nos hemos olvidado de todo.
 ¡Qué hermoso es el olvido!
