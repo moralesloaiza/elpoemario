@@ -2,7 +2,7 @@
 titulo: Azul
 fecha: 2011-11-01
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/azul.png
+ilustracion: ../../assets/uploads/poema-azul.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
