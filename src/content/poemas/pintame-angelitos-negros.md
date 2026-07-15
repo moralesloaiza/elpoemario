@@ -2,7 +2,7 @@
 titulo: Píntame angelitos negros
 fecha: 2011-10-28
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/píntame-angelitos-negros.png
+ilustracion: ../../assets/uploads/poema-pintame-angelitos-negros.png
 borrador: false
 tipo: romance
 movimiento: modernismo

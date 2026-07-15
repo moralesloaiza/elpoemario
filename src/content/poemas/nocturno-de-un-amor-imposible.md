@@ -2,7 +2,7 @@
 titulo: Nocturno de un amor imposible
 fecha: 2011-10-27
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/nocturno-de-un-amor-imposible.png
+ilustracion: ../../assets/uploads/poema-nocturno-de-un-amor-imposible.png
 borrador: false
 tipo: verso-libre
 temas:
