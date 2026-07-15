@@ -841,12 +841,17 @@ El shell usa `min-height` + flex `align-items:flex-end` (no altura fija) para qu
 móvil CREZCA en vez de recortar con `overflow:hidden` si el contenido excede 520px.
 
 Inicio (handoff 3A): el destacado (singleton) pasa a SER el hero de portada —su
-imagen a sangre, con el bloque a la izquierda: epígrafe (= el tagline `subtitulo`,
-que sigue siendo el `<h1>` semántico), eyebrow (cintillo), título del destacado
-(`<h2>` enlazado), autor, extracto (verso o resumen) y CTA sólido en oro. Se
-**exige un destacado activo** (error de build si falta): es el hero, sin él no hay
-portada. El componente `Destacado.astro` (grid 2-col de la Fase 2) quedó sin uso y
-se **eliminó**. En móvil el extracto se oculta para compactar el hero.
+imagen a sangre, con el bloque a la izquierda: eyebrow (cintillo), título del
+destacado (`<h1>` enlazado), autor, extracto (verso o resumen) y CTA sólido en oro.
+Se **exige un destacado activo** (error de build si falta): es el hero, sin él no
+hay portada. El componente `Destacado.astro` (grid 2-col de la Fase 2) quedó sin
+uso y se **eliminó**. En móvil el extracto se oculta para compactar el hero.
+
+Sobre el `<h1>`: el tagline «Repertorio de obras…» (`subtitulo`) se retiró del hero
+para darle aire (petición del usuario). Esto REVIERTE la decisión previa de la Fase
+2 (§home-sin-titulo: «el tagline ES el h1»): ahora el **título del destacado es el
+`<h1>`** semántico de la portada. Sigue habiendo un único h1 válido; cambia por
+destacado, lo cual es aceptable para una portada cuyo hero rota.
 
 Estado: implementado (poema con imagen; entrada de bitácora con imagen; Inicio 3A).
 El hero de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por

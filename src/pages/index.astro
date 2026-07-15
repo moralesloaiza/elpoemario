@@ -132,12 +132,11 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
 
   {/* Hero de portada (handoff 3A): la ilustración del destacado a sangre, con la
       nav flotando encima (Base) y el bloque del destacado anclado abajo a la
-      izquierda. El tagline (subtitulo) sigue siendo el <h1> semántico (SEO/a11y),
-      como epígrafe; el título del destacado es un <h2> enlazado. */}
+      izquierda. El título del destacado es el <h1> semántico de la portada
+      (SEO/a11y); el tagline se retiró para dar aire al hero. */}
   <HeroInmersivo slot="hero" imagen={destacado.imagen} align="left" maxAncho="40rem">
-    <h1 class="home-hero-epigrafe">{home.data.subtitulo || SITE_TITLE}</h1>
     <p class="hero-eyebrow">{destacado.cintillo}</p>
-    <h2 class="hero-titulo"><a href={destacado.href}>{destacado.titulo}</a></h2>
+    <h1 class="hero-titulo"><a href={destacado.href}>{destacado.titulo}</a></h1>
     {destacado.byline && <p class="hero-byline">{destacado.byline}</p>}
     {tieneVersos ? (
       <div class="home-hero-cita">
@@ -205,18 +204,6 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
      el eyebrow/título/autor usan las utilidades globales .hero-* (tokens.css).
      Aquí van los roles propios del destacado (epígrafe, cita, sumario, CTA), en
      colores fijos --hero-* legibles en día y noche. */
-  .home-hero-epigrafe {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-weight: var(--font-body-weight);
-    font-size: var(--fs-md);
-    line-height: var(--lh-snug);
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--hero-ink-soft);
-    margin: 0 0 var(--space-lg);
-    text-wrap: balance;
-  }
   /* Extracto en verso (destacado = poema): una línea por verso. */
   .home-hero-cita {
     font-family: var(--font-body);
