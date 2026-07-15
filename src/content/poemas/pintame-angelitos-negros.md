@@ -1,13 +1,16 @@
 ---
 titulo: Píntame angelitos negros
 fecha: 2011-10-28
-fecha_actualizada: 2026-06-21
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/píntame-angelitos-negros.png
 borrador: false
 tipo: romance
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - muerte
+  - dios
+  - esperanza
+  - dolor
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true
