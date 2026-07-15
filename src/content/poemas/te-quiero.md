@@ -1,6 +1,8 @@
-﻿---
-titulo: "Te quiero"
+---
+titulo: Te quiero
 fecha: 2012-10-04
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/te-quiero.png
 borrador: false
 tipo: redondilla
 movimiento: contemporaneo
@@ -8,8 +10,9 @@ temas:
   - amor
   - poesia-misma
 autor: mario-benedetti
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Tus manos son mi caricia
