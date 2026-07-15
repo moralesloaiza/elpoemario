@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
 import { marked } from 'marked';
 
 import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
+import HeroInmersivo from '../components/HeroInmersivo.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import SpotifyEmbed from '../components/SpotifyEmbed.astro';
 import NavegacionPoemas from '../components/NavegacionPoemas.astro';
@@ -162,31 +162,18 @@ const siguiente = siguienteEntry
   <JsonLd slot="head" data={jsonLd} />
 
   {ilustracion && (
-    <div class="poema-hero" slot="hero">
-      <Image
-        src={ilustracion}
-        alt=""
-        class="poema-hero-img"
-        widths={[768, 1280, 1920]}
-        sizes="100vw"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
-      <div class="poema-hero-degradado" aria-hidden="true"></div>
-      <div class="poema-hero-contenido page">
-        <p class="poema-hero-kicker">{TIPOS_DISPLAY[tipo]}</p>
-        <h1 class="poema-hero-titulo">{titulo}</h1>
-        <p class="poema-hero-autor">
-          <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>
+    <HeroInmersivo slot="hero" imagen={ilustracion} align="center">
+      <p class="hero-eyebrow">{TIPOS_DISPLAY[tipo]}</p>
+      <h1 class="hero-titulo">{titulo}</h1>
+      <p class="hero-byline">
+        <a href={`/autores/${autor.id}/`}>{autor.data.nombre}</a>
+      </p>
+      {traductor && (
+        <p class="hero-lede">
+          Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
         </p>
-        {traductor && (
-          <p class="poema-hero-traductor">
-            Traducción de <a href={`/autores/${traductor.id}/`}>{traductor.data.nombre}</a>
-          </p>
-        )}
-      </div>
-    </div>
+      )}
+    </HeroInmersivo>
   )}
 
   <article class:list={['poema', { 'poema--con-hero': !!ilustracion }]} lang="es" data-pagefind-body>
@@ -287,97 +274,6 @@ const siguiente = siguienteEntry
      recupera aquí el respiro para no pegar el back-link a la imagen. */
   .poema--con-hero {
     padding-top: var(--space-2xl);
-  }
-
-  /* ── Hero inmersivo (poema con imagen, handoff 4a) ───────────────────
-     Ilustración a sangre 740px con la nav flotando encima (Base) y el título
-     anclado abajo sobre el degradado. Colores fijos claros (--hero-*),
-     legibles en día y noche. Sustituye al antiguo passe-partout enmarcado. */
-  .poema-hero {
-    position: relative;
-    height: 740px;
-    overflow: hidden;
-  }
-  .poema-hero-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-  .poema-hero-degradado {
-    position: absolute;
-    inset: 0;
-    background: var(--hero-gradiente);
-  }
-  /* Bloque de título anclado abajo, centrado dentro del contenedor de página
-     (.page aporta max-width + margen auto + gutter lateral). */
-  .poema-hero-contenido {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-bottom: var(--space-2xl);
-    text-align: center;
-  }
-  .poema-hero-kicker {
-    font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
-    color: var(--hero-accent);
-    margin: 0 0 var(--space-sm);
-  }
-  .poema-hero-titulo {
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: var(--fs-4xl);
-    line-height: 1.02;
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--hero-title);
-    margin: 0 0 var(--space-sm);
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
-    text-wrap: balance;
-  }
-  .poema-hero-autor {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-lg);
-    color: var(--hero-accent);
-    margin: 0;
-  }
-  .poema-hero-autor a {
-    color: inherit;
-    border-bottom-color: transparent;
-  }
-  .poema-hero-autor a:hover,
-  .poema-hero-autor a:focus-visible {
-    color: var(--hero-title);
-    border-bottom-color: currentColor;
-  }
-  .poema-hero-traductor {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-md);
-    color: var(--hero-ink-soft);
-    margin: var(--space-2xs) 0 0;
-  }
-  .poema-hero-traductor a {
-    color: inherit;
-    border-bottom-color: transparent;
-  }
-  .poema-hero-traductor a:hover,
-  .poema-hero-traductor a:focus-visible {
-    color: var(--hero-title);
-    border-bottom-color: currentColor;
-  }
-  @media (max-width: 900px) {
-    .poema-hero {
-      height: 520px;
-    }
   }
 
   /* ── Back-link «← Catálogo» ───────────────────────────────────────── */

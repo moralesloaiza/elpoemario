@@ -831,8 +831,25 @@ tratamiento de la ilustración descrito en el trabajo de la §6. El marco
 passe-partout sigue vigente donde no hay hero inmersivo (miniaturas de autor,
 destacado sin hero, etc.). El giro es deliberado y acordado con la dirección.
 
-Estado: implementado (poema con imagen; entrada de bitácora con imagen). El hero
-de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por {curador}»);
-las cartas (`correspondencia`) NO van a modo inmersivo (conservan `CartaHeader`).
-Pendiente: Inicio 3A.
+Componente compartido: el shell del hero (imagen a sangre + degradado + bloque
+posicionado y alineado, con `<slot>`) se extrajo a `src/components/HeroInmersivo.astro`
+(props `imagen`, `objectPosition`, `align` center|left, `maxAncho`). Poema, entrada
+e Inicio lo usan; la tipografía del hero son utilidades globales en tokens.css
+(`.hero-eyebrow`, `.hero-titulo`, `.hero-byline`, `.hero-lede`) — globales porque el
+contenido llega como slot y conserva el ámbito de la página, no el del componente.
+El shell usa `min-height` + flex `align-items:flex-end` (no altura fija) para que en
+móvil CREZCA en vez de recortar con `overflow:hidden` si el contenido excede 520px.
+
+Inicio (handoff 3A): el destacado (singleton) pasa a SER el hero de portada —su
+imagen a sangre, con el bloque a la izquierda: epígrafe (= el tagline `subtitulo`,
+que sigue siendo el `<h1>` semántico), eyebrow (cintillo), título del destacado
+(`<h2>` enlazado), autor, extracto (verso o resumen) y CTA sólido en oro. Se
+**exige un destacado activo** (error de build si falta): es el hero, sin él no hay
+portada. El componente `Destacado.astro` (grid 2-col de la Fase 2) quedó sin uso y
+se **eliminó**. En móvil el extracto se oculta para compactar el hero.
+
+Estado: implementado (poema con imagen; entrada de bitácora con imagen; Inicio 3A).
+El hero de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por
+{curador}»); las cartas (`correspondencia`) NO van a modo inmersivo (conservan
+`CartaHeader`). Cierra el rediseño inmersivo de las 3 superficies previstas.
 
