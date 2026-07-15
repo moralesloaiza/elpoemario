@@ -2,7 +2,7 @@
 titulo: Elogio de los bardos de antaño
 fecha: 2012-12-04
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/elogio-de-los-bardos-de-antaño.png
+ilustracion: ../../assets/uploads/poema-elogio-de-los-bardos-de-antano.png
 borrador: false
 tipo: pareado
 movimiento: contemporaneo
