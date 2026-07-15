@@ -1,6 +1,8 @@
-﻿---
-titulo: "Nocturno de un amor imposible"
+---
+titulo: Nocturno de un amor imposible
 fecha: 2011-10-27
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/poema-nocturno-de-un-amor-imposible.png
 borrador: false
 tipo: verso-libre
 temas:
@@ -8,8 +10,9 @@ temas:
   - patria
   - poesia-misma
 autor: hernan-osorio
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Esta noche me he sentido muy triste…
