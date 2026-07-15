@@ -1,6 +1,8 @@
 ---
 titulo: Los irresponsables
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/los-irresponsables.png
 borrador: false
 tipo: quintilla
 movimiento: realismo
@@ -12,6 +14,7 @@ motivos:
 autor: joaquin-dicenta
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 De un hogar rico y dichoso
 disfrutaban por igual
