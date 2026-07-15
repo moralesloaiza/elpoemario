@@ -1,14 +1,17 @@
-﻿---
-titulo: "El corazón roto"
+---
+titulo: El corazón roto
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/el-corazón-roto.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:
   - poesia-misma
 autor: juan-ramon-jimenez
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Creí que el pobre corazón ya estaba
