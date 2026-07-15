@@ -2,7 +2,7 @@
 titulo: El corazón roto
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/el-corazón-roto.png
+ilustracion: ../../assets/uploads/poema-el-corazon-roto.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
