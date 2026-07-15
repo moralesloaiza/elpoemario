@@ -22,9 +22,14 @@ import '@fontsource/eb-garamond/400-italic.css';
 interface Props {
   titulo: string;
   descripcion?: string;
+  /* Modo inmersivo: la página aporta un hero a sangre por el slot "hero" y el
+     masthead flota transparente encima (nav overlay). El cuerpo fluye justo
+     bajo el hero (sin el padding superior de .site-main). Off por defecto: el
+     Header sólido se pinta sobre <main> como en el resto del sitio. */
+  heroInmersivo?: boolean;
 }
 
-const { titulo, descripcion = SITE_DESCRIPTION } = Astro.props;
+const { titulo, descripcion = SITE_DESCRIPTION, heroInmersivo = false } = Astro.props;
 
 // Canonical absoluto, siempre en forma con barra final (coherente con
 // trailingSlash: 'always' y con el sitemap). Punto único para todo el sitio.
@@ -65,9 +70,16 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     <slot name="head" />
   </head>
   <body>
-    <Header />
+    {heroInmersivo ? (
+      <div class="hero-inmersivo">
+        <slot name="hero" />
+        <Header variante="overlay" />
+      </div>
+    ) : (
+      <Header />
+    )}
 
-    <main class="page site-main">
+    <main class="page site-main" class:list={{ 'site-main--tras-hero': heroInmersivo }}>
       <slot />
     </main>
 
@@ -77,6 +89,19 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     <style>
       .site-main {
         padding-block: var(--space-2xl);
+      }
+
+      /* Hero inmersivo: contenedor full-bleed (hijo directo de <body>, sin el
+         contenedor .page, sangra de borde a borde) y contexto de posición para
+         que el masthead overlay se ancle arriba sobre la imagen. */
+      .hero-inmersivo {
+        position: relative;
+      }
+
+      /* Tras un hero inmersivo el cuerpo arranca pegado a la imagen: se quita
+         solo el padding superior (el inferior de la página se conserva). */
+      .site-main--tras-hero {
+        padding-block-start: 0;
       }
     </style>
   </body>

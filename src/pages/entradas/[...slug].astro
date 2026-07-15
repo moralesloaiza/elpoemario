@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import HeroInmersivo from '../../components/HeroInmersivo.astro';
 import CartaHeader from '../../components/CartaHeader.astro';
 import SpotifyEmbed from '../../components/SpotifyEmbed.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -36,6 +37,10 @@ const descripcion = resumen ?? titulo;
 const esCarta = tipo === 'correspondencia';
 const kind = esCarta ? 'Carta' : 'Bitácora';
 
+// Hero inmersivo (handoff 4c): solo para entradas de bitácora con ilustración.
+// Las cartas tienen su propia cabecera (CartaHeader) y no van a modo inmersivo.
+const conHero = !!ilustracion && !esCarta;
+
 // Back-link (handoff §7): las cartas viven en /entradas/cartas/;
 // el resto, en la bitácora /entradas/.
 const volver = esCarta
@@ -43,35 +48,61 @@ const volver = esCarta
   : { href: '/entradas/', label: '← Bitácora' };
 ---
 
-<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion}>
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={conHero}>
+  {conHero && (
+    <HeroInmersivo slot="hero" imagen={ilustracion} align="left" objectPosition="center 32%" maxAncho="54rem">
+      <p class="hero-eyebrow">
+        <FormattedDate date={fecha} />
+        <span class="kicker-sep"> · </span>
+        {kind}
+      </p>
+      <h1 class="hero-titulo">{titulo}</h1>
+      <p class="hero-lede">por {curador}</p>
+    </HeroInmersivo>
+  )}
+
   <main class="page">
-    <article class="entrada" data-pagefind-body data-pagefind-meta={`tipo:${tipo}`}>
+    <article
+      class:list={['entrada', { 'entrada--con-hero': conHero }]}
+      data-pagefind-body
+      data-pagefind-meta={`tipo:${tipo}`}
+    >
       <nav class="volver" aria-label="Volver al índice">
         <a class="volver-enlace" href={volver.href}>{volver.label}</a>
       </nav>
 
-      <header class="cabecera">
-        <p class="kicker">
-          <FormattedDate date={fecha} />
-          <span class="kicker-sep"> · </span>
-          {kind}
-        </p>
-        <h1>{titulo}</h1>
-        {esCarta && remitente ? (
-          <CartaHeader
-            remitente={remitente}
-            poemaTitulo={poemaTitulo}
-            poemaSlug={poemaSlug}
-          />
-        ) : (
-          <p class="firma">por <strong data-pagefind-meta="author">{curador}</strong></p>
-        )}
-        {esCarta && (
-          <span class="pf-author" data-pagefind-meta={`author:${curador}`} hidden></span>
-        )}
-      </header>
+      {conHero ? (
+        /* El título y el autor viven sobre el hero (fuera de este
+           [data-pagefind-body]); se preservan aquí para Pagefind, como en las
+           cartas y en el poema con hero. */
+        <>
+          <span hidden data-pagefind-meta="title">{titulo}</span>
+          <span hidden data-pagefind-meta="author">{curador}</span>
+        </>
+      ) : (
+        <header class="cabecera">
+          <p class="kicker">
+            <FormattedDate date={fecha} />
+            <span class="kicker-sep"> · </span>
+            {kind}
+          </p>
+          <h1>{titulo}</h1>
+          {esCarta && remitente ? (
+            <CartaHeader
+              remitente={remitente}
+              poemaTitulo={poemaTitulo}
+              poemaSlug={poemaSlug}
+            />
+          ) : (
+            <p class="firma">por <strong data-pagefind-meta="author">{curador}</strong></p>
+          )}
+          {esCarta && (
+            <span class="pf-author" data-pagefind-meta={`author:${curador}`} hidden></span>
+          )}
+        </header>
+      )}
 
-      {ilustracion && (
+      {ilustracion && !conHero && (
         <figure class="hero">
           <Image
             src={ilustracion}
@@ -99,6 +130,15 @@ const volver = esCarta
   .entrada {
     max-width: var(--measure-wide);
     margin-inline: auto;
+  }
+  /* Tras un hero inmersivo, .site-main pierde su padding superior; el artículo
+     recupera aquí el respiro para no pegar el back-link a la imagen. */
+  .entrada--con-hero {
+    padding-top: var(--space-2xl);
+  }
+  /* Separador «·» del eyebrow del hero en color fijo (sobre el degradado). */
+  .hero-eyebrow .kicker-sep {
+    color: var(--hero-rule);
   }
 
   /* Back-link at the top (handoff): Cinzel uppercase gold. */

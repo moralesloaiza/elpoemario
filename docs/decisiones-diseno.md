@@ -795,3 +795,66 @@ cualquier rama.
 
 Estado: implementado.
 
+\---
+
+28. Rediseño inmersivo: hero a sangre con nav superpuesta (poema con imagen)
+
+Decisión: en las páginas que tienen ilustración, la imagen deja de ir en
+passe-partout enmarcado y pasa a ser un hero a sangre (740px en escritorio, 520px
+en móvil) con el masthead flotando transparente encima y el título anclado abajo
+sobre un degradado oscuro. Es la dirección «inmersiva» del handoff de rediseño
+(archivo `El Poemario Paginas Inmersivo`, tratamiento 4a). Los poemas SIN
+ilustración conservan el tratamiento sólido actual (nav con regla + cabecera
+centrada, tratamiento 4b): cero cambios.
+
+Alcance de este primer PR: solo el poema individual con imagen. La entrada de
+bitácora con imagen y el Inicio (variante 3A) siguen el mismo patrón en PRs
+posteriores, reutilizando la misma infraestructura.
+
+Infraestructura reutilizable: `Base.astro` gana una prop `heroInmersivo` + un
+`slot="hero"` que sangra full-bleed; `Header.astro` gana una variante `overlay`
+(transparente, sin regla) con colores fijos claros centralizados en tokens nuevos
+`--hero-*` (`--hero-title`, `--hero-ink`, `--hero-accent`, `--hero-rule`,
+`--hero-surface`, `--hero-gradiente`). Estos tokens NO se redefinen en
+`[data-theme='day']`: el hero va siempre oscuro con texto claro en ambos temas
+(los «colores fijos» del handoff), garantizando contraste AA del título sobre
+cualquier ilustración. El toggle día/noche sigue afectando al cuerpo bajo el hero.
+
+Búsqueda: con hero, el título y el autor viven sobre la imagen, fuera del
+`[data-pagefind-body]`. Se preservan como `<span hidden data-pagefind-meta>`
+dentro del artículo (mismo patrón que las cartas de la bitácora, §R-cartas), de
+modo que Pagefind sigue indexando título y autor.
+
+Relación con decisiones previas: esto REVIERTE, para el caso «con imagen», la
+§23 (Fase 2: passe-partout enmarcado para la ilustración del poema) y el
+tratamiento de la ilustración descrito en el trabajo de la §6. El marco
+passe-partout sigue vigente donde no hay hero inmersivo (miniaturas de autor,
+destacado sin hero, etc.). El giro es deliberado y acordado con la dirección.
+
+Componente compartido: el shell del hero (imagen a sangre + degradado + bloque
+posicionado y alineado, con `<slot>`) se extrajo a `src/components/HeroInmersivo.astro`
+(props `imagen`, `objectPosition`, `align` center|left, `maxAncho`). Poema, entrada
+e Inicio lo usan; la tipografía del hero son utilidades globales en tokens.css
+(`.hero-eyebrow`, `.hero-titulo`, `.hero-byline`, `.hero-lede`) — globales porque el
+contenido llega como slot y conserva el ámbito de la página, no el del componente.
+El shell usa `min-height` + flex `align-items:flex-end` (no altura fija) para que en
+móvil CREZCA en vez de recortar con `overflow:hidden` si el contenido excede 520px.
+
+Inicio (handoff 3A): el destacado (singleton) pasa a SER el hero de portada —su
+imagen a sangre, con el bloque a la izquierda: eyebrow (cintillo), título del
+destacado (`<h1>` enlazado), autor, extracto (verso o resumen) y CTA sólido en oro.
+Se **exige un destacado activo** (error de build si falta): es el hero, sin él no
+hay portada. El componente `Destacado.astro` (grid 2-col de la Fase 2) quedó sin
+uso y se **eliminó**. En móvil el extracto se oculta para compactar el hero.
+
+Sobre el `<h1>`: el tagline «Repertorio de obras…» (`subtitulo`) se retiró del hero
+para darle aire (petición del usuario). Esto REVIERTE la decisión previa de la Fase
+2 (§home-sin-titulo: «el tagline ES el h1»): ahora el **título del destacado es el
+`<h1>`** semántico de la portada. Sigue habiendo un único h1 válido; cambia por
+destacado, lo cual es aceptable para una portada cuyo hero rota.
+
+Estado: implementado (poema con imagen; entrada de bitácora con imagen; Inicio 3A).
+El hero de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por
+{curador}»); las cartas (`correspondencia`) NO van a modo inmersivo (conservan
+`CartaHeader`). Cierra el rediseño inmersivo de las 3 superficies previstas.
+

@@ -46,6 +46,25 @@
   --hover-tint:      rgba(236, 228, 210, 0.05);  /* realce de fila en hover · aclara sobre oscuro */
   --error:           var(--granate);
 
+  /* === Colores fijos del hero inmersivo (handoff «colores fijos») ==========
+     La nav y el título flotan sobre una ilustración a sangre con degradado
+     oscuro; deben leerse igual en DÍA y en NOCHE, así que NO se redefinen en
+     [data-theme='day']. Garantizan contraste AA del título sobre la imagen. */
+  --hero-title:    #f2ecdc;              /* titular/wordmark sobre imagen */
+  --hero-ink:      #e6ddc9;              /* nav / texto claro sobre imagen */
+  --hero-ink-soft: #cdd3dd;             /* sumario / secundario sobre imagen */
+  --hero-accent:   #e9c96a;              /* eyebrow, autor, enlace activo */
+  --hero-rule:     #c3a24a;              /* subrayado activo, borde del toggle */
+  --hero-surface:  rgba(10, 14, 22, 0.96); /* panel del menú móvil desplegado */
+  /* Degradado del hero con imagen (desktop 740px, handoff 4a). */
+  --hero-gradiente: linear-gradient(
+    180deg,
+    rgba(10, 14, 22, 0.86) 0%,
+    rgba(10, 14, 22, 0.30) 40%,
+    rgba(10, 14, 22, 0.60) 74%,
+    rgba(10, 14, 22, 0.99) 100%
+  );
+
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;
@@ -63,7 +82,7 @@
   --fs-base: 1rem;      /* 16px */
   --fs-md:   1.125rem;  /* 18px — cuerpo preferido en poemas */
   --fs-prosa: clamp(1.125rem, 1.025rem + 0.5vw, 1.3125rem); /* 18-21px - prosa larga: entradas, autor, sobre, colaborar */
-  --fs-poema: clamp(20px, 3.4vw, 24px); /* cuerpo de poemas: Poema.astro, Destacado.astro */
+  --fs-poema: clamp(20px, 3.4vw, 24px); /* cuerpo de poemas: Poema.astro */
   --fs-lg:   clamp(1.25rem,  1.15rem + 0.5vw, 1.5rem);
   --fs-xl:   clamp(1.5rem,   1.30rem + 1.0vw, 2rem);
   --fs-2xl:  clamp(1.875rem, 1.50rem + 1.5vw, 2.625rem);
@@ -78,7 +97,7 @@
   --lh-snug:    1.3;
   --lh-relaxed: 1.75;
   --lh-prosa:   1.8;  /* prosa larga: entradas, autor, sobre, colaborar */
-  --lh-poema:   1.85;  /* cuerpo de poemas: Poema.astro, Destacado.astro */
+  --lh-poema:   1.85;  /* cuerpo de poemas: Poema.astro */
 
   --ls-wide:    0.05em;
   --ls-wider:   0.12em;
@@ -323,5 +342,71 @@ input:focus-visible,
   color: var(--text-soft);
   max-width: var(--measure-narrow);
   margin: 0 auto;
+}
+
+/* === Tipografia del hero inmersivo (roles compartidos) =====================
+   Utilidades para el contenido que va sobre el hero a sangre (HeroInmersivo.astro),
+   usadas por poema (4a), entrada (4c) e Inicio (3A). Colores fijos --hero-*
+   (independientes del tema), legibles sobre el degradado oscuro en dia y noche.
+   Son globales a proposito: el contenido llega como slot y conserva el ambito de
+   la pagina, no el del componente (por eso no pueden vivir scoped en el). */
+.hero-eyebrow {
+  font-family: var(--font-meta);
+  font-size: var(--fs-3xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--hero-accent);
+  margin: 0 0 var(--space-sm);
+}
+.hero-titulo {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-4xl);
+  line-height: 1.03;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--hero-title);
+  margin: 0 0 var(--space-sm);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  text-wrap: balance;
+}
+.hero-titulo a {
+  color: inherit;
+  border-bottom: 0;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+.hero-titulo a:hover,
+.hero-titulo a:focus-visible {
+  color: var(--hero-accent);
+  border-bottom: 0;
+}
+/* Autor / firma en oro vivo (poema); italica Cormorant. */
+.hero-byline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--hero-accent);
+  margin: 0;
+}
+/* Linea secundaria clara: traductor (poema), firma «por…» (entrada). */
+.hero-lede {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-md);
+  color: var(--hero-ink-soft);
+  margin: var(--space-2xs) 0 0;
+}
+.hero-byline a,
+.hero-lede a {
+  color: inherit;
+  border-bottom: 1px solid transparent;
+}
+.hero-byline a:hover,
+.hero-byline a:focus-visible,
+.hero-lede a:hover,
+.hero-lede a:focus-visible {
+  color: var(--hero-title);
+  border-bottom-color: currentColor;
 }
 

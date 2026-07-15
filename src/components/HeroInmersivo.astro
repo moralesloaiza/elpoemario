@@ -1,0 +1,116 @@
+---
+// Shell compartido del hero inmersivo (handoff «inmersivo», pantallas 3A/4a/4c).
+// Ilustración a sangre con la nav flotando encima (la aporta Base vía
+// `heroInmersivo` + `slot="hero"`) y un degradado oscuro sobre el que se ancla,
+// abajo, el bloque de título. Este componente NO incluye la nav: solo la imagen,
+// el degradado y el contenedor posicionado del contenido, que llega por `<slot>`.
+//
+// El contenido (eyebrow, título, autor…) lo pinta la página con las utilidades
+// tipográficas del hero definidas en tokens.css (.hero-eyebrow, .hero-titulo,
+// .hero-byline, .hero-lede) más lo que necesite en local; su color es fijo
+// (tokens --hero-*), legible en día y noche sobre el degradado.
+//
+// Uso:
+//   <HeroInmersivo slot="hero" imagen={img} align="left" maxAncho="54rem">
+//     <p class="hero-eyebrow">…</p>
+//     <h1 class="hero-titulo">…</h1>
+//   </HeroInmersivo>
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  imagen: ImageMetadata;
+  /* Texto alternativo. Por defecto vacío: la ilustración acompaña al título,
+     que ya comunica el contenido (misma decisión que en el resto del sitio). */
+  alt?: string;
+  /* `object-position` de la imagen (encuadre). Handoff: 4a center 30%,
+     4c center 32%, 3A center 30%. */
+  objectPosition?: string;
+  /* Alineación del bloque de título: centrado (poema) o a la izquierda
+     (entrada, inicio). */
+  align?: 'center' | 'left';
+  /* Ancho máximo del bloque de contenido (p. ej. '54rem'). Sin valor, ocupa el
+     contenedor de página. Útil sobre todo con align="left". */
+  maxAncho?: string;
+}
+
+const {
+  imagen,
+  alt = '',
+  objectPosition = 'center 30%',
+  align = 'center',
+  maxAncho,
+} = Astro.props;
+---
+
+<div class="hi-shell">
+  <Image
+    src={imagen}
+    alt={alt}
+    class="hi-img"
+    style={`--hi-obj-pos:${objectPosition}`}
+    widths={[768, 1280, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <div class="hi-degradado" aria-hidden="true"></div>
+  <div class="hi-contenido page">
+    <div class="hi-bloque" data-align={align} style={maxAncho ? `max-width:${maxAncho}` : undefined}>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Shell flexible: `min-height` (no `height` fija) + contenido en flujo anclado
+     abajo con `align-items:flex-end`. Así, si el contenido es más alto que el
+     mínimo (p. ej. el Inicio en móvil), el hero CRECE en vez de recortarlo con
+     `overflow:hidden`. La imagen va detrás (absolute inset:0, cover). */
+  .hi-shell {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    min-height: 740px;
+    overflow: hidden;
+  }
+  .hi-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--hi-obj-pos, center 30%);
+  }
+  .hi-degradado {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-gradiente);
+  }
+  /* Bloque de contenido sobre la imagen, dentro del contenedor de página
+     (.page aporta max-width + margen auto + gutter lateral). */
+  .hi-contenido {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-bottom: var(--space-2xl);
+  }
+  .hi-bloque[data-align='center'] {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .hi-bloque[data-align='left'] {
+    margin-inline: 0;
+    text-align: left;
+  }
+  @media (max-width: 900px) {
+    /* Reserva sitio a la nav flotante arriba: si el contenido crece hasta la
+       cima, se detiene bajo el masthead en vez de quedar detrás. */
+    .hi-shell {
+      min-height: 520px;
+      padding-top: calc(var(--space-2xl) + var(--space-lg));
+    }
+  }
+</style>

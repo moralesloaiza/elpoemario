@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
-import Destacado from '../components/Destacado.astro';
+import HeroInmersivo from '../components/HeroInmersivo.astro';
 import FilaPoema from '../components/FilaPoema.astro';
 import { SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
 import { getPagina } from '../utils/paginas';
@@ -111,29 +111,42 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     };
   }
 }
+
+// Decisión: el Inicio SIEMPRE lleva un destacado activo con imagen — es el hero
+// inmersivo de la portada (handoff 3A). Sin destacado no hay hero, así que se
+// exige a nivel de build con un error claro.
+if (!destacado) {
+  throw new Error(
+    'El Inicio requiere un destacado activo con imagen (es el hero de portada). ' +
+      'Activa uno en src/content/destacado (campo `activo: true` y una referencia con `ilustracion`/`imagen`).',
+  );
+}
+
+// Extracto del hero: versos (poema) o resumen (entrada/autor), como en el
+// bloque destacado original.
+const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length > 0;
 ---
 
-<Base titulo={`${SITE_TITLE} · ${home.data.titulo}`} descripcion={home.data.descripcion}>
+<Base titulo={`${SITE_TITLE} · ${home.data.titulo}`} descripcion={home.data.descripcion} heroInmersivo>
   <JsonLd slot="head" data={buildWebSiteJsonLd()} />
 
-  <section class="hero">
-    {home.data.rotulo && <p class="antetitulo">{home.data.rotulo}</p>}
-    <h1 class="hero-titulo">{home.data.subtitulo || SITE_TITLE}</h1>
-    {home.data.lema && <p class="lema">{home.data.lema}</p>}
-  </section>
-
-  {destacado && (
-    <Destacado
-      cintillo={destacado.cintillo}
-      titulo={destacado.titulo}
-      href={destacado.href}
-      cta={destacado.cta}
-      imagen={destacado.imagen}
-      byline={destacado.byline}
-      versos={destacado.versos}
-      resumen={destacado.resumen}
-    />
-  )}
+  {/* Hero de portada (handoff 3A): la ilustración del destacado a sangre, con la
+      nav flotando encima (Base) y el bloque del destacado anclado abajo a la
+      izquierda. El título del destacado es el <h1> semántico de la portada
+      (SEO/a11y); el tagline se retiró para dar aire al hero. */}
+  <HeroInmersivo slot="hero" imagen={destacado.imagen} align="left" maxAncho="40rem">
+    <p class="hero-eyebrow">{destacado.cintillo}</p>
+    <h1 class="hero-titulo"><a href={destacado.href}>{destacado.titulo}</a></h1>
+    {destacado.byline && <p class="hero-byline">{destacado.byline}</p>}
+    {tieneVersos ? (
+      <div class="home-hero-cita">
+        {destacado.versos!.map((verso) => <span>{verso}</span>)}
+      </div>
+    ) : (
+      destacado.resumen && <p class="home-hero-sumario">{destacado.resumen}</p>
+    )}
+    <a class="home-hero-cta" href={destacado.href}>{destacado.cta}</a>
+  </HeroInmersivo>
 
   {ultimos.length > 0 && (
     <section class="seccion-poemas" aria-labelledby="ultimos-titulo">
@@ -186,62 +199,59 @@ if (destacadoCfg && destacadoCfg.data.activo) {
 </Base>
 
 <style>
-  /* ── Héroe ─────────────────────────────────────────────────────────── */
-  .hero {
-    position: relative;
-    text-align: center;
-    /* El layout (.site-main) ya aporta 48px arriba; subimos el héroe para que
-       el tagline quede cerca del masthead (~24px) sin tocar el espaciado
-       global del resto de páginas. */
-    margin-top: calc(-1 * var(--space-lg));
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+  /* ── Hero de portada (3A): contenido del destacado sobre la ilustración ──
+     El shell (imagen, degradado, posición, alineación) lo aporta HeroInmersivo;
+     el eyebrow/título/autor usan las utilidades globales .hero-* (tokens.css).
+     Aquí van los roles propios del destacado (epígrafe, cita, sumario, CTA), en
+     colores fijos --hero-* legibles en día y noche. */
+  /* Extracto en verso (destacado = poema): una línea por verso. */
+  .home-hero-cita {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--hero-ink-soft);
+    margin: var(--space-sm) 0 var(--space-lg);
   }
-
-  .antetitulo {
+  .home-hero-cita span {
+    display: block;
+  }
+  /* Extracto en prosa (destacado = entrada / autor). */
+  .home-hero-sumario {
+    font-family: var(--font-prose);
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--hero-ink-soft);
+    margin: var(--space-sm) 0 var(--space-lg);
+  }
+  /* CTA sólido en oro fijo con texto oscuro (handoff 3A); hover a contorno. */
+  .home-hero-cta {
+    display: inline-block;
     font-family: var(--font-meta);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-2xs);
     font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-widest);
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: var(--oro-texto);
-    margin: 0 0 var(--space-sm);
+    color: #141b28;
+    background: var(--hero-rule);
+    padding: 0.85em 1.75em;
+    border: 1px solid var(--hero-rule);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
   }
-
-  /* Encabezado del Inicio: el tagline ES el h1 (semántico), en cursiva
-     Cormorant como el subtítulo del handoff — no el titular grande en
-     versalita. Resetea las reglas del h1 global (versalita, letter-spacing,
-     bold). El «El Poemario» del cuerpo se retira: el wordmark vive en el
-     masthead. */
-  .hero-titulo {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-weight: var(--font-body-weight);
-    font-size: var(--fs-lg);
-    line-height: var(--lh-snug);
-    letter-spacing: 0;
-    text-transform: none;
-    color: var(--text-muted);
-    max-width: var(--measure-narrow);
-    margin: 0 auto var(--space-md);
-    text-wrap: balance;
-  }
-
-  /* Línea secundaria en cursiva bajo el tagline (editable: home.lema). */
-  .lema {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-lg);
-    line-height: var(--lh-snug);
-    color: var(--text-soft);
-    max-width: var(--measure-narrow);
-    margin: 0 auto var(--space-md);
+  .home-hero-cta:hover,
+  .home-hero-cta:focus-visible {
+    background: transparent;
+    color: var(--hero-accent);
+    border-bottom: 1px solid var(--hero-rule);
   }
 
   /* ── Secciones ─────────────────────────────────────────────────────── */
+  /* El cuerpo arranca tras el hero (Base quita el padding superior); se recupera
+     el respiro aquí. */
   .seccion-poemas {
-    margin-bottom: var(--space-2xl);
+    margin: var(--space-2xl) 0;
   }
   /* Cabecera de sección: título a la izquierda, «ver todo» a la derecha
      (handoff). */
@@ -384,6 +394,16 @@ if (destacadoCfg && destacadoCfg.data.activo) {
     background: var(--text);
     color: var(--bg);
     border-bottom: 1px solid var(--text);
+  }
+
+  /* En móvil el hero de portada se compacta: el extracto (resumen/verso) se
+     oculta para que el bloque quepa sin empujar demasiado el cuerpo. El texto
+     completo vive en la página enlazada por el título y el CTA. */
+  @media (max-width: 700px) {
+    .home-hero-cita,
+    .home-hero-sumario {
+      display: none;
+    }
   }
 
   @media (max-width: 680px) {
