@@ -1,6 +1,8 @@
 ---
 titulo: La burla del amor
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/la-burla-del-amor.png
 borrador: false
 tipo: redondilla
 movimiento: neoclasicismo
@@ -11,6 +13,7 @@ temas:
 autor: andres-bello
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 No dudes, hermosa Elvira,
 que eres mi bien, mi tesoro,
