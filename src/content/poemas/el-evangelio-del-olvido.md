@@ -2,7 +2,7 @@
 titulo: El evangelio del olvido
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/el-evangelio-del-olvido.png
+ilustracion: ../../assets/uploads/poema-el-evangelio-del-olvido.png
 borrador: false
 tipo: verso-libre
 temas:
