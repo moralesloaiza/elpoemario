@@ -2,7 +2,7 @@
 titulo: Pleito de amar y querer
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/pleito-de-amar-y-querer.png
+ilustracion: ../../assets/uploads/poema-pleito-de-amar-y-querer.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo

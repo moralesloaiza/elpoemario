@@ -2,7 +2,7 @@
 titulo: Mi ruego
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/mi-ruego.png
+ilustracion: ../../assets/uploads/poema-mi-ruego.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
