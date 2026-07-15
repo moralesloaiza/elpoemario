@@ -2,7 +2,7 @@
 titulo: Pequeño poema infantil
 fecha: 2012-10-03
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/pequeño-poema-infantil.png
+ilustracion: ../../assets/uploads/poema-pequeno-poema-infantil.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo
