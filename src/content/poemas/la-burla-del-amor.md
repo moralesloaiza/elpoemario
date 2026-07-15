@@ -2,7 +2,7 @@
 titulo: La burla del amor
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/la-burla-del-amor.png
+ilustracion: ../../assets/uploads/poema-la-burla-del-amor.png
 borrador: false
 tipo: redondilla
 movimiento: neoclasicismo
