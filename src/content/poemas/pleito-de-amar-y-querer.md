@@ -1,6 +1,8 @@
-﻿---
-titulo: "Pleito de amar y querer"
+---
+titulo: Pleito de amar y querer
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/pleito-de-amar-y-querer.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo
@@ -9,8 +11,9 @@ temas:
   - patria
   - poesia-misma
 autor: andres-eloy-blanco
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Me muero por preguntarte
