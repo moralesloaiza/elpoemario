@@ -1,6 +1,8 @@
 ---
 titulo: La renuncia
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-15
+ilustracion: ../../assets/uploads/poema-la-renuncia.png
 borrador: false
 tipo: silva
 movimiento: modernismo
@@ -10,6 +12,7 @@ temas:
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 He renunciado a ti. No era posible.
 Fueron vapores de la fantasía;
