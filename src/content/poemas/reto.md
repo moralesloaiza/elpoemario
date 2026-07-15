@@ -1,6 +1,8 @@
-﻿---
-titulo: "Reto"
+---
+titulo: Reto
 fecha: 2012-11-11
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/reto.png
 borrador: false
 tipo: decima
 movimiento: modernismo
@@ -8,8 +10,9 @@ temas:
   - amor
   - poesia-misma
 autor: julio-florez
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Si porque a tus plantas ruedo
