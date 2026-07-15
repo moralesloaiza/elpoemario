@@ -2,7 +2,7 @@
 titulo: La agricultura de la zona tórrida
 fecha: 2026-07-15
 fecha_actualizada: 2026-07-15
-borrador: true
+borrador: false
 tipo: silva
 movimiento: neoclasicismo
 temas:
