@@ -831,5 +831,8 @@ tratamiento de la ilustración descrito en el trabajo de la §6. El marco
 passe-partout sigue vigente donde no hay hero inmersivo (miniaturas de autor,
 destacado sin hero, etc.). El giro es deliberado y acordado con la dirección.
 
-Estado: implementado (poema con imagen). Pendiente: entrada con imagen e Inicio 3A.
+Estado: implementado (poema con imagen; entrada de bitácora con imagen). El hero
+de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por {curador}»);
+las cartas (`correspondencia`) NO van a modo inmersivo (conservan `CartaHeader`).
+Pendiente: Inicio 3A.
 
