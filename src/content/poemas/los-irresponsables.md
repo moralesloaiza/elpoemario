@@ -2,7 +2,7 @@
 titulo: Los irresponsables
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/los-irresponsables.png
+ilustracion: ../../assets/uploads/poema-los-irresponsables.png
 borrador: false
 tipo: quintilla
 movimiento: realismo
