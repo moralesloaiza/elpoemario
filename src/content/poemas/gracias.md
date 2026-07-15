@@ -2,7 +2,7 @@
 titulo: Gracias
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/gracias.png
+ilustracion: ../../assets/uploads/poema-gracias.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
