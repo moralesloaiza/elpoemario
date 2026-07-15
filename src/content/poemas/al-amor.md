@@ -1,7 +1,7 @@
 ---
 titulo: Al amor
 fecha: 2012-11-10
-ilustracion: ../../assets/uploads/al-amor.png
+ilustracion: ../../assets/uploads/poema-al-amor.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
