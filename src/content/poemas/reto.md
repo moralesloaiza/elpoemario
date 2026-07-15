@@ -2,7 +2,7 @@
 titulo: Reto
 fecha: 2012-11-11
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/reto.png
+ilustracion: ../../assets/uploads/poema-reto.png
 borrador: false
 tipo: decima
 movimiento: modernismo
