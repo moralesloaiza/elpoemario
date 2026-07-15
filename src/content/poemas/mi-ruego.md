@@ -1,15 +1,19 @@
 ---
 titulo: Mi ruego
 fecha: 2011-10-26
+fecha_actualizada: 2026-07-14
+ilustracion: ../../assets/uploads/mi-ruego.png
 borrador: false
 tipo: verso-libre
+movimiento: contemporaneo
 temas:
   - dios
-  - patria
+  - dolor
   - poesia-misma
 autor: flora-delmis
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 Señor, si yo tan sólo te pedí una cosa:
 ¡amar!, ¡amar! desde una rosa.
