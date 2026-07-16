@@ -67,13 +67,23 @@ const {
   /* Shell flexible: `min-height` (no `height` fija) + contenido en flujo anclado
      abajo con `align-items:flex-end`. Así, si el contenido es más alto que el
      mínimo (p. ej. el Inicio en móvil), el hero CRECE en vez de recortarlo con
-     `overflow:hidden`. La imagen va detrás (absolute inset:0, cover). */
+     `overflow:hidden`. La imagen va detrás (absolute inset:0, cover).
+
+     Altura ligada a la ALTURA DE PANTALLA, no fija: la maqueta especifica 740px,
+     pero a esa altura fija un portátil de 768px se comía el 96% del viewport y el
+     cuerpo quedaba entero bajo el pliegue (sin pista de que hubiera más página).
+     Con el clamp: 768→553px (se ve el arranque del cuerpo), ~980→705px (≈ la
+     maqueta en un 1080p a pantalla completa), pantallas altas→820px de tope. */
   .hi-shell {
     position: relative;
     display: flex;
     align-items: flex-end;
     box-sizing: border-box;
-    min-height: 740px;
+    min-height: clamp(520px, 72vh, 820px);
+    /* Reserva sitio a la nav flotante (va superpuesta arriba): si el contenido
+       crece hasta la cima —pantalla baja, título largo—, se detiene bajo el
+       masthead en vez de quedar debajo de él. Aplica a todos los tamaños. */
+    padding-top: calc(var(--space-2xl) * 2);
     overflow: hidden;
   }
   .hi-img {
@@ -106,11 +116,10 @@ const {
     text-align: left;
   }
   @media (max-width: 900px) {
-    /* Reserva sitio a la nav flotante arriba: si el contenido crece hasta la
-       cima, se detiene bajo el masthead en vez de quedar detrás. */
+    /* En móvil la altura es fija (no `vh`): la barra del navegador cambia el
+       viewport al hacer scroll y provocaría saltos del hero. */
     .hi-shell {
       min-height: 520px;
-      padding-top: calc(var(--space-2xl) + var(--space-lg));
     }
   }
 </style>
