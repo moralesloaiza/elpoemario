@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Una cena"
 fecha: 2011-11-15
+ilustracion: ../../assets/uploads/poema-una-cena.png
 borrador: false
 tipo: redondilla
 movimiento: siglo-de-oro

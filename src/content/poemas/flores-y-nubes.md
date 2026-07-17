@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Flores y nubes"
 fecha: 2012-02-08
+ilustracion: ../../assets/uploads/poema-flores-y-nubes.png
 borrador: false
 tipo: redondilla
 movimiento: modernismo

@@ -1,6 +1,7 @@
 ﻿---
 titulo: "No era amor"
 fecha: 2011-10-30
+ilustracion: ../../assets/uploads/poema-no-era-amor.png
 borrador: false
 tipo: cuarteto
 movimiento: modernismo

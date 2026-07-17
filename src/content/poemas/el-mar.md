@@ -1,6 +1,7 @@
 ﻿---
 titulo: "El mar"
 fecha: 2011-11-03
+ilustracion: ../../assets/uploads/poema-el-mar.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo

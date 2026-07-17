@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Rural uno"
 fecha: 2011-11-14
+ilustracion: ../../assets/uploads/poema-rural-uno.png
 borrador: false
 tipo: verso-libre
 temas:

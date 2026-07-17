@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Romance de la luna, luna"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-romance-de-la-luna-luna.png
 borrador: false
 tipo: romance
 movimiento: generacion-27

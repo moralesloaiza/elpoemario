@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La flor de la Maravilla"
 fecha: 2011-11-16
+ilustracion: ../../assets/uploads/poema-la-flor-de-la-maravilla.png
 borrador: false
 tipo: letrilla
 movimiento: barroco

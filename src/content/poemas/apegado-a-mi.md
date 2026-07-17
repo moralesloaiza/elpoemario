@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Apegado a mí"
 fecha: 2011-11-04
+ilustracion: ../../assets/uploads/poema-apegado-a-mi.png
 borrador: false
 tipo: romance
 movimiento: modernismo

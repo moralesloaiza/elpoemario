@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La hamaca"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-la-hamaca.png
 borrador: false
 tipo: romance
 movimiento: neoclasicismo

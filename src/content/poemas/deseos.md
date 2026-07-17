@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Deseos"
 fecha: 2011-11-04
+ilustracion: ../../assets/uploads/poema-deseos.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo

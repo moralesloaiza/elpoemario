@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Tus ojos tienen algo"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-tus-ojos-tienen-algo.png
 borrador: false
 tipo: serventesio
 movimiento: contemporaneo

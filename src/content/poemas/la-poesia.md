@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La poesía"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-la-poesia.png
 borrador: false
 tipo: silva
 movimiento: romanticismo

@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Mi caballero"
 fecha: 2011-10-29
+ilustracion: ../../assets/uploads/poema-mi-caballero.png
 borrador: false
 tipo: romancillo
 movimiento: modernismo

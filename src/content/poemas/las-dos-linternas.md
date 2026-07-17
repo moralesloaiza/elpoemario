@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Las dos linternas"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-las-dos-linternas.png
 borrador: false
 tipo: cuarteta
 movimiento: realismo

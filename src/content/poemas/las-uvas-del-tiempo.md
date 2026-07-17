@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Las uvas del tiempo"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-las-uvas-del-tiempo.png
 borrador: false
 tipo: romance-heroico
 movimiento: modernismo

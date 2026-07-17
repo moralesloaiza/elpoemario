@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La oruga y la presumida"
 fecha: 2011-11-10
+ilustracion: ../../assets/uploads/poema-la-oruga-y-la-presumida.png
 borrador: false
 tipo: redondilla
 movimiento: siglo-de-oro

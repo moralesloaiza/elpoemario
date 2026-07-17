@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Hermosa poesía para recitársela a papaíto en el día del Padre"
 fecha: 2012-01-28
+ilustracion: ../../assets/uploads/poema-hermosa-poesia-para-recitarsela-a-papaito-en-el-dia-del-padre.png
 borrador: false
 tipo: pareado
 movimiento: contemporaneo

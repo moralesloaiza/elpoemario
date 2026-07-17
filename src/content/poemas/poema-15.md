@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Poema 15"
 fecha: 2012-01-07
+ilustracion: ../../assets/uploads/poema-poema-15.png
 borrador: false
 tipo: serventesio
 movimiento: vanguardia

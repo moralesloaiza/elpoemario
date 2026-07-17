@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Heroicidad"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-heroicidad.png
 borrador: false
 tipo: silva
 movimiento: romanticismo

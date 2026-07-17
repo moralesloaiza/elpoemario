@@ -1,6 +1,7 @@
 ﻿---
 titulo: "A unos ojos"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-a-unos-ojos.png
 borrador: false
 tipo: madrigal
 movimiento: siglo-de-oro

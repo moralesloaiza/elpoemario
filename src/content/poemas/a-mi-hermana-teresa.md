@@ -1,6 +1,7 @@
 ﻿---
 titulo: "A mi hermana Teresa"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-a-mi-hermana-teresa.png
 borrador: false
 tipo: polimetrico
 movimiento: romanticismo

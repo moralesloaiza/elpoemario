@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Lo que yo quiero"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-lo-que-yo-quiero.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

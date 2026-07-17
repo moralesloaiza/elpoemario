@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Poema 20"
 fecha: 2012-01-07
+ilustracion: ../../assets/uploads/poema-poema-20.png
 borrador: false
 tipo: verso-libre
 movimiento: vanguardia

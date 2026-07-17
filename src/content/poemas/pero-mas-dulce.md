@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Pero más dulce"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-pero-mas-dulce.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo

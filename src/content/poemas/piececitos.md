@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Piececitos"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-piececitos.png
 borrador: false
 tipo: romance
 movimiento: modernismo

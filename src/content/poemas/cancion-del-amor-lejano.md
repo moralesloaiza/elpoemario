@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Canción del amor lejano"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-cancion-del-amor-lejano.png
 borrador: false
 tipo: cuarteto
 movimiento: modernismo

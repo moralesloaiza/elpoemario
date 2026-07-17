@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La niña muda"
 fecha: 2012-01-09
+ilustracion: ../../assets/uploads/poema-la-nina-muda.png
 borrador: false
 tipo: romance-heroico
 movimiento: contemporaneo

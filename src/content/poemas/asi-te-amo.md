@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Así te amo"
 fecha: 2011-10-26
+ilustracion: ../../assets/uploads/poema-asi-te-amo.png
 borrador: false
 tipo: serventesio
 temas:

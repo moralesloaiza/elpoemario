@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Un poema"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-un-poema.png
 borrador: false
 tipo: pareado
 movimiento: modernismo

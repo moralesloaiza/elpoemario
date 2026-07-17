@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Sin sobre"
 fecha: 2011-10-30
+ilustracion: ../../assets/uploads/poema-sin-sobre.png
 borrador: false
 tipo: serventesio
 movimiento: romanticismo

@@ -1,6 +1,7 @@
 ﻿---
 titulo: "El niño bien criado"
 fecha: 2011-11-15
+ilustracion: ../../assets/uploads/poema-el-nino-bien-criado.png
 borrador: false
 tipo: romance
 movimiento: barroco
