@@ -203,7 +203,7 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
      El shell (imagen, degradado, posición, alineación) lo aporta HeroInmersivo;
      el eyebrow/título/autor usan las utilidades globales .hero-* (tokens.css).
      Aquí van los roles propios del destacado (epígrafe, cita, sumario, CTA), en
-     colores fijos --hero-* legibles en día y noche. */
+     tokens --hero-*, que siguen al tema día/noche. */
   /* Extracto en verso (destacado = poema): una línea por verso. */
   .home-hero-cita {
     font-family: var(--font-body);
@@ -224,7 +224,9 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
     color: var(--hero-ink-soft);
     margin: var(--space-sm) 0 var(--space-lg);
   }
-  /* CTA sólido en oro fijo con texto oscuro (handoff 3A); hover a contorno. */
+  /* CTA sólido (handoff 3A); hover a contorno. Usa los tokens de botón del tema
+     en vez de un par fijo: en noche coinciden con el oro/tinta de siempre, y en
+     día evitan el par que salía de --hero-rule + tinta oscura (2.3:1). */
   .home-hero-cta {
     display: inline-block;
     font-family: var(--font-meta);
@@ -232,10 +234,10 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: #141b28;
-    background: var(--hero-rule);
+    color: var(--btn-ink);
+    background: var(--btn-bg);
     padding: 0.85em 1.75em;
-    border: 1px solid var(--hero-rule);
+    border: 1px solid var(--btn-bg);
     text-decoration: none;
     transition: background var(--dur-fast) var(--ease-standard),
       color var(--dur-fast) var(--ease-standard);
