@@ -164,9 +164,15 @@ const { variante = 'solido' } = Astro.props;
     white-space: nowrap;
   }
 
+  /* Nav fluida: el espaciado entre ítems crece con el ancho de pantalla para
+     absorber la holgura del masthead. Con `gap` fijo, `space-between` amontonaba
+     toda la holgura en un solo hueco entre el wordmark y el primer enlace (199px
+     a 1920), muy visible cuando la nav flota sobre la ilustración del hero.
+     El mínimo es el valor de siempre, así que por debajo de ~1200px no cambia
+     nada y el punto de la hamburguesa (1040px) sigue siendo válido. */
   .internal-links {
     display: flex;
-    gap: var(--space-lg);
+    gap: clamp(var(--space-lg), 2vw, 3rem);
     align-items: center;
   }
   /* Nav en versalita Cinzel; estados en oro. */
