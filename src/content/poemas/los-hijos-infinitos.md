@@ -2,7 +2,7 @@
 titulo: Los hijos infinitos
 fecha: 2011-10-30
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/chatgpt-image-12-jul-2026-17_53_24.png
+ilustracion: ../../assets/uploads/poema-los-hijos-infinitos.png
 spotify_url: https://open.spotify.com/episode/1tENtcv4DOQoyHBBmdcHSC?si=oaCYWCEkTdqrR-7XsqPm6w
 borrador: false
 tipo: romance-heroico
