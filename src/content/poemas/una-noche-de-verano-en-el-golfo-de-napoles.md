@@ -24,8 +24,8 @@ nota_curador: "*«Mar adentro, en una barquichuela suavemente mecida por la bris
   luna, en una serena noche de verano».*—El Tesoro de la Juventud o Enciclopedia
   de Conocimientos. El Libro de la Poesía. Tomo III. pp 854-856."
 ---
-> Pues no te fatiga el sol,
-> Boga, boga, barquerol.
+   Pues no te fatiga el sol,
+   Boga, boga, barquerol.
 
    Por este golfo de  plata,
 O más bien mansa laguna
