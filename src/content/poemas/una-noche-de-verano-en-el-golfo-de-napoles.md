@@ -1,6 +1,8 @@
-﻿---
-titulo: "Una noche de verano en el Golfo de Nápoles"
+---
+titulo: Una noche de verano en el Golfo de Nápoles
 fecha: 2012-05-20
+fecha_actualizada: 2026-07-16
+ilustracion: ../../assets/uploads/una-noche-de-verano-en-el-golfo-de-nápoles.png
 borrador: false
 tipo: romance
 movimiento: romanticismo
@@ -11,14 +13,19 @@ temas:
 motivos:
   - sol
 autor: duque-de-rivas
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: "*«Mar adentro, en una barquichuela suavemente mecida por la brisa
+  que apenas riza la dormida superficie del mar, el [Duque de
+  Rivas](https://elpoemario.com/autores/duque-de-rivas/), autor de esta preciosa
+  canción, nos describe el bellísimo paisaje que ofrece Nápoles, tendido entre
+  el pintoresco Posilipo y el temeroso Vesubio, al contemplarlo a la luz de la
+  luna, en una serena noche de verano».*—El Tesoro de la Juventud o Enciclopedia
+  de Conocimientos. El Libro de la Poesía. Tomo III. pp 854-856."
 ---
-
-Mar adentro, en una barquichuela suavemente mecida por la brisa que apenas riza la dormida superficie del mar, el Duque de Rivas, autor de esta preciosa canción, nos describe el bellísimo paisaje que ofrece Nápoles, tendido entre el pintoresco Posilipo y el temeroso Vesubio, al contemplarlo a la luz de la luna, en una serena noche de verano. (El Tesoro de la Juventud o Enciclopedia de Conocimientos. El Libro de la Poesía. Tomo III. pp 854-856).
-
-   Pues no te fatiga el sol,
-   Boga, boga, barquerol.
+ *  Pues no te fatiga el sol,
+   Boga, boga, barquerol.*
 
    Por este golfo de  plata,
 O más bien mansa laguna
