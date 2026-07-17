@@ -11,12 +11,18 @@
 // con nombre 'chatgpt-...' y aqui queda rebautizada), pero tambien sirve en local
 // via `npm run normalize:media`.
 //
+// Sustituir la imagen de una entrada que ya cumplia la regla es un caso soportado:
+// Decap sube la nueva con su nombre ('chatgpt-...') y reapunta el frontmatter, pero
+// NO borra la vieja, que queda en uploads ocupando el nombre destino. Si ese destino
+// ya no lo referencia ninguna entrada, es huerfano del propio reemplazo y se borra
+// antes de renombrar. Si lo referencia alguien, es un conflicto real y se omite.
+//
 // Guardas de seguridad (ante cualquiera, se OMITE ese caso y se avisa, sin abortar):
 //   - imagen referenciada por mas de una entrada (renombrarla romperia la otra)
 //   - dos entradas que resolverian al mismo nombre destino (colision)
-//   - el nombre destino ya existe en disco y no es el propio origen
+//   - el nombre destino ya existe en disco Y lo referencia otra entrada
 //   - el fichero origen no existe (lo caza validate-images.mjs; aqui solo se ignora)
-import { readFileSync, writeFileSync, existsSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, renameSync, unlinkSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, dirname, resolve, basename, extname } from 'node:path';
 
@@ -49,7 +55,7 @@ function gitFiles(glob) {
 }
 
 // --- Fase 1: recolectar el plan (sin tocar disco) ---
-const plan = []; // { md, field, raw, oldPath, newName, newRaw, newPath }
+const plan = []; // { md, field, raw, oldPath, newName, newRaw, newPath, huerfano }
 const refCount = new Map(); // oldPath absoluto -> nº de entradas que lo referencian
 const warnings = [];
 
@@ -107,19 +113,31 @@ for (const item of plan) {
     continue;
   }
   if (existsSync(item.newPath) && item.newPath !== item.oldPath) {
-    warnings.push(`OMITIDO ${item.md}: ${item.newName} ya existe en uploads; renombrar manual`);
-    continue;
+    // refCount es el censo completo de referencias (se rellena antes de descartar
+    // las entradas que ya cumplen la regla), asi que un destino ausente de el no
+    // lo usa nadie: es la imagen vieja de esta misma entrada, ya desreferenciada.
+    if (refCount.has(item.newPath)) {
+      warnings.push(`OMITIDO ${item.md}: ${item.newName} ya existe y lo referencia otra entrada; renombrar manual`);
+      continue;
+    }
+    item.huerfano = true;
   }
   safe.push(item);
 }
 
 // --- Fase 3: ejecutar ---
 let renamed = 0;
+let replaced = 0;
 for (const item of safe) {
+  if (item.huerfano) {
+    unlinkSync(item.newPath);
+    replaced++;
+  }
   renameSync(item.oldPath, item.newPath);
   const text = readFileSync(item.md, 'utf8');
   writeFileSync(item.md, text.split(item.raw).join(item.newRaw));
-  console.log(`  ${basename(item.raw)}  ->  ${item.newName}  (${item.md})`);
+  const nota = item.huerfano ? '  [sustituye a la anterior, ya desreferenciada]' : '';
+  console.log(`  ${basename(item.raw)}  ->  ${item.newName}  (${item.md})${nota}`);
   renamed++;
 }
 
@@ -128,7 +146,8 @@ for (const w of warnings) console.warn(`AVISO: ${w}`);
 if (renamed === 0) {
   console.log('Nombres de imagen ya normalizados: sin cambios.');
 } else {
-  console.log(`\n${renamed} imagen(es) renombrada(s) y referencia(s) actualizada(s).`);
+  const nota = replaced > 0 ? ` (${replaced} sustituye(n) a una imagen anterior, borrada)` : '';
+  console.log(`\n${renamed} imagen(es) renombrada(s) y referencia(s) actualizada(s).${nota}`);
 }
 // Salida 0 siempre: las omisiones son avisos, no fallos. La validacion dura
 // (referencias rotas) es responsabilidad de validate-images.mjs.
