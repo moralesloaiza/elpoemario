@@ -2,7 +2,7 @@
 titulo: Hombres necios
 fecha: 2012-05-05
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/hombres-necios.png
+ilustracion: ../../assets/uploads/poema-hombres-necios.png
 borrador: false
 tipo: redondilla
 movimiento: barroco
