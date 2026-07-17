@@ -2,7 +2,7 @@
 titulo: El dolor de vivir
 fecha: 2012-04-01
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/el-dolor-de-vivir.png
+ilustracion: ../../assets/uploads/poema-el-dolor-de-vivir.png
 borrador: false
 tipo: serventesio
 temas:
