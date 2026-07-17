@@ -1,6 +1,8 @@
-﻿---
-titulo: "Hombres necios"
+---
+titulo: Hombres necios
 fecha: 2012-05-05
+fecha_actualizada: 2026-07-16
+ilustracion: ../../assets/uploads/hombres-necios.png
 borrador: false
 tipo: redondilla
 movimiento: barroco
@@ -10,7 +12,7 @@ motivos:
   - amada
   - amado
 autor: sor-juana-ines-de-la-cruz
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
 ---
 
