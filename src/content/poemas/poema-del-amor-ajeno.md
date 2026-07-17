@@ -2,7 +2,7 @@
 titulo: Poema del amor ajeno
 fecha: 2012-04-08
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/poema-del-amor-ajeno.png
+ilustracion: ../../assets/uploads/poema-poema-del-amor-ajeno.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
