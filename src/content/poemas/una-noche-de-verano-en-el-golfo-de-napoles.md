@@ -2,7 +2,7 @@
 titulo: Una noche de verano en el Golfo de Nápoles
 fecha: 2012-05-20
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/una-noche-de-verano-en-el-golfo-de-nápoles.png
+ilustracion: ../../assets/uploads/poema-una-noche-de-verano-en-el-golfo-de-napoles.png
 borrador: false
 tipo: romance
 movimiento: romanticismo
