@@ -2,7 +2,7 @@
 titulo: Mientras comía empanadas
 fecha: 2014-05-04
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/mientras-comía-empanadas.png
+ilustracion: ../../assets/uploads/poema-mientras-comia-empanadas.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

@@ -2,7 +2,7 @@
 titulo: Coloquio bajo la palma
 fecha: 2013-12-01
 fecha_actualizada: 2026-07-14
-ilustracion: ../../assets/uploads/coloquio-sobre-la-palma.png
+ilustracion: ../../assets/uploads/poema-coloquio-bajo-la-palma.png
 borrador: false
 tipo: romance
 movimiento: modernismo
