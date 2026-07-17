@@ -858,3 +858,62 @@ El hero de la entrada va anclado a la IZQUIERDA (título max ~860px, meta «por
 {curador}»); las cartas (`correspondencia`) NO van a modo inmersivo (conservan
 `CartaHeader`). Cierra el rediseño inmersivo de las 3 superficies previstas.
 
+
+---
+
+29. Hero inmersivo: el velo sigue al tema (día/noche) y el contraste lo resuelve
+    un filtro sobre la ilustración, no más oscurecimiento
+
+Decisión: el hero deja de ser «siempre oscuro» y responde al conmutador. De noche,
+velo oscuro + tinta clara (lo de ahora); de día, velo de papel (#ece4d2) + tinta
+oscura. Los tokens `--hero-*` pasan a redefinirse en `[data-theme='day']`. Esto
+REVIERTE la decisión de §28 («hero siempre oscuro en día y noche, tokens fuera de
+[data-theme='day'], para contraste AA»): aquel argumento era de accesibilidad, y la
+medición muestra que el día también cumple AA sin él.
+
+Medición: los números de §28 se sacaron de UNA imagen de muestra. Medidos contra el
+peor caso de los 95 murales del corpus (muestreo de los píxeles bajo cada texto +
+composición del velo + ratio WCAG, en 4 geometrías: inicio/poema/entrada y móvil),
+el diagnóstico cambia: el eyebrow en oro no daba 3.75 sino 2.60, y el título también
+incumplía (2.90 < 3). Sobre todo: **ningún color de texto lo arreglaba** — con el
+degradado de entonces, ni el blanco puro llegaba (4.20 < 4.5). Las dos salidas que
+§28 dejaba anotadas (crema 5.13, oro claro 4.59) eran artefactos de medir una sola
+imagen; contra el corpus dan 3.56 y 3.19.
+
+Causa: el degradado tiene su punto más claro (α=0.30 al 40%) justo bajo el texto —
+oscuro donde no hay nada, claro donde hay que leer.
+
+Lo elegido, y por qué no lo obvio: la salida evidente era subir la cintura del
+degradado, pero se paga en mural tapado (ilustración visible 0.419 → 0.357 con
+crema, → 0.265 conservando el oro: un 37% menos, en contra de todo el rediseño). En
+su lugar, el contraste lo hace el **filtro por tema** sobre la ilustración, que no
+tapa nada: el degradado de noche queda INTACTO y el eyebrow pasa de 2.60 a 4.92.
+- Noche: `--hero-accent` #e9c96a → **#f5dfa0** (oro claro; conserva el registro
+  dorado) + `--hero-img-filtro: brightness(0.75)`.
+- Día: velo de papel (techo 0.62 / cintura 0.40 / pie 0.70) +
+  `--hero-img-filtro: contrast(0.6) brightness(1.18)`.
+
+El día es estructuralmente más caro: los murales son oscuros (media 68/255; 37% de
+píxeles casi negros frente a un 0.7% muy claros), así que el velo oscuro juega a
+favor de la imagen y el de papel pelea contra ella. La clave fue un filtro que
+LEVANTA los negros — subir el brillo no sirve (negro x 1.18 sigue siendo negro),
+hay que bajar el contraste — y bajar el techo del velo, donde solo está la nav.
+Resultado: 0.384 de ilustración visible, a un 8% de la noche (0.419).
+
+**El hero del día va todo en tinta, sin oro**, y no por gusto: medido contra los 95
+murales, ningún oro alcanza AA en día — ni en el eyebrow (12px; el mejor candidato
+se queda en 3.58) ni siquiera en la nav (4.24 < 4.5). El oro sigue vivo en el resto
+de la página y, dentro del hero, en `--hero-rule` (subrayado y bordes: es regla, no
+texto). Como el acento de día es tinta, el hover de la nav no puede señalarse con
+color y lo lleva el subrayado (el enlace ya reservaba el borde, no hay salto).
+
+Peor caso tras el cambio, en los 95 murales x 4 geometrías: **noche 4.92, día 4.94**
+(AA pide 4.5; se apuntó a ~5.0 a propósito para que un mural nuevo algo más extremo
+no rompa AA sin avisar).
+
+Enfoque descartado (no reintentar): «velo local bajo el bloque de texto» (scrim
+anclado al contenido). Arreglaba el contraste pero oscurecía MÁS, justo lo contrario
+del objetivo: el bloque de texto ocupa entre el 36% y el 83% del hero según la
+pantalla, así que el scrim acababa tapando toda la ilustración.
+
+Estado: implementado.

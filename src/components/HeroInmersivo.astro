@@ -7,8 +7,9 @@
 //
 // El contenido (eyebrow, título, autor…) lo pinta la página con las utilidades
 // tipográficas del hero definidas en tokens.css (.hero-eyebrow, .hero-titulo,
-// .hero-byline, .hero-lede) más lo que necesite en local; su color es fijo
-// (tokens --hero-*), legible en día y noche sobre el degradado.
+// .hero-byline, .hero-lede) más lo que necesite en local; su color sale de los
+// tokens --hero-*, que siguen al tema (tinta clara sobre velo oscuro de noche,
+// tinta oscura sobre velo de papel de día).
 //
 // Uso:
 //   <HeroInmersivo slot="hero" imagen={img} align="left" maxAncho="54rem">
@@ -86,6 +87,10 @@ const {
     padding-top: calc(var(--space-2xl) * 2);
     overflow: hidden;
   }
+  /* El filtro va por tema (--hero-img-filtro): de noche baja el brillo, de día
+     levanta los negros bajando el contraste. No es solo ambiente — es lo que
+     sostiene el contraste AA del texto sin tener que tapar la ilustración con
+     más velo (ver tokens.css). */
   .hi-img {
     position: absolute;
     inset: 0;
@@ -93,6 +98,7 @@ const {
     height: 100%;
     object-fit: cover;
     object-position: var(--hi-obj-pos, center 30%);
+    filter: var(--hero-img-filtro);
   }
   .hi-degradado {
     position: absolute;

@@ -6,8 +6,8 @@ import Logo from './Logo.astro';
 
 interface Props {
   /* 'solido' (por defecto): masthead con fondo y regla, sobre <main>.
-     'overlay': flotante y transparente sobre un hero inmersivo, con colores
-     fijos claros (tokens --hero-*) legibles en día y noche. */
+     'overlay': flotante y transparente sobre un hero inmersivo, con los colores
+     del hero (tokens --hero-*), que siguen al tema día/noche. */
   variante?: 'solido' | 'overlay';
 }
 
@@ -301,10 +301,10 @@ const { variante = 'solido' } = Astro.props;
   }
 
   /* ═══ Variante overlay ════════════════════════════════════════════════
-     Masthead flotante sobre el hero inmersivo: transparente, sin regla, con
-     colores fijos claros (tokens --hero-*) que se leen igual en día y noche
-     sobre el degradado oscuro. El JS (toggle, hamburguesa) es idéntico; solo
-     cambia el tratamiento de color. */
+     Masthead flotante sobre el hero inmersivo: transparente, sin regla, con los
+     colores del hero (tokens --hero-*), que siguen al tema: tinta clara sobre
+     velo oscuro de noche, tinta oscura sobre velo de papel de día. El JS
+     (toggle, hamburguesa) es idéntico; solo cambia el tratamiento de color. */
   header.overlay {
     position: absolute;
     inset-inline: 0;
@@ -320,8 +320,8 @@ const { variante = 'solido' } = Astro.props;
     color: var(--hero-title);
   }
   header.overlay .brand :global(.logo-mark) {
-    --bg: #10131a;
-    --text: var(--hero-title);
+    --bg: var(--hero-logo-bg);
+    --text: var(--hero-logo-text);
   }
   /* Nav: enlaces en tinta clara; estados e ítem activo en oro vivo fijo. */
   header.overlay .internal-links :global(a) {
@@ -333,6 +333,14 @@ const { variante = 'solido' } = Astro.props;
   }
   header.overlay .internal-links :global(a.active) {
     color: var(--hero-accent);
+    border-bottom-color: var(--hero-rule);
+  }
+  /* De día el acento del hero es tinta (ningún oro alcanza AA sobre el mural,
+     ni siquiera en la nav), así que el hover no puede señalarse con color: lo
+     lleva el subrayado. El enlace ya reserva `border-bottom: 2px solid
+     transparent`, así que no hay salto de layout. */
+  [data-theme='day'] header.overlay .internal-links :global(a:hover),
+  [data-theme='day'] header.overlay .internal-links :global(a:focus-visible) {
     border-bottom-color: var(--hero-rule);
   }
   /* Conmutador día/noche. */

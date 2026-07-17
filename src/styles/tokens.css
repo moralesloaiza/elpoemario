@@ -46,25 +46,44 @@
   --hover-tint:      rgba(236, 228, 210, 0.05);  /* realce de fila en hover · aclara sobre oscuro */
   --error:           var(--granate);
 
-  /* === Colores fijos del hero inmersivo (handoff «colores fijos») ==========
-     La nav y el título flotan sobre una ilustración a sangre con degradado
-     oscuro; deben leerse igual en DÍA y en NOCHE, así que NO se redefinen en
-     [data-theme='day']. Garantizan contraste AA del título sobre la imagen. */
+  /* === Hero inmersivo · NOCHE =============================================
+     La nav y el título flotan sobre una ilustración a sangre. Estos tokens SÍ
+     se redefinen en [data-theme='day'] (ver el bloque gemelo más abajo): el
+     hero responde al conmutador, con velo oscuro + tinta clara de noche y velo
+     de papel + tinta oscura de día.
+
+     Todos los valores están MEDIDOS contra el peor caso de los 95 murales del
+     corpus (no contra una imagen de muestra): se muestrean los píxeles bajo
+     cada texto, se compone el velo y se calcula el ratio WCAG. Ver §29 del log
+     de decisiones. */
   --hero-title:    #f2ecdc;              /* titular/wordmark sobre imagen */
   --hero-ink:      #e6ddc9;              /* nav / texto claro sobre imagen */
   --hero-ink-soft: #cdd3dd;             /* sumario / secundario sobre imagen */
-  --hero-accent:   #e9c96a;              /* eyebrow, autor, enlace activo */
+  /* Oro CLARO, no el oro vivo del resto del sitio (#e9c96a): a 12px sobre las
+     zonas claras del mural, el oro vivo daba 2.60 (AA pide 4.5) y NINGÚN color
+     lo arreglaba —ni el blanco puro llegaba (4.20)—. Lo que lo cierra es el
+     filtro de --hero-img-filtro; este tono conserva el registro dorado y deja
+     el peor caso en 4.92. */
+  --hero-accent:   #f5dfa0;              /* eyebrow, autor, enlace activo */
   --hero-rule:     #c3a24a;              /* subrayado activo, borde del toggle */
   --hero-surface:  rgba(10, 14, 22, 0.96); /* panel del menú móvil desplegado */
+  /* Plaqueta del rombo: --bg pinta las líneas, --text el fondo. De noche,
+     plaqueta marfil con líneas de tinta (ver Header, variante overlay). */
+  --hero-logo-bg:   #10131a;
+  --hero-logo-text: var(--hero-title);
+
+  /* Filtro sobre la ilustración del hero. Hace el trabajo de contraste que si
+     no habría que pagar oscureciendo el degradado: con él, el degradado se
+     queda intacto (ilustración visible 0.419) y el eyebrow pasa de 2.60 a 4.92.
+     La alternativa medida —subir la cintura del degradado— cumplía AA pero
+     costaba entre un 15% y un 37% de ilustración visible. */
+  --hero-img-filtro: brightness(0.75);
 
   /* Degradado del hero con imagen (handoff 4a), aligerado por arriba.
-     Medido contra el peor caso (una zona blanca de la ilustración bajo el
-     texto): la nav en #e6ddc9 a 14px necesita α≥0.65 para cumplir AA, y el
-     handoff usaba 0.86 — margen de sobra. Bajarlo a ~0.70 en la franja del
-     masthead (los primeros 72px, sostenido para que cubra toda la nav) descubre
-     la parte alta de la ilustración sin coste de contraste: la nav baja de 8.46
-     a 5.42, sigue por encima de 4.5. Del 40% hacia abajo se conserva el handoff
-     tal cual, porque ahí vive el texto del hero. */
+     Su punto más claro (0.30 al 40%) cae JUSTO bajo el texto: está oscuro donde
+     no hay nada y claro donde hay que leer. Aun así se conserva tal cual, porque
+     el contraste lo resuelve --hero-img-filtro sin coste de ilustración; subir
+     la cintura era la otra salida y se pagaba en mural tapado. */
   --hero-gradiente: linear-gradient(
     180deg,
     rgba(10, 14, 22, 0.72) 0,
@@ -190,6 +209,47 @@
   --rule-soft:       rgba(26, 34, 51, 0.13);  /* handoff --rule-soft */
   --line:            color-mix(in srgb, var(--oro) 22%, transparent);
   --hover-tint:      rgba(26, 34, 51, 0.05);  /* realce de fila en hover · oscurece sobre papel */
+
+  /* === Hero inmersivo · DÍA (gemelo invertido) ============================
+     Velo de papel + tinta oscura. El peor caso se invierte respecto a la noche:
+     ya no es una zona blanca del mural sino una zona NEGRA.
+
+     El día sale estructuralmente más caro porque los murales son oscuros (media
+     68/255; 37% de píxeles casi negros frente a un 0.7% muy claros): el velo
+     oscuro de noche juega a favor de la imagen, el velo de papel pelea contra
+     ella. Con oro oscuro el día exigía α≥0.90 (dejaba ver un 10% del mural). Lo
+     que lo hace viable es el filtro que LEVANTA los negros: subir el brillo solo
+     no sirve (negro x 1.18 sigue siendo negro), hace falta bajar el contraste.
+     Así el día cierra en 0.384 de ilustración visible, a un 8% de la noche. */
+
+  /* SIN ORO, y no por gusto: medido contra los 95 murales, ningún oro llega a
+     AA en día, ni en el eyebrow (12px, el mejor candidato se queda en 3.58) ni
+     siquiera en la nav (4.24 < 4.5). El hero del día va todo en tinta; el oro
+     sigue vivo en el resto de la página y en el subrayado (--hero-rule), que es
+     regla, no texto. */
+  --hero-title:    #1a2233;              /* = --text */
+  --hero-ink:      #1a2233;
+  --hero-ink-soft: #3a4457;             /* = --text-soft */
+  --hero-accent:   #1a2233;
+  --hero-rule:     #705410;              /* = --oro día · subrayado/borde (regla, no texto) */
+  --hero-surface:  rgba(236, 228, 210, 0.96);
+  /* Rombo invertido: plaqueta de tinta con líneas de papel. Con los valores de
+     noche (plaqueta marfil) desaparecería sobre el velo crema. */
+  --hero-logo-bg:   #ece4d2;
+  --hero-logo-text: #1a2233;
+
+  --hero-img-filtro: contrast(0.6) brightness(1.18);
+
+  /* Espejo del degradado de noche: el techo baja (arriba solo está la nav, que
+     aguanta de sobra) y el pie sube (ahí vive el texto). Peor caso 4.94. */
+  --hero-gradiente: linear-gradient(
+    180deg,
+    rgba(236, 228, 210, 0.62) 0,
+    rgba(236, 228, 210, 0.58) 72px,
+    rgba(236, 228, 210, 0.40) 40%,
+    rgba(236, 228, 210, 0.70) 74%,
+    rgba(236, 228, 210, 0.99) 100%
+  );
 }
 
 html {
@@ -355,8 +415,8 @@ input:focus-visible,
 
 /* === Tipografia del hero inmersivo (roles compartidos) =====================
    Utilidades para el contenido que va sobre el hero a sangre (HeroInmersivo.astro),
-   usadas por poema (4a), entrada (4c) e Inicio (3A). Colores fijos --hero-*
-   (independientes del tema), legibles sobre el degradado oscuro en dia y noche.
+   usadas por poema (4a), entrada (4c) e Inicio (3A). El color sale de los
+   tokens --hero-*, que siguen al tema dia/noche (ver los dos bloques de arriba).
    Son globales a proposito: el contenido llega como slot y conserva el ambito de
    la pagina, no el del componente (por eso no pueden vivir scoped en el). */
 .hero-eyebrow {
