@@ -1,6 +1,8 @@
-﻿---
-titulo: "El dolor de vivir"
+---
+titulo: El dolor de vivir
 fecha: 2012-04-01
+fecha_actualizada: 2026-07-16
+ilustracion: ../../assets/uploads/el-dolor-de-vivir.png
 borrador: false
 tipo: serventesio
 temas:
@@ -9,11 +11,12 @@ temas:
   - patria
   - poesia-misma
 autor: luis-ramon-landaeta
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales LOaiza
 ---
-
-“La poesía es un destino”. Vicente Alexander.
+> La poesía es un destino.\
+> —Vicente Alexander.
 
 Vivir es un dolor cuando el alma en la vida
 en reflejos sensibles se adhiere a todo afán.
