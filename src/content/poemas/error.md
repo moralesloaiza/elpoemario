@@ -1,6 +1,8 @@
-﻿---
-titulo: "Error"
+---
+titulo: Error
 fecha: 2012-03-01
+fecha_actualizada: 2026-07-16
+ilustracion: ../../assets/uploads/poema-error.png
 borrador: false
 tipo: cuarteto
 movimiento: modernismo
@@ -10,10 +12,11 @@ temas:
   - poesia-misma
   - sueno
 autor: juan-antonio-perez-bonalde
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: Colaboración especial de **Flor María Fernández Carpio**.
 ---
-
 ¡Yo feliz…! ¡Yo en la aurora…! ¡Yo adorado…!
 ¡Oh, qué dulce mentira…! Nadie sabe
 que en este triste corazón no cabe
@@ -39,5 +42,3 @@ sabrás, mi dulce bien, cuanto te he amado…
 Sabrás entonces lo que nadie sabe:
 ¡que en este triste corazón no cabe
 el tesoro de amor, sino soñado!
-
-Aporte especial de Flor María Fernández ([florparia@hotmail.com](mailto:%20florparia@hotmail.com)).

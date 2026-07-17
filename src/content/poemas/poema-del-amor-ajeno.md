@@ -1,6 +1,8 @@
-﻿---
-titulo: "Poema del amor ajeno"
+---
+titulo: Poema del amor ajeno
 fecha: 2012-04-08
+fecha_actualizada: 2026-07-16
+ilustracion: ../../assets/uploads/poema-poema-del-amor-ajeno.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
@@ -8,8 +10,9 @@ temas:
   - amor
   - poesia-misma
 autor: jose-angel-buesa
-curador: "Don Alejandro"
+curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Puedes irte y no importa, pues te quedas conmigo
