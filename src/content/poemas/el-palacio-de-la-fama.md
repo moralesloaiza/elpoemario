@@ -1,6 +1,7 @@
 ﻿---
 titulo: "El palacio de la fama"
 fecha: 2011-11-15
+ilustracion: ../../assets/uploads/poema-el-palacio-de-la-fama.png
 borrador: false
 tipo: octava-real
 movimiento: siglo-de-oro

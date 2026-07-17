@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Salmo del amor"
 fecha: 2012-01-03
+ilustracion: ../../assets/uploads/poema-salmo-del-amor.png
 borrador: false
 tipo: romance-heroico
 movimiento: modernismo

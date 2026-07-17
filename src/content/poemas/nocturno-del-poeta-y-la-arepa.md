@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Nocturno del poeta y la arepa"
 fecha: 2012-01-03
+ilustracion: ../../assets/uploads/poema-nocturno-del-poeta-y-la-arepa.png
 borrador: false
 tipo: romance
 movimiento: contemporaneo

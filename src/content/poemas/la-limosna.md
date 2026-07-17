@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La limosna"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-la-limosna.png
 borrador: false
 tipo: serventesio
 movimiento: romanticismo

@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La opinión"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-la-opinion.png
 borrador: false
 tipo: cuarteta
 movimiento: realismo

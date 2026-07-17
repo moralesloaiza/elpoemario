@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Recodo de despedida"
 fecha: 2011-11-04
+ilustracion: ../../assets/uploads/poema-recodo-de-despedida.png
 borrador: false
 tipo: romance
 movimiento: contemporaneo

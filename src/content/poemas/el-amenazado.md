@@ -1,6 +1,7 @@
 ﻿---
 titulo: "El amenazado"
 fecha: 2011-11-01
+ilustracion: ../../assets/uploads/poema-el-amenazado.png
 borrador: false
 tipo: prosa-poetica
 movimiento: vanguardia

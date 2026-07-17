@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Tu voz"
 fecha: 2012-02-11
+ilustracion: ../../assets/uploads/poema-tu-voz.png
 borrador: false
 tipo: soneto
 movimiento: modernismo

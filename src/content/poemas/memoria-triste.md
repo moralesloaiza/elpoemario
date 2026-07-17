@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Memoria triste"
 fecha: 2012-02-17
+ilustracion: ../../assets/uploads/poema-memoria-triste.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo

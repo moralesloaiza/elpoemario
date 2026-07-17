@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Penas y alegrías del amor"
 fecha: 2011-10-30
+ilustracion: ../../assets/uploads/poema-penas-y-alegrias-del-amor.png
 borrador: false
 tipo: romance
 movimiento: posguerra

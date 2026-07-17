@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Explicando una tarde anatomía"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-explicando-una-tarde-anatomia.png
 borrador: false
 tipo: romance
 movimiento: realismo

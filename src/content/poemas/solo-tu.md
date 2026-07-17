@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Sólo tú"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-solo-tu.png
 borrador: false
 tipo: cuarteto
 temas:

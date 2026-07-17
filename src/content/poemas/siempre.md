@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Siempre..."
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-siempre.png
 borrador: false
 tipo: pareado
 movimiento: modernismo

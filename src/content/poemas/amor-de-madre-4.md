@@ -2,6 +2,7 @@
 titulo: Amor de madre (IV)
 fecha: 2011-10-28
 fecha_actualizada: 2026-06-06
+ilustracion: ../../assets/uploads/poema-amor-de-madre-4.png
 borrador: false
 tipo: redondilla
 movimiento: realismo

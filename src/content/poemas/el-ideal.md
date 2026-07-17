@@ -1,6 +1,7 @@
 ﻿---
 titulo: "El ideal"
 fecha: 2011-10-28
+ilustracion: ../../assets/uploads/poema-el-ideal.png
 borrador: false
 tipo: romance-heroico
 movimiento: modernismo

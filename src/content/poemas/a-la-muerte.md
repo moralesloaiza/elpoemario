@@ -1,6 +1,7 @@
 ﻿---
 titulo: "A la muerte"
 fecha: 2011-12-04
+ilustracion: ../../assets/uploads/poema-a-la-muerte.png
 borrador: false
 tipo: endecha
 movimiento: romanticismo

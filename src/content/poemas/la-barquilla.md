@@ -1,6 +1,7 @@
 ﻿---
 titulo: "La barquilla"
 fecha: 2011-11-15
+ilustracion: ../../assets/uploads/poema-la-barquilla.png
 borrador: false
 tipo: romance
 movimiento: siglo-de-oro

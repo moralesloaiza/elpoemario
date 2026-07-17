@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Poema de la culpa"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-poema-de-la-culpa.png
 borrador: false
 tipo: pareado
 movimiento: modernismo

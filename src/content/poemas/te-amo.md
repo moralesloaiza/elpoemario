@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Te amo"
 fecha: 2012-02-07
+ilustracion: ../../assets/uploads/poema-te-amo.png
 borrador: false
 tipo: romance
 movimiento: modernismo

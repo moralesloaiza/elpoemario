@@ -2,6 +2,7 @@
 titulo: Solo
 fecha: 2011-10-27
 fecha_actualizada: 2026-07-01
+ilustracion: ../../assets/uploads/poema-solo.png
 borrador: false
 tipo: romance-heroico
 movimiento: vanguardia

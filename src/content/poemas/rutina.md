@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Rutina"
 fecha: 2011-11-24
+ilustracion: ../../assets/uploads/poema-rutina.png
 borrador: false
 tipo: prosa-poetica
 movimiento: contemporaneo

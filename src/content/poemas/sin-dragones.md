@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Sin dragones"
 fecha: 2011-11-14
+ilustracion: ../../assets/uploads/poema-sin-dragones.png
 borrador: false
 tipo: verso-libre
 temas:

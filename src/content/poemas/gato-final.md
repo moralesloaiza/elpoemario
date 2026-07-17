@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Gato final"
 fecha: 2011-11-14
+ilustracion: ../../assets/uploads/poema-gato-final.png
 borrador: false
 tipo: verso-libre
 temas:

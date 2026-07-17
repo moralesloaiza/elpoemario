@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Un narigudo"
 fecha: 2011-11-15
+ilustracion: ../../assets/uploads/poema-un-narigudo.png
 borrador: false
 tipo: soneto
 movimiento: barroco

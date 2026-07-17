@@ -1,6 +1,7 @@
 ﻿---
 titulo: "Revelación"
 fecha: 2011-10-27
+ilustracion: ../../assets/uploads/poema-revelacion.png
 borrador: false
 tipo: quinteto
 movimiento: posguerra
