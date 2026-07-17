@@ -2,7 +2,7 @@
 titulo: La agricultura de la zona tórrida
 fecha: 2026-07-15
 fecha_actualizada: 2026-07-15
-ilustracion: ../../assets/uploads/la-agricultura-de-la-zona-tórrida.png
+ilustracion: ../../assets/uploads/poema-la-agricultura-de-la-zona-torrida.png
 borrador: false
 tipo: silva
 movimiento: neoclasicismo
