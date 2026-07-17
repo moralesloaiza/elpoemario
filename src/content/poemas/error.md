@@ -2,7 +2,7 @@
 titulo: Error
 fecha: 2012-03-01
 fecha_actualizada: 2026-07-16
-ilustracion: ../../assets/uploads/error.png
+ilustracion: ../../assets/uploads/poema-error.png
 borrador: false
 tipo: cuarteto
 movimiento: modernismo
