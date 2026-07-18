@@ -2,7 +2,7 @@
 titulo: Rima XXI
 fecha: 2026-07-18
 fecha_actualizada: 2026-07-18
-ilustracion: ../../assets/uploads/rima-xxi.png
+ilustracion: ../../assets/uploads/poema-rima-xxi.png
 borrador: false
 tipo: cuarteto
 movimiento: romanticismo
