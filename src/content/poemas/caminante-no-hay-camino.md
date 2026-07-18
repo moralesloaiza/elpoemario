@@ -2,7 +2,7 @@
 titulo: "Caminante, no hay camino"
 fecha: 2013-08-30
 fecha_actualizada: 2026-07-17
-ilustracion: ../../assets/uploads/poema-cantares.png
+ilustracion: ../../assets/uploads/poema-caminante-no-hay-camino.png
 borrador: false
 tipo: romance
 movimiento: generacion-98
