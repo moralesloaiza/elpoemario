@@ -3,25 +3,24 @@ import { getCollection } from 'astro:content';
 
 import Base from '../../layouts/Base.astro';
 import ChipsFacetas from '../../components/ChipsFacetas.astro';
-import FilaPoema from '../../components/FilaPoema.astro';
+import PoemaCard from '../../components/PoemaCard.astro';
 
 import { SITE_TITLE } from '../../consts';
 import { getPagina } from '../../utils/paginas';
 
-// All non-draft poems, newest first. Full anthology, no pagination in v1.
-// For ~86 Bécquer Rimas a flat list is fine. Revisit when the corpus
-// grows to several hundred entries.
+// All non-draft poems, newest first. Full anthology; the grid reveals the
+// first PASO cards and loads the rest with «cargar más» (155 illustrated cards
+// at once is a heavy first paint, so we page the DOM like the author fiche and
+// the faceta term pages).
+const PASO = 24;
 const poemas = (await getCollection('poemas', ({ data }) => !data.borrador)).sort(
   (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime(),
 );
 
-// Author names and countries live in the `autores` collection; the `autor`
-// field on a poem is a reference. Build id->name and id->country maps once so
-// the list renders without per-row awaits. `nacionalidad` stores the country
-// verbatim ("Chile", "España"…) — that is the "lugar" column of the catalog.
+// Author names live in the `autores` collection; the `autor` field on a poem is
+// a reference. Build id->name once so the grid renders without per-card awaits.
 const autoresLista = await getCollection('autores');
 const autoresPorId = new Map(autoresLista.map((a) => [a.id, a.data.nombre]));
-const paisPorId = new Map(autoresLista.map((a) => [a.id, a.data.nacionalidad]));
 
 const pagina = await getPagina('poemas');
 ---
@@ -42,20 +41,59 @@ const pagina = await getPagina('poemas');
     {poemas.length === 0 ? (
       <p class="vacio">Aún no hay poemas publicados.</p>
     ) : (
-      <ul class="catalogo">
+      <ul class="catalogo-grid">
         {poemas.map((poema, i) => (
-          <FilaPoema
-            poema={poema}
-            autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
-            indice={i + 1}
-            lugar={paisPorId.get(poema.data.autor.id)}
-            encabezado="h2"
-          />
+          <li class="catalogo-item">
+            <PoemaCard
+              poema={poema}
+              autorNombre={autoresPorId.get(poema.data.autor.id) ?? ''}
+              mostrarAutor={true}
+              encabezado="h2"
+              oculto={i >= PASO}
+            />
+          </li>
         ))}
       </ul>
     )}
+
+    {poemas.length > PASO && (
+      <button type="button" class="cargar-mas" data-cargar-mas>
+        Mostrar más poemas
+      </button>
+    )}
   </section>
 </Base>
+
+<script>
+  const PASO = 24;
+  const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
+  const lista = document.querySelector<HTMLUListElement>('.catalogo-grid');
+
+  if (boton && lista) {
+    const items = Array.from(lista.children) as HTMLElement[];
+
+    boton.addEventListener('click', () => {
+      // Each <li> wraps a PoemaCard whose article carries `hidden`; toggle it.
+      const ocultos = items.filter((el) => el.querySelector('[hidden]'));
+      const lote = ocultos.slice(0, PASO);
+
+      lote.forEach((el) => {
+        el.querySelector('[hidden]')?.removeAttribute('hidden');
+      });
+
+      // Move focus to the first revealed card's title link.
+      const primera = lote[0]?.querySelector<HTMLElement>('.pcard-titulo a');
+      if (primera) {
+        primera.setAttribute('tabindex', '-1');
+        primera.focus();
+      }
+
+      if (ocultos.length <= PASO) {
+        boton.setAttribute('hidden', '');
+      }
+    });
+  }
+</script>
 
 <style>
   .title {
@@ -74,11 +112,58 @@ const pagina = await getPagina('poemas');
     margin-top: var(--space-2xl);
   }
 
-  /* Catálogo como lista de filas compartidas (FilaPoema): nº · (título +
-     autor) · etiqueta · lugar. Cada fila trae su propio filete superior. */
-  .catalogo {
+  /* Catálogo como rejilla de tarjetas ilustradas (handoff «diseño nocturno»):
+     lámina 3:2 + título + autor + «forma · movimiento». Ancho de página; 2
+     columnas fijas en móvil (minmax caía a 1 col a ~280px). */
+  .catalogo-grid {
     list-style: none;
-    margin: 0;
+    margin: var(--space-xl) 0 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: clamp(var(--space-md), 1.8vw, var(--space-lg));
+  }
+  @media (max-width: 640px) {
+    .catalogo-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+  }
+  .catalogo-item {
+    margin: 0;
+    display: grid;
+  }
+  /* El <li> de una tarjeta oculta no reserva altura en la rejilla. */
+  .catalogo-item:has(> [hidden]) {
+    display: none;
+  }
+
+  .cargar-mas {
+    display: block;
+    margin: var(--space-xl) auto 0;
+    padding: var(--space-2xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    background: transparent;
+    border: var(--rule-hairline) solid var(--oro);
+    cursor: pointer;
+    transition:
+      background-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+  .cargar-mas:hover,
+  .cargar-mas:focus-visible {
+    background-color: var(--bg-elevated);
+    color: var(--oro);
+  }
+  .cargar-mas:focus-visible {
+    outline: 2px solid var(--oro);
+    outline-offset: 2px;
+  }
+  .cargar-mas[hidden] {
+    display: none;
   }
 </style>
