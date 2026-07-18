@@ -3,7 +3,8 @@ nombre: Flora Delmis
 tipo: clasico
 descripcion: Poeta venezolana.
 nacionalidad: Venezuela
-nacimiento: 0
+nacimiento: 1950
+lugar_nacimiento: Venezuela
 imagen: ../../assets/uploads/autor-flora-delmis.png
 ---
 Caraqueña, mujer de muchos oficios en torno a la palabra: poetisa, actriz, declamadora, locutora y productora radial. Condujo el programa *Aquí y ahora*, y llevó a la escena el sainete *Qué secretaria* —estrenado en el Círculo Militar de Caracas— y la obra infantil *El ángel de la Navidad*. De esa vida de tablas y micrófono nace una poesía pensada para ser dicha en voz alta, risueña y popular.
