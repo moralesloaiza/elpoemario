@@ -3,7 +3,7 @@ titulo: Sonatina
 fecha: 2026-07-18
 fecha_actualizada: 2026-07-18
 ilustracion: ../../assets/uploads/sonatina.png
-borrador: true
+borrador: false
 tipo: sexteto
 movimiento: modernismo
 temas:
