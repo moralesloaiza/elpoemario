@@ -1,19 +1,15 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 
 import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import IconoEditar from '../components/IconoEditar.astro';
-import OrnamentoTarjeta from '../components/ornaments/OrnamentoTarjeta.astro';
+import HeroInmersivo from '../components/HeroInmersivo.astro';
+import PoemaCard from '../components/PoemaCard.astro';
 
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
-import {
-  paisASlug,
-  TIPOS_DISPLAY,
-  MOVIMIENTOS_DISPLAY,
-} from '../utils/taxonomia';
+import { paisASlug } from '../utils/taxonomia';
 
 // Receives the author's frontmatter spread plus its id (slug). Same
 // pattern as Poema.astro.
@@ -32,6 +28,11 @@ const {
   lengua_original,
 } = props;
 
+// Immersive hero only when the author carries a portrait. Every author
+// currently does, so the no-portrait branch is a robustness guard: it falls
+// back to a plain (non-hero) header, mirroring Poema.astro's `!!ilustracion`.
+const conHero = !!imagen;
+
 // Life dates:
 //   both years  → "1836–1870" (en dash range)
 //   birth only  → "n. 1985"   (living author: director, collaborators)
@@ -43,7 +44,7 @@ const anios =
       ? `n. ${nacimiento}`
       : null;
 
-// Country eyebrow link target. Authors carrying `lengua_original` live on
+// Country link target. Authors carrying `lengua_original` live on
 // /nacionalidades/otras-lenguas/, not on a per-country page; everyone else
 // links to their country's slug. Null when no nacionalidad (e.g. Anonimo).
 const nacionalidadHref = nacionalidad
@@ -74,22 +75,14 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
   site,
 );
 
-// Poems by this author, non-draft, newest first. Each row shows an optional
-// illustration thumbnail plus a "forma · movimiento" tag (handoff).
+// Poems by this author, non-draft, newest first. Rendered as illustrated
+// PoemaCards in a grid (handoff «diseño nocturno»); the author line is omitted
+// (redundant on the author's own page). First 12 shown, rest via «cargar más».
+const PASO = 12;
 const todosLosPoemas = await getCollection('poemas', ({ data }) => !data.borrador);
 const poemasDelAutor = todosLosPoemas
   .filter((p) => p.data.autor.id === id)
-  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
-  .map((p) => {
-    const forma = TIPOS_DISPLAY[p.data.tipo];
-    const mov = p.data.movimiento ? MOVIMIENTOS_DISPLAY[p.data.movimiento] : null;
-    return {
-      id: p.id,
-      titulo: p.data.titulo,
-      ilustracion: p.data.ilustracion,
-      tag: [forma, mov].filter(Boolean).join(' · '),
-    };
-  });
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime());
 
 const headingPoemas =
   poemasDelAutor.length === 0
@@ -101,35 +94,37 @@ const headingPoemas =
 const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 ---
 
-<Base titulo={`${nombre} · El Poemario`} descripcion={descripcionMeta}>
+<Base titulo={`${nombre} · El Poemario`} descripcion={descripcionMeta} heroInmersivo={conHero}>
   <JsonLd slot="head" data={personLd} />
   <JsonLd slot="head" data={breadcrumbLd} />
 
-  <article class="autor" lang="es">
+  {conHero && imagen && (
+    <HeroInmersivo slot="hero" imagen={imagen} alt={`Retrato de ${nombre}`} align="left" objectPosition="center 25%" maxAncho="54rem">
+      {lugar_nacimiento && <p class="autor-hero-lugar">{lugar_nacimiento}</p>}
+      <h1 class="autor-hero-nombre">{nombre}</h1>
+      {(anios || nacionalidad) && (
+        <p class="autor-hero-meta">
+          {anios}
+          {anios && nacionalidad && ' · '}
+          {nacionalidad && (
+            nacionalidadHref ? (
+              <a href={nacionalidadHref}>{nacionalidad}</a>
+            ) : (
+              nacionalidad
+            )
+          )}
+        </p>
+      )}
+    </HeroInmersivo>
+  )}
+
+  <article class:list={['autor', { 'autor--con-hero': conHero }]} lang="es">
     <p class="autor-backlink">
       <a href="/autores/">← Autores</a>
     </p>
 
-    <div class="autor-intro">
-      {imagen ? (
-        <figure class="autor-retrato">
-          <Image
-            src={imagen}
-            alt={`Retrato de ${nombre}`}
-            loading="eager"
-            decoding="async"
-          />
-          {lugar_nacimiento && (
-            <figcaption>{lugar_nacimiento}</figcaption>
-          )}
-        </figure>
-      ) : (
-        <figure class="autor-retrato autor-retrato--ornamento" aria-hidden="true">
-          <OrnamentoTarjeta />
-        </figure>
-      )}
-
-      <div class="autor-cuerpo">
+    {!conHero && (
+      <header class="autor-cabecera">
         <h1 class="autor-nombre">{nombre}</h1>
         {(anios || nacionalidad) && (
           <p class="autor-meta">
@@ -144,50 +139,33 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
             )}
           </p>
         )}
+      </header>
+    )}
 
-        <div class="autor-bio prose">
-          <slot />
-        </div>
+    <div class="autor-bio prose">
+      <slot />
 
-        {tambienEnLabel && tambienEnUrl && (
-          <p class="autor-tambien-en">
-            También figura en <a href={tambienEnUrl}>{tambienEnLabel}</a>.
-          </p>
-        )}
-      </div>
+      {tambienEnLabel && tambienEnUrl && (
+        <p class="autor-tambien-en">
+          También figura en <a href={tambienEnUrl}>{tambienEnLabel}</a>.
+        </p>
+      )}
     </div>
 
     <section class="autor-poemas" aria-labelledby="lista-titulo">
       <h2 id="lista-titulo">{headingPoemas}</h2>
 
       {poemasDelAutor.length > 0 && (
-        <ul class="lista">
+        <ul class="obras-grid">
           {poemasDelAutor.map((p, i) => (
-            <li class="obra" hidden={i >= 18}>
-              {p.ilustracion && (
-                <div class="obra-thumb" aria-hidden="true">
-                  <Image
-                    src={p.ilustracion}
-                    alt=""
-                    width={200}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              )}
-              <div class="obra-texto">
-                <h3 class="obra-titulo">
-                  <a href={`/poemas/${p.id}/`}>{p.titulo}</a>
-                </h3>
-                {p.tag && <p class="obra-tag">{p.tag}</p>}
-              </div>
-              <span class="obra-leer" aria-hidden="true">Leer →</span>
+            <li class="obra-item">
+              <PoemaCard poema={p} oculto={i >= PASO} />
             </li>
           ))}
         </ul>
       )}
 
-      {poemasDelAutor.length > 18 && (
+      {poemasDelAutor.length > PASO && (
         <button type="button" class="cargar-mas" data-cargar-mas>
           Mostrar más poemas
         </button>
@@ -199,27 +177,32 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
 </Base>
 
 <script>
-  const PASO = 18;
+  const PASO = 12;
   const boton = document.querySelector<HTMLButtonElement>('[data-cargar-mas]');
-  const lista = document.querySelector<HTMLUListElement>('.autor-poemas .lista');
+  const lista = document.querySelector<HTMLUListElement>('.autor-poemas .obras-grid');
 
   if (boton && lista) {
     const items = Array.from(lista.children) as HTMLElement[];
 
     boton.addEventListener('click', () => {
-      const ocultos = items.filter((el) => el.hasAttribute('hidden'));
+      // Each <li> wraps a PoemaCard whose article carries `hidden`; toggle it.
+      const ocultos = items.filter((el) =>
+        el.querySelector('[hidden]'),
+      );
       const lote = ocultos.slice(0, PASO);
 
-      lote.forEach((el) => el.removeAttribute('hidden'));
+      lote.forEach((el) => {
+        const card = el.querySelector('[hidden]');
+        card?.removeAttribute('hidden');
+      });
 
-      // Move focus to the first revealed row's link.
-      const primera = lote[0]?.querySelector<HTMLElement>('.obra-titulo a');
+      // Move focus to the first revealed card's title link.
+      const primera = lote[0]?.querySelector<HTMLElement>('.pcard-titulo a');
       if (primera) {
         primera.setAttribute('tabindex', '-1');
         primera.focus();
       }
 
-      // Hide the button once no hidden rows remain.
       if (ocultos.length <= PASO) {
         boton.setAttribute('hidden', '');
       }
@@ -234,8 +217,54 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     padding-inline: var(--space-md);
     padding-block: var(--space-2xl);
   }
+  /* Tras el hero inmersivo el cuerpo arranca pegado a la imagen. */
+  .autor--con-hero {
+    padding-block-start: var(--space-2xl);
+  }
 
-  /* ── Back-link «← Autores» ────────────────────────────────────────── */
+  /* ── Contenido del hero (retrato a sangre) ────────────────────────────
+     Colores vía --hero-* (siguen al tema). El nombre va en Cinzel versalita
+     —voz de nombre de autor del sitio (§25)—, no en el .hero-titulo Cormorant
+     que usan los títulos de poema/entrada. */
+  .autor-hero-lugar {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    color: var(--hero-ink-soft);
+    margin: 0 0 var(--space-sm);
+  }
+  .autor-hero-nombre {
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-4xl);
+    line-height: 1.02;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--hero-title);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .autor-hero-meta {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--hero-accent);
+    margin: var(--space-md) 0 0;
+  }
+  .autor-hero-meta a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+  .autor-hero-meta a:hover,
+  .autor-hero-meta a:focus-visible {
+    border-bottom-color: var(--hero-rule);
+  }
+
+  /* ── Back-link «← Autores» (bajo el hero, colores normales) ───────────── */
   .autor-backlink {
     margin: 0 0 var(--space-lg);
   }
@@ -254,59 +283,14 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--oro);
   }
 
-  /* ── Intro: retrato | biografía (handoff 0.85fr / 1.15fr) ─────────── */
-  .autor-intro {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: var(--space-2xl);
-    align-items: start;
-    padding-bottom: var(--space-2xl);
-    border-bottom: 1px solid var(--rule);
+  /* ── Cabecera de respaldo (autor sin retrato, sin hero) ───────────────── */
+  .autor-cabecera {
+    margin-bottom: var(--space-xl);
   }
-
-  /* Portrait in passe-partout (handoff): --mat backing + --rule border,
-     natural aspect ratio (no crop). Caption from `lugar_nacimiento`. */
-  .autor-retrato {
-    margin: 0;
-    border: 1px solid var(--rule);
-    padding: var(--space-xs);
-    background: var(--mat);
-  }
-  .autor-retrato img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .autor-retrato figcaption {
-    text-align: center;
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-muted);
-    padding: var(--space-sm) var(--space-2xs) var(--space-2xs);
-  }
-  /* Ornament fallback (no portrait). Kept inside the passe-partout frame. */
-  .autor-retrato--ornamento {
-    aspect-ratio: 3 / 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .autor-retrato--ornamento :global(svg) {
-    width: 60%;
-    height: auto;
-  }
-
-  /* ── Name + meta + bio (right column) ─────────────────────────────── */
-  /* Nombre de autor = entidad de catalogo (decision de diseno §25): Cinzel
-     semibold en versalitas, un escalon bajo el masthead bold de los titulos de
-     indice. Convive con el titulo de obra (poema/entrada) que va en Garamond.
-     Las mayusculas se aplican por CSS para no alterar el accessible name que
-     leen los lectores de pantalla. */
   .autor-nombre {
     font-family: var(--font-display);
     font-weight: var(--fw-semibold);
-    font-size: var(--fs-2xl);
+    font-size: var(--fs-3xl);
     line-height: 1.1;
     margin: 0 0 var(--space-xs);
     color: var(--text);
@@ -320,7 +304,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     letter-spacing: var(--ls-widest);
     text-transform: uppercase;
     color: var(--oro-texto);
-    margin: 0 0 var(--space-lg);
+    margin: 0;
   }
   .autor-meta a {
     color: inherit;
@@ -333,7 +317,9 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     border-bottom-color: var(--oro);
   }
 
+  /* ── Biografía (medida de lectura) ────────────────────────────────────── */
   .autor-bio {
+    max-width: var(--measure);
     font-family: var(--font-body);
     font-size: var(--fs-prosa);
     line-height: var(--lh-prosa);
@@ -364,9 +350,11 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--text-soft);
   }
 
-  /* ── Obras en El Poemario (lista con miniatura) ───────────────────── */
+  /* ── Obras en El Poemario (rejilla de tarjetas ilustradas) ────────────── */
   .autor-poemas {
     margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--rule);
   }
   .autor-poemas h2 {
     font-family: var(--font-display);
@@ -374,88 +362,26 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     font-size: var(--fs-xl);
     letter-spacing: var(--ls-wide);
     color: var(--text);
-    margin: 0 0 var(--space-md);
+    margin: 0 0 var(--space-lg);
   }
-  .lista {
+  .obras-grid {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    gap: clamp(var(--space-md), 1.8vw, var(--space-lg));
   }
-  .obra {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    padding: var(--space-md) var(--space-2xs);
-    border-top: 1px solid var(--rule-soft);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .obra:has(.obra-titulo a:hover),
-  .obra:has(.obra-titulo a:focus-visible) {
-    background-color: var(--hover-tint);
-  }
-  /* Work thumbnail: small framed illustration (handoff 96×60). */
-  .obra-thumb {
-    flex: none;
-    width: 96px;
-    height: 60px;
-    border: 1px solid var(--rule);
-    overflow: hidden;
-  }
-  .obra-thumb img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .obra-texto {
-    flex: 1;
-    min-width: 0;
-  }
-  .obra-titulo {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--fs-lg);
-    line-height: var(--lh-snug);
-    color: var(--text);
-    text-transform: none;
-    letter-spacing: 0;
-    margin: 0 0 var(--space-3xs);
-  }
-  .obra-titulo a {
-    text-decoration: none;
-    color: inherit;
-    border-bottom: none;
-  }
-  .obra-titulo a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
-  .obra:has(.obra-titulo a:hover) .obra-titulo,
-  .obra:has(.obra-titulo a:focus-visible) .obra-titulo {
-    color: var(--oro-texto);
-  }
-  .obra-tag {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: var(--fs-sm);
-    color: var(--text-muted);
+  .obra-item {
     margin: 0;
-  }
-  .obra-leer {
-    flex: none;
-    font-family: var(--font-meta);
-    font-size: var(--fs-3xs);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--oro-texto);
+    display: grid;
   }
 
-  /* Hidden batches for cargar-mas. */
-  [hidden] {
-    display: none !important;
+  /* Oculta la tarjeta escondida y el <li> que la envuelve queda sin altura. */
+  .obra-item:has(> [hidden]) {
+    display: none;
   }
+
   .cargar-mas {
     display: block;
     margin: var(--space-xl) auto 0;
@@ -481,22 +407,17 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     outline: 2px solid var(--oro);
     outline-offset: 2px;
   }
+  .cargar-mas[hidden] {
+    display: none;
+  }
 
-  /* ── Móvil: una columna ───────────────────────────────────────────── */
+  /* ── Móvil ────────────────────────────────────────────────────────────── */
+  /* Dos columnas fijas (handoff móvil): a ~280px de ancho, minmax(150px) caía a
+     1 sola col; el mockup mantiene 2-up para que la lámina siga siendo la voz. */
   @media (max-width: 640px) {
-    .autor-intro {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-    .autor-retrato {
-      max-width: 320px;
-      margin-inline: auto;
-    }
-    .obra {
-      gap: var(--space-md);
-    }
-    .obra-leer {
-      display: none;
+    .obras-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
     }
   }
 </style>

@@ -1,0 +1,202 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { TIPOS_DISPLAY, MOVIMIENTOS_DISPLAY } from '../utils/taxonomia';
+
+// Tarjeta de poema ilustrada (handoff «diseño nocturno», §2). Lámina 3:2 con
+// velo + cuerpo con título / autor? / etiqueta «forma · movimiento» + «Leer →».
+// Reutilizada en la ficha de autor (rejilla «Obras») y en el índice de poemas.
+// Toda la tarjeta es clicable: el <a> envuelve solo el título y su ::before
+// cubre la tarjeta (mismo patrón de bloque-enlace que FilaPoema).
+//
+// El título va en Cormorant caja mixta —la voz de título de poema del sitio
+// (FilaPoema, ficha de poema)—, no en el Cinzel del prototipo, que es anterior a
+// esa convergencia; así la tarjeta habla el mismo idioma que el resto del corpus.
+interface Props {
+  poema: CollectionEntry<'poemas'>;
+  /** Nombre del autor, mostrado bajo el título. Requiere `mostrarAutor`. */
+  autorNombre?: string;
+  /** Renderiza la línea de autor (índice de poemas). En la ficha del propio
+   *  autor se omite: sería redundante. */
+  mostrarAutor?: boolean;
+  /** Nivel del encabezado: h3 bajo un h2 de sección (Obras), h2 si cuelga
+   *  directo del h1 de página. */
+  encabezado?: 'h2' | 'h3';
+  /** Lote oculto para la revelación progresiva «cargar más». */
+  oculto?: boolean;
+}
+
+const {
+  poema,
+  autorNombre,
+  mostrarAutor = false,
+  encabezado = 'h3',
+  oculto = false,
+} = Astro.props;
+
+const Encabezado = encabezado;
+const { titulo, ilustracion, tipo, movimiento } = poema.data;
+
+const forma = TIPOS_DISPLAY[tipo];
+const mov = movimiento ? MOVIMIENTOS_DISPLAY[movimiento] : null;
+const etiqueta = [forma, mov].filter(Boolean).join(' · ');
+
+// Inicial de respaldo cuando el poema no tiene ilustración (hoy 2 de 155).
+const inicial = titulo.trim().charAt(0).toUpperCase();
+---
+
+<article class="pcard" hidden={oculto || undefined}>
+  <div class="pcard-lamina" aria-hidden="true">
+    {ilustracion ? (
+      <Image
+        src={ilustracion}
+        alt=""
+        widths={[320, 480, 640]}
+        sizes="(max-width: 640px) 50vw, 300px"
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <span class="pcard-inicial">{inicial}</span>
+    )}
+    <span class="pcard-velo"></span>
+  </div>
+
+  <div class="pcard-cuerpo">
+    <Encabezado class="pcard-titulo">
+      <a href={`/poemas/${poema.id}/`}>{titulo}</a>
+    </Encabezado>
+    {mostrarAutor && autorNombre && <p class="pcard-autor">{autorNombre}</p>}
+    <div class="pcard-pie">
+      {etiqueta && <span class="pcard-etiqueta">{etiqueta}</span>}
+      <span class="pcard-leer" aria-hidden="true">Leer →</span>
+    </div>
+  </div>
+</article>
+
+<style>
+  /* Tarjeta editorial sin radio: borde --line + fondo --panel, columna. El
+     bloque-enlace (::before del <a> del título) cubre toda la tarjeta. */
+  .pcard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    overflow: hidden;
+    transition:
+      transform var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .pcard[hidden] {
+    display: none;
+  }
+  .pcard:has(.pcard-titulo a:hover),
+  .pcard:has(.pcard-titulo a:focus-visible) {
+    transform: translateY(-4px);
+    border-color: var(--oro);
+  }
+
+  /* Lámina 3:2. El filtro por tema (--hero-img-filtro) mantiene el registro
+     visual del hero; el velo funde la imagen hacia el cuerpo. */
+  .pcard-lamina {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: var(--mat);
+    overflow: hidden;
+  }
+  .pcard-lamina img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: var(--hero-img-filtro);
+    transition: transform var(--dur-slow) var(--ease-standard);
+  }
+  .pcard:has(.pcard-titulo a:hover) .pcard-lamina img,
+  .pcard:has(.pcard-titulo a:focus-visible) .pcard-lamina img {
+    transform: scale(1.05);
+  }
+  .pcard-velo {
+    position: absolute;
+    inset: 0;
+    background: var(--card-veil);
+    pointer-events: none;
+  }
+  /* Inicial de respaldo (poema sin lámina): mayúscula grande y tenue sobre --mat. */
+  .pcard-inicial {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    color: var(--oro-texto);
+    opacity: 0.36;
+    line-height: 1;
+  }
+
+  .pcard-cuerpo {
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  /* Título de poema = Cormorant caja mixta (voz de título del sitio). */
+  .pcard-titulo {
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    line-height: var(--lh-snug);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .pcard-titulo a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+  }
+  .pcard-titulo a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .pcard:has(.pcard-titulo a:hover) .pcard-titulo,
+  .pcard:has(.pcard-titulo a:focus-visible) .pcard-titulo {
+    color: var(--oro-texto);
+  }
+
+  .pcard-autor {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .pcard-pie {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-top: var(--space-2xs);
+  }
+  .pcard-etiqueta {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+  }
+  .pcard-leer {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+</style>
