@@ -1,7 +1,7 @@
 ---
 nombre: Antonio Machado
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español de la generación del 98, una de las voces mayores de la lírica del siglo XX en lengua castellana.
 nacionalidad: España
 nacimiento: 1875
 muerte: 1939
