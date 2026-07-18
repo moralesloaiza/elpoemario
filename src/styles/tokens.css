@@ -93,6 +93,18 @@
     rgba(10, 14, 22, 0.99) 100%
   );
 
+  /* Velo inferior sobre las ilustraciones de tarjeta y los tiles de autor a
+     sangre (handoff «diseño nocturno»). En la PoemaCard funde la lámina hacia el
+     panel; en el tile de autor sostiene el contraste del nombre sobrepuesto, que
+     vive en el tramo bajo (≈0–28%) donde el velo es casi opaco. Sigue al tema. */
+  --card-veil: linear-gradient(
+    to top,
+    rgba(10, 14, 22, 0.97) 0,
+    rgba(10, 14, 22, 0.74) 24%,
+    rgba(10, 14, 22, 0.12) 55%,
+    rgba(10, 14, 22, 0) 72%
+  );
+
   /* === Typography (base) === */
   --font-display:        'Cinzel', serif;
   --font-body:           'Cormorant Garamond', serif;
@@ -249,6 +261,15 @@
     rgba(236, 228, 210, 0.40) 40%,
     rgba(236, 228, 210, 0.70) 74%,
     rgba(236, 228, 210, 0.99) 100%
+  );
+
+  /* Velo de papel para tarjetas/tiles en día (handoff: 0.98 → 0.80 → 0.15 → 0). */
+  --card-veil: linear-gradient(
+    to top,
+    rgba(236, 228, 210, 0.98) 0,
+    rgba(236, 228, 210, 0.80) 24%,
+    rgba(236, 228, 210, 0.15) 55%,
+    rgba(236, 228, 210, 0) 72%
   );
 }
 
