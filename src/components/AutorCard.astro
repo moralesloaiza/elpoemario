@@ -64,18 +64,26 @@ const inicial = nombre.trim().charAt(0).toUpperCase();
      inferior y nombre/fechas/conteo sobrepuestos. El texto vive en el tramo bajo
      donde --card-veil es casi opaco (≈text-sobre-panel, no sobre-foto), así que
      su contraste está controlado sin rebarrido por imagen. Bloque-enlace: el <a>
-     del nombre cubre el tile con su ::before. */
+     del nombre estira su ::before sobre TODO el tile, así que toda la tarjeta —
+     retrato incluido — es cliqueable. Para que ese ::before se ancle al .tile y
+     no al bloque de texto, .tile-info fluye (flex, sin position); el retrato pasa
+     a z-index:-1 dentro del contexto aislado del tile para quedar bajo el texto. */
   .tile {
     position: relative;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border: 1px solid var(--line);
     background: var(--mat);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    isolation: isolate;
   }
 
   .tile-img {
     position: absolute;
     inset: 0;
+    z-index: -1;
   }
   .tile-img img {
     width: 100%;
@@ -113,11 +121,6 @@ const inicial = nombre.trim().charAt(0).toUpperCase();
      al tema): tinta clara sobre velo oscuro de noche, tinta sobre velo de papel
      de día. */
   .tile-info {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
     padding: var(--space-md) var(--space-md) var(--space-md);
   }
   .tile-nombre {
