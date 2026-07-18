@@ -8,7 +8,7 @@ nacimiento: 1892
 muerte: 1938
 lugar_nacimiento: Santiago de Chuco, Perú
 lugar_muerte: París, Francia
-imagen: ../../assets/uploads/césar-vallejo.png
+imagen: ../../assets/uploads/autor-cesar-vallejo.png
 ---
 César Abraham Vallejo Mendoza nació en Santiago de Chuco, en los Andes peruanos, en 1892. Creció entre la religiosidad familiar, la vida provinciana y una pobreza que después conocería de cerca como maestro, periodista y emigrante. En *Los heraldos negros* convirtió la casa, la infancia, la culpa y el sufrimiento en una poesía íntima todavía cercana al modernismo, pero atravesada ya por una voz que no se parecía a ninguna otra.
 
