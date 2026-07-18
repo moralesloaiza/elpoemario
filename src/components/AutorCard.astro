@@ -28,123 +28,138 @@ const subLinea = [anios, nacionalidad].filter(Boolean).join(' · ') || null;
 const conteoLabel =
   conteo === 0 ? '—' : conteo === 1 ? '1 poema' : `${conteo} poemas`;
 
-// Initial fallback for the miniature when an author has no portrait. Every
-// author currently carries `imagen`, so this is a robustness guard, not a
-// common path.
+// Initial fallback for the portrait when an author has no image. Every author
+// currently carries `imagen`, so this is a robustness guard, not a common path.
 const inicial = nombre.trim().charAt(0).toUpperCase();
 ---
 
-<article class="card">
-  <div class="card-mini" aria-hidden="true">
+<article class="tile">
+  <div class="tile-img" aria-hidden="true">
     {imagen ? (
       <Image
         src={imagen}
         alt=""
-        width={148}
+        widths={[212, 320, 480]}
+        sizes="(max-width: 640px) 50vw, 280px"
         loading="lazy"
         decoding="async"
       />
     ) : (
-      <span class="card-inicial">{inicial}</span>
+      <span class="tile-inicial">{inicial}</span>
     )}
+    <span class="tile-veil"></span>
   </div>
-  <div class="card-texto">
-    <h3 class="card-nombre">
+
+  <div class="tile-info">
+    <h3 class="tile-nombre">
       <a href={`/autores/${autor.id}/`}>{nombre}</a>
     </h3>
-    {subLinea && <p class="card-sub">{subLinea}</p>}
-    <p class="card-conteo">{conteoLabel}</p>
+    {subLinea && <p class="tile-sub">{subLinea}</p>}
+    <p class="tile-conteo">{conteoLabel}</p>
   </div>
 </article>
 
 <style>
-  /* Author row (handoff): square miniature + name / dates·country / count.
-     Block-link ::before overlay makes the whole row clickable. The bottom
-     rule separates rows within each grid column. */
-  .card {
+  /* Tile de autor a sangre (handoff «diseño nocturno», §1): retrato 3:4 con velo
+     inferior y nombre/fechas/conteo sobrepuestos. El texto vive en el tramo bajo
+     donde --card-veil es casi opaco (≈text-sobre-panel, no sobre-foto), así que
+     su contraste está controlado sin rebarrido por imagen. Bloque-enlace: el <a>
+     del nombre cubre el tile con su ::before. */
+  .tile {
     position: relative;
-    display: flex;
-    gap: var(--space-md);
-    align-items: center;
-    padding: var(--space-lg) var(--space-2xs);
-    border-bottom: 1px solid var(--rule-soft);
-    transition: background-color var(--dur-fast) var(--ease-standard);
-  }
-  .card:has(.card-nombre a:hover),
-  .card:has(.card-nombre a:focus-visible) {
-    background-color: var(--hover-tint);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--mat);
   }
 
-  /* Passe-partout miniature: --mat backing + --rule border, no radius. */
-  .card-mini {
-    flex: none;
-    width: 74px;
-    height: 74px;
-    border: 1px solid var(--rule);
-    background: var(--mat);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .tile-img {
+    position: absolute;
+    inset: 0;
   }
-  .card-mini img {
+  .tile-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 18%;
+    filter: var(--hero-img-filtro);
+    transition: transform var(--dur-slow) var(--ease-standard);
   }
-  .card-inicial {
+  .tile:has(.tile-nombre a:hover) .tile-img img,
+  .tile:has(.tile-nombre a:focus-visible) .tile-img img {
+    transform: scale(1.045);
+  }
+  /* Inicial de respaldo (autor sin retrato): mayúscula grande y tenue. */
+  .tile-inicial {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-display);
-    font-size: var(--fs-xl);
+    font-size: clamp(5rem, 11vw, 8rem);
     color: var(--oro-texto);
+    opacity: 0.42;
     line-height: 1;
   }
-
-  .card-texto {
-    flex: 1;
-    min-width: 0;
+  .tile-veil {
+    position: absolute;
+    inset: 0;
+    background: var(--card-veil);
+    pointer-events: none;
   }
-  /* Nombre de autor en tarjeta = misma voz de catalogo que .autor-nombre
-     (§25): Cinzel semibold en versalitas, con tracking algo menor por la escala. */
-  .card-nombre {
+
+  /* Bloque de texto anclado abajo, sobre el velo. Colores vía --hero-* (siguen
+     al tema): tinta clara sobre velo oscuro de noche, tinta sobre velo de papel
+     de día. */
+  .tile-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: var(--space-md) var(--space-md) var(--space-md);
+  }
+  .tile-nombre {
     font-family: var(--font-display);
-    font-size: var(--fs-lg);
     font-weight: var(--fw-semibold);
+    font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.28rem);
     line-height: var(--lh-snug);
-    color: var(--text);
     text-transform: uppercase;
     letter-spacing: var(--ls-wide);
+    color: var(--hero-title);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
     margin: 0 0 var(--space-3xs);
     text-wrap: balance;
   }
-  .card-nombre a {
+  .tile-nombre a {
     text-decoration: none;
     color: inherit;
     border-bottom: none;
   }
-  .card-nombre a::before {
-    content: "";
+  .tile-nombre a::before {
+    content: '';
     position: absolute;
     inset: 0;
   }
-  .card:has(.card-nombre a:hover) .card-nombre,
-  .card:has(.card-nombre a:focus-visible) .card-nombre {
-    color: var(--oro-texto);
+  .tile:has(.tile-nombre a:hover) .tile-nombre,
+  .tile:has(.tile-nombre a:focus-visible) .tile-nombre {
+    color: var(--hero-accent);
   }
 
-  .card-sub {
+  .tile-sub {
     font-family: var(--font-body);
     font-style: italic;
     font-size: var(--fs-sm);
-    color: var(--text-soft);
-    margin: 0 0 var(--space-2xs);
+    color: var(--hero-ink-soft);
+    margin: 0 0 var(--space-3xs);
   }
-  .card-conteo {
+  .tile-conteo {
     font-family: var(--font-display);
     font-size: var(--fs-3xs);
     letter-spacing: var(--ls-wider);
     text-transform: uppercase;
-    color: var(--oro-texto);
+    color: var(--hero-accent);
     line-height: var(--lh-snug);
     margin: 0;
   }

@@ -146,22 +146,20 @@ const {
     color: var(--text-soft);
     margin: var(--space-2xl) auto;
   }
-  /* Author rows in a 2-column grid (handoff), gap 0 — each row carries its
-     own bottom rule. Confined to the reading measure; collapses to 1 col on
-     narrow viewports. */
+  /* Rejilla de tiles de autor a sangre (handoff «diseño nocturno»): retratos 3:4
+     con nombre sobrepuesto. Ocupa el ancho de página; 2 columnas fijas en móvil. */
   .lista {
     list-style: none;
     padding: 0;
     margin: var(--space-2xl) auto 0;
-    max-width: var(--measure-grid);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--space-2xl);
-    row-gap: 0;
+    grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+    gap: clamp(14px, 1.4vw, 22px);
   }
   @media (max-width: 640px) {
     .lista {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
     }
   }
   .item {
