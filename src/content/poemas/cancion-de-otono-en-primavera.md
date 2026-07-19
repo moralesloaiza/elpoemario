@@ -5,7 +5,7 @@ resumen: «Canción de otoño en primavera» es un poema de Rubén Darío, de «
   perdidos, con el estribillo «Juventud, divino tesoro».
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_40_52.png
+ilustracion: ../../assets/uploads/poema-cancion-de-otono-en-primavera.png
 borrador: false
 tipo: cuarteta
 movimiento: modernismo

@@ -5,7 +5,7 @@ resumen: «Lo fatal» es un poema de Rubén Darío, de «Cantos de vida y espera
   conciencia de la muerte.
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_13_26.png
+ilustracion: ../../assets/uploads/poema-lo-fatal.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo
