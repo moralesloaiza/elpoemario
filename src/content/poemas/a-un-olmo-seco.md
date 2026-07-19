@@ -2,7 +2,7 @@
 titulo: A un olmo seco
 fecha: 2026-07-17
 fecha_actualizada: 2026-07-18
-ilustracion: ../../assets/uploads/a-un-olmo-seco.png
+ilustracion: ../../assets/uploads/poema-a-un-olmo-seco.png
 borrador: false
 tipo: silva
 movimiento: generacion-98
