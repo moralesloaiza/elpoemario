@@ -2,7 +2,7 @@
 titulo: Campos de Soria
 fecha: 2026-07-17
 fecha_actualizada: 2026-07-18
-ilustracion: ../../assets/uploads/chatgpt-image-18-jul-2026-23_58_49.png
+ilustracion: ../../assets/uploads/poema-campos-de-soria.png
 borrador: false
 tipo: polimetrico
 movimiento: generacion-98
