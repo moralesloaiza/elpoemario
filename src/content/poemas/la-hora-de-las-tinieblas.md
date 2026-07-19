@@ -8,7 +8,7 @@ resumen: A diferencia de la faceta más conocida de Pombo como autor de fábulas
   pecado y la condena eterna.
 fecha: 2026-07-08
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-13_49_31.png
+ilustracion: ../../assets/uploads/poema-la-hora-de-las-tinieblas.png
 borrador: false
 tipo: decima
 movimiento: romanticismo
