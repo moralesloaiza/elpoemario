@@ -1,6 +1,8 @@
 ---
-titulo: "Anoche cuando dormía"
+titulo: Anoche cuando dormía
 fecha: 2026-07-17
+fecha_actualizada: 2026-07-18
+ilustracion: ../../assets/uploads/chatgpt-image-18-jul-2026-23_55_21.png
 borrador: false
 tipo: cuarteta
 movimiento: modernismo
