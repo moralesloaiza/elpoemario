@@ -7,8 +7,9 @@ resumen: A diferencia de la faceta más conocida de Pombo como autor de fábulas
   nada para padecer y por qué un Dios supuestamente bondadoso permite el mal, el
   pecado y la condena eterna.
 fecha: 2026-07-08
-fecha_actualizada: 2026-07-08
-borrador: true
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/poema-la-hora-de-las-tinieblas.png
+borrador: false
 tipo: decima
 movimiento: romanticismo
 temas:
