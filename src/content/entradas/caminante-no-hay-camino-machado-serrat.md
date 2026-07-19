@@ -1,14 +1,17 @@
 ---
-titulo: "«Caminante, no hay camino»: el poema de Machado y la canción de Serrat"
-resumen: Por qué los versos que Serrat hizo célebres no coinciden exactamente con el poema de Machado.
-fecha: 2026-07-17
-tipo: bitacora
-poema_referido: caminante-no-hay-camino
+resumen: Por qué los versos que Serrat hizo célebres no coinciden exactamente
+  con el poema de Machado.
 autor: alejandro-de-morales-y-loaiza
+titulo: "«Caminante, no hay camino»: el poema de Machado y la canción de Serrat"
+fecha: 2026-07-17
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_08_53.png
+borrador: false
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-borrador: false
+tipo: bitacora
+poema_referido: caminante-no-hay-camino
 ---
 
 El poema pertenece a los «Proverbios y cantares» de *Campos de Castilla* (1912), la vena sentenciosa y desnuda de Machado. En diez octosílabos plantea una sola idea y la lleva hasta el fondo: no hay senda trazada de antemano; el camino se hace al andar y, una vez hecho, no vuelve a pisarse. La imagen final —«estelas en la mar»— retira incluso ese consuelo: la huella se borra en el instante de trazarse.
