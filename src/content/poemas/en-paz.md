@@ -1,10 +1,12 @@
 ---
 titulo: En paz
 resumen: "«En paz» es un poema de Amado Nervo, figura del modernismo mexicano,
-  recogido en «Elevación» (1917): un balance sereno y de gratitud ante la vida al
-  acercarse la muerte."
+  recogido en «Elevación» (1917): un balance sereno y de gratitud ante la vida
+  al acercarse la muerte."
 fecha: 2026-07-19
-borrador: true
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_28_11.png
+borrador: false
 tipo: terceto
 movimiento: modernismo
 temas:
@@ -17,12 +19,7 @@ autor: amado-nervo
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "De «Elevación» (Madrid, 1917). Fuente del texto: Wikisource
-  (es.wikisource.org/wiki/En_paz). Borrador pendiente de cotejo contra facsímil de
-  la primera edición. Compuesto en alejandrinos con estrofas monorrimas (tercetos
-  y pareados); se clasifica como «terceto», la estrofa dominante. Variante a
-  revisar: «Hallé sin duda largas noches…» (otras ediciones leen «Hubo, sin duda,
-  largas noches…»)."
+nota_curador: De «Elevación» (Madrid, 1917).
 ---
 Muy cerca de mi ocaso, yo te bendigo, vida,
 porque nunca me diste ni esperanza fallida,
