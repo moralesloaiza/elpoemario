@@ -1,6 +1,8 @@
 ---
-titulo: "Retrato"
+titulo: Retrato
 fecha: 2026-07-17
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-00_05_30.png
 borrador: false
 tipo: serventesio
 movimiento: generacion-98
