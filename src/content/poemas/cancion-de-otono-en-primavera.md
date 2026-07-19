@@ -1,10 +1,12 @@
 ---
 titulo: Canción de otoño en primavera
-resumen: «Canción de otoño en primavera» es un poema de Rubén Darío, de «Cantos de
-  vida y esperanza» (1905), sobre el paso de la juventud y los amores perdidos, con
-  el estribillo «Juventud, divino tesoro».
+resumen: «Canción de otoño en primavera» es un poema de Rubén Darío, de «Cantos
+  de vida y esperanza» (1905), sobre el paso de la juventud y los amores
+  perdidos, con el estribillo «Juventud, divino tesoro».
 fecha: 2026-07-19
-borrador: true
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_35_39.png
+borrador: false
 tipo: cuarteta
 movimiento: modernismo
 temas:
@@ -17,10 +19,8 @@ autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "Poema VI de «Cantos de vida y esperanza» (1905), con la dedicatoria
-  «A Martínez Sierra». Estribillo de variantes. Fuente del texto: Wikisource,
-  transcripción del facsímil «Cantos de vida y esperanza.djvu» (páginas 121-124).
-  Borrador pendiente de cotejo. Se conserva la ortografía de la edición («fué»)."
+nota_curador: Poema VI de «Cantos de vida y esperanza» (1905), con la
+  dedicatoria «A Martínez Sierra». Estribillo de variantes.
 ---
 Juventud, divino tesoro,
 ya te vas para no volver!
