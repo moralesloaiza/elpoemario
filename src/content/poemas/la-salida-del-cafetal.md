@@ -1,9 +1,9 @@
 ---
 titulo: La salida del cafetal
 fecha: 2026-07-07
-fecha_actualizada: 2026-07-12
+fecha_actualizada: 2026-07-19
 ilustracion: ../../assets/uploads/poema-la-salida-del-cafetal.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: neoclasicismo
 temas:
