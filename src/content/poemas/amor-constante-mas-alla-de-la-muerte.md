@@ -5,7 +5,7 @@ resumen: «Amor constante más allá de la muerte» es un soneto amoroso del Bar
   («polvo serán, mas polvo enamorado»).
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_17_41.png
+ilustracion: ../../assets/uploads/poema-amor-constante-mas-alla-de-la-muerte.png
 borrador: true
 tipo: soneto
 movimiento: barroco
