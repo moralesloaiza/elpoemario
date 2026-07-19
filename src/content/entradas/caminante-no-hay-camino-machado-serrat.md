@@ -5,7 +5,7 @@ autor: alejandro-de-morales-y-loaiza
 titulo: "«Caminante, no hay camino»: el poema de Machado y la canción de Serrat"
 fecha: 2026-07-17
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_08_53.png
+ilustracion: ../../assets/uploads/entrada-caminante-no-hay-camino-machado-serrat.png
 borrador: false
 curador: Don Alejandro
 es_seudonimo: true
