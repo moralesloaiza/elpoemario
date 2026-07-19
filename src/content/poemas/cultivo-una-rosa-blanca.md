@@ -5,7 +5,7 @@ resumen: "«Cultivo una rosa blanca» es el poema XXXIX de «Versos sencillos»
   distingue entre el amigo y el cruel."
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_22_43.png
+ilustracion: ../../assets/uploads/poema-cultivo-una-rosa-blanca.png
 borrador: false
 tipo: redondilla
 movimiento: modernismo
