@@ -917,3 +917,24 @@ del objetivo: el bloque de texto ocupa entre el 36% y el 83% del hero según la
 pantalla, así que el scrim acababa tapando toda la ilustración.
 
 Estado: implementado.
+
+
+---
+
+30. Indicador de borrador en la lista de Poemas del CMS (summary + filtros + grupos), replicando entradas
+
+Decisión: la colección `poemas` de Decap no distinguía borradores de publicados en su
+lista (solo `identifier_field: titulo`, sin summary ni vistas). Se replica el patrón que ya
+usa `entradas`: summary con prefijo [BORRADOR] vía ternary sobre el campo `borrador`,
+view_filters (Borradores/Publicadas) y view_groups (Estado, Tipo). No hay cambio en el
+sitio publicado: los borradores ya se excluyen por completo del build (todos los
+getCollection filtran !data.borrador y poemas/[...slug].astro no les genera URL). Este
+cambio es solo de UX del CMS.
+
+Fuera de alcance deliberado: el `publish_mode: editorial_workflow` queda sin tocar. Su
+tablero aparece vacío porque el contenido se crea vía Claude Code y se fusiona a main, así
+que nunca pasa por las ramas cms/ no fusionadas que Decap usa para poblar ese tablero;
+evaluar su interacción con la protección de rama antes de cambiarlo. Tampoco se cambia el
+`default: true` del widget borrador de poemas ni se añade preview de borradores en DEV.
+
+Estado: implementado.
