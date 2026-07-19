@@ -5,7 +5,7 @@ resumen: "«En paz» es un poema de Amado Nervo, figura del modernismo mexicano,
   al acercarse la muerte."
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_28_11.png
+ilustracion: ../../assets/uploads/poema-en-paz.png
 borrador: false
 tipo: terceto
 movimiento: modernismo

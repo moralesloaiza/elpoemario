@@ -2,7 +2,7 @@
 titulo: Emisario
 fecha: 2026-07-12
 fecha_actualizada: 2026-07-12
-ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-13_36_01.png
+ilustracion: ../../assets/uploads/poema-emisario.png
 borrador: true
 tipo: sexteto
 movimiento: contemporaneo
