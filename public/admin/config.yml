@@ -16,6 +16,16 @@ logo_url: https://elpoemario.com/logo.svg
 
 locale: es
 
+# Slug global: los identificadores de archivo (y por tanto las URLs) deben ser
+# ASCII. Sin esto, Decap conserva las tildes del `identifier_field` y genera
+# slugs como `césar-vallejo` / `miguel-hernández`, que rompen la convención
+# ASCII del corpus y producen URLs con percent-encoding. `clean_accents`
+# translitera (é→e, ñ→n) antes de sanear.
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
 collections:
   - name: poemas
     label: "Poemas"
@@ -88,6 +98,7 @@ collections:
           - romanticismo
           - realismo
           - modernismo
+          - posmodernismo
           - generacion-98
           - vanguardia
           - generacion-27

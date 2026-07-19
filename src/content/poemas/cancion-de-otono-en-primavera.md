@@ -1,0 +1,110 @@
+---
+titulo: Canción de otoño en primavera
+resumen: «Canción de otoño en primavera» es un poema de Rubén Darío, de «Cantos de
+  vida y esperanza» (1905), sobre el paso de la juventud y los amores perdidos, con
+  el estribillo «Juventud, divino tesoro».
+fecha: 2026-07-19
+borrador: true
+tipo: cuarteta
+movimiento: modernismo
+temas:
+  - juventud
+  - tiempo
+  - amor
+motivos:
+  - jardin
+autor: ruben-dario
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: "Poema VI de «Cantos de vida y esperanza» (1905), con la dedicatoria
+  «A Martínez Sierra». Estribillo de variantes. Fuente del texto: Wikisource,
+  transcripción del facsímil «Cantos de vida y esperanza.djvu» (páginas 121-124).
+  Borrador pendiente de cotejo. Se conserva la ortografía de la edición («fué»)."
+---
+Juventud, divino tesoro,
+ya te vas para no volver!
+Cuando quiero llorar, no lloro...
+Y a veces lloro sin querer...
+
+Plural ha sido la celeste
+historia de mi corazón.
+Era una dulce niña, en este
+mundo de duelo y aflicción.
+
+Miraba como el alba pura;
+sonreía como una flor.
+Era su cabellera oscura
+hecha de noche y de dolor.
+
+Yo era tímido como un niño.
+Ella, naturalmente, fué,
+para mi amor hecho de armiño,
+Herodías y Salomé...
+
+Juventud, divino tesoro,
+ya te vas para no volver...!
+Cuando quiero llorar, no lloro,
+y a veces lloro sin querer...
+
+Y más consoladora y más
+halagadora y expresiva,
+la otra fué más sensitiva
+cual no pensé encontrar jamás.
+
+Pues a su continua ternura
+una pasión violenta unía.
+En un peplo de gasa pura
+una bacante se envolvía...
+
+En brazos tomó mi ensueño
+y lo arrulló como a un bebé...
+Y le mató, triste y pequeño,
+falto de luz, falto de fe...
+
+Juventud, divino tesoro,
+te fuiste para no volver!
+Cuando quiero llorar, no lloro,
+y a veces lloro sin querer...
+
+Otra juzgó que era mi boca
+el estuche de su pasión;
+y que me roería, loca,
+con sus dientes el corazón
+
+poniendo en un amor de exceso
+la mira de su voluntad,
+mientras eran abrazo y beso
+síntesis de la eternidad;
+
+y de nuestra carne ligera
+imaginar siempre un Edén,
+sin pensar que la Primavera
+y la carne acaban también...
+
+Juventud, divino tesoro,
+ya te vas para no volver!
+Cuando quiero llorar, no lloro,
+y a veces lloro sin querer!
+
+Y las demás! en tantos climas,
+en tantas tierras, siempre son,
+si no pretextos de mis rimas,
+fantasmas de mi corazón.
+
+En vano busqué a la princesa
+que estaba triste de esperar.
+La vida es dura. Amarga y pesa.
+Ya no hay princesa que cantar!
+
+Mas a pesar del tiempo terco,
+mi sed de amor no tiene fin;
+con el cabello gris, me acerco
+a los rosales del jardín...
+
+Juventud, divino tesoro,
+ya te vas para no volver...
+Cuando quiero llorar, no lloro,
+y a veces lloro sin querer...
+
+Mas es mía el Alba de oro!

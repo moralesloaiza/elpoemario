@@ -10,7 +10,7 @@ temas:
   - dolor
   - dios
 motivos: []
-autor: césar-vallejo
+autor: cesar-vallejo
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
