@@ -1,9 +1,11 @@
 ---
 titulo: Cultivo una rosa blanca
-resumen: "«Cultivo una rosa blanca» es el poema XXXIX de «Versos sencillos» (1891)
-  de José Martí: dos redondillas sobre la amistad y la generosidad que no distingue
-  entre el amigo y el cruel."
+resumen: "«Cultivo una rosa blanca» es el poema XXXIX de «Versos sencillos»
+  (1891) de José Martí: dos redondillas sobre la amistad y la generosidad que no
+  distingue entre el amigo y el cruel."
 fecha: 2026-07-19
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_22_43.png
 borrador: true
 tipo: redondilla
 movimiento: modernismo
@@ -17,10 +19,8 @@ autor: jose-marti
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "Poema XXXIX de «Versos sencillos» (Nueva York, 1891); se difunde
-  también con el título «La rosa blanca». Fuente del texto: Wikisource, transcripción
-  de «Versos sencillos» (es.wikisource.org/wiki/Versos_sencillos/XXXIX). Borrador
-  pendiente de cotejo."
+nota_curador: Poema XXXIX de «Versos sencillos» (Nueva York, 1891); se difunde
+  también con el título «La rosa blanca».
 ---
 Cultivo una rosa blanca
 En julio como enero,
