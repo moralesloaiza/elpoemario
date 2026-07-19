@@ -9,7 +9,7 @@ nacimiento: 1892
 muerte: 1938
 lugar_nacimiento: Sala Capriasca, Suiza
 lugar_muerte: Mar del Plata, Argentina
-imagen: ../../assets/uploads/alfonsina-storni.png
+imagen: ../../assets/uploads/autor-alfonsina-storni.png
 ---
 Alfonsina Storni nació en Sala Capriasca, Suiza, en 1892, pero llegó a la Argentina durante su infancia y construyó allí toda su vida literaria. Las dificultades económicas de su familia la llevaron a trabajar desde muy joven en distintos oficios. Más tarde se formó como maestra y ejerció también como actriz, periodista y docente, mientras criaba sola a su hijo Alejandro y buscaba un lugar propio en el ambiente cultural de Buenos Aires.
 

@@ -9,7 +9,7 @@ nacimiento: 1910
 muerte: 1942
 lugar_nacimiento: Orihuela, Alicante, España
 lugar_muerte: Orihuela, Alicante, España
-imagen: ../../assets/uploads/miguel-hernández.png
+imagen: ../../assets/uploads/autor-miguel-hernandez.png
 ---
 Miguel Hernández Gilabert nació en Orihuela, España, en 1910, en el seno de una familia dedicada a la crianza de ganado. Aunque tuvo que abandonar tempranamente sus estudios para trabajar como pastor, continuó formándose por su cuenta mediante la lectura de los clásicos españoles. En las tertulias literarias de su ciudad encontró la amistad de Ramón Sijé, cuya muerte inspiraría una de las elegías más conmovedoras de la poesía en español.
 
