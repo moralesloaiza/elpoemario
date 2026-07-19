@@ -6,7 +6,7 @@ resumen: «Amor constante más allá de la muerte» es un soneto amoroso del Bar
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
 ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_17_41.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: barroco
 temas:
