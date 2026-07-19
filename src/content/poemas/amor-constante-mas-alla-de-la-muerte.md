@@ -4,6 +4,8 @@ resumen: «Amor constante más allá de la muerte» es un soneto amoroso del Bar
   español de Francisco de Quevedo sobre la permanencia del amor tras la muerte
   («polvo serán, mas polvo enamorado»).
 fecha: 2026-07-19
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_17_41.png
 borrador: true
 tipo: soneto
 movimiento: barroco
@@ -17,12 +19,9 @@ autor: francisco-de-quevedo
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "«Amor constante más allá de la muerte» es el título editorial
+nota_curador: «Amor constante más allá de la muerte» es el título editorial
   consagrado; en «El Parnaso español» (1648), sección «Canta sola a Lisi» de la
-  musa Erato, el soneto aparece sin ese encabezado. Fuente del texto: Wikisource
-  (es.wikisource.org/wiki/Amor_constante_más_allá_de_la_muerte). Borrador pendiente
-  de cotejo contra una edición crítica (verso 4: «hora a su afán ansioso
-  lisonjera», que otras ediciones capitalizan «Hora»)."
+  musa Erato, el soneto aparece sin ese encabezado.
 ---
 Cerrar podrá mis ojos la postrera
 sombra que me llevare el blanco día,
