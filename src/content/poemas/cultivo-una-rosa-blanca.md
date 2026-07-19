@@ -6,7 +6,7 @@ resumen: "«Cultivo una rosa blanca» es el poema XXXIX de «Versos sencillos»
 fecha: 2026-07-19
 fecha_actualizada: 2026-07-19
 ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_22_43.png
-borrador: true
+borrador: false
 tipo: redondilla
 movimiento: modernismo
 temas:
