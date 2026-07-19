@@ -1,6 +1,8 @@
 ---
-titulo: "Campos de Soria"
+titulo: Campos de Soria
 fecha: 2026-07-17
+fecha_actualizada: 2026-07-18
+ilustracion: ../../assets/uploads/chatgpt-image-18-jul-2026-23_58_49.png
 borrador: false
 tipo: polimetrico
 movimiento: generacion-98
@@ -19,8 +21,7 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 ---
-
-I
+## I
 
 Es la tierra de Soria árida y fría.
 Por las colinas y las sierras calvas,
@@ -36,7 +37,7 @@ el caminante lleva en su bufanda
 envueltos cuello y boca, y los pastores
 pasan cubiertos con sus luengas capas.
 
-II
+## II
 
 Las tierras labrantías,
 como retazos de estameñas pardas;
@@ -51,7 +52,7 @@ y en las quiebras de valles y barrancas
 blanquean los zarzales florecidos
 y brotan las violetas perfumadas.
 
-III
+## III
 
 Es el campo ondulado, y los caminos
 ya ocultan los viajeros que cabalgan
@@ -66,7 +67,7 @@ llanos plomizos, lomas plateadas,
 circuidos por montes de violeta,
 con las cumbres de nieve sonrosada.
 
-IV
+## IV
 
 ¡Las figuras del campo sobre el cielo!
 Dos lentos bueyes aran
@@ -83,7 +84,7 @@ Bajo una nube de carmín y llama,
 en el oro fluido y verdinoso
 del poniente las sombras se agigantan.
 
-V
+## V
 
 La nieve. En el mesón al campo abierto,
 se ve el hogar donde la leña humea,
@@ -114,7 +115,7 @@ ha de correr con otras doncellitas
 en los días azules y dorados,
 cuando crecen las blancas margaritas.
 
-VI
+## VI
 
 ¡Soria fría, Soria pura,
 *cabeza de Extremadura*,
@@ -139,7 +140,7 @@ de la Audiencia da la una.
 Soria, ciudad castellana,
 ¡tan bella! bajo la luna.
 
-VII
+## VII
 
 ¡Colinas plateadas,
 grises alcores, cárdenas roquedas
@@ -156,7 +157,7 @@ donde parece que las rocas sueñan,
 conmigo vais! ¡Colinas plateadas,
 grises alcores, cárdenas roquedas!...
 
-VIII
+## VIII
 
 He vuelto a ver los álamos dorados,
 álamos del camino en la ribera
@@ -180,7 +181,7 @@ que corre y pasa y sueña,
 álamos de las márgenes del Duero,
 conmigo vais, mi corazón os lleva!
 
-IX
+## IX
 
 ¡Oh!, sí, conmigo vais, campos de Soria,
 tardes tranquilas, montes de violeta,
