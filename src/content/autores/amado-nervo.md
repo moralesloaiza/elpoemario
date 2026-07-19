@@ -8,7 +8,7 @@ nacimiento: 1870
 muerte: 1919
 lugar_nacimiento: Tepic, Nayarit, México
 lugar_muerte: Montevideo, Uruguay
-imagen: ../../assets/uploads/amado-nervo.png
+imagen: ../../assets/uploads/autor-amado-nervo.png
 ---
 Amado Ruiz de Nervo Ordaz nació en Tepic, México, en 1870. Su formación estuvo marcada por la religiosidad provinciana, los estudios eclesiásticos y una temprana familiaridad con la pérdida. Después de abandonar el seminario, trabajó como periodista y comenzó una trayectoria literaria que lo convertiría en una de las voces más populares del modernismo hispanoamericano.
 
