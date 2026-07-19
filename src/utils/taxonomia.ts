@@ -20,8 +20,8 @@ export const TIPOS = [
 
 export const MOVIMIENTOS = [
   'medieval', 'siglo-de-oro', 'barroco', 'neoclasicismo', 'romanticismo',
-  'realismo', 'modernismo', 'generacion-98', 'vanguardia', 'generacion-27',
-  'posguerra', 'contemporaneo', 'popular-tradicional',
+  'realismo', 'modernismo', 'posmodernismo', 'generacion-98', 'vanguardia',
+  'generacion-27', 'posguerra', 'contemporaneo', 'popular-tradicional',
 ] as const;
 
 export const TEMAS = [
@@ -110,6 +110,7 @@ export const MOVIMIENTOS_DISPLAY: Record<Movimiento, string> = {
   'romanticismo': 'Romanticismo',
   'realismo': 'Realismo',
   'modernismo': 'Modernismo',
+  'posmodernismo': 'Posmodernismo',
   'generacion-98': 'Generación del 98',
   'vanguardia': 'Vanguardia',
   'generacion-27': 'Generación del 27',
