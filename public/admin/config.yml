@@ -38,6 +38,13 @@ collections:
     identifier_field: titulo
     extension: md
     format: frontmatter
+    summary: "{{borrador | ternary('[BORRADOR] ', '')}}{{titulo}} — {{tipo}} ({{fecha | date('YYYY-MM-DD')}})"
+    view_filters:
+      - { label: "Borradores", field: borrador, pattern: true }
+      - { label: "Publicadas", field: borrador, pattern: false }
+    view_groups:
+      - { label: "Estado", field: borrador }
+      - { label: "Tipo", field: tipo }
     fields:
       - { label: "Título", name: titulo, widget: string }
       - { label: "Resumen", name: resumen, widget: text, required: false }
