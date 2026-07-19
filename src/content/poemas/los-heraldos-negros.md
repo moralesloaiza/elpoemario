@@ -2,7 +2,7 @@
 titulo: Los heraldos negros
 fecha: 2026-07-18
 fecha_actualizada: 2026-07-18
-ilustracion: ../../assets/uploads/chatgpt-image-18-jul-2026-18_34_54.png
+ilustracion: ../../assets/uploads/poema-los-heraldos-negros.png
 borrador: false
 tipo: polimetrico
 movimiento: vanguardia
