@@ -1,10 +1,12 @@
 ---
 titulo: Lo fatal
 resumen: «Lo fatal» es un poema de Rubén Darío, de «Cantos de vida y esperanza»
-  (1905), donde el modernismo vira hacia la angustia existencial ante la conciencia
-  de la muerte.
+  (1905), donde el modernismo vira hacia la angustia existencial ante la
+  conciencia de la muerte.
 fecha: 2026-07-19
-borrador: true
+fecha_actualizada: 2026-07-19
+ilustracion: ../../assets/uploads/chatgpt-image-19-jul-2026-12_13_26.png
+borrador: false
 tipo: polimetrico
 movimiento: modernismo
 temas:
@@ -17,10 +19,7 @@ autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "De «Cantos de vida y esperanza» (1905). Fuente del texto: Wikisource
-  (es.wikisource.org/wiki/Lo_fatal). Borrador pendiente de cotejo. Se clasifica
-  como «polimétrico»: cuartetos alejandrinos rematados por dos versos cortos
-  (eneasílabo y heptasílabo) que rompen la medida."
+nota_curador: De «Cantos de vida y esperanza» (1905).
 ---
 Dichoso el árbol, que es apenas sensitivo,
 y más la piedra dura porque esa ya no siente,
