@@ -22,7 +22,7 @@ nota_curador: >-
   noviembre de 2011:
 
 
-  > *Pondré como emisario de mis labios al más fiel y sincero beso, que habrá de esperar hasta el día en que sus ojos quieran posarse sobre los míos para entregarle mi recuerdo.*
+  > Pondré como emisario de mis labios al más fiel y sincero beso, que habrá de esperar hasta el día en que sus ojos quieran posarse sobre los míos para entregarle mi recuerdo.
 ---
 Desde esta, mi distancia, nombraré de mis labios
 como fiel emisario, al beso más sincero,
