@@ -588,7 +588,17 @@
     const minoritaria = Math.min(m.filter(x => x === 7).length, m.filter(x => x === 11).length);
     if (!uniforme && en711 / n >= 0.8 && minoritaria >= 2 && minoritaria / n >= 0.08 && rhymeShare(active) >= 0.3)
       return n <= 12 ? "Madrigal / silva breve" : "Silva";
-    if (new Set(m).size > n * 0.5) return "Verso libre";
+    // VERSO LIBRE: se afirma por AUSENCIA —ni metro dominante ni rima que ate
+    // los versos—, no por variedad de medidas. La condición antigua (más
+    // medidas distintas que la mitad de los versos) es inalcanzable en poemas
+    // largos: 100 versos habrían necesitado >50 medidas distintas, así que casi
+    // todos caían al rótulo neutro. Se conserva porque sí sirve en poemas
+    // breves. El umbral de rima es deliberadamente bajo (30%): con más rima que
+    // eso preferimos callar, porque suele ser una forma que el motor no supo
+    // leer y no un poema sin rima.
+    const domFrac = active.filter(a => a.metric === mode(m)).length / n;
+    if (new Set(m).size > n * 0.5 || (domFrac < 0.5 && rhymeShare(active) < 0.3))
+      return "Verso libre";
     return n + " versos · forma libre";
   }
 
