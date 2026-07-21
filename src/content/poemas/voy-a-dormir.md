@@ -2,7 +2,7 @@
 titulo: Voy a dormir
 fecha: 2026-07-20
 fecha_actualizada: 2026-07-20
-ilustracion: ../../assets/uploads/chatgpt-image-20-jul-2026-20_39_28.png
+ilustracion: ../../assets/uploads/poema-voy-a-dormir.png
 borrador: false
 tipo: verso-libre
 movimiento: posmodernismo
