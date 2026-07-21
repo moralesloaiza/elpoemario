@@ -218,7 +218,11 @@ const paginas = defineCollection({
     // Franja «Novedad» de la home que enlaza a /taller. Solo home.md las usa.
     taller_eyebrow: optionalString(),
     taller_titulo: optionalString(),
+    // Llamada a /taller: `taller_cta` la comparten home.md (franja) y tipos.md
+    // (llamada del índice de formas y de cada ficha /tipos/<slug>/).
     taller_cta: optionalString(),
+    // Texto de la llamada en las páginas de formas. Solo tipos.md lo usa.
+    taller_texto: optionalString(),
   }),
 });
 

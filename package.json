@@ -10,7 +10,10 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "normalize:media": "node .github/scripts/normalize-media.mjs"
+    "normalize:media": "node .github/scripts/normalize-media.mjs",
+    "taller:test": "node scripts/taller/test.mjs",
+    "taller:medir": "node scripts/taller/medir.mjs",
+    "taller:diag": "node scripts/taller/diagnostico.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

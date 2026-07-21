@@ -507,6 +507,8 @@ collections:
           - { name: "titulo", label: "Título", widget: "string", required: false }
           - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "taller_texto", label: "Taller: texto de la llamada", widget: "text", required: false, hint: "Invitación a medir versos. Aparece al pie de este índice y de cada ficha de forma. Si lo dejas vacío se usa el texto por defecto." }
+          - { name: "taller_cta", label: "Taller: texto del enlace", widget: "string", required: false, hint: "Etiqueta del enlace a /taller/. Si lo dejas vacío se usa «Abrir el taller»." }
       - name: "nacionalidades"
         label: "Listado: Nacionalidades"
         file: "src/content/paginas/nacionalidades.md"
