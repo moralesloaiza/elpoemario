@@ -3,6 +3,7 @@ titulo: Píntame angelitos negros
 fecha: 2011-10-28
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-pintame-angelitos-negros.png
+spotify_url: https://open.spotify.com/episode/5da0c6nolFcVwFpEN1b5ho?si=vUfQNhtOSuSaSVdcwNVWTg
 borrador: false
 tipo: romance
 movimiento: modernismo
@@ -11,6 +12,8 @@ temas:
   - dios
   - esperanza
   - dolor
+motivos:
+  - sol
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true
