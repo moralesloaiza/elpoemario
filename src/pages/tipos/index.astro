@@ -45,7 +45,7 @@ const pagina = await getPagina('tipos');
 
     <GrillaTerminos items={items} unidad="poema" />
 
-    <LlamadaTaller />
+    <LlamadaTaller texto={pagina.data.taller_texto} cta={pagina.data.taller_cta} />
   </div>
 </Base>
 
