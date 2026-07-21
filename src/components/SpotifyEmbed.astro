@@ -23,32 +23,52 @@ const altura = tipo === 'episode' ? 232 : 152;
 const embedSrc = tipo && spotifyId
   ? `https://open.spotify.com/embed/${tipo}/${spotifyId}?utm_source=generator`
   : null;
+// Enlace canonico al episodio: escape cuando el reproductor no carga (el
+// backend del embed se agota en algunas regiones) y unica via sin JS.
+const enlaceCanonico = tipo && spotifyId
+  ? `https://open.spotify.com/${tipo}/${spotifyId}`
+  : null;
 ---
 
 {embedSrc && (
-  <div
-    class="spotify-embed"
-    data-spotify-facade
-    data-src={embedSrc}
-    data-altura={altura}
-    data-tipo={tipo}
-    style={`--embed-altura: ${altura}px`}
-  >
-    <button
-      type="button"
-      class="spotify-facade"
-      aria-label="Cargar reproductor de Spotify y escuchar la lectura"
+  <div class="spotify-embed" data-tipo={tipo} style={`--embed-altura: ${altura}px`}>
+    <div
+      class="spotify-embed__marco"
+      data-spotify-facade
+      data-src={embedSrc}
+      data-altura={altura}
+      data-enlace={enlaceCanonico}
     >
-      <span class="spotify-facade__play" aria-hidden="true">
-        <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="0.75" />
-          <polygon points="20,16 20,32 34,24" fill="currentColor" />
-        </svg>
-      </span>
-      <span class="spotify-facade__rotulo">Escuchar la lectura</span>
-      <span class="spotify-facade__hint">Pulsa para cargar el reproductor</span>
-    </button>
+      <button
+        type="button"
+        class="spotify-facade"
+        aria-label="Cargar reproductor de Spotify y escuchar la lectura"
+      >
+        <span class="spotify-facade__play" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="0.75" />
+            <polygon points="20,16 20,32 34,24" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="spotify-facade__rotulo">Escuchar la lectura</span>
+        <span class="spotify-facade__hint">Pulsa para cargar el reproductor</span>
+      </button>
+    </div>
+    <a
+      class="spotify-facade spotify-facade--caido"
+      data-spotify-caido
+      hidden
+      href={enlaceCanonico}
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="spotify-facade__rotulo">El reproductor no cargó</span>
+      <span class="spotify-facade__hint">Escúchalo en Spotify ↗</span>
+    </a>
+    <a class="spotify-enlace" data-spotify-enlace href={enlaceCanonico} target="_blank" rel="noopener">
+      Escuchar en Spotify ↗
+    </a>
   </div>
 )}
 
@@ -61,6 +81,44 @@ const embedSrc = tipo && spotifyId
   type FacadeElement = HTMLElement & { dataset: DOMStringMap };
 
   const facades = document.querySelectorAll<FacadeElement>('[data-spotify-facade]');
+
+  // El backend del embed de Spotify se agota ("upstream request timeout") en
+  // algunas regiones. El iframe dispara `load` igual, con la pagina de error
+  // dentro, asi que `load` NO sirve para detectarlo. Lo que si llega cuando el
+  // reproductor arranca de verdad es un postMessage desde open.spotify.com.
+  // Vigilamos esa señal y, si no aparece, degradamos a un enlace.
+  const READY_TIMEOUT = 8000;
+  const relojes = new WeakMap<FacadeElement, number>();
+
+  // El panel de caida se renderiza en la plantilla y aqui solo se revela: los
+  // estilos de Astro van scopeados por atributo (`[data-astro-cid-...]`) y un
+  // elemento creado con createElement no lo lleva, asi que no le aplicarian.
+  const degradar = (container: FacadeElement) => {
+    const raiz = container.parentElement;
+    const caido = raiz?.querySelector<HTMLElement>('[data-spotify-caido]');
+    if (!caido) return;
+
+    container.remove();
+    caido.hidden = false;
+    // El enlace discreto sobra: el propio panel ya lleva a Spotify.
+    raiz?.querySelector<HTMLElement>('[data-spotify-enlace]')?.setAttribute('hidden', '');
+  };
+
+  // Cualquier mensaje del iframe correcto prueba que el reproductor vive; no
+  // dependemos del esquema exacto del payload, que Spotify puede cambiar.
+  window.addEventListener('message', (evento) => {
+    if (evento.origin !== 'https://open.spotify.com') return;
+    facades.forEach((container) => {
+      const iframe = container.querySelector('iframe');
+      if (iframe && iframe.contentWindow === evento.source) {
+        const reloj = relojes.get(container);
+        if (reloj !== undefined) {
+          clearTimeout(reloj);
+          relojes.delete(container);
+        }
+      }
+    });
+  });
 
   const mount = (container: FacadeElement) => {
     if (container.dataset.mounted === 'true') return;
@@ -85,6 +143,8 @@ const embedSrc = tipo && spotifyId
 
     const button = container.querySelector('button');
     container.replaceChildren(iframe);
+
+    relojes.set(container, window.setTimeout(() => degradar(container), READY_TIMEOUT));
 
     // If the mount was user-initiated (click), restore focus to the iframe
     // so keyboard users land in the new interactive element.
@@ -202,5 +262,35 @@ const embedSrc = tipo && spotifyId
   /* En track (152px de alto) el hint aprieta: lo ocultamos. */
   .spotify-embed[data-tipo='track'] .spotify-facade__hint {
     display: none;
+  }
+
+  /* ── Caida del reproductor ──────────────────────────────────────────── */
+  /* Mismo marco que la fachada, pero es un enlace: sustituye al iframe roto. */
+  .spotify-facade--caido {
+    text-decoration: none;
+  }
+
+  /* `display: flex` de .spotify-facade gana al [hidden] del navegador. */
+  .spotify-facade[hidden],
+  .spotify-enlace[hidden] {
+    display: none;
+  }
+
+  /* ── Escape permanente ──────────────────────────────────────────────── */
+  /* Sin JS la fachada es un boton muerto; este enlace siempre funciona. */
+  .spotify-enlace {
+    display: block;
+    margin-block-start: var(--space-2xs);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-soft);
+    text-align: center;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+  .spotify-enlace:hover,
+  .spotify-enlace:focus-visible {
+    color: var(--oro);
   }
 </style>
