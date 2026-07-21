@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import TallerMetrico from '../components/TallerMetrico.astro';
+import { getPagina } from '../utils/paginas';
+import { render } from 'astro:content';
+
+// Encabezado y cuerpo (descripción + instrucciones) vienen de
+// src/content/paginas/taller.md, editable en Decap. La herramienta interactiva
+// (TallerMetrico) está fijada en la plantilla.
+const pagina = await getPagina('taller');
+const { rotulo, titulo, subtitulo, descripcion } = pagina.data;
+const { Content } = await render(pagina);
+---
+
+<Base titulo="El Taller · El Poemario" descripcion={descripcion}>
+  <div class="taller">
+    <header class="title">
+      {rotulo && <p class="rotulo">{rotulo}</p>}
+      <h1>{titulo}</h1>
+      {subtitulo && <p class="subtitulo">{subtitulo}</p>}
+    </header>
+
+    <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <section class="prose intro">
+      <Content />
+    </section>
+
+    <TallerMetrico />
+  </div>
+</Base>
+
+<style>
+  .title {
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+  .title h1 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-3xl);
+    text-transform: none;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  .intro {
+    max-width: var(--measure-grid);
+    margin-inline: auto;
+  }
+  /* El cuerpo se renderiza desde markdown (<Content/>), así que sus elementos
+     no reciben el hash scoped; se apuntan globalmente anclados en .intro. */
+  .intro :global(h2) {
+    font-family: var(--font-body);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0;
+    text-align: center;
+    margin: var(--space-xl) 0 var(--space-md);
+    text-wrap: balance;
+  }
+  .intro :global(p) {
+    font-family: var(--font-prose);
+    font-size: var(--fs-prosa);
+    line-height: var(--lh-prosa);
+    margin-bottom: var(--space-md);
+  }
+</style>

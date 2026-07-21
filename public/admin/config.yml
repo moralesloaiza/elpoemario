@@ -464,6 +464,9 @@ collections:
           - { name: "podcast_eyebrow", label: "Pódcast: rótulo pequeño (ej. «Pódcast · Spotify»)", widget: "string", required: false }
           - { name: "podcast_cta", label: "Pódcast: texto del enlace", widget: "string", required: false }
           - { name: "podcast_glosa", label: "Pódcast: línea descriptiva", widget: "string", required: false }
+          - { name: "taller_eyebrow", label: "Taller: rótulo pequeño (ej. «Novedad · Herramienta»)", widget: "string", required: false }
+          - { name: "taller_titulo", label: "Taller: línea descriptiva (franja de novedad)", widget: "string", required: false }
+          - { name: "taller_cta", label: "Taller: texto del enlace", widget: "string", required: false }
       - name: "poemas"
         label: "Listado: Poemas"
         file: "src/content/paginas/poemas.md"
@@ -562,6 +565,15 @@ collections:
           - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
           - { name: "body", label: "Contenido", widget: "markdown", required: false, hint: "Los enlaces externos abren en pestaña nueva automáticamente." }
+      - name: "taller"
+        label: "El Taller"
+        file: "src/content/paginas/taller.md"
+        fields:
+          - { name: "rotulo", label: "Antetítulo", widget: "string", required: false }
+          - { name: "titulo", label: "Título (encabezado visible)", widget: "string", required: false }
+          - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
+          - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
+          - { name: "body", label: "Descripción e instrucciones", widget: "markdown", required: false, hint: "Texto sobre la herramienta: qué es y cómo usarla. La herramienta interactiva (con su leyenda) está fijada en la plantilla; aquí solo editas el texto de arriba." }
       - name: "buscar"
         label: "Buscar"
         file: "src/content/paginas/buscar.md"

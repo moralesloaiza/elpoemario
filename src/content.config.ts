@@ -215,6 +215,10 @@ const paginas = defineCollection({
     podcast_eyebrow: optionalString(),
     podcast_cta: optionalString(),
     podcast_glosa: optionalString(),
+    // Franja «Novedad» de la home que enlaza a /taller. Solo home.md las usa.
+    taller_eyebrow: optionalString(),
+    taller_titulo: optionalString(),
+    taller_cta: optionalString(),
   }),
 });
 

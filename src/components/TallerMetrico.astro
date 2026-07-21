@@ -1,0 +1,192 @@
+---
+/*
+ * TallerMetrico — herramienta interactiva de escansión (sílabas, sinalefa,
+ * métrica, rima y forma) para /taller. El motor vive en
+ * ./tallerMetrico.client.js (vanilla, sin dependencias). Los estilos usan los
+ * tokens globales de src/styles/tokens.css, así que siguen el tema día/noche
+ * del sitio sin definir paleta propia.
+ *
+ * El estilo es `is:global` a propósito: el «manuscrito» (columna derecha) se
+ * construye por JS con innerHTML, y esos nodos no reciben el hash de los
+ * estilos scoped de Astro. Todo va anclado bajo `.taller-metrico` para no
+ * filtrarse al resto del sitio.
+ */
+import { getCollection } from 'astro:content';
+
+// Slugs de forma que TIENEN ficha en /tipos/<slug>/ (solo los tipos con >=1
+// poema publicado producen ruta, igual que en tipos/[slug].astro). El motor
+// cliente los lee de `data-tipos` y solo enlaza la forma detectada cuando su
+// slug está en esta lista, para no generar enlaces muertos.
+const poemasPublicados = await getCollection('poemas', ({ data }) => !data.borrador);
+const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sort();
+---
+
+<div class="taller-metrico" data-tipos={tiposConFicha.join(',')}>
+  <section class="tm-summary" aria-live="polite">
+    <div class="tm-chip"><div class="tm-label">Metro dominante</div><div class="tm-value" id="s-meter">—</div><div class="tm-sub" id="s-meter-sub">&nbsp;</div></div>
+    <div class="tm-chip"><div class="tm-label">Esquema de rima</div><div class="tm-value tm-scheme" id="s-scheme">—</div><div class="tm-sub" id="s-scheme-sub">&nbsp;</div></div>
+    <div class="tm-chip"><div class="tm-label">Versos</div><div class="tm-value" id="s-lines">0</div><div class="tm-sub" id="s-lines-sub">&nbsp;</div></div>
+    <div class="tm-chip"><div class="tm-label">Forma (aprox.)</div><div class="tm-value tm-form" id="s-form">—</div><div class="tm-sub">estimación</div></div>
+  </section>
+
+  <div class="tm-work">
+    <div class="tm-pane">
+      <div class="tm-pane-head"><span>Manuscrito</span></div>
+      <textarea id="editor" spellcheck="false" aria-label="Editor de poema"></textarea>
+    </div>
+
+    <div class="tm-pane">
+      <div class="tm-pane-head">
+        <span>Escansión</span>
+        <div class="tm-tools">
+          <button class="tm-mini-btn" id="syllBtn" type="button">Ver sílabas</button>
+        </div>
+      </div>
+      <div class="tm-manuscript" id="output"></div>
+    </div>
+  </div>
+
+  <div class="tm-legend">
+    <div class="tm-item"><span class="tm-sw tm-gold">11</span> sílabas métricas del verso</div>
+    <div class="tm-item"><span class="tm-sw tm-tie">‿</span> sinalefa — <b>haz clic</b> para cortarla (dialefa)</div>
+    <div class="tm-item"><span class="tm-sw tm-gold">A</span> rima (misma letra = mismo sonido)</div>
+    <div class="tm-item"><span class="tm-sw tm-warn">△</span> no cuadra con el metro: posible licencia</div>
+  </div>
+</div>
+
+<style is:global>
+  .taller-metrico {
+    color: var(--text);
+    font-family: var(--font-prose);
+    margin-top: var(--space-xl);
+  }
+
+  /* ---------- resumen ---------- */
+  .taller-metrico .tm-summary {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+    margin-bottom: var(--space-lg);
+  }
+  .taller-metrico .tm-chip { background: var(--mat); padding: var(--space-md) var(--space-md); }
+  .taller-metrico .tm-label {
+    font-family: var(--font-display); font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider); text-transform: uppercase;
+    color: var(--oro); font-weight: var(--fw-semibold);
+  }
+  .taller-metrico .tm-value {
+    font-family: var(--font-body); font-size: var(--fs-lg); font-weight: 500;
+    margin-top: var(--space-2xs); line-height: 1.1; color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .taller-metrico .tm-value.tm-scheme { font-size: var(--fs-md); letter-spacing: .08em; word-break: break-all; }
+  .taller-metrico .tm-value.tm-form { font-size: var(--fs-md); }
+  .taller-metrico .tm-forma-link { color: var(--oro-texto); text-decoration: none; border-bottom: 1px solid transparent; }
+  .taller-metrico .tm-forma-link:hover,
+  .taller-metrico .tm-forma-link:focus-visible { color: var(--oro); border-bottom-color: currentColor; }
+  .taller-metrico .tm-sub {
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-2xs);
+    color: var(--text-muted); margin-top: 2px;
+  }
+
+  /* ---------- espacio de trabajo ---------- */
+  .taller-metrico .tm-work {
+    display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--space-lg); align-items: start;
+  }
+  .taller-metrico .tm-pane {
+    background: var(--mat); border: 1px solid var(--line); overflow: hidden;
+  }
+  .taller-metrico .tm-pane-head {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--line);
+    font-family: var(--font-display); font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider); text-transform: uppercase;
+    color: var(--oro); font-weight: var(--fw-semibold);
+  }
+  .taller-metrico .tm-mini-btn {
+    font-family: var(--font-display); font-size: var(--fs-3xs); letter-spacing: var(--ls-wide);
+    text-transform: uppercase; color: var(--text-soft); background: transparent;
+    border: var(--rule-hairline) solid var(--oro-suave); padding: var(--space-2xs) var(--space-sm);
+    cursor: pointer; transition: color var(--dur-fast), border-color var(--dur-fast);
+  }
+  .taller-metrico .tm-mini-btn:hover { color: var(--oro); border-color: var(--oro); }
+  .taller-metrico .tm-mini-btn.on { color: var(--btn-ink); background: var(--oro); border-color: var(--oro); }
+
+  .taller-metrico textarea#editor {
+    width: 100%; min-height: 460px; resize: vertical;
+    border: 0; background: var(--panel); color: var(--text);
+    font-family: var(--font-prose); font-size: var(--fs-md); line-height: 1.9;
+    padding: var(--space-lg); letter-spacing: .01em;
+  }
+  .taller-metrico textarea#editor:focus { outline: none; box-shadow: inset 0 0 0 2px var(--oro-suave); }
+  .taller-metrico textarea#editor::placeholder { color: var(--text-faint); }
+
+  /* ---------- manuscrito ---------- */
+  .taller-metrico .tm-manuscript { padding: var(--space-sm) var(--space-2xs) var(--space-md); }
+  .taller-metrico .verse-row {
+    display: grid; grid-template-columns: 3ch 1fr 2.5ch; gap: var(--space-sm);
+    align-items: baseline; padding: 4px var(--space-sm);
+    transition: background var(--dur-fast);
+  }
+  .taller-metrico .verse-row:hover { background: var(--hover-tint); }
+  .taller-metrico .verse-row.rhyme-hi { background: color-mix(in srgb, var(--accent) 15%, transparent); }
+  .taller-metrico .gutter {
+    font-family: var(--font-prose); font-size: var(--fs-sm); font-variant-numeric: tabular-nums;
+    text-align: right; color: var(--num); font-weight: 600; user-select: none;
+  }
+  .taller-metrico .verse-row.off .gutter { color: var(--granate); }
+  .taller-metrico .verse-row.fitted .gutter { color: var(--accent); }
+  .taller-metrico .verse-text { font-family: var(--font-prose); font-size: var(--fs-md); line-height: 1.75; color: var(--verse); }
+  .taller-metrico .rhyme-letter {
+    font-family: var(--font-prose); font-size: var(--fs-sm); text-align: center;
+    color: var(--text-faint); user-select: none;
+  }
+  .taller-metrico .rhyme-letter.set { color: var(--oro); }
+
+  .taller-metrico .tie {
+    color: var(--oro-texto); font-weight: 700; font-family: inherit; font-size: 1em;
+    line-height: 1; background: none; border: 0; padding: 0 .06em; margin: 0;
+    cursor: pointer; vertical-align: baseline; transition: background var(--dur-fast), color var(--dur-fast);
+  }
+  .taller-metrico .tie:hover { color: var(--oro); background: var(--hover-tint); }
+  .taller-metrico .tie.broken { color: var(--granate); opacity: .9; font-weight: 600; }
+
+  .taller-metrico .flag {
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-2xs);
+    color: var(--granate); display: block; margin-top: 2px;
+  }
+  .taller-metrico .flag.ok { color: var(--accent); font-style: normal; }
+  .taller-metrico .flag b { font-weight: 600; font-style: normal; }
+
+  .taller-metrico .syllas {
+    display: block; font-family: var(--font-prose); font-size: var(--fs-2xs);
+    color: var(--text-muted); letter-spacing: .02em; margin-top: 2px;
+  }
+  .taller-metrico .stanza-gap { height: var(--space-md); }
+  .taller-metrico .empty-note {
+    padding: var(--space-2xl) var(--space-lg); text-align: center; color: var(--text-faint);
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-sm);
+  }
+
+  /* ---------- leyenda ---------- */
+  .taller-metrico .tm-legend {
+    margin-top: var(--space-lg); border-top: 1px solid var(--line); padding-top: var(--space-md);
+    display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-xl);
+    font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-soft);
+  }
+  .taller-metrico .tm-item { display: flex; align-items: center; gap: var(--space-xs); }
+  .taller-metrico .tm-sw { width: 1.4rem; text-align: center; font-family: var(--font-prose); }
+  .taller-metrico .tm-sw.tm-gold { color: var(--oro); font-weight: 700; }
+  .taller-metrico .tm-sw.tm-tie { color: var(--oro-texto); font-weight: 700; }
+  .taller-metrico .tm-sw.tm-warn { color: var(--granate); font-weight: 700; }
+
+  @media (max-width: 720px) {
+    .taller-metrico .tm-work { grid-template-columns: 1fr; }
+    .taller-metrico .tm-summary { grid-template-columns: repeat(2, 1fr); }
+    .taller-metrico textarea#editor { min-height: 240px; }
+  }
+</style>
+
+<script>
+  import './tallerMetrico.client.js';
+</script>
