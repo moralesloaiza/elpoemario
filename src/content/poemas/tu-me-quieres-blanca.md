@@ -2,7 +2,7 @@
 titulo: Tú me quieres blanca
 fecha: 2026-07-20
 fecha_actualizada: 2026-07-20
-ilustracion: ../../assets/uploads/chatgpt-image-20-jul-2026-20_20_39.png
+ilustracion: ../../assets/uploads/poema-tu-me-quieres-blanca.png
 borrador: false
 tipo: verso-libre
 movimiento: posmodernismo
