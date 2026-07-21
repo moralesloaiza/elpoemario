@@ -1,0 +1,64 @@
+---
+/*
+ * Llamada contextual a El Taller. Nudge editorial para páginas afines a la
+ * métrica (índice de formas, fichas de forma). Copy por defecto, sobrescribible
+ * por props. Estilos con tokens globales (sigue día/noche).
+ */
+interface Props {
+  texto?: string;
+  cta?: string;
+}
+const {
+  texto = '¿Quieres medir tus propios versos? El Taller cuenta las sílabas, marca las sinalefas y descubre la rima en vivo.',
+  cta = 'Abrir el taller',
+} = Astro.props;
+---
+
+<aside class="llamada-taller">
+  <p class="llamada-texto">{texto}</p>
+  <a class="llamada-cta" href="/taller/">{cta} →</a>
+</aside>
+
+<style>
+  .llamada-taller {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    max-width: var(--measure-grid);
+    margin: var(--space-2xl) auto 0;
+    padding: var(--space-md) var(--space-lg);
+    border: var(--rule-hairline) solid var(--oro-suave);
+    background: var(--bg-soft);
+  }
+  .llamada-texto {
+    margin: 0;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+  }
+  .llamada-cta {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: none;
+  }
+  .llamada-cta:hover,
+  .llamada-cta:focus-visible {
+    color: var(--oro);
+    border-bottom: none;
+  }
+  @media (max-width: 560px) {
+    .llamada-taller {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -10,4 +10,7 @@ podcast_subtitulo: ""
 podcast_eyebrow: Pódcast · Spotify
 podcast_cta: Escuchar El Poemario
 podcast_glosa: ""
+taller_eyebrow: Novedad · Herramienta
+taller_titulo: "El Taller: escucha las sílabas, la rima y la medida de tus versos"
+taller_cta: Abrir el taller
 ---

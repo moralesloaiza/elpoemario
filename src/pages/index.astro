@@ -166,6 +166,18 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
     </section>
   )}
 
+  {home.data.taller_titulo && (
+    <section class="seccion-taller" aria-labelledby="taller-titulo">
+      <div class="taller-card">
+        <div class="taller-card-texto">
+          {home.data.taller_eyebrow && <span class="taller-eyebrow">{home.data.taller_eyebrow}</span>}
+          <h2 id="taller-titulo" class="taller-titulo">{home.data.taller_titulo}</h2>
+        </div>
+        <a class="taller-boton" href="/taller/">{home.data.taller_cta ?? 'Abrir el taller'}</a>
+      </div>
+    </section>
+  )}
+
   <nav class="descubrir-bar" aria-label="Descubrir por facetas">
     <a class="descubrir-celda" href="/tipos/">
       <span class="descubrir-eyebrow">Descubrir</span>
@@ -296,6 +308,72 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  /* ── Franja «Novedad»: El Taller. Tarjeta con borde oro + botón sólido,
+        para leerse como destacado (a diferencia de la fila mínima del pódcast). */
+  .seccion-taller {
+    margin: var(--space-2xl) 0;
+  }
+  .taller-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    background: var(--mat);
+    border: 1px solid var(--oro);
+    padding: var(--space-lg) var(--space-xl);
+  }
+  .taller-card-texto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+  .taller-eyebrow {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+  .taller-titulo {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .taller-boton {
+    flex: none;
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--btn-ink);
+    background: var(--btn-bg);
+    padding: 0.85em 1.75em;
+    border: 1px solid var(--btn-bg);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .taller-boton:hover,
+  .taller-boton:focus-visible {
+    background: transparent;
+    color: var(--oro);
+    border-color: var(--oro);
+  }
+  @media (max-width: 680px) {
+    .taller-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   /* ── Barra «Descubrir»: 4 celdas con borde (handoff) ───────────────── */
