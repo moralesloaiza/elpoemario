@@ -68,7 +68,7 @@ más brillante que el alba, más hermoso que Abril!
 
 ¡Calla, calla, princesa -dice el hada madrina-,
 en caballo con alas, hacia acá se encamina,
-en el cinto la espada y en la mano el azor,45
+en el cinto la espada y en la mano el azor,
 el feliz caballero que te adora sin verte,
 y que llega de lejos, vencedor de la Muerte,
 a encenderte los labios con su beso de amor!
