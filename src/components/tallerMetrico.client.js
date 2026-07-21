@@ -473,6 +473,25 @@
   function eqArr(a, b) { return a.length === b.length && a.every((x, i) => x === b[i]); }
   function schemeOf(lines, kind) { const o = {}; let n = 0, s = ""; for (const a of lines) { const k = a.keys[kind]; if (!(k in o)) o[k] = n++; s += String.fromCharCode(97 + (o[k] % 26)); } return s; }
   const asonLabel = a => a.keys.ason.split("").join("-");
+  // ¿las medidas siguen un patrón admitiendo ruido? `tol` = desvío máximo por
+  // posición, `maxOff` = cuántas posiciones pueden desviarse. Sirve para formas
+  // cuyo rasgo definitorio es el esquema de rima, no el conteo exacto.
+  function nearPattern(m, pat, tol, maxOff) {
+    if (m.length !== pat.length) return false;
+    let off = 0;
+    for (let i = 0; i < m.length; i++) {
+      const d = Math.abs(m[i] - pat[i]);
+      if (d > tol) return false;
+      if (d > 0) off++;
+    }
+    return off <= maxOff;
+  }
+  // proporción de versos cuya rima consonante se repite en el poema
+  function rhymeShare(L) {
+    const c = {};
+    L.forEach(a => { c[a.keys.cons] = (c[a.keys.cons] || 0) + 1; });
+    return L.filter(a => c[a.keys.cons] >= 2).length / L.length;
+  }
 
   // clasifica UNA estrofa por (nº de versos, medidas, esquema consonante)
   function classifyStanza(L) {
@@ -493,6 +512,11 @@
     if (n === 5) {
       if (eqArr(m, [7, 11, 7, 7, 11]) && cons === "ababb") return "Lira";
       if (eqArr(m, [5, 7, 5, 7, 7])) return "Tanka";
+      // Lira laxa: el rasgo definitorio es el esquema aBabB, no el conteo. Con
+      // el esquema exacto se admite ±1 en UNA medida (ruido de conteo o licencia
+      // del poeta). Sin esa tolerancia, una estrofa suelta tumbaba el poema
+      // entero: en las liras de Fray Luis solo 10 de 17 estrofas casaban.
+      if (cons === "ababb" && nearPattern(m, [7, 11, 7, 7, 11], 1, 1)) return "Lira";
       if (frac(11) >= 0.75) return "Quinteto";
       if (frac(8) >= 0.75) return "Quintilla";
     }
@@ -547,8 +571,23 @@
     const one = classifyStanza(active);
     if (one) return one;
 
-    const set = new Set(m);
-    if ([...set].every(x => x === 7 || x === 11) && set.size > 1) return n <= 12 ? "Madrigal / silva breve" : "Silva";
+    // SILVA / MADRIGAL: mezcla libre de endecasílabos y heptasílabos con rima
+    // consonante sin esquema fijo (y aun con versos sueltos). Se mide por
+    // proporción, no por pureza: exigir que TODOS los versos midieran 7 u 11
+    // hacía que un solo verso mal contado tumbara la forma (1 de 12 silvas del
+    // corpus se reconocía). Los umbrales separan sin solapamiento las silvas
+    // reales (≥83% en {7,11}, ≥10% de la medida minoritaria) del verso libre,
+    // que como mucho llega al 77% y siempre con minoritaria 0%.
+    // La silva NO es estrófica: fluye en tiradas desiguales. Un poema partido en
+    // estrofas pequeñas y todas del mismo tamaño es otra cosa (p. ej. la rima
+    // LIII de Bécquer son cuartetas 11-11-11-7, no una silva), así que se
+    // excluye antes de mirar las medidas: preferimos no dar forma a darla mal.
+    const uniforme = stanzas.length >= 3 &&
+      stanzas[0].length <= 8 && stanzas.every(s => s.length === stanzas[0].length);
+    const en711 = m.filter(x => x === 7 || x === 11).length;
+    const minoritaria = Math.min(m.filter(x => x === 7).length, m.filter(x => x === 11).length);
+    if (!uniforme && en711 / n >= 0.8 && minoritaria >= 2 && minoritaria / n >= 0.08 && rhymeShare(active) >= 0.3)
+      return n <= 12 ? "Madrigal / silva breve" : "Silva";
     if (new Set(m).size > n * 0.5) return "Verso libre";
     return n + " versos · forma libre";
   }
