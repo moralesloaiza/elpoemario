@@ -4,8 +4,10 @@ import Base from '../../layouts/Base.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import ListadoPoemasTaxonomia from '../../components/ListadoPoemasTaxonomia.astro';
 import BloqueDidacticoForma from '../../components/BloqueDidacticoForma.astro';
+import LlamadaTaller from '../../components/LlamadaTaller.astro';
 import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
 import { getForma } from '../../utils/formas';
+import { getPagina } from '../../utils/paginas';
 import { TIPOS_DISPLAY, type Tipo } from '../../utils/taxonomia';
 
 export async function getStaticPaths() {
@@ -43,6 +45,10 @@ const contadorTexto =
     ? `1 poema en ${displayLower}`
     : `${poemas.length} poemas en ${displayLower}`;
 
+// Copy de la llamada a El Taller: vive en tipos.md para que una sola edición
+// gobierne el índice de formas y todas las fichas.
+const pagina = await getPagina('tipos');
+
 const breadcrumbLd = buildBreadcrumbJsonLd(
   [
     { name: 'Inicio', path: '/' },
@@ -67,5 +73,10 @@ const breadcrumbLd = buildBreadcrumbJsonLd(
     vacioTexto={`Aún no hay poemas publicados en ${displayLower}.`}
   >
     {forma && <BloqueDidacticoForma slot="intro" forma={forma} />}
+    <LlamadaTaller
+      slot="pie"
+      texto={pagina.data.taller_texto}
+      cta={pagina.data.taller_cta}
+    />
   </ListadoPoemasTaxonomia>
 </Base>

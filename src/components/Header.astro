@@ -37,6 +37,7 @@ const { variante = 'solido' } = Astro.props;
       <HeaderLink href="/">Inicio</HeaderLink>
       <HeaderLink href="/poemas/">Poemas</HeaderLink>
       <HeaderLink href="/autores/">Autores</HeaderLink>
+      <HeaderLink href="/taller/">Taller</HeaderLink>
       <HeaderLink href="/entradas/">Bitácora</HeaderLink>
       <HeaderLink href="/correspondencia/">Contacto</HeaderLink>
       <HeaderLink href="/sobre/">Acerca de</HeaderLink>
@@ -169,7 +170,7 @@ const { variante = 'solido' } = Astro.props;
      toda la holgura en un solo hueco entre el wordmark y el primer enlace (199px
      a 1920), muy visible cuando la nav flota sobre la ilustración del hero.
      El mínimo es el valor de siempre, así que por debajo de ~1200px no cambia
-     nada y el punto de la hamburguesa (1040px) sigue siendo válido. */
+     nada y el punto de la hamburguesa (1160px) sigue siendo válido. */
   .internal-links {
     display: flex;
     gap: clamp(var(--space-lg), 2vw, 3rem);
@@ -254,10 +255,11 @@ const { variante = 'solido' } = Astro.props;
   }
 
   /* ---------- Móvil/tablet: nav tras la hamburguesa ----------
-     Breakpoint a 1040px: la fila completa (wordmark + 6 enlaces + lupa +
-     conmutador) necesita ~1014px para caber; por debajo desbordaba (franja
-     muerta 861–1040px). A partir de aquí colapsa a hamburguesa. */
-  @media (max-width: 1040px) {
+     Breakpoint a 1160px: la fila completa (wordmark + 7 enlaces + lupa +
+     conmutador) necesita ~1127px para caber; por debajo, «Acerca de» parte en
+     dos líneas. Recalibrado desde 1040px (6 enlaces, ~1014px) al añadir
+     «Taller». A partir de aquí colapsa a hamburguesa. */
+  @media (max-width: 1160px) {
     .nav-toggle {
       display: flex;
     }
@@ -368,7 +370,7 @@ const { variante = 'solido' } = Astro.props;
      puede ser transparente sobre la imagen). Fondo oscuro fijo + regla oro;
      los enlaces ya van en tinta clara. Mayor especificidad que la regla del
      media query base, así que basta con redefinir fondo y borde. */
-  @media (max-width: 1040px) {
+  @media (max-width: 1160px) {
     header.overlay .internal-links {
       background: var(--hero-surface);
       border-bottom-color: var(--hero-rule);
