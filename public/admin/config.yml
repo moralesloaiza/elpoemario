@@ -575,7 +575,7 @@ collections:
           - { name: "titulo", label: "Título (encabezado visible)", widget: "string", required: false }
           - { name: "subtitulo", label: "Subtítulo", widget: "string", required: false }
           - { name: "descripcion", label: "Meta descripción (SEO)", widget: "text", required: false }
-          - { name: "body", label: "Descripción e instrucciones", widget: "markdown", required: false, hint: "Texto sobre la herramienta: qué es y cómo usarla. La herramienta interactiva (con su leyenda) está fijada en la plantilla; aquí solo editas el texto de arriba." }
+          - { name: "body", label: "Descripción e instrucciones", widget: "markdown", required: false, hint: "Texto sobre la herramienta: qué es y cómo usarla. La herramienta interactiva —con su leyenda y el bloque de guardar/enviar por correo— está fijada en la plantilla; aquí solo editas el texto de arriba." }
       - name: "buscar"
         label: "Buscar"
         file: "src/content/paginas/buscar.md"

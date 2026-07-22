@@ -283,6 +283,33 @@
 
   function esc(s) { return s.replace(/[&<>]/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;" }[m])); }
 
+  // Las notas de verso se escriben con *énfasis* y se convierten a <b> solo en
+  // pantalla; el informe exportado conserva el texto pelado.
+  const destacar = s => s.replace(/\*([^*]+)\*/g, "<b>$1</b>");
+
+  // Nota de licencia de un verso que no cuadra con el metro dominante.
+  // `ui` es lo que se pinta; `txt` es la variante para el informe en texto, que
+  // evita hablar de clics porque en un archivo no significan nada.
+  function notaVerso(a, dispM, domMeter, broken) {
+    if (domMeter == null) return null;
+    if (dispM === domMeter) {
+      if (!broken) return null;
+      const t = "✓ " + domMeter + " aplicando dialefa";
+      return { ok: true, ui: t, txt: t };
+    }
+    const diff = dispM - domMeter;
+    let ui, txt;
+    if (diff === 1 && a.hasHiato) ui = txt = "funde un hiato (*sinéresis*) para " + domMeter;
+    else if (diff === -1 && a.sinCount > broken) {
+      ui = "corta una sinalefa (clic en *‿*) para " + domMeter;
+      txt = "corta una sinalefa (*dialefa*) para " + domMeter;
+    }
+    else if (diff === -1 && a.hasDiphthong) ui = txt = "abre un diptongo (*diéresis*) para " + domMeter;
+    else ui = txt = "se aparta del metro (" + domMeter + ")";
+    const cab = "△ mide *" + dispM + "* — ";
+    return { ok: false, ui: cab + ui, txt: cab + txt };
+  }
+
   // ---- estado de licencias manuales (dialefa: sinalefas que el usuario corta) ----
   const manualBreaks = new Set();
   let lastAnalyzed = [];
@@ -393,34 +420,35 @@
     // ---- manuscript ----
     if (!active.length) {
       output.innerHTML = '<div class="empty-note">Escribe algo a la izquierda y el análisis aparecerá aquí, verso a verso.</div>';
+      informe = null;
+      sincronizarCompartir();
       return;
     }
+
+    // Se acumula en paralelo al HTML para que «descargar» y «enviar» exporten
+    // exactamente lo que el lector tiene delante, dialefas incluidas.
+    const filas = [];
 
     let html = "";
     analyzed.forEach((a, idx) => {
       if (!a) {
-        if (idx > 0 && analyzed[idx - 1]) html += '<div class="stanza-gap"></div>';
+        if (idx > 0 && analyzed[idx - 1]) { html += '<div class="stanza-gap"></div>'; filas.push(null); }
         return;
       }
       const broken = brokenCount(a);
       const dispM = a.metric + broken;                     // dialefas del usuario suman +1 cada una
       const off = domMeter != null && dispM !== domMeter;
       const ll = lineLetters[idx];
+      const letra = ll && ll.letter !== "–" ? (ll.mayor ? ll.letter : ll.letter.toLowerCase()) : "·";
       const letterHTML = ll && ll.letter !== "–"
-        ? '<div class="rhyme-letter set" data-key="' + ll.key + '">' + (ll.mayor ? ll.letter : ll.letter.toLowerCase()) + '</div>'
+        ? '<div class="rhyme-letter set" data-key="' + ll.key + '">' + letra + '</div>'
         : '<div class="rhyme-letter">·</div>';
 
-      let flag = "";
-      if (off) {
-        const diff = dispM - domMeter;
-        if (diff === 1 && a.hasHiato) flag = 'funde un hiato (<b>sinéresis</b>) para ' + domMeter;
-        else if (diff === -1 && a.sinCount > broken) flag = 'corta una sinalefa (clic en <b>‿</b>) para ' + domMeter;
-        else if (diff === -1 && a.hasDiphthong) flag = 'abre un diptongo (<b>diéresis</b>) para ' + domMeter;
-        else flag = 'se aparta del metro (' + domMeter + ')';
-        flag = '<span class="flag">△ mide <b>' + dispM + '</b> — ' + flag + '</span>';
-      } else if (broken > 0) {
-        flag = '<span class="flag ok">✓ ' + domMeter + ' aplicando dialefa</span>';
-      }
+      const nota = notaVerso(a, dispM, domMeter, broken);
+      const flag = nota
+        ? '<span class="flag' + (nota.ok ? " ok" : "") + '">' + destacar(esc(nota.ui)) + '</span>'
+        : "";
+      filas.push({ texto: a.raw.trim(), medida: dispM, letra, nota: nota ? nota.txt.replace(/\*/g, "") : "" });
 
       let syllLine = "";
       if (showSyll) {
@@ -440,6 +468,16 @@
               '</div>';
     });
     output.innerHTML = html;
+
+    // El resumen ya está escrito en el DOM: se relee de ahí en vez de rehacerlo.
+    const sub = id => document.getElementById(id).textContent.trim();
+    informe = {
+      metro: sub("s-meter"), metroSub: sub("s-meter-sub"),
+      esquema: sub("s-scheme"), esquemaSub: sub("s-scheme-sub"),
+      versos: active.length, forma: sub("s-form"),
+      filas,
+    };
+    sincronizarCompartir();
 
     // clic en una ligadura ‿ → cortar/unir esa sinalefa (dialefa)
     output.querySelectorAll(".tie").forEach(btn => {
@@ -605,6 +643,148 @@
   const setText = (id, t) => { document.getElementById(id).textContent = t; };
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
   const cssEsc = s => (window.CSS && CSS.escape) ? CSS.escape(s) : s.replace(/["\\]/g, "\\$&");
+
+  /* ============================================================
+     GUARDAR Y ENVIAR — el sitio es estático, así que el informe se arma en el
+     navegador: descarga como .txt o se abre en el cliente de correo del
+     lector (mailto), igual que el formulario de correspondencia.
+     ============================================================ */
+
+  const CC = "contacto@elpoemario.com";
+  const BOM = String.fromCharCode(0xFEFF);  // el Bloc de notas de Windows lo necesita
+  const REGLA = "─".repeat(58);
+
+  // Instantánea del último render; null mientras el editor esté vacío.
+  let informe = null;
+
+  const elDescargar = document.getElementById("tm-descargar");
+  const elCorreoAbrir = document.getElementById("tm-correo-abrir");
+  const elCorreo = document.getElementById("tm-correo");
+  const elPara = document.getElementById("tm-para");
+  const elNota = document.getElementById("tm-nota");
+  const elCopiar = document.getElementById("tm-copiar");
+  const elAviso = document.getElementById("tm-feedback");
+
+  function sincronizarCompartir() {
+    if (!elDescargar) return;
+    const hay = !!informe;
+    elDescargar.disabled = !hay;
+    elCorreoAbrir.disabled = !hay;
+    if (!hay) {
+      elCorreo.hidden = true;
+      elCorreoAbrir.setAttribute("aria-expanded", "false");
+      elAviso.textContent = "";
+    }
+  }
+
+  function primerVerso() {
+    const f = informe && informe.filas.find(Boolean);
+    return f ? f.texto : "";
+  }
+
+  function construirInforme() {
+    if (!informe) return "";
+    const fecha = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+    const L = [
+      "EL TALLER · EL POEMARIO",
+      "Escansión de un poema · " + fecha,
+      "",
+      "Metro dominante: " + informe.metro + (informe.metroSub ? " (" + informe.metroSub + ")" : ""),
+      "Esquema de rima: " + informe.esquema + (informe.esquemaSub ? " (" + informe.esquemaSub + ")" : ""),
+      "Versos: " + informe.versos,
+      "Forma (aprox.): " + informe.forma,
+      "",
+      REGLA,
+    ];
+    informe.filas.forEach(f => {
+      if (!f) { L.push(""); return; }
+      L.push(String(f.medida).padStart(2, " ") + "  " + f.letra + "  " + f.texto);
+      if (f.nota) L.push("       " + f.nota);
+    });
+    L.push(REGLA, "",
+      "Medido en El Taller de El Poemario · https://elpoemario.com/taller/",
+      "La escansión es orientativa: la sinéresis, la diéresis y la dialefa",
+      "son licencias del oído del poeta.");
+    return L.join("\n");
+  }
+
+  function nombreArchivo() {
+    const slug = primerVerso().toLowerCase()
+      .normalize("NFD").replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").slice(0, 40).replace(/^-+|-+$/g, "");
+    return "escansion" + (slug ? "-" + slug : "") + ".txt";
+  }
+
+  function avisar(msg) { if (elAviso) elAviso.textContent = msg || ""; }
+
+  async function copiarTexto(texto) {
+    try {
+      await navigator.clipboard.writeText(texto);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  if (elDescargar) {
+    elDescargar.addEventListener("click", () => {
+      if (!informe) return;
+      const blob = new Blob([BOM + construirInforme()], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = nombreArchivo();
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      avisar("Descargado como «" + a.download + "».");
+    });
+
+    elCorreoAbrir.addEventListener("click", () => {
+      const abierto = !elCorreo.hidden;
+      elCorreo.hidden = abierto;
+      elCorreoAbrir.setAttribute("aria-expanded", String(!abierto));
+      avisar("");
+      if (!abierto) elPara.focus();
+    });
+
+    elCorreo.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!informe) return;
+      if (!elCorreo.checkValidity()) { elCorreo.reportValidity(); return; }
+
+      const nota = elNota.value.trim();
+      const analisis = construirInforme();
+      const verso = primerVerso();
+      const asunto = "[El Poemario · El Taller] " +
+        (verso ? "«" + (verso.length > 60 ? verso.slice(0, 57) + "…" : verso) + "»" : "Escansión de un poema");
+
+      const enlace = "mailto:" + encodeURIComponent(elPara.value.trim()) +
+        "?cc=" + encodeURIComponent(CC) +
+        "&subject=" + encodeURIComponent(asunto) +
+        "&body=" + encodeURIComponent((nota ? nota + "\n\n" : "") + analisis);
+
+      // Cada cliente de correo recorta los mailto largos por su cuenta y sin
+      // avisar, así que en vez de adivinar el límite se deja siempre una copia
+      // del análisis en el portapapeles: si el correo se abre a medias, basta
+      // con pegarlo. Si el portapapeles falla, el correo sale igual.
+      const copiado = await copiarTexto(analisis);
+      avisar(copiado
+        ? "Abriendo tu cliente de correo. Por si acaso llegara recortado, el análisis quedó copiado en el portapapeles."
+        : "Abriendo tu cliente de correo…");
+      window.location.href = enlace;
+    });
+
+    elCopiar.addEventListener("click", async () => {
+      if (!informe) return;
+      const nota = elNota.value.trim();
+      const ok = await copiarTexto((nota ? nota + "\n\n" : "") + construirInforme());
+      avisar(ok
+        ? "Análisis copiado. Pégalo donde quieras guardarlo."
+        : "No pude copiar automáticamente. Usa «Descargar el análisis».");
+    });
+  }
 
   /* ---- eventos ---- */
   editor.addEventListener("input", render);

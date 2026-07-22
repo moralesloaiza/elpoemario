@@ -52,6 +52,40 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     <div class="tm-item"><span class="tm-sw tm-gold">A</span> rima (misma letra = mismo sonido)</div>
     <div class="tm-item"><span class="tm-sw tm-warn">△</span> no cuadra con el metro: posible licencia</div>
   </div>
+
+  <section class="tm-share">
+    <h2 class="tm-share-head">Guarda tu escansión o compártela</h2>
+    <div class="tm-share-actions">
+      <button class="tm-btn" id="tm-descargar" type="button" disabled>Descargar el análisis</button>
+      <button class="tm-btn" id="tm-correo-abrir" type="button" aria-expanded="false" aria-controls="tm-correo" disabled>
+        Enviar por correo
+      </button>
+    </div>
+
+    <form class="tm-correo" id="tm-correo" hidden>
+      <div class="tm-campo">
+        <label for="tm-para">Destinatario</label>
+        <input type="email" id="tm-para" required maxlength="160" autocomplete="email" placeholder="nombre@ejemplo.com" />
+      </div>
+
+      <div class="tm-campo">
+        <label for="tm-nota">Unas líneas de tu parte <span class="tm-opcional">(opcional)</span></label>
+        <textarea id="tm-nota" rows="3" maxlength="600" placeholder="Para quien lo recibe."></textarea>
+      </div>
+
+      <p class="tm-cc">
+        El correo se abrirá en tu aplicación de siempre, con el poema y su
+        análisis ya escritos y con copia a <b>contacto@elpoemario.com</b>.
+      </p>
+
+      <div class="tm-share-actions">
+        <button type="submit" class="tm-btn tm-btn-fuerte">Abrir cliente de correo</button>
+        <button type="button" class="tm-btn" id="tm-copiar">Copiar el análisis</button>
+      </div>
+    </form>
+
+    <p class="tm-feedback" id="tm-feedback" role="status" aria-live="polite"></p>
+  </section>
 </div>
 
 <style is:global>
@@ -179,6 +213,64 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   .taller-metrico .tm-sw.tm-gold { color: var(--oro); font-weight: 700; }
   .taller-metrico .tm-sw.tm-tie { color: var(--oro-texto); font-weight: 700; }
   .taller-metrico .tm-sw.tm-warn { color: var(--granate); font-weight: 700; }
+
+  /* ---------- guardar y compartir ---------- */
+  .taller-metrico .tm-share {
+    margin-top: var(--space-xl); border-top: 1px solid var(--line);
+    padding-top: var(--space-lg);
+  }
+  .taller-metrico .tm-share-head {
+    margin: 0 0 var(--space-md); font-family: var(--font-display);
+    font-size: var(--fs-3xs); letter-spacing: var(--ls-wider); text-transform: uppercase;
+    color: var(--oro); font-weight: var(--fw-semibold);
+  }
+  .taller-metrico .tm-share-actions {
+    display: flex; flex-wrap: wrap; gap: var(--space-sm);
+  }
+  .taller-metrico .tm-btn {
+    font-family: var(--font-display); font-size: var(--fs-2xs); letter-spacing: var(--ls-wide);
+    text-transform: uppercase; color: var(--text-soft); background: transparent;
+    border: var(--rule-hairline) solid var(--oro-suave);
+    padding: var(--space-xs) var(--space-md); cursor: pointer; min-height: 44px;
+    transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+  }
+  .taller-metrico .tm-btn:hover:not(:disabled),
+  .taller-metrico .tm-btn:focus-visible:not(:disabled) { color: var(--oro); border-color: var(--oro); }
+  .taller-metrico .tm-btn:disabled { opacity: .45; cursor: not-allowed; }
+  .taller-metrico .tm-btn-fuerte { color: var(--btn-ink); background: var(--oro); border-color: var(--oro); }
+  .taller-metrico .tm-btn-fuerte:hover, .taller-metrico .tm-btn-fuerte:focus-visible { color: var(--btn-ink); opacity: .88; }
+
+  .taller-metrico .tm-correo {
+    margin-top: var(--space-lg); max-width: var(--measure);
+    display: flex; flex-direction: column; gap: var(--space-md);
+  }
+  .taller-metrico .tm-campo { display: flex; flex-direction: column; gap: var(--space-2xs); }
+  .taller-metrico .tm-campo label {
+    font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-soft);
+  }
+  .taller-metrico .tm-opcional { font-style: italic; color: var(--text-faint); }
+  /* 1.05rem, como el formulario de correspondencia: por debajo de 16px iOS
+     hace zoom al enfocar el campo. */
+  .taller-metrico .tm-campo input,
+  .taller-metrico .tm-campo textarea {
+    font-family: var(--font-prose); font-size: 1.05rem; color: var(--text);
+    background: var(--panel); border: 1px solid var(--line);
+    padding: .6em .8em; width: 100%; min-height: 48px; resize: vertical;
+    line-height: 1.5; box-sizing: border-box;
+  }
+  .taller-metrico .tm-campo input:focus,
+  .taller-metrico .tm-campo textarea:focus { outline: none; box-shadow: inset 0 0 0 2px var(--oro-suave); }
+  .taller-metrico .tm-campo ::placeholder { color: var(--text-faint); }
+  .taller-metrico .tm-cc {
+    margin: 0; font-family: var(--font-body); font-style: italic;
+    font-size: var(--fs-xs); color: var(--text-muted);
+  }
+  .taller-metrico .tm-cc b { font-style: normal; font-weight: 600; color: var(--text-soft); }
+  .taller-metrico .tm-feedback {
+    margin: var(--space-sm) 0 0; min-height: 1.4em;
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-xs);
+    color: var(--accent);
+  }
 
   @media (max-width: 720px) {
     .taller-metrico .tm-work { grid-template-columns: 1fr; }
