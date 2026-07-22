@@ -24,7 +24,7 @@ nota_curador: >-
   10 de enero de 1936.
 
 
-  ![Miguel Hernández, declamando su elegía a Ramón Sijé frente a una multitud, en Orihuela, Alicante, España.](../../assets/uploads/chatgpt-image-21-jul-2026-21_57_39.png "Miguel Hernández, declamando su elegía a Ramón Sijé")
+  ![Miguel Hernández, declamando su elegía a Ramón Sijé frente a una multitud, en Orihuela, Alicante, España.](../../assets/uploads/poema-elegia-a-ramon-sije-1.png "Miguel Hernández, declamando su elegía a Ramón Sijé")
 ---
 (En Orihuela, su pueblo y el mío,\
 se me ha muerto como del rayo\

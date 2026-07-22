@@ -1,5 +1,10 @@
 // Valida que toda referencia de imagen en el contenido apunte a un archivo existente.
-// Cubre: poemas (campo 'ilustracion'), autores (campo 'imagen') y entradas (campo 'ilustracion').
+// Cubre dos frentes:
+//   1. El campo de imagen del frontmatter: poemas y entradas ('ilustracion'),
+//      autores ('imagen').
+//   2. Las imagenes embebidas en Markdown '![alt](ruta)', vengan del cuerpo o de
+//      un campo de texto como 'nota_curador'. Estas ultimas no las resuelve
+//      Astro por su cuenta (ver src/utils/markdown.ts).
 // Falla (exit 1) listando cada archivo con imagen faltante.
 // Convierte el criptico [ImageNotFound] de Astro/Vite en un mensaje claro
 // antes del build, y evita que una referencia huerfana llegue a main.
@@ -14,8 +19,20 @@ const TARGETS = [
   { glob: 'src/content/entradas/*.md', field: 'ilustracion' },
 ];
 
+// Imagen Markdown: '![alt](ruta)', con titulo opcional y ruta entre <> opcional.
+const RE_IMG_MD = /!\[[^\]]*\]\(\s*<?([^)"'\s>]+)>?(?:\s+["'][^)]*["'])?\s*\)/g;
+
 let hasError = false;
 let checked = 0;
+
+// Resolucion de ruta:
+//  - '/algo'  -> relativo a la raiz del repo
+//  - 'algo'   -> relativo a la carpeta del .md (convencion image() de Poemario)
+function resolverRuta(file, raw) {
+  return raw.startsWith('/')
+    ? join(process.cwd(), raw.replace(/^\//, ''))
+    : resolve(dirname(file), raw);
+}
 
 for (const { glob, field } of TARGETS) {
   // core.quotePath=false evita que git escape nombres con tildes/ñ como
@@ -32,6 +49,19 @@ for (const { glob, field } of TARGETS) {
     if (!match) continue;
     const frontmatter = match[1];
 
+    // 2. Imagenes embebidas en Markdown, en cualquier punto del archivo.
+    //    Se ignoran las remotas (http/data), que no salen de src/assets.
+    for (const [, raw] of text.matchAll(RE_IMG_MD)) {
+      if (/^(https?:)?\/\/|^data:/.test(raw)) continue;
+      checked++;
+      if (!existsSync(resolverRuta(file, raw))) {
+        hasError = true;
+        console.error(`FAIL ${file}`);
+        console.error(`     imagen embebida no encontrada: ${raw}`);
+      }
+    }
+
+    // 1. Campo de imagen del frontmatter.
     const line = frontmatter.match(new RegExp(`^${field}:\\s*(.+)$`, 'm'));
     if (!line) continue;
 
@@ -39,14 +69,7 @@ for (const { glob, field } of TARGETS) {
     if (!raw) continue;
     checked++;
 
-    // Resolucion de ruta:
-    //  - '/algo'  -> relativo a la raiz del repo
-    //  - 'algo'   -> relativo a la carpeta del .md (convencion image() de Poemario)
-    const target = raw.startsWith('/')
-      ? join(process.cwd(), raw.replace(/^\//, ''))
-      : resolve(dirname(file), raw);
-
-    if (!existsSync(target)) {
+    if (!existsSync(resolverRuta(file, raw))) {
       hasError = true;
       console.error(`FAIL ${file}`);
       console.error(`     ${field} no encontrada: ${raw}`);
