@@ -6,6 +6,11 @@
 //   autores  (campo 'imagen')      -> autor-<slug>.png
 //   entradas (campo 'ilustracion') -> entrada-<slug>.png
 //
+// Las imagenes embebidas en Markdown ('![alt](ruta)', p.ej. dentro de
+// 'nota_curador') llevan ademas un ordinal por orden de aparicion, porque una
+// entrada puede tener varias: <prefijo>-<slug>-<n>.<ext>. Reordenarlas a mano
+// puede provocar una colision, que las guardas de abajo detectan y omiten.
+//
 // Es idempotente: si el nombre ya cumple la regla, no toca nada. Pensado para
 // correr en CI tras un merge a main (una imagen recien subida por Decap llega
 // con nombre 'chatgpt-...' y aqui queda rebautizada), pero tambien sirve en local
@@ -59,35 +64,51 @@ const plan = []; // { md, field, raw, oldPath, newName, newRaw, newPath, huerfan
 const refCount = new Map(); // oldPath absoluto -> nº de entradas que lo referencian
 const warnings = [];
 
+// Imagen Markdown: '![alt](ruta)', con titulo opcional y ruta entre <> opcional.
+const RE_IMG_MD = /!\[[^\]]*\]\(\s*<?([^)"'\s>]+)>?(?:\s+["'][^)]*["'])?\s*\)/g;
+
+// Registra una referencia y, si su nombre no cumple la regla, encola el renombrado.
+function considerar({ md, campo, raw, newName }) {
+  // Resolucion de ruta identica a validate-images.mjs:
+  //  '/algo' -> relativo a la raiz; 'algo' -> relativo a la carpeta del .md.
+  const oldPath = raw.startsWith('/')
+    ? join(process.cwd(), raw.replace(/^\//, ''))
+    : resolve(dirname(md), raw);
+
+  refCount.set(oldPath, (refCount.get(oldPath) || 0) + 1);
+
+  if (basename(raw) === newName) return; // ya cumple la regla
+
+  // Reemplaza solo el nombre de fichero dentro de la ruta, preservando el prefijo relativo.
+  const newRaw = raw.replace(/[^/]+$/, newName);
+  plan.push({ md, field: campo, raw, oldPath, newName, newRaw, newPath: resolve(dirname(oldPath), newName) });
+}
+
 for (const { glob, field, prefix } of TARGETS) {
   for (const md of gitFiles(glob)) {
     const text = readFileSync(md, 'utf8');
     const fm = text.match(/^﻿?---\r?\n([\s\S]*?)\r?\n---/);
     if (!fm) continue;
 
-    const line = fm[1].match(new RegExp(`^${field}:\\s*(.+)$`, 'm'));
-    if (!line) continue;
-
-    const raw = line[1].trim().replace(/^["']|["']$/g, '');
-    if (!raw) continue;
-
-    // Resolucion de ruta identica a validate-images.mjs:
-    //  '/algo' -> relativo a la raiz; 'algo' -> relativo a la carpeta del .md.
-    const oldPath = raw.startsWith('/')
-      ? join(process.cwd(), raw.replace(/^\//, ''))
-      : resolve(dirname(md), raw);
-
-    refCount.set(oldPath, (refCount.get(oldPath) || 0) + 1);
-
-    const ext = extname(raw).toLowerCase() || '.png';
     const slug = normalizeSlug(basename(md, extname(md)));
-    const newName = `${prefix}-${slug}${ext}`;
 
-    if (basename(raw) === newName) continue; // ya cumple la regla
+    // Campo de imagen del frontmatter.
+    const line = fm[1].match(new RegExp(`^${field}:\\s*(.+)$`, 'm'));
+    const raw = line ? line[1].trim().replace(/^["']|["']$/g, '') : '';
+    if (raw) {
+      const ext = extname(raw).toLowerCase() || '.png';
+      considerar({ md, campo: field, raw, newName: `${prefix}-${slug}${ext}` });
+    }
 
-    // Reemplaza solo el nombre de fichero dentro de la ruta, preservando el prefijo relativo.
-    const newRaw = raw.replace(/[^/]+$/, newName);
-    plan.push({ md, field, raw, oldPath, newName, newRaw, newPath: resolve(dirname(oldPath), newName) });
+    // Imagenes embebidas en Markdown, numeradas por orden de aparicion.
+    // Las remotas (http/data) no viven en el repo: no se tocan.
+    let n = 0;
+    for (const [, rawMd] of text.matchAll(RE_IMG_MD)) {
+      if (/^(https?:)?\/\/|^data:/.test(rawMd)) continue;
+      n++;
+      const ext = extname(rawMd).toLowerCase() || '.png';
+      considerar({ md, campo: 'imagen embebida', raw: rawMd, newName: `${prefix}-${slug}-${n}${ext}` });
+    }
   }
 }
 

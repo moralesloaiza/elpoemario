@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
-import { marked } from 'marked';
 
 import Base from './Base.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -12,6 +11,7 @@ import NavegacionPoemas from '../components/NavegacionPoemas.astro';
 import IconoEditar from '../components/IconoEditar.astro';
 
 import { buildPoemaJsonLd } from '../utils/jsonld';
+import { parseMarkdownField } from '../utils/markdown';
 import {
   TIPOS_DISPLAY,
   MOVIMIENTOS_DISPLAY,
@@ -109,8 +109,9 @@ const chips = [
 
 // Curator note: block-level Markdown (paragraphs, lists, blockquotes).
 // `breaks: true` honours single newlines as <br>, matching El Fabulario.
+// Embedded images are routed through Astro's image pipeline — see utils/markdown.
 const notaCuradorHtml = nota_curador
-  ? (marked.parse(nota_curador, { async: false, breaks: true }) as string)
+  ? await parseMarkdownField(nota_curador)
   : null;
 
 // Curator credit (decision 11).
@@ -583,6 +584,16 @@ const siguiente = siguienteEntry
   .nota-curador-texto :global(li) {
     font-style: italic;
     line-height: var(--line-height-body);
+  }
+  /* Imagen embebida en la nota. Lleva width/height propios (ver
+     utils/markdown), asi que necesita max-width para no desbordar la columna;
+     height:auto conserva la proporcion al reducirse. */
+  .nota-curador-texto :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--space-md) auto;
+    border-radius: 2px;
   }
 
   /* ── Chips de tema/motivo (handoff) ──────────────────────────────── */
