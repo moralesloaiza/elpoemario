@@ -6,7 +6,7 @@ resumen: Elegía escrita por Miguel Hernández en 1935 a la muerte de su amigo
 fecha: 2026-07-21
 fecha_actualizada: 2026-07-21
 ilustracion: ../../assets/uploads/chatgpt-image-21-jul-2026-21_37_18.png
-borrador: true
+borrador: false
 tipo: elegia
 movimiento: generacion-27
 temas:
