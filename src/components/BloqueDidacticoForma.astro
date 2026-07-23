@@ -50,12 +50,10 @@ const metricaTexto = [metrica?.medida, metrica?.rima].filter(Boolean).join(' · 
     font-family: var(--font-body);
     font-weight: 500;
     font-size: var(--fs-lg);
-    line-height: var(--lh-relaxed);
+    line-height: var(--lh-prosa);
     color: var(--text-soft);
   }
-  .descripcion :global(em) {
-    font-style: italic;
-  }
+  /* <em> lo resuelve la regla global de énfasis (tokens.css). */
 
   /* Specimen: accent hairline rule (no full box → honours "cero marcos"),
      reusing the site's accent-quote pattern from Poema.astro. */
