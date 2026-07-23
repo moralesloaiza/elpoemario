@@ -473,12 +473,7 @@ const siguiente = siguienteEntry
   .prose :global(p) {
     margin: 0 0 var(--space-lg);
   }
-  .prose :global(em) {
-    font-style: italic;
-  }
-  .prose :global(strong) {
-    font-weight: var(--fw-bold);
-  }
+  /* <strong>/<em> los resuelve la regla global de énfasis (tokens.css). */
   .prose :global(a) {
     color: var(--link);
     font-style: italic;
@@ -555,18 +550,11 @@ const siguiente = siguienteEntry
   }
   .nota-curador-texto :global(p) {
     font-style: italic;
-    line-height: var(--line-height-body);
+    line-height: var(--lh-prosa);
     margin: 0 0 var(--space-sm);
   }
   .nota-curador-texto :global(p:last-child) {
     margin-bottom: 0;
-  }
-  /* Inside an italic note, <em> flips to roman so emphasis stays visible. */
-  .nota-curador-texto :global(em) {
-    font-style: normal;
-  }
-  .nota-curador-texto :global(strong) {
-    font-weight: var(--fw-bold);
   }
   .nota-curador-texto :global(a) {
     color: var(--link);
@@ -583,7 +571,7 @@ const siguiente = siguienteEntry
   }
   .nota-curador-texto :global(li) {
     font-style: italic;
-    line-height: var(--line-height-body);
+    line-height: var(--lh-prosa);
   }
   /* Imagen embebida en la nota. Lleva width/height propios (ver
      utils/markdown), asi que necesita max-width para no desbordar la columna;
