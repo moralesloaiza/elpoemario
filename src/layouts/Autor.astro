@@ -332,12 +332,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   .autor-bio :global(p:last-child) {
     margin-bottom: 0;
   }
-  .autor-bio :global(em) {
-    font-style: italic;
-  }
-  .autor-bio :global(strong) {
-    font-weight: var(--fw-bold);
-  }
+  /* <strong>/<em> los resuelve la regla global de énfasis (tokens.css). */
   .autor-bio :global(a) {
     color: var(--link);
   }

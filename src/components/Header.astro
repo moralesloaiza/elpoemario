@@ -37,7 +37,6 @@ const { variante = 'solido' } = Astro.props;
       <HeaderLink href="/">Inicio</HeaderLink>
       <HeaderLink href="/poemas/">Poemas</HeaderLink>
       <HeaderLink href="/autores/">Autores</HeaderLink>
-      <HeaderLink href="/taller/">Taller</HeaderLink>
       <HeaderLink href="/entradas/">Bitácora</HeaderLink>
       <HeaderLink href="/correspondencia/">Contacto</HeaderLink>
       <HeaderLink href="/sobre/">Acerca de</HeaderLink>
@@ -255,11 +254,12 @@ const { variante = 'solido' } = Astro.props;
   }
 
   /* ---------- Móvil/tablet: nav tras la hamburguesa ----------
-     Breakpoint a 1160px: la fila completa (wordmark + 7 enlaces + lupa +
-     conmutador) necesita ~1127px para caber; por debajo, «Acerca de» parte en
-     dos líneas. Recalibrado desde 1040px (6 enlaces, ~1014px) al añadir
-     «Taller». A partir de aquí colapsa a hamburguesa. */
-  @media (max-width: 1160px) {
+     Breakpoint a 1040px: la fila completa (wordmark + 6 enlaces + lupa +
+     conmutador) necesita ~1014px para caber; por debajo, «Acerca de» parte en
+     dos líneas. Recalibrado desde 1160px al retirar «Taller» de la nav (el
+     enlace vive ahora en la home y en la llamada del pie de poema). A partir de
+     aquí colapsa a hamburguesa. */
+  @media (max-width: 1040px) {
     .nav-toggle {
       display: flex;
     }
@@ -370,7 +370,7 @@ const { variante = 'solido' } = Astro.props;
      puede ser transparente sobre la imagen). Fondo oscuro fijo + regla oro;
      los enlaces ya van en tinta clara. Mayor especificidad que la regla del
      media query base, así que basta con redefinir fondo y borde. */
-  @media (max-width: 1160px) {
+  @media (max-width: 1040px) {
     header.overlay .internal-links {
       background: var(--hero-surface);
       border-bottom-color: var(--hero-rule);

@@ -135,7 +135,9 @@
 
   --lh-tight:   1.15;
   --lh-snug:    1.3;
-  --lh-relaxed: 1.75;
+  /* Tres interlineados relajados, bien diferenciados: cuerpo/UI 1.7, prosa larga
+     1.8, verso 1.85. (Se retiró --lh-relaxed 1.75, que se solapaba con estos y
+     solo se usaba en 2 sitios; sus usos pasaron a --lh-prosa. Ver §33.) */
   --lh-prosa:   1.8;  /* prosa larga: entradas, autor, sobre, colaborar */
   --lh-poema:   1.85;  /* cuerpo de poemas: Poema.astro */
 
@@ -298,9 +300,34 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-md);
 }
 
+/* Título de página en la voz literaria del sitio: Cormorant caja mixta, peso
+   500, sin versalita (§25/§26/§31). Antes el h1 global era Cinzel 700 mayúsculas
+   y solo las páginas de contenido (poema, /sobre, /colaborar…) lo sobrescribían;
+   los índices y taxonomías se quedaban en la voz pesada. Esto los unifica en un
+   punto. Cinzel sigue reservada para rótulos, nav, nombres de autor y
+   encabezados de sección. */
 h1 {
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Énfasis en prosa · regla única para todo el sitio. `**negrita**` (<strong>/<b>)
+   y `*cursiva*` (<em>/<i>) se resuelven igual en cualquier contexto: entradas,
+   bio de autor, /sobre, /colaborar, intro del Taller, nota de curador y cuerpo
+   de poema. Ahora que EB Garamond carga su 700 y 500/700-italic reales (ver
+   Base.astro), la negrita deja de sintetizarse (faux-bold) y sale con su trazo
+   diseñado. Los componentes con tratamiento propio de una firma o atribución
+   (p. ej. .carta-attribution strong, .firma strong) lo sobreescriben por mayor
+   especificidad. */
+strong,
+b {
+  font-weight: var(--fw-bold);
+}
+em,
+i {
+  font-style: italic;
 }
 
 a {

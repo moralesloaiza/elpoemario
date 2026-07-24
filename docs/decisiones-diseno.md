@@ -938,3 +938,113 @@ evaluar su interacción con la protección de rama antes de cambiarlo. Tampoco s
 `default: true` del widget borrador de poemas ni se añade preview de borradores en DEV.
 
 Estado: implementado.
+
+
+---
+
+31. Convención de énfasis (negrita/cursiva) y caras cargadas de cada fuente
+
+Contexto: al editar en Decap, `**negrita**` en la prosa larga salía empastada y
+`*cursiva*` en la nota de curador salía recta, «revirtiendo» lo marcado. Auditoría de
+tipografía en todo el portal (escaneo del DOM computado, no de muestra).
+
+Tres familias, cargadas en `Base.astro`. **Regla de oro: solo se importa la cara
+(peso+estilo) que de verdad se usa; si se pide una cara no cargada, el navegador la
+SINTETIZA (faux-bold / faux-italic) y se empasta.** Caras cargadas tras esta sesión:
+
+- `--font-display` / `--font-meta` = **Cinzel**: 400/500/600/700, **sin ninguna itálica**.
+  Cinzel NUNCA se pone en `font-style: italic` (saldría faux). Si un rótulo Cinzel
+  necesita cursiva, va en Cormorant (ver el fix de `.opcional` abajo). Es el mismo
+  motivo por el que los encabezados del cuerpo se movieron de Cinzel a Cormorant (§25/§26).
+- `--font-body` = **Cormorant Garamond**: 400/500/600/700 + itálica 400/500/600/**700**.
+  La 700-italic se añadió en esta sesión: sin ella, una `**negrita**` dentro de un
+  contexto ya cursivo (nota de curador, blockquotes) daba faux-italic sobre el bold.
+- `--font-prose` = **EB Garamond**: 400/500/700 + itálica 400/500/700. Los pesos 700,
+  500-italic y 700-italic se añadieron en esta sesión: antes solo había 400/500/400-italic,
+  así que TODA `**negrita**` de prosa larga (entradas, bio de autor, /sobre, /colaborar,
+  intro del Taller) era faux-bold. No se carga el 600 de EB Garamond (no se usa).
+
+Convención de marcado (fuente única de verdad: `strong`/`b` y `em`/`i` globales en
+`tokens.css`):
+- `**texto**` → `<strong>` → `font-weight: var(--fw-bold)` (700), en cualquier contexto.
+  Es el recurso para DESTACAR.
+- `*texto*` → `<em>` → `font-style: italic`, en cualquier contexto. Es ÉNFASIS/voz baja,
+  títulos de obra, citas.
+- Excepciones por diseño, que ganan por especificidad y no deben tocarse: `.firma strong`
+  y `.carta-attribution strong` neutralizan la negrita porque ahí el `**` marca un nombre
+  de firma, no un realce.
+
+Cambios de esta sesión (todos verificados con estilos computados en el navegador):
+1. Cargadas las caras reales que faltaban (EB Garamond 700/500it/700it; Cormorant 700it).
+   La negrita de prosa deja de sintetizarse.
+2. Regla de énfasis unificada en `tokens.css`; retirados los duplicados dispersos de
+   `.prose`, `.autor-bio`, `.descripcion` (una sola definición para todo el sitio).
+3. Nota de curador: retirado el volteo `em → font-style: normal`. Antes, dentro de la
+   nota (que va toda en cursiva) un `*x*` se volvía redondo «para que el énfasis se viera».
+   Era contraintuitivo al editar. Consecuencia asumida: como la nota es cursiva por
+   defecto, marcar `*x*` ahí ya no resalta; para destacar en una nota se usa `**negrita**`.
+   Pendiente opcional si se quiere que la cursiva vuelva a resaltar en notas: que el
+   cuerpo de la nota deje de ser cursivo por defecto y la cursiva quede solo para lo marcado.
+4. `.opcional` del formulario de contacto: pasado de la Cinzel heredada del `<label>` a
+   Cormorant, porque llevaba `font-style: italic` (Cinzel no tiene itálica → faux).
+
+Estado: implementado.
+
+
+---
+
+32. Título de página `<h1>` unificado en Cormorant caja mixta (fin de la voz doble)
+
+Contexto: los títulos de página estaban partidos en dos voces. Las páginas de contenido
+(poema, hero de entrada/home, /sobre, /colaborar, /correspondencia, /taller) sobrescribían
+el `<h1>` a **Cormorant 500, caja mixta**, mientras que los índices y las taxonomías —que
+no sobrescriben— heredaban el `<h1>` global: **Cinzel 700 VERSALITA**. Resultado: /poemas,
+/autores, /entradas (Bitácora), /temas y todas las taxonomías (índice y detalle, p. ej.
+/temas/amor/), /buscar y /404 salían con la voz pesada, contra la dirección de §25/§26.
+
+Decisión: el `<h1>` global pasa a **Cormorant Garamond, peso 500, `text-transform: none`,
+`letter-spacing: 0`** (regla en `tokens.css`). Como los índices heredaban el global sin
+tocarlo, el cambio los migra a todos en un punto. Las páginas de contenido ya llevaban su
+propio `.title h1`/`.poema-titulo`/`.hero-titulo` en Cormorant y no se ven afectadas. Cinzel
+se reserva para rótulos, eyebrows, nav, encabezados de sección (semibold 600) y la voz de
+nombre de autor (`.autor-hero-nombre`/`.autor-nombre`, Cinzel 600 versalita), que se
+sobrescribe a sí misma y por tanto se conserva intacta.
+
+Excepción detectada tras el primer pase: `entradas/index.astro` y `entradas/cartas.astro`
+tenían un `.title h1` que fijaba explícitamente `font-family: var(--font-display)` (Cinzel),
+así que su título seguía saliendo en Cinzel (con el peso/caja ya de la global: 500, sin
+versalita). Se retiró esa línea en ambos para que hereden la voz global (Cormorant). Lección:
+no basta con cambiar el h1 global; hay que barrer TODO override de título que fije la familia
+(`h1 { … --font-display }`) — el grep multiline lo localiza.
+
+Razón: Cinzel es una capital inscripcional; en 700 mayúsculas lee como bloque y chocaba con
+los títulos ligeros Cormorant del resto del sitio. Unificar resuelve a la vez el peso y la
+inconsistencia, y consolida la voz de título en una sola familia. Verificado con estilos
+computados en /poemas, /temas, /temas/amor, /entradas, /entradas/cartas, /buscar, /siglos,
+/correspondencia (sin cambio) y /autores (nombre de autor sin cambio).
+
+Estado: implementado.
+
+
+---
+
+33. Escala de tamaños y consolidación de interlineados
+
+Auditoría de tamaños e interlineado (medición de estilos computados en el navegador, no
+solo tokens). Conclusión: la escala y los tamaños de lectura están sanos y NO se tocan —
+prosa larga 21px/1.8/~64 CPL, verso 24px/1.85, cita destacada 42px. Los 13 pasos de la
+escala (12→76px) se usan todos; ninguno está muerto. La única deuda estaba en el
+interlineado, con cuatro valores «relajados» en 0.15.
+
+Decisión: se retira `--lh-relaxed` (1.75), que se solapaba con `--line-height-body` (1.7)
+y `--lh-prosa` (1.8) y solo se usaba en 2 sitios (descripción de BloqueDidacticoForma y
+extracto de portada); ambos pasan a `--lh-prosa`. Quedan tres interlineados relajados bien
+diferenciados: **cuerpo/UI 1.7, prosa larga 1.8, verso 1.85** (más `--lh-tight` 1.15 y
+`--lh-snug` 1.3 para titulares/meta). Además:
+- Nota de curador: sube de 1.7 a `--lh-prosa` (1.8) para respirar igual que la prosa hermana.
+- `.fila-resumen` (FilaEntrada): su 1.62 hardcodeado pasa a `--line-height-body`.
+
+No se tocan los interlineados ajustados de los títulos grandes (1.02–1.10), que son
+micro-ajuste óptico legítimo, ni TallerMetrico (prototipo pendiente de portar; ver memoria).
+
+Estado: implementado.

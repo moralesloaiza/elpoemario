@@ -355,8 +355,10 @@ const { Content } = await render(pagina);
   .campo .opcional {
     text-transform: none;
     letter-spacing: normal;
-    font-family: inherit;
-    font-size: 0.85em;
+    /* Cormorant, no la Cinzel heredada del label: Cinzel no tiene itálica, así
+       que `font-style: italic` sobre ella salía como faux-italic. */
+    font-family: var(--font-body);
+    font-size: 0.95em;
     color: var(--text-soft);
     font-style: italic;
   }
