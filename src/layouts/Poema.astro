@@ -40,6 +40,7 @@ const {
   fecha,
   fecha_actualizada,
   ilustracion,
+  foco,
   spotify_url,
   tipo,
   movimiento,
@@ -163,7 +164,7 @@ const siguiente = siguienteEntry
   <JsonLd slot="head" data={jsonLd} />
 
   {ilustracion && (
-    <HeroInmersivo slot="hero" imagen={ilustracion} align="center">
+    <HeroInmersivo slot="hero" imagen={ilustracion} foco={foco} align="center">
       <p class="hero-eyebrow">{TIPOS_DISPLAY[tipo]}</p>
       <h1 class="hero-titulo">{titulo}</h1>
       <p class="hero-byline">

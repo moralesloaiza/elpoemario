@@ -24,9 +24,16 @@ interface Props {
   /* Texto alternativo. Por defecto vacío: la ilustración acompaña al título,
      que ya comunica el contenido (misma decisión que en el resto del sitio). */
   alt?: string;
-  /* `object-position` de la imagen (encuadre). Handoff: 4a center 30%,
-     4c center 32%, 3A center 30%. */
-  objectPosition?: string;
+  /* Punto focal vertical, en % desde arriba (0–100). El hero muestra una franja
+     8:3 de una ilustración 3:2: sobreviven 576 de 1024 filas, y este valor
+     reparte las 448 descartadas entre arriba y abajo. Viene del campo `foco` de
+     la colección (editable en Decap por ilustración).
+
+     Sin valor, 8. El handoff traía 30, pero las ilustraciones del catálogo están
+     compuestas con la figura en la mitad alta del 3:2 y a 30 se les cortaban las
+     cabezas (con 30 se recortan 134px por arriba; con 8, 36px). Los retratos de
+     autor usan su propio default, FOCO_RETRATO en consts.ts. */
+  foco?: number;
   /* Alineación del bloque de título: centrado (poema) o a la izquierda
      (entrada, inicio). */
   align?: 'center' | 'left';
@@ -38,10 +45,15 @@ interface Props {
 const {
   imagen,
   alt = '',
-  objectPosition = 'center 30%',
+  foco = 8,
   align = 'center',
   maxAncho,
 } = Astro.props;
+
+/* El eje horizontal queda siempre centrado: en escritorio el recorte es
+   exclusivamente vertical (el contenedor es más ancho que la imagen en
+   proporción), y en móvil las ilustraciones son composiciones centradas. */
+const objectPosition = `center ${foco}%`;
 ---
 
 <div class="hi-shell">
@@ -70,17 +82,28 @@ const {
      mínimo (p. ej. el Inicio en móvil), el hero CRECE en vez de recortarlo con
      `overflow:hidden`. La imagen va detrás (absolute inset:0, cover).
 
-     Altura ligada a la ALTURA DE PANTALLA, no fija: la maqueta especifica 740px,
-     pero a esa altura fija un portátil de 768px se comía el 96% del viewport y el
-     cuerpo quedaba entero bajo el pliegue (sin pista de que hubiera más página).
-     Con el clamp: 768→553px (se ve el arranque del cuerpo), ~980→705px (≈ la
-     maqueta en un 1080p a pantalla completa), pantallas altas→820px de tope. */
+     Altura ligada al ANCHO (37.5vw = franja 8:3), no a la altura de pantalla.
+     Antes era `72vh`, y como el ancho es 100vw eso dejaba la PROPORCIÓN del
+     recorte a merced del viewport: 2.50:1 en un portátil, 2.72:1 en 1080p,
+     3.12:1 en un 1440p. Las ilustraciones son todas 3:2 (1.50:1), así que cada
+     pantalla se comía una franja distinta y no había un encuadre que fuera
+     correcto en todas — de ahí que `foco` no habría servido de nada sin esto.
+     Con 37.5vw la franja es 8:3 (2.67:1) en cualquier escritorio entre ~1387px
+     y 2560px de ancho, y el encuadre elegido se ve igual en todos.
+
+     Los otros dos términos son topes, no el caso normal:
+     · `78vh` protege al portátil ancho y bajo (1920×768: 720px sería el 94% del
+       viewport y el cuerpo quedaría entero bajo el pliegue → se queda en 599px).
+       Sólo actúa si el viewport es más apaisado que 2.08:1.
+     · el suelo de 520px gobierna móvil y tablet, donde 37.5vw es minúsculo. De
+       paso elimina el `vh` en móvil, que hacía saltar el hero al aparecer y
+       desaparecer la barra del navegador con el scroll. */
   .hi-shell {
     position: relative;
     display: flex;
     align-items: flex-end;
     box-sizing: border-box;
-    min-height: clamp(520px, 72vh, 820px);
+    min-height: clamp(520px, min(37.5vw, 78vh), 960px);
     /* Reserva sitio a la nav flotante (va superpuesta arriba): si el contenido
        crece hasta la cima —pantalla baja, título largo—, se detiene bajo el
        masthead en vez de quedar debajo de él. Aplica a todos los tamaños. */
@@ -120,12 +143,5 @@ const {
   .hi-bloque[data-align='left'] {
     margin-inline: 0;
     text-align: left;
-  }
-  @media (max-width: 900px) {
-    /* En móvil la altura es fija (no `vh`): la barra del navegador cambia el
-       viewport al hacer scroll y provocaría saltos del hero. */
-    .hi-shell {
-      min-height: 520px;
-    }
   }
 </style>

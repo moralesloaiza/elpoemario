@@ -8,6 +8,7 @@ import IconoEditar from '../components/IconoEditar.astro';
 import HeroInmersivo from '../components/HeroInmersivo.astro';
 import PoemaCard from '../components/PoemaCard.astro';
 
+import { FOCO_RETRATO } from '../consts';
 import { buildAutorJsonLd, buildBreadcrumbJsonLd } from '../utils/jsonld';
 import { paisASlug } from '../utils/taxonomia';
 
@@ -24,6 +25,7 @@ const {
   muerte,
   lugar_nacimiento,
   imagen,
+  foco,
   tambien_en,
   lengua_original,
 } = props;
@@ -99,7 +101,7 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   <JsonLd slot="head" data={breadcrumbLd} />
 
   {conHero && imagen && (
-    <HeroInmersivo slot="hero" imagen={imagen} alt={`Retrato de ${nombre}`} align="left" objectPosition="center 25%" maxAncho="54rem">
+    <HeroInmersivo slot="hero" imagen={imagen} alt={`Retrato de ${nombre}`} foco={foco ?? FOCO_RETRATO} align="left" maxAncho="54rem">
       {lugar_nacimiento && <p class="autor-hero-lugar">{lugar_nacimiento}</p>}
       <h1 class="autor-hero-nombre">{nombre}</h1>
       {(anios || nacionalidad) && (

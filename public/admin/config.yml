@@ -51,7 +51,7 @@ collections:
       - { label: "Fecha", name: fecha, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
       - { label: "Fecha actualizada", name: fecha_actualizada, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
       - { label: "Ilustración", name: ilustracion, widget: image, required: false }
-      - { label: "Enlace a Spotify", name: spotify_url, widget: string, required: false, pattern: ['^https://open\.spotify\.com/', 'Debe empezar con https://open.spotify.com/'] }
+      - { label: "Foco de la ilustración (%)", name: foco, widget: number, value_type: int, min: 0, max: 100, step: 1, required: false, hint: "Qué franja horizontal de la ilustración se ve en la cabecera. 0 = borde superior, 50 = centro, 100 = borde inferior. Vacío = 8. Súbelo si la cabecera deja demasiado aire arriba; bájalo si corta lo importante." }
       - { label: "Borrador", name: borrador, widget: boolean, default: true }
       - label: "Tipo (forma métrica o estrófica)"
         name: tipo
@@ -325,6 +325,7 @@ collections:
       - { label: "Lugar de nacimiento", name: lugar_nacimiento, widget: string, required: false }
       - { label: "Lugar de muerte", name: lugar_muerte, widget: string, required: false }
       - { label: "Imagen", name: imagen, widget: image, required: false }
+      - { label: "Foco de la imagen (%)", name: foco, widget: number, value_type: int, min: 0, max: 100, step: 1, required: false, hint: "Qué franja horizontal del retrato se ve en la cabecera de su ficha (y en la portada, si es el destacado): 0 = borde superior, 50 = centro, 100 = borde inferior. Vacío = 15." }
       - label: "Enlaces externos (sameAs)"
         name: sameAs
         widget: list
@@ -364,6 +365,7 @@ collections:
       - { name: "fecha_actualizada", label: "Fecha de actualización", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
       - { name: "resumen", label: "Resumen", widget: "text", required: false }
       - { name: "ilustracion", label: "Ilustración", widget: "image", required: false }
+      - { name: "foco", label: "Foco de la ilustración (%)", widget: "number", value_type: int, min: 0, max: 100, step: 1, required: false, hint: "Qué franja horizontal de la ilustración se ve en la cabecera. 0 = borde superior, 50 = centro, 100 = borde inferior. Vacío = 8. Súbelo si la cabecera deja demasiado aire arriba; bájalo si corta lo importante." }
       - { name: "spotify_url", label: "Enlace a Spotify", widget: "string", required: false, pattern: ['^https://open\.spotify\.com/', 'Debe empezar con https://open.spotify.com/'] }
       - { name: "borrador", label: "Borrador", widget: "boolean", default: false }
 
