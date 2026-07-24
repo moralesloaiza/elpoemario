@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import HeroInmersivo from '../components/HeroInmersivo.astro';
 import FilaPoema from '../components/FilaPoema.astro';
-import { SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
+import { FOCO_RETRATO, SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 import type { ImageMetadata } from 'astro';
@@ -40,6 +40,10 @@ type DestacadoRender = {
   href: string;
   cta: string;
   imagen: ImageMetadata;
+  /* Encuadre vertical de la ilustración en el hero. Viaja con la imagen: el
+     `foco` que el curador eligió para el poema/entrada/autor vale igual aquí,
+     porque el hero de portada usa el mismo recorte que el de su ficha. */
+  foco?: number;
   byline?: string;
   versos?: string[];
   resumen?: string;
@@ -70,6 +74,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       href: `/poemas/${poema.id}/`,
       cta: 'Leer el poema',
       imagen: poema.data.ilustracion,
+      foco: poema.data.foco,
       byline: autor.data.nombre,
       versos,
     };
@@ -86,6 +91,7 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       href: `/entradas/${entrada.id}/`,
       cta: 'Leer la entrada',
       imagen: entrada.data.ilustracion,
+      foco: entrada.data.foco,
       byline: entrada.data.curador,
       resumen: entrada.data.resumen,
     };
@@ -106,6 +112,8 @@ if (destacadoCfg && destacadoCfg.data.activo) {
       href: `/autores/${autor.id}/`,
       cta: 'Ver la ficha',
       imagen: autor.data.imagen,
+      // Retrato, no ilustración: default propio, y el mismo que usa su ficha.
+      foco: autor.data.foco ?? FOCO_RETRATO,
       byline: [autor.data.nacionalidad, aniosAutor].filter(Boolean).join(' · ') || undefined,
       resumen: autor.data.descripcion,
     };
@@ -134,7 +142,7 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
       nav flotando encima (Base) y el bloque del destacado anclado abajo a la
       izquierda. El título del destacado es el <h1> semántico de la portada
       (SEO/a11y); el tagline se retiró para dar aire al hero. */}
-  <HeroInmersivo slot="hero" imagen={destacado.imagen} align="left" maxAncho="40rem">
+  <HeroInmersivo slot="hero" imagen={destacado.imagen} foco={destacado.foco} align="left" maxAncho="40rem">
     <p class="hero-eyebrow">{destacado.cintillo}</p>
     <h1 class="hero-titulo"><a href={destacado.href}>{destacado.titulo}</a></h1>
     {destacado.byline && <p class="hero-byline">{destacado.byline}</p>}

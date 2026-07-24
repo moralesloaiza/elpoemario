@@ -33,6 +33,18 @@ const optionalInt = () =>
     z.coerce.number().int().optional(),
   );
 
+// Punto focal vertical de la ilustración en el hero inmersivo, en % desde el
+// borde superior. El hero recorta la imagen a una franja 8:3 (ver
+// HeroInmersivo.astro), así que de una ilustración 3:2 sólo se ve algo más de
+// la mitad de su alto: este campo decide QUÉ franja. 0 = pegado arriba,
+// 100 = pegado abajo. Sin valor: 8 para poemas y entradas, FOCO_RETRATO (15)
+// para los retratos de autor.
+const optionalFoco = () =>
+  z.preprocess(
+    (v) => (v === '' || v === null ? undefined : v),
+    z.coerce.number().min(0).max(100).optional(),
+  );
+
 const poemas = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/poemas' }),
   schema: ({ image }) =>
@@ -42,6 +54,7 @@ const poemas = defineCollection({
       fecha: z.coerce.date(),
       fecha_actualizada: optionalDate(),
       ilustracion: z.optional(image()),
+      foco: optionalFoco(),
       spotify_url: optionalUrl(),
       borrador: z.boolean().default(false),
       tipo: z.enum(TIPOS),
@@ -89,6 +102,7 @@ const autores = defineCollection({
       lugar_nacimiento: optionalString(),
       lugar_muerte: optionalString(),
       imagen: z.optional(image()),
+      foco: optionalFoco(),
       sameAs: z.preprocess(
         (v) => {
           if (v === null || v === '' || v === undefined) return undefined;
@@ -113,6 +127,7 @@ const entradas = defineCollection({
         fecha: z.coerce.date(),
         fecha_actualizada: optionalDate(),
         ilustracion: z.optional(image()),
+        foco: optionalFoco(),
         spotify_url: optionalUrl(),
         borrador: z.boolean().default(false),
         curador: z.string().default('Don Alejandro'),

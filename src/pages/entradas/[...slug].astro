@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 type Props = CollectionEntry<'entradas'>;
 const entrada = Astro.props;
-const { titulo, fecha, ilustracion, curador, resumen, tipo, remitente, poema_referido, spotify_url } = entrada.data;
+const { titulo, fecha, ilustracion, foco, curador, resumen, tipo, remitente, poema_referido, spotify_url } = entrada.data;
 const { Content } = await render(entrada);
 
 // If this is correspondence referring to a poem, resolve its title and
@@ -50,7 +50,7 @@ const volver = esCarta
 
 <Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={conHero}>
   {conHero && (
-    <HeroInmersivo slot="hero" imagen={ilustracion} align="left" objectPosition="center 32%" maxAncho="54rem">
+    <HeroInmersivo slot="hero" imagen={ilustracion} foco={foco} align="left" maxAncho="54rem">
       <p class="hero-eyebrow">
         <FormattedDate date={fecha} />
         <span class="kicker-sep"> · </span>
