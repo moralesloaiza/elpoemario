@@ -7,7 +7,7 @@ resumen: Los versos que enseñan son anteriores a la prosa y, lejos de ser
   poeta. De Hesíodo y Virgilio a Martínez de la Rosa, esta nota ofrece un breve
   recorrido por el género que une instrucción y belleza.
 ilustracion: ../../assets/uploads/entrada-la-poesia-didascalica.png
-borrador: true
+borrador: false
 curador: El tesoro de la juventud
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
