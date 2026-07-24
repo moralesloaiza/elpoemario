@@ -1004,18 +1004,24 @@ no sobrescriben— heredaban el `<h1>` global: **Cinzel 700 VERSALITA**. Resulta
 
 Decisión: el `<h1>` global pasa a **Cormorant Garamond, peso 500, `text-transform: none`,
 `letter-spacing: 0`** (regla en `tokens.css`). Como los índices heredaban el global sin
-tocarlo, el cambio los migra a todos en un punto; las páginas de contenido ya llevaban su
-propio `.title h1`/`.poema-titulo`/`.hero-titulo` y no se ven afectadas (quedan como
-overrides redundantes pero correctos, con su tamaño/margen propios). Cinzel se reserva para
-rótulos, eyebrows, nav, encabezados de sección (semibold 600) y la voz de nombre de autor
-(`.autor-hero-nombre`/`.autor-nombre`, Cinzel 600 versalita), que se sobrescribe a sí misma
-y por tanto se conserva intacta.
+tocarlo, el cambio los migra a todos en un punto. Las páginas de contenido ya llevaban su
+propio `.title h1`/`.poema-titulo`/`.hero-titulo` en Cormorant y no se ven afectadas. Cinzel
+se reserva para rótulos, eyebrows, nav, encabezados de sección (semibold 600) y la voz de
+nombre de autor (`.autor-hero-nombre`/`.autor-nombre`, Cinzel 600 versalita), que se
+sobrescribe a sí misma y por tanto se conserva intacta.
+
+Excepción detectada tras el primer pase: `entradas/index.astro` y `entradas/cartas.astro`
+tenían un `.title h1` que fijaba explícitamente `font-family: var(--font-display)` (Cinzel),
+así que su título seguía saliendo en Cinzel (con el peso/caja ya de la global: 500, sin
+versalita). Se retiró esa línea en ambos para que hereden la voz global (Cormorant). Lección:
+no basta con cambiar el h1 global; hay que barrer TODO override de título que fije la familia
+(`h1 { … --font-display }`) — el grep multiline lo localiza.
 
 Razón: Cinzel es una capital inscripcional; en 700 mayúsculas lee como bloque y chocaba con
 los títulos ligeros Cormorant del resto del sitio. Unificar resuelve a la vez el peso y la
 inconsistencia, y consolida la voz de título en una sola familia. Verificado con estilos
-computados en /poemas, /temas/amor, /correspondencia (sin cambio) y /autores (nombre de
-autor sin cambio).
+computados en /poemas, /temas, /temas/amor, /entradas, /entradas/cartas, /buscar, /siglos,
+/correspondencia (sin cambio) y /autores (nombre de autor sin cambio).
 
 Estado: implementado.
 
