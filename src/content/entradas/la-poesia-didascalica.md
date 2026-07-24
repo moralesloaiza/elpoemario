@@ -2,10 +2,10 @@
 titulo: La poesía didascálica
 fecha: 2011-10-28
 fecha_actualizada: 2026-07-24
-resumen: "Defensa de la poesía didascálica: el verso que enseña es anterior a la
-  prosa y, lejos de ser árido, ofrece un deleite sereno cuando quien lo escribe
-  tiene alma de poeta. De Hesíodo y Virgilio a Martínez de la Rosa, un recorrido
-  por el género que une instrucción y belleza."
+resumen: Los versos que enseñan son anteriores a la prosa y, lejos de ser
+  áridos, ofrecen un deleite sereno cuando quien los escribe tiene alma de
+  poeta. De Hesíodo y Virgilio a Martínez de la Rosa, esta nota ofrece un breve
+  recorrido por el género que une instrucción y belleza.
 ilustracion: ../../assets/uploads/entrada-la-poesia-didascalica.png
 borrador: true
 curador: El tesoro de la juventud
