@@ -8,7 +8,7 @@ resumen: "Defensa de la poesía didascálica: el verso que enseña es anterior a
   por el género que une instrucción y belleza."
 ilustracion: ../../assets/uploads/entrada-la-poesia-didascalica.png
 borrador: true
-curador: Don Alejandro
+curador: El tesoro de la juventud
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 tipo: bitacora
