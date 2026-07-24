@@ -233,13 +233,15 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
     color: var(--hero-ink-soft);
     margin: 0 0 var(--space-sm);
   }
+  /* Nombre de autor = nombre propio → voz Cormorant caja mixta, igual que el
+     título de poema o de entrada (§34). Espeja .hero-titulo de tokens.css. */
   .autor-hero-nombre {
-    font-family: var(--font-display);
-    font-weight: var(--fw-semibold);
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: var(--fs-4xl);
-    line-height: 1.02;
-    letter-spacing: var(--ls-wide);
-    text-transform: uppercase;
+    line-height: 1.03;
+    letter-spacing: 0;
+    text-transform: none;
     color: var(--hero-title);
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
     margin: 0;
@@ -287,15 +289,16 @@ const descripcionMeta = `Poemas de ${nombre}, en El Poemario.`;
   .autor-cabecera {
     margin-bottom: var(--space-xl);
   }
+  /* Variante sin hero: espeja .poema-titulo (§34). */
   .autor-nombre {
-    font-family: var(--font-display);
-    font-weight: var(--fw-semibold);
+    font-family: var(--font-body);
+    font-weight: 500;
     font-size: var(--fs-3xl);
-    line-height: 1.1;
+    line-height: 1.05;
     margin: 0 0 var(--space-xs);
     color: var(--text);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
+    letter-spacing: 0;
+    text-transform: none;
     text-wrap: balance;
   }
   .autor-meta {

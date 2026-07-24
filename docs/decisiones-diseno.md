@@ -1048,3 +1048,48 @@ No se tocan los interlineados ajustados de los títulos grandes (1.02–1.10), q
 micro-ajuste óptico legítimo, ni TallerMetrico (prototipo pendiente de portar; ver memoria).
 
 Estado: implementado.
+
+
+---
+
+34. Distribución de fuentes por rol: «Cinzel rotula · Cormorant nombra · EB Garamond se lee»
+
+Contexto: tras unificar los títulos de página (§32) seguían saltando incoherencias. La más
+visible: el título de un poema salía en Cormorant caja mixta, pero el nombre de un autor
+—entidad paralela, el nombre del sujeto de la página— salía en Cinzel 600 VERSALITA. El
+inventario completo (mapa selector → fuente de todo `src/`) mostró que Cinzel estaba
+haciendo cuatro trabajos a la vez: señalética micro, nombres de autor, encabezados de
+sección y ornamentos.
+
+Decisión — regla de reparto, por ROL semántico y no por página:
+
+- **Cinzel** (`--font-display`/`--font-meta`) = **señalética**. Texto funcional y corto en
+  versalita: rótulos, eyebrows, nav, CTA/botones, metadatos, chips, pestañas, migas,
+  contadores. **Más los encabezados de sección estructurales** («Obras en El Poemario»,
+  «Coincidencias en la taxonomía», divisores de grupo): rotulan una región, son voz del
+  sitio, no del autor. Nunca un nombre propio ni un título de obra.
+- **Cormorant Garamond** (`--font-body`) = **nombres y voz editorial**. Todo lo que nombra
+  algo: títulos de poema y de entrada, **nombres de autor**, términos de taxonomía, `h1`,
+  bylines. Caja mixta, peso 500.
+- **EB Garamond** (`--font-prose`) = **lectura larga**. Párrafos de prosa corrida.
+- Excepción: los **ornamentos** siguen en Cinzel (capitular de prosa poética, iniciales de
+  tile/tarjeta, número del 404). No son nombres, son ornamento.
+
+Cambios aplicados:
+1. `.autor-hero-nombre` y `.autor-nombre` (Autor.astro): de Cinzel 600 versalita a Cormorant
+   500 caja mixta, espejando `.hero-titulo` y `.poema-titulo` respectivamente.
+2. `.tile-nombre` (AutorCard): íd., espejando `.pcard-titulo`, que ya sostiene un título
+   sobre ilustración. Se sube un punto el `clamp` de tamaño (1.05–1.28rem → 1.15–1.45rem)
+   porque la caja mixta ocupa menos mancha que la versalita y el tile perdía presencia.
+3. `.lista-textos .t-titulo` (/buscar): de Cinzel a Cormorant. Era un bug de consistencia,
+   no de gusto: el mismo título de poema salía en Cinzel en los resultados de búsqueda y en
+   Cormorant en la página del poema, en FilaPoema, en PoemaCard y en el buscador modal.
+
+Casos revisados que SÍ se quedan en Cinzel por ser señalética: `.autores-de-grupo h2`
+(renderiza un contador, «42 autores»), `.grupo-titulo` de otras-lenguas (divisor de grupo),
+`.tile-conteo`, `.termino-conteo`, `.autor-meta`, `.migas`, `.cargar-mas`, `.resultados h2`.
+
+Verificado con estilos computados en /autores/rafael-cadenas, /autores y /buscar?q=amor;
+sin errores de consola.
+
+Estado: implementado.
