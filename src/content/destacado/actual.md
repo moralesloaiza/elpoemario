@@ -1,6 +1,6 @@
 ---
 activo: true
-cintillo: El tesoro de la juventud
+cintillo: El saber en octavas
 extracto: "\n"
 tipo: entrada
 poema_referido: ""
