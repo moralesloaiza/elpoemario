@@ -33,4 +33,20 @@ En nuestra lengua tenemos también varios poemas didácticos, entre los que mere
 
 - - -
 
-*Extraído de EL TESORO DE LA JUVENTUD o ENCICLOPEDIA DE CONOCIMIENTOS, Tomo XVIII, p 6329. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*
+*Extraído de EL TESORO DE LA JUVENTUD o ENCICLOPEDIA DE CONOCIMIENTOS, Tomo XVIII, p 6329. Sección “El Libro de la Poesía”. - W.M. JACKSON, Inc., Editores.*\
+\
+**Los poetas de lengua castellana citados en este capítulo**
+
+**Diego el Covo** (siglo XV) — *Cirugía rimada* (1421). El Tesoro lo nombra «Diego de Cobos»; la bibliografía moderna lo conoce como Diego el Covo o Diego Cobo. Médico y cirujano castellano del que apenas se conserva el nombre y el oficio. Su tratado quirúrgico rimado interesa hoy al historiador antes que al lector de versos.
+
+**Pablo de Céspedes** (Córdoba, h. 1538–1608) — *Poema de la pintura*. Racionero de la catedral de Córdoba, pintor, escultor y humanista. El poema, en octavas reales, no se conserva entero: sobrevive en fragmentos que Francisco Pacheco intercaló en su *Arte de la pintura* y que Ceán Bermúdez reunió más tarde.
+
+**Francisco Martínez de la Rosa** (Granada, 1787–1862) — *Poética* (1827), escrita en el destierro de París; el Tesoro la cita como *Arte poética*. Tradujo además la epístola de Horacio a los Pisones, la misma que este capítulo llama Código del buen gusto.
+
+**Félix María de Samaniego** (Laguardia, 1745–1801) — *Fábulas morales* (1781–1784). Su obra vive en [El Fabulario](https://elfabulario.com/autores/felix-maria-de-samaniego/), portal hermano de esta casa.
+
+**Tomás de Iriarte** (Puerto de la Cruz, 1750 – Madrid, 1791) — *Fábulas literarias* (1782); también el poema didáctico *La música* (1779). Sus fábulas están en [El Fabulario](https://elfabulario.com/autores/tomas-de-iriarte/).
+
+**Cayetano Fernández Cabello** (Cádiz, 1820 – Sevilla, 1901) — *Fábulas ascéticas en verso castellano y en variedad de metros* (1864), compuestas para su discípulo, el futuro Alfonso XII. Sacerdote, chantre de la catedral de Sevilla y académico de la Española.
+
+Los demás nombres del capítulo —Hesíodo, Virgilio, Lucrecio, Horacio y el Salomón de los Proverbios— quedan fuera de esta nota por no pertenecer a nuestra lengua.
