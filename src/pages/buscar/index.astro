@@ -424,11 +424,15 @@ const pagina = await getPagina('buscar');
 		color: var(--oro-texto);
 	}
 
+	/* Título de poema/entrada = nombre de obra → Cormorant caja mixta (§34),
+	   igual que en la página del poema, FilaPoema, PoemaCard y el buscador
+	   modal. Antes iba en Cinzel: el mismo dato salía en dos fuentes según
+	   dónde apareciera. */
 	.lista-textos :global(.t-titulo) {
-		font-family: var(--font-display);
+		font-family: var(--font-body);
 		font-size: var(--fs-lg);
-		font-weight: var(--fw-semibold);
-		letter-spacing: var(--ls-wide);
+		font-weight: 500;
+		letter-spacing: 0;
 		color: var(--text);
 	}
 	.lista-textos :global(.t-autor) {

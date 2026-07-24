@@ -123,13 +123,15 @@ const inicial = nombre.trim().charAt(0).toUpperCase();
   .tile-info {
     padding: var(--space-md) var(--space-md) var(--space-md);
   }
+  /* Nombre de autor = nombre propio → Cormorant caja mixta (§34), igual que
+     .pcard-titulo, que ya sostiene un título sobre ilustración. */
   .tile-nombre {
-    font-family: var(--font-display);
-    font-weight: var(--fw-semibold);
-    font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.28rem);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: clamp(1.15rem, 0.95rem + 0.8vw, 1.45rem);
     line-height: var(--lh-snug);
-    text-transform: uppercase;
-    letter-spacing: var(--ls-wide);
+    text-transform: none;
+    letter-spacing: 0;
     color: var(--hero-title);
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
     margin: 0 0 var(--space-3xs);
