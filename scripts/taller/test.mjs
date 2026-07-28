@@ -15,6 +15,16 @@ const texto = (f) => {
 };
 const forma = (txt) => detectarForma(TM, txt).forma;
 const estrofa = (versos) => TM.groupStanzas(versos.split('\n').map(TM.analyzeLine))[0];
+const medir = (verso) => TM.analyzeLine(verso).metric;
+// Uniones de sinalefa detectadas en un verso, como ["y‿a", "su‿alma"].
+const sinalefas = (verso) => {
+  const a = TM.analyzeLine(verso);
+  const u = [];
+  for (let i = 0; i < a.words.length - 1; i++) {
+    if (a.sinalefa[i]) u.push(a.words[i].text.toLowerCase() + '‿' + a.words[i + 1].text.toLowerCase());
+  }
+  return u;
+};
 
 let ok = 0;
 let fallan = 0;
@@ -102,6 +112,27 @@ t('romance con asonancia', forma(
   'y están los campos en flor,\n' +
   'cuando canta la calandria\n' +
   'y responde el ruiseñor.'), (r) => /^Romance|^Copla/.test(r));
+
+console.log('\n— SINALEFA CON «Y» —');
+// La «y» vale como vocal para la sinalefa en dos posiciones: como conjunción sola
+// (y‿a, y‿en, y‿hasta) y en final de palabra tras vocal (hay, muy, rey). Como
+// inicial de palabra es consonante /ʝ/ (ya, yo, yedra) y NO funde: cuidado con no
+// sobrecorregir. Antes del arreglo la conjunción «y» no se fundía y sobrecontaba.
+t('y‿a → «y a la sombra del olivo» mide 8', medir('y a la sombra del olivo'), 8);
+t('y‿a marca la unión', sinalefas('y a la sombra del olivo'), (r) => r.includes('y‿a'));
+t('y‿a + su‿alma → «y a su alma prostituyes» mide 7', medir('y a su alma prostituyes'), 7);
+t('y‿hasta → «y hasta su alma prostituyes» mide 8', medir('y hasta su alma prostituyes'), 8);
+t('y‿el → «y el alma le prostituyes» mide 8', medir('y el alma le prostituyes'), 8);
+// «muy alta la torre era» lleva DOS sinalefas (muy‿alta y torre‿era) → mide 6, no
+// 8 como decía el informe del bug (se le pasó torre‿era). Lo que prueba el caso es
+// que la «y» final tras vocal de «muy» sí funde.
+t('muy‿alta se detecta', sinalefas('muy alta la torre era'), (r) => r.includes('muy‿alta'));
+// NO sobrecorregir: la «y» inicial de «yedra» es consonante, no baja el conteo.
+t('«la yedra sube despacio» NO baja a 7', medir('la yedra sube despacio'), 8);
+t('«la yedra…» no marca sinalefa con «la»', sinalefas('la yedra sube despacio'), (r) => !r.some((x) => x.endsWith('‿yedra')));
+// Regresión: sinalefas normales (vocal + vocal, vocal + h muda) intactas.
+t('regresión → «que le arrebatas su honor» mide 8', medir('que le arrebatas su honor'), 8);
+t('regresión → «que si al bardo no asesinas» mide 8', medir('que si al bardo no asesinas'), 8);
 
 console.log(`\n${ok} pasan, ${fallan} fallan\n`);
 process.exit(fallan ? 1 : 0);
