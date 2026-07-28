@@ -131,7 +131,12 @@
     const c = w[w.length - 1]?.toLowerCase();
     if (!c) return false;
     if (isV(c)) return true;
-    if (c === "y" && w.length > 1 && isV(w[w.length - 2].toLowerCase())) return true;
+    // La «y» final vale como vocal (semivocal /i/) para la sinalefa en dos casos:
+    // la conjunción «y» sola (y‿a, y‿en, y‿hasta) y la «y» tras vocal en diptongo
+    // decreciente (hay, muy, rey, hoy, buey). NO cuando es inicial de palabra (ya,
+    // yo, yedra), que es consonante /ʝ/ y no se detecta aquí porque endsVowel mira
+    // la última letra, no la primera.
+    if (c === "y" && (w.length === 1 || isV(w[w.length - 2].toLowerCase()))) return true;
     return false;
   };
   const startsVowel = w => {
