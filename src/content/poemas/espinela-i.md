@@ -4,7 +4,7 @@ resumen: "Seis espinelas contra el mundo que degrada al poeta: del ayer que
   honraba a sus trovadores al presente que todo lo mercantiliza, hasta el amor."
 fecha: 2026-07-28
 fecha_actualizada: 2026-07-28
-ilustracion: ../../assets/uploads/chatgpt-image-28-jul-2026-23_44_08.png
+ilustracion: ../../assets/uploads/poema-espinela-i.png
 borrador: false
 tipo: decima
 movimiento: contemporaneo
