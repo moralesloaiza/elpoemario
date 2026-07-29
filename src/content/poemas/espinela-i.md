@@ -5,6 +5,7 @@ resumen: "Seis espinelas contra el mundo que degrada al poeta: del ayer que
 fecha: 2026-07-28
 fecha_actualizada: 2026-07-28
 ilustracion: ../../assets/uploads/poema-espinela-i.png
+foco: 20
 borrador: false
 tipo: decima
 movimiento: contemporaneo
