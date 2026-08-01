@@ -1,5 +1,7 @@
 ---
 titulo: El Tabaco
+resumen: "Poema festivo anónimo en pareados: Ursulina prohíbe a Paco fumar y
+  descubre, tras la boda, que el tabaco era el secreto de su ardor."
 fecha: 2025-02-17
 fecha_actualizada: 2026-08-01
 ilustracion: ../../assets/uploads/poema-el-tabaco.png
