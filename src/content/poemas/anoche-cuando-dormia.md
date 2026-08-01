@@ -3,6 +3,7 @@ titulo: Anoche cuando dormía
 fecha: 2026-07-17
 fecha_actualizada: 2026-07-18
 ilustracion: ../../assets/uploads/poema-anoche-cuando-dormia.png
+spotify_url: https://open.spotify.com/episode/77fqtvU4ulbVoFbCrumYoO?si=S3iY8gAWTYO67tUS8SW1LA
 borrador: false
 tipo: cuarteta
 movimiento: modernismo
