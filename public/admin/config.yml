@@ -52,6 +52,7 @@ collections:
       - { label: "Fecha actualizada", name: fecha_actualizada, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
       - { label: "Ilustración", name: ilustracion, widget: image, required: false }
       - { label: "Foco de la ilustración (%)", name: foco, widget: number, value_type: int, min: 0, max: 100, step: 1, required: false, hint: "Qué franja horizontal de la ilustración se ve en la cabecera. 0 = borde superior, 50 = centro, 100 = borde inferior. Vacío = 8. Súbelo si la cabecera deja demasiado aire arriba; bájalo si corta lo importante." }
+      - { label: "Enlace a Spotify", name: spotify_url, widget: string, required: false, pattern: ['^https://open\.spotify\.com/', 'Debe empezar con https://open.spotify.com/'] }
       - { label: "Borrador", name: borrador, widget: boolean, default: true }
       - label: "Tipo (forma métrica o estrófica)"
         name: tipo
