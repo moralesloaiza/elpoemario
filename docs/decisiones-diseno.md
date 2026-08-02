@@ -1093,3 +1093,57 @@ Verificado con estilos computados en /autores/rafael-cadenas, /autores y /buscar
 sin errores de consola.
 
 Estado: implementado.
+
+---
+
+35. Resolución de retrato en AutorCard: `sizes` declara el ancho PINTADO, no el de columna
+
+Contexto: los retratos de /autores/ se servían visiblemente pixelados. La causa es un desajuste
+de relación de aspecto entre contenedor y fuente. El `.tile` de AutorCard es 3:4 (vertical) con
+`object-fit: cover`; las fuentes son 3:2 (apaisadas, 1536×1024 en 89 de 100 retratos, ≥1448×1076
+el resto). Con `cover`, el navegador escala la imagen por su lado corto para tapar la caja: aquí
+escala por ALTURA, así que el ancho pintado de la imagen es el DOBLE del ancho de la columna, y la
+mitad sobra recortada por los laterales (el `object-position: center 18%` decide qué se conserva).
+
+El componente declaraba `sizes="… 280px"` —el ancho de la COLUMNA—, no el ancho pintado. El
+navegador elegía la variante creyendo necesitar 280px cuando pintaba ~514px, y de todos modos
+`widths` topaba en 480. Resultado: se descargaba una imagen a la mitad de la resolución necesaria
+y se ampliaba en pantalla.
+
+Números (con `--page-max: 72rem`, `minmax(212px, 1fr)` → 4 columnas de ~257px CSS en escritorio):
+
+| | ancho de imagen necesario | variante servida antes | ampliación |
+|---|---|---|---|
+| Escritorio DPR 1 | 514px | 320w | ×1,61 |
+| Escritorio DPR 2 | 1028px | 480w (tope) | ×2,14 |
+| Móvil DPR 3 | ~1060px | 480w (tope) | ×2,21 |
+
+Simulación del render real (caja 257×343, DPR 2, `object-position: center 18%`), medida contra el
+techo teórico de la fuente: **33,77 dB PSNR antes** frente a **48,65 dB** con la variante correcta.
+
+Decisión — regla general reutilizable:
+
+> Cuando un contenedor con `object-fit: cover` tiene una relación de aspecto distinta a la de la
+> fuente, `sizes` debe declarar el ancho **pintado**, no el ancho del contenedor. El factor de
+> corrección es `ratio_fuente / ratio_contenedor`. Aquí `1,5 / 0,75 = 2`, así que el ancho pintado
+> es el doble del ancho de columna.
+
+Cambio aplicado (solo AutorCard.astro): `sizes` pasa a `(max-width: 640px) 100vw, 560px` (560 =
+2×280, el ancho pintado en escritorio; en móvil las 2 columnas de ~177px pintan ~354px sobre un
+viewport de 430, y 100vw es el redondeo seguro) y `widths` pasa a `[240, 360, 480, 720, 1120]`. La
+fuente alcanza de sobra: tras el recorte 3:4 queda el 50% central = 768px reales de ancho útil,
+frente a los 514px máximos visibles en escritorio DPR 2. NO se regeneran retratos ni se toca el
+recorte (`aspect-ratio`, `cover` y `object-position` son decisión de diseño cerrada, §1 del handoff
+«diseño nocturno»); aquí solo se corrige qué resolución se descarga.
+
+Auditados en la misma revisión:
+- **PoemaCard** — NO necesita cambio. Su lámina es 3:2 sobre fuente 3:2: contenedor y fuente
+  comparten relación de aspecto, factor 1. El ancho pintado ES el ancho de columna, así que su
+  `sizes` ya es correcto (pide ~514, sirve 640).
+- **HeroInmersivo** — queda como ítem ABIERTO, pero por LÍMITE DE LA FUENTE, no por parámetros del
+  componente. Declara `widths` hasta 1920, pero las ilustraciones del corpus topan en 1536px, así
+  que Astro nunca genera esa variante. A 1440px de viewport con DPR 2 hacen falta ~2880px de ancho
+  y solo hay 1536 (×1,87). No se arregla ajustando `sizes`/`widths`: requiere regenerar las
+  ilustraciones a mayor resolución. Se registra aparte.
+
+Estado: implementado.
