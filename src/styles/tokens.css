@@ -11,6 +11,12 @@
 
   /* Fondos */
   --bg:              #141b28;  /* handoff --bg    · fondo de página */
+  /* Mismo color que --bg en canales RGB, para construir los velos que funden
+     las imágenes hacia el fondo (hero, tarjetas, panel del menú). DEBE seguir a
+     --bg: si divergen, el velo termina en un tono distinto al fondo y aparece
+     una línea donde la imagen «da paso» al fondo (regresión histórica de noche,
+     cuando --bg se aclaró de #0a0e16 a #141b28 y los degradados no siguieron). */
+  --bg-rgb:          20, 27, 40;
   --bg-elevated:     #1b2334;  /* handoff --mat   · passe-partout / realce */
   --bg-soft:         #111825;  /* handoff --panel · franjas alternas */
   --panel:           #111825;  /* handoff --panel */
@@ -66,7 +72,7 @@
      el peor caso en 4.92. */
   --hero-accent:   #f5dfa0;              /* eyebrow, autor, enlace activo */
   --hero-rule:     #c3a24a;              /* subrayado activo, borde del toggle */
-  --hero-surface:  rgba(10, 14, 22, 0.96); /* panel del menú móvil desplegado */
+  --hero-surface:  rgba(var(--bg-rgb), 0.96); /* panel del menú móvil desplegado */
   /* Plaqueta del rombo: --bg pinta las líneas, --text el fondo. De noche,
      plaqueta marfil con líneas de tinta (ver Header, variante overlay). */
   --hero-logo-bg:   #10131a;
@@ -97,11 +103,11 @@
      la cintura era la otra salida y se pagaba en mural tapado. */
   --hero-gradiente: linear-gradient(
     180deg,
-    rgba(10, 14, 22, 0.72) 0,
-    rgba(10, 14, 22, 0.68) 72px,
-    rgba(10, 14, 22, 0.30) 40%,
-    rgba(10, 14, 22, 0.60) 74%,
-    rgba(10, 14, 22, 0.99) 100%
+    rgba(var(--bg-rgb), 0.72) 0,
+    rgba(var(--bg-rgb), 0.68) 72px,
+    rgba(var(--bg-rgb), 0.30) 40%,
+    rgba(var(--bg-rgb), 0.60) 74%,
+    rgba(var(--bg-rgb), 0.99) 100%
   );
 
   /* Velo inferior sobre las ilustraciones de tarjeta y los tiles de autor a
@@ -110,10 +116,10 @@
      vive en el tramo bajo (≈0–28%) donde el velo es casi opaco. Sigue al tema. */
   --card-veil: linear-gradient(
     to top,
-    rgba(10, 14, 22, 0.97) 0,
-    rgba(10, 14, 22, 0.74) 24%,
-    rgba(10, 14, 22, 0.12) 55%,
-    rgba(10, 14, 22, 0) 72%
+    rgba(var(--bg-rgb), 0.97) 0,
+    rgba(var(--bg-rgb), 0.74) 24%,
+    rgba(var(--bg-rgb), 0.12) 55%,
+    rgba(var(--bg-rgb), 0) 72%
   );
 
   /* === Typography (base) === */
@@ -198,6 +204,7 @@
 [data-theme='day'] {
   /* Fondos */
   --bg:              #ece4d2;  /* handoff --bg    · papel crema */
+  --bg-rgb:          236, 228, 210;  /* espejo de --bg para los velos (ver noche) */
   --bg-elevated:     #e3d9c4;  /* handoff --mat */
   --bg-soft:         #e7ddc8;  /* handoff --panel */
   --panel:           #e7ddc8;  /* handoff --panel */
@@ -257,7 +264,7 @@
   --hero-ink-soft: #3a4457;             /* = --text-soft */
   --hero-accent:   #1a2233;
   --hero-rule:     #705410;              /* = --oro día · subrayado/borde (regla, no texto) */
-  --hero-surface:  rgba(236, 228, 210, 0.96);
+  --hero-surface:  rgba(var(--bg-rgb), 0.96);
   /* Rombo invertido: plaqueta de tinta con líneas de papel. Con los valores de
      noche (plaqueta marfil) desaparecería sobre el velo crema. */
   --hero-logo-bg:   #ece4d2;
@@ -274,20 +281,20 @@
      aguanta de sobra) y el pie sube (ahí vive el texto). Peor caso 4.94. */
   --hero-gradiente: linear-gradient(
     180deg,
-    rgba(236, 228, 210, 0.62) 0,
-    rgba(236, 228, 210, 0.58) 72px,
-    rgba(236, 228, 210, 0.40) 40%,
-    rgba(236, 228, 210, 0.70) 74%,
-    rgba(236, 228, 210, 0.99) 100%
+    rgba(var(--bg-rgb), 0.62) 0,
+    rgba(var(--bg-rgb), 0.58) 72px,
+    rgba(var(--bg-rgb), 0.40) 40%,
+    rgba(var(--bg-rgb), 0.70) 74%,
+    rgba(var(--bg-rgb), 0.99) 100%
   );
 
   /* Velo de papel para tarjetas/tiles en día (handoff: 0.98 → 0.80 → 0.15 → 0). */
   --card-veil: linear-gradient(
     to top,
-    rgba(236, 228, 210, 0.98) 0,
-    rgba(236, 228, 210, 0.80) 24%,
-    rgba(236, 228, 210, 0.15) 55%,
-    rgba(236, 228, 210, 0) 72%
+    rgba(var(--bg-rgb), 0.98) 0,
+    rgba(var(--bg-rgb), 0.80) 24%,
+    rgba(var(--bg-rgb), 0.15) 55%,
+    rgba(var(--bg-rgb), 0) 72%
   );
 }
 
