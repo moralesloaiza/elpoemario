@@ -5,6 +5,7 @@ resumen: "Poema festivo anónimo en pareados: Ursulina prohíbe a Paco fumar y
 fecha: 2025-02-17
 fecha_actualizada: 2026-08-01
 ilustracion: ../../assets/uploads/poema-el-tabaco.png
+spotify_url: https://open.spotify.com/episode/3JE3KJD9f7kYfV2Z05SoaJ?si=Ghpx63iqTs2GK8xQoRUegw
 borrador: false
 tipo: pareado
 movimiento: popular-tradicional
