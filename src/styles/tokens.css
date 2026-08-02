@@ -79,6 +79,17 @@
      costaba entre un 15% y un 37% de ilustración visible. */
   --hero-img-filtro: brightness(0.75);
 
+  /* Sombra/halo de los títulos sobre el mural (.hero-titulo, .autor-hero-nombre
+     y —variante sm— .tile-nombre). Es negra en ambos temas, pero el tema decide
+     la opacidad: de noche el título es tinta clara sobre mural oscurecido, así
+     que la sombra necesita MÁS cuerpo para leerse como halo y sostener el
+     contraste sobre las zonas claras del mural; de día (bloque gemelo) basta
+     menos porque la tinta oscura sobre velo de papel ya contrasta. Tokenizada
+     para que el halo sea consistente entre día y noche (antes iba fija y de
+     noche se fundía con el fondo → invisible). */
+  --hero-title-shadow:    0 2px 24px rgba(0, 0, 0, 0.7);
+  --hero-title-shadow-sm: 0 1px 12px rgba(0, 0, 0, 0.55);
+
   /* Degradado del hero con imagen (handoff 4a), aligerado por arriba.
      Su punto más claro (0.30 al 40%) cae JUSTO bajo el texto: está oscuro donde
      no hay nada y claro donde hay que leer. Aun así se conserva tal cual, porque
@@ -253,6 +264,11 @@
   --hero-logo-text: #1a2233;
 
   --hero-img-filtro: contrast(0.6) brightness(1.18);
+
+  /* Halo de los títulos sobre el mural, gemelo del de noche. Menos cuerpo: la
+     tinta oscura sobre el velo de papel ya contrasta y el halo se lee con poco. */
+  --hero-title-shadow:    0 2px 24px rgba(0, 0, 0, 0.5);
+  --hero-title-shadow-sm: 0 1px 12px rgba(0, 0, 0, 0.35);
 
   /* Espejo del degradado de noche: el techo baja (arriba solo está la nav, que
      aguanta de sobra) y el pie sube (ahí vive el texto). Peor caso 4.94. */
@@ -485,7 +501,7 @@ input:focus-visible,
   text-transform: none;
   color: var(--hero-title);
   margin: 0 0 var(--space-sm);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  text-shadow: var(--hero-title-shadow);
   text-wrap: balance;
 }
 .hero-titulo a {
