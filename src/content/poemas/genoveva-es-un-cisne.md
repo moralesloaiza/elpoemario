@@ -5,8 +5,8 @@ resumen: "Retrato de la amistad en clave de fábula: un cisne llamado Genoveva
   desde su propia aspereza y encuentra en sus alas el descanso del viaje."
 fecha: 2026-08-02
 fecha_actualizada: 2026-08-02
-ilustracion: ../../assets/uploads/poema-genoveva-es-un-cisne.png
-borrador: true
+ilustracion: ../../assets/uploads/genoveva-es-un-cisne.png
+borrador: false
 tipo: cuarteto
 movimiento: contemporaneo
 temas:
