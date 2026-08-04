@@ -49,9 +49,28 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   <div class="tm-legend">
     <div class="tm-item"><span class="tm-sw tm-gold">11</span> sílabas métricas del verso</div>
     <div class="tm-item"><span class="tm-sw tm-tie">‿</span> sinalefa — <b>haz clic</b> para cortarla (dialefa)</div>
+    <div class="tm-item" id="tm-leyenda-cesura" hidden><span class="tm-sw tm-tie">‖</span> cesura del alejandrino (dos hemistiquios de 7)</div>
     <div class="tm-item"><span class="tm-sw tm-gold">A</span> rima (misma letra = mismo sonido)</div>
     <div class="tm-item"><span class="tm-sw tm-warn">△</span> no cuadra con el metro: posible licencia</div>
   </div>
+
+  <section class="tm-rimas">
+    <div class="tm-rimas-head">
+      <button class="tm-mini-btn" id="rimasBtn" type="button" aria-expanded="false" aria-controls="rimasPanel">Buscar rimas</button>
+      <span class="tm-rimas-target" id="rimasTarget"></span>
+    </div>
+    <div class="tm-rimas-panel" id="rimasPanel" hidden>
+      <div class="tm-rimas-group">
+        <div class="tm-rimas-label">Rima consonante <span class="tm-rimas-hint">mismo sonido desde la tónica</span></div>
+        <div class="tm-rimas-words" id="rimasCons"></div>
+      </div>
+      <div class="tm-rimas-group">
+        <div class="tm-rimas-label">Rima asonante <span class="tm-rimas-hint">solo las vocales</span></div>
+        <div class="tm-rimas-words" id="rimasAson"></div>
+      </div>
+      <p class="tm-rimas-nota">Palabras del diccionario que riman con la última del verso donde tienes el cursor. Las del propio Poemario salen primero.</p>
+    </div>
+  </section>
 
   <section class="tm-share">
     <h2 class="tm-share-head">Guarda tu escansión o compártela</h2>
@@ -125,10 +144,15 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   /* ---------- espacio de trabajo ---------- */
   .taller-metrico .tm-work {
     display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: var(--space-lg); align-items: start;
+    gap: var(--space-lg); align-items: stretch;
   }
+  /* Ambos paneles se estiran a la altura de la fila (la marca el panel más
+     alto, casi siempre el manuscrito). Como columna flex, la cabecera se queda
+     con su alto y el cuerpo —textarea o manuscrito— llena el resto, de modo que
+     el editor crece a la par del análisis en poemas largos. */
   .taller-metrico .tm-pane {
     background: var(--mat); border: 1px solid var(--line); overflow: hidden;
+    display: flex; flex-direction: column;
   }
   .taller-metrico .tm-pane-head {
     display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
@@ -147,7 +171,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   .taller-metrico .tm-mini-btn.on { color: var(--btn-ink); background: var(--oro); border-color: var(--oro); }
 
   .taller-metrico textarea#editor {
-    width: 100%; min-height: 460px; resize: vertical;
+    width: 100%; flex: 1 1 auto; min-height: 460px; resize: vertical;
     border: 0; background: var(--panel); color: var(--text);
     font-family: var(--font-prose); font-size: var(--fs-md); line-height: 1.9;
     padding: var(--space-lg); letter-spacing: .01em;
@@ -185,6 +209,12 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   .taller-metrico .tie:hover { color: var(--oro); background: var(--hover-tint); }
   .taller-metrico .tie.broken { color: var(--granate); opacity: .9; font-weight: 600; }
 
+  /* signo de cesura del alejandrino (‖): hiato obligado, no es interactivo */
+  .taller-metrico .caesura {
+    color: var(--oro-texto); font-weight: 700; font-family: inherit;
+    user-select: none; padding: 0 .05em; opacity: .85;
+  }
+
   .taller-metrico .flag {
     font-family: var(--font-body); font-style: italic; font-size: var(--fs-2xs);
     color: var(--granate); display: block; margin-top: 2px;
@@ -209,10 +239,59 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-soft);
   }
   .taller-metrico .tm-item { display: flex; align-items: center; gap: var(--space-xs); }
+  .taller-metrico .tm-item[hidden] { display: none; }
   .taller-metrico .tm-sw { width: 1.4rem; text-align: center; font-family: var(--font-prose); }
   .taller-metrico .tm-sw.tm-gold { color: var(--oro); font-weight: 700; }
   .taller-metrico .tm-sw.tm-tie { color: var(--oro-texto); font-weight: 700; }
   .taller-metrico .tm-sw.tm-warn { color: var(--granate); font-weight: 700; }
+
+  /* ---------- banco de rimas ---------- */
+  .taller-metrico .tm-rimas {
+    margin-top: var(--space-lg); border-top: 1px solid var(--line);
+    padding-top: var(--space-md);
+  }
+  .taller-metrico .tm-rimas-head {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--space-sm) var(--space-md);
+  }
+  .taller-metrico .tm-rimas-target {
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-sm);
+    color: var(--text-muted);
+  }
+  .taller-metrico .tm-rimas-panel {
+    margin-top: var(--space-md);
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);
+  }
+  .taller-metrico .tm-rimas-group { min-width: 0; }
+  .taller-metrico .tm-rimas-label {
+    font-family: var(--font-display); font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider); text-transform: uppercase;
+    color: var(--oro); font-weight: var(--fw-semibold);
+    margin-bottom: var(--space-sm);
+  }
+  .taller-metrico .tm-rimas-hint {
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-2xs);
+    letter-spacing: 0; text-transform: none; color: var(--text-faint); font-weight: 400;
+  }
+  .taller-metrico .tm-rimas-words {
+    display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-xs);
+  }
+  .taller-metrico .tm-chip-rima {
+    font-family: var(--font-prose); font-size: var(--fs-sm); color: var(--verse);
+    padding: 2px var(--space-xs); border: var(--rule-hairline) solid var(--line);
+    background: var(--panel); white-space: nowrap;
+  }
+  .taller-metrico .tm-rimas-empty {
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-sm);
+    color: var(--text-faint);
+  }
+  .taller-metrico .tm-rimas-nota {
+    grid-column: 1 / -1; margin: 0;
+    font-family: var(--font-body); font-style: italic; font-size: var(--fs-xs);
+    color: var(--text-muted);
+  }
+  @media (max-width: 560px) {
+    .taller-metrico .tm-rimas-panel { grid-template-columns: 1fr; gap: var(--space-md); }
+  }
 
   /* ---------- guardar y compartir ---------- */
   .taller-metrico .tm-share {
