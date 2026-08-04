@@ -304,6 +304,11 @@
   const output = document.getElementById("output");
   const syllBtn = document.getElementById("syllBtn");
   const legendCesura = document.getElementById("tm-leyenda-cesura");
+  const rimasBtn = document.getElementById("rimasBtn");
+  const rimasPanel = document.getElementById("rimasPanel");
+  const rimasTarget = document.getElementById("rimasTarget");
+  const rimasCons = document.getElementById("rimasCons");
+  const rimasAson = document.getElementById("rimasAson");
   let showSyll = false;
 
   // Slugs de forma con ficha en /tipos/<slug>/ (inyectados por el componente).
@@ -872,6 +877,103 @@
       avisar(ok
         ? "Análisis copiado. Pégalo donde quieras guardarlo."
         : "No pude copiar automáticamente. Usa «Descargar el análisis».");
+    });
+  }
+
+  /* ============================================================
+     BANCO DE RIMAS — sugiere palabras del diccionario que riman con la última
+     del verso donde está el cursor. El índice es estático (public/taller/rimas/),
+     repartido por terminación asonante; se descarga solo el shard necesario
+     (1–11 KB) y se cachea. Las claves las calcula el mismo rhymeKeys de arriba,
+     así que las sugerencias casan con la rima que detecta la escansión.
+     ============================================================ */
+  const RIMAS_BASE = "/taller/rimas/";
+  const MOSTRAR_RIMAS = 40;           // tope por columna
+  let rimasManifestP = null;          // promesa del manifest (dedupe en vuelo)
+  const rimasCache = new Map();       // ason -> Promise<shard | null>
+  let rimasOpen = false;
+  let rimasSeq = 0;                   // descarta respuestas asíncronas obsoletas
+
+  // Se cachean las PROMESAS, no los resultados: si dos búsquedas piden el mismo
+  // archivo antes de que llegue, comparten un solo fetch en vez de duplicarlo.
+  function rimasCargarManifest() {
+    if (!rimasManifestP) {
+      rimasManifestP = fetch(RIMAS_BASE + "manifest.json")
+        .then(r => (r.ok ? r.json() : { shards: [] }))
+        .then(j => new Set(j.shards))
+        .catch(() => new Set());
+    }
+    return rimasManifestP;
+  }
+  function rimasCargarShard(ason) {
+    if (!rimasCache.has(ason)) {
+      rimasCache.set(ason, fetch(RIMAS_BASE + ason + ".json")
+        .then(r => (r.ok ? r.json() : null))
+        .catch(() => null));
+    }
+    return rimasCache.get(ason);
+  }
+
+  // última palabra del verso donde está el caret; si no, la última del texto
+  function palabraDelCaret() {
+    const val = editor.value;
+    let pos = editor.selectionStart; if (pos == null) pos = val.length;
+    const ini = val.lastIndexOf("\n", pos - 1) + 1;
+    let fin = val.indexOf("\n", pos); if (fin === -1) fin = val.length;
+    const enLinea = val.slice(ini, fin).match(WORD_RE);
+    if (enLinea && enLinea.length) return enLinea[enLinea.length - 1];
+    const todo = val.match(WORD_RE);
+    return todo && todo.length ? todo[todo.length - 1] : null;
+  }
+
+  function pintarChips(cont, palabras) {
+    cont.innerHTML = palabras.length
+      ? palabras.map(x => '<span class="tm-chip-rima">' + esc(x) + "</span>").join("")
+      : '<span class="tm-rimas-empty">—</span>';
+  }
+
+  async function actualizarRimas() {
+    if (!rimasOpen) return;
+    const seq = ++rimasSeq;
+    const w = palabraDelCaret();
+    if (!w) {
+      rimasTarget.textContent = "· escribe un verso";
+      pintarChips(rimasCons, []); pintarChips(rimasAson, []);
+      return;
+    }
+    const wl = w.normalize("NFC").toLowerCase();
+    rimasTarget.textContent = "· para «" + w + "»";
+    let k; try { k = rhymeKeys(wl); } catch { k = null; }
+    const manifest = await rimasCargarManifest();
+    if (seq !== rimasSeq) return;                 // llegó otra petición: aborta
+    if (!k || !manifest.has(k.ason)) {
+      pintarChips(rimasCons, []); pintarChips(rimasAson, []);
+      return;
+    }
+    const shard = await rimasCargarShard(k.ason);
+    if (seq !== rimasSeq) return;
+    const consAll = (shard && shard.c[k.cons]) ? shard.c[k.cons] : [];
+    const consSet = new Set(consAll);
+    const cons = consAll.filter(x => x !== wl).slice(0, MOSTRAR_RIMAS);
+    const ason = (shard && shard.a ? shard.a : []).filter(x => x !== wl && !consSet.has(x)).slice(0, MOSTRAR_RIMAS);
+    pintarChips(rimasCons, cons);
+    pintarChips(rimasAson, ason);
+  }
+
+  if (rimasBtn) {
+    rimasBtn.addEventListener("click", () => {
+      rimasOpen = !rimasOpen;
+      rimasPanel.hidden = !rimasOpen;
+      rimasBtn.setAttribute("aria-expanded", String(rimasOpen));
+      rimasBtn.classList.toggle("on", rimasOpen);
+      rimasBtn.textContent = rimasOpen ? "Ocultar rimas" : "Buscar rimas";
+      if (rimasOpen) actualizarRimas();
+    });
+    const alMover = () => { if (rimasOpen) actualizarRimas(); };
+    editor.addEventListener("keyup", alMover);
+    editor.addEventListener("click", alMover);
+    document.addEventListener("selectionchange", () => {
+      if (rimasOpen && document.activeElement === editor) actualizarRimas();
     });
   }
 

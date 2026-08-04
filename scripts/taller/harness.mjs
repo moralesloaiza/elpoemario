@@ -35,7 +35,7 @@ export function cargarMotor() {
   const EXPORTA =
     '\n  globalThis.__TM__ = { analyzeLine, detectForm, groupStanzas, fitToMeter, mode, ' +
     'classifyStanza, romanceKind, schemeOf, syllabify, formaToSlug, rhymeShare, nearPattern, ' +
-    'hemistichSplit };\n';
+    'hemistichSplit, rhymeKeys };\n';
   const i = codigo.lastIndexOf('  render();');
   if (i === -1) {
     throw new Error(
