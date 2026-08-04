@@ -49,6 +49,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   <div class="tm-legend">
     <div class="tm-item"><span class="tm-sw tm-gold">11</span> sílabas métricas del verso</div>
     <div class="tm-item"><span class="tm-sw tm-tie">‿</span> sinalefa — <b>haz clic</b> para cortarla (dialefa)</div>
+    <div class="tm-item" id="tm-leyenda-cesura" hidden><span class="tm-sw tm-tie">‖</span> cesura del alejandrino (dos hemistiquios de 7)</div>
     <div class="tm-item"><span class="tm-sw tm-gold">A</span> rima (misma letra = mismo sonido)</div>
     <div class="tm-item"><span class="tm-sw tm-warn">△</span> no cuadra con el metro: posible licencia</div>
   </div>
@@ -125,10 +126,15 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   /* ---------- espacio de trabajo ---------- */
   .taller-metrico .tm-work {
     display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: var(--space-lg); align-items: start;
+    gap: var(--space-lg); align-items: stretch;
   }
+  /* Ambos paneles se estiran a la altura de la fila (la marca el panel más
+     alto, casi siempre el manuscrito). Como columna flex, la cabecera se queda
+     con su alto y el cuerpo —textarea o manuscrito— llena el resto, de modo que
+     el editor crece a la par del análisis en poemas largos. */
   .taller-metrico .tm-pane {
     background: var(--mat); border: 1px solid var(--line); overflow: hidden;
+    display: flex; flex-direction: column;
   }
   .taller-metrico .tm-pane-head {
     display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
@@ -147,7 +153,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   .taller-metrico .tm-mini-btn.on { color: var(--btn-ink); background: var(--oro); border-color: var(--oro); }
 
   .taller-metrico textarea#editor {
-    width: 100%; min-height: 460px; resize: vertical;
+    width: 100%; flex: 1 1 auto; min-height: 460px; resize: vertical;
     border: 0; background: var(--panel); color: var(--text);
     font-family: var(--font-prose); font-size: var(--fs-md); line-height: 1.9;
     padding: var(--space-lg); letter-spacing: .01em;
@@ -185,6 +191,12 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   .taller-metrico .tie:hover { color: var(--oro); background: var(--hover-tint); }
   .taller-metrico .tie.broken { color: var(--granate); opacity: .9; font-weight: 600; }
 
+  /* signo de cesura del alejandrino (‖): hiato obligado, no es interactivo */
+  .taller-metrico .caesura {
+    color: var(--oro-texto); font-weight: 700; font-family: inherit;
+    user-select: none; padding: 0 .05em; opacity: .85;
+  }
+
   .taller-metrico .flag {
     font-family: var(--font-body); font-style: italic; font-size: var(--fs-2xs);
     color: var(--granate); display: block; margin-top: 2px;
@@ -209,6 +221,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-soft);
   }
   .taller-metrico .tm-item { display: flex; align-items: center; gap: var(--space-xs); }
+  .taller-metrico .tm-item[hidden] { display: none; }
   .taller-metrico .tm-sw { width: 1.4rem; text-align: center; font-family: var(--font-prose); }
   .taller-metrico .tm-sw.tm-gold { color: var(--oro); font-weight: 700; }
   .taller-metrico .tm-sw.tm-tie { color: var(--oro-texto); font-weight: 700; }

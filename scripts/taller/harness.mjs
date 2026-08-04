@@ -34,7 +34,8 @@ export function cargarMotor() {
   let codigo = fs.readFileSync(MOTOR, 'utf8');
   const EXPORTA =
     '\n  globalThis.__TM__ = { analyzeLine, detectForm, groupStanzas, fitToMeter, mode, ' +
-    'classifyStanza, romanceKind, schemeOf, syllabify, formaToSlug, rhymeShare, nearPattern };\n';
+    'classifyStanza, romanceKind, schemeOf, syllabify, formaToSlug, rhymeShare, nearPattern, ' +
+    'hemistichSplit };\n';
   const i = codigo.lastIndexOf('  render();');
   if (i === -1) {
     throw new Error(
@@ -68,16 +69,29 @@ export function detectarForma(TM, texto) {
   const analizados = texto.split('\n').map(TM.analyzeLine);
   const activos = analizados.filter(Boolean);
   if (!activos.length) return { forma: '—', versos: 0 };
-  const metroDom = TM.mode(activos.map((a) => a.metric));
-  const regular = activos.filter((a) => a.metric === metroDom).length / activos.length >= 0.5;
-  const ajustados = analizados.map((a) =>
-    a ? { ...a, metric: (regular ? TM.fitToMeter(a, metroDom) : { metric: a.metric }).metric } : null,
-  );
+
+  // Alejandrino: cada verso busca su cesura 7 + 7; si al menos la mitad parten
+  // limpios, la forma se detecta sobre una vista con la medida de hemistiquios
+  // (14), igual que en render(). hemistichSplit puede faltar en motores viejos.
+  activos.forEach((a) => { a.hemi = TM.hemistichSplit ? TM.hemistichSplit(a) : null; });
+  const alejandrino =
+    activos.length >= 2 &&
+    activos.filter((a) => a.hemi && a.hemi.isAlej).length / activos.length >= 0.5;
+  const medida = (a) => (alejandrino && a.hemi ? a.hemi.m1 + a.hemi.m2 : a.metric);
+
+  const metroDom = alejandrino ? 14 : TM.mode(activos.map((a) => a.metric));
+  const regular = activos.filter((a) => medida(a) === metroDom).length / activos.length >= 0.5;
+  const ajustados = analizados.map((a) => {
+    if (!a) return null;
+    if (alejandrino && a.hemi) return { ...a, metric: a.hemi.m1 + a.hemi.m2 };
+    return { ...a, metric: (regular ? TM.fitToMeter(a, metroDom) : { metric: a.metric }).metric };
+  });
   return {
     forma: TM.detectForm(ajustados.filter(Boolean), TM.groupStanzas(ajustados)),
     versos: activos.length,
     metroDom,
     regular,
+    alejandrino,
   };
 }
 

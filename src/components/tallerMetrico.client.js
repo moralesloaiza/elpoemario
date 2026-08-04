@@ -231,6 +231,41 @@
     return { metric: line.metric, license: null };
   }
 
+  // Parte un verso en dos hemistiquios buscando la cesura del alejandrino: la
+  // frontera de palabra que deja 7 sílabas en cada mitad. Aplica las dos reglas
+  // de la cesura: (1) la sinalefa NO la cruza —hiato obligado en la pausa, por
+  // eso no se descuenta la sinalefa que caería justo en el corte— y (2) cada
+  // hemistiquio cuenta su propio acento final, así que un primer hemistiquio
+  // agudo suma +1 igual que un verso agudo. Devuelve el mejor corte (k = índice
+  // de la última palabra del primer hemistiquio) con sus medidas m1/m2, o null
+  // si el verso tiene menos de dos palabras.
+  function hemistichSplit(a) {
+    const W = a.words;
+    if (W.length < 2) return null;
+    let best = null;
+    for (let k = 0; k < W.length - 1; k++) {
+      let nat1 = 0; for (let i = 0; i <= k; i++) nat1 += W[i].sylls.length;
+      let sin1 = 0; for (let i = 0; i < k; i++) if (a.sinalefa[i]) sin1++;
+      const m1 = nat1 - sin1 + finalStressAdj(W[k].sylls);
+
+      let nat2 = 0; for (let i = k + 1; i < W.length; i++) nat2 += W[i].sylls.length;
+      let sin2 = 0; for (let i = k + 1; i < W.length - 1; i++) if (a.sinalefa[i]) sin2++;
+      const m2 = nat2 - sin2 + finalStressAdj(W[W.length - 1].sylls);
+
+      // coste = distancia a 7 + 7; desempata el 1.er hemistiquio exacto y luego
+      // el corte más centrado.
+      const cost = Math.abs(m1 - 7) + Math.abs(m2 - 7);
+      const skew = Math.abs(m1 - 7);
+      const mid = Math.abs((k + 1) - W.length / 2);
+      if (!best || cost < best.cost ||
+          (cost === best.cost && skew < best.skew) ||
+          (cost === best.cost && skew === best.skew && mid < best.mid)) {
+        best = { k, m1, m2, cost, skew, mid };
+      }
+    }
+    return { k: best.k, m1: best.m1, m2: best.m2, isAlej: best.m1 === 7 && best.m2 === 7 };
+  }
+
   const WORD_RE = /[A-Za-zÁÉÍÓÚÜÏÑáéíóúüïñÀÈÌÒÙàèìòù'’]+/g;
 
   // analiza una línea (verso). devuelve estructura o null si vacía
@@ -268,6 +303,7 @@
   const editor = document.getElementById("editor");
   const output = document.getElementById("output");
   const syllBtn = document.getElementById("syllBtn");
+  const legendCesura = document.getElementById("tm-leyenda-cesura");
   let showSyll = false;
 
   // Slugs de forma con ficha en /tipos/<slug>/ (inyectados por el componente).
@@ -315,6 +351,15 @@
     return { ok: false, ui: cab + ui, txt: cab + txt };
   }
 
+  // Nota de un verso en un poema de alejandrinos: comprueba el 7 + 7. Calla
+  // cuando ambos hemistiquios miden 7 (verso correcto); si no, dice cuánto mide
+  // cada mitad para que el poeta sepa dónde ajustar la cesura.
+  function notaHemistiquio(m1, m2) {
+    if (m1 === 7 && m2 === 7) return null;
+    const t = "△ hemistiquios *" + m1 + "* + *" + m2 + "* — el alejandrino pide 7 + 7";
+    return { ok: false, ui: t, txt: t };
+  }
+
   // ---- estado de licencias manuales (dialefa: sinalefas que el usuario corta) ----
   const manualBreaks = new Set();
   let lastAnalyzed = [];
@@ -331,13 +376,18 @@
     return st;
   };
 
-  function buildVerseHTML(a, li) {
+  function buildVerseHTML(a, li, caesuraK) {
     let html = "";
     for (let i = 0; i < a.words.length; i++) {
       html += esc(a.words[i].text);
       if (i < a.words.length - 1) {
         const gap = a.raw.substring(a.words[i].end, a.words[i + 1].start);
-        if (a.sinalefa[i]) {
+        if (caesuraK != null && i === caesuraK) {
+          // La cesura impone hiato: rompe cualquier sinalefa en la pausa. Se
+          // pinta ‖ (conservando la puntuación del original) y no admite clic.
+          html += esc(gap.replace(/\s+$/, "")) +
+            ' <span class="caesura" title="Cesura del alejandrino — la sinalefa no la cruza (hiato)">‖</span> ';
+        } else if (a.sinalefa[i]) {
           const broken = manualBreaks.has(lineKey(a) + "|" + i);
           html += esc(gap.replace(/\s/, "")) +
             '<button class="tie' + (broken ? ' broken' : '') + '" data-id="' + li + '_' + i + '" type="button" ' +
@@ -360,9 +410,23 @@
     lastAnalyzed = analyzed;
     const active = analyzed.filter(Boolean);
 
-    // metro dominante (moda) sobre el conteo natural
-    const domMeter = active.length ? mode(active.map(a => a.metric)) : null;
-    const best = domMeter != null ? active.filter(a => a.metric === domMeter).length : 0;
+    // ---- hemistiquios: ¿poema en alejandrinos (7 + 7)? ----
+    // Cada verso busca su cesura; el poema es alejandrino si al menos la mitad
+    // de los versos parten limpios en dos hemistiquios de 7. La detección es
+    // independiente del metro de bloque, así que reconoce alejandrinos aunque el
+    // primer hemistiquio agudo haga que el verso «entero» mida 13.
+    active.forEach(a => { a.hemi = hemistichSplit(a); });
+    const alejandrino = active.length >= 2 &&
+      active.filter(a => a.hemi && a.hemi.isAlej).length / active.length >= 0.5;
+    if (legendCesura) legendCesura.hidden = !alejandrino;
+
+    // medida efectiva del verso: en alejandrinos, la suma de los dos
+    // hemistiquios (que ya cuenta la cesura); en el resto, la medida de bloque.
+    const lineMetric = a => (alejandrino && a.hemi) ? a.hemi.m1 + a.hemi.m2 : a.metric;
+
+    // metro dominante (moda) sobre el conteo natural; en alejandrinos, 14 fijo.
+    const domMeter = active.length ? (alejandrino ? 14 : mode(active.map(a => a.metric))) : null;
+    const best = domMeter != null ? active.filter(a => lineMetric(a) === domMeter).length : 0;
     const regular = active.length ? best / active.length >= 0.5 : false;
 
     // esquema de rima: elegir consonante vs asonante por nº de coincidencias
@@ -401,8 +465,9 @@
     if (domMeter != null) {
       setText("s-meter", cap(verseName(domMeter)));
       const pct = Math.round((best / active.length) * 100);
+      const clase = domMeter <= 8 ? "arte menor" : "arte mayor";
       document.getElementById("s-meter-sub").textContent =
-        (domMeter <= 8 ? "arte menor" : "arte mayor") + " · " + pct + "% de los versos";
+        clase + (alejandrino ? " · cesura 7 + 7" : "") + " · " + pct + "% de los versos";
     } else { setText("s-meter", "—"); document.getElementById("s-meter-sub").textContent = " "; }
 
     const schemeStr = chosen.letters.map(l => l.mayor ? l.letter : l.letter.toLowerCase()).join("");
@@ -413,6 +478,7 @@
     // ---- forma: se detecta sobre una vista AJUSTADA por licencias (si el poema es regular) ----
     const adjView = analyzed.map(a => {
       if (!a) return null;
+      if (alejandrino && a.hemi) return Object.assign({}, a, { metric: a.hemi.m1 + a.hemi.m2 });
       const fit = regular ? fitToMeter(a, domMeter) : { metric: a.metric, license: null };
       return Object.assign({}, a, { metric: fit.metric });
     });
@@ -441,15 +507,30 @@
         return;
       }
       const broken = brokenCount(a);
-      const dispM = a.metric + broken;                     // dialefas del usuario suman +1 cada una
+      let dispM, nota, caesuraK = null, caesuraFits = false;
+      if (alejandrino && a.hemi) {
+        // reparte las dialefas manuales entre los dos hemistiquios para que el
+        // aviso 7 + 7 cuadre con la cifra total del margen.
+        let b1 = 0;
+        for (let i = 0; i < a.hemi.k; i++)
+          if (a.sinalefa[i] && manualBreaks.has(lineKey(a) + "|" + i)) b1++;
+        const m1 = a.hemi.m1 + b1, m2 = a.hemi.m2 + (broken - b1);
+        dispM = m1 + m2;
+        caesuraK = a.hemi.k;
+        caesuraFits = !!a.sinalefa[a.hemi.k];   // la cesura rescató una sinalefa
+        nota = notaHemistiquio(m1, m2);
+      } else {
+        dispM = a.metric + broken;              // dialefas del usuario suman +1 cada una
+        nota = notaVerso(a, dispM, domMeter, broken);
+      }
       const off = domMeter != null && dispM !== domMeter;
+      const fitted = !off && (alejandrino ? caesuraFits : broken > 0);
       const ll = lineLetters[idx];
       const letra = ll && ll.letter !== "–" ? (ll.mayor ? ll.letter : ll.letter.toLowerCase()) : "·";
       const letterHTML = ll && ll.letter !== "–"
         ? '<div class="rhyme-letter set" data-key="' + ll.key + '">' + letra + '</div>'
         : '<div class="rhyme-letter">·</div>';
 
-      const nota = notaVerso(a, dispM, domMeter, broken);
       const flag = nota
         ? '<span class="flag' + (nota.ok ? " ok" : "") + '">' + destacar(esc(nota.ui)) + '</span>'
         : "";
@@ -461,14 +542,17 @@
         let joined = "";
         for (let i = 0; i < parts.length; i++) {
           joined += parts[i];
-          if (i < parts.length - 1) joined += (a.sinalefa[i] && !manualBreaks.has(lineKey(a) + "|" + i)) ? "‿" : " ";
+          if (i < parts.length - 1) {
+            if (caesuraK != null && i === caesuraK) joined += " ‖ ";
+            else joined += (a.sinalefa[i] && !manualBreaks.has(lineKey(a) + "|" + i)) ? "‿" : " ";
+          }
         }
         syllLine = '<span class="syllas">' + esc(joined) + '</span>';
       }
 
-      html += '<div class="verse-row ' + (off ? "off" : "") + (broken > 0 && !off ? " fitted" : "") + '" data-key="' + (ll && ll.key ? ll.key : "") + '">' +
+      html += '<div class="verse-row ' + (off ? "off" : "") + (fitted ? " fitted" : "") + '" data-key="' + (ll && ll.key ? ll.key : "") + '">' +
                 '<div class="gutter">' + dispM + '</div>' +
-                '<div class="verse-text">' + buildVerseHTML(a, idx) + flag + syllLine + '</div>' +
+                '<div class="verse-text">' + buildVerseHTML(a, idx, caesuraK) + flag + syllLine + '</div>' +
                 letterHTML +
               '</div>';
     });
