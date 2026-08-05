@@ -122,7 +122,12 @@ function main() {
     }
     todas.sort(cmp);
     const a = todas.slice(0, CAP_ASONANTE);
-    const json = JSON.stringify({ c, a });
+    // p: palabras del corpus de El Poemario entre las EMITIDAS (las que pueden
+    // mostrarse), para que el cliente las marque con un borde dorado sutil.
+    const emitidas = new Set(a);
+    for (const cons in c) for (const w of c[cons]) emitidas.add(w);
+    const p = [...emitidas].filter((w) => corpus.has(w));
+    const json = JSON.stringify({ c, a, p });
     fs.writeFileSync(path.join(SALIDA, ason + '.json'), json);
     totalRaw += json.length;
     manifest.push(ason);
