@@ -32,7 +32,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   <div class="tm-work">
     <div class="tm-pane">
       <div class="tm-pane-head"><span>Manuscrito</span></div>
-      <textarea id="editor" spellcheck="false" aria-label="Editor de poema"></textarea>
+      <textarea id="editor" spellcheck="false" aria-label="Editor de poema" placeholder="Pega o escribe aquí tu poema…"></textarea>
     </div>
 
     <div class="tm-pane">
@@ -133,6 +133,12 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
   }
   .taller-metrico .tm-value.tm-scheme { font-size: var(--fs-md); letter-spacing: .08em; word-break: break-all; }
   .taller-metrico .tm-value.tm-form { font-size: var(--fs-md); }
+  /* Estado vacío: el valor es una invitación, no un dato ausente. Itálica de
+     menor peso y color atenuado para que no se lea como un campo roto. */
+  .taller-metrico .tm-value.is-empty {
+    font-style: italic; font-weight: 400; font-size: var(--fs-md);
+    letter-spacing: 0; color: var(--text-muted);
+  }
   .taller-metrico .tm-forma-link { color: var(--oro-texto); text-decoration: none; border-bottom: 1px solid transparent; }
   .taller-metrico .tm-forma-link:hover,
   .taller-metrico .tm-forma-link:focus-visible { color: var(--oro); border-bottom-color: currentColor; }
@@ -167,8 +173,11 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     border: var(--rule-hairline) solid var(--oro-suave); padding: var(--space-2xs) var(--space-sm);
     cursor: pointer; transition: color var(--dur-fast), border-color var(--dur-fast);
   }
-  .taller-metrico .tm-mini-btn:hover { color: var(--oro); border-color: var(--oro); }
+  .taller-metrico .tm-mini-btn:hover:not(:disabled) { color: var(--oro); border-color: var(--oro); }
   .taller-metrico .tm-mini-btn.on { color: var(--btn-ink); background: var(--oro); border-color: var(--oro); }
+  /* Sin poema no hay nada que mostrar: el botón se atenúa igual que los de
+     compartir, sin introducir un tercer color de estado. */
+  .taller-metrico .tm-mini-btn:disabled { opacity: .45; cursor: not-allowed; }
 
   .taller-metrico textarea#editor {
     width: 100%; flex: 1 1 auto; min-height: 460px; resize: vertical;
@@ -261,6 +270,9 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     margin-top: var(--space-md);
     display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);
   }
+  /* `display:grid` gana sobre el `[hidden]` por defecto del navegador, así que
+     hay que ocultarlo explícitamente cuando el toggle lo cierra. */
+  .taller-metrico .tm-rimas-panel[hidden] { display: none; }
   .taller-metrico .tm-rimas-group { min-width: 0; }
   .taller-metrico .tm-rimas-label {
     font-family: var(--font-display); font-size: var(--fs-3xs);
@@ -323,6 +335,9 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     margin-top: var(--space-lg); max-width: var(--measure);
     display: flex; flex-direction: column; gap: var(--space-md);
   }
+  /* Igual que el panel de rimas: `display:flex` gana sobre el `[hidden]` del
+     navegador, así que hay que ocultarlo a mano cuando está plegado. */
+  .taller-metrico .tm-correo[hidden] { display: none; }
   .taller-metrico .tm-campo { display: flex; flex-direction: column; gap: var(--space-2xs); }
   .taller-metrico .tm-campo label {
     font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-soft);

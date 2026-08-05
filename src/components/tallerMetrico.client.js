@@ -464,21 +464,28 @@
     const lineLetters = analyzed.map(a => a ? chosen.letters[ai++] : null);
 
     // ---- summary ----
-    setText("s-lines", String(active.length));
+    // Sin versos, los chips muestran una invitación en itálica (is-empty) en vez
+    // de un «—» que se confunde con un campo roto o una carga fallida.
+    const vacio = !active.length;
+    setChip("s-lines", vacio ? "0" : String(active.length), vacio);
     document.getElementById("s-lines-sub").textContent = active.length ? "analizados" : " ";
 
     if (domMeter != null) {
-      setText("s-meter", cap(verseName(domMeter)));
+      setChip("s-meter", cap(verseName(domMeter)), false);
       const pct = Math.round((best / active.length) * 100);
       const clase = domMeter <= 8 ? "arte menor" : "arte mayor";
       document.getElementById("s-meter-sub").textContent =
         clase + (alejandrino ? " · cesura 7 + 7" : "") + " · " + pct + "% de los versos";
-    } else { setText("s-meter", "—"); document.getElementById("s-meter-sub").textContent = " "; }
+    } else { setChip("s-meter", vacio ? "por medir" : "—", vacio); document.getElementById("s-meter-sub").textContent = " "; }
 
     const schemeStr = chosen.letters.map(l => l.mayor ? l.letter : l.letter.toLowerCase()).join("");
-    setText("s-scheme", schemeStr || "—");
+    setChip("s-scheme", schemeStr || (vacio ? "por medir" : "—"), vacio && !schemeStr);
     document.getElementById("s-scheme-sub").textContent =
       chosen.matched ? ("rima " + rhymeType) : (active.length ? "sin rima detectada" : " ");
+
+    // Sin poema no hay silabas que ver ni rimas que buscar: se atenuan.
+    syllBtn.disabled = vacio;
+    rimasBtn.disabled = vacio;
 
     // ---- forma: se detecta sobre una vista AJUSTADA por licencias (si el poema es regular) ----
     const adjView = analyzed.map(a => {
@@ -490,8 +497,8 @@
     const forma = active.length ? detectForm(adjView.filter(Boolean), groupStanzas(adjView)) : "—";
     const formaSlug = formaToSlug(forma);
     const sForm = document.getElementById("s-form");
-    if (formaSlug) sForm.innerHTML = '<a class="tm-forma-link" href="/tipos/' + formaSlug + '/">' + esc(forma) + '</a>';
-    else sForm.textContent = forma;
+    if (formaSlug) { sForm.innerHTML = '<a class="tm-forma-link" href="/tipos/' + formaSlug + '/">' + esc(forma) + '</a>'; sForm.classList.remove("is-empty"); }
+    else { sForm.textContent = vacio ? "por estimar" : forma; sForm.classList.toggle("is-empty", vacio); }
 
     // ---- manuscript ----
     if (!active.length) {
@@ -735,6 +742,12 @@
   }
 
   const setText = (id, t) => { document.getElementById(id).textContent = t; };
+  // Como setText, pero marca el chip como vacio (placeholder en italica).
+  const setChip = (id, t, empty) => {
+    const el = document.getElementById(id);
+    el.textContent = t;
+    el.classList.toggle("is-empty", !!empty);
+  };
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
   const cssEsc = s => (window.CSS && CSS.escape) ? CSS.escape(s) : s.replace(/["\\]/g, "\\$&");
 
