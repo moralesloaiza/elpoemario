@@ -68,7 +68,7 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
         <div class="tm-rimas-label">Rima asonante <span class="tm-rimas-hint">solo las vocales</span></div>
         <div class="tm-rimas-words" id="rimasAson"></div>
       </div>
-      <p class="tm-rimas-nota">Palabras del diccionario que riman con la última del verso donde tienes el cursor. Las del propio Poemario salen primero.</p>
+      <p class="tm-rimas-nota">Palabras del diccionario que riman con la última del verso donde tienes el cursor. Las del propio Poemario, con borde dorado, salen primero.</p>
     </div>
   </section>
 
@@ -292,6 +292,9 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     padding: 2px var(--space-xs); border: var(--rule-hairline) solid var(--line);
     background: var(--panel); white-space: nowrap;
   }
+  /* Rima que además vive en un poema del Poemario: borde dorado sutil, sin
+     color nuevo, para distinguir lo curado del fondo de diccionario. */
+  .taller-metrico .tm-chip-rima.is-corpus { border-color: var(--oro-suave); color: var(--oro-texto); }
   .taller-metrico .tm-rimas-empty {
     font-family: var(--font-body); font-style: italic; font-size: var(--fs-sm);
     color: var(--text-faint);

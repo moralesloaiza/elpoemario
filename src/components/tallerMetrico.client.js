@@ -939,9 +939,9 @@
     return todo && todo.length ? todo[todo.length - 1] : null;
   }
 
-  function pintarChips(cont, palabras) {
+  function pintarChips(cont, palabras, corpus) {
     cont.innerHTML = palabras.length
-      ? palabras.map(x => '<span class="tm-chip-rima">' + esc(x) + "</span>").join("")
+      ? palabras.map(x => '<span class="tm-chip-rima' + ((corpus && corpus.has(x)) ? " is-corpus" : "") + '">' + esc(x) + "</span>").join("")
       : '<span class="tm-rimas-empty">—</span>';
   }
 
@@ -965,12 +965,13 @@
     }
     const shard = await rimasCargarShard(k.ason);
     if (seq !== rimasSeq) return;
+    const corpusSet = new Set(shard && shard.p ? shard.p : []);
     const consAll = (shard && shard.c[k.cons]) ? shard.c[k.cons] : [];
     const consSet = new Set(consAll);
     const cons = consAll.filter(x => x !== wl).slice(0, MOSTRAR_RIMAS);
     const ason = (shard && shard.a ? shard.a : []).filter(x => x !== wl && !consSet.has(x)).slice(0, MOSTRAR_RIMAS);
-    pintarChips(rimasCons, cons);
-    pintarChips(rimasAson, ason);
+    pintarChips(rimasCons, cons, corpusSet);
+    pintarChips(rimasAson, ason, corpusSet);
   }
 
   if (rimasBtn) {
