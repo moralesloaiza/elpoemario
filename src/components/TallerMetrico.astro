@@ -22,6 +22,24 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
 ---
 
 <div class="taller-metrico" data-tipos={tiposConFicha.join(',')}>
+  <!--
+    Guía plegable de lectura. `<details>` nativo: control real, accesible por
+    teclado y anunciado como disclosure por el lector de pantalla (no un div con
+    display:none conmutado a mano). Arranca abierto; el cliente lo pliega solo en
+    cuanto el lector escribe su primer verso y recuerda el estado en
+    localStorage. La franja de leyenda (más abajo) nunca se pliega.
+  -->
+  <details class="tm-guia" id="tm-guia" open>
+    <summary class="tm-guia-summary">Cómo usar el Taller</summary>
+    <div class="tm-guia-cuerpo">
+      <p><b>La medida.</b> Al margen de cada verso, el número de sílabas métricas, contadas con sinalefa y con la ley del acento final. Los versos que se apartan del metro dominante se señalan con △ y una sugerencia al pie.</p>
+      <p><b>La rima.</b> Una letra al cierre del verso: misma letra, mismo sonido. Mayúscula para el verso de arte mayor, minúscula para el de arte menor. Con ese esquema el Taller aventura la forma del poema —soneto, romance, lira, redondilla y muchas más.</p>
+      <p><b>Lo que decides tú.</b> La sinalefa es licencia del oído del poeta. Haz clic sobre cualquier ligadura ‿ para cortarla —dialefa— y ganar una sílaba; vuelve a pulsarla para unirla. El recuento se rehace al instante.</p>
+      <p><b>Otras licencias que el Taller sugiere.</b> Cuando un verso no cuadra por una sílaba, el aviso △ puede proponer otras dos lecturas del oído: fundir un hiato en una sola sílaba —sinéresis— o abrir un diptongo en dos —diéresis—. El Taller solo las nombra como sugerencia; a diferencia de la sinalefa, no se activan con un clic: las aplica tu voz al leer.</p>
+      <p><b>Rimas y más.</b> Bajo la escansión, <b>Buscar rimas</b> ofrece palabras que riman con la última del verso donde tengas el cursor. Y cuando quieras conservar el análisis, <b>Descargar el análisis</b> lo guarda como archivo y <b>Enviar por correo</b> lo comparte con quien elijas.</p>
+    </div>
+  </details>
+
   <section class="tm-summary" aria-live="polite">
     <div class="tm-chip"><div class="tm-label">Metro dominante</div><div class="tm-value" id="s-meter">—</div><div class="tm-sub" id="s-meter-sub">&nbsp;</div></div>
     <div class="tm-chip"><div class="tm-label">Esquema de rima</div><div class="tm-value tm-scheme" id="s-scheme">—</div><div class="tm-sub" id="s-scheme-sub">&nbsp;</div></div>
@@ -46,12 +64,13 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     </div>
   </div>
 
+  <!-- Franja de leyenda permanente (§5): nunca se pliega ni se oculta. -->
   <div class="tm-legend">
-    <div class="tm-item"><span class="tm-sw tm-gold">11</span> sílabas métricas del verso</div>
-    <div class="tm-item"><span class="tm-sw tm-tie">‿</span> sinalefa — <b>haz clic</b> para cortarla (dialefa)</div>
+    <div class="tm-item"><span class="tm-sw tm-gold">11</span> sílabas métricas</div>
+    <div class="tm-item"><span class="tm-sw tm-tie">‿</span> sinalefa (clic para cortarla)</div>
     <div class="tm-item" id="tm-leyenda-cesura" hidden><span class="tm-sw tm-tie">‖</span> cesura del alejandrino (dos hemistiquios de 7)</div>
-    <div class="tm-item"><span class="tm-sw tm-gold">A</span> rima (misma letra = mismo sonido)</div>
-    <div class="tm-item"><span class="tm-sw tm-warn">△</span> no cuadra con el metro: posible licencia</div>
+    <div class="tm-item"><span class="tm-sw tm-gold">A</span>/<span class="tm-sw tm-gold">a</span> rima</div>
+    <div class="tm-item"><span class="tm-sw tm-warn">△</span> fuera del metro</div>
   </div>
 
   <section class="tm-rimas">
@@ -113,6 +132,47 @@ const tiposConFicha = [...new Set(poemasPublicados.map((p) => p.data.tipo))].sor
     font-family: var(--font-prose);
     margin-top: var(--space-xl);
   }
+
+  /* ---------- guía plegable «Cómo leer la escansión» ---------- */
+  .taller-metrico .tm-guia {
+    border: 1px solid var(--line); background: var(--mat);
+    margin-bottom: var(--space-lg);
+  }
+  .taller-metrico .tm-guia-summary {
+    list-style: none; cursor: pointer; user-select: none;
+    display: flex; align-items: center; gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-display); font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wider); text-transform: uppercase;
+    color: var(--oro); font-weight: var(--fw-semibold);
+    transition: color var(--dur-fast);
+  }
+  /* Oculta el marcador nativo (triángulo del navegador/Safari) para pintar el propio. */
+  .taller-metrico .tm-guia-summary::-webkit-details-marker { display: none; }
+  .taller-metrico .tm-guia-summary::after {
+    content: "▾"; margin-left: auto; font-size: 1em; color: var(--oro-texto);
+    transition: transform var(--dur-fast);
+  }
+  .taller-metrico .tm-guia[open] .tm-guia-summary::after { transform: rotate(180deg); }
+  .taller-metrico .tm-guia-summary:hover { color: var(--oro); }
+  .taller-metrico .tm-guia-summary:focus-visible {
+    outline: none; box-shadow: inset 0 0 0 2px var(--oro-suave);
+  }
+  .taller-metrico .tm-guia-cuerpo {
+    padding: 0 var(--space-md) var(--space-md);
+    border-top: 1px solid var(--line);
+  }
+  .taller-metrico .tm-guia-cuerpo p {
+    font-family: var(--font-prose); font-size: var(--fs-sm);
+    line-height: 1.6; color: var(--text-soft);
+    margin: var(--space-md) 0 0; max-width: var(--measure);
+  }
+  /* Los run-in en negrita marcan cada bloque. De noche, el salto de brillo
+     (--text sobre cuerpo en --text-soft) más el peso 600 de EB Garamond pesan
+     demasiado: la emfasis se da por brillo, con peso medio. De día el 600
+     funciona bien (negro sobre crema), así que se restaura ahí. */
+  .taller-metrico .tm-guia-cuerpo b { color: var(--text); font-weight: 500; }
+  [data-theme='day'] .taller-metrico .tm-guia-cuerpo b { font-weight: 600; }
 
   /* ---------- resumen ---------- */
   .taller-metrico .tm-summary {

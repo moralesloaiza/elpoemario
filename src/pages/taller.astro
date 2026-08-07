@@ -10,6 +10,10 @@ import { render } from 'astro:content';
 const pagina = await getPagina('taller');
 const { rotulo, titulo, subtitulo, descripcion } = pagina.data;
 const { Content } = await render(pagina);
+// El cuerpo puede quedar vacío (las instrucciones viven ahora en la guía
+// plegable del propio Taller); si no hay prosa, no se pinta la sección intro
+// para no dejar un hueco entre el encabezado y la herramienta.
+const tieneIntro = Boolean(pagina.body?.trim());
 ---
 
 <Base titulo="El Taller · El Poemario" descripcion={descripcion}>
@@ -22,9 +26,11 @@ const { Content } = await render(pagina);
 
     <div class="divisor" aria-hidden="true"><span></span><span></span><span></span></div>
 
-    <section class="prose intro">
-      <Content />
-    </section>
+    {tieneIntro && (
+      <section class="prose intro">
+        <Content />
+      </section>
+    )}
 
     <TallerMetrico />
   </div>
@@ -65,4 +71,10 @@ const { Content } = await render(pagina);
     line-height: var(--lh-prosa);
     margin-bottom: var(--space-md);
   }
+  /* Términos clave en negrita como apoyo de lectura. Mismo criterio que la guía
+     del Taller: de noche el 600 de EB Garamond sobre fondo oscuro pesa demasiado,
+     así que la énfasis va por brillo (--text) con peso medio; de día se restaura
+     el 600 (negro sobre crema), que ahí funciona bien. */
+  .intro :global(strong) { color: var(--text); font-weight: 500; }
+  :global([data-theme='day']) .intro :global(strong) { font-weight: 600; }
 </style>
