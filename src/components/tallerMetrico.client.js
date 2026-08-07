@@ -302,6 +302,7 @@
 
   const editor = document.getElementById("editor");
   const output = document.getElementById("output");
+  const guia = document.getElementById("tm-guia");
   const syllBtn = document.getElementById("syllBtn");
   const legendCesura = document.getElementById("tm-leyenda-cesura");
   const rimasBtn = document.getElementById("rimasBtn");
@@ -988,6 +989,43 @@
     editor.addEventListener("click", alMover);
     document.addEventListener("selectionchange", () => {
       if (rimasOpen && document.activeElement === editor) actualizarRimas();
+    });
+  }
+
+  /* ---- guía plegable «Cómo leer la escansión» (§8) ----
+     Arranca abierta en la primera visita; se pliega sola en cuanto el lector
+     escribe o pega su primer verso; el estado se recuerda en localStorage. Si el
+     almacenamiento no está disponible, se comporta como una primera visita. La
+     franja de leyenda es aparte y nunca se toca. */
+  if (guia) {
+    const GUIA_KEY = "taller:guia";
+    // El editor viene con un poema de muestra: eso NO cuenta como «empezar a
+    // trabajar». Solo el primer `input` real del lector arma el auto-plegado, y
+    // solo si el lector no ha tocado la guía a mano en esta carga.
+    let autoFoldArmed = true;
+
+    try {
+      const saved = localStorage.getItem(GUIA_KEY);
+      if (saved === "closed") guia.open = false;
+      else if (saved === "open") guia.open = true;
+      // sin valor guardado → se deja el `open` por defecto (primera visita)
+    } catch { /* almacenamiento no disponible → primera visita, no es un fallo */ }
+
+    // Un clic/teclado sobre el resumen es interacción manual: desarma el
+    // auto-plegado para no cerrar lo que el lector acaba de abrir a propósito.
+    const summary = guia.querySelector("summary");
+    if (summary) summary.addEventListener("click", () => { autoFoldArmed = false; });
+
+    // Persiste cada cambio de estado (manual o automático).
+    guia.addEventListener("toggle", () => {
+      try { localStorage.setItem(GUIA_KEY, guia.open ? "open" : "closed"); } catch { /* sin persistencia */ }
+    });
+
+    editor.addEventListener("input", () => {
+      if (autoFoldArmed) {
+        autoFoldArmed = false;
+        if (guia.open) guia.open = false;   // dispara `toggle` → persiste «closed»
+      }
     });
   }
 
