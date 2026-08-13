@@ -18,14 +18,17 @@ Juntáronse los ratones,
 Para librarse del gato;
 Y después de un largo rato
 De disputas y opiniones,
+
 Dijeron que acertarían
 En ponerle un cascabel,
 Que, andando el gato con él,
 Guardarse mejor podrían.
+
 Salió un ratón, barbicano,
 Colilargo, hociquirromo,
 Y, encrespando el grueso lomo,
 Dijo al senado Romano,
+
 Después de hablar culto un rato:
 « ¿Quién de todos ha de ser
 El que se atreva a aponer

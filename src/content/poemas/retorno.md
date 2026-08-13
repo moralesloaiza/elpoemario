@@ -9,7 +9,8 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - patria
-  - poesia-misma
+  - memoria
+  - viaje
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

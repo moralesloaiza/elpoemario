@@ -12,6 +12,8 @@ motivos:
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "Publicado originalmente en «Luna de Neón». El texto llegó a la antología por aporte de Yini Capo Castro."
 ---
 
 Esa mujer se salva sola.
@@ -65,9 +67,3 @@ con el control remoto de su vida,
 y con Gardel, Elvis Presley,
 Robert Redford, Mickey Mouse y el Ché Guevara,
 en la cajuela de un caballo convertible y cuatro puertas.
-
-__________________________________
-
-Publicado en la obra *Luna de Neón*.
-
-Agradecimiento especial a **Yini Capo Castro**.

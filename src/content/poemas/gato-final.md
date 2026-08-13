@@ -10,6 +10,8 @@ temas:
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "Publicado originalmente en «Luna de Neón». El texto llegó a la antología por aporte de Yini Capo Castro."
 ---
 
 Ese gato muerto en la puerta de mi casa
@@ -43,9 +45,3 @@ toma un vagón que no es el tuyo.
 tú al sur,
 yo al norte,
 el gato al este.
-
-__________________________________
-
-Publicado en la obra *Luna de Neón*.
-
-Agradecimiento especial a **Yini Capo Castro**.

@@ -13,6 +13,7 @@ temas:
 autor: jose-marti
 curador: "Don Alejandro"
 es_seudonimo: true
+nota_curador: "El texto de este poema llegó a la antología por aporte de Yini Capo Castro y Margot."
 ---
 
 Por las mañanas
@@ -35,7 +36,3 @@ Y yo besaba
 Sus pies pequeños,
 ¡Dos pies que caben
 En solo un beso!
-
-____________________________
-
-Gracias a **Yini Capo Castro** y a la pequeña **Margot**.

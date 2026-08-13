@@ -13,6 +13,8 @@ temas:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---
 
 *Balada.*
@@ -76,5 +78,3 @@ porque en ese amor se encierra
 toda verdad y consuelo:
 no hay más que Dios en el cielo,
 y amor de madre en la tierra.
-
-**Aporte especial de Flor María Fernández.**

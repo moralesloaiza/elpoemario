@@ -12,6 +12,8 @@ temas:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---
 
 ¡Te amo! ¿Sabes mi vida,
@@ -83,5 +85,3 @@ como te amo y me amas.
 lo que encierra esa palabra
 cuando el labio la pronuncia
 bajo el dictado del alma?
-
-**Aporte especial de Flor María Fernández**.
