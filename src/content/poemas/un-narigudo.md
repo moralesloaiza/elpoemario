@@ -1,12 +1,13 @@
 ﻿---
 titulo: "Un narigudo"
 fecha: 2011-11-15
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-un-narigudo.png
 borrador: false
 tipo: soneto
 movimiento: barroco
 temas:
-  - poesia-misma
+  - humor
 motivos:
   - amado
 autor: francisco-de-quevedo

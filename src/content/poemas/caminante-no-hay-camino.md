@@ -1,7 +1,8 @@
 ---
 titulo: "Caminante, no hay camino"
+resumen: "«Caminante, no hay camino» es el poema XXIX de «Proverbios y cantares», de Antonio Machado, recogido en «Campos de Castilla» (1912): el camino no está hecho, se hace al andar."
 fecha: 2013-08-30
-fecha_actualizada: 2026-07-17
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-caminante-no-hay-camino.png
 borrador: false
 tipo: romance

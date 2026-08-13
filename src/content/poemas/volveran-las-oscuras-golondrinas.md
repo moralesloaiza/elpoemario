@@ -1,13 +1,19 @@
 ---
 titulo: Volverán las oscuras golondrinas
+resumen: "«Volverán las oscuras golondrinas» es la Rima LIII de Gustavo Adolfo Bécquer, de las «Rimas» (1871): volverán las golondrinas y las madreselvas, pero no volverá a quererte nadie así."
 fecha: 2025-02-20
-fecha_actualizada: 2026-07-06
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-volveran-las-oscuras-golondrinas.png
 borrador: false
 tipo: romance-heroico
 movimiento: romanticismo
 temas:
-  - poesia-misma
+  - desamor
+  - amor
+  - memoria
+motivos:
+  - amada
+  - jardin
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro
 es_seudonimo: true

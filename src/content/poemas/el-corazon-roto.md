@@ -1,12 +1,14 @@
 ---
 titulo: El corazón roto
 fecha: 2011-10-26
-fecha_actualizada: 2026-07-15
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-corazon-roto.png
 borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:
+  - desamor
+  - dolor
   - poesia-misma
 autor: juan-ramon-jimenez
 curador: Don Alejandro

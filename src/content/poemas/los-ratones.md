@@ -1,12 +1,14 @@
 ﻿---
 titulo: "Los ratones"
 fecha: 2011-11-15
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-los-ratones.png
 borrador: false
 tipo: redondilla
 movimiento: siglo-de-oro
 temas:
-  - poesia-misma
+  - humor
+  - virtud
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true

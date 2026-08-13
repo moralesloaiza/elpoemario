@@ -1,12 +1,13 @@
 ---
 titulo: La ingratitud
 fecha: 2025-08-13
-fecha_actualizada: 2026-05-30
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-ingratitud.png
 borrador: false
 tipo: pareado
 temas:
-  - poesia-misma
+  - virtud
+  - amistad
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

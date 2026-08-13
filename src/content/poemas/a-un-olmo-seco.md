@@ -1,7 +1,8 @@
 ---
 titulo: A un olmo seco
+resumen: "«A un olmo seco» es una silva de Antonio Machado, de «Campos de Castilla» (1912), escrita en Soria durante la enfermedad de su esposa Leonor: ante las hojas nuevas de un árbol podrido, el poeta espera otro milagro."
 fecha: 2026-07-17
-fecha_actualizada: 2026-07-18
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-un-olmo-seco.png
 borrador: false
 tipo: silva

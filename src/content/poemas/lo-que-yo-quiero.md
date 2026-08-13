@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Lo que yo quiero"
 fecha: 2011-10-27
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-lo-que-yo-quiero.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
-  - poesia-misma
+  - deseo
+  - amor
+  - noche
 autor: pedro-junco-jr
 curador: "Don Alejandro"
 es_seudonimo: true

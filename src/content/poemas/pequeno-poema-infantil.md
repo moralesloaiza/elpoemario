@@ -1,7 +1,8 @@
 ---
 titulo: Pequeño poema infantil
+resumen: "«Pequeño poema infantil» es un poema de Rubén Darío dirigido a una niña: desfilan las hadas de la tradición europea —Mab, Carabosa— y en el lugar del hada madrina queda la Virgen María."
 fecha: 2012-10-03
-fecha_actualizada: 2026-07-14
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-pequeno-poema-infantil.png
 borrador: false
 tipo: polimetrico

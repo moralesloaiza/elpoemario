@@ -1,7 +1,8 @@
 ---
 titulo: Retorno
+resumen: "«Retorno» es un poema de Rubén Darío, de «El viaje a Nicaragua e Intermezzo tropical» (1909), escrito tras quince años de ausencia: el reencuentro con León, su ciudad natal."
 fecha: 2020-09-16
-fecha_actualizada: 2026-07-06
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-retorno.png
 borrador: false
 tipo: serventesio

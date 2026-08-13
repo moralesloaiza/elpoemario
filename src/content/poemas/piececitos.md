@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Piececitos"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-piececitos.png
 borrador: false
 tipo: romance
 movimiento: modernismo
 temas:
-  - poesia-misma
+  - infancia
+  - dolor
+  - justicia
 autor: gabriela-mistral
 curador: "Don Alejandro"
 es_seudonimo: true

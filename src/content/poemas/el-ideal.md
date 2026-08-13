@@ -1,12 +1,15 @@
 ﻿---
 titulo: "El ideal"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-ideal.png
 borrador: false
 tipo: romance-heroico
 movimiento: modernismo
 temas:
   - poesia-misma
+  - esperanza
+  - patria
 autor: juana-borrero
 curador: "Don Alejandro"
 es_seudonimo: true

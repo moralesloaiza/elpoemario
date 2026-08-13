@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Revelación"
 fecha: 2011-10-27
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-revelacion.png
 borrador: false
 tipo: quinteto
 movimiento: posguerra
 temas:
-  - poesia-misma
+  - amor
+  - soledad
+  - noche
 autor: jose-maria-peman
 curador: "Don Alejandro"
 es_seudonimo: true

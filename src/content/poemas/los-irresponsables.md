@@ -1,13 +1,15 @@
 ---
 titulo: Los irresponsables
 fecha: 2011-10-26
-fecha_actualizada: 2026-07-14
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-los-irresponsables.png
 borrador: false
 tipo: quintilla
 movimiento: realismo
 temas:
-  - poesia-misma
+  - muerte
+  - desamor
+  - justicia
 motivos:
   - amada
   - amado

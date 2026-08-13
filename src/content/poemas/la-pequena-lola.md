@@ -1,13 +1,15 @@
 ---
 titulo: La pequeña Lola
 fecha: 2025-02-12
-fecha_actualizada: 2026-07-13
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-pequena-lola.png
 borrador: false
 tipo: pareado
 movimiento: popular-tradicional
 temas:
-  - poesia-misma
+  - infancia
+  - alegria
+  - trabajo
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

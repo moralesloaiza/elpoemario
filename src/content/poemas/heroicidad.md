@@ -1,12 +1,14 @@
 ﻿---
 titulo: "Heroicidad"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-heroicidad.png
 borrador: false
 tipo: silva
 movimiento: romanticismo
 temas:
-  - poesia-misma
+  - humor
+  - virtud
 autor: ricardo-palma
 curador: "Don Alejandro"
 es_seudonimo: true

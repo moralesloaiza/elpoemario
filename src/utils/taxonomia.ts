@@ -30,7 +30,7 @@ export const TEMAS = [
   'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
   'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
   'paz', 'arte', 'poesia-misma', 'silencio', 'identidad', 'deseo', 'ausencia',
-  'humor-negro', 'virtud',
+  'humor', 'humor-negro', 'virtud',
 ] as const;
 
 export const MOTIVOS = [
@@ -157,6 +157,7 @@ export const TEMAS_DISPLAY: Record<Tema, string> = {
   'identidad': 'Identidad',
   'deseo': 'Deseo',
   'ausencia': 'Ausencia',
+  'humor': 'Humor',
   'humor-negro': 'Humor negro',
   'virtud': 'Virtud',
 };

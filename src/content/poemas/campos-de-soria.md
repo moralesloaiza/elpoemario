@@ -1,7 +1,8 @@
 ---
 titulo: Campos de Soria
+resumen: "«Campos de Soria» es un poema en nueve partes de Antonio Machado, de «Campos de Castilla» (1912): el retrato de una tierra pobre y áspera que el poeta acaba llevándose en el alma."
 fecha: 2026-07-17
-fecha_actualizada: 2026-07-18
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-campos-de-soria.png
 borrador: false
 tipo: polimetrico

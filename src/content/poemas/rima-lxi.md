@@ -1,7 +1,8 @@
 ---
 titulo: Rima LXI
+resumen: "La Rima LXI de Gustavo Adolfo Bécquer, «Al ver mis horas de fiebre», pregunta estrofa a estrofa quién acompañará al poeta en la agonía, en la fosa y en el olvido."
 fecha: 2011-10-31
-fecha_actualizada: 2026-06-02
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-rima-lxi.png
 borrador: false
 tipo: romance
