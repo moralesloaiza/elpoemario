@@ -1,7 +1,7 @@
 ---
 titulo: Al partir
 fecha: 2026-07-07
-fecha_actualizada: 2026-07-10
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-al-partir.png
 borrador: false
 tipo: soneto
@@ -32,7 +32,7 @@ la brisa acude de tu zona ardiente.
 
 ¡Adiós, patria feliz, edén querido!
 ¡Doquier que el hado en su furor me impela,
-tu dulce nombre halagará mi oido!
+tu dulce nombre halagará mi oído!
 
 ¡Ay! ¡Que ya cruje la turgente vela,
 el ancla se alza, el buque estremecido

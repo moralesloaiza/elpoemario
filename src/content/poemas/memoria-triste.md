@@ -16,6 +16,8 @@ temas:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---
 
 ¡Quién pudiera volver a aquellos tiempos
@@ -32,5 +34,3 @@ Y brota entonces el llanto de mis ojos,
 y exclamo con la voz del pecho herido:
 ¡quién pudiera volver a aquellos tiempos;
 quién pudiera volver al bien perdido!
-
-**Aporte especial de Flor María Fernández** ([florparia@hotmail.com](mailto:%20florparia@hotmail.com)).

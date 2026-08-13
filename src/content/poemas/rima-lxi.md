@@ -9,7 +9,8 @@ tipo: romance
 movimiento: romanticismo
 temas:
   - muerte
-  - poesia-misma
+  - soledad
+  - ausencia
 motivos:
   - sepulcro
 autor: gustavo-adolfo-becquer

@@ -19,9 +19,8 @@ nombre_real: Alejandro Morales Loaiza
 Creí que el pobre corazón ya estaba
 compuesto para siempre. Me lo había
 atado con las cuerdas de poesía,
-de mi lira alta y pura.
+de mi lira alta y pura. Comenzaba
 
-Comenzaba
 a florecer, por donde yo pasaba,
 nueva y gentil, la primavera mía;
 sueños de paz y cantos de alegría,

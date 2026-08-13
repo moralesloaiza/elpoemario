@@ -24,7 +24,7 @@ en tu balcón sus nidos a colgar,
 y otra vez con el ala a sus cristales
 jugando llamarán.
 
-Pero aquellas que el vuelo refrenaban
+Pero aquellas que el vuelo refrenaban
 tu hermosura y mi dicha a contemplar,
 aquellas que aprendieron nuestros nombres…
 ¡esas… no volverán!

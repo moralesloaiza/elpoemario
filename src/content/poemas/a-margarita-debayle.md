@@ -10,7 +10,7 @@ tipo: cuarteta
 movimiento: modernismo
 temas:
   - mar
-  - poesia-misma
+  - infancia
 motivos:
   - estrella
   - mar-figura

@@ -9,7 +9,7 @@ tipo: polimetrico
 movimiento: modernismo
 temas:
   - infancia
-  - poesia-misma
+  - fe
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

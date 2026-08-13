@@ -12,6 +12,8 @@ temas:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---
 
 Tu voz, tu voz…recuerdo bien la hora
@@ -31,5 +33,3 @@ subió del corazón a la pupila;
 porque en sonora y melodiosa gama,
 el que escucha tu acento de dulzura,
 llora, sonríe, se entenerce y ama.
-
-Aporte especial de **Flor María Fernández** ([florparia@hotmail.com](mailto:%20florparia@hotmail.com)).

@@ -1,7 +1,7 @@
 ---
 titulo: Teresa
 fecha: 2026-07-08
-fecha_actualizada: 2026-07-08
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-teresa.png
 borrador: false
 tipo: romance
@@ -124,7 +124,7 @@ exprimidas de tu alma
 por el amor que desdeñas.
 Vi en tu ventana esa noche,
 tras de las enredaderas,
-a tu lado el colegial	
+a tu lado el colegial
 que así mi dicha se lleva,
 las manos besar que un tiempo
 me abandonabas risueña.
@@ -156,7 +156,7 @@ de curiosos, en la puerta,
 tomó a un hombre por el brazo
 diciéndole: -¿Qué es la fiesta?
 -Es que el sobrino del Cura
-se ha casado con Teresa.	
+se ha casado con Teresa.
 No brillan así los ojos
 del chacal en su caverna,
 que sus entrañas heridas

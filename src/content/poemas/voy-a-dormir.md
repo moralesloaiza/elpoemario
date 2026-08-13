@@ -1,7 +1,7 @@
 ---
 titulo: Voy a dormir
 fecha: 2026-07-20
-fecha_actualizada: 2026-07-20
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-voy-a-dormir.png
 borrador: false
 tipo: verso-libre
@@ -26,20 +26,20 @@ nota_curador: >-
 
   La autora se suicidaría la madrugada del 25 de octubre, de ese mismo año, en la playa La Perla, de Mar del Plata.
 ---
-Dientes de flores, cofia de rocío,		
-manos de hierbas, tú, nodriza fina,		
-tenme prestas las sábanas terrosas		
-y el edredón de musgos escardados.		
+Dientes de flores, cofia de rocío,
+manos de hierbas, tú, nodriza fina,
+tenme prestas las sábanas terrosas
+y el edredón de musgos escardados.
 
-Voy a dormir, nodriza mía, acuéstame.		
-Ponme una lámpara a la cabecera;		
-una constelación, la que te guste;		
-todas son buenas, bájala un poquito.		
+Voy a dormir, nodriza mía, acuéstame.
+Ponme una lámpara a la cabecera;
+una constelación, la que te guste;
+todas son buenas, bájala un poquito.
 
-Déjame sola: oyes romper los brotes...		
-te acuna un pie celeste desde arriba		
-y un pájaro te traza unos compases		
+Déjame sola: oyes romper los brotes...
+te acuna un pie celeste desde arriba
+y un pájaro te traza unos compases
 
-para que olvides... Gracias... Ah, un encargo:		
-si él llama nuevamente por teléfono		
+para que olvides... Gracias... Ah, un encargo:
+si él llama nuevamente por teléfono
 le dices que no insista, que he salido.

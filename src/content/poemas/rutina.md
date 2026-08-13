@@ -11,6 +11,8 @@ temas:
 autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true
+fecha_actualizada: 2026-08-13
+nota_curador: "El texto de este poema llegó a la antología por aporte de Carlos Boom."
 ---
 
 Me fustigo.
@@ -31,5 +33,3 @@ Me reconstruyo con un plano inefable.
 Calma. Ya está. Entro a la horma.
 
 De **“Falsas maniobras”**, 1966.
-
-Aporte especial de [**Carlos Boom**](mailto:%20carlos.boom@gmail.com).
