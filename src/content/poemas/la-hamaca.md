@@ -1,12 +1,15 @@
 ﻿---
 titulo: "La hamaca"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-hamaca.png
 borrador: false
 tipo: romance
 movimiento: neoclasicismo
 temas:
   - poesia-misma
+  - naturaleza
+  - paz
 autor: jose-fernandez-madrid
 curador: "Don Alejandro"
 es_seudonimo: true

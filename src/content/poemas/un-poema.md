@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Un poema"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-un-poema.png
 borrador: false
 tipo: pareado
 movimiento: modernismo
 temas:
   - poesia-misma
+  - humor
+  - arte
 autor: jose-asuncion-silva
 curador: "Don Alejandro"
 es_seudonimo: true

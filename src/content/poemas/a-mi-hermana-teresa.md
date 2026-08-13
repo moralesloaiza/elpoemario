@@ -1,12 +1,15 @@
 ﻿---
 titulo: "A mi hermana Teresa"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-mi-hermana-teresa.png
 borrador: false
 tipo: polimetrico
 movimiento: romanticismo
 temas:
-  - poesia-misma
+  - exilio
+  - ausencia
+  - memoria
 autor: miguel-teurbe-y-tolon
 curador: "Don Alejandro"
 es_seudonimo: true

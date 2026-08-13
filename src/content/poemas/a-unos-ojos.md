@@ -1,12 +1,14 @@
 ﻿---
 titulo: "A unos ojos"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-unos-ojos.png
 borrador: false
 tipo: madrigal
 movimiento: siglo-de-oro
 temas:
-  - poesia-misma
+  - amor
+  - desamor
 autor: gutierre-de-cetina
 curador: "Don Alejandro"
 es_seudonimo: true

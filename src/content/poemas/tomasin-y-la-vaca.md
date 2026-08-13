@@ -1,13 +1,15 @@
 ---
 titulo: Tomasín y la vaca
 fecha: 2024-10-30
-fecha_actualizada: 2026-07-14
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-tomasin-y-la-vaca.png
 borrador: false
 tipo: romancillo
 movimiento: popular-tradicional
 temas:
-  - poesia-misma
+  - humor
+  - infancia
+  - amistad
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

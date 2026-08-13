@@ -1,12 +1,14 @@
 ﻿---
 titulo: "Maternidad"
 fecha: 2011-10-27
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-maternidad.png
 borrador: false
 tipo: pareado
 movimiento: vanguardia
 temas:
-  - poesia-misma
+  - amor
+  - esperanza
 motivos:
   - amada
 autor: jose-pedroni

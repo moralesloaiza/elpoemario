@@ -1,13 +1,15 @@
 ---
 titulo: El poeta y el vulgo
 fecha: 2026-07-07
-fecha_actualizada: 2026-07-10
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-poeta-y-el-vulgo.png
 borrador: false
 tipo: soneto
 movimiento: romanticismo
 temas:
   - poesia-misma
+  - identidad
+  - dios
 motivos: []
 autor: eusebio-lillo
 curador: Don Alejandro

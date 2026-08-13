@@ -1,7 +1,8 @@
 ---
 titulo: Sonatina
+resumen: "«Sonatina» es un poema de Rubén Darío, de «Prosas profanas y otros poemas» (1896): la princesa triste que, presa en su jaula de oro, aguarda al caballero que la despierte."
 fecha: 2026-07-18
-fecha_actualizada: 2026-07-18
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-sonatina.png
 borrador: false
 tipo: sexteto
@@ -11,7 +12,8 @@ temas:
   - deseo
   - amor
   - libertad
-motivos: []
+motivos:
+  - jardin
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

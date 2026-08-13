@@ -1,13 +1,16 @@
 ---
 titulo: Hombres necios
+resumen: "«Hombres necios» es la sátira en redondillas de Sor Juana Inés de la Cruz que acusa a los hombres de reprochar a la mujer aquello mismo que ellos provocan."
 fecha: 2012-05-05
-fecha_actualizada: 2026-07-16
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-hombres-necios.png
 borrador: false
 tipo: redondilla
 movimiento: barroco
 temas:
-  - poesia-misma
+  - justicia
+  - amor
+  - deseo
 motivos:
   - amada
   - amado

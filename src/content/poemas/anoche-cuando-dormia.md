@@ -1,7 +1,8 @@
 ---
 titulo: Anoche cuando dormía
+resumen: "«Anoche cuando dormía» es un poema de Antonio Machado, de «Soledades, galerías y otros poemas» (1907): un sueño en cuatro imágenes —fontana, colmena, sol y Dios— dentro del propio corazón."
 fecha: 2026-07-17
-fecha_actualizada: 2026-07-18
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-anoche-cuando-dormia.png
 spotify_url: https://open.spotify.com/episode/77fqtvU4ulbVoFbCrumYoO?si=S3iY8gAWTYO67tUS8SW1LA
 borrador: false

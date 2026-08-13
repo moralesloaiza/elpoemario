@@ -1,12 +1,15 @@
 ﻿---
 titulo: "El niño bien criado"
 fecha: 2011-11-15
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-nino-bien-criado.png
 borrador: false
 tipo: romance
 movimiento: barroco
 temas:
-  - poesia-misma
+  - humor
+  - infancia
+  - virtud
 autor: pedro-calderon-de-la-barca
 curador: "Don Alejandro"
 es_seudonimo: true

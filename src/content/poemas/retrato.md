@@ -1,7 +1,8 @@
 ---
 titulo: Retrato
+resumen: "«Retrato» es el poema que abre «Campos de Castilla» (1912), de Antonio Machado: nueve serventesios alejandrinos en los que el poeta se define y se despide, ligero de equipaje."
 fecha: 2026-07-17
-fecha_actualizada: 2026-07-19
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-retrato.png
 borrador: false
 tipo: serventesio

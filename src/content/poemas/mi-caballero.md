@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Mi caballero"
+resumen: "«Mi caballero» es un poema de José Martí, de «Ismaelillo» (1882), escrito para su hijo: el niño que cabalga sobre el pecho del padre y lo hiere de ternura."
 fecha: 2011-10-29
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-mi-caballero.png
 borrador: false
 tipo: romancillo
 movimiento: modernismo
 temas:
-  - poesia-misma
+  - infancia
+  - amor
 autor: jose-marti
 curador: "Don Alejandro"
 es_seudonimo: true

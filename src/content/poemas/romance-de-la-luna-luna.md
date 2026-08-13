@@ -1,12 +1,15 @@
 ﻿---
 titulo: "Romance de la luna, luna"
 fecha: 2011-10-27
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-romance-de-la-luna-luna.png
 borrador: false
 tipo: romance
 movimiento: generacion-27
 temas:
-  - poesia-misma
+  - muerte
+  - infancia
+  - noche
 motivos:
   - luna
 autor: federico-garcia-lorca

@@ -1,13 +1,14 @@
 ---
 titulo: No te salves
 fecha: 2012-10-04
-fecha_actualizada: 2026-07-14
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-no-te-salves.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
-  - poesia-misma
+  - libertad
+  - identidad
 autor: mario-benedetti
 curador: Don Alejandro
 es_seudonimo: true

@@ -1,12 +1,14 @@
 ﻿---
 titulo: "Explicando una tarde anatomía"
 fecha: 2011-10-27
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-explicando-una-tarde-anatomia.png
 borrador: false
 tipo: romance
 movimiento: realismo
 temas:
-  - poesia-misma
+  - dolor
+  - amor
 autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true

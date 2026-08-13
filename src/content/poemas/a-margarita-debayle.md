@@ -1,7 +1,8 @@
 ---
 titulo: A Margarita Debayle
+resumen: "«A Margarita Debayle» es un poema de Rubén Darío, de «El viaje a Nicaragua e Intermezzo tropical» (1909): el cuento en verso de la princesa que fue al cielo a cortar una estrella."
 fecha: 2011-10-30
-fecha_actualizada: 2026-07-09
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-margarita-debayle.png
 spotify_url: https://open.spotify.com/episode/1YGbvP23isEK8Nq9tfxIiO?si=LPFOeWC3QsCy07xBYWeXfA
 borrador: false
@@ -12,6 +13,7 @@ temas:
   - poesia-misma
 motivos:
   - estrella
+  - mar-figura
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

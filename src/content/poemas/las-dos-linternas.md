@@ -1,12 +1,14 @@
 ﻿---
 titulo: "Las dos linternas"
 fecha: 2011-10-28
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-las-dos-linternas.png
 borrador: false
 tipo: cuarteta
 movimiento: realismo
 temas:
-  - poesia-misma
+  - esperanza
+  - duda
 autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true

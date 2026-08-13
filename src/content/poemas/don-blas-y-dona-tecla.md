@@ -1,13 +1,14 @@
 ---
 titulo: Don Blas y doña Tecla
 fecha: 2025-02-12
-fecha_actualizada: 2026-07-06
+fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-don-blas-y-dona-tecla.png
 borrador: false
 tipo: romancillo
 movimiento: popular-tradicional
 temas:
-  - poesia-misma
+  - humor
+  - infancia
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true
