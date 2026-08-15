@@ -3,7 +3,7 @@ nombre: José Asunción Silva
 tipo: clasico
 descripcion: Poeta colombiano del siglo XIX.
 nacionalidad: Colombia
-nacimiento: 1860
+nacimiento: 1865
 muerte: 1896
 lugar_nacimiento: Bogotá, Colombia
 lugar_muerte: Bogotá, Colombia
