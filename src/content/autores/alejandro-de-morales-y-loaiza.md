@@ -9,7 +9,7 @@ nacionalidad: Venezuela
 nacimiento: 1985
 lugar_nacimiento: Maracaibo, Zulia, Venezuela
 imagen: ../../assets/uploads/autor-alejandro-de-morales-y-loaiza.png
-foco: 50
+foco: 0
 tambien_en: ""
 github_username: moralesloaiza
 nombre_real: Alejandro Morales Loaiza
