@@ -8,7 +8,7 @@ descripcion: Alejandro de Morales y Loaiza (Maracaibo, 1985). Escritor, abogado
 nacionalidad: Venezuela
 nacimiento: 1985
 lugar_nacimiento: Maracaibo, Zulia, Venezuela
-imagen: ../../assets/uploads/chatgpt-image-14-ago-2026-20_41_01.png
+imagen: ../../assets/uploads/autor-alejandro-de-morales-y-loaiza.png
 foco: 50
 tambien_en: ""
 github_username: moralesloaiza
