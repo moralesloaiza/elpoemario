@@ -5,7 +5,7 @@ fecha_actualizada: 2026-08-16
 resumen: "Por qué el sentimiento elevado exige un lenguaje distinto del
   cotidiano: páginas de El Tesoro de la Juventud sobre poesía y prosa, con
   Campoamor de testigo."
-ilustracion: ../../assets/uploads/chatgpt-image-16-ago-2026-07_14_44.png
+ilustracion: ../../assets/uploads/entrada-la-poesia-es-la-musica-de-las-palabras.png
 borrador: false
 curador: El tesoro de la juventud o Enciclopedia de conocimientos
 es_seudonimo: false
