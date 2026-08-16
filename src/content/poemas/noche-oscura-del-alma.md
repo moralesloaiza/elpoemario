@@ -4,7 +4,7 @@ resumen: "«Noche oscura», de San Juan de la Cruz (h. 1578): ocho liras en que 
   alma escapa a oscuras de la casa dormida para hallarse con el Amado."
 fecha: 2026-08-14
 fecha_actualizada: 2026-08-14
-ilustracion: ../../assets/uploads/chatgpt-image-15-ago-2026-22_39_43.png
+ilustracion: ../../assets/uploads/poema-noche-oscura-del-alma.png
 borrador: false
 tipo: lira
 movimiento: siglo-de-oro
