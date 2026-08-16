@@ -4,6 +4,7 @@ resumen: "«En tanto que de rosa y azucena», soneto XXIII de Garcilaso de la Ve
   (1543): la belleza joven mirada ya desde el invierno que ha de llegar."
 fecha: 2026-08-14
 fecha_actualizada: 2026-08-14
+ilustracion: ../../assets/uploads/chatgpt-image-15-ago-2026-22_39_43.png
 borrador: false
 tipo: soneto
 movimiento: siglo-de-oro
