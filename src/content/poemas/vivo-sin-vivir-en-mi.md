@@ -5,7 +5,7 @@ resumen: "«Vivo sin vivir en mí», de Santa Teresa de Jesús: glosa del deseo 
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
 ilustracion: ../../assets/uploads/poema-vivo-sin-vivir-en-mi.png
-borrador: true
+borrador: false
 tipo: glosa
 movimiento: siglo-de-oro
 temas:
