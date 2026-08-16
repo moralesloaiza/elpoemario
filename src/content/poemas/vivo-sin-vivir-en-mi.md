@@ -4,7 +4,7 @@ resumen: "«Vivo sin vivir en mí», de Santa Teresa de Jesús: glosa del deseo 
   morir para acabar de vivir enteramente en Dios."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
-ilustracion: ../../assets/uploads/chatgpt-image-16-ago-2026-09_57_11.png
+ilustracion: ../../assets/uploads/poema-vivo-sin-vivir-en-mi.png
 borrador: true
 tipo: glosa
 movimiento: siglo-de-oro
