@@ -4,7 +4,7 @@ resumen: "«Coplas a la muerte de su padre», de Jorge Manrique (h. 1477):
   cuarenta coplas de pie quebrado sobre el tiempo, la fama y el buen morir."
 fecha: 2026-08-15
 fecha_actualizada: 2026-08-15
-ilustracion: ../../assets/uploads/chatgpt-image-15-ago-2026-22_51_55.png
+ilustracion: ../../assets/uploads/poema-coplas-a-la-muerte-de-su-padre.png
 borrador: false
 tipo: copla
 movimiento: medieval
