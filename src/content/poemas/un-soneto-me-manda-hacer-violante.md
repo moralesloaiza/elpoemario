@@ -4,7 +4,7 @@ resumen: "«Un soneto me manda hacer Violante», de Lope de Vega (1617): un sone
   que se va escribiendo a sí mismo mientras cuenta los versos que le faltan."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
-ilustracion: ../../assets/uploads/chatgpt-image-16-ago-2026-16_56_26.png
+ilustracion: ../../assets/uploads/poema-un-soneto-me-manda-hacer-violante.png
 borrador: false
 tipo: soneto
 movimiento: barroco
