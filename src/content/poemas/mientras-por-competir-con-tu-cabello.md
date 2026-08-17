@@ -4,6 +4,7 @@ resumen: "«Mientras por competir con tu cabello», de Luis de Góngora (1582): 
   elogio de la hermosura desemboca en tierra, humo, polvo, sombra, nada."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
+ilustracion: ../../assets/uploads/poema-mientras-por-competir-con-tu-cabello.png
 borrador: false
 tipo: soneto
 movimiento: barroco
