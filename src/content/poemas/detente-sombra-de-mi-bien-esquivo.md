@@ -4,7 +4,7 @@ resumen: "«Detente, sombra de mi bien esquivo», de Sor Juana Inés de la Cruz:
   soneto en que se abraza la imagen del amado ausente sabiéndola ilusión."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
-ilustracion: ../../assets/uploads/chatgpt-image-16-ago-2026-21_46_05.png
+ilustracion: ../../assets/uploads/poema-detente-sombra-de-mi-bien-esquivo.png
 borrador: true
 tipo: soneto
 movimiento: barroco
