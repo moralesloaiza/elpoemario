@@ -1,7 +1,7 @@
 ---
 titulo: Nocturno
-resumen: "«Nocturno (III)», de José Asunción Silva (1894): la sombra del vivo y
-  la de la muerta se juntan en el camino, y el ritmo del castellano cambia para
+resumen: "«Nocturno», de José Asunción Silva (1894): la sombra del vivo y la de
+  la muerta se juntan en el camino, y el ritmo del castellano cambia para
   siempre."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
