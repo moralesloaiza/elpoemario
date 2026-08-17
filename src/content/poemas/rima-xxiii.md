@@ -4,7 +4,7 @@ resumen: "«Rima XXIII», de Gustavo Adolfo Bécquer (Rimas, 1871): cuatro verso
   que van de una mirada a un mundo y se quedan sin precio para el beso."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
-ilustracion: ../../assets/uploads/chatgpt-image-16-ago-2026-22_17_57.png
+ilustracion: ../../assets/uploads/poema-rima-xxiii.png
 borrador: false
 tipo: cuarteta
 movimiento: romanticismo
