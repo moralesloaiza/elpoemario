@@ -5,7 +5,7 @@ resumen: "«Detente, sombra de mi bien esquivo», de Sor Juana Inés de la Cruz:
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
 ilustracion: ../../assets/uploads/poema-detente-sombra-de-mi-bien-esquivo.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: barroco
 temas:
