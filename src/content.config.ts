@@ -157,6 +157,14 @@ const destacado = defineCollection({
   schema: z
     .object({
       activo: z.boolean().default(true),
+      // Rotación semanal automática ("El poema de la semana"). Cuando es true,
+      // la home ignora `tipo`/`*_referido` y elige de forma determinista un
+      // poema ilustrado según la semana en curso (ver src/utils/poemaSemanal.ts).
+      // El cambio efectivo lo dispara el rebuild semanal
+      // (.github/workflows/poema-semanal.yml). Para fijar algo a mano (un poema,
+      // una entrada o un autor concreto), ponlo en false y usa `tipo` + la
+      // referencia correspondiente.
+      rotacion_semanal: z.boolean().default(false),
       cintillo: z.string(),
       // Verse extract for the poema variant: one verse per line. Ignored for
       // entrada/autor (those use the referred item's resumen/descripcion).
@@ -178,6 +186,9 @@ const destacado = defineCollection({
     .refine(
       (data) => {
         if (!data.activo) return true;
+        // En modo rotación semanal el elemento lo elige el código, no una
+        // referencia curada: no exigimos `*_referido`.
+        if (data.rotacion_semanal) return true;
         if (data.tipo === 'poema') return data.poema_referido !== undefined;
         if (data.tipo === 'entrada') return data.entrada_referida !== undefined;
         if (data.tipo === 'autor') return data.autor_referido !== undefined;

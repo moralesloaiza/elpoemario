@@ -1,0 +1,34 @@
+name: Poema de la semana
+
+# El sitio es estático: la portada se congela en cada build. Para que "El poema
+# de la semana" cambie solo, este workflow fuerza un rebuild de Cloudflare Pages
+# cada lunes. El código (src/utils/poemaSemanal.ts) elige el poema según la
+# semana en curso durante ese build.
+#
+# Requiere el secreto de repositorio CF_DEPLOY_HOOK con la URL del Deploy Hook
+# de Cloudflare Pages (Settings → Secrets and variables → Actions). Ver el README
+# ("Rotación semanal del destacado") para crearlo.
+
+on:
+  schedule:
+    # Lunes 06:00 UTC. El límite de semana en el código cae en lunes 00:00 UTC,
+    # así que a esta hora el índice de semana ya ha avanzado.
+    - cron: '0 6 * * 1'
+  # Permite dispararlo a mano desde la pestaña Actions para probar.
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    name: Disparar rebuild de Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping al Deploy Hook
+        env:
+          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$CF_DEPLOY_HOOK" ]; then
+            echo "Falta el secreto CF_DEPLOY_HOOK. Créalo en Settings → Secrets → Actions." >&2
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST "$CF_DEPLOY_HOOK"
+          echo "Rebuild disparado."

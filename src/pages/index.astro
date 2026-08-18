@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import HeroInmersivo from '../components/HeroInmersivo.astro';
@@ -7,6 +7,7 @@ import FilaPoema from '../components/FilaPoema.astro';
 import { FOCO_RETRATO, SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
+import { poemaDeLaSemana } from '../utils/poemaSemanal';
 import type { ImageMetadata } from 'astro';
 
 // Home hero text from src/content/paginas/home.md (editable in Decap).
@@ -18,10 +19,12 @@ import type { ImageMetadata } from 'astro';
 // `lema` is an optional secondary italic line below.
 const home = await getPagina('home');
 
+// Todos los poemas publicados, recientes primero. Alimenta la rejilla de
+// «Últimos poemas» y el pozo de la rotación semanal.
+const poemasPublicados = (await getCollection('poemas', ({ data }) => !data.borrador))
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
 // Latest non-draft poems, newest first, capped at 6.
-const ultimos = (await getCollection('poemas', ({ data }) => !data.borrador))
-  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
-  .slice(0, 6);
+const ultimos = poemasPublicados.slice(0, 6);
 
 // Author id->name map, so the grid renders authors without per-row awaits.
 const autoresLista = await getCollection('autores');
@@ -49,35 +52,56 @@ type DestacadoRender = {
   resumen?: string;
 };
 
+// Construye el render de un destacado a partir de un poema. Compartido por el
+// destacado curado a mano (tipo='poema') y por la rotación semanal automática.
+// El extracto en verso es curatorial (uno por línea): en rotación no hay
+// extracto, así que el hero cae al `resumen` del poema (ver la plantilla).
+async function construirDestacadoPoema(
+  poema: CollectionEntry<'poemas'>,
+  cintillo: string,
+  extracto?: string,
+): Promise<DestacadoRender> {
+  if (!poema.data.ilustracion) {
+    throw new Error(
+      `Destacado activo referencia el poema "${poema.id}" sin \`ilustracion\`. La imagen es obligatoria para destacar.`,
+    );
+  }
+  const autor = await getEntry(poema.data.autor);
+  const versos = (extracto ?? '')
+    .split(/\r?\n/)
+    .map((linea) => linea.trim())
+    .filter(Boolean);
+  return {
+    cintillo,
+    titulo: poema.data.titulo,
+    href: `/poemas/${poema.id}/`,
+    cta: 'Leer el poema',
+    imagen: poema.data.ilustracion,
+    foco: poema.data.foco,
+    byline: autor.data.nombre,
+    versos,
+    resumen: poema.data.resumen,
+  };
+}
+
 let destacado: DestacadoRender | null = null;
 
-if (destacadoCfg && destacadoCfg.data.activo) {
+if (destacadoCfg && destacadoCfg.data.activo && destacadoCfg.data.rotacion_semanal) {
+  // --- Modo "El poema de la semana" (automático) ---
+  // Se elige de forma determinista entre los poemas publicados con ilustración,
+  // según la semana en curso. El cambio efectivo lo dispara el rebuild semanal
+  // (.github/workflows/poema-semanal.yml).
+  const pozo = poemasPublicados.filter((p) => p.data.ilustracion);
+  const poema = poemaDeLaSemana(pozo, new Date());
+  if (poema) {
+    destacado = await construirDestacadoPoema(poema, destacadoCfg.data.cintillo);
+  }
+} else if (destacadoCfg && destacadoCfg.data.activo) {
   const { tipo, cintillo } = destacadoCfg.data;
 
   if (tipo === 'poema' && destacadoCfg.data.poema_referido) {
     const poema = await getEntry(destacadoCfg.data.poema_referido);
-    if (!poema.data.ilustracion) {
-      throw new Error(
-        `Destacado activo referencia el poema "${poema.id}" sin \`ilustracion\`. La imagen es obligatoria para destacar.`,
-      );
-    }
-    const autor = await getEntry(poema.data.autor);
-    // Verse extract is curator-set on the destacado singleton: one verse per
-    // line. Falls back to no extract if the field is empty.
-    const versos = (destacadoCfg.data.extracto ?? '')
-      .split(/\r?\n/)
-      .map((linea) => linea.trim())
-      .filter(Boolean);
-    destacado = {
-      cintillo,
-      titulo: poema.data.titulo,
-      href: `/poemas/${poema.id}/`,
-      cta: 'Leer el poema',
-      imagen: poema.data.ilustracion,
-      foco: poema.data.foco,
-      byline: autor.data.nombre,
-      versos,
-    };
+    destacado = await construirDestacadoPoema(poema, cintillo, destacadoCfg.data.extracto);
   } else if (tipo === 'entrada' && destacadoCfg.data.entrada_referida) {
     const entrada = await getEntry(destacadoCfg.data.entrada_referida);
     if (!entrada.data.ilustracion) {
