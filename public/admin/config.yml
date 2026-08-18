@@ -411,7 +411,8 @@ collections:
         file: "src/content/destacado/actual.md"
         fields:
           - { name: "activo", label: "Activo", widget: "boolean", default: true, hint: "Desmarca para apagar el destacado sin borrar la referencia." }
-          - { name: "cintillo", label: "Cintillo (texto sobre el título)", widget: "string", hint: "Texto editorial breve. Se renderiza en mayúsculas. Ejemplos: 'En portada', 'Poema del mes', 'El curador recomienda'." }
+          - { name: "rotacion_semanal", label: "Rotación semanal automática", widget: "boolean", default: false, hint: "Si lo activas, la home elige sola un poema distinto cada semana ('El poema de la semana') e ignora los campos Tipo/Poema/Entrada/Autor de abajo. Desactívalo para fijar a mano un destacado concreto. El cambio se aplica con el rebuild semanal automático." }
+          - { name: "cintillo", label: "Cintillo (texto sobre el título)", widget: "string", hint: "Texto editorial breve. Se renderiza en mayúsculas. Ejemplos: 'El poema de la semana', 'En portada', 'Poema del mes', 'El curador recomienda'." }
           - { name: "extracto", label: "Extracto de versos (solo para Tipo = Poema)", widget: "text", required: false, hint: "Versos elegidos a mano para la home; un verso por línea. Solo se muestra cuando Tipo = Poema. Entrada y Autor usan su propio resumen/descripción." }
           - name: "tipo"
             label: "Tipo de destacado"

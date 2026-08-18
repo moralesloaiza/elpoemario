@@ -1,5 +1,6 @@
 ---
 activo: true
+rotacion_semanal: false
 cintillo: El saber en octavas
 extracto: "\n"
 tipo: entrada
