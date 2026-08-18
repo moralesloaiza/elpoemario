@@ -4,7 +4,7 @@ resumen: "«Miré los muros de la patria mía», de Francisco de Quevedo: soneto
   que todo lo mirado —casa, campo, cuerpo, espada— recuerda la propia muerte."
 fecha: 2026-08-17
 fecha_actualizada: 2026-08-17
-ilustracion: ../../assets/uploads/chatgpt-image-17-ago-2026-21_32_34.png
+ilustracion: ../../assets/uploads/poema-mire-los-muros-de-la-patria-mia.png
 borrador: false
 tipo: soneto
 movimiento: barroco
