@@ -1,5 +1,6 @@
 ---
 titulo: El duelo
+resumen: "Un hombre confiesa a una señora cómo mató por celos al rival que cantaba bajo la ventana, y cómo le dolió oírlo morir amándola todavía."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-el-duelo.png

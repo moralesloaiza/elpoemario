@@ -1,5 +1,6 @@
 ---
 titulo: Nenia
+resumen: "«Nenia», de Carlos Guido y Spano: el llanto de una joven paraguaya que perdió patria, familia y novio en la guerra, con el urutaú por estribillo."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-nenia.png

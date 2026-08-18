@@ -1,5 +1,6 @@
 ﻿---
 titulo: "A unos ojos"
+resumen: "«Ojos claros, serenos», madrigal de Gutierre de Cetina: si os alaban por mirar con dulzura, mirad al menos a quien os mira con ira."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-unos-ojos.png

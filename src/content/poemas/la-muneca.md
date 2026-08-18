@@ -1,5 +1,6 @@
 ---
 titulo: La muñeca
+resumen: "La niña pordiosera pide limosna para comprar una muñeca; a la mañana siguiente los diarios cuentan cómo la hallaron abrazada a ella."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-la-muneca.png

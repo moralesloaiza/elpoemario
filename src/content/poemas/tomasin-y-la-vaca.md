@@ -1,5 +1,6 @@
 ---
 titulo: Tomasín y la vaca
+resumen: "Tomasín le cede el paso a Paca al cruzar el vallado y ella ni las gracias le da, por la sencilla razón de que es una vaca."
 fecha: 2024-10-30
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-tomasin-y-la-vaca.png

@@ -1,5 +1,6 @@
 ---
 titulo: Voy a dormir
+resumen: "«Voy a dormir», de Alfonsina Storni (1938): el último poema que envió a La Nación, escrito como quien pide a una nodriza que la acueste."
 fecha: 2026-07-20
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-voy-a-dormir.png

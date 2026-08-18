@@ -1,5 +1,6 @@
 ---
 titulo: Blasón
+resumen: "«Blasón», de José Santos Chocano: el poeta se proclama cantor autóctono de América y funde en su verso la sangre española y el latido incaico."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-blason.png

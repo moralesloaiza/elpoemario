@@ -1,5 +1,6 @@
 ---
 titulo: Teresa
+resumen: "«Teresa», de Jorge Isaacs: el enamorado pobre se despide de la muchacha que ya prefiere las fiestas, y la copla del principio vuelve en boca de un loco."
 fecha: 2026-07-08
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-teresa.png

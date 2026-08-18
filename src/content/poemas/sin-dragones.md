@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Sin dragones"
+resumen: "Retrato de la mujer que no quiere ser salvada: dejó el armario lleno de armaduras de cartón, se cansó de salvar a sus salvadores y se salva sola."
 fecha: 2011-11-14
 ilustracion: ../../assets/uploads/poema-sin-dragones.png
 borrador: false

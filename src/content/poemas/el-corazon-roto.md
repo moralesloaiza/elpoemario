@@ -1,5 +1,6 @@
 ---
 titulo: El corazón roto
+resumen: "Creía el corazón compuesto para siempre con las cuerdas de la poesía; ella reaparece entre las rosas y lo deja otra vez hecho pedazos."
 fecha: 2011-10-26
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-corazon-roto.png

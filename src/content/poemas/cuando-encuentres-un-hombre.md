@@ -1,5 +1,6 @@
 ---
 titulo: Cuando encuentres un hombre
+resumen: "Si encuentras un hombre que convierta tu cuerpo en poesía, síguelo: lo que importa no es a quién pertenezcas, sino que pertenezcas a la poesía."
 fecha: 2025-11-30
 fecha_actualizada: 2026-07-05
 ilustracion: ../../assets/uploads/poema-cuando-encuentres-un-hombre.png

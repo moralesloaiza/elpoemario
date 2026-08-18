@@ -1,5 +1,6 @@
 ---
 titulo: Cuando lejos, muy lejos
+resumen: "Encargos a la distancia: que las olas traigan el suspiro, las golondrinas la oración y las brisas el beso; el canto irá en la luz de las estrellas."
 fecha: 2012-11-17
 fecha_actualizada: 2026-07-03
 ilustracion: ../../assets/uploads/poema-cuando-lejos-muy-lejos.png

@@ -1,5 +1,6 @@
 ---
 titulo: Rosas. El 25 de mayo de 1850
+resumen: "«Rosas», de José Mármol: invectiva contra el dictador en el aniversario de Mayo, con la sangre, los ídolos rotos y el pueblo que se alzará al final."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-rosas-el-25-de-mayo-de-1850.png

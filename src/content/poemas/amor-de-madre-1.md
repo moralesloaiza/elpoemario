@@ -1,5 +1,6 @@
 ---
 titulo: Amor de madre (I)
+resumen: "Versión de Eduardo de la Barra de la balada catalana del corazón materno: el hijo lo arranca para su amada y el corazón pregunta si se hizo daño."
 fecha: 2026-06-06
 fecha_actualizada: 2026-07-05
 ilustracion: ../../assets/uploads/poema-amor-de-madre-1.png

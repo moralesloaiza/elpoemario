@@ -1,5 +1,6 @@
 ---
 titulo: El poeta y el vulgo
+resumen: "Fábula del pino y la grama trasladada al poeta: se alza sobre el vulgo porque solo por la armonía de su canto entiende este que hay un Dios."
 fecha: 2026-07-07
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-poeta-y-el-vulgo.png

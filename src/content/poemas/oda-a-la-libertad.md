@@ -1,5 +1,6 @@
 ---
 titulo: Oda a la libertad
+resumen: "La libertad no es el puñal ni la venganza sino hija de Dios: encadenada por tiranos y por falsos patriotas, renace siempre con nueva juventud."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-oda-a-la-libertad.png

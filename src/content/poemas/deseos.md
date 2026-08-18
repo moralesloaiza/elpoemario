@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Deseos"
+resumen: "«Deseos», de Salvador Díaz Mirón: querer ser lazo, agua, lino y perfume para confundirse con ella y aspirarla de un solo soplo."
 fecha: 2011-11-04
 ilustracion: ../../assets/uploads/poema-deseos.png
 borrador: false

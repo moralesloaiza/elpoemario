@@ -1,5 +1,6 @@
 ---
 titulo: El dolor de vivir
+resumen: "Vivir duele cuando el alma se adhiere a todo: el mal ajeno hiere como propio y no hay alba, por clara que sea, sin su noche de dolor."
 fecha: 2012-04-01
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-el-dolor-de-vivir.png

@@ -1,5 +1,6 @@
 ---
 titulo: Niágara
+resumen: "«Niágara», de José María Heredia (1824): ante la catarata, el desterrado recobra la inspiración perdida y echa de menos las palmas de su tierra."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-niagara.png

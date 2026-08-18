@@ -1,5 +1,6 @@
 ---
 titulo: Poema IV
+resumen: "Cinco redondillas en condicional: todo lo hermoso que sería querer sin la distancia que impide entregarse por entero."
 fecha: 2025-08-17
 fecha_actualizada: 2026-07-05
 ilustracion: ../../assets/uploads/poema-poema-iv.png

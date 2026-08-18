@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Canción del amor lejano"
+resumen: "«Canción del amor lejano», de José Ángel Buesa: no fue la más bella ni llegó a ser suya, y sin embargo a ninguna quiso como a ella."
 fecha: 2011-10-27
 ilustracion: ../../assets/uploads/poema-cancion-del-amor-lejano.png
 borrador: false

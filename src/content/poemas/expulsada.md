@@ -1,5 +1,6 @@
 ---
 titulo: Expulsada
+resumen: "La sobreviviente vuelve al hogar donde fue feliz y, cuando por fin lo recobra en el recuerdo, una voz vuelve a expulsarla del umbral."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-expulsada.png

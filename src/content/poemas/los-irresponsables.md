@@ -1,5 +1,6 @@
 ---
 titulo: Los irresponsables
+resumen: "El marido engañado mata al amante y descubre que ella ha huido: sin la mujer, el cadáver no le devuelve nada del honor perdido."
 fecha: 2011-10-26
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-los-irresponsables.png

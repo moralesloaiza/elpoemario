@@ -1,5 +1,6 @@
 ---
 titulo: Siempre tú…!
+resumen: "El recuerdo llamado en auxilio para volver al pasado: recobrar la cadena de sus trenzas, sus besos y hasta su llanto."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-siempre-tu.png

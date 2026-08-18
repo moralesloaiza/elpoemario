@@ -1,5 +1,6 @@
 ---
 titulo: En los ojos abiertos de los muertos
+resumen: "«En los ojos abiertos de los muertos», de Jaime Sabines: la luz que queda en la pupila inmóvil de los amantes muertos, puerta entreabierta e infranqueable."
 fecha: 2025-11-01
 ilustracion: ../../assets/uploads/poema-en-los-ojos-abiertos-de-los-muertos.png
 borrador: false

@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Siempre..."
+resumen: "Despedida en la tarde junto al mar: el pañuelo, los quince años de ella y la fe de seguir soñándola a la vez lejos y al lado."
 fecha: 2011-10-27
 ilustracion: ../../assets/uploads/poema-siempre.png
 borrador: false

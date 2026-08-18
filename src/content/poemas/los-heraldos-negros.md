@@ -1,5 +1,6 @@
 ---
 titulo: Los heraldos negros
+resumen: "«Los heraldos negros», de César Vallejo (1918): los golpes de la vida como heraldos que manda la Muerte, y el «yo no sé» que abre y cierra el poema."
 fecha: 2026-07-18
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-los-heraldos-negros.png

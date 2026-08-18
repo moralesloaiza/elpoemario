@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Las uvas del tiempo"
+resumen: "«Las uvas del tiempo», de Andrés Eloy Blanco: Nochevieja en ciudad ajena; las doce uvas se comen con el recuerdo de la madre y la soledad del emigrado."
 fecha: 2011-10-28
 ilustracion: ../../assets/uploads/poema-las-uvas-del-tiempo.png
 borrador: false

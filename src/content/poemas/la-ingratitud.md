@@ -1,5 +1,6 @@
 ---
 titulo: La ingratitud
+resumen: "Retrato de la ingratitud como hija de la noche y el demonio: no hay perverso en el mundo que no haya empezado siendo un ingrato."
 fecha: 2025-08-13
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-ingratitud.png

@@ -1,5 +1,6 @@
 ---
 titulo: Quintilla del duelo
+resumen: "Cinco versos del tuerto: el poder le concedió lo que había menester, dos ojos para llorar y uno solo para ver."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-quintilla-del-duelo.png

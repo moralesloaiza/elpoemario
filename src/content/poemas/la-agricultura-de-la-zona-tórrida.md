@@ -1,5 +1,6 @@
 ---
 titulo: La agricultura de la zona tórrida
+resumen: "«La agricultura de la zona tórrida», de Andrés Bello (1826): silva que canta los frutos del trópico y llama al campo a los pueblos recién emancipados."
 fecha: 2026-07-15
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-la-agricultura-de-la-zona-torrida.png

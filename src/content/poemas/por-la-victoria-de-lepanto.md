@@ -1,5 +1,6 @@
 ---
 titulo: Por la victoria de Lepanto
+resumen: "«Por la victoria de Lepanto», de Fernando de Herrera: canción de tono bíblico en que la derrota del turco se canta como obra de la diestra de Dios."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-por-la-victoria-de-lepanto.png

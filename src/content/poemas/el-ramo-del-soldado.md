@@ -1,5 +1,6 @@
 ---
 titulo: El ramo del soldado
+resumen: "«El ramo del soldado», de Antonio de Trueba: la muchacha que aceptó flores de un soldado repite el aviso de su madre hasta que él se marcha."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-el-ramo-del-soldado.png

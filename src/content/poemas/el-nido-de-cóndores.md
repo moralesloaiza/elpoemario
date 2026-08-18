@@ -1,5 +1,6 @@
 ---
 titulo: El nido de cóndores
+resumen: "«El nido de cóndores», de Olegario Víctor Andrade: el nido colgado del peñasco andino sueña con el paso de San Martín y espera el regreso del héroe."
 fecha: 2026-07-08
 fecha_actualizada: 2026-07-09
 ilustracion: ../../assets/uploads/poema-el-nido-de-condores.png

@@ -1,5 +1,6 @@
 ---
 titulo: La renuncia
+resumen: "«La renuncia», de Andrés Eloy Blanco: renunciar al amor imposible con la resignación del mendigo, del ciego y del niño ante el juguete caro."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-la-renuncia.png

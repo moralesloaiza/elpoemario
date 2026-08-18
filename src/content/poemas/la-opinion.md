@@ -1,5 +1,6 @@
 ﻿---
 titulo: "La opinión"
+resumen: "Ante el féretro de Carolina cada cual dice lo suyo: el clérigo, el padre, la vieja, el filósofo —«uno menos»— y el poeta —«un ángel más»."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-opinion.png

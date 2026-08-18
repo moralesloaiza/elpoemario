@@ -1,5 +1,6 @@
 ﻿---
 titulo: "El niño bien criado"
+resumen: "Un niño queda sin su ración y calla por no faltar al respeto; solo replica al gato que le pide los huesos que aún no le han dado la carne."
 fecha: 2011-11-15
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-nino-bien-criado.png

@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Los ratones"
+resumen: "«Los ratones», de Lope de Vega: la fábula del cascabel; los ratones acuerdan ponérselo al gato hasta que uno pregunta quién se atreverá a colgarlo."
 fecha: 2011-11-15
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-los-ratones.png

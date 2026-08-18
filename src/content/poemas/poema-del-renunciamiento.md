@@ -1,5 +1,6 @@
 ---
 titulo: Poema del renunciamiento
+resumen: "«Poema del renunciamiento», de José Ángel Buesa: pasarás por mi vida sin saber que pasaste; el amor callado que ella jamás llegará a saber."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-06
 ilustracion: ../../assets/uploads/poema-poema-del-renunciamiento.png

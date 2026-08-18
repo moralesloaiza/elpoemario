@@ -1,5 +1,6 @@
 ---
 titulo: Emisario
+resumen: "Un beso enviado como emisario a través del mar, encargado de buscar a la amada y entregarle el recuerdo de quien la nombra de lejos."
 fecha: 2026-07-12
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-emisario.png

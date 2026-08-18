@@ -1,5 +1,6 @@
 ---
 titulo: Gracias
+resumen: "«Gracias», de Andrés Eloy Blanco: gratitud a la mujer que lo quiso mientras él miraba a otra, y la confesión de que no era eso lo que quería."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-gracias.png

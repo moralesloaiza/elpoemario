@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Flores y nubes"
+resumen: "Diálogo de una hija con su madre sobre lo que dura: flores, nubes y amor se deshacen; solo quedan Dios en el cielo y el amor de madre."
 fecha: 2012-02-08
 ilustracion: ../../assets/uploads/poema-flores-y-nubes.png
 borrador: false

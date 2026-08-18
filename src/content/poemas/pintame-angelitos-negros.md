@@ -1,5 +1,6 @@
 ---
 titulo: Píntame angelitos negros
+resumen: "«Píntame angelitos negros», de Andrés Eloy Blanco: la negra Juana entierra a su hijo y el poema le reclama al pintor de santos un cielo con su pueblo."
 fecha: 2011-10-28
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-pintame-angelitos-negros.png

@@ -1,5 +1,6 @@
 ---
 titulo: Malquerencia
+resumen: "Seis versos al amor ajeno que llega sin anunciarse y pide, desde lo hondo, ser querido siquiera un segundo."
 fecha: 2013-07-25
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-sexteto-i.png

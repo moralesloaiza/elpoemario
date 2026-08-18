@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Rural uno"
+resumen: "Invitación a escapar del neón y el concreto para contar estrellas, interrumpida por la cola, las facturas y la ciudad que siempre vuelve."
 fecha: 2011-11-14
 ilustracion: ../../assets/uploads/poema-rural-uno.png
 borrador: false

@@ -1,5 +1,6 @@
 ---
 titulo: A la terminación de la guerra civil en los campos de Vergara, 1840
+resumen: "Soneto por el fin de la guerra civil en Vergara: la Paz desciende del cielo con la oliva en la sien y ahuyenta a la Discordia vengativa."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-en-los-campos-de-vergara.png

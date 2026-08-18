@@ -1,5 +1,6 @@
 ---
 titulo: Existes
+resumen: "Seis estrofas que enumeran lo que existe —miradas, labios, manos, oídos, cuerpos— para desembocar en un tú cuyo sí vence al no del que habla."
 fecha: 2025-03-05
 fecha_actualizada: 2026-07-05
 ilustracion: ../../assets/uploads/poema-existes.png

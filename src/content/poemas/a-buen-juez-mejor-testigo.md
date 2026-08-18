@@ -1,5 +1,6 @@
 ---
 titulo: A buen juez, mejor testigo
+resumen: "«A buen juez, mejor testigo», de José Zorrilla: leyenda toledana del Cristo de la Vega, que desclava su mano para atestiguar la promesa de un soldado."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-09
 ilustracion: ../../assets/uploads/poema-a-buen-juez-mejor-testigo.png

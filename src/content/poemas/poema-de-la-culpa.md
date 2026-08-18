@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Poema de la culpa"
+resumen: "«Poema de la culpa», de José Ángel Buesa: el amante pide a Dios que perdone a la mujer ajena y le devuelve la culpa de haberla hecho tan bella."
 fecha: 2011-10-27
 ilustracion: ../../assets/uploads/poema-poema-de-la-culpa.png
 borrador: false

@@ -1,5 +1,6 @@
 ---
 titulo: Canción del pirata
+resumen: "«Canción del pirata», de José de Espronceda (1835): el bergantín, el capitán y el estribillo que hace del barco un tesoro y de la libertad un dios."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-cancion-del-pirata.png

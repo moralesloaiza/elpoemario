@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Tus ojos tienen algo"
+resumen: "Cinco estrofas que definen unos ojos por contrarios: júbilo y llanto, siempre y jamás, puerto y tempestad, bondad con algo de maldad."
 fecha: 2011-10-27
 ilustracion: ../../assets/uploads/poema-tus-ojos-tienen-algo.png
 borrador: false

@@ -1,5 +1,6 @@
 ---
 titulo: Los hijos infinitos
+resumen: "«Los hijos infinitos», de Andrés Eloy Blanco: tener un hijo es tener a todos los niños del mundo, y con ellos toda la alegría y todo el miedo."
 fecha: 2011-10-30
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-los-hijos-infinitos.png

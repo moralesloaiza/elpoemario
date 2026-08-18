@@ -1,5 +1,6 @@
 ---
 titulo: Amor de madre (II)
+resumen: "Balada catalana anónima: el hijo arranca el corazón de su madre para su amada y, al caer con él, oye que el corazón le pregunta si se hizo daño."
 fecha: 2026-06-06
 fecha_actualizada: 2026-07-06
 ilustracion: ../../assets/uploads/poema-amor-de-madre-2.png
