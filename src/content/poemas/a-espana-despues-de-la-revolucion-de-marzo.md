@@ -1,5 +1,6 @@
 ---
 titulo: A España, después de la revolución de marzo
+resumen: "«A España, después de la revolución de marzo», de Manuel José Quintana (1808): la nación que reinó sobre dos mundos, hundida y alzándose otra vez."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-a-espana-despues-de-la-revolucion-de-marzo.png

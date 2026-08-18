@@ -1,5 +1,6 @@
 ---
 titulo: Azul
+resumen: "Soneto del azul: la cumbre, el cielo, el mar y los ensueños, todos azules, hasta el azul de unos ojos que ya no volverán a mirarlo."
 fecha: 2011-11-01
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-azul.png

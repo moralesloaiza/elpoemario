@@ -1,5 +1,6 @@
 ---
 titulo: Oda a la vida retirada
+resumen: "«Vida retirada», de fray Luis de León: elogio en liras de quien huye del mundanal ruido y prefiere la mesa pobre y la sombra a la ambición."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-oda-a-la-vida-retirada.png

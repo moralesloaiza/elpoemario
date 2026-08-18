@@ -1,5 +1,6 @@
 ---
 titulo: Poema III
+resumen: "Romance del amor adolescente: la parada del autobús, la despedida de cada tarde y la gratitud a la muchacha que enseñó a querer."
 fecha: 2014-10-27
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-poema-iii.png

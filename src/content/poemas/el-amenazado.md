@@ -1,5 +1,6 @@
 ﻿---
 titulo: "El amenazado"
+resumen: "«El amenazado», de Jorge Luis Borges (El oro de los tigres, 1972): el amor llega como un cerco y ni la erudición ni los hábitos sirven de talismán."
 fecha: 2011-11-01
 ilustracion: ../../assets/uploads/poema-el-amenazado.png
 borrador: false

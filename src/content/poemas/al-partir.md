@@ -1,5 +1,6 @@
 ---
 titulo: Al partir
+resumen: "«Al partir», de Gertrudis Gómez de Avellaneda (1836): soneto escrito al zarpar de Cuba, cuando el ancla se alza y la isla queda atrás."
 fecha: 2026-07-07
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-al-partir.png

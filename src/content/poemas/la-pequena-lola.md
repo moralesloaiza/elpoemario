@@ -1,5 +1,6 @@
 ---
 titulo: La pequeña Lola
+resumen: "Lola barre bailando: vals, polca, pavana y rigodón; de tanta danza el polvo va quedando atrás y el salón queda más limpio que el oro."
 fecha: 2025-02-12
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-pequena-lola.png

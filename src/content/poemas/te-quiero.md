@@ -1,5 +1,6 @@
 ---
 titulo: Te quiero
+resumen: "«Te quiero», de Mario Benedetti: el amor dicho por las manos que trabajan, la boca que grita rebeldía y el estribillo del codo a codo en la calle."
 fecha: 2012-10-04
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-te-quiero.png

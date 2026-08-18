@@ -1,5 +1,6 @@
 ---
 titulo: Reto
+resumen: "«Reto», de Julio Flórez: el amante humillado promete quebrantar el orgullo de ella y, ya rendida, arrancarle el corazón para comérselo a besos."
 fecha: 2012-11-11
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-reto.png

@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Gato final"
+resumen: "Un gato muerto en la puerta se lleva todo lo que no llegó a ser con ella: los viajes, las conversaciones, el hijo que no hubo."
 fecha: 2011-11-14
 ilustracion: ../../assets/uploads/poema-gato-final.png
 borrador: false

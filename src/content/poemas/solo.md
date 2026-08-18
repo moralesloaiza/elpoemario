@@ -1,5 +1,6 @@
 ---
 titulo: Solo
+resumen: "Un hombre explica por qué canta dolores: vuelve de noche a una casa sin nadie que lo reciba y nunca llegó a conocer a su madre."
 fecha: 2011-10-27
 fecha_actualizada: 2026-07-01
 ilustracion: ../../assets/uploads/poema-solo.png

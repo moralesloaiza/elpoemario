@@ -1,5 +1,6 @@
 ---
 titulo: La burla del amor
+resumen: "Tres redondillas de galantería fingida: cada juramento de amor se desmiente en el último verso y se resuelve en burla."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-la-burla-del-amor.png

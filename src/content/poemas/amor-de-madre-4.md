@@ -1,5 +1,6 @@
 ---
 titulo: Amor de madre (IV)
+resumen: "Versión en redondillas de la balada del corazón materno: la dama lo pide como prenda de amor y el hijo, al tropezar, oye la pregunta de siempre."
 fecha: 2011-10-28
 fecha_actualizada: 2026-06-06
 ilustracion: ../../assets/uploads/poema-amor-de-madre-4.png

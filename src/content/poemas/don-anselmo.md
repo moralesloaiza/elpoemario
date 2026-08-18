@@ -1,5 +1,6 @@
 ---
 titulo: Don Anselmo
+resumen: "«Don Anselmo», de Aquiles Nazoa: el retrato del mendigo que come en el quicio de la casa, desmentido por el propio poeta en los versos finales."
 fecha: 2013-08-08
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-don-anselmo.png

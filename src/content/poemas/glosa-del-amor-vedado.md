@@ -1,5 +1,6 @@
 ---
 titulo: Glosa del amor vedado
+resumen: "Glosa de una copla del cancionero venezolano: podrán impedir que la vea, no que la quiera; cuatro décimas rematadas en los versos del pie."
 fecha: 2011-08-09
 fecha_actualizada: 2026-06-24
 ilustracion: ../../assets/uploads/poema-glosa-del-amor-vedado.png

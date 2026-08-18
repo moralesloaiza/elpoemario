@@ -1,5 +1,6 @@
 ---
 titulo: Oda rápida
+resumen: "Elogio del amor sin permanencia: contra los que acusan a la mujer que se entrega y se va, el trovador celebra la farsa breve y la deja partir."
 fecha: 2025-02-05
 fecha_actualizada: 2026-06-28
 ilustracion: ../../assets/uploads/poema-oda-rapida.png

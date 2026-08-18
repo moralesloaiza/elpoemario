@@ -1,5 +1,6 @@
 ---
 titulo: Una noche de verano en el Golfo de Nápoles
+resumen: "El poeta pide al barquero que se aleje de la ciudad; el estribillo «Boga, boga, barquerol» mide una noche de contemplación en el golfo."
 fecha: 2012-05-20
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-una-noche-de-verano-en-el-golfo-de-napoles.png

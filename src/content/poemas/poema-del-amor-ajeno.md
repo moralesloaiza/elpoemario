@@ -1,5 +1,6 @@
 ---
 titulo: Poema del amor ajeno
+resumen: "«Poema del amor ajeno», de José Ángel Buesa: el agua clara que no debe beberse; ella puede irse porque nunca acaba de irse del todo."
 fecha: 2012-04-08
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-poema-del-amor-ajeno.png

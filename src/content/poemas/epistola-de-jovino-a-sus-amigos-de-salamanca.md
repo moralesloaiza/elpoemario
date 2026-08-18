@@ -1,5 +1,6 @@
 ---
 titulo: Epístola de Jovino a sus amigos de Salamanca
+resumen: "«Epístola de Jovino a sus amigos de Salamanca», de Jovellanos: carta en verso que cambia la lira amorosa por una poesía útil y moral."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-12
 ilustracion: ../../assets/uploads/poema-epistola-de-jovino-a-sus-amigos-de-salamanca.png

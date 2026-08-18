@@ -1,5 +1,6 @@
 ---
 titulo: Liras trenzadas
+resumen: "«Liras trenzadas», de Andrés Eloy Blanco: el libro de amor que el poeta imagina para ella —posada, nave, globo— escrito en liras que se trenzan."
 fecha: 2014-02-11
 fecha_actualizada: 2026-06-21
 ilustracion: ../../assets/uploads/poema-liras-trenzadas.png

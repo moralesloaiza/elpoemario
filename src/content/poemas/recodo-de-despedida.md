@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Recodo de despedida"
+resumen: "El poeta se despide diciendo que la quiso, para no decir que la quiere; el dolor de un querer que sigue lloviznando sin puerta por donde salir."
 fecha: 2011-11-04
 ilustracion: ../../assets/uploads/poema-recodo-de-despedida.png
 borrador: false

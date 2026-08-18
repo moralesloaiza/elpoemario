@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Tu voz"
+resumen: "Soneto a la primera vez que oyó su voz: quien escucha ese acento de dulzura llora, sonríe, se enternece y ama."
 fecha: 2012-02-11
 ilustracion: ../../assets/uploads/poema-tu-voz.png
 borrador: false

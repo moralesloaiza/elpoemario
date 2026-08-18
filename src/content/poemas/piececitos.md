@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Piececitos"
+resumen: "«Piececitos», de Gabriela Mistral: los pies del niño pobre, azules de frío y heridos por los guijarros, que las gentes cruzan sin ver."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-piececitos.png

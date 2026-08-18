@@ -1,5 +1,6 @@
 ---
 titulo: Amor de madre (III)
+resumen: "Versión de Joaquín Dicenta de la balada del corazón materno: la mujer lo exige como prueba de amor y, ya en el suelo, el corazón pregunta por el hijo."
 fecha: 2011-10-30
 fecha_actualizada: 2026-06-06
 ilustracion: ../../assets/uploads/poema-amor-de-madre-3.png

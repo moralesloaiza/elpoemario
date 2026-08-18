@@ -1,5 +1,6 @@
 ---
 titulo: Nostalgias
+resumen: "«Nostalgias», de Julián del Casal (Nieve, 1892): el deseo de partir a regiones remotas, desmentido en la última estrofa: si partiera, querría regresar."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-nostalgias.png

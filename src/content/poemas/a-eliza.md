@@ -1,5 +1,6 @@
 ---
 titulo: A Eliza
+resumen: "Ante la prisa con que pasan las flores y la belleza, el poeta señala a Eliza el estudio de las artes como el único modo de burlar al tiempo."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-a-eliza.png

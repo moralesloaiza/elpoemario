@@ -1,5 +1,6 @@
 ---
 titulo: Al Atoyac
+resumen: "«Al Atoyac», de Ignacio Manuel Altamirano: el río que corre manso bajo el mangle mientras el mar brama afuera, y el edén que esconde la costa."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-al-atoyac.png

@@ -1,5 +1,6 @@
 ---
 titulo: Elogio de los bardos de antaño
+resumen: "«Elogio de los bardos de antaño», de Aquiles Nazoa: envidia burlona de los poetas que hallaban tema en la primera cana o en cualquier entierro."
 fecha: 2012-12-04
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-elogio-de-los-bardos-de-antano.png

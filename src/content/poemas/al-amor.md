@@ -1,5 +1,6 @@
 ---
 titulo: Al amor
+resumen: "«Al amor», de Manuel González Prada: soneto hecho de preguntas; si eres un bien, ¿por qué el llanto?; si eres muerte, ¿por qué me das la vida?"
 fecha: 2012-11-10
 ilustracion: ../../assets/uploads/poema-al-amor.png
 borrador: false

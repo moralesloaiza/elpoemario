@@ -1,5 +1,6 @@
 ---
 titulo: Tú me quieres blanca
+resumen: "«Tú me quieres blanca», de Alfonsina Storni (El dulce daño, 1918): la exigencia de pureza devuelta íntegra al hombre que la impone."
 fecha: 2026-07-20
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-tu-me-quieres-blanca.png

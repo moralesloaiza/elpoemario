@@ -1,5 +1,6 @@
 ---
 titulo: Para cantar
+resumen: "«Para cantar», de Andrés Eloy Blanco: el punto del camino donde se empieza a querer, y los pies que se devuelven solos adonde ella esté."
 fecha: 2013-12-01
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-para-cantar.png

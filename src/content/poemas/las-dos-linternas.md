@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Las dos linternas"
+resumen: "«Las dos linternas», de Ramón de Campoamor: frente a la de Diógenes, la suya halla santos y mártires; todo es según el color del cristal con que se mira."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-las-dos-linternas.png

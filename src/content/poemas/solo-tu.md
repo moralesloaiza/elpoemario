@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Sólo tú"
+resumen: "Todos los amores anteriores deshechos para querer a una sola: el que habla se declara ya sin vacilaciones y sin ocaso a la vista."
 fecha: 2011-10-28
 ilustracion: ../../assets/uploads/poema-solo-tu.png
 borrador: false

@@ -1,5 +1,6 @@
 ---
 titulo: Coloquio bajo la palma
+resumen: "«Coloquio bajo la palma», de Andrés Eloy Blanco: consejo de padre a hijo —dar trabajo, dar luz, no aislarse— y el ruego de no tenerlo solitario."
 fecha: 2013-12-01
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-coloquio-bajo-la-palma.png

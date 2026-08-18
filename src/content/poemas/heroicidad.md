@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Heroicidad"
+resumen: "Un borracho jura no beber más, resiste la invitación de un amigo y celebra tanto su heroísmo que entra a premiarse con un trago."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-heroicidad.png

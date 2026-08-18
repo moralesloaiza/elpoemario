@@ -1,5 +1,6 @@
 ---
 titulo: Error
+resumen: "Contra la imagen del poeta feliz y amado: quien bajara al fondo de esa alma retrocedería al verla aislada, sin amor y sin calma."
 fecha: 2012-03-01
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-error.png

@@ -1,5 +1,6 @@
 ---
 titulo: ¡Victoriosa!
+resumen: "Soneto escrito ante la bandera cubana izada en el Morro: la incredulidad primero, luego la fiesta, y al final el llanto de verla."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-victoriosa.png

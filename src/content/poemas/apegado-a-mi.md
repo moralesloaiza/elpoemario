@@ -1,5 +1,6 @@
 ---
 titulo: Apegado a mí
+resumen: "«Apegado a mí», de Gabriela Mistral: canción de cuna en que la madre, que todo lo ha perdido, pide al hijo que duerma pegado a su cuerpo."
 fecha: 2011-11-04
 fecha_actualizada: 2026-07-19
 ilustracion: ../../assets/uploads/poema-apegado-a-mi.png

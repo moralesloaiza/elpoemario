@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Explicando una tarde anatomía"
+resumen: "Un profesor de anatomía interrumpe la clase para decir que su hija lo abandonó y que se vive sin corazón; un alumno responde que él lo tiene."
 fecha: 2011-10-27
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-explicando-una-tarde-anatomia.png

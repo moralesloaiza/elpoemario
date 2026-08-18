@@ -1,5 +1,6 @@
 ---
 titulo: Tristezas
+resumen: "«Tristezas», de Gaspar Núñez de Arce: el hombre que perdió la fe recuerda al niño que rezaba en las catedrales y daría la vida por recobrarla."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-tristezas.png

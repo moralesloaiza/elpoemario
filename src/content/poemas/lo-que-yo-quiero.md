@@ -1,5 +1,6 @@
 ﻿---
 titulo: "Lo que yo quiero"
+resumen: "Lo que el amante quiere de una noche: hallarla bajo la luna, sentir sus latidos contra el pecho, pedirle la boca y acabar en una locura compartida."
 fecha: 2011-10-27
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-lo-que-yo-quiero.png

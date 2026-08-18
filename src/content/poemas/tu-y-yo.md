@@ -1,5 +1,6 @@
 ---
 titulo: Tú y yo
+resumen: "Dos estrofas simétricas: la primera define el aliento de ella con imágenes de dulzura; la segunda, los suspiros de él con imágenes de duelo."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-tu-y-yo.png

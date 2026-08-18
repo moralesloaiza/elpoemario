@@ -1,5 +1,6 @@
 ---
 titulo: Soleá del amor indiferente
+resumen: "«Soleá del amor indiferente», de Manuel Benítez Carrasco: ni rencor ni perdón; agradece lo recibido y se niega a odiar, porque odiar también es amar."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-05
 ilustracion: ../../assets/uploads/poema-solea-del-amor-indiferente.png

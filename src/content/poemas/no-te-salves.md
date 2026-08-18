@@ -1,5 +1,6 @@
 ---
 titulo: No te salves
+resumen: "«No te salves», de Mario Benedetti: la larga negación —no congeles el júbilo, no quieras con desgana— y el remate: si te salvas, no te quedes conmigo."
 fecha: 2012-10-04
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-no-te-salves.png

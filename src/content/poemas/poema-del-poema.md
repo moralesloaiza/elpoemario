@@ -1,5 +1,6 @@
 ---
 titulo: Poema del poema
+resumen: "El poeta lee en voz alta sus versos del renunciamiento y descubre en la sala a la mujer que los inspiró, que se aleja sin sospecharlo."
 fecha: 2011-10-26
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-poema-del-poema.png

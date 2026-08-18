@@ -1,5 +1,6 @@
 ---
 titulo: Nocturno de un amor imposible
+resumen: "Noche de luna y soledad: el nombre de la amada repetido en la voz del silencio, y la certeza de que ella también lo recuerda a veces."
 fecha: 2011-10-27
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-nocturno-de-un-amor-imposible.png

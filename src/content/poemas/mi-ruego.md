@@ -1,5 +1,6 @@
 ---
 titulo: Mi ruego
+resumen: "Pidió amar y le llegaron el amor, el dolor y el olvido; cada uno se fue convirtiendo en poesía, y el ruego mismo termina siéndolo."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-mi-ruego.png

@@ -1,5 +1,6 @@
 ---
 titulo: La salida del cafetal
+resumen: "Soneto del caballo impaciente que tasca el freno y golpea el suelo hasta que ella monta, y entonces parte altivo con su carga."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-19
 ilustracion: ../../assets/uploads/poema-la-salida-del-cafetal.png

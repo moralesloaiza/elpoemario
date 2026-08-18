@@ -1,5 +1,6 @@
 ---
 titulo: El Dos de Mayo
+resumen: "«El Dos de Mayo», de Juan Nicasio Gallego (1808): elegía por la matanza de Madrid, con España enlutada junto al sepulcro y el juramento de rencor."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-10
 ilustracion: ../../assets/uploads/poema-el-dos-de-mayo.png

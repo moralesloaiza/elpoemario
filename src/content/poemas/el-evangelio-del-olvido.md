@@ -1,5 +1,6 @@
 ---
 titulo: El evangelio del olvido
+resumen: "El olvido celebrado como un bien: dos amantes cierran la ventana para no recordar nada de lo que buscaron en las estrellas."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-el-evangelio-del-olvido.png

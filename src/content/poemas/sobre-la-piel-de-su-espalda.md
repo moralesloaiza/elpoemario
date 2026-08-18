@@ -1,5 +1,6 @@
 ---
 titulo: Sobre la piel de su espalda
+resumen: "El día después del beso: los dedos reclaman la memoria de los caminos que trazaron sobre la espalda de la mujer recordada."
 fecha: 2014-04-05
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-sobre-la-piel-de-su-espalda.png

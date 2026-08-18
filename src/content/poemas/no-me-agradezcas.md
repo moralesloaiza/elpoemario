@@ -1,5 +1,6 @@
 ---
 titulo: No me agradezcas
+resumen: "Ruego de que no le agradezcan querer: tampoco el aire da las gracias por ser respirado, ni el alba por besar, ni el mar por ser navegado."
 fecha: 2020-10-04
 fecha_actualizada: 2026-07-06
 ilustracion: ../../assets/uploads/poema-no-me-agradezcas.png

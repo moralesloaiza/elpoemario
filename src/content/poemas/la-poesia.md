@@ -1,5 +1,6 @@
 ﻿---
 titulo: "La poesía"
+resumen: "Receta burlesca para hacer versos: líneas de igual medida y consonantes en las puntas; lo difícil es lo del medio, que es poner talento."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-poesia.png

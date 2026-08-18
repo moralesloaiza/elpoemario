@@ -1,5 +1,6 @@
 ﻿---
 titulo: "El ideal"
+resumen: "El ideal como fuerza que reanima y conduce; la promesa de seguirlo aunque sea a morir en suelo extraño y de ganarle un lauro a la patria."
 fecha: 2011-10-28
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-ideal.png

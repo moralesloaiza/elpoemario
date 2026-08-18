@@ -1,5 +1,6 @@
 ---
 titulo: A Caracas
+resumen: "Caracas tendida en la falda del monte, y el llamado a su juventud para que devuelva a la ciudad la libertad y la gloria que ha perdido."
 fecha: 2026-07-07
 fecha_actualizada: 2026-07-09
 ilustracion: ../../assets/uploads/poema-a-caracas.png

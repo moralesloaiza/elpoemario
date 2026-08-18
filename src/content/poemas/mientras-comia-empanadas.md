@@ -1,5 +1,6 @@
 ---
 titulo: Mientras comía empanadas
+resumen: "La amada aparece entre el vapor de las empanadas: un antojo cotidiano vuelto promesa de los besos que la distancia niega."
 fecha: 2014-05-04
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-mientras-comia-empanadas.png

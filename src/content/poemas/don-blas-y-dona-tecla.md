@@ -1,5 +1,6 @@
 ---
 titulo: Don Blas y doña Tecla
+resumen: "Romancillo infantil: la sobrina de dos tíos feos sospecha que la fealdad les viene de no comer más que espárragos y pepitas de melón."
 fecha: 2025-02-12
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-don-blas-y-dona-tecla.png

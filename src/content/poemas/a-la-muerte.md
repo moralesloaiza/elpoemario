@@ -1,5 +1,6 @@
 ﻿---
 titulo: "A la muerte"
+resumen: "Endecha en que el poeta increpa a la muerte: si sus manos están puras y nunca sujetó a nadie, ninguna amenaza suya puede alcanzarlo."
 fecha: 2011-12-04
 ilustracion: ../../assets/uploads/poema-a-la-muerte.png
 borrador: false

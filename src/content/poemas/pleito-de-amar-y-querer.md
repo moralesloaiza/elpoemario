@@ -1,5 +1,6 @@
 ---
 titulo: Pleito de amar y querer
+resumen: "«Pleito de amar y querer», de Andrés Eloy Blanco: diálogo sobre la diferencia entre amar y querer, resuelto en que el amor es más largo que la muerte."
 fecha: 2011-10-26
 fecha_actualizada: 2026-07-14
 ilustracion: ../../assets/uploads/poema-pleito-de-amar-y-querer.png
