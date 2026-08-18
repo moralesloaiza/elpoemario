@@ -4,7 +4,7 @@ resumen: "«Los motivos del lobo», de Rubén Darío (1913): San Francisco amans
   la fiera de Gubbio y descubre que la crueldad no era del lobo."
 fecha: 2026-08-17
 fecha_actualizada: 2026-08-17
-ilustracion: ../../assets/uploads/chatgpt-image-17-ago-2026-22_47_51.png
+ilustracion: ../../assets/uploads/poema-los-motivos-del-lobo.png
 borrador: true
 tipo: polimetrico
 movimiento: modernismo
