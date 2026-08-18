@@ -5,6 +5,7 @@ resumen: "«Nocturno», de José Asunción Silva (1894): la sombra del vivo y la
   siempre."
 fecha: 2026-08-16
 fecha_actualizada: 2026-08-16
+ilustracion: ../../assets/uploads/chatgpt-image-17-ago-2026-22_11_46.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo
