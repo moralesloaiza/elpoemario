@@ -4,7 +4,7 @@ resumen: "«Yo soy un hombre sincero», primer poema de los Versos sencillos de
   José Martí (1891): un hombre se retrata entero antes de morir."
 fecha: 2026-08-18
 fecha_actualizada: 2026-08-18
-ilustracion: ../../assets/uploads/chatgpt-image-18-ago-2026-23_34_40.png
+ilustracion: ../../assets/uploads/poema-yo-soy-un-hombre-sincero-1.png
 borrador: false
 tipo: cuarteta
 movimiento: modernismo
