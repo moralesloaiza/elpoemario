@@ -5,7 +5,7 @@ resumen: "«Los motivos del lobo», de Rubén Darío (1913): San Francisco amans
 fecha: 2026-08-17
 fecha_actualizada: 2026-08-17
 ilustracion: ../../assets/uploads/chatgpt-image-17-ago-2026-22_47_51.png
-borrador: true
+borrador: false
 tipo: polimetrico
 movimiento: modernismo
 temas:
