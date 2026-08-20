@@ -4,7 +4,7 @@ resumen: "«Dicen que no hablan las plantas», de Rosalía de Castro (En las
   orillas del Sar, 1884): la llamada loca defiende su derecho a seguir soñando."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-ago-2026-20_51_46.png
+ilustracion: ../../assets/uploads/poema-dicen-que-no-hablan-las-plantas.png
 borrador: false
 tipo: romance
 movimiento: romanticismo
