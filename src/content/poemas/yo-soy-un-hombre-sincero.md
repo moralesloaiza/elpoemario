@@ -5,7 +5,7 @@ resumen: "«Yo soy un hombre sincero», primer poema de los Versos sencillos de
 fecha: 2026-08-18
 fecha_actualizada: 2026-08-18
 ilustracion: ../../assets/uploads/poema-yo-soy-un-hombre-sincero.png
-borrador: true
+borrador: false
 tipo: cuarteta
 movimiento: modernismo
 temas:
