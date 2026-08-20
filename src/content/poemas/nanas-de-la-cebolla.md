@@ -4,7 +4,7 @@ resumen: "«Nanas de la cebolla», de Miguel Hernández (1939): seguidillas
   escritas en la cárcel para un hijo que se alimenta de hambre y de risa."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-ago-2026-23_02_16.png
+ilustracion: ../../assets/uploads/poema-nanas-de-la-cebolla.png
 borrador: false
 tipo: seguidilla
 movimiento: generacion-27
