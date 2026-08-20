@@ -4,7 +4,7 @@ resumen: "«Masa», de César Vallejo (España, aparta de mí este cáliz, 1939)
   cadáver se incorpora y echa a andar cuando todos los hombres se lo piden."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-20-ago-2026-06_37_46.png
+ilustracion: ../../assets/uploads/poema-masa.png
 borrador: false
 tipo: verso-libre
 movimiento: vanguardia
