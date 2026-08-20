@@ -4,7 +4,7 @@ resumen: "«Cobardía», de Amado Nervo: dos sextetos en los que el amor pasa de
   largo por miedo a volver a abrir heridas que suelen sangrar."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-ago-2026-22_13_38.png
+ilustracion: ../../assets/uploads/poema-cobardia.png
 borrador: false
 tipo: sexteto
 movimiento: modernismo
