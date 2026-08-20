@@ -4,7 +4,7 @@ resumen: "«Para entonces», de Manuel Gutiérrez Nájera: pedir la muerte joven
   alta mar y de cara al cielo, antes de que el día decline."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-ago-2026-07_57_42.png
+ilustracion: ../../assets/uploads/poema-para-entonces.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
