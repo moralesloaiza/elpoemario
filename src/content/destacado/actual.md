@@ -1,7 +1,7 @@
 ---
 activo: true
 rotacion_semanal: true
-cintillo: El saber en octavas
+cintillo: El poema de la semana
 extracto: "\n"
 tipo: entrada
 poema_referido: ""
