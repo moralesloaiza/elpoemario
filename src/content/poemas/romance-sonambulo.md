@@ -4,7 +4,7 @@ resumen: "«Romance sonámbulo», de Federico García Lorca (Romancero gitano,
   1928): la gitana espera en la baranda mientras la muerte trabaja abajo."
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
-ilustracion: ../../assets/uploads/chatgpt-image-19-ago-2026-22_34_42.png
+ilustracion: ../../assets/uploads/poema-romance-sonambulo.png
 borrador: true
 tipo: romance
 movimiento: generacion-27
