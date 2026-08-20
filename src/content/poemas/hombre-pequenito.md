@@ -4,7 +4,7 @@ resumen: "«Hombre pequeñito», de Alfonsina Storni (Irremediablemente, 1919): 
   canario pide que le abran la jaula y avisa que solo amó media hora."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-ilustracion: ../../assets/uploads/chatgpt-image-20-ago-2026-07_14_09.png
+ilustracion: ../../assets/uploads/poema-hombre-pequenito.png
 borrador: false
 tipo: polimetrico
 movimiento: posmodernismo
