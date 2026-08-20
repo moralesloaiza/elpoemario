@@ -5,7 +5,7 @@ resumen: "«Romance sonámbulo», de Federico García Lorca (Romancero gitano,
 fecha: 2026-08-19
 fecha_actualizada: 2026-08-19
 ilustracion: ../../assets/uploads/poema-romance-sonambulo.png
-borrador: true
+borrador: false
 tipo: romance
 movimiento: generacion-27
 temas:
