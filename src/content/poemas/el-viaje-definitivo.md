@@ -4,7 +4,7 @@ resumen: "«El viaje definitivo», de Juan Ramón Jiménez: el huerto, los pája
   las campanas seguirán ahí cuando el que los mira ya no esté."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-ilustracion: ../../assets/uploads/chatgpt-image-20-ago-2026-08_03_34.png
+ilustracion: ../../assets/uploads/poema-el-viaje-definitivo.png
 borrador: false
 tipo: silva
 movimiento: modernismo
