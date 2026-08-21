@@ -5,7 +5,7 @@ resumen: "«El viaje definitivo», de Juan Ramón Jiménez: el huerto, los pája
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
 ilustracion: ../../assets/uploads/poema-el-viaje-definitivo.png
-borrador: true
+borrador: false
 tipo: silva
 movimiento: modernismo
 temas:
