@@ -1,0 +1,53 @@
+---
+titulo: Yo voy soñando caminos
+resumen: "«Yo voy soñando caminos», de Antonio Machado (Soledades, 1907): la copla de la espina arrancada, y el arrepentimiento de haberla arrancado."
+fecha: 2026-08-20
+fecha_actualizada: 2026-08-20
+borrador: true
+tipo: cuarteta
+movimiento: modernismo
+temas:
+  - viaje
+  - dolor
+  - melancolia
+  - sueno
+motivos:
+  - camino
+  - yo-lirico
+  - rio
+autor: antonio-machado
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+nota_curador: "El caminante se alegra de haber perdido la espina y termina pidiendo volver a sentirla clavada. Machado deja el poema ahí, sin explicar la contradicción."
+---
+
+Yo voy soñando caminos
+de la tarde. ¡Las colinas
+doradas, los verdes pinos,
+las polvorientas encinas!...
+
+¿Adónde el camino irá?
+Yo voy cantando, viajero
+a lo largo del sendero...
+—La tarde cayendo está—.
+
+«En el corazón tenía
+la espina de una pasión;
+logré arrancármela un día:
+ya no siento el corazón».
+
+Y todo el campo un momento
+se queda, mudo y sombrío,
+meditando. Suena el viento
+en los álamos del río.
+
+La tarde más se oscurece;
+y el camino que serpea
+y débilmente blanquea
+se enturbia y desaparece.
+
+Mi cantar vuelve a plañir:
+«Aguda espina dorada,
+quién te pudiera sentir
+en el corazón clavada».
