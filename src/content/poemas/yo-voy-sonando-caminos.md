@@ -1,8 +1,10 @@
 ---
 titulo: Yo voy soñando caminos
-resumen: "«Yo voy soñando caminos», de Antonio Machado (Soledades, 1907): la copla de la espina arrancada, y el arrepentimiento de haberla arrancado."
+resumen: "«Yo voy soñando caminos», de Antonio Machado (Soledades, 1907): la
+  copla de la espina arrancada, y el arrepentimiento de haberla arrancado."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
+ilustracion: ../../assets/uploads/chatgpt-image-21-ago-2026-00_08_06.png
 borrador: true
 tipo: cuarteta
 movimiento: modernismo
@@ -19,7 +21,7 @@ autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "El caminante se alegra de haber perdido la espina y termina pidiendo volver a sentirla clavada. Machado deja el poema ahí, sin explicar la contradicción."
+nota_curador: ""
 ---
 
 Yo voy soñando caminos
