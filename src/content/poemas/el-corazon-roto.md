@@ -4,7 +4,7 @@ resumen: "Creía el corazón compuesto para siempre con las cuerdas de la poesí
 fecha: 2011-10-26
 fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-el-corazon-roto.png
-borrador: false
+borrador: true
 tipo: soneto
 movimiento: modernismo
 temas:
