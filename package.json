@@ -14,7 +14,8 @@
     "taller:test": "node scripts/taller/test.mjs",
     "taller:medir": "node scripts/taller/medir.mjs",
     "taller:diag": "node scripts/taller/diagnostico.mjs",
-    "taller:rimas": "node scripts/taller/rimas-index.mjs"
+    "taller:rimas": "node scripts/taller/rimas-index.mjs",
+    "pwa:icons": "node scripts/pwa/generate-icons.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

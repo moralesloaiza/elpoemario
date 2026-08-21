@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#141b28" />
+    <title>Sin conexión · El Poemario</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root {
+        --bg: #141b28;
+        --text: #ede4d3;
+        --muted: #9aa3b2;
+        --oro: #c9a227;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        gap: 1.25rem;
+      }
+      img { width: 120px; height: 120px; }
+      h1 {
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 600;
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        margin: 0;
+        letter-spacing: 0.02em;
+      }
+      p { margin: 0; max-width: 32ch; color: var(--muted); font-size: 1.125rem; line-height: 1.5; }
+      button {
+        margin-top: 0.5rem;
+        background: transparent;
+        color: var(--oro);
+        border: 1px solid var(--oro);
+        border-radius: 999px;
+        padding: 0.6rem 1.4rem;
+        font: inherit;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      button:hover { background: var(--oro); color: var(--bg); }
+    </style>
+  </head>
+  <body>
+    <img src="/logo.svg" alt="" width="120" height="120" />
+    <h1>Sin conexión</h1>
+    <p>
+      No hay conexión a internet ahora mismo. Los poemas que ya visitaste siguen
+      disponibles; para lo demás, vuelve a intentarlo cuando recuperes la red.
+    </p>
+    <button type="button" onclick="location.reload()">Reintentar</button>
+  </body>
+</html>

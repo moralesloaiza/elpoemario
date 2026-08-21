@@ -47,6 +47,11 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    {/* Barra del navegador / de la app instalada. Default noche (#141b28); el
+        script de tema de abajo lo cambia a día (#ece4d2) si esa es la
+        preferencia, para que la barra siga al tema elegido. */}
+    <meta name="theme-color" content="#141b28" />
+
     {/* Tema día/noche · aplica la preferencia persistida ANTES del primer
         pintado para evitar flash. Noche es el default (:root, sin atributo);
         'day' fija [data-theme='day'] en <html>. Clave canónica
@@ -62,7 +67,11 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
             if (old === 'pergamino') v = 'day';
             else if (old === 'nocturno') v = 'night';
           }
-          if (v === 'day') document.documentElement.setAttribute('data-theme', 'day');
+          if (v === 'day') {
+            document.documentElement.setAttribute('data-theme', 'day');
+            var m = document.querySelector('meta[name="theme-color"]');
+            if (m) m.setAttribute('content', '#ece4d2');
+          }
         } catch (e) {}
       })();
     </script>
@@ -70,6 +79,16 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* PWA · permite «instalar» el sitio como app (Windows/Android/escritorio)
+        y la lectura offline de lo ya visitado (ver public/manifest.webmanifest
+        y public/sw.js). */}
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Poemario" />
+
     <title>{titulo}</title>
     <slot name="head" />
   </head>
@@ -89,6 +108,19 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
 
     <Footer />
     <BotonCrear />
+
+    {/* Registro del service worker · SOLO en producción. En desarrollo el SW
+        cachearía respuestas y pelearía con el HMR de Astro (CSS/JS obsoleto),
+        así que se omite del build de dev. */}
+    {import.meta.env.PROD && (
+      <script is:inline>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').catch(function () {});
+          });
+        }
+      </script>
+    )}
 
     <style>
       .site-main {
