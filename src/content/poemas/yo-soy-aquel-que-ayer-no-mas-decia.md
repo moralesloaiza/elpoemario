@@ -1,9 +1,11 @@
 ---
 titulo: Yo soy aquel que ayer no más decía
-resumen: "«Yo soy aquel», de Rubén Darío (Cantos de vida y esperanza, 1905): el poeta hace balance de su propio modernismo y no lo abjura."
+resumen: "«Yo soy aquel», de Rubén Darío (Cantos de vida y esperanza, 1905): el
+  poeta hace balance de su propio modernismo y no lo abjura."
 fecha: 2026-08-20
-fecha_actualizada: 2026-08-20
-borrador: true
+fecha_actualizada: 2026-08-21
+ilustracion: ../../assets/uploads/chatgpt-image-21-ago-2026-23_27_45.png
+borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
@@ -21,22 +23,11 @@ autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "Es una autobiografía en verso escrita a los treinta y ocho años. Darío repasa lo que fue —el jardín, los cisnes, la torre de marfil— sin pedir perdón por nada de ello."
+nota_curador: Una autobiografía en verso escrita a los treinta y ocho años.
+  Darío repasa lo que fue —el jardín, los cisnes, la torre de marfil— sin pedir
+  perdón por nada de ello.
 ---
-
-Yo soy aquel que ayer no más decía
-
-España    otras versiones    metadatos.Descargar como
-
-Salutación del optimista →
-
-Yo soy aquel que ayer no más decíaYo soy aquel que ayer no más decía1918Autor:Rubén DaríoAutor:Enrique Estévez OchoaYo soy aquel que ayer no más decíaMundo LatinoMadridV
-
-A
-
-J. ENRIQUE RODÓ
-
-I
+A J. ENRIQUE RODÓ
 
 Yo soy aquel que ayer no más decía
 el verso azul y la canción profana,
