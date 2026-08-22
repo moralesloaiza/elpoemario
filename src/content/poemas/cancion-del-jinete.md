@@ -1,9 +1,11 @@
 ---
 titulo: Canción del jinete
-resumen: "«Canción del jinete», de Federico García Lorca (Canciones, 1927): el jinete sabe los caminos y sabe también que no llegará nunca a Córdoba."
+resumen: "«Canción del jinete», de Federico García Lorca (Canciones, 1927): el
+  jinete sabe los caminos y sabe también que no llegará nunca a Córdoba."
 fecha: 2026-08-20
-fecha_actualizada: 2026-08-20
-borrador: true
+fecha_actualizada: 2026-08-21
+ilustracion: ../../assets/uploads/chatgpt-image-22-ago-2026-00_15_52.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-27
 temas:
@@ -19,7 +21,7 @@ autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
-nota_curador: "El estribillo de dos versos abre y cierra sin cambiar una sílaba. Entre uno y otro cabe un viaje entero, y el poema deja claro desde el principio que no se completará."
+nota_curador: ""
 ---
 
 Córdoba.
