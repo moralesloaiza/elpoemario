@@ -5,7 +5,7 @@ resumen: "«Yo voy soñando caminos», de Antonio Machado (Soledades, 1907): la
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
 ilustracion: ../../assets/uploads/chatgpt-image-21-ago-2026-00_08_06.png
-borrador: true
+borrador: false
 tipo: cuarteta
 movimiento: modernismo
 temas:
