@@ -8,6 +8,7 @@ nacimiento: 1888
 muerte: 1921
 lugar_nacimiento: Jerez, Zacatecas, México
 lugar_muerte: Ciudad de México, México
+imagen: ../../assets/uploads/autor-ramon-lopez-velarde.png
 ---
 Ramón López Velarde nació en Jerez, Zacatecas, en 1888, en el corazón de un México provinciano cuyo aire —los patios, las campanas, las primas, la fe católica— sería para siempre la materia de su poesía. Estudió leyes, ejerció el periodismo y vivió con discreción los años convulsos de la Revolución, pero su verdadera patria fue esa intimidad pueblerina que supo elevar a símbolo nacional sin perder nunca su temblor personal.
 
