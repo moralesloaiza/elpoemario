@@ -4,7 +4,7 @@ resumen: "«Canción del jinete», de Federico García Lorca (Canciones, 1927): 
   jinete sabe los caminos y sabe también que no llegará nunca a Córdoba."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-21
-ilustracion: ../../assets/uploads/chatgpt-image-22-ago-2026-00_15_52.png
+ilustracion: ../../assets/uploads/poema-cancion-del-jinete.png
 borrador: false
 tipo: polimetrico
 movimiento: generacion-27
