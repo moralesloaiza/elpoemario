@@ -4,7 +4,7 @@ resumen: "«Yo soy aquel», de Rubén Darío (Cantos de vida y esperanza, 1905):
   poeta hace balance de su propio modernismo y no lo abjura."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-21
-ilustracion: ../../assets/uploads/chatgpt-image-21-ago-2026-23_27_45.png
+ilustracion: ../../assets/uploads/poema-yo-soy-aquel-que-ayer-no-mas-decia.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo
