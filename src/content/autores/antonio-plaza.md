@@ -8,6 +8,7 @@ nacimiento: 1830
 muerte: 1882
 lugar_nacimiento: Apaseo, Guanajuato, México
 lugar_muerte: Ciudad de México, México
+imagen: ../../assets/uploads/chatgpt-image-28-ago-2026-15_02_24.png
 ---
 Antonio Plaza Llamas nació en Apaseo, Guanajuato, en 1830, y vivió una vida marcada por la milicia, el periodismo y la bohemia. Combatió como militar liberal en las guerras civiles de su país y sirvió a la causa republicana frente a la intervención francesa, de modo que su verso creció al calor de la política y de la desilusión. Fue, ante todo, un poeta popular: escribía para ser leído en voz alta, para conmover de inmediato, sin más taller que su propio arrebato.
 
