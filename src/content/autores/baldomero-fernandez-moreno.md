@@ -8,6 +8,7 @@ nacimiento: 1886
 muerte: 1950
 lugar_nacimiento: Buenos Aires, Argentina
 lugar_muerte: Buenos Aires, Argentina
+imagen: ../../assets/uploads/chatgpt-image-28-ago-2026-15_14_58.png
 ---
 Baldomero Fernández Moreno nació en Buenos Aires en 1886, pasó parte de su infancia en España y regresó a la Argentina para estudiar y ejercer la medicina, oficio que compaginó durante años con la poesía. De esa doble vida —el consultorio y el verso— le vino quizá su mirada atenta a lo cotidiano, capaz de encontrar emoción en una calle, un balcón, un patio o una tarde cualquiera de la ciudad.
 
