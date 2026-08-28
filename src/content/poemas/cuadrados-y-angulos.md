@@ -4,7 +4,7 @@ resumen: "«Cuadrados y ángulos», de Alfonsina Storni (El dulce daño, 1918): 
   casas en fila, las almas en fila y una lágrima cuadrada."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-ilustracion: ../../assets/uploads/chatgpt-image-22-ago-2026-07_42_13.png
+ilustracion: ../../assets/uploads/poema-cuadrados-y-angulos.png
 borrador: false
 tipo: verso-libre
 movimiento: posmodernismo
