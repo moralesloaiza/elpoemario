@@ -1,13 +1,14 @@
 ---
 nombre: Delmira Agustini
 tipo: clasico
-descripcion: Biografía de Delmira Agustini, poeta uruguaya del modernismo, autora
-  de «El libro blanco», «Cantos de la mañana» y «Los cálices vacíos».
+descripcion: Biografía de Delmira Agustini, poeta uruguaya del modernismo,
+  autora de «El libro blanco», «Cantos de la mañana» y «Los cálices vacíos».
 nacionalidad: Uruguay
 nacimiento: 1886
 muerte: 1914
 lugar_nacimiento: Montevideo, Uruguay
 lugar_muerte: Montevideo, Uruguay
+imagen: ../../assets/uploads/chatgpt-image-28-ago-2026-15_10_05.png
 ---
 Delmira Agustini nació en Montevideo en 1886, en el seno de una familia acomodada que cultivó desde niña su talento precoz. Educada con esmero y protegida en exceso, sorprendió muy joven con una poesía de una audacia erótica sin precedentes en una mujer de su tiempo: bajo la superficie modernista de cisnes y estatuas, sus versos hablan del deseo, del cuerpo y del ansia amorosa con una franqueza que escandalizó y deslumbró a la vez.
 
