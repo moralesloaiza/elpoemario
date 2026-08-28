@@ -8,7 +8,7 @@ nacimiento: 1854
 muerte: 1917
 lugar_nacimiento: San Justo, Buenos Aires, Argentina
 lugar_muerte: La Plata, Argentina
-imagen: ../../assets/uploads/chatgpt-image-28-ago-2026-14_57_45.png
+imagen: ../../assets/uploads/autor-almafuerte.png
 ---
 Bajo el nombre de Almafuerte escribió Pedro Bonifacio Palacios, nacido en San Justo, en la provincia de Buenos Aires, en 1854. Huérfano temprano y de origen humilde, quiso ser pintor, fue maestro rural sin título, periodista polémico y funcionario menor, siempre en los márgenes del poder y siempre enfrentado a él. De esa vida de estrechez y rebeldía nació una poesía de tono profético, áspera y exhortativa, distinta de la música refinada que por entonces imponía el modernismo.
 
