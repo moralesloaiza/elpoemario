@@ -3,7 +3,8 @@ titulo: El día que me quieras
 resumen: "«El día que me quieras», de Amado Nervo: el día en que ella lo quiera, el mundo entero se pondrá de acuerdo para celebrarlo."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-el-dia-que-me-quieras.png
+borrador: false
 tipo: polimetrico
 movimiento: modernismo
 temas:

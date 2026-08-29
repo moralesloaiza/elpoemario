@@ -1,0 +1,67 @@
+---
+titulo: El crimen fue en Granada
+resumen: "«El crimen fue en Granada», de Antonio Machado (1937): la elegía por el fusilamiento de Federico García Lorca, que camina con la muerte hacia la madrugada."
+fecha: 2026-08-27
+fecha_actualizada: 2026-08-27
+ilustracion: ../../assets/uploads/poema-el-crimen-fue-en-granada.png
+borrador: false
+tipo: polimetrico
+movimiento: generacion-98
+temas:
+  - muerte
+  - justicia
+  - guerra
+motivos:
+  - la-muerte-personificada
+  - sangre
+autor: antonio-machado
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+---
+
+I — EL CRIMEN
+
+Se le vio, caminando entre fusiles,
+por una calle larga,
+salir al campo frío,
+aún con estrellas, de la madrugada.
+Mataron a Federico
+cuando la luz asomaba.
+El pelotón de verdugos no osó mirarle la cara.
+Todos cerraron los ojos;
+rezaron: ¡ni Dios te salva!
+Muerto cayó Federico
+—sangre en la frente y plomo en las entrañas—.
+... Que fue en Granada el crimen
+sabed —¡pobre Granada!—, en su Granada...
+
+II — EL POETA Y LA MUERTE
+
+Se le vio caminar solo con Ella,
+sin miedo a su guadaña.
+—Ya el sol en torre y torre; los martillos
+en yunque y yunque de las fraguas.
+Hablaba Federico,
+requebrando a la muerte. Ella escuchaba.
+«Porque ayer en mi verso, compañera,
+sonaba el golpe de tus secas palmas,
+y diste el hielo a mi cantar, y el filo
+a mi tragedia de tu hoz de plata,
+te cantaré la carne que no tienes,
+los ojos que te faltan,
+tus cabellos que el viento sacudía,
+los rojos labios donde te besaban...
+Hoy como ayer, gitana, muerte mía,
+qué bien contigo a solas,
+por estos aires de Granada, ¡mi Granada!»
+
+III
+
+Se le vio caminar...
+  Labrad, amigos,
+de piedra y sueño, en la Alhambra,
+un túmulo al poeta,
+sobre una fuente donde llore el agua,
+y eternamente diga:
+el crimen fue en Granada, ¡en su Granada!
