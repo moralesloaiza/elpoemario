@@ -3,7 +3,8 @@ titulo: Llanto por Ignacio Sánchez Mejías
 resumen: "«Llanto por Ignacio Sánchez Mejías», de Federico García Lorca (1935): las cinco de la tarde repetidas hasta que la hora se vuelve la herida."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-llanto-por-ignacio-sanchez-mejias.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-27
 temas:

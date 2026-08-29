@@ -3,7 +3,8 @@ titulo: Rima LII
 resumen: "«Rima LII», de Gustavo Adolfo Bécquer (Rimas, 1885): el alma pide a las olas, al huracán y a la tempestad que la arranquen de su dolor a solas."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-rima-lii.png
+borrador: false
 tipo: polimetrico
 movimiento: romanticismo
 temas:

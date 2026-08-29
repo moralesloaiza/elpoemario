@@ -3,7 +3,8 @@ titulo: La suave patria
 resumen: "«La suave patria», de Ramón López Velarde: el país cifrado en el maíz, el tren de juguete y el trueno de las tardes de provincia."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-la-suave-patria.png
+borrador: false
 tipo: pareado
 movimiento: posmodernismo
 temas:

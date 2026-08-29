@@ -3,7 +3,8 @@ titulo: Espergesia
 resumen: "«Espergesia», de César Vallejo (1918): el nacimiento como accidente cósmico, bajo el estribillo «Yo nací un día que Dios estuvo enfermo»."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-espergesia.png
+borrador: false
 tipo: verso-libre
 movimiento: posmodernismo
 temas:

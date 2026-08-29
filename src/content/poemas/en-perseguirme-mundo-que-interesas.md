@@ -3,7 +3,8 @@ titulo: "En perseguirme, Mundo, ¿qué interesas?"
 resumen: "«En perseguirme, Mundo, ¿qué interesas?», de Sor Juana Inés de la Cruz: la defensa de cultivar el entendimiento antes que la hermosura o la riqueza."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-en-perseguirme-mundo-que-interesas.png
+borrador: false
 tipo: soneto
 movimiento: siglo-de-oro
 temas:

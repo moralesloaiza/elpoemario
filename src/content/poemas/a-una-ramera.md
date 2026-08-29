@@ -3,7 +3,8 @@ titulo: A una ramera
 resumen: "«A una ramera», de Antonio Plaza: la pasión que no distingue entre ángel y demonio, y ama a la mujer caída pese a su propio juicio."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-a-una-ramera.png
+borrador: false
 tipo: octava-real
 movimiento: romanticismo
 temas:

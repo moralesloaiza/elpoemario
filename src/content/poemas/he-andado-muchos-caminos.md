@@ -3,7 +3,8 @@ titulo: He andado muchos caminos
 resumen: "«He andado muchos caminos», de Antonio Machado (Soledades, 1907): dos clases de hombre vistas en el camino, y solo una merece el nombre de buena."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-he-andado-muchos-caminos.png
+borrador: false
 tipo: romance
 movimiento: modernismo
 temas:

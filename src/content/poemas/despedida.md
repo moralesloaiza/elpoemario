@@ -3,7 +3,8 @@ titulo: Despedida
 resumen: "«Despedida», de Federico García Lorca: ante la muerte, el poeta solo pide que dejen el balcón abierto a la vida que sigue afuera."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-despedida.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-27
 temas:

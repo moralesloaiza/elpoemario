@@ -3,7 +3,8 @@ titulo: Escrito está en mi alma vuestro gesto
 resumen: "«Escrito está en mi alma vuestro gesto», soneto V de Garcilaso de la Vega: la imagen de la amada grabada en el alma, razón entera de existir y morir."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-soneto-v-garcilaso.png
+borrador: false
 tipo: soneto
 movimiento: siglo-de-oro
 temas:

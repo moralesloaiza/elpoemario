@@ -3,7 +3,8 @@ titulo: A Roosevelt
 resumen: "«A Roosevelt», de Rubén Darío (Cantos de vida y esperanza, 1918): advertencia al invasor sobre la América hispana, antigua, católica y viva."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-a-roosevelt.png
+borrador: false
 tipo: oda
 movimiento: modernismo
 temas:

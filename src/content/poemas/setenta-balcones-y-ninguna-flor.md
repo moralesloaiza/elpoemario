@@ -3,7 +3,8 @@ titulo: Setenta balcones y ninguna flor
 resumen: "«Setenta balcones y ninguna flor», de Baldomero Fernández Moreno (1917): la fachada sin una sola flor, signo de una casa que no ama nada."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-setenta-balcones-y-ninguna-flor.png
+borrador: false
 tipo: serventesio
 movimiento: posmodernismo
 temas:

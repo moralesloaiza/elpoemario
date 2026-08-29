@@ -3,7 +3,8 @@ titulo: Recuerdo infantil
 resumen: "«Recuerdo infantil», de Antonio Machado (Soledades, 1907): la tarde de invierno, el maestro que truena y el coro que canta la tabla de multiplicar."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-recuerdo-infantil.png
+borrador: false
 tipo: cuarteta
 movimiento: modernismo
 temas:

@@ -3,7 +3,8 @@ titulo: Fusiles y muñecas
 resumen: "«Fusiles y muñecas», de Juan de Dios Peza: los hijos juegan a la guerra y a la maternidad, ajenos aún al dolor que esos juegos anuncian."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-fusiles-y-munecas.png
+borrador: false
 tipo: serventesio
 movimiento: realismo
 temas:

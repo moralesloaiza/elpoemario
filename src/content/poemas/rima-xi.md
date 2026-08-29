@@ -3,7 +3,8 @@ titulo: Rima XI
 resumen: "«Yo soy ardiente, yo soy morena», Rima XI de Bécquer (Rimas, 1871): dos mujeres se ofrecen y él elige a la que no puede amarlo."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-rima-xi.png
+borrador: false
 tipo: cuarteto
 movimiento: romanticismo
 temas:

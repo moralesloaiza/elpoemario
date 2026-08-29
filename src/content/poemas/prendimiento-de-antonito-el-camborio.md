@@ -3,7 +3,8 @@ titulo: Prendimiento de Antoñito el Camborio en el camino de Sevilla
 resumen: "«Prendimiento de Antoñito el Camborio», de Federico García Lorca (Romancero gitano, 1928): lo prenden por robar limones y nadie lo defiende."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-prendimiento-de-antonito-el-camborio.png
+borrador: false
 tipo: romance
 movimiento: generacion-27
 temas:

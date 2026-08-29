@@ -3,7 +3,8 @@ titulo: El intruso
 resumen: "«El intruso», de Delmira Agustini (El libro blanco, 1907): la entrega total al amante que irrumpe de noche y se vuelve dueño de la casa y del cuerpo."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-el-intruso.png
+borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:
