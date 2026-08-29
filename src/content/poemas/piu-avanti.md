@@ -3,7 +3,8 @@ titulo: "¡Piu avanti!"
 resumen: "«¡Piu avanti!», de Almafuerte: la exhortación a no rendirse ni siquiera vencido, y morder vengador incluso rodando en el polvo."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-piu-avanti.png
+borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:

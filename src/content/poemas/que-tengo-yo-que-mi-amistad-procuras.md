@@ -3,7 +3,8 @@ titulo: "¿Qué tengo yo, que mi amistad procuras?"
 resumen: "«¿Qué tengo yo, que mi amistad procuras?», de Lope de Vega (Rimas sacras): Cristo espera a la puerta mientras el alma aplaza, noche tras noche, abrirle."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-que-tengo-yo-que-mi-amistad-procuras.png
+borrador: false
 tipo: soneto
 movimiento: siglo-de-oro
 temas:

@@ -3,7 +3,8 @@ titulo: Piedra negra sobre una piedra blanca
 resumen: "«Piedra negra sobre una piedra blanca», de César Vallejo (Poemas humanos, 1939): se profetiza muerto en París un jueves de aguacero."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-piedra-negra-sobre-una-piedra-blanca.png
+borrador: false
 tipo: soneto
 movimiento: vanguardia
 temas:

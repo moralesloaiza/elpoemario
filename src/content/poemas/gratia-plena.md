@@ -3,7 +3,8 @@ titulo: Gratia Plena
 resumen: "«Gratia Plena», de Amado Nervo: el retrato de la esposa amada, grabado en el estribillo «Era llena de gracia como el Ave María»."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-gratia-plena.png
+borrador: false
 tipo: quinteto
 movimiento: modernismo
 temas:

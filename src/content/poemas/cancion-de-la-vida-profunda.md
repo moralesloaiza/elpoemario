@@ -3,7 +3,8 @@ titulo: Canción de la vida profunda
 resumen: "«Canción de la vida profunda», de Porfirio Barba Jacob: el vaivén anímico humano, de lo fértil a lo lúgubre, hasta el día de zarpar sin retorno."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-cancion-de-la-vida-profunda.png
+borrador: false
 tipo: romance-heroico
 movimiento: modernismo
 temas:

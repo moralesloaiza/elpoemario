@@ -3,7 +3,8 @@ titulo: Reír llorando
 resumen: "«Reír llorando», de Juan de Dios Peza: la leyenda del actor Garrik, a quien un médico recomienda ver reír sin saber que es él mismo el enfermo."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-reir-llorando.png
+borrador: false
 tipo: serventesio
 movimiento: romanticismo
 temas:

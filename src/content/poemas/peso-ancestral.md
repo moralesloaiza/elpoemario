@@ -3,7 +3,8 @@ titulo: Peso ancestral
 resumen: "«Peso ancestral», de Alfonsina Storni (Irremediablemente, 1919): la lágrima del hombre que nunca lloraba cae en su boca como veneno."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-peso-ancestral.png
+borrador: false
 tipo: cuarteta
 movimiento: posmodernismo
 temas:

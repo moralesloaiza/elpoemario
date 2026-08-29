@@ -3,7 +3,8 @@ titulo: La guitarra
 resumen: "«La guitarra», de Federico García Lorca (Poema del cante jondo, 1931): el llanto imposible de callar de la guitarra, corazón malherido por cinco espadas."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-la-guitarra.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-27
 temas:

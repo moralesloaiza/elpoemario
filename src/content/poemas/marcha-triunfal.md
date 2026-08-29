@@ -3,7 +3,8 @@ titulo: Marcha triunfal
 resumen: "«Marcha triunfal», de Rubén Darío (Cantos de vida y esperanza, 1905): el desfile entero oído antes que visto, en versos que imitan el paso."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-marcha-triunfal.png
+borrador: false
 tipo: polimetrico
 movimiento: modernismo
 temas:

@@ -3,7 +3,8 @@ titulo: Poderoso caballero es don Dinero
 resumen: "«Poderoso caballero es don Dinero», letrilla satírica de Francisco de Quevedo: el oro nace en las Indias, muere en España y se entierra en Génova."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-poderoso-caballero-es-don-dinero.png
+borrador: false
 tipo: letrilla
 movimiento: barroco
 temas:

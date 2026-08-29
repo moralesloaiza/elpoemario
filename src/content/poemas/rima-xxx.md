@@ -3,7 +3,8 @@ titulo: Rima XXX
 resumen: "«Rima XXX», de Gustavo Adolfo Bécquer (Rimas, 1885): el orgullo calla la frase de perdón entre dos amantes que ya toman caminos distintos."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-rima-xxx.png
+borrador: false
 tipo: silva
 movimiento: romanticismo
 temas:

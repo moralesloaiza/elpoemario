@@ -3,7 +3,8 @@ titulo: El crimen fue en Granada
 resumen: "«El crimen fue en Granada», de Antonio Machado (1937): la elegía por el fusilamiento de Federico García Lorca, que camina con la muerte hacia la madrugada."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-el-crimen-fue-en-granada.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-98
 temas:

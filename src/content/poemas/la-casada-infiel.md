@@ -3,7 +3,8 @@ titulo: La casada infiel
 resumen: "«La casada infiel», de Federico García Lorca (Romancero gitano, 1928): la noche junto al río contada por un hombre que se jacta de su discreción."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-la-casada-infiel.png
+borrador: false
 tipo: romance
 movimiento: generacion-27
 temas:

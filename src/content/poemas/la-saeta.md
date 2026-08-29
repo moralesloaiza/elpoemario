@@ -3,7 +3,8 @@ titulo: La saeta
 resumen: "«La saeta», de Antonio Machado (Campos de Castilla, 1912): contra el Cristo del madero, el poeta canta al que anduvo sobre el mar."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-la-saeta.png
+borrador: false
 tipo: polimetrico
 movimiento: generacion-98
 temas:

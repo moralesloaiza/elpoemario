@@ -3,7 +3,8 @@ titulo: Ante un cadáver
 resumen: "«Ante un cadáver», de Manuel Acuña: frente al cuerpo sin vida, la certeza de que la materia no muere, solo cambia de forma."
 fecha: 2026-08-27
 fecha_actualizada: 2026-08-27
-borrador: true
+ilustracion: ../../assets/uploads/poema-ante-un-cadaver.png
+borrador: false
 tipo: terceto
 movimiento: romanticismo
 temas:
