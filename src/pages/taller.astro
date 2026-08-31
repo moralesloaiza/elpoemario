@@ -16,7 +16,13 @@ const { Content } = await render(pagina);
 const tieneIntro = Boolean(pagina.body?.trim());
 ---
 
-<Base titulo="El Taller · El Poemario" descripcion={descripcion}>
+<Base
+  titulo="El Taller · El Poemario"
+  descripcion={descripcion}
+  manifest="/manifest-taller.webmanifest"
+  appTitle="El Taller"
+  appleTouchIcon="/icons/taller-apple-touch-icon.png"
+>
   <div class="taller">
     <header class="title">
       {rotulo && <p class="rotulo">{rotulo}</p>}
