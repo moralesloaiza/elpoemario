@@ -31,9 +31,23 @@ interface Props {
      bajo el hero (sin el padding superior de .site-main). Off por defecto: el
      Header sólido se pinta sobre <main> como en el resto del sitio. */
   heroInmersivo?: boolean;
+  /* PWA · manifest y título de app instalada. Por defecto los de El Poemario
+     (sitio completo). La página del Taller los sobrescribe para ofrecerse como
+     app instalable independiente (scope /taller). El navegador toma el PRIMER
+     <link rel="manifest">, por eso se parametriza aquí y no en un slot. */
+  manifest?: string;
+  appTitle?: string;
+  appleTouchIcon?: string;
 }
 
-const { titulo, descripcion = SITE_DESCRIPTION, heroInmersivo = false } = Astro.props;
+const {
+  titulo,
+  descripcion = SITE_DESCRIPTION,
+  heroInmersivo = false,
+  manifest = '/manifest.webmanifest',
+  appTitle = 'El Poemario',
+  appleTouchIcon = '/icons/apple-touch-icon.png',
+} = Astro.props;
 
 // Canonical absoluto, siempre en forma con barra final (coherente con
 // trailingSlash: 'always' y con el sitemap). Punto único para todo el sitio.
@@ -83,11 +97,11 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     {/* PWA · permite «instalar» el sitio como app (Windows/Android/escritorio)
         y la lectura offline de lo ya visitado (ver public/manifest.webmanifest
         y public/sw.js). */}
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href={manifest} />
+    <link rel="apple-touch-icon" href={appleTouchIcon} />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Poemario" />
+    <meta name="apple-mobile-web-app-title" content={appTitle} />
 
     <title>{titulo}</title>
     <slot name="head" />

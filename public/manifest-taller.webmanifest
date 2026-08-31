@@ -1,31 +1,31 @@
 {
-  "name": "El Poemario",
-  "short_name": "El Poemario",
-  "description": "Antología digital de poesía en español. Sonetos, silvas, romances y verso libre, con ilustración Art Déco nocturna.",
+  "name": "El Taller",
+  "short_name": "El Taller",
+  "description": "Escáner métrico de El Poemario. Cuenta sílabas, marca sinalefas, identifica el metro y la rima de tus versos en español.",
   "lang": "es",
   "dir": "ltr",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/taller/",
+  "scope": "/taller/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#141b28",
   "background_color": "#141b28",
-  "categories": ["books", "education", "lifestyle"],
+  "categories": ["education", "productivity", "books"],
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/icons/taller-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icons/taller-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-maskable-512.png",
+      "src": "/icons/taller-icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

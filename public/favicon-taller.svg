@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- Medallón invertido de El Taller: mismo lenguaje Art Déco que El Poemario
+       (favicon.svg) pero con el campo interior en oscuro y el sol + letra en
+       crema, para distinguir la app «El Taller» de un vistazo. Los rayos
+       conservan el ángulo y el extremo exterior del burst original de la P,
+       pero su extremo interior se recorta a un círculo (r=255) que libra por
+       completo la silueta de la T (que alcanza como máx. ~234 en el pie), para
+       que ningún rayo atropelle la letra. -->
+  <circle cx="500" cy="500" r="455.00" fill="#161320"/>
+  <circle cx="500" cy="500" r="422.86" fill="#EDE4D3"/>
+  <circle cx="500" cy="500" r="393.58" fill="#161320"/>
+  <circle cx="500" cy="500" r="385.00" fill="#161320"/>
+
+  <!-- Sunburst (crema sobre campo oscuro), recortado a la silueta de la T -->
+  <g fill="none" stroke="#EDE4D3" stroke-linecap="round">
+    <line x1="156.72" y1="496.42" x2="245.01" y2="497.34" stroke-width="6.72"/>
+    <line x1="193.29" y1="414.74" x2="254.32" y2="431.70" stroke-width="7.56"/>
+    <line x1="208.11" y1="333.47" x2="278.51" y2="373.64" stroke-width="8.03"/>
+    <line x1="254.21" y1="268.61" x2="314.33" y2="325.21" stroke-width="7.60"/>
+    <line x1="321.81" y1="269.73" x2="343.94" y2="298.33" stroke-width="7.32"/>
+    <line x1="338.65" y1="200.05" x2="379.20" y2="275.43" stroke-width="7.41"/>
+    <line x1="420.92" y1="185.21" x2="437.87" y2="252.68" stroke-width="7.26"/>
+    <line x1="501.40" y1="154.00" x2="501.03" y2="245.00" stroke-width="6.72"/>
+    <line x1="582.42" y1="184.62" x2="564.48" y2="253.29" stroke-width="7.40"/>
+    <line x1="664.76" y1="199.98" x2="622.75" y2="276.49" stroke-width="7.51"/>
+    <line x1="683.74" y1="269.55" x2="658.97" y2="300.62" stroke-width="7.11"/>
+    <line x1="749.54" y1="268.08" x2="686.79" y2="326.40" stroke-width="7.74"/>
+    <line x1="795.72" y1="333.49" x2="722.20" y2="374.89" stroke-width="7.95"/>
+    <line x1="810.19" y1="415.31" x2="746.00" y2="432.84" stroke-width="7.39"/>
+    <line x1="845.31" y1="496.40" x2="754.99" y2="497.34" stroke-width="6.72"/>
+    <line x1="810.26" y1="576.53" x2="747.58" y2="561.07" stroke-width="7.57"/>
+    <line x1="789.36" y1="658.75" x2="723.56" y2="622.65" stroke-width="7.64"/>
+    <line x1="735.53" y1="728.32" x2="683.09" y2="677.49" stroke-width="7.39"/>
+    <line x1="667.99" y1="788.25" x2="628.40" y2="720.32" stroke-width="7.84"/>
+    <line x1="582.70" y1="804.10" x2="566.92" y2="746.06" stroke-width="7.39"/>
+    <line x1="501.38" y1="832.13" x2="501.06" y2="755.00" stroke-width="6.72"/>
+    <line x1="422.81" y1="804.00" x2="437.24" y2="747.16" stroke-width="7.36"/>
+    <line x1="339.63" y1="788.78" x2="376.20" y2="722.93" stroke-width="7.44"/>
+    <line x1="320.72" y1="727.34" x2="342.10" y2="700.23" stroke-width="7.27"/>
+    <line x1="254.94" y1="727.23" x2="313.01" y2="673.38" stroke-width="7.52"/>
+    <line x1="210.26" y1="658.48" x2="276.28" y2="622.37" stroke-width="7.53"/>
+    <line x1="193.11" y1="575.96" x2="252.47" y2="561.27" stroke-width="7.39"/>
+  </g>
+
+  <!-- Letra T (crema), serif con remates para hermanar con la P del Poemario -->
+  <g fill="#EDE4D3">
+    <!-- Travesaño superior con remates verticales en los extremos -->
+    <path d="M 360 322 H 640 V 384 H 360 Z" />
+    <path d="M 360 322 H 392 V 420 H 360 Z" />
+    <path d="M 608 322 H 640 V 420 H 608 Z" />
+    <!-- Astil -->
+    <path d="M 467 322 H 533 V 700 H 467 Z" />
+    <!-- Pie serif -->
+    <path d="M 416 682 H 584 V 718 H 416 Z" />
+    <path d="M 416 682 H 448 V 718 H 416 Z" />
+    <path d="M 552 682 H 584 V 718 H 552 Z" />
+  </g>
+</svg>
