@@ -3,7 +3,8 @@ titulo: Hora tras hora, día tras día
 resumen: "«Hora tras hora, día tras día», de Rosalía de Castro (En las orillas del Sar, 1884): pide que le devuelvan el perfume de la flor ya marchita."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-hora-tras-hora-dia-tras-dia.png
+borrador: false
 tipo: polimetrico
 movimiento: romanticismo
 temas:

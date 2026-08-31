@@ -3,7 +3,8 @@ titulo: Esta tarde, mi bien, cuando te hablaba
 resumen: "«Esta tarde, mi bien, cuando te hablaba», soneto de Sor Juana: no bastaron las palabras, y el corazón se le deshizo en llanto para probarlo."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-esta-tarde-mi-bien-cuando-te-hablaba.png
+borrador: false
 tipo: soneto
 movimiento: barroco
 temas:

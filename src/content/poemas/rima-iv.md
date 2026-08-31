@@ -3,7 +3,8 @@ titulo: Rima IV
 resumen: "«No digáis que agotado su tesoro», Rima IV de Bécquer (Rimas, 1871): mientras quede un misterio o una mujer hermosa, habrá poesía."
 fecha: 2026-08-20
 fecha_actualizada: 2026-08-20
-borrador: true
+ilustracion: ../../assets/uploads/poema-rima-iv.png
+borrador: false
 tipo: polimetrico
 movimiento: romanticismo
 temas:
