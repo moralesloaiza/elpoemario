@@ -5,7 +5,7 @@ resumen: "«La vaquera de la Finojosa», del marqués de Santillana: el encuentr
 fecha: 2026-09-03
 fecha_actualizada: 2026-09-04
 ilustracion: ../../assets/uploads/chatgpt-image-3-sept-2026-23_51_13.png
-borrador: true
+borrador: false
 tipo: serranilla
 movimiento: medieval
 temas:
