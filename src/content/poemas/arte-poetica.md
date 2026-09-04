@@ -4,7 +4,7 @@ resumen: "«Arte poética», de Vicente Huidobro: el manifiesto creacionista en
   verso —el poeta como pequeño Dios que crea, no que canta lo ya existente."
 fecha: 2026-09-03
 fecha_actualizada: 2026-09-04
-ilustracion: ../../assets/uploads/chatgpt-image-3-sept-2026-23_48_32.png
+ilustracion: ../../assets/uploads/poema-arte-poetica.png
 borrador: true
 tipo: verso-libre
 movimiento: vanguardia
