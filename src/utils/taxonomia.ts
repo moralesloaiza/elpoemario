@@ -14,7 +14,7 @@ export const TIPOS = [
   'serventesio', 'quintilla', 'sextilla', 'terceto', 'pareado', 'quinteto',
   'sexteto', 'octava-real',
   'lira', 'oda', 'elegia', 'egloga', 'himno', 'balada', 'glosa',
-  'copla', 'seguidilla', 'letrilla', 'villancico', 'haiku', 'tanka',
+  'copla', 'seguidilla', 'letrilla', 'villancico', 'serranilla', 'haiku', 'tanka',
   'polimetrico', 'verso-libre', 'prosa-poetica',
 ] as const;
 
@@ -95,6 +95,7 @@ export const TIPOS_DISPLAY: Record<Tipo, string> = {
   'seguidilla': 'Seguidilla',
   'letrilla': 'Letrilla',
   'villancico': 'Villancico',
+  'serranilla': 'Serranilla',
   'haiku': 'Haiku',
   'tanka': 'Tanka',
   'polimetrico': 'Polimétrico',
