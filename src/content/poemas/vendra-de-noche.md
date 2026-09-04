@@ -4,7 +4,7 @@ resumen: Diez sextetos y un verso final en que la muerte, personificada como
   visita nocturna sin prisa, llega por fin a sellar el alma con su calma serena.
 fecha: 2026-09-03
 fecha_actualizada: 2026-09-03
-ilustracion: ../../assets/uploads/chatgpt-image-3-sept-2026-23_52_24.png
+ilustracion: ../../assets/uploads/poema-vendra-de-noche.png
 borrador: false
 tipo: sexteto
 movimiento: generacion-98
