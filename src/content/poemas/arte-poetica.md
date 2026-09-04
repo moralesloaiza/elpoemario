@@ -5,7 +5,7 @@ resumen: "«Arte poética», de Vicente Huidobro: el manifiesto creacionista en
 fecha: 2026-09-03
 fecha_actualizada: 2026-09-04
 ilustracion: ../../assets/uploads/chatgpt-image-3-sept-2026-23_48_32.png
-borrador: true
+borrador: false
 tipo: verso-libre
 movimiento: vanguardia
 temas:
