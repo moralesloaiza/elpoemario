@@ -5,7 +5,7 @@ resumen: "«Delectación morosa», de Leopoldo Lugones (Los crepúsculos del
   que corre sin rumor hacia la muerte."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-delectacion-morosa.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:

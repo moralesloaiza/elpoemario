@@ -5,7 +5,7 @@ resumen: "«Libertad», de Carolina Coronado (Almendralejo, 1846): mientras el
   con ella un sexo sin fueros ni Nación."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-libertad-coronado.png
-borrador: true
+borrador: false
 tipo: romance
 movimiento: romanticismo
 temas:

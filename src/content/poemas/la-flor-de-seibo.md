@@ -5,7 +5,7 @@ resumen: "«La flor de seibo», de Rafael Obligado: un encuentro campesino con
   pelo."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-la-flor-de-seibo.png
-borrador: true
+borrador: false
 tipo: romancillo
 movimiento: romanticismo
 temas:

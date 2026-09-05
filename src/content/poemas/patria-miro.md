@@ -5,7 +5,7 @@ resumen: "«Patria» (1909), de Ricardo Miró: el poema nacional panameño, la
   vive lejos."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-patria-miro.png
-borrador: true
+borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:

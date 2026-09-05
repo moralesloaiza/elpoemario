@@ -5,7 +5,7 @@ resumen: "«Desde mi estancia», de Numa Pompilio Llona: tras la reja de la
   alcanzar."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-desde-mi-estancia.png
-borrador: true
+borrador: false
 tipo: silva
 movimiento: romanticismo
 temas:

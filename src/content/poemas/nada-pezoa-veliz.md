@@ -5,7 +5,7 @@ resumen: "«Nada», de Carlos Pezoa Véliz: un vagabundo aparece muerto junto a
   aleja fumando."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-nada-pezoa-veliz.png
-borrador: true
+borrador: false
 tipo: pareado
 movimiento: posmodernismo
 temas:

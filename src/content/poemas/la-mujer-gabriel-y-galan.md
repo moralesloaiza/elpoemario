@@ -5,7 +5,7 @@ resumen: "«La mujer», de José María Gabriel y Galán: la confesión de que
   mujeres, y el consejo de cantarlas sin pretender resolver el misterio."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-la-mujer-gabriel-y-galan.png
-borrador: true
+borrador: false
 tipo: silva
 movimiento: romanticismo
 temas:

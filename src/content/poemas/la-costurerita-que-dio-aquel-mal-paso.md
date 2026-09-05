@@ -5,7 +5,7 @@ resumen: "«La costurerita que dio aquel mal paso», de Evaristo Carriego
   hace dos días y no piensa volver."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-la-costurerita-que-dio-aquel-mal-paso.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: posmodernismo
 temas:

@@ -5,7 +5,7 @@ resumen: "Un frío interior que se cuela en la montaña: la neurastenia, el
   pavorosa."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-julio.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:

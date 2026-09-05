@@ -5,7 +5,7 @@ resumen: "«La Granada», de Salvador Rueda: en los granos de rubí de la fruta,
   despertar."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-la-granada.png
-borrador: true
+borrador: false
 tipo: romancillo
 movimiento: modernismo
 temas:
