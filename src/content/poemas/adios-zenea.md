@@ -5,7 +5,7 @@ resumen: "«Adiós», de Juan Clemente Zenea (Cantos de la tarde, 1860): la
   cubano que años después moriría fusilado en el exilio."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-adios-zenea.png
-borrador: true
+borrador: false
 tipo: cuarteto
 movimiento: romanticismo
 temas:

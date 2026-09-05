@@ -5,7 +5,7 @@ resumen: "«A media noche», de Manuel Reina: la invitación a una bacanal de
   la amada."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-a-media-noche.png
-borrador: true
+borrador: false
 tipo: cuarteto
 movimiento: modernismo
 temas:

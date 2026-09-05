@@ -4,7 +4,7 @@ resumen: "«Los camellos», de Guillermo Valencia (Ritos, 1914): dos camellos
   que cruzan el desierto cargando toda la fatiga y la melancolía del mundo."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-los-camellos.png
-borrador: true
+borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
