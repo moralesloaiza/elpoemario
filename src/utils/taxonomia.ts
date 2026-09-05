@@ -47,6 +47,7 @@ export const MOTIVOS = [
 export const NACIONALIDADES = [
   'España', 'Venezuela', 'Colombia', 'México', 'Cuba', 'Argentina',
   'Uruguay', 'Perú', 'Chile', 'Ecuador', 'Siria', 'Puerto Rico', 'Nicaragua',
+  'Panamá',
 ] as const;
 
 // Original language, for authors who wrote outside Castilian. Optional.
@@ -219,6 +220,7 @@ export const NACIONALIDADES_DISPLAY: Record<Nacionalidad, string> = {
   'Siria': 'sirios',
   'Puerto Rico': 'puertorriqueños',
   'Nicaragua': 'nicaragüenses',
+  'Panamá': 'panameños',
 };
 
 // Stored value is lowercase; capitalize at sentence/heading start in templates.
