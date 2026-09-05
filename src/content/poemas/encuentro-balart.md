@@ -5,7 +5,7 @@ resumen: "«Encuentro», de Federico Balart: el cuerpo de una serpiente
   queda ser al que pertenecer."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-encuentro-balart.png
-borrador: true
+borrador: false
 tipo: quintilla
 movimiento: realismo
 temas:

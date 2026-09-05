@@ -5,7 +5,7 @@ resumen: "«Mi fortuna», de Juan León Mera: el poeta ecuatoriano se declara
   entero a la patria y a la amada."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-mi-fortuna.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: romanticismo
 temas:

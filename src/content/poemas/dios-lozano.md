@@ -5,7 +5,7 @@ resumen: "«Dios», de Abigaíl Lozano: en el murmullo del mar, el viento y la
   sagrado."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-dios-lozano.png
-borrador: true
+borrador: false
 tipo: serventesio
 movimiento: romanticismo
 temas:

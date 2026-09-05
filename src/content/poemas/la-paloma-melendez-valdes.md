@@ -4,7 +4,7 @@ resumen: "«La paloma», de Juan Meléndez Valdés: el ruego a un rival para que
   suelte a la paloma cautiva, retrato anacreóntico del deseo y los celos."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-la-paloma-melendez-valdes.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: neoclasicismo
 temas:

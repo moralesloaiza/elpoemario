@@ -5,7 +5,7 @@ resumen: "«Plegaria a Dios», de Plácido (Gabriel de la Concepción Valdés):
   fusilado en 1844, y que recitó camino al patíbulo."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-plegaria-a-dios.png
-borrador: true
+borrador: false
 tipo: sexteto
 movimiento: romanticismo
 temas:

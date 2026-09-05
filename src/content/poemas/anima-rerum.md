@@ -5,7 +5,7 @@ resumen: "«Ánima rérum», de Francisco Villaespesa: ante el paisaje lluvioso,
   el que llora con él."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-anima-rerum.png
-borrador: true
+borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:

@@ -5,7 +5,7 @@ resumen: "«Mi libro de Cuba», de Lola Rodríguez de Tió: la poeta exiliada
   hechas una sola patria."
 fecha: 2026-09-04
 ilustracion: ../../assets/uploads/poema-mi-libro-de-cuba.png
-borrador: true
+borrador: false
 tipo: decima
 movimiento: romanticismo
 temas:
