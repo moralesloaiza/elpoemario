@@ -1,0 +1,84 @@
+---
+titulo: Libertad
+resumen: "«Libertad», de Carolina Coronado (Almendralejo, 1846): mientras el
+  pueblo festeja la nueva libertad, la voz de las mujeres pregunta qué gana
+  con ella un sexo sin fueros ni Nación."
+fecha: 2026-09-04
+ilustracion: ../../assets/uploads/poema-libertad-coronado.png
+borrador: true
+tipo: romance
+movimiento: romanticismo
+temas:
+  - libertad
+  - justicia
+  - identidad
+autor: carolina-coronado
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+---
+
+Risueños están los mozos,
+gozosos están los viejos
+porque dicen, compañeras,
+que hay libertad para el pueblo.
+
+Todo es la turba cantares,
+los campanarios estruendo,
+los balcones luminarias,
+y las plazuelas festejos.
+
+Gran novedad en las leyes,
+que, os juro que no comprendo,
+ocurre cuando a los hombres
+en tal regocijo vemos.
+
+Muchos bienes se preparan,
+dicen los doctos al reino,
+si en ello los hombres ganan
+yo, por los hombres, me alegro;
+
+Mas, por nosotras, las hembras,
+ni lo aplaudo, ni lo siento,
+pues aunque leyes se muden
+para nosotras no hay fueros.
+
+¡Libertad! ¿qué nos importa?
+¿qué ganamos, qué tendremos?
+¿un encierro por tribuna
+y una aguja por derecho?
+
+¡Libertad! ¿de qué nos vale
+si son los tiranos nuestros
+no el yugo de los monarcas,
+el yugo de nuestro sexo?
+
+¡Libertad! ¿pues no es sarcasmo
+el que nos hacen sangriento
+con repetir ese grito
+delante de nuestros hierros?
+
+¡Libertad! ¡ay! para el llanto
+tuvímosla en todos tiempos;
+con los déspotas lloramos,
+con tributos lloraremos;
+
+Que, humanos y generosos
+estos hombres, como aquellos,
+a sancionar nuestras penas
+en todo siglo están prestos.
+
+Los mozos están ufanos,
+gozosos están los viejos,
+igualdad hay en la patria,
+libertad hay en el reino.
+
+Pero, os digo, compañeras,
+que la ley es sola de ellos,
+que las hembras no se cuentan
+ni hay Nación para este sexo.
+
+Por eso aunque los escucho
+ni me aplaudo ni lo siento;
+si pierden ¡Dios se lo pague!
+y si ganan ¡buen provecho!

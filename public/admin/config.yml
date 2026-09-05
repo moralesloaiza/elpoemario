@@ -316,7 +316,7 @@ collections:
         name: nacionalidad
         widget: select
         required: false
-        options: [España, Venezuela, Colombia, México, Cuba, Argentina, Uruguay, Perú, Chile, Ecuador, Siria, Puerto Rico, Nicaragua]
+        options: [España, Venezuela, Colombia, México, Cuba, Argentina, Uruguay, Perú, Chile, Ecuador, Siria, Puerto Rico, Nicaragua, Panamá]
         hint: "País del autor. La sección donde aparece (el gentilicio plural) se deriva automáticamente."
       - label: "Lengua original"
         name: lengua_original
