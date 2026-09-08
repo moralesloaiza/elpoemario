@@ -14,9 +14,10 @@ motivos:
 autor: jorge-luis-borges
 curador: "Don Alejandro"
 es_seudonimo: true
+nota_curador: Poema en prosa, género que Borges practicó con regularidad a
+  partir de *El hacedor* (1960). Agradecimiento especial a [José Alejandro
+  Brito Boadas](http://www.chocolatesparalucia.com/).
 ---
-
-(De su obra *El oro de los tigres*, 1972).
 
 Es el amor. Tendré que ocultarme o que huir.
          Crecen los muros de su cárcel, como en un sueño atroz. La hermosa máscara ha cambiado, pero como siempre es la única. ¿De qué me servirán mis talismanes: el ejercicio de las letras, la vaga erudición, el aprendizaje de las palabras que usó el áspero Norte para cantar sus mares y sus espadas, la serena amistad, las galerías de la Biblioteca, las cosas comunes, los hábitos, el joven amor de mi madre, la sombra militar de mis muertos, la noche intemporal, el sabor del sueño?
@@ -29,9 +30,3 @@ Es el amor. Tendré que ocultarme o que huir.
          (Esta habitación es irreal; ella no la ha visto.)
          El nombre de una mujer me delata.
          Me duele una mujer en todo el cuerpo.
-
-______________________________
-
-**Nota:** el presente es un “poema en prosa”, género que Borges empezó a practicar con regularidad a partir de su libro “El hacedor” (1960).
-
-Agradecimiento especial a [**José Alejandro Brito Boadas**](http://www.chocolatesparalucia.com/).
