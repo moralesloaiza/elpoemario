@@ -9,7 +9,7 @@ tipo: romance
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
+  - familia
 autor: gabriela-mistral
 curador: Don Alejandro
 es_seudonimo: true

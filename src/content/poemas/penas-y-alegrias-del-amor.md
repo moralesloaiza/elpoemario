@@ -9,7 +9,6 @@ movimiento: posguerra
 temas:
   - alegria
   - amor
-  - poesia-misma
 motivos:
   - amada
 autor: rafael-de-leon-y-arias-de-saavedra

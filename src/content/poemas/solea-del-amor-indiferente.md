@@ -9,7 +9,6 @@ tipo: decima
 movimiento: posguerra
 temas:
   - amor
-  - poesia-misma
 autor: manuel-benitez-carrasco
 curador: Don Alejandro
 es_seudonimo: true

@@ -8,7 +8,6 @@ tipo: soneto
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 autor: manuel-gonzalez-prada
 curador: Don Alejandro
 es_seudonimo: true

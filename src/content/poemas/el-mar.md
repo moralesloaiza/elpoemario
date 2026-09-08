@@ -8,8 +8,6 @@ tipo: soneto
 movimiento: romanticismo
 temas:
   - mar
-  - patria
-  - poesia-misma
 autor: rafael-maria-baralt
 curador: "Don Alejandro"
 es_seudonimo: true

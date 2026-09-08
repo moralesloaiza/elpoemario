@@ -9,7 +9,6 @@ tipo: redondilla
 movimiento: renacimiento
 temas:
   - belleza
-  - poesia-misma
 motivos:
   - amada
 autor: lope-de-vega

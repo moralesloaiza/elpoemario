@@ -9,8 +9,6 @@ tipo: redondilla
 movimiento: neoclasicismo
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: andres-bello
 curador: Don Alejandro
 es_seudonimo: true

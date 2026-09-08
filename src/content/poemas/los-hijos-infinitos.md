@@ -9,8 +9,8 @@ borrador: false
 tipo: romance-heroico
 movimiento: modernismo
 temas:
-  - poesia-misma
   - amor
+  - familia
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

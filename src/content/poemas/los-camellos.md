@@ -8,10 +8,9 @@ borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
+  - melancolia
   - soledad
   - viaje
-  - poesia-misma
-  - melancolia
 motivos:
   - sol
   - camino

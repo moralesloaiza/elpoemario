@@ -9,8 +9,7 @@ movimiento: modernismo
 temas:
   - amor
   - dios
-  - patria
-  - poesia-misma
+  - familia
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true

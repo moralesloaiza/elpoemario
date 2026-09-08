@@ -8,8 +8,6 @@ tipo: soneto
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true

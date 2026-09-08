@@ -9,7 +9,6 @@ tipo: cuarteta
 movimiento: realismo
 temas:
   - muerte
-  - poesia-misma
 autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true

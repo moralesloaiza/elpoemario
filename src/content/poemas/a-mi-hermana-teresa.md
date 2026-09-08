@@ -8,8 +8,9 @@ borrador: false
 tipo: polimetrico
 movimiento: romanticismo
 temas:
-  - exilio
   - ausencia
+  - exilio
+  - familia
   - memoria
 autor: miguel-teurbe-y-tolon
 curador: "Don Alejandro"

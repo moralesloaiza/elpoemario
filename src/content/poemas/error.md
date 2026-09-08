@@ -9,8 +9,6 @@ tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
   - sueno
 autor: juan-antonio-perez-bonalde
 curador: Don Alejandro

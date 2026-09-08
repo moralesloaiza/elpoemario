@@ -8,7 +8,6 @@ borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
-  - poesia-misma
   - desamor
 autor: jose-angel-buesa
 curador: Don Alejandro

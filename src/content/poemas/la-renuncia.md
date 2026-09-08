@@ -8,7 +8,6 @@ borrador: false
 tipo: silva
 movimiento: modernismo
 temas:
-  - patria
   - sueno
 autor: andres-eloy-blanco
 curador: Don Alejandro

@@ -8,7 +8,6 @@ borrador: false
 tipo: romance-heroico
 movimiento: modernismo
 temas:
-  - poesia-misma
   - esperanza
   - patria
 autor: juana-borrero

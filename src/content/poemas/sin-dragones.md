@@ -6,8 +6,8 @@ ilustracion: ../../assets/uploads/poema-sin-dragones.png
 borrador: false
 tipo: verso-libre
 temas:
-  - patria
-  - poesia-misma
+  - identidad
+  - libertad
 motivos:
   - amada
 autor: juan-rodriguez
