@@ -6,7 +6,7 @@ fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-por-la-victoria-de-lepanto.png
 borrador: false
 tipo: oda
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - guerra
   - fe

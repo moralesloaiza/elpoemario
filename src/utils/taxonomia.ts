@@ -19,7 +19,7 @@ export const TIPOS = [
 ] as const;
 
 export const MOVIMIENTOS = [
-  'medieval', 'siglo-de-oro', 'barroco', 'neoclasicismo', 'romanticismo',
+  'medieval', 'renacimiento', 'barroco', 'neoclasicismo', 'romanticismo',
   'realismo', 'modernismo', 'posmodernismo', 'generacion-98', 'vanguardia',
   'generacion-27', 'posguerra', 'contemporaneo', 'popular-tradicional',
 ] as const;
@@ -30,7 +30,7 @@ export const TEMAS = [
   'belleza', 'fe', 'duda', 'melancolia', 'alegria', 'esperanza', 'dolor',
   'trabajo', 'amistad', 'sueno', 'vejez', 'juventud', 'ciudad', 'viaje', 'guerra',
   'paz', 'arte', 'poesia-misma', 'silencio', 'identidad', 'deseo', 'ausencia',
-  'humor', 'humor-negro', 'virtud',
+  'humor', 'humor-negro', 'virtud', 'familia',
 ] as const;
 
 export const MOTIVOS = [
@@ -40,6 +40,7 @@ export const MOTIVOS = [
   'ceniza', 'lagrima', 'sangre', 'fuego', 'sombra', 'espada', 'libro', 'lira',
   'sepulcro', 'ruinas', 'ojo', 'noche', 'caballo', 'ciudad', 'palma', 'condor',
   'muneca', 'cruz',
+  'corazon', 'mano', 'cielo', 'boca', 'flor', 'viento', 'beso', 'ave', 'alas', 'nube',
 ] as const;
 
 // Author country. Stored verbatim in `autores.nacionalidad` (proper noun, with
@@ -106,7 +107,7 @@ export const TIPOS_DISPLAY: Record<Tipo, string> = {
 
 export const MOVIMIENTOS_DISPLAY: Record<Movimiento, string> = {
   'medieval': 'Medieval',
-  'siglo-de-oro': 'Siglo de Oro',
+  'renacimiento': 'Renacimiento',
   'barroco': 'Barroco',
   'neoclasicismo': 'Neoclasicismo',
   'romanticismo': 'Romanticismo',
@@ -162,6 +163,7 @@ export const TEMAS_DISPLAY: Record<Tema, string> = {
   'humor': 'Humor',
   'humor-negro': 'Humor negro',
   'virtud': 'Virtud',
+  'familia': 'Familia',
 };
 
 export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
@@ -203,6 +205,16 @@ export const MOTIVOS_DISPLAY: Record<Motivo, string> = {
   'condor': 'Cóndor',
   'muneca': 'Muñeca',
   'cruz': 'Cruz',
+  'corazon': 'Corazón',
+  'mano': 'Mano',
+  'cielo': 'Cielo',
+  'boca': 'Boca',
+  'flor': 'Flor',
+  'viento': 'Viento',
+  'beso': 'Beso',
+  'ave': 'Ave',
+  'alas': 'Alas',
+  'nube': 'Nube',
 };
 
 // País → gentilicio plural. Section heading on /nacionalidades/ (PR 3).

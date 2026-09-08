@@ -6,7 +6,7 @@ fecha_actualizada: 2026-07-13
 ilustracion: ../../assets/uploads/poema-oda-a-la-vida-retirada.png
 borrador: false
 tipo: lira
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - naturaleza
   - soledad

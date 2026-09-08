@@ -6,7 +6,7 @@ fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-una-cena.png
 borrador: false
 tipo: redondilla
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - humor
   - alegria

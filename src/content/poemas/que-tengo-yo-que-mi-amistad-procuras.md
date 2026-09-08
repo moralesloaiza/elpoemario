@@ -6,7 +6,7 @@ fecha_actualizada: 2026-08-27
 ilustracion: ../../assets/uploads/poema-que-tengo-yo-que-mi-amistad-procuras.png
 borrador: false
 tipo: soneto
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - dios
   - fe
