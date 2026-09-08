@@ -101,7 +101,7 @@ collections:
         required: false
         options:
           - medieval
-          - siglo-de-oro
+          - renacimiento
           - barroco
           - neoclasicismo
           - romanticismo
@@ -160,6 +160,7 @@ collections:
           - humor
           - humor-negro
           - virtud
+          - familia
       - label: "Motivos (figuras concretas)"
         name: motivos
         widget: select
@@ -205,6 +206,16 @@ collections:
           - condor
           - muneca
           - cruz
+          - corazon
+          - mano
+          - cielo
+          - boca
+          - flor
+          - viento
+          - beso
+          - ave
+          - alas
+          - nube
       - label: "Autor"
         name: autor
         widget: relation

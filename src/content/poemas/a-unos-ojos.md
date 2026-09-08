@@ -6,7 +6,7 @@ fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-a-unos-ojos.png
 borrador: false
 tipo: madrigal
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - amor
   - desamor

@@ -7,7 +7,7 @@ fecha_actualizada: 2026-08-16
 ilustracion: ../../assets/uploads/poema-vivo-sin-vivir-en-mi.png
 borrador: false
 tipo: glosa
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - dios
   - fe

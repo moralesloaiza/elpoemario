@@ -6,7 +6,7 @@ fecha_actualizada: 2026-08-27
 ilustracion: ../../assets/uploads/poema-en-perseguirme-mundo-que-interesas.png
 borrador: false
 tipo: soneto
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - belleza
 autor: sor-juana-ines-de-la-cruz

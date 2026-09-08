@@ -6,7 +6,7 @@ fecha_actualizada: 2026-08-13
 ilustracion: ../../assets/uploads/poema-la-oruga-y-la-presumida.png
 borrador: false
 tipo: redondilla
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - belleza
   - poesia-misma

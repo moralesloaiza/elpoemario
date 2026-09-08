@@ -7,7 +7,7 @@ fecha_actualizada: 2026-08-14
 ilustracion: ../../assets/uploads/poema-soneto-xxiii.png
 borrador: false
 tipo: soneto
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - belleza
   - tiempo

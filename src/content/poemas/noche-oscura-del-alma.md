@@ -7,7 +7,7 @@ fecha_actualizada: 2026-08-14
 ilustracion: ../../assets/uploads/poema-noche-oscura-del-alma.png
 borrador: false
 tipo: lira
-movimiento: siglo-de-oro
+movimiento: renacimiento
 temas:
   - dios
   - fe
