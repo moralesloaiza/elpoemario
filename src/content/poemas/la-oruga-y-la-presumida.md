@@ -11,7 +11,9 @@ temas:
   - belleza
   - poesia-misma
 motivos:
+  - alas
   - amada
+  - flor
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true

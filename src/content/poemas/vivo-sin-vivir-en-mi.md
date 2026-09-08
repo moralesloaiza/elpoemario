@@ -14,6 +14,7 @@ temas:
   - muerte
   - deseo
 motivos:
+  - corazon
   - dios-figura
   - yo-lirico
 autor: santa-teresa-de-jesus

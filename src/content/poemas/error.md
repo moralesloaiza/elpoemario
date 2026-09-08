@@ -12,6 +12,8 @@ temas:
   - patria
   - poesia-misma
   - sueno
+motivos:
+  - corazon
 autor: juan-antonio-perez-bonalde
 curador: Don Alejandro
 es_seudonimo: true

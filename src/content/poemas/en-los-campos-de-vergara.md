@@ -10,7 +10,8 @@ movimiento: neoclasicismo
 temas:
   - paz
   - patria
-motivos: []
+motivos:
+  - cielo
 autor: juan-nicasio-gallego
 curador: Don Alejandro
 es_seudonimo: true

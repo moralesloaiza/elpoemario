@@ -12,6 +12,8 @@ temas:
   - deseo
 motivos:
   - amado
+  - boca
+  - mano
 autor: delmira-agustini
 curador: Don Alejandro
 es_seudonimo: true

@@ -12,8 +12,11 @@ temas:
   - melancolia
 motivos:
   - barco
-  - luna
+  - cielo
   - estrella
+  - flor
+  - luna
+  - viento
 autor: julian-del-casal
 curador: Don Alejandro
 es_seudonimo: true

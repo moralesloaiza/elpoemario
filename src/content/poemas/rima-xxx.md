@@ -11,6 +11,7 @@ temas:
   - desamor
   - silencio
 motivos:
+  - boca
   - lagrima
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro

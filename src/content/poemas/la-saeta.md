@@ -15,8 +15,10 @@ temas:
 motivos:
   - cruz
   - dios-figura
-  - sangre
+  - flor
+  - mano
   - mar-figura
+  - sangre
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

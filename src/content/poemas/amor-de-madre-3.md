@@ -13,6 +13,9 @@ temas:
   - poesia-misma
 motivos:
   - amada
+  - beso
+  - boca
+  - corazon
 autor: joaquin-dicenta
 curador: Don Alejandro
 es_seudonimo: true

@@ -13,6 +13,10 @@ temas:
   - amor
   - belleza
 motivos:
+  - beso
+  - boca
+  - cielo
+  - flor
   - rosa
 autor: manuel-reina
 curador: Don Alejandro

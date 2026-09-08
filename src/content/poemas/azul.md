@@ -11,7 +11,10 @@ temas:
   - patria
   - poesia-misma
 motivos:
+  - alas
   - amada
+  - beso
+  - cielo
 autor: cruz-maria-salmeron-acosta
 curador: Don Alejandro
 es_seudonimo: true

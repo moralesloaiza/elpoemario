@@ -10,6 +10,8 @@ temas:
   - desamor
   - patria
   - poesia-misma
+motivos:
+  - corazon
 autor: alfonso-marin
 curador: Don Alejandro
 es_seudonimo: true

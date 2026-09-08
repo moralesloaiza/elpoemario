@@ -12,8 +12,12 @@ temas:
   - guerra
   - libertad
 motivos:
+  - boca
   - espada
+  - mano
+  - nube
   - sangre
+  - viento
 autor: manuel-jose-quintana
 curador: Don Alejandro
 es_seudonimo: true

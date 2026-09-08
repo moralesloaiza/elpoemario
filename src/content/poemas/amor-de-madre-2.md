@@ -10,7 +10,8 @@ movimiento: realismo
 temas:
   - amor
   - muerte
-motivos: []
+motivos:
+  - corazon
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

@@ -15,9 +15,12 @@ temas:
   - virtud
   - fe
 motivos:
-  - rio
-  - mar-figura
+  - cielo
+  - corazon
   - la-muerte-personificada
+  - mano
+  - mar-figura
+  - rio
 autor: jorge-manrique
 curador: Don Alejandro
 es_seudonimo: true

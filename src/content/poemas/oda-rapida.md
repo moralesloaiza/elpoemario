@@ -14,7 +14,12 @@ temas:
   - desamor
 motivos:
   - amada
+  - beso
+  - boca
+  - flor
   - fuego
+  - mano
+  - nube
 autor: alejandro-de-morales-y-loaiza
 curador: Alejandro de Morales y Loaiza
 es_seudonimo: false

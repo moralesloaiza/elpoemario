@@ -12,8 +12,10 @@ temas:
   - dolor
   - duda
 motivos:
-  - yo-lirico
+  - corazon
   - lagrima
+  - mano
+  - yo-lirico
 autor: sor-juana-ines-de-la-cruz
 curador: Don Alejandro
 es_seudonimo: true

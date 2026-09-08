@@ -10,6 +10,9 @@ movimiento: contemporaneo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - boca
+  - mano
 autor: mario-benedetti
 curador: Don Alejandro
 es_seudonimo: true

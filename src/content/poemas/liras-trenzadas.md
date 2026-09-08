@@ -14,12 +14,16 @@ temas:
   - exilio
   - ausencia
 motivos:
-  - libro
   - amada
-  - luna
-  - sol
   - barco
+  - corazon
+  - flor
+  - libro
   - lira
+  - luna
+  - mano
+  - nube
+  - sol
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

@@ -8,6 +8,8 @@ tipo: verso-libre
 temas:
   - patria
   - poesia-misma
+motivos:
+  - beso
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -14,6 +14,8 @@ temas:
   - esperanza
   - dolor
 motivos:
+  - cielo
+  - mano
   - sol
 autor: andres-eloy-blanco
 curador: Don Alejandro

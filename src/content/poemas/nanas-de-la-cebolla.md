@@ -15,6 +15,12 @@ temas:
   - esperanza
   - alegria
 motivos:
+  - alas
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - flor
   - luna
   - sangre
 autor: miguel-hernandez

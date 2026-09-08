@@ -15,6 +15,9 @@ temas:
   - amistad
   - ausencia
 motivos:
+  - corazon
+  - flor
+  - mano
   - sepulcro
 autor: miguel-hernandez
 curador: Don Alejandro

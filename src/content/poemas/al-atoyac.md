@@ -11,10 +11,16 @@ temas:
   - naturaleza
   - soledad
 motivos:
-  - rio
-  - mar-figura
+  - ave
+  - boca
+  - cielo
+  - corazon
+  - flor
   - luna
+  - mar-figura
+  - rio
   - sol
+  - viento
 autor: ignacio-manuel-altamirano
 curador: Don Alejandro
 es_seudonimo: true

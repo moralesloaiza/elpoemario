@@ -11,6 +11,12 @@ temas:
   - dios
   - patria
   - poesia-misma
+motivos:
+  - cielo
+  - corazon
+  - flor
+  - nube
+  - viento
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true

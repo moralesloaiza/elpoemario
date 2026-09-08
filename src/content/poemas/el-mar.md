@@ -10,6 +10,8 @@ temas:
   - mar
   - patria
   - poesia-misma
+motivos:
+  - cielo
 autor: rafael-maria-baralt
 curador: "Don Alejandro"
 es_seudonimo: true

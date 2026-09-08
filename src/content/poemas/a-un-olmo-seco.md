@@ -12,9 +12,10 @@ temas:
   - esperanza
   - muerte
 motivos:
+  - camino
+  - corazon
   - rio
   - ruisenor
-  - camino
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

@@ -10,6 +10,9 @@ movimiento: modernismo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - beso
+  - corazon
 autor: julio-florez
 curador: Don Alejandro
 es_seudonimo: true

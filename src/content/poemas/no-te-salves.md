@@ -10,6 +10,8 @@ movimiento: contemporaneo
 temas:
   - libertad
   - identidad
+motivos:
+  - boca
 autor: mario-benedetti
 curador: Don Alejandro
 es_seudonimo: true

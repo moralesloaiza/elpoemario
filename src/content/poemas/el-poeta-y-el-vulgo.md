@@ -11,7 +11,9 @@ temas:
   - poesia-misma
   - identidad
   - dios
-motivos: []
+motivos:
+  - cielo
+  - flor
 autor: eusebio-lillo
 curador: Don Alejandro
 es_seudonimo: true

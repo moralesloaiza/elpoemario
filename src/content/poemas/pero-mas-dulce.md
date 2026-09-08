@@ -10,6 +10,9 @@ temas:
   - dios
   - patria
   - poesia-misma
+motivos:
+  - beso
+  - corazon
 autor: carlos-borges
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -13,8 +13,10 @@ temas:
   - dolor
 motivos:
   - barco
+  - cielo
   - mar-figura
   - noche
+  - viento
 autor: gertrudis-gomez-de-avellaneda
 curador: Don Alejandro
 es_seudonimo: true

@@ -12,8 +12,10 @@ temas:
   - justicia
   - guerra
 motivos:
+  - boca
   - la-muerte-personificada
   - sangre
+  - viento
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

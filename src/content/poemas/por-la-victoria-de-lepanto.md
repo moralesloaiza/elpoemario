@@ -12,8 +12,13 @@ temas:
   - fe
   - dios
 motivos:
-  - mar-figura
+  - alas
+  - cielo
+  - corazon
   - luna
+  - mano
+  - mar-figura
+  - viento
 autor: fernando-de-herrera
 curador: Don Alejandro
 es_seudonimo: true

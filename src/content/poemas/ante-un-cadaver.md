@@ -10,6 +10,8 @@ movimiento: romanticismo
 temas:
   - muerte
   - duda
+motivos:
+  - boca
 autor: manuel-acuna
 curador: Don Alejandro
 es_seudonimo: true

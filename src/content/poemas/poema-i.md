@@ -16,6 +16,8 @@ temas:
   - soledad
 motivos:
   - amada
+  - boca
+  - corazon
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro

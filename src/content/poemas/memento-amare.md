@@ -12,7 +12,11 @@ movimiento: contemporaneo
 temas:
   - memoria
   - ausencia
-motivos: []
+motivos:
+  - beso
+  - cielo
+  - corazon
+  - mano
 autor: alejandro-de-morales-y-loaiza
 curador: Alejandro de Morales y Loaiza
 es_seudonimo: false

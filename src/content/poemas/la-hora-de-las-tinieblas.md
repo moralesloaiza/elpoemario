@@ -17,8 +17,13 @@ temas:
   - dios
   - dolor
 motivos:
+  - cielo
+  - corazon
   - dios-figura
+  - flor
+  - mano
   - sombra
+  - viento
 autor: rafael-pombo
 curador: Don Alejandro
 es_seudonimo: true

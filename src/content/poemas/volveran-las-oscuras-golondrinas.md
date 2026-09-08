@@ -12,7 +12,10 @@ temas:
   - amor
   - memoria
 motivos:
+  - alas
   - amada
+  - corazon
+  - flor
   - jardin
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro

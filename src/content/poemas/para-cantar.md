@@ -11,6 +11,7 @@ temas:
   - amor
 motivos:
   - amada
+  - boca
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

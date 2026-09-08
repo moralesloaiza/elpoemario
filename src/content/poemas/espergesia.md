@@ -11,6 +11,9 @@ temas:
   - dios
   - duda
   - dolor
+motivos:
+  - flor
+  - viento
 autor: cesar-vallejo
 curador: Don Alejandro
 es_seudonimo: true

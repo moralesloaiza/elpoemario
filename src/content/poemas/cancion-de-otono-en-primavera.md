@@ -14,6 +14,10 @@ temas:
   - tiempo
   - amor
 motivos:
+  - beso
+  - boca
+  - corazon
+  - flor
   - jardin
 autor: ruben-dario
 curador: Don Alejandro

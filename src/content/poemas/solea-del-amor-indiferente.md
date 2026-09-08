@@ -10,6 +10,12 @@ movimiento: posguerra
 temas:
   - amor
   - poesia-misma
+motivos:
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - flor
 autor: manuel-benitez-carrasco
 curador: Don Alejandro
 es_seudonimo: true

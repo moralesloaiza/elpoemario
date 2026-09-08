@@ -12,6 +12,8 @@ temas:
   - deseo
 motivos:
   - amada
+  - beso
+  - boca
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro

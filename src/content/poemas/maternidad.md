@@ -12,6 +12,11 @@ temas:
   - esperanza
 motivos:
   - amada
+  - ave
+  - boca
+  - cielo
+  - mano
+  - viento
 autor: jose-pedroni
 curador: "Don Alejandro"
 es_seudonimo: true

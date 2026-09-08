@@ -11,6 +11,12 @@ temas:
   - patria
   - identidad
   - memoria
+motivos:
+  - ave
+  - boca
+  - cielo
+  - corazon
+  - nube
 autor: ramon-lopez-velarde
 curador: Don Alejandro
 es_seudonimo: true

@@ -12,9 +12,13 @@ temas:
   - justicia
   - memoria
 motivos:
+  - cielo
+  - corazon
+  - espada
+  - mano
+  - nube
   - sangre
   - sepulcro
-  - espada
 autor: jose-marmol
 curador: Don Alejandro
 es_seudonimo: true

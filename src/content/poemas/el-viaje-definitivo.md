@@ -15,6 +15,8 @@ temas:
   - memoria
   - melancolia
 motivos:
+  - ave
+  - cielo
   - jardin
 autor: juan-ramon-jimenez
 curador: Don Alejandro

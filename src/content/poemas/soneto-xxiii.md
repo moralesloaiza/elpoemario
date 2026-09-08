@@ -14,8 +14,10 @@ temas:
   - juventud
   - deseo
 motivos:
-  - rosa
   - amada
+  - corazon
+  - rosa
+  - viento
 autor: garcilaso-de-la-vega
 curador: Don Alejandro
 es_seudonimo: true

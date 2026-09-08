@@ -9,6 +9,11 @@ movimiento: renacimiento
 temas:
   - muerte
   - poesia-misma
+motivos:
+  - alas
+  - cielo
+  - nube
+  - viento
 autor: bernardo-de-balbuena
 curador: "Don Alejandro"
 es_seudonimo: true

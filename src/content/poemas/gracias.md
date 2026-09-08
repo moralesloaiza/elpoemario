@@ -10,6 +10,8 @@ movimiento: modernismo
 temas:
   - patria
   - poesia-misma
+motivos:
+  - beso
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

@@ -15,8 +15,10 @@ temas:
   - sueno
 motivos:
   - camino
-  - yo-lirico
+  - corazon
   - rio
+  - viento
+  - yo-lirico
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

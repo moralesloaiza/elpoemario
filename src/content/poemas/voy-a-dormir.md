@@ -12,7 +12,10 @@ temas:
   - ausencia
   - muerte
 motivos:
+  - ave
+  - flor
   - la-muerte-personificada
+  - mano
 autor: alfonsina-storni
 curador: Don Alejandro
 es_seudonimo: true

@@ -10,6 +10,10 @@ movimiento: modernismo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - boca
+  - corazon
+  - flor
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true

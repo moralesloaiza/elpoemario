@@ -12,6 +12,9 @@ temas:
   - melancolia
   - ciudad
 motivos:
+  - ave
+  - beso
+  - flor
   - rosa
 autor: baldomero-fernandez-moreno
 curador: Don Alejandro

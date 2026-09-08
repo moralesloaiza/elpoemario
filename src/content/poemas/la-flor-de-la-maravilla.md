@@ -10,6 +10,7 @@ temas:
   - poesia-misma
   - tiempo
 motivos:
+  - flor
   - luna
   - sol
 autor: luis-de-gongora

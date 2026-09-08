@@ -14,6 +14,8 @@ temas:
   - tiempo
   - juventud
 motivos:
+  - ave
+  - cielo
   - mar-figura
   - sol
   - yo-lirico

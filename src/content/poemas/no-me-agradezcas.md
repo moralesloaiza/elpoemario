@@ -13,8 +13,9 @@ temas:
   - mar
 motivos:
   - amada
-  - mar-figura
   - barco
+  - corazon
+  - mar-figura
 autor: alejandro-de-morales-y-loaiza
 curador: El Fabulario
 es_seudonimo: false

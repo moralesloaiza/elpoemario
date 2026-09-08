@@ -12,9 +12,18 @@ temas:
   - fe
   - amor
 motivos:
-  - dios-figura
+  - alas
+  - ave
+  - beso
+  - boca
+  - cielo
   - ciudad
+  - corazon
+  - dios-figura
+  - flor
+  - mano
   - rio
+  - viento
 autor: jose-zorrilla
 curador: Don Alejandro
 es_seudonimo: true

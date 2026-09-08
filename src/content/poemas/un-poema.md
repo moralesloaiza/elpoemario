@@ -11,6 +11,9 @@ temas:
   - poesia-misma
   - humor
   - arte
+motivos:
+  - ave
+  - beso
 autor: jose-asuncion-silva
 curador: "Don Alejandro"
 es_seudonimo: true

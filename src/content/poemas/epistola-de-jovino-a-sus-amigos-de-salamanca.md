@@ -11,7 +11,13 @@ temas:
   - poesia-misma
   - virtud
 motivos:
+  - alas
+  - boca
+  - cielo
+  - corazon
   - lira
+  - mano
+  - nube
 autor: gaspar-melchor-de-jovellanos
 curador: Don Alejandro
 es_seudonimo: true

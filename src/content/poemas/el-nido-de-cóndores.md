@@ -12,8 +12,14 @@ temas:
   - libertad
   - memoria
 motivos:
+  - alas
+  - beso
+  - cielo
   - condor
+  - corazon
   - montana
+  - nube
+  - viento
 autor: olegario-victor-andrade
 curador: Don Alejandro
 es_seudonimo: true

@@ -9,6 +9,9 @@ movimiento: modernismo
 temas:
   - patria
   - poesia-misma
+motivos:
+  - cielo
+  - flor
 autor: rafael-michelena-fortoul
 curador: "Don Alejandro"
 es_seudonimo: true

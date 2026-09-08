@@ -13,6 +13,7 @@ temas:
   - deseo
   - muerte
 motivos:
+  - cielo
   - luna
   - rio
 autor: leopoldo-lugones

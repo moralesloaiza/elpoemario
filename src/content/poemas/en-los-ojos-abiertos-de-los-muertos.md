@@ -12,6 +12,8 @@ temas:
   - melancolia
   - muerte
   - poesia-misma
+motivos:
+  - mano
 autor: jaime-sabines
 curador: Don Alejandro
 es_seudonimo: true

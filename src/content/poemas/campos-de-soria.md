@@ -13,10 +13,15 @@ temas:
   - tiempo
   - muerte
 motivos:
-  - rio
-  - montana
+  - boca
   - camino
+  - cielo
+  - corazon
+  - montana
+  - nube
+  - rio
   - ruinas
+  - viento
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

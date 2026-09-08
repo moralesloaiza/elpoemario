@@ -12,6 +12,10 @@ temas:
   - duda
   - dolor
 motivos:
+  - beso
+  - cielo
+  - corazon
+  - mano
   - rosa
 autor: antonio-plaza
 curador: Don Alejandro

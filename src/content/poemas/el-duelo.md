@@ -11,6 +11,9 @@ temas:
   - amor
   - muerte
   - poesia-misma
+motivos:
+  - cielo
+  - mano
 autor: manuel-mur-oti
 curador: Don Alejandro
 es_seudonimo: true

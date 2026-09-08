@@ -11,6 +11,7 @@ temas:
   - humor
 motivos:
   - amado
+  - boca
 autor: francisco-de-quevedo
 curador: "Don Alejandro"
 es_seudonimo: true

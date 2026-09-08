@@ -10,6 +10,12 @@ temas:
   - patria
   - poesia-misma
   - soledad
+motivos:
+  - ave
+  - beso
+  - boca
+  - mano
+  - viento
 autor: andres-eloy-blanco
 curador: "Don Alejandro"
 es_seudonimo: true

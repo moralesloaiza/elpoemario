@@ -12,8 +12,9 @@ temas:
   - mar
 motivos:
   - barco
-  - mar-figura
   - luna
+  - mar-figura
+  - viento
 autor: jose-de-espronceda
 curador: Don Alejandro
 es_seudonimo: true

@@ -12,6 +12,8 @@ temas:
   - desamor
   - dolor
   - poesia-misma
+motivos:
+  - corazon
 autor: juan-ramon-jimenez
 curador: Don Alejandro
 es_seudonimo: true

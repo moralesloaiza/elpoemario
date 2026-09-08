@@ -12,7 +12,8 @@ temas:
   - amistad
   - dios
   - dolor
-motivos: null
+motivos:
+  - corazon
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

@@ -14,6 +14,8 @@ temas:
   - virtud
   - paz
 motivos:
+  - corazon
+  - mano
   - rosa
 autor: jose-marti
 curador: Don Alejandro

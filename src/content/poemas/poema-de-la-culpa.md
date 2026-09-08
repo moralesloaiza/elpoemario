@@ -12,6 +12,8 @@ temas:
   - poesia-misma
 motivos:
   - amado
+  - boca
+  - flor
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true

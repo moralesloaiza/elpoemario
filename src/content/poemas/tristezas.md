@@ -13,7 +13,12 @@ temas:
   - memoria
   - infancia
 motivos:
+  - alas
+  - cielo
+  - corazon
   - dios-figura
+  - flor
+  - nube
 autor: gaspar-nunez-de-arce
 curador: Don Alejandro
 es_seudonimo: true

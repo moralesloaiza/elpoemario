@@ -10,6 +10,10 @@ movimiento: modernismo
 temas:
   - poesia-misma
   - desamor
+motivos:
+  - beso
+  - boca
+  - viento
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true

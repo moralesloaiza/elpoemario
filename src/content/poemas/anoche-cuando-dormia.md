@@ -14,9 +14,10 @@ temas:
   - esperanza
   - fe
 motivos:
+  - corazon
   - dios-figura
-  - sol
   - fuego
+  - sol
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

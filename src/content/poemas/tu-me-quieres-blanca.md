@@ -11,6 +11,9 @@ temas:
   - identidad
   - deseo
 motivos:
+  - ave
+  - boca
+  - mano
   - montana
 autor: alfonsina-storni
 curador: Don Alejandro

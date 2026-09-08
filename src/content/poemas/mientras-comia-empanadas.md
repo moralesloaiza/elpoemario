@@ -13,7 +13,11 @@ temas:
   - alegria
 motivos:
   - amada
+  - beso
+  - boca
   - luna
+  - mano
+  - nube
 autor: alejandro-de-morales-y-loaiza
 curador: El Fabulario
 es_seudonimo: false

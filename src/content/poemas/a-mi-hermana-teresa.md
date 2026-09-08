@@ -11,6 +11,11 @@ temas:
   - exilio
   - ausencia
   - memoria
+motivos:
+  - cielo
+  - flor
+  - nube
+  - viento
 autor: miguel-teurbe-y-tolon
 curador: "Don Alejandro"
 es_seudonimo: true

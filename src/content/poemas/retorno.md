@@ -11,6 +11,11 @@ temas:
   - patria
   - memoria
   - viaje
+motivos:
+  - beso
+  - corazon
+  - flor
+  - mano
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

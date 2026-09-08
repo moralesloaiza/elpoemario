@@ -11,6 +11,8 @@ temas:
   - poesia-misma
   - naturaleza
   - paz
+motivos:
+  - viento
 autor: jose-fernandez-madrid
 curador: "Don Alejandro"
 es_seudonimo: true

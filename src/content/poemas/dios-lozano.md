@@ -13,7 +13,12 @@ temas:
   - naturaleza
   - fe
 motivos:
+  - ave
+  - corazon
   - estrella
+  - flor
+  - nube
+  - viento
 autor: abigail-lozano
 curador: Don Alejandro
 es_seudonimo: true

@@ -9,6 +9,10 @@ movimiento: contemporaneo
 temas:
   - patria
   - poesia-misma
+motivos:
+  - beso
+  - boca
+  - mano
 autor: heli-colombani
 curador: "Don Alejandro"
 es_seudonimo: true

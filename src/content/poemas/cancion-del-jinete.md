@@ -14,9 +14,10 @@ temas:
   - soledad
 motivos:
   - caballo
-  - luna
   - camino
   - la-muerte-personificada
+  - luna
+  - viento
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true

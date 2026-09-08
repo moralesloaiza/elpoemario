@@ -10,6 +10,8 @@ movimiento: modernismo
 temas:
   - infancia
   - amor
+motivos:
+  - beso
 autor: jose-marti
 curador: "Don Alejandro"
 es_seudonimo: true

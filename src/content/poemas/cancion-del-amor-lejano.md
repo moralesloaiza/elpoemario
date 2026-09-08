@@ -9,6 +9,8 @@ movimiento: modernismo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - viento
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true

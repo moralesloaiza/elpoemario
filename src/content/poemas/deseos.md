@@ -9,6 +9,10 @@ movimiento: modernismo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - boca
+  - cielo
+  - nube
 autor: salvador-diaz-miron
 curador: "Don Alejandro"
 es_seudonimo: true

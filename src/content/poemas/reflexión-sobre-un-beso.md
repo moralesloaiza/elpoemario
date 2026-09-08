@@ -9,7 +9,9 @@ tipo: prosa-poetica
 movimiento: contemporaneo
 temas:
   - silencio
-motivos: []
+motivos:
+  - beso
+  - boca
 autor: alejandro-de-morales-y-loaiza
 curador: Alejandro de Morales y Loaiza
 es_seudonimo: true

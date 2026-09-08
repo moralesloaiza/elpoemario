@@ -10,6 +10,8 @@ movimiento: realismo
 temas:
   - amor
   - muerte
+motivos:
+  - corazon
 autor: felipe-tejera
 curador: Don Alejandro
 es_seudonimo: true

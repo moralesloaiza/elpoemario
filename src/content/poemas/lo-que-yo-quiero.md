@@ -11,6 +11,11 @@ temas:
   - deseo
   - amor
   - noche
+motivos:
+  - beso
+  - boca
+  - corazon
+  - mano
 autor: pedro-junco-jr
 curador: "Don Alejandro"
 es_seudonimo: true

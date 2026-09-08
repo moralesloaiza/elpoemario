@@ -9,6 +9,9 @@ temas:
   - amor
   - patria
   - poesia-misma
+motivos:
+  - beso
+  - boca
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

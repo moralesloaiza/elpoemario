@@ -12,6 +12,8 @@ temas:
 motivos:
   - amada
   - amado
+  - cielo
+  - flor
 autor: eduardo-marquina
 curador: "Don Alejandro"
 es_seudonimo: true

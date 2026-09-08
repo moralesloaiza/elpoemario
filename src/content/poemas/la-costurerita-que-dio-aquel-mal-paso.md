@@ -13,6 +13,7 @@ temas:
   - dolor
 motivos:
   - ciudad
+  - corazon
 autor: evaristo-carriego
 curador: Don Alejandro
 es_seudonimo: true

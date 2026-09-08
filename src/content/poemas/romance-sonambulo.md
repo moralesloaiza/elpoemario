@@ -14,11 +14,13 @@ temas:
   - noche
   - dolor
 motivos:
-  - luna
+  - boca
   - caballo
-  - sangre
+  - luna
   - montana
+  - sangre
   - ventana
+  - viento
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true

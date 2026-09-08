@@ -15,7 +15,10 @@ temas:
   - melancolia
   - muerte
 motivos:
+  - ave
+  - corazon
   - lagrima
+  - viento
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true

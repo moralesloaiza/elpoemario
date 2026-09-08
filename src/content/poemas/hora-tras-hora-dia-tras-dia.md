@@ -13,6 +13,8 @@ temas:
   - melancolia
   - dolor
 motivos:
+  - cielo
+  - flor
   - mar-figura
 autor: rosalia-de-castro
 curador: Don Alejandro

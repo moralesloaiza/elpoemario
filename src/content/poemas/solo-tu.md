@@ -8,6 +8,8 @@ tipo: cuarteto
 temas:
   - amor
   - poesia-misma
+motivos:
+  - alas
 autor: cesar-casas-medina
 curador: "Don Alejandro"
 es_seudonimo: true

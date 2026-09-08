@@ -10,6 +10,8 @@ movimiento: vanguardia
 temas:
   - poesia-misma
   - soledad
+motivos:
+  - mano
 autor: enrique-pedro-maroni
 curador: Don Alejandro
 es_seudonimo: true

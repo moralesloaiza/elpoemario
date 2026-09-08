@@ -13,6 +13,7 @@ temas:
   - naturaleza
   - identidad
 motivos:
+  - boca
   - sombra
 autor: francisco-villaespesa
 curador: Don Alejandro

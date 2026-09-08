@@ -9,6 +9,8 @@ movimiento: modernismo
 temas:
   - amor
   - poesia-misma
+motivos:
+  - cielo
 autor: manuel-gonzalez-prada
 curador: Don Alejandro
 es_seudonimo: true

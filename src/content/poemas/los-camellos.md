@@ -13,8 +13,9 @@ temas:
   - poesia-misma
   - melancolia
 motivos:
-  - sol
+  - boca
   - camino
+  - sol
 autor: guillermo-valencia
 curador: Don Alejandro
 es_seudonimo: true

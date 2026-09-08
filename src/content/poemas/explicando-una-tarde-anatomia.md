@@ -10,6 +10,8 @@ movimiento: realismo
 temas:
   - dolor
   - amor
+motivos:
+  - corazon
 autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true

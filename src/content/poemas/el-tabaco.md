@@ -12,6 +12,10 @@ movimiento: popular-tradicional
 temas:
   - poesia-misma
   - deseo
+motivos:
+  - beso
+  - boca
+  - mano
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

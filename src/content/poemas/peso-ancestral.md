@@ -12,6 +12,7 @@ temas:
   - identidad
   - memoria
 motivos:
+  - boca
   - lagrima
 autor: alfonsina-storni
 curador: Don Alejandro

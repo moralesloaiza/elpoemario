@@ -10,6 +10,9 @@ temas:
   - amor
   - patria
   - poesia-misma
+motivos:
+  - cielo
+  - viento
 autor: hernan-osorio
 curador: Don Alejandro
 es_seudonimo: true

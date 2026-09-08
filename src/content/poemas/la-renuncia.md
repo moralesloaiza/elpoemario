@@ -10,6 +10,9 @@ movimiento: modernismo
 temas:
   - patria
   - sueno
+motivos:
+  - boca
+  - mano
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

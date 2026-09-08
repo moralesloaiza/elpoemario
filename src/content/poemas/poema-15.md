@@ -10,6 +10,9 @@ temas:
   - muerte
   - poesia-misma
   - silencio
+motivos:
+  - beso
+  - boca
 autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true

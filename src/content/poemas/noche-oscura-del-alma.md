@@ -15,9 +15,11 @@ temas:
   - noche
   - deseo
 motivos:
-  - noche
   - amado
+  - corazon
   - dios-figura
+  - mano
+  - noche
 autor: san-juan-de-la-cruz
 curador: Don Alejandro
 es_seudonimo: true

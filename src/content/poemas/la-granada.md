@@ -13,8 +13,9 @@ temas:
   - naturaleza
   - sueno
 motivos:
-  - luna
+  - alas
   - libro
+  - luna
 autor: salvador-rueda
 curador: Don Alejandro
 es_seudonimo: true
