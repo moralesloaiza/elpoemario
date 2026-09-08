@@ -8,8 +8,8 @@ borrador: false
 tipo: romance-heroico
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - humor
+  - virtud
 autor: aquiles-nazoa
 curador: Don Alejandro
 es_seudonimo: true

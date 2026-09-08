@@ -9,6 +9,7 @@ tipo: balada
 movimiento: realismo
 temas:
   - amor
+  - familia
   - muerte
 motivos: []
 autor: anonimo

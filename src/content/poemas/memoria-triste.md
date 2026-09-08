@@ -11,7 +11,6 @@ temas:
   - juventud
   - memoria
   - patria
-  - poesia-misma
   - sueno
   - tiempo
 autor: juan-antonio-perez-bonalde

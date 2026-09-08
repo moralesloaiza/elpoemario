@@ -9,8 +9,6 @@ tipo: polimetrico
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

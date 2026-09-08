@@ -7,8 +7,7 @@ borrador: false
 tipo: pareado
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - familia
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true

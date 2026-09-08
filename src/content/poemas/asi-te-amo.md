@@ -7,8 +7,6 @@ borrador: false
 tipo: serventesio
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: flora-delmis
 curador: "Don Alejandro"
 es_seudonimo: true

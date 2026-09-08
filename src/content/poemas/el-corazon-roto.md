@@ -11,7 +11,6 @@ movimiento: modernismo
 temas:
   - desamor
   - dolor
-  - poesia-misma
 autor: juan-ramon-jimenez
 curador: Don Alejandro
 es_seudonimo: true

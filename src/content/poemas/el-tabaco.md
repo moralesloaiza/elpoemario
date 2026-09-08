@@ -10,7 +10,6 @@ borrador: false
 tipo: pareado
 movimiento: popular-tradicional
 temas:
-  - poesia-misma
   - deseo
 autor: anonimo
 curador: Don Alejandro

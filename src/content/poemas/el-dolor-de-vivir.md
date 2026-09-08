@@ -9,8 +9,6 @@ tipo: serventesio
 temas:
   - amor
   - dolor
-  - patria
-  - poesia-misma
 autor: luis-ramon-landaeta
 curador: Don Alejandro
 es_seudonimo: true

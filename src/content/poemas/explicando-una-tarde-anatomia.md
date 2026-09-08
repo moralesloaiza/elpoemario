@@ -8,8 +8,9 @@ borrador: false
 tipo: romance
 movimiento: realismo
 temas:
-  - dolor
   - amor
+  - dolor
+  - familia
 autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true

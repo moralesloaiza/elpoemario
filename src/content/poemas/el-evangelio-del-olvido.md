@@ -8,8 +8,6 @@ borrador: false
 tipo: verso-libre
 temas:
   - desamor
-  - patria
-  - poesia-misma
 autor: alfonso-marin
 curador: Don Alejandro
 es_seudonimo: true

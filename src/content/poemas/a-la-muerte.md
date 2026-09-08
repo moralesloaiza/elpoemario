@@ -8,7 +8,6 @@ tipo: endecha
 movimiento: romanticismo
 temas:
   - muerte
-  - poesia-misma
 motivos:
   - amado
 autor: adolfo-berro

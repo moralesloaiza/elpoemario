@@ -10,7 +10,6 @@ movimiento: posguerra
 temas:
   - amor
   - muerte
-  - poesia-misma
 autor: manuel-mur-oti
 curador: Don Alejandro
 es_seudonimo: true

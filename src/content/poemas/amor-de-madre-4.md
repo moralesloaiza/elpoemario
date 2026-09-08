@@ -9,6 +9,7 @@ tipo: redondilla
 movimiento: realismo
 temas:
   - amor
+  - familia
   - muerte
 autor: felipe-tejera
 curador: Don Alejandro

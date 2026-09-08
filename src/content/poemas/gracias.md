@@ -8,8 +8,8 @@ borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - amor
+  - desamor
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

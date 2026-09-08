@@ -7,7 +7,6 @@ borrador: false
 tipo: cuarteto
 temas:
   - amor
-  - poesia-misma
 autor: cesar-casas-medina
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -8,7 +8,7 @@ tipo: serventesio
 movimiento: romanticismo
 temas:
   - dios
-  - poesia-misma
+  - familia
 autor: lazaro-maria-perez
 curador: "Don Alejandro"
 es_seudonimo: true

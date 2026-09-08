@@ -11,7 +11,6 @@ temas:
   - arte
   - melancolia
   - muerte
-  - poesia-misma
 autor: jaime-sabines
 curador: Don Alejandro
 es_seudonimo: true

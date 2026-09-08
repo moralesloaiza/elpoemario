@@ -8,8 +8,6 @@ tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

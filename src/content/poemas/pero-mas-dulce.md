@@ -8,8 +8,6 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - dios
-  - patria
-  - poesia-misma
 autor: carlos-borges
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -8,7 +8,6 @@ tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -8,7 +8,6 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 autor: salvador-diaz-miron
 curador: "Don Alejandro"
 es_seudonimo: true

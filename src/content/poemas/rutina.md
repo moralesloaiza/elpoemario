@@ -7,8 +7,8 @@ borrador: false
 tipo: prosa-poetica
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - dolor
+  - identidad
 autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true

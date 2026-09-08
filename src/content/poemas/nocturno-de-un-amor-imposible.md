@@ -8,8 +8,6 @@ borrador: false
 tipo: verso-libre
 temas:
   - amor
-  - patria
-  - poesia-misma
 autor: hernan-osorio
 curador: Don Alejandro
 es_seudonimo: true

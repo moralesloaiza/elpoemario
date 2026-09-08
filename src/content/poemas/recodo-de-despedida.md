@@ -7,8 +7,9 @@ borrador: false
 tipo: romance
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - ausencia
+  - desamor
+  - dolor
 autor: heli-colombani
 curador: "Don Alejandro"
 es_seudonimo: true

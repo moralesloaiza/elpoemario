@@ -10,7 +10,6 @@ movimiento: contemporaneo
 temas:
   - amor
   - belleza
-  - poesia-misma
 motivos:
   - amada
   - amado

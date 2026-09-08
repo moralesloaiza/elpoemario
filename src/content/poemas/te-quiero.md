@@ -9,7 +9,6 @@ tipo: redondilla
 movimiento: contemporaneo
 temas:
   - amor
-  - poesia-misma
 autor: mario-benedetti
 curador: Don Alejandro
 es_seudonimo: true

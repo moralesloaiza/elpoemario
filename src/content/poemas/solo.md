@@ -8,7 +8,6 @@ borrador: false
 tipo: romance-heroico
 movimiento: vanguardia
 temas:
-  - poesia-misma
   - soledad
 autor: enrique-pedro-maroni
 curador: Don Alejandro

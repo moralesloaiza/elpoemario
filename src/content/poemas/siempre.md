@@ -7,8 +7,9 @@ borrador: false
 tipo: pareado
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - amor
+  - ausencia
+  - melancolia
 autor: rafael-michelena-fortoul
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -8,8 +8,6 @@ tipo: romance
 movimiento: contemporaneo
 temas:
   - noche
-  - patria
-  - poesia-misma
 motivos:
   - amada
   - estrella
