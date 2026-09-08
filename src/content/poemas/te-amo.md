@@ -8,8 +8,6 @@ tipo: romance
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
 motivos:
   - alas
   - ave

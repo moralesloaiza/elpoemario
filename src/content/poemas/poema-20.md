@@ -10,7 +10,6 @@ temas:
   - amor
   - desamor
   - noche
-  - poesia-misma
 motivos:
   - amada
   - beso

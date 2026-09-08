@@ -9,7 +9,6 @@ movimiento: modernismo
 temas:
   - amor
   - dios
-  - poesia-misma
 motivos:
   - amado
   - boca

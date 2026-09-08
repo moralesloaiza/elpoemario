@@ -10,7 +10,6 @@ movimiento: posguerra
 temas:
   - amor
   - muerte
-  - poesia-misma
 motivos:
   - cielo
   - mano

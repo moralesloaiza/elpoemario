@@ -9,7 +9,6 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - boca
   - corazon

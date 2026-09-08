@@ -9,8 +9,6 @@ tipo: polimetrico
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
 motivos:
   - corazon
   - flor

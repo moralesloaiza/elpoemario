@@ -9,7 +9,6 @@ tipo: redondilla
 movimiento: contemporaneo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - boca
   - mano

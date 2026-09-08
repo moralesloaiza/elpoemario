@@ -8,8 +8,8 @@ borrador: false
 tipo: romance-heroico
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - humor
+  - virtud
 motivos:
   - mano
 autor: aquiles-nazoa

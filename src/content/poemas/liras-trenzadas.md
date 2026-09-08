@@ -9,10 +9,8 @@ borrador: false
 tipo: lira
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
-  - exilio
   - ausencia
+  - exilio
 motivos:
   - amada
   - barco

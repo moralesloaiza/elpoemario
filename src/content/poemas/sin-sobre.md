@@ -8,7 +8,6 @@ tipo: serventesio
 movimiento: romanticismo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - amada
   - cielo

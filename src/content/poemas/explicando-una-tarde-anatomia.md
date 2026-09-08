@@ -8,8 +8,9 @@ borrador: false
 tipo: romance
 movimiento: realismo
 temas:
-  - dolor
   - amor
+  - dolor
+  - familia
 motivos:
   - corazon
 autor: eusebio-blasco

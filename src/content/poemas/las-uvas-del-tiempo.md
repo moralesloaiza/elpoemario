@@ -8,7 +8,6 @@ tipo: romance-heroico
 movimiento: modernismo
 temas:
   - patria
-  - poesia-misma
   - soledad
 motivos:
   - ave

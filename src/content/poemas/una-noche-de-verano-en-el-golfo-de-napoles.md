@@ -10,7 +10,6 @@ movimiento: romanticismo
 temas:
   - mar
   - noche
-  - poesia-misma
 motivos:
   - ave
   - cielo

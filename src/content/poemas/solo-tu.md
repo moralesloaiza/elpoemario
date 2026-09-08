@@ -7,7 +7,6 @@ borrador: false
 tipo: cuarteto
 temas:
   - amor
-  - poesia-misma
 motivos:
   - alas
 autor: cesar-casas-medina

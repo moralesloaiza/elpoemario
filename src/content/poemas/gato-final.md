@@ -6,8 +6,9 @@ ilustracion: ../../assets/uploads/poema-gato-final.png
 borrador: false
 tipo: verso-libre
 temas:
-  - patria
-  - poesia-misma
+  - ausencia
+  - desamor
+  - memoria
 motivos:
   - beso
 autor: juan-rodriguez

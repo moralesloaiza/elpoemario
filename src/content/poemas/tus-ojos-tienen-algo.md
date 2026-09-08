@@ -7,8 +7,9 @@ borrador: false
 tipo: serventesio
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - amor
+  - belleza
+  - deseo
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

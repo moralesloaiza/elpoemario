@@ -8,8 +8,6 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - dios
-  - patria
-  - poesia-misma
 motivos:
   - beso
   - corazon

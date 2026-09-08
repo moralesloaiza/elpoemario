@@ -9,6 +9,7 @@ tipo: redondilla
 movimiento: realismo
 temas:
   - amor
+  - familia
   - muerte
 motivos:
   - corazon

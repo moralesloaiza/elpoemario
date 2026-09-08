@@ -11,7 +11,6 @@ temas:
   - arte
   - melancolia
   - muerte
-  - poesia-misma
 motivos:
   - mano
 autor: jaime-sabines

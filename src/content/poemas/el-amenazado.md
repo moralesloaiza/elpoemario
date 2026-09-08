@@ -8,7 +8,6 @@ tipo: prosa-poetica
 movimiento: vanguardia
 temas:
   - amor
-  - poesia-misma
 motivos:
   - amada
   - ave

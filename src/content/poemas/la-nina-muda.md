@@ -8,8 +8,6 @@ tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - amor
-  - patria
-  - poesia-misma
 motivos:
   - ave
   - cielo

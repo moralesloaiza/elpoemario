@@ -7,8 +7,7 @@ borrador: false
 tipo: pareado
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - familia
 motivos:
   - mano
 autor: aquiles-nazoa

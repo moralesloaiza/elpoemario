@@ -8,7 +8,7 @@ borrador: false
 tipo: romance
 movimiento: modernismo
 temas:
-  - patria
+  - familia
   - soledad
   - trabajo
 motivos:

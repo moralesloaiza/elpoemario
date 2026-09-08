@@ -7,7 +7,6 @@ borrador: false
 tipo: letrilla
 movimiento: barroco
 temas:
-  - poesia-misma
   - tiempo
 motivos:
   - flor

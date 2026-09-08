@@ -8,7 +8,6 @@ tipo: soneto
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - cielo
 autor: manuel-gonzalez-prada

@@ -8,7 +8,6 @@ tipo: serventesio
 movimiento: vanguardia
 temas:
   - muerte
-  - poesia-misma
   - silencio
 motivos:
   - beso

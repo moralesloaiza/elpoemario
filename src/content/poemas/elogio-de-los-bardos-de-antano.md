@@ -8,7 +8,6 @@ borrador: false
 tipo: pareado
 movimiento: contemporaneo
 temas:
-  - patria
   - poesia-misma
 motivos:
   - lira

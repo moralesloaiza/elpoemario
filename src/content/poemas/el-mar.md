@@ -8,8 +8,6 @@ tipo: soneto
 movimiento: romanticismo
 temas:
   - mar
-  - patria
-  - poesia-misma
 motivos:
   - cielo
 autor: rafael-maria-baralt

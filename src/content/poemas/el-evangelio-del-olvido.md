@@ -8,8 +8,6 @@ borrador: false
 tipo: verso-libre
 temas:
   - desamor
-  - patria
-  - poesia-misma
 motivos:
   - corazon
 autor: alfonso-marin

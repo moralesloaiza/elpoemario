@@ -7,8 +7,9 @@ borrador: false
 tipo: romance
 movimiento: contemporaneo
 temas:
-  - patria
-  - poesia-misma
+  - ausencia
+  - desamor
+  - dolor
 motivos:
   - beso
   - boca

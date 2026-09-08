@@ -8,8 +8,9 @@ borrador: false
 tipo: soneto
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - ausencia
+  - belleza
+  - naturaleza
 motivos:
   - alas
   - amada

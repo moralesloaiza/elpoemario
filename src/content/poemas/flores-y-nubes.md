@@ -9,8 +9,7 @@ movimiento: modernismo
 temas:
   - amor
   - dios
-  - patria
-  - poesia-misma
+  - familia
 motivos:
   - cielo
   - corazon

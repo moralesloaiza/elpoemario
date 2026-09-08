@@ -8,7 +8,6 @@ tipo: octava-real
 movimiento: renacimiento
 temas:
   - muerte
-  - poesia-misma
 motivos:
   - alas
   - cielo

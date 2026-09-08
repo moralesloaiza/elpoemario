@@ -8,11 +8,10 @@ borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
-  - dios
-  - patria
-  - sueno
   - ausencia
   - deseo
+  - dios
+  - sueno
 motivos:
   - amada
   - flor

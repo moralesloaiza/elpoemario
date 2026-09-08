@@ -9,8 +9,8 @@ tipo: silva
 movimiento: realismo
 temas:
   - amor
+  - familia
   - muerte
-  - poesia-misma
 motivos:
   - amada
   - beso

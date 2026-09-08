@@ -7,8 +7,6 @@ borrador: false
 tipo: verso-libre
 temas:
   - amor
-  - patria
-  - poesia-misma
 motivos:
   - beso
   - boca

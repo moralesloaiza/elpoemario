@@ -9,8 +9,8 @@ borrador: false
 tipo: romance-heroico
 movimiento: modernismo
 temas:
-  - poesia-misma
   - amor
+  - familia
 motivos:
   - corazon
   - mano

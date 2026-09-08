@@ -9,7 +9,6 @@ tipo: decima
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - beso
   - corazon

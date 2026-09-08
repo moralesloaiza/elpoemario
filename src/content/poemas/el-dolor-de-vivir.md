@@ -9,8 +9,6 @@ tipo: serventesio
 temas:
   - amor
   - dolor
-  - patria
-  - poesia-misma
 motivos:
   - boca
   - corazon

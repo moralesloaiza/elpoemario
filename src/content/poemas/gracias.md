@@ -8,8 +8,8 @@ borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - amor
+  - desamor
 motivos:
   - beso
 autor: andres-eloy-blanco

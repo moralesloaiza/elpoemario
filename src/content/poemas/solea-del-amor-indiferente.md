@@ -9,7 +9,6 @@ tipo: decima
 movimiento: posguerra
 temas:
   - amor
-  - poesia-misma
 motivos:
   - beso
   - boca

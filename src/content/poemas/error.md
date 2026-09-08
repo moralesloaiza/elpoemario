@@ -9,8 +9,6 @@ tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
-  - patria
-  - poesia-misma
   - sueno
 motivos:
   - corazon

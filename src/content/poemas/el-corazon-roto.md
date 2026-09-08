@@ -11,7 +11,6 @@ movimiento: modernismo
 temas:
   - desamor
   - dolor
-  - poesia-misma
 motivos:
   - corazon
 autor: juan-ramon-jimenez

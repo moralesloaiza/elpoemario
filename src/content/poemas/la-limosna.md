@@ -8,7 +8,7 @@ tipo: serventesio
 movimiento: romanticismo
 temas:
   - dios
-  - poesia-misma
+  - familia
 motivos:
   - cielo
   - mano

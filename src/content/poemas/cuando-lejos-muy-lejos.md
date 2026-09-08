@@ -10,7 +10,6 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - mar
-  - poesia-misma
 motivos:
   - alas
   - beso

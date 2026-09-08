@@ -8,7 +8,6 @@ tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
-  - poesia-misma
 motivos:
   - beso
   - boca

@@ -10,6 +10,7 @@ movimiento: vanguardia
 temas:
   - amor
   - esperanza
+  - familia
 motivos:
   - amada
   - ave

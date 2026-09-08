@@ -7,8 +7,9 @@ borrador: false
 tipo: pareado
 movimiento: modernismo
 temas:
-  - patria
-  - poesia-misma
+  - amor
+  - ausencia
+  - melancolia
 motivos:
   - cielo
   - flor
