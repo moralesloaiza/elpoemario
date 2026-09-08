@@ -12,7 +12,7 @@ temas:
 autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true
-fecha_actualizada: 2026-08-13
+fecha_actualizada: 2026-09-08
 nota_curador: "El texto de este poema llegó a la antología por aporte de Carlos Boom."
 ---
 
@@ -32,5 +32,3 @@ Me deshago, me suprimo, displicente, me borro de un plumazo y
 Planto mi casa en medio de la locuacidad.
 Me reconstruyo con un plano inefable.
 Calma. Ya está. Entro a la horma.
-
-De **“Falsas maniobras”**, 1966.

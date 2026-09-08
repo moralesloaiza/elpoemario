@@ -2,7 +2,7 @@
 titulo: "El niño bien criado"
 resumen: "Un niño queda sin su ración y calla por no faltar al respeto; solo replica al gato que le pide los huesos que aún no le han dado la carne."
 fecha: 2011-11-15
-fecha_actualizada: 2026-08-13
+fecha_actualizada: 2026-09-08
 ilustracion: ../../assets/uploads/poema-el-nino-bien-criado.png
 borrador: false
 tipo: romance
@@ -14,6 +14,10 @@ temas:
 autor: pedro-calderon-de-la-barca
 curador: "Don Alejandro"
 es_seudonimo: true
+nota_curador: 'La atribución a Calderón es dudosa por el mismo motivo que "La
+  oruga y la presumida": el tono y la anécdota son propios de manual escolar
+  decimonónico, no del teatro o la lírica calderoniana. La ficha se mantiene
+  mientras no haya una fuente que confirme o descarte la autoría.'
 ---
 
 A cuatro o cinco chiquillos
