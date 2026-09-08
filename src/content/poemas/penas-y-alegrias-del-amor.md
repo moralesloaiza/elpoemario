@@ -11,6 +11,10 @@ temas:
   - amor
 motivos:
   - amada
+  - beso
+  - boca
+  - mano
+  - viento
 autor: rafael-de-leon-y-arias-de-saavedra
 curador: "Don Alejandro"
 es_seudonimo: true

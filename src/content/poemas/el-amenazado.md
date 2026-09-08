@@ -10,6 +10,7 @@ temas:
   - amor
 motivos:
   - amada
+  - ave
 autor: jorge-luis-borges
 curador: "Don Alejandro"
 es_seudonimo: true

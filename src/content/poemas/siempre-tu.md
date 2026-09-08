@@ -12,7 +12,12 @@ temas:
   - memoria
   - ausencia
 motivos:
+  - alas
   - amada
+  - beso
+  - boca
+  - corazon
+  - flor
   - ojo
 autor: hermanos-uhrbach
 curador: Don Alejandro

@@ -11,6 +11,10 @@ tipo: pareado
 movimiento: popular-tradicional
 temas:
   - deseo
+motivos:
+  - beso
+  - boca
+  - mano
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

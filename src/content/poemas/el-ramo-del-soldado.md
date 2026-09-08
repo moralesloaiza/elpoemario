@@ -10,7 +10,11 @@ movimiento: popular-tradicional
 temas:
   - desamor
   - dolor
-motivos: null
+motivos:
+  - ave
+  - corazon
+  - flor
+  - mano
 autor: antonio-de-trueba
 curador: Don Alejandro
 es_seudonimo: true

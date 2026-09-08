@@ -13,9 +13,14 @@ temas:
   - amor
   - naturaleza
 motivos:
-  - sol
-  - rosa
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - nube
   - ojo
+  - rosa
+  - sol
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro
 es_seudonimo: true

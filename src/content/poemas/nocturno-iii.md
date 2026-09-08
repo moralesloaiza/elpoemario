@@ -16,10 +16,13 @@ temas:
   - dolor
   - soledad
 motivos:
+  - alas
+  - cielo
   - luna
-  - sombra
+  - mano
   - noche
   - sepulcro
+  - sombra
 autor: jose-asuncion-silva
 curador: Don Alejandro
 es_seudonimo: true

@@ -11,6 +11,8 @@ temas:
   - infancia
   - dolor
   - justicia
+motivos:
+  - flor
 autor: gabriela-mistral
 curador: "Don Alejandro"
 es_seudonimo: true

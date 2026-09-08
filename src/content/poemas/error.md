@@ -10,6 +10,8 @@ movimiento: modernismo
 temas:
   - amor
   - sueno
+motivos:
+  - corazon
 autor: juan-antonio-perez-bonalde
 curador: Don Alejandro
 es_seudonimo: true

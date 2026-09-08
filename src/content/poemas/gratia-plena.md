@@ -11,6 +11,10 @@ temas:
   - amor
   - memoria
   - muerte
+motivos:
+  - ave
+  - boca
+  - flor
 autor: amado-nervo
 curador: Don Alejandro
 es_seudonimo: true

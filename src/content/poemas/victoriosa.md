@@ -11,7 +11,9 @@ temas:
   - patria
   - libertad
   - alegria
-motivos: []
+motivos:
+  - boca
+  - corazon
 autor: aurelia-castillo-de-gonzalez
 curador: Don Alejandro
 es_seudonimo: true

@@ -8,6 +8,10 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - boca
+  - cielo
+  - nube
 autor: salvador-diaz-miron
 curador: "Don Alejandro"
 es_seudonimo: true

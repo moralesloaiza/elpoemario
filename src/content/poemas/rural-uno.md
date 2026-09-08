@@ -7,6 +7,9 @@ borrador: false
 tipo: verso-libre
 temas:
   - amor
+motivos:
+  - beso
+  - boca
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -13,9 +13,10 @@ temas:
   - soledad
   - melancolia
 motivos:
+  - cielo
   - luna
-  - ventana
   - montana
+  - ventana
 autor: numa-pompilio-llona
 curador: Don Alejandro
 es_seudonimo: true

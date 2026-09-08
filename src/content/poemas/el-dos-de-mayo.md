@@ -12,9 +12,14 @@ temas:
   - guerra
   - dolor
 motivos:
+  - alas
+  - cielo
+  - flor
+  - luna
+  - mano
   - noche
   - sepulcro
-  - luna
+  - viento
 autor: juan-nicasio-gallego
 curador: Don Alejandro
 es_seudonimo: true

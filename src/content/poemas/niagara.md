@@ -13,9 +13,13 @@ temas:
   - patria
   - dios
 motivos:
+  - cielo
   - lira
+  - mano
+  - nube
   - palma
   - sepulcro
+  - viento
 autor: jose-maria-heredia
 curador: Don Alejandro
 es_seudonimo: true

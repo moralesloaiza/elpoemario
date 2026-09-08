@@ -14,11 +14,17 @@ temas:
   - juventud
   - arte
 motivos:
-  - yo-lirico
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - flor
   - jardin
+  - lira
   - rosa
   - ruisenor
-  - lira
+  - viento
+  - yo-lirico
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

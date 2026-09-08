@@ -11,6 +11,10 @@ temas:
   - tiempo
   - melancolia
   - muerte
+motivos:
+  - ave
+  - cielo
+  - viento
 autor: porfirio-barba-jacob
 curador: Don Alejandro
 es_seudonimo: true

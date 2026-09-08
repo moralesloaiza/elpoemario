@@ -10,6 +10,9 @@ movimiento: renacimiento
 temas:
   - humor
   - alegria
+motivos:
+  - corazon
+  - mano
 autor: baltasar-del-alcazar
 curador: "Don Alejandro"
 es_seudonimo: true

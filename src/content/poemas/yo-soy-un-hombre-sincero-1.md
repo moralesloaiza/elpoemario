@@ -15,9 +15,12 @@ temas:
   - muerte
   - belleza
 motivos:
+  - alas
+  - estrella
+  - flor
+  - mano
   - palma
   - yo-lirico
-  - estrella
 autor: jose-marti
 curador: Don Alejandro
 es_seudonimo: true

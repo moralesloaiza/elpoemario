@@ -12,6 +12,8 @@ temas:
   - fe
   - muerte
   - justicia
+motivos:
+  - cielo
 autor: placido
 curador: Don Alejandro
 es_seudonimo: true

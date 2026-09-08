@@ -13,10 +13,12 @@ temas:
   - memoria
   - muerte
 motivos:
-  - yo-lirico
-  - espada
-  - rosa
+  - ave
   - barco
+  - espada
+  - mano
+  - rosa
+  - yo-lirico
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

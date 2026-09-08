@@ -12,7 +12,10 @@ temas:
   - belleza
   - naturaleza
 motivos:
+  - alas
   - amada
+  - beso
+  - cielo
 autor: cruz-maria-salmeron-acosta
 curador: Don Alejandro
 es_seudonimo: true

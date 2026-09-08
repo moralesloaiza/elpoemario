@@ -8,6 +8,8 @@ tipo: pareado
 movimiento: contemporaneo
 temas:
   - familia
+motivos:
+  - mano
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true

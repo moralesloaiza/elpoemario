@@ -12,6 +12,10 @@ temas:
   - noche
 motivos:
   - amada
+  - beso
+  - cielo
+  - corazon
+  - viento
 autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true

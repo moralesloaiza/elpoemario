@@ -10,7 +10,9 @@ movimiento: renacimiento
 temas:
   - belleza
 motivos:
+  - alas
   - amada
+  - flor
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -9,6 +9,10 @@ movimiento: romanticismo
 temas:
   - dios
   - familia
+motivos:
+  - cielo
+  - mano
+  - nube
 autor: lazaro-maria-perez
 curador: "Don Alejandro"
 es_seudonimo: true

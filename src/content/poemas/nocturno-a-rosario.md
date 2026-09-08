@@ -10,6 +10,9 @@ movimiento: romanticismo
 temas:
   - melancolia
 motivos:
+  - beso
+  - corazon
+  - flor
   - yo-lirico
 autor: manuel-acuna
 curador: Don Alejandro

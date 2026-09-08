@@ -9,6 +9,12 @@ tipo: decima
 movimiento: posguerra
 temas:
   - amor
+motivos:
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - flor
 autor: manuel-benitez-carrasco
 curador: Don Alejandro
 es_seudonimo: true

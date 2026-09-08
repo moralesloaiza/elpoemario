@@ -10,6 +10,10 @@ temas:
   - ausencia
   - desamor
   - dolor
+motivos:
+  - beso
+  - boca
+  - mano
 autor: heli-colombani
 curador: "Don Alejandro"
 es_seudonimo: true

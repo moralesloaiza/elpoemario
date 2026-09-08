@@ -10,8 +10,11 @@ temas:
   - noche
 motivos:
   - amada
+  - cielo
   - estrella
   - luna
+  - mano
+  - nube
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true

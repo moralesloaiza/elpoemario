@@ -9,6 +9,8 @@ temas:
   - ausencia
   - desamor
   - memoria
+motivos:
+  - beso
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

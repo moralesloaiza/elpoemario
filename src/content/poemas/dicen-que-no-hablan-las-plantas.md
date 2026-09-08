@@ -15,7 +15,9 @@ temas:
   - tiempo
   - esperanza
 motivos:
+  - ave
   - estrella
+  - flor
   - yo-lirico
 autor: rosalia-de-castro
 curador: Don Alejandro

@@ -9,6 +9,7 @@ movimiento: barroco
 temas:
   - tiempo
 motivos:
+  - flor
   - luna
   - sol
 autor: luis-de-gongora

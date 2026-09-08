@@ -11,7 +11,10 @@ tipo: cuarteto
 movimiento: contemporaneo
 temas:
   - amistad
-motivos: []
+motivos:
+  - alas
+  - corazon
+  - viento
 autor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro
 es_seudonimo: true

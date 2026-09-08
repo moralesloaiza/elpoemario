@@ -9,6 +9,10 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - desamor
+motivos:
+  - beso
+  - boca
+  - viento
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true

@@ -12,9 +12,13 @@ temas:
   - esperanza
   - naturaleza
 motivos:
-  - rosa
-  - luna
+  - alas
+  - beso
   - jardin
+  - luna
+  - mano
+  - rosa
+  - viento
 autor: amado-nervo
 curador: Don Alejandro
 es_seudonimo: true

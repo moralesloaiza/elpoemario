@@ -11,6 +11,8 @@ movimiento: romanticismo
 temas:
   - patria
   - amor
+motivos:
+  - corazon
 autor: juan-leon-mera
 curador: Don Alejandro
 es_seudonimo: true

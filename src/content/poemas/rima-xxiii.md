@@ -14,6 +14,8 @@ temas:
   - belleza
 motivos:
   - amada
+  - beso
+  - cielo
   - ojo
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro

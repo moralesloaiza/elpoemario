@@ -12,8 +12,9 @@ temas:
   - soledad
   - viaje
 motivos:
-  - sol
+  - boca
   - camino
+  - sol
 autor: guillermo-valencia
 curador: Don Alejandro
 es_seudonimo: true

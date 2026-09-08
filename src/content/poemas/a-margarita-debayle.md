@@ -12,8 +12,11 @@ temas:
   - mar
   - infancia
 motivos:
+  - cielo
   - estrella
+  - flor
   - mar-figura
+  - viento
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

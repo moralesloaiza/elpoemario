@@ -10,6 +10,8 @@ movimiento: modernismo
 temas:
   - esperanza
   - patria
+motivos:
+  - mano
 autor: juana-borrero
 curador: "Don Alejandro"
 es_seudonimo: true

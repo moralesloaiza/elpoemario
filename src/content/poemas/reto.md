@@ -9,6 +9,9 @@ tipo: decima
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - beso
+  - corazon
 autor: julio-florez
 curador: Don Alejandro
 es_seudonimo: true

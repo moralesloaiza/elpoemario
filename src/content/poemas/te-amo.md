@@ -8,6 +8,11 @@ tipo: romance
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - alas
+  - ave
+  - boca
+  - cielo
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true

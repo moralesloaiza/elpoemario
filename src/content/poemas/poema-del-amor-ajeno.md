@@ -9,6 +9,10 @@ tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - boca
+  - corazon
+  - flor
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true

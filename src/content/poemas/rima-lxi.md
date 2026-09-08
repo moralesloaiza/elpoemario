@@ -12,6 +12,7 @@ temas:
   - soledad
   - ausencia
 motivos:
+  - mano
   - sepulcro
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro

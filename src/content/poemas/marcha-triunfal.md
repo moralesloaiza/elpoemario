@@ -13,9 +13,13 @@ temas:
   - alegria
   - arte
 motivos:
-  - espada
-  - sol
+  - alas
   - condor
+  - espada
+  - flor
+  - mano
+  - sol
+  - viento
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

@@ -11,7 +11,9 @@ temas:
   - guerra
   - dolor
   - patria
-motivos: []
+motivos:
+  - cielo
+  - corazon
 autor: carlos-guido-y-spano
 curador: Don Alejandro
 es_seudonimo: true

@@ -9,6 +9,9 @@ tipo: redondilla
 movimiento: contemporaneo
 temas:
   - amor
+motivos:
+  - boca
+  - mano
 autor: mario-benedetti
 curador: Don Alejandro
 es_seudonimo: true

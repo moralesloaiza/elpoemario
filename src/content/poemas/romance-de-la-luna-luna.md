@@ -12,7 +12,10 @@ temas:
   - infancia
   - noche
 motivos:
+  - cielo
+  - corazon
   - luna
+  - mano
 autor: federico-garcia-lorca
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -11,8 +11,10 @@ temas:
   - amor
   - dolor
 motivos:
-  - luna
+  - ave
+  - flor
   - lagrima
+  - luna
 autor: juan-zorrilla-de-san-martin
 curador: Don Alejandro
 es_seudonimo: true

@@ -10,6 +10,10 @@ movimiento: modernismo
 temas:
   - infancia
   - fe
+motivos:
+  - alas
+  - cielo
+  - corazon
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

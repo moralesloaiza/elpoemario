@@ -13,7 +13,14 @@ temas:
   - amor
   - libertad
 motivos:
+  - alas
+  - beso
+  - boca
+  - cielo
+  - flor
   - jardin
+  - mano
+  - viento
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

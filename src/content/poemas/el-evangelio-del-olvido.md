@@ -8,6 +8,8 @@ borrador: false
 tipo: verso-libre
 temas:
   - desamor
+motivos:
+  - corazon
 autor: alfonso-marin
 curador: Don Alejandro
 es_seudonimo: true

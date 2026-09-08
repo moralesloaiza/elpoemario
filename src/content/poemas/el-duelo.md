@@ -10,6 +10,9 @@ movimiento: posguerra
 temas:
   - amor
   - muerte
+motivos:
+  - cielo
+  - mano
 autor: manuel-mur-oti
 curador: Don Alejandro
 es_seudonimo: true

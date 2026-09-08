@@ -9,6 +9,8 @@ tipo: romance-heroico
 movimiento: vanguardia
 temas:
   - soledad
+motivos:
+  - mano
 autor: enrique-pedro-maroni
 curador: Don Alejandro
 es_seudonimo: true

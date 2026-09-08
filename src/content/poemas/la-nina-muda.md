@@ -8,6 +8,11 @@ tipo: romance-heroico
 movimiento: contemporaneo
 temas:
   - amor
+motivos:
+  - ave
+  - cielo
+  - flor
+  - mano
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true

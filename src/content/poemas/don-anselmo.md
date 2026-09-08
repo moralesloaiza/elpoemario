@@ -10,6 +10,8 @@ movimiento: contemporaneo
 temas:
   - humor
   - virtud
+motivos:
+  - mano
 autor: aquiles-nazoa
 curador: Don Alejandro
 es_seudonimo: true

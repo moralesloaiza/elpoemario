@@ -8,6 +8,8 @@ tipo: soneto
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - cielo
 autor: manuel-gonzalez-prada
 curador: Don Alejandro
 es_seudonimo: true

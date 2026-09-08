@@ -11,8 +11,9 @@ temas:
   - naturaleza
   - amor
 motivos:
-  - caballo
   - amada
+  - boca
+  - caballo
 autor: joaquin-lorenzo-luaces
 curador: Don Alejandro
 es_seudonimo: true

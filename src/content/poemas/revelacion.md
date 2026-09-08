@@ -11,6 +11,10 @@ temas:
   - amor
   - soledad
   - noche
+motivos:
+  - flor
+  - mano
+  - viento
 autor: jose-maria-peman
 curador: "Don Alejandro"
 es_seudonimo: true

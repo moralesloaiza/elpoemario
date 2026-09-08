@@ -8,6 +8,11 @@ tipo: cuarteto
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - beso
+  - boca
+  - corazon
+  - mano
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -11,6 +11,9 @@ movimiento: modernismo
 temas:
   - amor
   - familia
+motivos:
+  - corazon
+  - mano
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

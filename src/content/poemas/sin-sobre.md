@@ -10,6 +10,10 @@ temas:
   - amor
 motivos:
   - amada
+  - cielo
+  - corazon
+  - flor
+  - mano
 autor: juan-de-dios-peza
 curador: "Don Alejandro"
 es_seudonimo: true

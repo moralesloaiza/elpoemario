@@ -14,6 +14,8 @@ temas:
   - sueno
 motivos:
   - amada
+  - flor
+  - mano
 autor: hector-guillermo-villalobos
 curador: Don Alejandro
 es_seudonimo: true

@@ -11,6 +11,8 @@ temas:
   - amor
   - dolor
   - familia
+motivos:
+  - corazon
 autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true

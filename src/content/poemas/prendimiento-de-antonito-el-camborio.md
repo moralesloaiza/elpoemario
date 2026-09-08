@@ -12,9 +12,11 @@ temas:
   - justicia
   - noche
 motivos:
-  - camino
-  - noche
   - caballo
+  - camino
+  - cielo
+  - noche
+  - viento
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true

@@ -14,9 +14,10 @@ temas:
   - muerte
   - juventud
 motivos:
-  - sol
   - amada
+  - boca
   - ceniza
+  - sol
   - sombra
 autor: luis-de-gongora
 curador: Don Alejandro

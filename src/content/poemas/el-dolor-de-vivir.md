@@ -9,6 +9,9 @@ tipo: serventesio
 temas:
   - amor
   - dolor
+motivos:
+  - boca
+  - corazon
 autor: luis-ramon-landaeta
 curador: Don Alejandro
 es_seudonimo: true

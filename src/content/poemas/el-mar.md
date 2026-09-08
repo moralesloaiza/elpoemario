@@ -8,6 +8,8 @@ tipo: soneto
 movimiento: romanticismo
 temas:
   - mar
+motivos:
+  - cielo
 autor: rafael-maria-baralt
 curador: "Don Alejandro"
 es_seudonimo: true

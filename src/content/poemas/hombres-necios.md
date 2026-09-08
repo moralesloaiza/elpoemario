@@ -12,6 +12,7 @@ temas:
   - amor
   - deseo
 motivos:
+  - alas
   - amada
   - amado
 autor: sor-juana-ines-de-la-cruz

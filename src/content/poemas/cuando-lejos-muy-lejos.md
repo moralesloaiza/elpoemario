@@ -11,8 +11,12 @@ movimiento: modernismo
 temas:
   - mar
 motivos:
+  - alas
+  - beso
   - estrella
+  - nube
   - sol
+  - viento
 autor: julio-florez
 curador: Don Alejandro
 es_seudonimo: true

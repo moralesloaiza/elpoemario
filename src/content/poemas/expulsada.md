@@ -12,7 +12,11 @@ temas:
   - memoria
   - dolor
 motivos:
+  - cielo
+  - flor
+  - mano
   - sombra
+  - viento
 autor: aurelia-castillo-de-gonzalez
 curador: Don Alejandro
 es_seudonimo: true

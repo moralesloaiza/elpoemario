@@ -11,6 +11,8 @@ temas:
   - dios
 motivos:
   - amado
+  - boca
+  - flor
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true

@@ -12,8 +12,13 @@ temas:
   - soledad
   - paz
 motivos:
-  - rio
+  - ave
+  - cielo
+  - flor
+  - mano
   - montana
+  - rio
+  - viento
 autor: fray-luis-de-leon
 curador: Don Alejandro
 es_seudonimo: true

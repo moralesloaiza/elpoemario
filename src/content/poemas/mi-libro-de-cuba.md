@@ -12,6 +12,12 @@ temas:
   - patria
   - identidad
   - exilio
+motivos:
+  - alas
+  - ave
+  - cielo
+  - corazon
+  - flor
 autor: lola-rodriguez-de-tio
 curador: Don Alejandro
 es_seudonimo: true

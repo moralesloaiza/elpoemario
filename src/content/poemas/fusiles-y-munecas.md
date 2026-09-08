@@ -11,6 +11,11 @@ temas:
   - infancia
   - guerra
   - paz
+motivos:
+  - beso
+  - boca
+  - flor
+  - mano
 autor: juan-de-dios-peza
 curador: Don Alejandro
 es_seudonimo: true

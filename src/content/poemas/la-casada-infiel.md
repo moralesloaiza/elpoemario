@@ -11,8 +11,9 @@ temas:
   - deseo
   - noche
 motivos:
-  - rio
+  - beso
   - noche
+  - rio
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true

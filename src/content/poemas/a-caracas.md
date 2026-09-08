@@ -13,7 +13,10 @@ temas:
   - esperanza
   - juventud
 motivos:
+  - cielo
   - ciudad
+  - corazon
+  - mano
   - montana
 autor: jose-heriberto-garcia-de-quevedo
 curador: Don Alejandro

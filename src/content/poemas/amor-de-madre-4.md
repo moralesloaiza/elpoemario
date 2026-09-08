@@ -11,6 +11,8 @@ temas:
   - amor
   - familia
   - muerte
+motivos:
+  - corazon
 autor: felipe-tejera
 curador: Don Alejandro
 es_seudonimo: true

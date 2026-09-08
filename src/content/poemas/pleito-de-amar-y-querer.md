@@ -9,6 +9,10 @@ tipo: polimetrico
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - corazon
+  - flor
+  - mano
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

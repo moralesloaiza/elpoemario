@@ -10,6 +10,8 @@ movimiento: neoclasicismo
 temas:
   - amor
   - deseo
+motivos:
+  - mano
 autor: juan-melendez-valdes
 curador: Don Alejandro
 es_seudonimo: true

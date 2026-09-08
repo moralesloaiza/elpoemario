@@ -12,8 +12,9 @@ temas:
   - memoria
   - melancolia
 motivos:
-  - ventana
   - libro
+  - mano
+  - ventana
 autor: antonio-machado
 curador: Don Alejandro
 es_seudonimo: true

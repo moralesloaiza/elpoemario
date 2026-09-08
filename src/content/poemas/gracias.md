@@ -10,6 +10,8 @@ movimiento: modernismo
 temas:
   - amor
   - desamor
+motivos:
+  - beso
 autor: andres-eloy-blanco
 curador: Don Alejandro
 es_seudonimo: true

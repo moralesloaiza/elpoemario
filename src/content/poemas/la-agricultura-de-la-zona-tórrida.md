@@ -14,14 +14,21 @@ temas:
   - libertad
   - paz
 motivos:
-  - sol
-  - montana
-  - dios-figura
-  - fuego
+  - ave
   - ceniza
-  - ruinas
+  - cielo
+  - corazon
+  - dios-figura
   - espada
+  - flor
+  - fuego
+  - mano
+  - montana
+  - nube
+  - ruinas
   - sangre
+  - sol
+  - viento
 autor: andres-bello
 curador: Don Alejandro
 es_seudonimo: true

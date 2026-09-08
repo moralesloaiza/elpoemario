@@ -13,6 +13,10 @@ temas:
   - dolor
 motivos:
   - amada
+  - beso
+  - boca
+  - mano
+  - viento
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
 curador: Alejandro de Morales y Loaiza

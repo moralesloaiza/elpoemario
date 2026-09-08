@@ -13,6 +13,7 @@ temas:
   - mar
 motivos:
   - mar-figura
+  - nube
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro
 es_seudonimo: true

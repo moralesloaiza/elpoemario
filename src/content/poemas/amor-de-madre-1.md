@@ -11,7 +11,8 @@ temas:
   - amor
   - familia
   - muerte
-motivos: []
+motivos:
+  - corazon
 autor: eduardo-de-la-barra
 curador: Don Alejandro
 es_seudonimo: true

@@ -8,6 +8,9 @@ tipo: soneto
 movimiento: modernismo
 temas:
   - amor
+motivos:
+  - corazon
+  - flor
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true

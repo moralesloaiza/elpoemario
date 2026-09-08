@@ -12,9 +12,10 @@ temas:
   - muerte
   - dolor
 motivos:
+  - ciudad
+  - mano
   - muneca
   - noche
-  - ciudad
 autor: vital-aza
 curador: Don Alejandro
 es_seudonimo: true

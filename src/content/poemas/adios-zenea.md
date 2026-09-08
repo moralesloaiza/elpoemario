@@ -12,6 +12,9 @@ temas:
   - desamor
   - dolor
   - exilio
+motivos:
+  - boca
+  - viento
 autor: juan-clemente-zenea
 curador: Don Alejandro
 es_seudonimo: true

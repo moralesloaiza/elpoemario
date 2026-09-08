@@ -13,7 +13,10 @@ temas:
   - naturaleza
 motivos:
   - amada
+  - ave
+  - boca
   - camino
+  - flor
 autor: rafael-obligado
 curador: Don Alejandro
 es_seudonimo: true

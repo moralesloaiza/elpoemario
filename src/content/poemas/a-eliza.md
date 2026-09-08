@@ -12,6 +12,7 @@ temas:
   - belleza
   - arte
 motivos:
+  - flor
   - jardin
 autor: jose-joaquin-de-olmedo
 curador: Don Alejandro

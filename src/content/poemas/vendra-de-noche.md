@@ -13,6 +13,8 @@ temas:
   - noche
   - duda
 motivos:
+  - cielo
+  - corazon
   - la-muerte-personificada
   - luna
 autor: miguel-de-unamuno

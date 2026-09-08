@@ -13,8 +13,15 @@ temas:
   - muerte
 motivos:
   - amada
-  - rio
+  - beso
+  - boca
+  - cielo
+  - corazon
+  - flor
+  - mano
   - montana
+  - rio
+  - viento
 autor: jorge-isaacs
 curador: Don Alejandro
 es_seudonimo: true

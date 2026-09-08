@@ -15,7 +15,12 @@ temas:
   - dolor
   - esperanza
 motivos:
+  - boca
+  - cielo
+  - corazon
+  - mano
   - sangre
+  - viento
 autor: ruben-dario
 curador: Don Alejandro
 es_seudonimo: true

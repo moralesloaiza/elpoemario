@@ -11,6 +11,9 @@ temas:
   - poesia-misma
   - amor
   - desamor
+motivos:
+  - alas
+  - flor
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true

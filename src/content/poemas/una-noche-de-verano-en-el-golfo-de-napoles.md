@@ -11,7 +11,11 @@ temas:
   - mar
   - noche
 motivos:
+  - ave
+  - cielo
+  - corazon
   - sol
+  - viento
 autor: duque-de-rivas
 curador: Don Alejandro
 es_seudonimo: true

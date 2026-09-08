@@ -11,6 +11,8 @@ movimiento: modernismo
 temas:
   - desamor
   - dolor
+motivos:
+  - corazon
 autor: juan-ramon-jimenez
 curador: Don Alejandro
 es_seudonimo: true

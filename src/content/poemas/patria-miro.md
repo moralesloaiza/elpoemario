@@ -13,6 +13,10 @@ temas:
   - memoria
   - exilio
 motivos:
+  - beso
+  - cielo
+  - corazon
+  - flor
   - mar-figura
 autor: ricardo-miro
 curador: Don Alejandro

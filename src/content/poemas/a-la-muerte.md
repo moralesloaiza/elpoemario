@@ -10,6 +10,9 @@ temas:
   - muerte
 motivos:
   - amado
+  - boca
+  - cielo
+  - mano
 autor: adolfo-berro
 curador: "Don Alejandro"
 es_seudonimo: true

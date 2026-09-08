@@ -14,6 +14,9 @@ temas:
 motivos:
   - amada
   - amado
+  - beso
+  - mano
+  - nube
 autor: joaquin-dicenta
 curador: Don Alejandro
 es_seudonimo: true

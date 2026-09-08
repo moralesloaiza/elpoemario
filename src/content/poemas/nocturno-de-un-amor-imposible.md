@@ -8,6 +8,9 @@ borrador: false
 tipo: verso-libre
 temas:
   - amor
+motivos:
+  - cielo
+  - viento
 autor: hernan-osorio
 curador: Don Alejandro
 es_seudonimo: true

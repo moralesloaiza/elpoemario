@@ -12,6 +12,12 @@ temas:
   - identidad
   - dios
   - belleza
+motivos:
+  - alas
+  - ave
+  - corazon
+  - flor
+  - viento
 autor: jose-maria-gabriel-y-galan
 curador: Don Alejandro
 es_seudonimo: true

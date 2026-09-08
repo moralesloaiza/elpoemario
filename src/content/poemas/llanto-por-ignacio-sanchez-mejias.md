@@ -13,10 +13,15 @@ temas:
   - memoria
   - amistad
 motivos:
-  - sangre
+  - boca
+  - corazon
+  - flor
   - la-muerte-personificada
   - luna
+  - nube
+  - sangre
   - sepulcro
+  - viento
 autor: federico-garcia-lorca
 curador: Don Alejandro
 es_seudonimo: true
