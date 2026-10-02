@@ -4,7 +4,7 @@ resumen: Un llanero recuerda a Rosalinda, la mulata que raptó de un caney, y la
   noche de joropo en que, sin un centavo, la apostó a los dados.
 fecha: 2026-10-01
 fecha_actualizada: 2026-10-01
-ilustracion: ../../assets/uploads/serenata-bajo-la-luna-tropical.png
+ilustracion: ../../assets/uploads/poema-rosalinda.png
 borrador: true
 tipo: decima
 movimiento: null
