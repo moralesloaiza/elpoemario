@@ -7,7 +7,7 @@ fecha_actualizada: 2026-10-01
 ilustracion: ../../assets/uploads/poema-rosalinda.png
 borrador: false
 tipo: decima
-movimiento: null
+movimiento: contemporaneo
 temas:
   - amor
   - memoria
