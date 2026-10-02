@@ -5,7 +5,7 @@ resumen: Un llanero recuerda a Rosalinda, la mulata que raptó de un caney, y la
 fecha: 2026-10-01
 fecha_actualizada: 2026-10-01
 ilustracion: ../../assets/uploads/poema-rosalinda.png
-borrador: true
+borrador: false
 tipo: decima
 movimiento: null
 temas:
