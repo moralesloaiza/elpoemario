@@ -5,6 +5,7 @@ descripcion: Poeta español del modernismo, cercano a Rubén Darío.
 nacionalidad: España
 nacimiento: 1877
 muerte: 1936
+siglo: 20
 lugar_nacimiento: Laujar de Andarax, Almería, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-francisco-villaespesa.png

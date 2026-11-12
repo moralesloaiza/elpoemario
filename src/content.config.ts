@@ -99,6 +99,7 @@ const autores = defineCollection({
       ),
       nacimiento: optionalInt(),
       muerte: optionalInt(),
+      siglo: optionalInt(),
       lugar_nacimiento: optionalString(),
       lugar_muerte: optionalString(),
       imagen: z.optional(image()),

@@ -6,6 +6,7 @@ descripcion: Biografía de Ramón López Velarde, poeta mexicano del posmodernis
 nacionalidad: México
 nacimiento: 1888
 muerte: 1921
+siglo: 20
 lugar_nacimiento: Jerez, Zacatecas, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-ramon-lopez-velarde.png

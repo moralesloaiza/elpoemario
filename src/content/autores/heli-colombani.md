@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1932
 muerte: 1992
+siglo: 20
 lugar_nacimiento: Irapa, Sucre, Venezuela
 lugar_muerte: Caracas, Distrito Federal, Venezuela
 imagen: ../../assets/uploads/autor-heli-colombani.png

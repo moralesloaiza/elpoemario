@@ -5,6 +5,7 @@ descripcion: Poetas cubanos del modernismo.
 nacionalidad: Cuba
 nacimiento: 1872
 muerte: 1932
+siglo: 19
 lugar_nacimiento: Matanzas, Cuba
 lugar_muerte: La Habana, Cuba (Federico); Las Villas, en combate (Carlos Pío)
 imagen: ../../assets/uploads/autor-hermanos-uhrbach.png

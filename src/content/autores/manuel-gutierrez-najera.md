@@ -5,6 +5,7 @@ descripcion: Poeta mexicano del siglo XIX.
 nacionalidad: México
 nacimiento: 1859
 muerte: 1895
+siglo: 19
 lugar_nacimiento: Ciudad de México, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-manuel-gutierrez-najera.png

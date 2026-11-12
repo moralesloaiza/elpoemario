@@ -5,6 +5,7 @@ descripcion: Poeta argentino del siglo XIX.
 nacionalidad: Argentina
 nacimiento: 1817
 muerte: 1871
+siglo: 19
 lugar_nacimiento: Buenos Aires, Argentina
 lugar_muerte: Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-jose-marmol.png

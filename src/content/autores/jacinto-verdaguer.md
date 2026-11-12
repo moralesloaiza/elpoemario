@@ -6,6 +6,7 @@ nacionalidad: España
 lengua_original: catalán
 nacimiento: 1845
 muerte: 1902
+siglo: 19
 lugar_nacimiento: Folgueroles, Barcelona, España
 lugar_muerte: Vallvidrera, Barcelona, España
 imagen: ../../assets/uploads/autor-jacinto-verdaguer.png

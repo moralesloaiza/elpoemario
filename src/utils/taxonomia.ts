@@ -269,12 +269,22 @@ export function paisASlug(pais: Nacionalidad): string {
     .replace(/\s+/g, '-');
 }
 
-// Strict century from a birth year: 1801–1900 → 19, 1901–2000 → 20.
-// `Math.ceil` enforces the convention (1900 is XIX, not XX). Returns null for
-// falsy/invalid years (0, undefined, null), which map to the "sin fecha" group.
-export function sigloDeNacimiento(nacimiento?: number | null): number | null {
-  if (!nacimiento || nacimiento < 1) return null;
-  return Math.ceil(nacimiento / 100);
+// Century of an author's *activity* (not birth). Order of precedence:
+//   1. Explicit `siglo` field (editorial override), when set.
+//   2. Otherwise derived: century of min(nacimiento + 30, muerte). The +30
+//      offset approximates the author's mature/active period; `muerte` caps it
+//      so a short-lived poet is never pushed past their death year. `Math.ceil`
+//      keeps the convention (year 1900 is XIX, not XX).
+//   3. No `siglo` and no usable `nacimiento` → null ("sin fecha" group).
+export function sigloDeAutor(data: {
+  siglo?: number | null;
+  nacimiento?: number | null;
+  muerte?: number | null;
+}): number | null {
+  if (data.siglo && data.siglo >= 1) return data.siglo;
+  if (!data.nacimiento || data.nacimiento < 1) return null;
+  const muerte = data.muerte && data.muerte >= 1 ? data.muerte : Infinity;
+  return Math.ceil(Math.min(data.nacimiento + 30, muerte) / 100);
 }
 
 // Integer → uppercase Roman numeral (standard subtractive algorithm). Used for

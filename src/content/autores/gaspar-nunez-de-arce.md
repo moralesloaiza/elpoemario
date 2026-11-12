@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1832
 muerte: 1903
+siglo: 19
 lugar_nacimiento: Valladolid, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-gaspar-nunez-de-arce.png

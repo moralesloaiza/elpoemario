@@ -5,6 +5,7 @@ descripcion: Poeta y mística española del siglo XVI.
 nacionalidad: España
 nacimiento: 1515
 muerte: 1582
+siglo: 16
 lugar_nacimiento: Ávila, España
 lugar_muerte: Alba de Tormes, Salamanca, España
 imagen: ../../assets/uploads/autor-santa-teresa-de-jesus.png

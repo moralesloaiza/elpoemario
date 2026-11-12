@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1929
 muerte: 1966
+siglo: 20
 lugar_nacimiento: Santa Inés, Anzoátegui, Venezuela
 lugar_muerte: Caracas, Distrito Fededal, Venezuela
 imagen: ../../assets/uploads/autor-hernan-osorio.png

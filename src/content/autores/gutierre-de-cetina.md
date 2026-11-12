@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVI.
 nacionalidad: España
 nacimiento: 1520
 muerte: 1557
+siglo: 16
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Puebla, México
 imagen: ../../assets/uploads/autor-gutierre-de-cetina.png

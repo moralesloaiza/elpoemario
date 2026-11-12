@@ -1,10 +1,11 @@
 ---
 nombre: Gabriela Mistral
 tipo: clasico
-descripcion: Poeta chilena del siglo XIX.
+descripcion: Poeta chilena del siglo XX.
 nacionalidad: Chile
 nacimiento: 1889
 muerte: 1957
+siglo: 20
 lugar_nacimiento: Vicuña, Chile
 lugar_muerte: Hempstead, Nueva York, Estados Unidos
 imagen: ../../assets/uploads/autor-gabriela-mistral.png

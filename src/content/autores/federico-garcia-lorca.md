@@ -1,10 +1,11 @@
 ---
 nombre: Federico García Lorca
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1898
 muerte: 1936
+siglo: 20
 lugar_nacimiento: Fuente Vaqueros, Granada, España
 lugar_muerte: Granada, España
 imagen: ../../assets/uploads/autor-federico-garcia-lorca.png

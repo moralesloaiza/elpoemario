@@ -1,10 +1,11 @@
 ---
 nombre: Miguel de Unamuno
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1864
 muerte: 1936
+siglo: 20
 lugar_nacimiento: Bilbao, España
 lugar_muerte: Salamanca, España
 imagen: ../../assets/uploads/autor-miguel-de-unamuno.png

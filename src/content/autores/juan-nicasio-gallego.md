@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1777
 muerte: 1853
+siglo: 19
 lugar_nacimiento: Zamora, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-juan-nicasio-gallego.png

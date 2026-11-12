@@ -5,6 +5,7 @@ descripcion: Poeta chileno del siglo XIX.
 nacionalidad: Chile
 nacimiento: 1826
 muerte: 1910
+siglo: 19
 lugar_nacimiento: Santiago, Chile
 lugar_muerte: Santiago, Chile
 imagen: ../../assets/uploads/autor-eusebio-lillo.png

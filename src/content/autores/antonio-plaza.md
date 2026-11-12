@@ -6,6 +6,7 @@ descripcion: Biografía de Antonio Plaza, poeta romántico mexicano, autor del
 nacionalidad: México
 nacimiento: 1830
 muerte: 1882
+siglo: 19
 lugar_nacimiento: Apaseo, Guanajuato, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-antonio-plaza.png

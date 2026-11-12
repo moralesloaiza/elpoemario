@@ -1,10 +1,11 @@
 ---
 nombre: Eduardo Marquina
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1879
 muerte: 1946
+siglo: 20
 lugar_nacimiento: Barcelona, España
 lugar_muerte: Nueva York, Estados Unidos
 imagen: ../../assets/uploads/autor-eduardo-marquina.png

@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1920
 muerte: 1976
+siglo: 20
 lugar_nacimiento: Caracas, Venezuela
 lugar_muerte: Caracas, Venezuela
 imagen: ../../assets/uploads/autor-aquiles-nazoa.png

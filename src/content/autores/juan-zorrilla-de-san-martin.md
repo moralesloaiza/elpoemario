@@ -5,6 +5,7 @@ descripcion: Poeta uruguayo del siglo XIX.
 nacionalidad: Uruguay
 nacimiento: 1855
 muerte: 1931
+siglo: 19
 lugar_nacimiento: Montevideo, Uruguay
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-juan-zorrilla-de-san-martin.png

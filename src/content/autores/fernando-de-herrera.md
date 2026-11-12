@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVI.
 nacionalidad: España
 nacimiento: 1534
 muerte: 1597
+siglo: 16
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Sevilla, España
 imagen: ../../assets/uploads/autor-fernando-de-herrera.png

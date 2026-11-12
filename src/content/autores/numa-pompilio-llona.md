@@ -5,6 +5,7 @@ descripcion: Poeta ecuatoriano del Romanticismo tardío, diplomático y filósof
 nacionalidad: Ecuador
 nacimiento: 1832
 muerte: 1907
+siglo: 19
 lugar_nacimiento: Guayaquil, Ecuador
 lugar_muerte: Guayaquil, Ecuador
 imagen: ../../assets/uploads/autor-numa-pompilio-llona.png

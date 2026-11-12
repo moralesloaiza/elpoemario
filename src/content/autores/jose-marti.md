@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1853
 muerte: 1895
+siglo: 19
 lugar_nacimiento: La Habana, Cuba
 lugar_muerte: Dos Ríos, Cuba
 imagen: ../../assets/uploads/autor-jose-marti.png

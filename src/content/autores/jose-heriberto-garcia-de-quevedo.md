@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezuela
 nacimiento: 1819
 muerte: 1871
+siglo: 19
 lugar_nacimiento: Coro, Venezuela
 lugar_muerte: París, Francia
 imagen: ../../assets/uploads/autor-jose-heriberto-garcia-de-quevedo.png

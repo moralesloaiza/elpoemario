@@ -5,6 +5,7 @@ descripcion: Poeta español, precursor del modernismo peninsular.
 nacionalidad: España
 nacimiento: 1856
 muerte: 1905
+siglo: 19
 lugar_nacimiento: Puente Genil, Córdoba, España
 lugar_muerte: Puente Genil, Córdoba, España
 imagen: ../../assets/uploads/autor-manuel-reina.png

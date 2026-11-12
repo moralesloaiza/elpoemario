@@ -1,10 +1,11 @@
 ---
 nombre: Lope de Vega
 tipo: clasico
-descripcion: Poeta español del siglo XVI.
+descripcion: Poeta español del siglo XVII.
 nacionalidad: España
 nacimiento: 1562
 muerte: 1635
+siglo: 17
 lugar_nacimiento: Madrid, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-lope-de-vega.png

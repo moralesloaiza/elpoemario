@@ -5,6 +5,7 @@ descripcion: Poeta cubano, patriota fusilado durante la Guerra de los Diez Años
 nacionalidad: Cuba
 nacimiento: 1832
 muerte: 1871
+siglo: 19
 lugar_nacimiento: Bayamo, Cuba
 lugar_muerte: La Habana, Cuba
 imagen: ../../assets/uploads/autor-juan-clemente-zenea.png

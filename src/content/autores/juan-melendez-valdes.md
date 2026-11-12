@@ -5,6 +5,7 @@ descripcion: Poeta español, máxima figura de la poesía neoclásica salmantina
 nacionalidad: España
 nacimiento: 1754
 muerte: 1817
+siglo: 18
 lugar_nacimiento: Ribera del Fresno, Badajoz, España
 lugar_muerte: Montpellier, Francia
 imagen: ../../assets/uploads/autor-juan-melendez-valdes.png

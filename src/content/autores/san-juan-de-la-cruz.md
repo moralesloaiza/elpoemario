@@ -5,6 +5,7 @@ descripcion: Poeta místico español del siglo XVI.
 nacionalidad: España
 nacimiento: 1542
 muerte: 1591
+siglo: 16
 lugar_nacimiento: Fontiveros, Ávila, España
 lugar_muerte: Úbeda, Jaén, España
 imagen: ../../assets/uploads/autor-san-juan-de-la-cruz.png

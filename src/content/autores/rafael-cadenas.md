@@ -1,9 +1,10 @@
 ---
 nombre: Rafael Cadenas
 tipo: clasico
-descripcion: Poeta venezolano del siglo XXI.
+descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1930
+siglo: 20
 lugar_nacimiento: Barquisimeto
 imagen: ../../assets/uploads/autor-rafael-cadenas.png
 ---

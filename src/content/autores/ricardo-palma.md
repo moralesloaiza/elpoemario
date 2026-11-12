@@ -5,6 +5,7 @@ descripcion: Poeta peruano del siglo XIX.
 nacionalidad: Perú
 nacimiento: 1833
 muerte: 1919
+siglo: 19
 lugar_nacimiento: Lima, Perú
 lugar_muerte: Miraflores, Lima, Perú
 imagen: ../../assets/uploads/autor-ricardo-palma.png

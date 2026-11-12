@@ -5,6 +5,7 @@ descripcion: Poeta argentino, figura central del modernismo tardío.
 nacionalidad: Argentina
 nacimiento: 1874
 muerte: 1938
+siglo: 20
 lugar_nacimiento: Villa María del Río Seco, Córdoba, Argentina
 lugar_muerte: Tigre, Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-leopoldo-lugones.png

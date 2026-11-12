@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1922
 muerte: 1999
+siglo: 20
 lugar_nacimiento: Granada, España
 lugar_muerte: Granada, España
 imagen: ../../assets/uploads/autor-manuel-benitez-carrasco.png

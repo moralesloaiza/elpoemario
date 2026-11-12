@@ -5,6 +5,7 @@ descripcion: Escritor ecuatoriano, autor de la letra del himno nacional.
 nacionalidad: Ecuador
 nacimiento: 1832
 muerte: 1894
+siglo: 19
 lugar_nacimiento: Ambato, Ecuador
 lugar_muerte: Ambato, Ecuador
 imagen: ../../assets/uploads/autor-juan-leon-mera.png

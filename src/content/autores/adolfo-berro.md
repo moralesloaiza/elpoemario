@@ -5,6 +5,7 @@ descripcion: Poeta uruguayo del siglo XIX.
 nacionalidad: Uruguay
 nacimiento: 1819
 muerte: 1841
+siglo: 19
 lugar_nacimiento: Montevideo, Uruguay
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-adolfo-berro.png

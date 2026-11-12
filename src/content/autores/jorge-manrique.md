@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XV.
 nacionalidad: España
 nacimiento: 1440
 muerte: 1479
+siglo: 15
 lugar_nacimiento: Paredes de Nava, Palencia, España
 lugar_muerte: Castillo de Garcimuñoz, Cuenca, España
 imagen: ../../assets/uploads/autor-jorge-manrique.png

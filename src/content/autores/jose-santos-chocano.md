@@ -5,6 +5,7 @@ descripcion: Poeta peruano del modernismo.
 nacionalidad: Perú
 nacimiento: 1875
 muerte: 1934
+siglo: 20
 lugar_nacimiento: Lima, Perú
 lugar_muerte: Santiago de Chile, Chile
 imagen: ../../assets/uploads/autor-jose-santos-chocano.png

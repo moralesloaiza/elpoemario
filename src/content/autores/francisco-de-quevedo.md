@@ -1,10 +1,11 @@
 ---
 nombre: Francisco de Quevedo
 tipo: clasico
-descripcion: Poeta español del siglo XVI.
+descripcion: Poeta español del siglo XVII.
 nacionalidad: España
 nacimiento: 1580
 muerte: 1645
+siglo: 17
 lugar_nacimiento: Madrid, España
 lugar_muerte: Villanueva de los Infantes, Ciudad Real, España
 imagen: ../../assets/uploads/autor-francisco-de-quevedo.png

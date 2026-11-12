@@ -5,6 +5,7 @@ descripcion: Poeta y estadista español del siglo XVIII.
 nacionalidad: España
 nacimiento: 1744
 muerte: 1811
+siglo: 18
 lugar_nacimiento: Gijón, Asturias, España
 lugar_muerte: Puerto de Vega, Asturias, España
 imagen: ../../assets/uploads/autor-gaspar-melchor-de-jovellanos.png

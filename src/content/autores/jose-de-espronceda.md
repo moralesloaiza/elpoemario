@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1808
 muerte: 1842
+siglo: 19
 lugar_nacimiento: Almendralejo, Badajoz, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-jose-de-espronceda.png

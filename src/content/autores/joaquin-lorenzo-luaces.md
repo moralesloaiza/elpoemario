@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1826
 muerte: 1867
+siglo: 19
 lugar_nacimiento: La Habana, Cuba
 lugar_muerte: La Habana, Cuba
 imagen: ../../assets/uploads/autor-joaquin-lorenzo-luaces.png

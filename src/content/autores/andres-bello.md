@@ -1,10 +1,11 @@
 ---
 nombre: Andrés Bello
 tipo: clasico
-descripcion: Poeta venezolano del siglo XVIII.
+descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezuela
 nacimiento: 1781
 muerte: 1865
+siglo: 19
 lugar_nacimiento: Caracas, Venezuela
 lugar_muerte: Santiago de Chile, Chile
 imagen: ../../assets/uploads/autor-andres-bello.png

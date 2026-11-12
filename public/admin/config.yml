@@ -337,6 +337,7 @@ collections:
         hint: "Solo si el autor escribió en una lengua distinta del castellano. Lo agrupa en «Poetas en otras lenguas»."
       - { label: "Año de nacimiento", name: nacimiento, widget: number, value_type: int, min: 0, max: 2100, required: false }
       - { label: "Año de muerte", name: muerte, widget: number, value_type: int, min: 0, max: 2100, required: false }
+      - { label: "Siglo", name: siglo, widget: number, value_type: int, min: 1, max: 21, required: false, hint: "Siglo de actividad (número, p. ej. 17). Vacío = se calcula (nacimiento + 30)." }
       - { label: "Lugar de nacimiento", name: lugar_nacimiento, widget: string, required: false }
       - { label: "Lugar de muerte", name: lugar_muerte, widget: string, required: false }
       - { label: "Imagen", name: imagen, widget: image, required: false }

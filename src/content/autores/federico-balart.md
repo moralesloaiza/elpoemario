@@ -5,6 +5,7 @@ descripcion: Poeta y crítico español vinculado al Realismo.
 nacionalidad: España
 nacimiento: 1831
 muerte: 1905
+siglo: 19
 lugar_nacimiento: Pliego, Murcia, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-federico-balart.png

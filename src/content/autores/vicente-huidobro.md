@@ -1,10 +1,11 @@
 ---
 nombre: Vicente Huidobro
 tipo: clasico
-descripcion: Poeta chileno del siglo XIX.
+descripcion: Poeta chileno del siglo XX.
 nacionalidad: Chile
 nacimiento: 1893
 muerte: 1948
+siglo: 20
 lugar_nacimiento: Santiago de Chile
 lugar_muerte: Cartagena, Chile
 imagen: ../../assets/uploads/autor-vicente-huidobro.png

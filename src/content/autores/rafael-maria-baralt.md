@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezuela
 nacimiento: 1810
 muerte: 1860
+siglo: 19
 lugar_nacimiento: Maracaibo, Zulia, Venezuela
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-rafael-maria-baralt.png

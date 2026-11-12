@@ -5,6 +5,7 @@ descripcion: Poeta mexicano del siglo XX.
 nacionalidad: México
 nacimiento: 1926
 muerte: 1999
+siglo: 20
 lugar_nacimiento: Tuxtla Gutiérrez, Chiapas, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-jaime-sabines.png

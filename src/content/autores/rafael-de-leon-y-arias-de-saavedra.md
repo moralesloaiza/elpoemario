@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1908
 muerte: 1982
+siglo: 20
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-rafael-de-leon-y-arias-de-saavedra.png

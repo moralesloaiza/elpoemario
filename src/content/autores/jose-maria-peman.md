@@ -1,10 +1,11 @@
 ---
 nombre: José María Pemán
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1897
 muerte: 1981
+siglo: 20
 imagen: ../../assets/uploads/autor-jose-maria-peman.png
 ---
 Nació en Cádiz en 1897 y fue figura literaria de enorme peso institucional en la España de su tiempo: poeta, dramaturgo, articulista y académico, director de la Real Academia Española. Su poesía, de raíz andaluza y tono tradicional y católico, canta la tierra, la fe y la vida sencilla (*De la vida sencilla*, *El barrio de Santa Cruz*). Conviene anotar, por honestidad, que fue intelectual afín al franquismo, dato que su ficha no debe ocultar.

@@ -5,6 +5,7 @@ descripcion: Poeta mexicana del siglo XVII.
 nacionalidad: México
 nacimiento: 1651
 muerte: 1695
+siglo: 17
 lugar_nacimiento: San Miguel Nepantla, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-sor-juana-ines-de-la-cruz.png

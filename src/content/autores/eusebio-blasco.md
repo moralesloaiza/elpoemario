@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1844
 muerte: 1903
+siglo: 19
 lugar_nacimiento: Aragón, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-eusebio-blasco.png

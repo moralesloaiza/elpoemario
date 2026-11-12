@@ -23,7 +23,7 @@ import {
   URL_MOTIVOS,
   URL_NACIONALIDADES,
   URL_SIGLOS,
-  sigloDeNacimiento,
+  sigloDeAutor,
   intARomano,
   paisASlug,
 } from '../utils/taxonomia';
@@ -77,9 +77,10 @@ const jsonLd = buildPoemaJsonLd(props as Props, autor, traductor, site);
 
 // ── Ficha de 4 columnas (handoff): Forma · Movimiento · Siglo · País ────────
 // Cada celda enlaza a su faceta cuando existe (preserva la navegación que antes
-// daba la taxonomía inline y añade siglo/país). El siglo se deriva del año de
-// nacimiento del autor; el país es su `nacionalidad` (proper noun literal).
-const sigloNum = sigloDeNacimiento(autor.data.nacimiento);
+// daba la taxonomía inline y añade siglo/país). El siglo es el de actividad del
+// autor (campo `siglo` o, en su defecto, derivado); el país es su `nacionalidad`
+// (proper noun literal).
+const sigloNum = sigloDeAutor(autor.data);
 const sigloRomano = sigloNum ? intARomano(sigloNum) : null;
 const pais = autor.data.nacionalidad ?? null;
 

@@ -1,10 +1,11 @@
 ---
 nombre: Luis de Góngora
 tipo: clasico
-descripcion: Poeta español del siglo XVI.
+descripcion: Poeta español del siglo XVII.
 nacionalidad: España
 nacimiento: 1561
-muerte: 1621
+muerte: 1627
+siglo: 17
 lugar_nacimiento: Córdoba, España
 lugar_muerte: Córdoba, España
 imagen: ../../assets/uploads/autor-luis-de-gongora.png

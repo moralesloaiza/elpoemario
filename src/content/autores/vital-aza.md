@@ -5,6 +5,7 @@ descripcion: Poeta y comediógrafo español del siglo XIX.
 nacionalidad: España
 nacimiento: 1851
 muerte: 1912
+siglo: 19
 lugar_nacimiento: Pola de Lena, Asturias, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-vital-aza.png

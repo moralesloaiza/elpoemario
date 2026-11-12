@@ -5,6 +5,7 @@ descripcion: Poeta español, precursor del modernismo hispanoamericano.
 nacionalidad: España
 nacimiento: 1857
 muerte: 1933
+siglo: 19
 lugar_nacimiento: Benaque, Málaga, España
 lugar_muerte: Málaga, España
 imagen: ../../assets/uploads/autor-salvador-rueda.png

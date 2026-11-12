@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1911
 muerte: 1986
+siglo: 20
 lugar_nacimiento: Ciudad Bolívar, Bolívar, Venezuela
 lugar_muerte: Caracas, Distrito Federal, Venezuela
 imagen: ../../assets/uploads/autor-hector-guillermo-villalobos.png

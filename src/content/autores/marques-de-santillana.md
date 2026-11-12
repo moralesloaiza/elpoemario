@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XV.
 nacionalidad: España
 nacimiento: 1398
 muerte: 1458
+siglo: 15
 lugar_nacimiento: Carrión de los Condes, España
 lugar_muerte: Guadalajara, España
 imagen: ../../assets/uploads/autor-marques-de-santillana.png

@@ -6,6 +6,7 @@ descripcion: Biografía de Delmira Agustini, poeta uruguaya del modernismo,
 nacionalidad: Uruguay
 nacimiento: 1886
 muerte: 1914
+siglo: 20
 lugar_nacimiento: Montevideo, Uruguay
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-delmira-agustini.png

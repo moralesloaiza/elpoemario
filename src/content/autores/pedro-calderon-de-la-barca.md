@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVII.
 nacionalidad: España
 nacimiento: 1600
 muerte: 1681
+siglo: 17
 lugar_nacimiento: Madrid, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-pedro-calderon-de-la-barca.png

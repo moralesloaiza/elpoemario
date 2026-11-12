@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1908
 muerte: 1989
+siglo: 20
 lugar_nacimiento: Burbusay, Trujillo, Venezuela
 imagen: ../../assets/uploads/autor-alfonso-marin.png
 ---

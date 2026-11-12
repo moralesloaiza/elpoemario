@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVI.
 nacionalidad: España
 nacimiento: 1530
 muerte: 1606
+siglo: 16
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Ronda, Málaga, España
 imagen: ../../assets/uploads/autor-baltasar-del-alcazar.png

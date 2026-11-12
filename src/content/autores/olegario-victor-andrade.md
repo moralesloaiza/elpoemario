@@ -5,6 +5,7 @@ descripcion: Poeta argentino del siglo XIX.
 nacionalidad: Argentina
 nacimiento: 1839
 muerte: 1882
+siglo: 19
 lugar_nacimiento: Alegrete, Río Grande del Sur, Brasil (en el exilio familiar)
 lugar_muerte: Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-olegario-victor-andrade.png

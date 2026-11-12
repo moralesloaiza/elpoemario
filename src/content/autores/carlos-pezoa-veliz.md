@@ -5,6 +5,7 @@ descripcion: Poeta chileno, voz posmodernista del pueblo y los marginados.
 nacionalidad: Chile
 nacimiento: 1879
 muerte: 1908
+siglo: 20
 lugar_nacimiento: Santiago de Chile, Chile
 lugar_muerte: Valparaíso, Chile
 imagen: ../../assets/uploads/autor-carlos-pezoa-veliz.png

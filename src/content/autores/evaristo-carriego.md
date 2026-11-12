@@ -5,6 +5,7 @@ descripcion: Poeta argentino, cronista en verso del arrabal porteño.
 nacionalidad: Argentina
 nacimiento: 1883
 muerte: 1912
+siglo: 20
 lugar_nacimiento: Paraná, Entre Ríos, Argentina
 lugar_muerte: Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-evaristo-carriego.png
