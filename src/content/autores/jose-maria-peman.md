@@ -1,7 +1,7 @@
 ---
 nombre: José María Pemán
 tipo: clasico
-descripcion: Poeta español del siglo XIX.
+descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1897
 muerte: 1981

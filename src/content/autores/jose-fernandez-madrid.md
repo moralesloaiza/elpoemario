@@ -1,7 +1,7 @@
 ---
 nombre: José Fernández Madrid
 tipo: clasico
-descripcion: Poeta colombiano del siglo XVIII.
+descripcion: Poeta colombiano del siglo XIX.
 nacionalidad: Colombia
 nacimiento: 1789
 muerte: 1830

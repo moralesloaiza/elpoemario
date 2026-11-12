@@ -1,7 +1,7 @@
 ---
 nombre: Cruz María Salmerón Acosta
 tipo: clasico
-descripcion: Poeta venezolano del siglo XIX.
+descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1892
 muerte: 1928

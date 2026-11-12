@@ -1,7 +1,7 @@
 ---
 nombre: José Pedroni
 tipo: clasico
-descripcion: Poeta argentino del siglo XIX.
+descripcion: Poeta argentino del siglo XX.
 nacionalidad: Argentina
 nacimiento: 1899
 muerte: 1968
