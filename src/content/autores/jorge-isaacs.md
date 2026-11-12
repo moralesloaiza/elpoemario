@@ -5,6 +5,7 @@ descripcion: Poeta colombiano del siglo XIX.
 nacionalidad: Colombia
 nacimiento: 1837
 muerte: 1895
+siglo: 19
 lugar_nacimiento: Cali, Colombia
 lugar_muerte: Ibagué, Colombia
 imagen: ../../assets/uploads/autor-jorge-isaacs.png

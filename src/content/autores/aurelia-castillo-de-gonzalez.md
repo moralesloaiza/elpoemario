@@ -5,6 +5,7 @@ descripcion: Poeta cubana del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1842
 muerte: 1920
+siglo: 19
 lugar_nacimiento: Santa María de Puerto Príncipe (hoy Camagüey), Cuba
 lugar_muerte: Camagüey, Cuba
 imagen: ../../assets/uploads/autor-aurelia-castillo-de-gonzalez.png

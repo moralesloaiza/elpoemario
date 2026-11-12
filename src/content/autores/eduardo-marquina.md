@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1879
 muerte: 1946
+siglo: 20
 lugar_nacimiento: Barcelona, España
 lugar_muerte: Nueva York, Estados Unidos
 imagen: ../../assets/uploads/autor-eduardo-marquina.png

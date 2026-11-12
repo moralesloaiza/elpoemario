@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1820
 muerte: 1858
+siglo: 19
 lugar_nacimiento: Matanzas, Cuba
 lugar_muerte: Matanzas, Cuba
 imagen: ../../assets/uploads/autor-miguel-teurbe-y-tolon.png

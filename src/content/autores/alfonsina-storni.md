@@ -7,6 +7,7 @@ descripcion: Biografía de Alfonsina Storni, poeta argentina del posmodernismo,
 nacionalidad: Argentina
 nacimiento: 1892
 muerte: 1938
+siglo: 20
 lugar_nacimiento: Sala Capriasca, Suiza
 lugar_muerte: Mar del Plata, Argentina
 imagen: ../../assets/uploads/autor-alfonsina-storni.png

@@ -6,6 +6,7 @@ descripcion: Biografía de César Vallejo, poeta peruano y figura esencial de la
 nacionalidad: Perú
 nacimiento: 1892
 muerte: 1938
+siglo: 20
 lugar_nacimiento: Santiago de Chuco, Perú
 lugar_muerte: París, Francia
 imagen: ../../assets/uploads/autor-cesar-vallejo.png

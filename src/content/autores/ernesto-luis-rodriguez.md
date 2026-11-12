@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XX.
 nacionalidad: Venezuela
 nacimiento: 1916
 muerte: 1999
+siglo: 20
 lugar_nacimiento: Zaraza, Guárico, Venezuela
 lugar_muerte: Caracas, Distrito Federal, Venezuela
 imagen: ../../assets/uploads/autor-ernesto-luis-rodriguez.png

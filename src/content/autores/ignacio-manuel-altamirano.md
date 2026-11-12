@@ -5,6 +5,7 @@ descripcion: Poeta mexicano del siglo XIX.
 nacionalidad: México
 nacimiento: 1834
 muerte: 1893
+siglo: 19
 lugar_nacimiento: Tixtla, Guerrero, México
 lugar_muerte: San Remo, Italia
 imagen: ../../assets/uploads/autor-ignacio-manuel-altamirano.png

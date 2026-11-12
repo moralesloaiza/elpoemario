@@ -5,6 +5,7 @@ descripcion: Poeta colombiano del siglo XIX.
 nacionalidad: Colombia
 nacimiento: 1824
 muerte: 1892
+siglo: 19
 lugar_nacimiento: Cartagena, Colombia
 lugar_muerte: Vichy, Francia
 imagen: ../../assets/uploads/autor-lazaro-maria-perez.png

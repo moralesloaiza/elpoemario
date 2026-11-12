@@ -5,6 +5,7 @@ descripcion: Poeta uruguayo, cabeza de la Generación del 900.
 nacionalidad: Uruguay
 nacimiento: 1875
 muerte: 1910
+siglo: 20
 lugar_nacimiento: Montevideo, Uruguay
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-julio-herrera-y-reissig.png

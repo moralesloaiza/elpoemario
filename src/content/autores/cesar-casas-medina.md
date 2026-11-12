@@ -5,6 +5,7 @@ descripcion: Poeta colombiano del siglo XX.
 nacionalidad: Colombia
 nacimiento: 1900
 muerte: 1965
+siglo: 20
 lugar_nacimiento: Popayán, Cauca, Colombia
 lugar_muerte: Maracay, Aragua, Venezuela
 imagen: ../../assets/uploads/autor-cesar-casas-medina.png

@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1881
 muerte: 1958
+siglo: 20
 lugar_nacimiento: Moguer, Huelva, España
 lugar_muerte: San Juan, Puerto Rico
 imagen: ../../assets/uploads/autor-juan-ramon-jimenez.png

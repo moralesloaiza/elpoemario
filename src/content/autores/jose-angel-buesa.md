@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XX.
 nacionalidad: Cuba
 nacimiento: 1910
 muerte: 1982
+siglo: 20
 lugar_nacimiento: Cruces, Cienfuegos, Cuba
 lugar_muerte: Santo Domingo, República Dominicana
 imagen: ../../assets/uploads/autor-jose-angel-buesa.png

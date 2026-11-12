@@ -5,6 +5,7 @@ descripcion: Poeta panameño, autor de "Patria", poeta nacional de Panamá.
 nacionalidad: Panamá
 nacimiento: 1883
 muerte: 1940
+siglo: 20
 lugar_nacimiento: Ciudad de Panamá, Panamá
 lugar_muerte: Ciudad de Panamá, Panamá
 imagen: ../../assets/uploads/autor-ricardo-miro.png

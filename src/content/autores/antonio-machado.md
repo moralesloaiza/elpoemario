@@ -5,6 +5,7 @@ descripcion: Poeta español de la generación del 98, una de las voces mayores d
 nacionalidad: España
 nacimiento: 1875
 muerte: 1939
+siglo: 20
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Colliure, Francia
 imagen: ../../assets/uploads/autor-antonio-machado.png

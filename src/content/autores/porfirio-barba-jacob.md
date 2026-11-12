@@ -6,6 +6,7 @@ descripcion: Biografía de Porfirio Barba Jacob (Miguel Ángel Osorio), poeta
 nacionalidad: Colombia
 nacimiento: 1883
 muerte: 1942
+siglo: 20
 lugar_nacimiento: Santa Rosa de Osos, Antioquia, Colombia
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-porfirio-barba-jacob.png

@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVI.
 nacionalidad: España
 nacimiento: 1498
 muerte: 1536
+siglo: 16
 lugar_nacimiento: Toledo, España
 lugar_muerte: Niza, Ducado de Saboya
 imagen: ../../assets/uploads/autor-garcilaso-de-la-vega.png

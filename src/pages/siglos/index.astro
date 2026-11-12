@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import ChipsFacetas from '../../components/ChipsFacetas.astro';
 import GrillaTerminos from '../../components/GrillaTerminos.astro';
 import {
-  sigloDeNacimiento,
+  sigloDeAutor,
   intARomano,
   SIGLO_SIN_FECHA_SLUG,
   SIGLO_SIN_FECHA_LABEL,
@@ -15,15 +15,15 @@ import { getPagina } from '../../utils/paginas';
 
 const autores = await getCollection('autores');
 
-// Chronological axis, derived from `autores.nacimiento` (no stored field).
-// Falsy/invalid years (absent or sentinel 0) collapse into the "sin fecha"
-// bucket. Lengua exclusion does NOT apply here — Verdaguer (1845) sits in
-// the XIX century normally; language only affects the by-origin axis.
+// Chronological axis = century of activity (stored `siglo` field, or derived
+// from `nacimiento`/`muerte` when absent). Authors with neither collapse into
+// the "sin fecha" bucket. Lengua exclusion does NOT apply here — Verdaguer
+// (XIX) sits in his century normally; language only affects the by-origin axis.
 const conteoSiglo = new Map<number, number>();
 let conteoSinFecha = 0;
 
 for (const a of autores) {
-  const siglo = sigloDeNacimiento(a.data.nacimiento);
+  const siglo = sigloDeAutor(a.data);
   if (siglo === null) {
     conteoSinFecha += 1;
   } else {

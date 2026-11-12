@@ -5,6 +5,7 @@ descripcion: Poeta cubana del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1877
 muerte: 1896
+siglo: 19
 lugar_nacimiento: La Habana, Cuba
 lugar_muerte: Cayo Hueso, Florida, Estados Unidos
 imagen: ../../assets/uploads/autor-juana-borrero.png

@@ -5,6 +5,7 @@ descripcion: Poeta argentino del siglo XIX.
 nacionalidad: Argentina
 nacimiento: 1899
 muerte: 1968
+siglo: 20
 lugar_nacimiento: Gálvez, Santa Fe, Argentina
 lugar_muerte: Mar del Plata, Argentina
 imagen: ../../assets/uploads/autor-jose-pedroni.png

@@ -5,6 +5,7 @@ descripcion: Poeta española del siglo XIX.
 nacionalidad: España
 nacimiento: 1837
 muerte: 1885
+siglo: 19
 lugar_nacimiento: Santiago de Compostela, La Coruña, España
 lugar_muerte: Padrón, La Coruña, España
 imagen: ../../assets/uploads/autor-rosalia-de-castro.png

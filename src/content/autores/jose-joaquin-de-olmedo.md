@@ -5,6 +5,7 @@ descripcion: Poeta ecuatoriano del siglo XIX.
 nacionalidad: Ecuador
 nacimiento: 1780
 muerte: 1847
+siglo: 19
 lugar_nacimiento: Guayaquil, Ecuador
 lugar_muerte: Guayaquil, Ecuador
 imagen: ../../assets/uploads/autor-jose-joaquin-de-olmedo.png

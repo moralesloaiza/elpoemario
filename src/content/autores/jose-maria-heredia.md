@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1803
 muerte: 1839
+siglo: 19
 lugar_nacimiento: Santiago de Cuba, Cuba
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-jose-maria-heredia.png

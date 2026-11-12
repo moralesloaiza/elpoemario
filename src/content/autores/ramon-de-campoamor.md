@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1817
 muerte: 1901
+siglo: 19
 lugar_nacimiento: Navia, Asturias, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-ramon-de-campoamor.png

@@ -5,6 +5,7 @@ descripcion: Poeta cubano del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1863
 muerte: 1893
+siglo: 19
 lugar_nacimiento: La Habana, Cuba
 lugar_muerte: La Habana, Cuba
 imagen: ../../assets/uploads/autor-julian-del-casal.png

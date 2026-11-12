@@ -5,6 +5,7 @@ descripcion: Poeta española, voz temprana del feminismo en el Romanticismo.
 nacionalidad: España
 nacimiento: 1820
 muerte: 1911
+siglo: 19
 lugar_nacimiento: Almendralejo, Badajoz, España
 lugar_muerte: Lisboa, Portugal
 imagen: ../../assets/uploads/autor-carolina-coronado.png

@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVIII.
 nacionalidad: España
 nacimiento: 1791
 muerte: 1865
+siglo: 19
 lugar_nacimiento: Córdoba, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-duque-de-rivas.png

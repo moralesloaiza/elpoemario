@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezuela
 nacimiento: 1846
 muerte: 1924
+siglo: 19
 lugar_nacimiento: Caracas, Distrito Federal, Venezuela
 lugar_muerte: Caracas, Distrito Federal, Venezuela
 imagen: ../../assets/uploads/autor-felipe-tejera.png

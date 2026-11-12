@@ -5,6 +5,7 @@ descripcion: Poeta mexicano del siglo XIX.
 nacionalidad: México
 nacimiento: 1849
 muerte: 1873
+siglo: 19
 lugar_nacimiento: Saltillo, Coahuila, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-manuel-acuna.png

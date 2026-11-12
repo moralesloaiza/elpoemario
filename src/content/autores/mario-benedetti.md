@@ -5,6 +5,7 @@ descripcion: Poeta uruguayo del siglo XX.
 nacionalidad: Uruguay
 nacimiento: 1920
 muerte: 2009
+siglo: 20
 lugar_nacimiento: Paso de los Toros, Uruguay
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-mario-benedetti.png

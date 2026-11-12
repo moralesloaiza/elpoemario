@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1864
 muerte: 1936
+siglo: 20
 lugar_nacimiento: Bilbao, España
 lugar_muerte: Salamanca, España
 imagen: ../../assets/uploads/autor-miguel-de-unamuno.png

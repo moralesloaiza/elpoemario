@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XVI.
 nacionalidad: España
 nacimiento: 1527
 muerte: 1591
+siglo: 16
 lugar_nacimiento: Belmonte, Cuenca, España
 lugar_muerte: Madrigal de las Altas Torres, Ávila, España
 imagen: ../../assets/uploads/autor-fray-luis-de-leon.png

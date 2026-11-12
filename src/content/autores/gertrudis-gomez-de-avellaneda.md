@@ -5,6 +5,7 @@ descripcion: Poeta cubana del siglo XIX.
 nacionalidad: Cuba
 nacimiento: 1814
 muerte: 1873
+siglo: 19
 lugar_nacimiento: Santa María de Puerto Príncipe (hoy Camagüey), Cuba
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-gertrudis-gomez-de-avellaneda.png

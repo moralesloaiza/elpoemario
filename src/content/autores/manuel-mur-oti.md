@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XX.
 nacionalidad: España
 nacimiento: 1908
 muerte: 2003
+siglo: 20
 lugar_nacimiento: Vigo, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-manuel-mur-oti.png

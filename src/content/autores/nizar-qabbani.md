@@ -6,6 +6,7 @@ nacionalidad: Siria
 lengua_original: árabe
 nacimiento: 1923
 muerte: 1998
+siglo: 20
 lugar_nacimiento: Damasco, Siria
 lugar_muerte: Londres, Reino Unido
 imagen: ../../assets/uploads/autor-nizar-qabbani.png

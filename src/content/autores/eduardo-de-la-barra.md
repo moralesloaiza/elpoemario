@@ -5,6 +5,7 @@ descripcion: Poeta chileno del siglo XIX.
 nacionalidad: Chile
 nacimiento: 1839
 muerte: 1900
+siglo: 19
 lugar_nacimiento: Santiago de Chile, Chile
 lugar_muerte: Valparaíso, Chile
 imagen: ../../assets/uploads/autor-eduardo-de-la-barra.png

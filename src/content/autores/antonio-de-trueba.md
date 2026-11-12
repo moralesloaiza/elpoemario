@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1819
 muerte: 1889
+siglo: 19
 lugar_nacimiento: Galdames, Vizcaya, España
 lugar_muerte: Bilbao, España
 imagen: ../../assets/uploads/autor-antonio-de-trueba.png

@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1817
 muerte: 1893
+siglo: 19
 lugar_nacimiento: Valladolid, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-jose-zorrilla.png

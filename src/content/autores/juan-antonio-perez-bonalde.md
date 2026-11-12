@@ -5,6 +5,7 @@ descripcion: Poeta venezolano del siglo XIX.
 nacionalidad: Venezuela
 nacimiento: 1846
 muerte: 1892
+siglo: 19
 lugar_nacimiento: Caracas, Venezuela
 lugar_muerte: La Guaira, Venezuela
 imagen: ../../assets/uploads/autor-juan-antonio-perez-bonalde.png

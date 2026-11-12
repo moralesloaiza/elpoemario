@@ -6,6 +6,7 @@ descripcion: Poeta y político venezolano nacido en 1896, autor de "Píntame
 nacionalidad: Venezuela
 nacimiento: 1896
 muerte: 1955
+siglo: 20
 lugar_nacimiento: Cumaná, Sucre, Venezuela
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-andres-eloy-blanco.png

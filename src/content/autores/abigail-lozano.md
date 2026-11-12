@@ -5,6 +5,7 @@ descripcion: Poeta venezolano, voz mayor del Romanticismo en su país.
 nacionalidad: Venezuela
 nacimiento: 1821
 muerte: 1866
+siglo: 19
 lugar_nacimiento: Valencia, Venezuela
 lugar_muerte: Cartagena de Indias, Colombia
 imagen: ../../assets/uploads/autor-abigail-lozano.png

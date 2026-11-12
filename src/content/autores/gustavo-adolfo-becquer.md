@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1836
 muerte: 1870
+siglo: 19
 lugar_nacimiento: Sevilla, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-gustavo-adolfo-becquer.png

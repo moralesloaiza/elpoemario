@@ -5,6 +5,7 @@ descripcion: Poeta colombiano del siglo XIX.
 nacionalidad: Colombia
 nacimiento: 1833
 muerte: 1912
+siglo: 19
 lugar_nacimiento: Bogotá, Colombia
 lugar_muerte: Bogotá, Colombia
 imagen: ../../assets/uploads/autor-rafael-pombo.png

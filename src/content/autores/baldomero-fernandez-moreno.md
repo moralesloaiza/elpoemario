@@ -6,6 +6,7 @@ descripcion: Biografía de Baldomero Fernández Moreno, poeta argentino del
 nacionalidad: Argentina
 nacimiento: 1886
 muerte: 1950
+siglo: 20
 lugar_nacimiento: Buenos Aires, Argentina
 lugar_muerte: Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-baldomero-fernandez-moreno.png

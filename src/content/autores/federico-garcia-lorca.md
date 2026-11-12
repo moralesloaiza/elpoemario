@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1898
 muerte: 1936
+siglo: 20
 lugar_nacimiento: Fuente Vaqueros, Granada, España
 lugar_muerte: Granada, España
 imagen: ../../assets/uploads/autor-federico-garcia-lorca.png

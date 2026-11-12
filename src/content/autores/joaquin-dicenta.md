@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1862
 muerte: 1917
+siglo: 19
 lugar_nacimiento: Calatayud, Zaragoza, España
 lugar_muerte: Alicante, España
 imagen: ../../assets/uploads/autor-joaquin-dicenta.png

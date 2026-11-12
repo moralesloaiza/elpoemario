@@ -5,6 +5,7 @@ descripcion: Poeta cubano conocido como "Plácido", fusilado en 1844.
 nacionalidad: Cuba
 nacimiento: 1809
 muerte: 1844
+siglo: 19
 lugar_nacimiento: Matanzas, Cuba
 lugar_muerte: Matanzas, Cuba
 imagen: ../../assets/uploads/autor-placido.png

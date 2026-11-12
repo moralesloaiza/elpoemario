@@ -5,6 +5,7 @@ descripcion: Poeta argentino del siglo XIX.
 nacionalidad: Argentina
 nacimiento: 1887
 muerte: 1957
+siglo: 20
 lugar_nacimiento: Bragado, Buenos Aires, Argentina
 lugar_muerte: Buenos Aires, Argentina
 imagen: ../../assets/uploads/autor-enrique-pedro-maroni.png

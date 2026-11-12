@@ -5,6 +5,7 @@ descripcion: Poeta argentino del siglo XIX.
 nacionalidad: Argentina
 nacimiento: 1899
 muerte: 1986
+siglo: 20
 lugar_nacimiento: Buenos Aires, Argentina
 lugar_muerte: Ginebra, Suiza
 imagen: ../../assets/uploads/autor-jorge-luis-borges.png

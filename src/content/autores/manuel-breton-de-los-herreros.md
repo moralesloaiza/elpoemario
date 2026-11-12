@@ -5,6 +5,7 @@ descripcion: Poeta y dramaturgo español del siglo XIX.
 nacionalidad: España
 nacimiento: 1796
 muerte: 1873
+siglo: 19
 lugar_nacimiento: Quel, La Rioja, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-manuel-breton-de-los-herreros.png

@@ -5,7 +5,7 @@ import JsonLd from '../../components/JsonLd.astro';
 import ListadoAutores from '../../components/ListadoAutores.astro';
 import { buildBreadcrumbJsonLd } from '../../utils/jsonld';
 import {
-  sigloDeNacimiento,
+  sigloDeAutor,
   intARomano,
   SIGLO_SIN_FECHA_SLUG,
   SIGLO_SIN_FECHA_LABEL,
@@ -21,12 +21,12 @@ export async function getStaticPaths() {
     conteoPorId.set(k, (conteoPorId.get(k) ?? 0) + 1);
   }
 
-  // Group authors by derived century; null → "sin fecha".
+  // Group authors by century of activity; null → "sin fecha".
   const porSiglo = new Map<number, typeof autores>();
   const sinFecha: typeof autores = [];
 
   for (const a of autores) {
-    const siglo = sigloDeNacimiento(a.data.nacimiento);
+    const siglo = sigloDeAutor(a.data);
     if (siglo === null) {
       sinFecha.push(a);
     } else {

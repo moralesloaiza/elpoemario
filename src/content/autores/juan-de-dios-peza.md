@@ -5,6 +5,7 @@ descripcion: Poeta mexicano del siglo XIX.
 nacionalidad: México
 nacimiento: 1852
 muerte: 1910
+siglo: 19
 lugar_nacimiento: Ciudad de México, México
 lugar_muerte: Ciudad de México, México
 imagen: ../../assets/uploads/autor-juan-de-dios-peza.png

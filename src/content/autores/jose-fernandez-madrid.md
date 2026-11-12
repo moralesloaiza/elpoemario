@@ -5,6 +5,7 @@ descripcion: Poeta colombiano del siglo XVIII.
 nacionalidad: Colombia
 nacimiento: 1789
 muerte: 1830
+siglo: 19
 lugar_nacimiento: Cartagena de Indias, Colombia
 lugar_muerte: Barnes, Londres, Reino Unido
 imagen: ../../assets/uploads/autor-jose-fernandez-madrid.png

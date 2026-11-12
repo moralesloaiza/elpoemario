@@ -5,6 +5,7 @@ descripcion: Poeta español del siglo XIX.
 nacionalidad: España
 nacimiento: 1772
 muerte: 1857
+siglo: 19
 lugar_nacimiento: Madrid, España
 lugar_muerte: Madrid, España
 imagen: ../../assets/uploads/autor-manuel-jose-quintana.png

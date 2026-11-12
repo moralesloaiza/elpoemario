@@ -6,6 +6,7 @@ descripcion: Biografía de Amado Nervo, poeta mexicano del modernismo, autor de
 nacionalidad: México
 nacimiento: 1870
 muerte: 1919
+siglo: 20
 lugar_nacimiento: Tepic, Nayarit, México
 lugar_muerte: Montevideo, Uruguay
 imagen: ../../assets/uploads/autor-amado-nervo.png

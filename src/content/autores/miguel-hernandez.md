@@ -7,6 +7,7 @@ descripcion: Biografía de Miguel Hernández, poeta español de la Generación d
 nacionalidad: España
 nacimiento: 1910
 muerte: 1942
+siglo: 20
 lugar_nacimiento: Orihuela, Alicante, España
 lugar_muerte: Orihuela, Alicante, España
 imagen: ../../assets/uploads/autor-miguel-hernandez.png

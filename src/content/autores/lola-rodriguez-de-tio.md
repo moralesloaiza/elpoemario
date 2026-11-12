@@ -5,6 +5,7 @@ descripcion: Poeta puertorriqueña, independentista antillana.
 nacionalidad: Puerto Rico
 nacimiento: 1843
 muerte: 1924
+siglo: 19
 lugar_nacimiento: San Germán, Puerto Rico
 lugar_muerte: La Habana, Cuba
 imagen: ../../assets/uploads/autor-lola-rodriguez-de-tio.png
