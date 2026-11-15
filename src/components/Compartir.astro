@@ -1,0 +1,312 @@
+---
+// Barra de «Compartir» para páginas de contenido (poema; en El Fabulario, fábula).
+//
+// Dos planos, por una razón de plataforma:
+//  · Enlaces directos (WhatsApp, X, Facebook, Telegram, correo): son <a> puros,
+//    funcionan SIN JavaScript. Son las redes con «intent» web real.
+//  · Botón nativo + Copiar enlace: necesitan JS. El botón nativo
+//    (navigator.share) solo se muestra si el dispositivo lo soporta —en móvil
+//    abre la bandeja del sistema, que es la ÚNICA vía honesta de compartir a
+//    Instagram y TikTok (no tienen «intent» web de publicación).
+//
+// Los nodos existen todos en el HTML; el script solo alterna visibilidad y
+// engancha manejadores. No crea nodos con estilo (evita el gotcha de los
+// estilos scopeados de Astro, que no llegan a nodos creados por JS).
+
+interface Props {
+  /* URL canónica absoluta de la página que se comparte. */
+  url: string;
+  /* Título de la obra (poema/fábula). */
+  titulo: string;
+  /* Nombre del autor, para el texto del compartido. */
+  autor: string;
+  /* Cómo nombrar la obra en el cuerpo del correo: «este poema», «esta fábula».
+     Por defecto, genérico. */
+  etiqueta?: string;
+}
+
+const { url, titulo, autor, etiqueta = 'esto' } = Astro.props;
+
+// Texto base del compartido: sobrio, con las comillas latinas de la casa.
+const textoCompartir = `«${titulo}» — ${autor}`;
+
+const enc = encodeURIComponent;
+
+// URLs de «intent» por plataforma. Facebook ignora el texto propuesto (solo
+// toma la URL y lee las etiquetas Open Graph de la página).
+const urlWhatsapp = `https://wa.me/?text=${enc(`${textoCompartir}\n${url}`)}`;
+const urlX = `https://twitter.com/intent/tweet?text=${enc(textoCompartir)}&url=${enc(url)}`;
+const urlFacebook = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
+const urlTelegram = `https://t.me/share/url?url=${enc(url)}&text=${enc(textoCompartir)}`;
+const urlCorreo = `mailto:?subject=${enc(`${titulo} — ${autor}`)}&body=${enc(
+  `Te comparto ${etiqueta}:\n\n${textoCompartir}\n${url}`,
+)}`;
+---
+
+<section
+  class="compartir"
+  aria-labelledby="compartir-rotulo"
+  data-url={url}
+  data-titulo={titulo}
+  data-texto={textoCompartir}
+>
+  <p class="compartir-rotulo" id="compartir-rotulo">Compartir</p>
+
+  <ul class="compartir-lista" role="list">
+    {/* Compartir nativo (bandeja del SO): oculto hasta que el JS confirme
+        soporte. En móvil abre IG, TikTok, WhatsApp… todo lo instalado. */}
+    <li>
+      <button
+        type="button"
+        class="compartir-boton compartir-boton--nativo"
+        data-compartir-nativo
+        hidden
+        aria-label="Compartir con otra aplicación"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+        </svg>
+      </button>
+    </li>
+
+    <li>
+      <a
+        class="compartir-boton"
+        href={urlWhatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartir por WhatsApp"
+        title="WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.945c0 2.096.549 4.142 1.595 5.945L0 24l6.335-1.652a11.882 11.882 0 005.71 1.447h.006c6.585 0 11.946-5.359 11.949-11.945a11.821 11.821 0 00-3.481-8.401" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="compartir-boton"
+        href={urlX}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartir en X"
+        title="X"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="compartir-boton"
+        href={urlFacebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartir en Facebook"
+        title="Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="compartir-boton"
+        href={urlTelegram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartir en Telegram"
+        title="Telegram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="compartir-boton"
+        href={urlCorreo}
+        aria-label="Enviar por correo"
+        title="Correo"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <button
+        type="button"
+        class="compartir-boton"
+        data-compartir-copiar
+        aria-label="Copiar enlace"
+        title="Copiar enlace"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+        </svg>
+      </button>
+    </li>
+  </ul>
+
+  {/* Aviso accesible para la copia del enlace (sin JS queda vacío e inerte). */}
+  <span class="compartir-aviso" role="status" aria-live="polite"></span>
+</section>
+
+<script>
+  document.querySelectorAll('.compartir').forEach((root) => {
+    const el = root as HTMLElement;
+    const url = el.dataset.url || location.href;
+    const titulo = el.dataset.titulo || document.title;
+    const texto = el.dataset.texto || titulo;
+    const aviso = el.querySelector('.compartir-aviso');
+
+    // Compartir nativo: solo si el navegador lo soporta (móvil, sobre todo).
+    const nativo = el.querySelector<HTMLButtonElement>('[data-compartir-nativo]');
+    if (nativo && typeof navigator.share === 'function') {
+      nativo.hidden = false;
+      nativo.addEventListener('click', async () => {
+        try {
+          await navigator.share({ title: titulo, text: texto, url });
+        } catch {
+          /* El usuario canceló la bandeja; no es un error. */
+        }
+      });
+    }
+
+    // Copiar enlace, con aviso temporal y reserva para navegadores sin
+    // Clipboard API o sin contexto seguro.
+    const copiar = el.querySelector<HTMLButtonElement>('[data-compartir-copiar]');
+    if (copiar) {
+      copiar.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+          } catch {
+            /* sin reserva disponible */
+          }
+          ta.remove();
+        }
+        copiar.classList.add('is-copiado');
+        if (aviso) aviso.textContent = 'Enlace copiado';
+        window.setTimeout(() => {
+          copiar.classList.remove('is-copiado');
+          if (aviso) aviso.textContent = '';
+        }, 2200);
+      });
+    }
+  });
+</script>
+
+<style>
+  .compartir {
+    max-width: var(--measure-narrow);
+    margin: var(--space-2xl) auto 0;
+    text-align: center;
+  }
+
+  .compartir-rotulo {
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+    margin: 0 0 var(--space-md);
+  }
+
+  .compartir-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .compartir-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem; /* 44px: objetivo táctil accesible */
+    block-size: 2.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      color var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  /* El atributo `hidden` debe ganar al display del botón (si no, el botón
+     nativo se vería en escritorio aunque navigator.share no exista). */
+  .compartir-boton[hidden] {
+    display: none;
+  }
+
+  .compartir-boton svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    display: block;
+  }
+
+  .compartir-boton:hover,
+  .compartir-boton:focus-visible {
+    color: var(--oro);
+    border-color: var(--oro);
+  }
+
+  /* El compartir nativo es la acción primaria donde existe: se destaca. */
+  .compartir-boton--nativo {
+    color: var(--oro-texto);
+    border-color: var(--oro);
+  }
+  .compartir-boton--nativo:hover,
+  .compartir-boton--nativo:focus-visible {
+    color: var(--oro);
+  }
+
+  .compartir-boton.is-copiado {
+    color: var(--oro);
+    border-color: var(--oro);
+  }
+
+  .compartir-aviso {
+    display: block;
+    min-block-size: 1.2em;
+    margin-top: var(--space-xs);
+    font-family: var(--font-meta);
+    font-size: var(--fs-3xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--oro-texto);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .compartir-boton {
+      transition: none;
+    }
+  }
+</style>
