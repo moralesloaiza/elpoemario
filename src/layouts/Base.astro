@@ -44,6 +44,8 @@ interface Props {
      tiene una ilustración o retrato propios, los pasa aquí; si no, se usa el
      icono del sitio como reserva. */
   imagen?: ImageMetadata;
+  /* Texto alternativo de la imagen social (og:image:alt / twitter:image:alt). */
+  imagenAlt?: string;
   /* Tipo Open Graph: 'article' para una obra o entrada, 'website' para índices
      y portada (por defecto). */
   ogTipo?: 'website' | 'article';
@@ -57,6 +59,7 @@ const {
   appTitle = 'El Poemario',
   appleTouchIcon = '/icons/apple-touch-icon.png',
   imagen,
+  imagenAlt,
   ogTipo = 'website',
 } = Astro.props;
 
@@ -84,6 +87,7 @@ const ogImagen = imagen
 const ogImageURL = ogImagen
   ? new URL(ogImagen.src, Astro.site)
   : new URL('/icons/icon-512.png', Astro.site);
+const ogAlt = imagenAlt ?? (imagen ? titulo : SITE_TITLE);
 const twitterCard = imagen ? 'summary_large_image' : 'summary';
 ---
 
@@ -138,11 +142,13 @@ const twitterCard = imagen ? 'summary_large_image' : 'summary';
     <meta property="og:image" content={ogImageURL} />
     {ogImagen && <meta property="og:image:width" content={String(ogImagen.attributes.width)} />}
     {ogImagen && <meta property="og:image:height" content={String(ogImagen.attributes.height)} />}
+    <meta property="og:image:alt" content={ogAlt} />
     <meta property="og:locale" content="es_ES" />
     <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={titulo} />
     <meta name="twitter:description" content={descripcion} />
     <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={ogAlt} />
 
     {/* PWA · permite «instalar» el sitio como app (Windows/Android/escritorio)
         y la lectura offline de lo ya visitado (ver public/manifest.webmanifest

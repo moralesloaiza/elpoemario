@@ -169,7 +169,7 @@ const siguiente = siguienteEntry
   : null;
 ---
 
-<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={!!ilustracion} imagen={ilustracion} ogTipo="article">
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={!!ilustracion} imagen={ilustracion} imagenAlt={`Ilustración de «${titulo}»`} ogTipo="article">
   <JsonLd slot="head" data={jsonLd} />
 
   {ilustracion && (
