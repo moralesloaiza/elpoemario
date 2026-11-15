@@ -9,6 +9,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import SpotifyEmbed from '../components/SpotifyEmbed.astro';
 import NavegacionPoemas from '../components/NavegacionPoemas.astro';
 import IconoEditar from '../components/IconoEditar.astro';
+import Compartir from '../components/Compartir.astro';
 
 import { buildPoemaJsonLd } from '../utils/jsonld';
 import { parseMarkdownField } from '../utils/markdown';
@@ -132,6 +133,13 @@ const bodyClass = tipo === 'prosa-poetica' ? 'prose' : 'prose prose--verso';
 // Description for <Base>.
 const descripcion = resumen ?? `Poema de ${autor.data.nombre}, en El Poemario.`;
 
+// URL canónica absoluta para compartir (misma forma con barra final que usa
+// Base para el canonical y el sitemap).
+const urlCompartir = new URL(
+  Astro.url.pathname.replace(/\/?$/, '/'),
+  Astro.site,
+).href;
+
 // ── Previous / next navigation ────────────────────────────────────────────
 // Build a chronological-desc list of all non-draft poemas. The current
 // entry is found by id and the neighbors are selected with circular
@@ -161,7 +169,7 @@ const siguiente = siguienteEntry
   : null;
 ---
 
-<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={!!ilustracion}>
+<Base titulo={`${titulo} · El Poemario`} descripcion={descripcion} heroInmersivo={!!ilustracion} imagen={ilustracion} ogTipo="article">
   <JsonLd slot="head" data={jsonLd} />
 
   {ilustracion && (
@@ -242,6 +250,13 @@ const siguiente = siguienteEntry
         ))}
       </nav>
     )}
+
+    <Compartir
+      url={urlCompartir}
+      titulo={titulo}
+      autor={autor.data.nombre}
+      etiqueta="este poema"
+    />
 
     <footer class="poema-cierre">
       {creditoCurador && <p class="poema-credito">{creditoCurador}</p>}

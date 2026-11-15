@@ -3,7 +3,8 @@ import '../styles/tokens.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BotonCrear from '../components/BotonCrear.astro';
-import { SITE_DESCRIPTION } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import type { ImageMetadata } from 'astro';
 import '@fontsource/cinzel/400.css';
 import '@fontsource/cinzel/500.css';
 import '@fontsource/cinzel/600.css';
@@ -38,6 +39,13 @@ interface Props {
   manifest?: string;
   appTitle?: string;
   appleTouchIcon?: string;
+  /* Imagen para las tarjetas sociales (Open Graph / Twitter). Cuando la página
+     tiene una ilustración o retrato propios, los pasa aquí; si no, se usa el
+     icono del sitio como reserva. */
+  imagen?: ImageMetadata;
+  /* Tipo Open Graph: 'article' para una obra o entrada, 'website' para índices
+     y portada (por defecto). */
+  ogTipo?: 'website' | 'article';
 }
 
 const {
@@ -47,12 +55,21 @@ const {
   manifest = '/manifest.webmanifest',
   appTitle = 'El Poemario',
   appleTouchIcon = '/icons/apple-touch-icon.png',
+  imagen,
+  ogTipo = 'website',
 } = Astro.props;
 
 // Canonical absoluto, siempre en forma con barra final (coherente con
 // trailingSlash: 'always' y con el sitemap). Punto único para todo el sitio.
 const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site);
 
+// Tarjeta social: la ilustración de la página (absoluta) o, en su defecto, el
+// icono del sitio. Con imagen propia la tarjeta va a lo grande; con el icono
+// cuadrado, al formato resumen.
+const ogImagen = imagen
+  ? new URL(imagen.src, Astro.site)
+  : new URL('/icons/icon-512.png', Astro.site);
+const twitterCard = imagen ? 'summary_large_image' : 'summary';
 ---
 
 <!doctype html>
@@ -93,6 +110,22 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* Tarjetas sociales · así, al pegar un enlace en WhatsApp, X, Facebook,
+        Telegram, etc., sale una previsualización con título, resumen e imagen
+        en vez de una URL pelada. Open Graph lo leen casi todas; las etiquetas
+        twitter:* las usa X. */}
+    <meta property="og:type" content={ogTipo} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImagen} />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={ogImagen} />
 
     {/* PWA · permite «instalar» el sitio como app (Windows/Android/escritorio)
         y la lectura offline de lo ya visitado (ver public/manifest.webmanifest
