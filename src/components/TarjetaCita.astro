@@ -1,0 +1,535 @@
+---
+// Generador de «imágenes-cita»: un diálogo que convierte los versos elegidos de
+// la obra en una tarjeta para compartir (Instagram, TikTok, WhatsApp…). Dibuja
+// en <canvas> en el cliente, así que descargar y compartir (bandeja nativa del
+// SO, con archivo) funcionan de verdad sobre el hosting estático.
+//
+// · Los versos NO se duplican: el motor los lee del propio poema ya renderizado
+//   (`versoSelector`): cada <p> es una estrofa y cada <br>, un verso. La sangría
+//   por NBSP inicial se conserva.
+// · La ilustración llega como una imagen ligera emitida al build (mismo origen,
+//   así el canvas no se «contamina» y la exportación funciona).
+// · El disparador vive en <Compartir tarjeta>; aquí solo va el diálogo.
+//
+// El markup del diálogo y de los controles está en el HTML; el JS solo rellena
+// la lista de versos y pinta el canvas. Como esa lista la crea el JS, sus
+// estilos van en un bloque `is:global` (los estilos scopeados de Astro no llegan
+// a los nodos creados por JS).
+
+interface Props {
+  /* URL (mismo origen) de la ilustración ya optimizada para la tarjeta. */
+  imagen: string;
+  titulo: string;
+  autor: string;
+  /* Sello de la tarjeta y comportamiento del clima: 'poemario' ofrece noche/día
+     (por defecto, el tema con que se lee); 'fabulario' queda fijo en día. */
+  sitio?: 'poemario' | 'fabulario';
+  /* Rótulo superior de la tarjeta (forma/movimiento). */
+  kicker?: string;
+  /* Selector del cuerpo en verso del que leer las líneas. */
+  versoSelector?: string;
+}
+
+const {
+  imagen,
+  titulo,
+  autor,
+  sitio = 'poemario',
+  kicker = '',
+  versoSelector = '.prose--verso',
+} = Astro.props;
+---
+
+<dialog
+  class="tc-dialog"
+  id="tc-dialog"
+  data-img={imagen}
+  data-titulo={titulo}
+  data-autor={autor}
+  data-sitio={sitio}
+  data-kicker={kicker}
+  data-sel={versoSelector}
+>
+  <form method="dialog" class="tc-close-form">
+    <button class="tc-close" aria-label="Cerrar">&times;</button>
+  </form>
+
+  <div class="tc-head">
+    <p class="tc-eyebrow">Crear tarjeta</p>
+    <h2 class="tc-h2">{titulo}</h2>
+  </div>
+
+  <div class="tc-body">
+    <div class="tc-pick">
+      <p class="tc-step">Toca los versos</p>
+      <p class="tc-hint">
+        Toca un verso y luego otro para elegir el fragmento. Si cruzas una
+        estrofa, el salto se conserva en la tarjeta.
+      </p>
+      <div class="tc-versos" id="tc-versos"></div>
+    </div>
+
+    <div class="tc-compose">
+      <div class="tc-canvas-wrap">
+        <canvas id="tc-canvas" width="1080" height="1080" aria-label="Previsualización de la tarjeta"></canvas>
+      </div>
+
+      <div class="tc-seg" id="tc-formato" role="group" aria-label="Formato">
+        <button type="button" data-fmt="post" aria-pressed="true">Post · 1:1</button>
+        <button type="button" data-fmt="story" aria-pressed="false">Story · 9:16</button>
+      </div>
+
+      <div class="tc-seg-row">
+        {sitio === 'poemario' && (
+          <div>
+            <p class="tc-cap">Clima</p>
+            <div class="tc-seg" id="tc-skin" role="group" aria-label="Clima de la tarjeta">
+              <button type="button" data-skin="night" aria-pressed="true">Noche</button>
+              <button type="button" data-skin="day" aria-pressed="false">Día</button>
+            </div>
+          </div>
+        )}
+        <div>
+          <p class="tc-cap">Alineación</p>
+          <div class="tc-seg" id="tc-align" role="group" aria-label="Alineación del verso">
+            <button type="button" data-align="left" aria-pressed="true">Izquierda</button>
+            <button type="button" data-align="center" aria-pressed="false">Centro</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tc-actions">
+        <button type="button" class="tc-btn tc-btn--primario" id="tc-compartir">Compartir</button>
+        <button type="button" class="tc-btn" id="tc-descargar">Descargar</button>
+      </div>
+      <p class="tc-aviso" id="tc-aviso" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</dialog>
+
+<style is:global>
+  .tc-dialog {
+    width: min(960px, 94vw);
+    max-height: 92vh;
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+  }
+  .tc-dialog::backdrop { background: rgba(6, 9, 14, 0.72); backdrop-filter: blur(2px); }
+  .tc-dialog[open] { display: flex; flex-direction: column; }
+
+  .tc-close-form { position: absolute; top: 0; right: 0; margin: 0; z-index: 2; }
+  .tc-close {
+    background: transparent; border: 0; cursor: pointer;
+    color: var(--text-muted); font-size: 1.8rem; line-height: 1;
+    padding: 0.4em 0.6em;
+  }
+  .tc-close:hover { color: var(--oro); }
+
+  .tc-head {
+    padding: var(--space-lg) var(--space-lg) var(--space-sm);
+    border-bottom: 1px solid var(--rule-soft);
+    text-align: center;
+  }
+  .tc-eyebrow {
+    font-family: var(--font-meta); font-size: var(--fs-3xs); font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-widest); text-transform: uppercase; color: var(--oro-texto); margin: 0 0 0.3rem;
+  }
+  .tc-h2 { font-family: var(--font-body); font-size: var(--fs-xl); margin: 0; color: var(--text); font-weight: 500; }
+
+  .tc-body {
+    display: grid; grid-template-columns: 1fr 360px; gap: var(--space-lg);
+    padding: var(--space-lg); overflow: auto;
+  }
+  @media (max-width: 720px) {
+    .tc-body { grid-template-columns: 1fr; }
+    .tc-compose { order: -1; }
+  }
+
+  .tc-step {
+    font-family: var(--font-meta); font-size: var(--fs-3xs); font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--text-faint); margin: 0 0 0.4rem;
+  }
+  .tc-hint { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 var(--space-sm); }
+
+  .tc-versos { display: flex; flex-direction: column; max-height: 48vh; overflow: auto; }
+  .tc-verso {
+    text-align: left; width: 100%; cursor: pointer; background: transparent; border: 0;
+    border-radius: 6px; color: var(--text); font-family: var(--font-body); font-size: var(--fs-md);
+    line-height: 1.3; padding: 0.3em 0.55em; white-space: pre-wrap;
+    transition: background 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
+  }
+  .tc-verso:hover { background: var(--rule-soft); }
+  .tc-verso.is-sel { background: rgba(201, 168, 106, 0.16); box-shadow: inset 2px 0 0 var(--oro); color: var(--text); }
+  .tc-verso.tc-estrofa { margin-top: 0.7rem; }
+
+  .tc-canvas-wrap {
+    background: repeating-linear-gradient(45deg, rgba(0,0,0,.18) 0 10px, rgba(0,0,0,.26) 10px 20px);
+    border: 1px solid var(--rule); border-radius: 8px; padding: var(--space-sm);
+    display: flex; justify-content: center; align-items: center;
+  }
+  #tc-canvas {
+    max-width: 100%; max-height: 46vh; width: auto; height: auto; border-radius: 3px;
+    box-shadow: 0 14px 40px -16px rgba(0,0,0,.7);
+  }
+
+  .tc-seg {
+    display: grid; grid-auto-flow: column; gap: 3px; margin-top: var(--space-sm);
+    background: var(--surface-2, rgba(255,255,255,.03)); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 3px;
+  }
+  .tc-seg button {
+    font-family: var(--font-meta); font-size: var(--fs-2xs); cursor: pointer; letter-spacing: var(--ls-wide);
+    background: transparent; color: var(--text-muted); border: 0; border-radius: 6px; padding: 0.55em 0.4em;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .tc-seg button[aria-pressed="true"] { background: var(--oro); color: #1a130a; font-weight: 600; }
+
+  .tc-seg-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+  .tc-seg-row > div:only-child { grid-column: 1 / -1; }
+  .tc-cap {
+    font-family: var(--font-meta); font-size: var(--fs-3xs); letter-spacing: var(--ls-wide);
+    text-transform: uppercase; color: var(--text-faint); margin: var(--space-sm) 0 0;
+  }
+
+  .tc-actions { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin-top: var(--space-md); }
+  .tc-btn {
+    font-family: var(--font-meta); font-size: var(--fs-2xs); letter-spacing: var(--ls-wide);
+    text-transform: uppercase; cursor: pointer; padding: 0.7em 0.5em; border-radius: 8px;
+    border: 1px solid var(--oro); background: transparent; color: var(--oro-texto);
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .tc-btn:hover { color: var(--oro); }
+  .tc-btn--primario { background: var(--oro); color: #1a130a; }
+  .tc-btn--primario:hover { color: #1a130a; filter: brightness(1.06); }
+
+  .tc-aviso {
+    min-height: 1.2em; margin: var(--space-xs) 0 0; text-align: center;
+    font-family: var(--font-meta); font-size: var(--fs-3xs); letter-spacing: var(--ls-wide);
+    text-transform: uppercase; color: var(--oro-texto);
+  }
+
+  @media (prefers-reduced-motion: reduce) { .tc-dialog * { transition: none !important; } }
+</style>
+
+<script>
+  (function () {
+    var dlg = document.getElementById('tc-dialog');
+    if (!dlg) return;
+    var D = dlg.dataset;
+
+    var SKINS = {
+      night: {
+        base: '#10151e', depth: 'rgba(32,45,68,.95)', glow: 'rgba(201,168,106,.16)',
+        veilBot: 'rgba(8,11,17,.72)', vignette: 'rgba(6,9,14,.55)', extra: 'rgba(10,13,19,.34)',
+        verse: '#efe6d2', gold: '#c9a86a', goldLine: 'rgba(201,168,106,.55)',
+        kicker: '#d8bd84', author: '#c9a86a', mark: '#dcc79a', domain: 'rgba(220,199,154,.65)'
+      },
+      day: {
+        base: '#e9e0cd', depth: 'rgba(255,252,244,.85)', glow: 'rgba(176,138,74,.14)',
+        veilBot: 'rgba(60,44,20,.14)', vignette: 'rgba(120,96,56,.22)', extra: 'rgba(250,246,238,.20)',
+        verse: '#2a2016', gold: '#9a7636', goldLine: 'rgba(154,118,54,.6)',
+        kicker: '#8a6a30', author: '#8a6a30', mark: '#5f491f', domain: 'rgba(95,73,31,.7)'
+      }
+    };
+    var FORMATS = { post: { w: 1080, h: 1080 }, story: { w: 1080, h: 1920 } };
+
+    var canvas = document.getElementById('tc-canvas');
+    var ctx = canvas.getContext('2d');
+    var aviso = document.getElementById('tc-aviso');
+
+    var brand = D.sitio === 'fabulario' ? 'EL FABULARIO' : 'EL POEMARIO';
+    var domain = D.sitio === 'fabulario' ? 'elfabulario.com' : 'elpoemario.com';
+
+    var state = {
+      flat: [],            // [{text, st}]
+      selected: new Set(),
+      anchor: null, rangeOpen: false,
+      fmt: 'post',
+      skin: 'night',
+      align: 'left',
+      img: null
+    };
+
+    // ── Lee los versos del poema ya renderizado ────────────────────────
+    function parsePoem() {
+      var cont = document.querySelector(D.sel);
+      var flat = [];
+      if (!cont) return flat;
+      var ps = cont.querySelectorAll('p');
+      ps.forEach(function (p, si) {
+        var frags = p.innerHTML.split(/<br\s*\/?>/i);
+        frags.forEach(function (frag) {
+          var tmp = document.createElement('div');
+          tmp.innerHTML = frag;
+          var txt = (tmp.textContent || '').replace(/\s+$/, '');  // conserva NBSP inicial
+          if (txt.length) flat.push({ text: txt, st: si });
+        });
+      });
+      return flat;
+    }
+
+    function setRange(a, b) {
+      var lo = Math.min(a, b), hi = Math.max(a, b);
+      state.selected = new Set();
+      for (var i = lo; i <= hi; i++) state.selected.add(i);
+    }
+
+    // Bloque a pintar: versos elegidos + un salto donde cambia de estrofa.
+    function selectedBlock() {
+      var idx = Array.from(state.selected).sort(function (x, y) { return x - y; });
+      if (!idx.length) return [];
+      var out = [], prevSt = null;
+      idx.forEach(function (i) {
+        var it = state.flat[i];
+        if (prevSt !== null && it.st !== prevSt) out.push({ t: 'g' });
+        out.push({ t: 'v', s: it.text });
+        prevSt = it.st;
+      });
+      return out;
+    }
+
+    // ── Lista de versos (nodos creados por JS → estilos globales) ───────
+    function renderVersos() {
+      var host = document.getElementById('tc-versos');
+      host.innerHTML = '';
+      state.flat.forEach(function (it, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'tc-verso' + (state.selected.has(i) ? ' is-sel' : '') +
+          (i > 0 && it.st !== state.flat[i - 1].st ? ' tc-estrofa' : '');
+        b.textContent = it.text;
+        b.addEventListener('click', function () { clickVerso(i); });
+        host.appendChild(b);
+      });
+    }
+
+    function clickVerso(i) {
+      if (!state.rangeOpen) { state.anchor = i; setRange(i, i); state.rangeOpen = true; }
+      else { setRange(state.anchor, i); state.rangeOpen = false; }
+      renderVersos(); draw();
+    }
+
+    // ── Dibujo de la tarjeta ───────────────────────────────────────────
+    function setLS(px) { try { ctx.letterSpacing = px + 'px'; } catch (e) {} }
+
+    function drawCover(img, W, H) {
+      var ir = img.width / img.height, cr = W / H, dw, dh, dx, dy;
+      if (ir > cr) { dh = H; dw = H * ir; dx = (W - dw) / 2; dy = 0; }
+      else { dw = W; dh = W / ir; dx = 0; dy = (H - dh) / 2; }
+      ctx.drawImage(img, dx, dy, dw, dh);
+    }
+
+    function drawDiamond(x, y, r, fill, line, w) {
+      ctx.save();
+      ctx.strokeStyle = line; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(x - w * 0.42, y); ctx.lineTo(x - r * 2.2, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + w * 0.42, y); ctx.lineTo(x + r * 2.2, y); ctx.stroke();
+      ctx.fillStyle = fill;
+      ctx.beginPath();
+      ctx.moveTo(x, y - r); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r); ctx.lineTo(x - r, y);
+      ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+
+    function fitBlock(block, startPx, lh, gapRatio, maxW, maxH) {
+      var size = startPx;
+      for (var guard = 0; guard < 180; guard++) {
+        ctx.font = '500 ' + size + 'px "EB Garamond", Georgia, serif';
+        var widest = 0, h = 0;
+        for (var i = 0; i < block.length; i++) {
+          if (block[i].t === 'v') { widest = Math.max(widest, ctx.measureText(block[i].s).width); h += size * lh; }
+          else { h += size * lh * gapRatio; }
+        }
+        if ((widest <= maxW && h <= maxH) || size <= 20) break;
+        size -= 1;
+      }
+      return size;
+    }
+
+    function draw() {
+      var fmt = FORMATS[state.fmt], W = fmt.w, H = fmt.h;
+      if (canvas.width !== W) canvas.width = W;
+      if (canvas.height !== H) canvas.height = H;
+      var sk = SKINS[state.skin];
+
+      ctx.fillStyle = sk.base; ctx.fillRect(0, 0, W, H);
+      if (state.img) drawCover(state.img, W, H);
+
+      // Velo (contraste) + extra parejo sobre la foto + viñeta.
+      var veil = ctx.createLinearGradient(0, 0, 0, H);
+      veil.addColorStop(0, 'rgba(0,0,0,0)'); veil.addColorStop(0.55, 'rgba(0,0,0,0)'); veil.addColorStop(1, sk.veilBot);
+      ctx.fillStyle = veil; ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = sk.extra; ctx.fillRect(0, 0, W, H);
+      var vg = ctx.createRadialGradient(W * 0.5, H * 0.5, H * 0.3, W * 0.5, H * 0.5, H * 0.72);
+      vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, sk.vignette);
+      ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+
+      var m = Math.round(W * 0.055);
+      ctx.strokeStyle = sk.goldLine; ctx.lineWidth = Math.max(1.5, W / 520);
+      ctx.strokeRect(m, m, W - 2 * m, H - 2 * m);
+
+      var cx = W / 2;
+      var contentW = W - 2 * (m + W * 0.045);
+
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      setLS(W * 0.012); ctx.fillStyle = sk.kicker;
+      ctx.font = '600 ' + Math.round(W * 0.026) + 'px "Cinzel", Georgia, serif';
+      var topY = m + W * 0.085;
+      if (D.kicker) ctx.fillText(D.kicker.toUpperCase(), cx, topY);
+      setLS(0);
+
+      var block = selectedBlock();
+      if (block.length === 0) block = [{ t: 'v', s: 'Toca un verso…' }];
+
+      var areaTop = topY + W * 0.025;
+      var authorBlock = W * 0.22;
+      var areaBot = H - m - authorBlock;
+      var areaH = areaBot - areaTop;
+
+      var lh = 1.3, gapRatio = 0.6;
+      var fs = fitBlock(block, Math.round(W * 0.055), lh, gapRatio, contentW, areaH);
+      ctx.font = '500 ' + fs + 'px "EB Garamond", Georgia, serif';
+      var lineH = fs * lh, gapH = lineH * gapRatio;
+
+      var widest = 0, blockH = 0;
+      block.forEach(function (it) {
+        if (it.t === 'v') { widest = Math.max(widest, ctx.measureText(it.s).width); blockH += lineH; }
+        else { blockH += gapH; }
+      });
+
+      ctx.textAlign = state.align === 'center' ? 'center' : 'left';
+      var tx = state.align === 'center' ? cx : cx - widest / 2;
+      ctx.fillStyle = sk.verse;
+      var yTop = areaTop + (areaH - blockH) / 2;
+      block.forEach(function (it) {
+        if (it.t === 'g') { yTop += gapH; return; }
+        ctx.fillText(it.s, tx, yTop + fs);
+        yTop += lineH;
+      });
+      ctx.textAlign = 'center';
+
+      var divY = areaBot + W * 0.03;
+      drawDiamond(cx, divY, W * 0.012, sk.gold, sk.goldLine, contentW);
+
+      ctx.fillStyle = sk.author;
+      ctx.font = 'italic 500 ' + Math.round(W * 0.038) + 'px "EB Garamond", Georgia, serif';
+      ctx.fillText(D.autor, cx, divY + W * 0.07);
+
+      var markY = H - m - W * 0.055;
+      ctx.strokeStyle = sk.goldLine; ctx.lineWidth = Math.max(1, W / 900);
+      ctx.beginPath(); ctx.moveTo(cx - W * 0.09, markY - W * 0.035); ctx.lineTo(cx + W * 0.09, markY - W * 0.035); ctx.stroke();
+      setLS(W * 0.016); ctx.fillStyle = sk.mark;
+      ctx.font = '600 ' + Math.round(W * 0.027) + 'px "Cinzel", Georgia, serif';
+      ctx.fillText(brand, cx, markY);
+      setLS(W * 0.006); ctx.fillStyle = sk.domain;
+      ctx.font = '500 ' + Math.round(W * 0.016) + 'px "Cinzel", Georgia, serif';
+      ctx.fillText(domain, cx, markY + W * 0.028);
+      setLS(0);
+    }
+
+    // ── Exportación ────────────────────────────────────────────────────
+    function slug(s) {
+      return (s || 'verso').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'verso';
+    }
+    function fileName() { return 'tarjeta-' + slug(D.titulo) + '-' + state.fmt + '.png'; }
+
+    function withBlob(cb) { canvas.toBlob(function (b) { if (b) cb(b); }, 'image/png'); }
+
+    function descargar() {
+      withBlob(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url; a.download = fileName();
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        flash('Imagen descargada');
+      });
+    }
+
+    function compartir() {
+      withBlob(function (blob) {
+        var file = new File([blob], fileName(), { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: D.titulo, text: '«' + D.titulo + '» — ' + D.autor })
+            .catch(function () {});
+        } else {
+          descargar();
+          flash('Tu navegador no comparte imágenes; la descargué');
+        }
+      });
+    }
+
+    var flashT;
+    function flash(msg) { aviso.textContent = msg; clearTimeout(flashT); flashT = setTimeout(function () { aviso.textContent = ''; }, 2600); }
+
+    // ── Controles ──────────────────────────────────────────────────────
+    function wireSeg(id, key, after) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        state[key] = b.dataset[key === 'fmt' ? 'fmt' : key];
+        el.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        if (after) after();
+        draw();
+      });
+    }
+    wireSeg('tc-formato', 'fmt');
+    wireSeg('tc-skin', 'skin');
+    wireSeg('tc-align', 'align');
+    document.getElementById('tc-descargar').addEventListener('click', descargar);
+    document.getElementById('tc-compartir').addEventListener('click', compartir);
+
+    // ── Apertura: dispara el botón de <Compartir> ──────────────────────
+    function openDialog() {
+      // El clima sigue el tema de lectura (solo El Poemario ofrece día).
+      if (D.sitio !== 'fabulario') {
+        state.skin = document.documentElement.getAttribute('data-theme') === 'day' ? 'day' : 'night';
+        var sg = document.getElementById('tc-skin');
+        if (sg) sg.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', x.dataset.skin === state.skin ? 'true' : 'false');
+        });
+      }
+      draw();
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    }
+    document.querySelectorAll('[data-tc-open]').forEach(function (btn) {
+      btn.addEventListener('click', openDialog);
+    });
+
+    // ── Arranque ───────────────────────────────────────────────────────
+    state.flat = parsePoem();
+    // Preselección: la primera estrofa (hasta 6 versos).
+    if (state.flat.length) {
+      var firstSt = state.flat[0].st, last = 0;
+      for (var i = 0; i < state.flat.length && state.flat[i].st === firstSt && i < 6; i++) last = i;
+      setRange(0, last); state.anchor = 0; state.rangeOpen = false;
+    }
+    renderVersos();
+
+    // Carga la ilustración (mismo origen) y repinta.
+    if (D.img) {
+      var im = new Image();
+      im.onload = function () { state.img = im; draw(); };
+      im.src = D.img;
+    }
+    // Repinta cuando las fuentes estén listas (si no, el canvas usa la de reserva).
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(draw);
+      try {
+        Promise.all([
+          document.fonts.load('600 60px "Cinzel"'),
+          document.fonts.load('500 60px "EB Garamond"'),
+          document.fonts.load('italic 500 60px "EB Garamond"')
+        ]).then(draw);
+      } catch (e) {}
+    }
+    draw();
+  })();
+</script>

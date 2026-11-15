@@ -10,6 +10,8 @@ import SpotifyEmbed from '../components/SpotifyEmbed.astro';
 import NavegacionPoemas from '../components/NavegacionPoemas.astro';
 import IconoEditar from '../components/IconoEditar.astro';
 import Compartir from '../components/Compartir.astro';
+import TarjetaCita from '../components/TarjetaCita.astro';
+import { getImage } from 'astro:assets';
 
 import { buildPoemaJsonLd } from '../utils/jsonld';
 import { parseMarkdownField } from '../utils/markdown';
@@ -140,6 +142,13 @@ const urlCompartir = new URL(
   Astro.site,
 ).href;
 
+// Imagen-cita: solo para poemas en verso con ilustración. Se emite una versión
+// ligera 1280px (mismo origen → el canvas del generador no se contamina).
+const tarjetaImagen =
+  ilustracion && tipo !== 'prosa-poetica'
+    ? (await getImage({ src: ilustracion, width: 1280, format: 'jpeg', quality: 82 })).src
+    : null;
+
 // ── Previous / next navigation ────────────────────────────────────────────
 // Build a chronological-desc list of all non-draft poemas. The current
 // entry is found by id and the neighbors are selected with circular
@@ -256,6 +265,7 @@ const siguiente = siguienteEntry
       titulo={titulo}
       autor={autor.data.nombre}
       etiqueta="este poema"
+      tarjeta={!!tarjetaImagen}
     />
 
     <footer class="poema-cierre">
@@ -276,6 +286,16 @@ const siguiente = siguienteEntry
   </article>
 
   <IconoEditar slug={id} coleccion="poemas" />
+
+  {tarjetaImagen && (
+    <TarjetaCita
+      imagen={tarjetaImagen}
+      titulo={titulo}
+      autor={autor.data.nombre}
+      sitio="poemario"
+      kicker={TIPOS_DISPLAY[tipo]}
+    />
+  )}
 </Base>
 
 <style>
