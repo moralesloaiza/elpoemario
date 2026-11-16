@@ -23,9 +23,13 @@ interface Props {
   /* Cómo nombrar la obra en el cuerpo del correo: «este poema», «esta fábula».
      Por defecto, genérico. */
   etiqueta?: string;
+  /* Muestra el botón «Crear tarjeta» que abre el generador de imágenes-cita
+     (<TarjetaCita>). El diálogo lo renderiza la página por separado; aquí solo
+     va el disparador, marcado con data-tc-open. */
+  tarjeta?: boolean;
 }
 
-const { url, titulo, autor, etiqueta = 'esto' } = Astro.props;
+const { url, titulo, autor, etiqueta = 'esto', tarjeta = false } = Astro.props;
 
 // Texto base del compartido: sobrio, con las comillas latinas de la casa.
 const textoCompartir = `«${titulo}» — ${autor}`;
@@ -50,7 +54,22 @@ const urlCorreo = `mailto:?subject=${enc(`${titulo} — ${autor}`)}&body=${enc(
   data-titulo={titulo}
   data-texto={textoCompartir}
 >
-  <p class="compartir-rotulo" id="compartir-rotulo">Compartir</p>
+  {tarjeta && (
+    <div class="compartir-tarjeta">
+      <button type="button" class="compartir-tarjeta-boton" data-tc-open>
+        <svg class="compartir-tarjeta-icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v8.59l3.3-3.3a1 1 0 0 1 1.4 0l2.3 2.3 3.3-3.3a1 1 0 0 1 1.4 0L19 15.6V7H5zm11 2.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+        </svg>
+        <span>Crear una tarjeta</span>
+      </button>
+      <p class="compartir-tarjeta-nota">
+        Elige los versos que más te gusten y crea una imagen para
+        compartir en redes o dedicar a alguien.
+      </p>
+    </div>
+  )}
+
+  <p class="compartir-rotulo" id="compartir-rotulo">{tarjeta ? 'O comparte el enlace' : 'Compartir'}</p>
 
   <ul class="compartir-lista" role="list">
     {/* Compartir nativo (bandeja del SO): oculto hasta que el JS confirme
@@ -288,6 +307,64 @@ const urlCorreo = `mailto:?subject=${enc(`${titulo} — ${autor}`)}&body=${enc(
     color: var(--oro);
   }
 
+  /* «Crear una tarjeta»: el gesto principal. Se presenta en un panel propio,
+     por encima de los enlaces, con un botón sólido y una línea que explica qué
+     ofrece —crear una imagen con los versos elegidos para compartir o dedicar. */
+  .compartir-tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+
+  .compartir-tarjeta-boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-block-size: 2.75rem;
+    padding: 0.6rem 1.5rem;
+    font-family: var(--font-meta);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--oro);
+    border: 1px solid var(--oro);
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+      background var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .compartir-tarjeta-boton:hover,
+  .compartir-tarjeta-boton:focus-visible {
+    background: var(--oro-texto);
+    transform: translateY(-1px);
+  }
+
+  .compartir-tarjeta-icono {
+    inline-size: 1.15rem;
+    block-size: 1.15rem;
+    flex: none;
+  }
+
+  .compartir-tarjeta-nota {
+    margin: 0;
+    max-inline-size: 36ch;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--fs-md);
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
   .compartir-boton.is-copiado {
     color: var(--oro);
     border-color: var(--oro);
@@ -305,7 +382,8 @@ const urlCorreo = `mailto:?subject=${enc(`${titulo} — ${autor}`)}&body=${enc(
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .compartir-boton {
+    .compartir-boton,
+    .compartir-tarjeta-boton {
       transition: none;
     }
   }
