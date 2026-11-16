@@ -336,21 +336,6 @@ const {
       ctx.restore();
     }
 
-    function fitBlock(block, startPx, lh, gapRatio, maxW, maxH) {
-      var size = startPx;
-      for (var guard = 0; guard < 180; guard++) {
-        ctx.font = '500 ' + size + 'px "EB Garamond", Georgia, serif';
-        var widest = 0, h = 0;
-        for (var i = 0; i < block.length; i++) {
-          if (block[i].t === 'v') { widest = Math.max(widest, ctx.measureText(block[i].s).width); h += size * lh; }
-          else { h += size * lh * gapRatio; }
-        }
-        if ((widest <= maxW && h <= maxH) || size <= 20) break;
-        size -= 1;
-      }
-      return size;
-    }
-
     function draw() {
       var fmt = FORMATS[state.fmt], W = fmt.w, H = fmt.h;
       if (canvas.width !== W) canvas.width = W;
@@ -369,41 +354,71 @@ const {
       vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, sk.vignette);
       ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
 
-      var m = Math.round(W * 0.055);
+      var story = state.fmt === 'story';
+
+      // Zona segura: en Story (9:16) Instagram cubre la franja superior (usuario,
+      // seguir) y la inferior (pie, música, botones). El marco y todo el contenido
+      // se recogen en una zona central para que nada quede tapado ni pegado al
+      // borde. Margen horizontal y márgenes verticales separados por formato.
+      var mx = Math.round(W * 0.055);
+      var mtop = story ? Math.round(H * 0.125) : Math.round(W * 0.06);
+      var mbot = story ? Math.round(H * 0.145) : Math.round(W * 0.06);
+      var innerTop = mtop, innerBot = H - mbot;
+
       ctx.strokeStyle = sk.goldLine; ctx.lineWidth = Math.max(1.5, W / 520);
-      ctx.strokeRect(m, m, W - 2 * m, H - 2 * m);
+      ctx.strokeRect(mx, innerTop, W - 2 * mx, innerBot - innerTop);
 
       var cx = W / 2;
-      var contentW = W - 2 * (m + W * 0.045);
+      var contentW = W - 2 * (mx + W * 0.05);
 
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
       setLS(W * 0.014); ctx.fillStyle = sk.kicker;
       ctx.font = '600 ' + Math.round(W * 0.026) + 'px "Cinzel", Georgia, serif';
-      var topY = m + W * 0.085;
+      var topY = innerTop + W * 0.072;
       ctx.fillText('FRAGMENTO', cx, topY);
       setLS(0);
 
       var block = selectedBlock();
       if (block.length === 0) block = [{ t: 'v', s: 'Toca un verso…' }];
 
-      var areaTop = topY + W * 0.025;
+      // El bloque inferior (cita, autor, marca, dominio) se ancla al pie con
+      // holgura; aquí reservamos su alto para que los versos no lo invadan.
+      var areaTop = topY + W * 0.05;
       var authorBlock = W * 0.30;
-      var areaBot = H - m - authorBlock;
+      var areaBot = innerBot - authorBlock;
       var areaH = areaBot - areaTop;
 
       var lh = 1.3, gapRatio = 0.6;
-      var fs = fitBlock(block, Math.round(W * 0.055), lh, gapRatio, contentW, areaH);
-      ctx.font = '500 ' + fs + 'px "EB Garamond", Georgia, serif';
-      var lineH = fs * lh, gapH = lineH * gapRatio;
 
-      var widest = 0, blockH = 0;
-      block.forEach(function (it) {
-        if (it.t === 'v') { widest = Math.max(widest, ctx.measureText(it.s).width); blockH += lineH; }
-        else { blockH += gapH; }
-      });
+      // Maqueta a un tamaño: el verso no se envuelve, así que mide el verso más
+      // ancho y la altura total de las líneas.
+      function layout(size) {
+        ctx.font = '500 ' + size + 'px "EB Garamond", Georgia, serif';
+        var lineH = size * lh, gapH = lineH * gapRatio;
+        var widest = 0, totalH = 0;
+        block.forEach(function (it) {
+          if (it.t === 'v') { widest = Math.max(widest, ctx.measureText(it.s).width); totalH += lineH; }
+          else { totalH += gapH; }
+        });
+        return { widest: widest, totalH: totalH, lineH: lineH, gapH: gapH };
+      }
+
+      // Crece hasta llenar el área (alto y ancho), con tope legible: una selección
+      // corta se ve grande y llena mejor la tarjeta, en vez de solo encogerse.
+      var maxFs = Math.round(W * (story ? 0.07 : 0.078));
+      var minFs = Math.round(W * 0.028);
+      var fs = minFs, L = layout(minFs);
+      for (var s = minFs + 1; s <= maxFs; s++) {
+        var LL = layout(s);
+        if (LL.totalH <= areaH && LL.widest <= contentW) { fs = s; L = LL; }
+        else break;
+      }
+      L = layout(fs);
+      var lineH = L.lineH, gapH = L.gapH, blockH = L.totalH, widest = L.widest;
 
       ctx.textAlign = state.align === 'center' ? 'center' : 'left';
       var tx = state.align === 'center' ? cx : cx - widest / 2;
+      ctx.font = '500 ' + fs + 'px "EB Garamond", Georgia, serif';
       ctx.fillStyle = sk.verse;
       var yTop = areaTop + (areaH - blockH) / 2;
       block.forEach(function (it) {
@@ -413,7 +428,16 @@ const {
       });
       ctx.textAlign = 'center';
 
-      var divY = areaBot + W * 0.03;
+      // Autoría y marca, ancladas al pie con holgura respecto al filete inferior
+      // del marco: el dominio queda por encima de la línea, sin tocarla. Todo se
+      // apila hacia arriba desde ese anclaje.
+      var baseDomain = innerBot - W * 0.055;
+      var baseBrand = baseDomain - W * 0.028;
+      var wmLineY = baseBrand - W * 0.035;
+      var baseAuthor = wmLineY - W * 0.040;
+      var baseCita = baseAuthor - W * 0.057;
+      var divY = baseCita - W * 0.050;
+
       drawDiamond(cx, divY, W * 0.012, sk.gold, sk.goldLine, contentW);
 
       // Cita: título en itálica (prominente) y autor debajo, como atribución.
@@ -425,21 +449,20 @@ const {
         ctx.font = 'italic 500 ' + tfs + 'px "EB Garamond", Georgia, serif';
       }
       ctx.fillStyle = sk.verse;
-      ctx.fillText(cita, cx, divY + W * 0.085);
+      ctx.fillText(cita, cx, baseCita);
 
       ctx.fillStyle = sk.author;
       ctx.font = '500 ' + Math.round(W * 0.03) + 'px "EB Garamond", Georgia, serif';
-      ctx.fillText(D.autor, cx, divY + W * 0.145);
+      ctx.fillText(D.autor, cx, baseAuthor);
 
-      var markY = H - m - W * 0.055;
       ctx.strokeStyle = sk.goldLine; ctx.lineWidth = Math.max(1, W / 900);
-      ctx.beginPath(); ctx.moveTo(cx - W * 0.09, markY - W * 0.035); ctx.lineTo(cx + W * 0.09, markY - W * 0.035); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx - W * 0.09, wmLineY); ctx.lineTo(cx + W * 0.09, wmLineY); ctx.stroke();
       setLS(W * 0.016); ctx.fillStyle = sk.mark;
       ctx.font = '600 ' + Math.round(W * 0.027) + 'px "Cinzel", Georgia, serif';
-      ctx.fillText(brand, cx, markY);
+      ctx.fillText(brand, cx, baseBrand);
       setLS(W * 0.006); ctx.fillStyle = sk.domain;
       ctx.font = '500 ' + Math.round(W * 0.016) + 'px "Cinzel", Georgia, serif';
-      ctx.fillText(domain, cx, markY + W * 0.028);
+      ctx.fillText(domain, cx, baseDomain);
       setLS(0);
     }
 
