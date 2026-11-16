@@ -377,17 +377,17 @@ const {
       var contentW = W - 2 * (m + W * 0.045);
 
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-      setLS(W * 0.012); ctx.fillStyle = sk.kicker;
+      setLS(W * 0.014); ctx.fillStyle = sk.kicker;
       ctx.font = '600 ' + Math.round(W * 0.026) + 'px "Cinzel", Georgia, serif';
       var topY = m + W * 0.085;
-      if (D.kicker) ctx.fillText(D.kicker.toUpperCase(), cx, topY);
+      ctx.fillText('FRAGMENTO', cx, topY);
       setLS(0);
 
       var block = selectedBlock();
       if (block.length === 0) block = [{ t: 'v', s: 'Toca un verso…' }];
 
       var areaTop = topY + W * 0.025;
-      var authorBlock = W * 0.22;
+      var authorBlock = W * 0.30;
       var areaBot = H - m - authorBlock;
       var areaH = areaBot - areaTop;
 
@@ -416,9 +416,20 @@ const {
       var divY = areaBot + W * 0.03;
       drawDiamond(cx, divY, W * 0.012, sk.gold, sk.goldLine, contentW);
 
+      // Cita: título en itálica (prominente) y autor debajo, como atribución.
+      var cita = '«' + D.titulo + '»';
+      var tfs = Math.round(W * 0.044);
+      ctx.font = 'italic 500 ' + tfs + 'px "EB Garamond", Georgia, serif';
+      for (var tg = 0; tg < 80 && ctx.measureText(cita).width > contentW && tfs > 18; tg++) {
+        tfs -= 1;
+        ctx.font = 'italic 500 ' + tfs + 'px "EB Garamond", Georgia, serif';
+      }
+      ctx.fillStyle = sk.verse;
+      ctx.fillText(cita, cx, divY + W * 0.085);
+
       ctx.fillStyle = sk.author;
-      ctx.font = 'italic 500 ' + Math.round(W * 0.038) + 'px "EB Garamond", Georgia, serif';
-      ctx.fillText(D.autor, cx, divY + W * 0.07);
+      ctx.font = '500 ' + Math.round(W * 0.03) + 'px "EB Garamond", Georgia, serif';
+      ctx.fillText(D.autor, cx, divY + W * 0.145);
 
       var markY = H - m - W * 0.055;
       ctx.strokeStyle = sk.goldLine; ctx.lineWidth = Math.max(1, W / 900);
