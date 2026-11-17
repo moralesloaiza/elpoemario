@@ -16,8 +16,16 @@
 # recursos que Decap carga desde unpkg, la API de GitHub y el proxy OAuth
 # propio (auth.elpoemario.com). frame-ancestors 'none' + X-Frame-Options:
 # DENY para que el panel no pueda enmarcarse en ningun sitio.
+# Cloudflare Pages COMBINA con coma los valores de reglas que solapan, asi
+# que primero se desacopla (con "! ") lo heredado del bloque /* y luego se
+# fija el valor propio de /admin. Esto evita una CSP doble (y una XFO en
+# conflicto) y deja limpios los informes report-only del panel; ademas es
+# lo que impedira que el /* estricto rompa el panel cuando pase a enforce.
+# El bloque /* debe ir antes que este para que el "! " tenga algo que quitar.
 /admin/*
+  ! X-Frame-Options
   X-Frame-Options: DENY
+  ! Content-Security-Policy-Report-Only
   Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://*.githubusercontent.com; font-src 'self' data: https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; connect-src 'self' https://api.github.com https://unpkg.com https://auth.elpoemario.com; frame-src 'self'; worker-src 'self' blob:; child-src blob:
 
 # PWA. El SW no debe quedar cacheado por el navegador/CDN: asi los
