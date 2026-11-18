@@ -1,8 +1,16 @@
 # Cabeceras de seguridad para elpoemario.com (Cloudflare Pages).
-# La CSP va en modo SOLO-REPORTE (Report-Only): observa violaciones y las
-# reporta, pero no bloquea nada todavia. Se pasara a enforce en otro PR.
+# La CSP esta en ENFORCE (bloquea de verdad). Se eligio la via pragmatica:
+# script-src conserva 'unsafe-inline' porque Cloudflare inyecta scripts inline
+# (beacon de Web Analytics + deteccion de bots) y Astro inlinea modulos propios
+# cuyos hashes cambian en cada build, asi que una allowlist por hash/nonce se
+# rompe en cada despliegue. El resto de directivas si bloquean de verdad
+# (frame-ancestors, base-uri, object-src, form-action, img/connect/frame-src...).
+# Dominios externos permitidos: static.cloudflareinsights.com (beacon) en
+# script-src y cloudflareinsights.com (envio de metricas) en connect-src.
 # NO usar Cross-Origin-Opener-Policy: same-origin -> cortaria window.opener
 # entre origenes y romperia el popup OAuth del panel /admin.
+# Reversion trivial si algo rompiera: renombrar "Content-Security-Policy" de
+# vuelta a "Content-Security-Policy-Report-Only" en el bloque afectado.
 
 /*
   X-Content-Type-Options: nosniff
@@ -10,23 +18,24 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()
   X-Frame-Options: SAMEORIGIN
-  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'self' https://open.spotify.com; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; media-src 'self'; frame-src 'self' https://open.spotify.com; worker-src 'self'; manifest-src 'self'; upgrade-insecure-requests
 
-# Panel Decap CMS (/admin). CSP (tambien report-only) compatible con los
+# Panel Decap CMS (/admin). CSP (tambien en enforce) compatible con los
 # recursos que Decap carga desde unpkg, la API de GitHub y el proxy OAuth
 # propio (auth.elpoemario.com). frame-ancestors 'none' + X-Frame-Options:
 # DENY para que el panel no pueda enmarcarse en ningun sitio.
 # Cloudflare Pages COMBINA con coma los valores de reglas que solapan, asi
 # que primero se desacopla (con "! ") lo heredado del bloque /* y luego se
 # fija el valor propio de /admin. Esto evita una CSP doble (y una XFO en
-# conflicto) y deja limpios los informes report-only del panel; ademas es
-# lo que impedira que el /* estricto rompa el panel cuando pase a enforce.
+# conflicto) y deja al panel con su politica propia en enforce.
 # El bloque /* debe ir antes que este para que el "! " tenga algo que quitar.
+# Si el editor /admin no cargara tras desplegar, revertir solo esta linea a
+# Content-Security-Policy-Report-Only es suficiente (el bloque /* queda intacto).
 /admin/*
   ! X-Frame-Options
   X-Frame-Options: DENY
-  ! Content-Security-Policy-Report-Only
-  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://*.githubusercontent.com; font-src 'self' data: https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; connect-src 'self' https://api.github.com https://unpkg.com https://auth.elpoemario.com; frame-src 'self'; worker-src 'self' blob:; child-src blob:
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://*.githubusercontent.com; font-src 'self' data: https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://static.cloudflareinsights.com; connect-src 'self' https://api.github.com https://unpkg.com https://auth.elpoemario.com https://cloudflareinsights.com; frame-src 'self'; worker-src 'self' blob:; child-src blob:
 
 # PWA. El SW no debe quedar cacheado por el navegador/CDN: asi los
 # despliegues nuevos toman efecto sin esperar a que expire una copia vieja.

@@ -13,6 +13,7 @@
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { marked } from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 // Ancho maximo util: la nota vive en una columna de prosa, no a sangre.
 const ANCHO_MAX = 1024;
@@ -38,8 +39,16 @@ function escaparAtributo(valor: string): string {
 
 /** Convierte un campo Markdown del frontmatter en HTML con las imagenes resueltas. */
 export async function parseMarkdownField(md: string): Promise<string> {
-  const html = marked.parse(md, { async: false, breaks: true }) as string;
-  return resolverImagenes(html);
+  // `nota_curador` es Markdown que escriben colaboradores desde el panel
+  // /admin y se inyecta con `set:html`. Se sanea el HTML que produce `marked`
+  // ANTES de reescribir las imagenes, para que los atributos que anade Astro
+  // (width/height/loading/decoding/src de _astro) —codigo de confianza— no
+  // pasen por el filtro. DOMPurify conserva el formato legitimo (encabezados,
+  // enfasis, listas, citas, enlaces http(s), <img>) y elimina <script>,
+  // manejadores on*, javascript: y demas vectores de XSS.
+  const crudo = marked.parse(md, { async: false, breaks: true }) as string;
+  const limpio = DOMPurify.sanitize(crudo);
+  return resolverImagenes(limpio);
 }
 
 async function resolverImagenes(html: string): Promise<string> {

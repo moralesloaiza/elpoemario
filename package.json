@@ -23,6 +23,7 @@
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/eb-garamond": "^5.2.7",
     "astro": "^6.3.7",
+    "isomorphic-dompurify": "^4.7.0",
     "marked": "^18.0.4",
     "rehype-external-links": "^3.0.0",
     "remark-breaks": "^4.0.0"
