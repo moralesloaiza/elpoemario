@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 interface Props {
   forma: CollectionEntry<'formas'>;
@@ -11,7 +12,12 @@ const { descripcion, ejemplo_autor, ejemplo_obra, metrica } = forma.data;
 
 // Inline markdown for the prose description: allows *italics* for work titles
 // without wrapping the text in a <p> (parseInline emits no block wrapper).
-const descripcionHtml = marked.parseInline(descripcion, { async: false }) as string;
+// `descripcion` lo editan colaboradores desde /admin y se inyecta con
+// `set:html`, asi que se sanea con DOMPurify (conserva <em>/<strong>/enlaces,
+// elimina <script>, on* y javascript:).
+const descripcionHtml = DOMPurify.sanitize(
+  marked.parseInline(descripcion, { async: false }) as string,
+);
 
 // The example verse is the .md body; remark-breaks turns each line into a
 // verse, same as poema bodies.
