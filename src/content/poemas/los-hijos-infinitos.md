@@ -1,6 +1,7 @@
 ---
 titulo: Los hijos infinitos
-resumen: "«Los hijos infinitos», de Andrés Eloy Blanco: tener un hijo es tener a todos los niños del mundo, y con ellos toda la alegría y todo el miedo."
+resumen: "«Los hijos infinitos», de Andrés Eloy Blanco: tener un hijo es tener a
+  todos los niños del mundo, y con ellos toda la alegría y todo el miedo."
 fecha: 2011-10-30
 fecha_actualizada: 2026-07-16
 ilustracion: ../../assets/uploads/poema-los-hijos-infinitos.png
@@ -82,4 +83,4 @@ se tiene la alegría y el ¡ay! del mundo en dos cabezas,
 toda la angustia y toda la esperanza,
 la luz y el llanto, a ver cuál es el que nos llega,
 si el modo de llorar del universo
-el modo de alumbrar de las estrellas.
+o el modo de alumbrar de las estrellas.
