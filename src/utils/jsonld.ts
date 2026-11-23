@@ -35,6 +35,8 @@ export const PUBLISHER = {
   name: 'El Poemario',
   url: SITE_ORIGIN,
   logo: `${SITE_ORIGIN}/logo.svg`,
+  // Perfiles oficiales (mismo valor que INSTAGRAM_URL en consts.ts).
+  sameAs: ['https://www.instagram.com/elpoemario.oficial/'],
 } as const;
 
 // Resolve an absolute URL from a path using the configured site URL.
