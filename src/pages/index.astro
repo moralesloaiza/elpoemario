@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import JsonLd from '../components/JsonLd.astro';
 import HeroInmersivo from '../components/HeroInmersivo.astro';
 import FilaPoema from '../components/FilaPoema.astro';
-import { FOCO_RETRATO, SITE_TITLE, SPOTIFY_SHOW_URL } from '../consts';
+import { FOCO_RETRATO, SITE_TITLE, SPOTIFY_SHOW_URL, INSTAGRAM_URL } from '../consts';
 import { getPagina } from '../utils/paginas';
 import { buildWebSiteJsonLd } from '../utils/jsonld';
 import { poemaDeLaSemana } from '../utils/poemaSemanal';
@@ -235,9 +235,14 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
         <span class="podcast-eyebrow">{home.data.podcast_titulo}</span>
         <span class="podcast-desc">{home.data.podcast_eyebrow}</span>
       </h2>
-      <a class="podcast-boton" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
-        {home.data.podcast_cta}
-      </a>
+      <div class="podcast-botones">
+        <a class="podcast-boton" href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener">
+          {home.data.podcast_cta}
+        </a>
+        <a class="podcast-boton" href={INSTAGRAM_URL} target="_blank" rel="noopener">
+          Seguir en Instagram
+        </a>
+      </div>
     </div>
   </section>
 </Base>
@@ -484,6 +489,12 @@ const tieneVersos = Array.isArray(destacado.versos) && destacado.versos.length >
     font-weight: 500;
     font-size: var(--fs-lg);
     color: var(--text);
+  }
+  .podcast-botones {
+    flex: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
   /* Botón fantasma: contorno en tinta que se rellena al hover. */
   .podcast-boton {

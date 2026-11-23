@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE, INSTAGRAM_URL } from '../consts';
+import { SITE_TITLE } from '../consts';
 import Logo from './Logo.astro';
 
 const today = new Date();
@@ -34,7 +34,6 @@ const grupos = [
       { href: '/colaborar/', texto: 'Colaborar' },
       { href: '/correspondencia/', texto: 'Contacto' },
       { href: '/buscar/', texto: 'Buscar' },
-      { href: INSTAGRAM_URL, texto: 'Instagram', externo: true },
     ],
   },
 ];
@@ -54,13 +53,7 @@ const grupos = [
             <p class="footer-rotulo" id={`footer-grupo-${i}`}>{grupo.rotulo}</p>
             <ul class="footer-lista" aria-labelledby={`footer-grupo-${i}`}>
               {grupo.enlaces.map((enlace) => (
-                <li>
-                  {enlace.externo ? (
-                    <a href={enlace.href} target="_blank" rel="noopener">{enlace.texto}</a>
-                  ) : (
-                    <a href={enlace.href}>{enlace.texto}</a>
-                  )}
-                </li>
+                <li><a href={enlace.href}>{enlace.texto}</a></li>
               ))}
             </ul>
           </div>
