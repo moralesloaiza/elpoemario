@@ -8,6 +8,7 @@ muerte: 1938
 siglo: 19
 lugar_nacimiento: Curití, Santander, Colombia
 lugar_muerte: Bogotá, Colombia
+imagen: ../../assets/uploads/autor-ismael-enrique-arciniegas.png
 ---
 Nació en Curití, en Santander, en 1865. En Colombia lo llamaron «el maestro Arciniegas»: su poesía, de factura parnasiana y modernista, camina en la transición entre el romanticismo y el modernismo, y tradujo a poetas franceses como Albert Samain.
 
