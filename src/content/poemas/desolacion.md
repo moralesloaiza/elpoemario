@@ -1,0 +1,53 @@
+---
+titulo: Desolación
+fecha: 2026-11-24
+borrador: true
+tipo: cuarteto
+movimiento: modernismo
+temas:
+  - exilio
+  - soledad
+autor: gabriela-mistral
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
+---
+La bruma espesa, eterna, para que olvide dónde
+me ha arrojado la mar en su ola cae salmuera.
+La tierra a la que vine no tiene primavera:
+tiene su noche larga que cual madre me esconde.
+
+El viento hace a mi casa su ronda de sollozos
+y de alarido, y quiebra, como un cristal, mi grito.
+Y en la llanura blanca, de horizonte infinito,
+miro morir inmensos ocasos dolorosos.
+
+¿A quién podrá llamar la que hasta aquí ha venido
+si más lejos que ella sólo fueron los muertos?
+¡Tan sólo ellos contemplan un mar callado y yerto
+crecer entre sus brazos y los brazos queridos!
+
+Los barcos cuyas velas blanquean en el puerto
+vienen de tierras donde no están los que son míos;
+sus hombres de ojos claros no conocen mis ríos
+y traen frutos pálidos, sin la luz de mis huertos.
+
+Y la interrogación que sube a mi garganta
+al mirarlos pasar, me desciende, vencida:
+hablan extrañas lenguas y no la conmovida
+lengua que en tierras de oro mi vieja madre canta.
+
+Miro bajar la nieve como el polvo en la huesa;
+miro crecer la niebla como el agonizante,
+y por no enloquecer no cuento los instantes,
+porque la noche larga ahora tan sólo empieza.
+
+Miro el llano extasiado y recojo su duelo,
+que vine para ver los paisajes mortales.
+La nieve es el semblante que asoma a mis cristales;
+¡siempre será su albura bajando de los cielos!
+
+Siempre ella, silenciosa, como la gran mirada
+de Dios sobre mí; siempre su azahar sobre mi casa;
+siempre, como el destino que ni mengua ni pasa,
+descenderá a cubrirme, terrible y extasiado.

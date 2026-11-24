@@ -2,7 +2,7 @@
 titulo: Amor, cuando yo muera
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: pareado
 movimiento: contemporaneo
 temas:
   - amor

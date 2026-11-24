@@ -2,7 +2,7 @@
 titulo: El amor que calla
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
