@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Las dos linternas"
 resumen: "«Las dos linternas», de Ramón de Campoamor: frente a la de Diógenes, la suya halla santos y mártires; todo es según el color del cristal con que se mira."
 fecha: 2011-10-28
@@ -13,9 +13,10 @@ temas:
 autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
-**I**
+## I
 
 De Diógenes compré un día
 La linterna a un mercader.
@@ -32,7 +33,7 @@ Nada hay verdad ni mentira:
 Todo es según el color
 Del cristal con que se mira.
 
-**II**
+## II
 
 —Con mi linterna— él decía
 —No hallo un hombre entre los seres.—
@@ -69,7 +70,7 @@ Que, con sufrir el nacer,
 Es un héroe cualquier hombre,
 Y un ángel toda mujer.
 
-**III**
+## III
 
 Como al revés contemplamos
 Yo y él las obras de Dios,

@@ -1,8 +1,7 @@
 ---
 nombre: César Vallejo
 tipo: clasico
-descripcion: Biografía de César Vallejo, poeta peruano y figura esencial de la
-  vanguardia, autor de Los heraldos negros, Trilce y Poemas humanos.
+descripcion: Poeta vanguardista peruano, autor de «Trilce».
 nacionalidad: Perú
 nacimiento: 1892
 muerte: 1938

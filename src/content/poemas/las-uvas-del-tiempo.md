@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Las uvas del tiempo"
 resumen: "«Las uvas del tiempo», de Andrés Eloy Blanco: Nochevieja en ciudad ajena; las doce uvas se comen con el recuerdo de la madre y la soledad del emigrado."
 fecha: 2011-10-28
@@ -18,6 +18,7 @@ motivos:
 autor: andres-eloy-blanco
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Madre: esta noche se nos muere un año.

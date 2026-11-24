@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "El mar"
 resumen: "Soneto al mar: sereno o desatado en tempestad, imagen de Dios por su abismo y hechura suya por su grandeza."
 fecha: 2011-11-03
@@ -13,6 +13,7 @@ motivos:
 autor: rafael-maria-baralt
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Te admiro, ¡oh mar!, si la movible arena

@@ -1,8 +1,7 @@
 ---
 nombre: Porfirio Barba Jacob
 tipo: clasico
-descripcion: Biografía de Porfirio Barba Jacob (Miguel Ángel Osorio), poeta
-  colombiano del modernismo, autor de «Canción de la vida profunda».
+descripcion: Poeta modernista colombiano, autor de «Canción de la vida profunda».
 nacionalidad: Colombia
 nacimiento: 1883
 muerte: 1942

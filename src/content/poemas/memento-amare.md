@@ -18,8 +18,8 @@ motivos:
   - corazon
   - mano
 autor: alejandro-de-morales-y-loaiza
-curador: Alejandro de Morales y Loaiza
-es_seudonimo: false
+curador: Don Alejandro
+es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 nota_curador: "Hay despedidas que no piden olvido sino custodia. *Memento Amare*
   —«recuerda amar»— invierte el viejo *memento mori*: no nos manda mirar la

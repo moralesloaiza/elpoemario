@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Un poema"
 resumen: "«Un poema», de José Asunción Silva: el relato de cómo se forjó un poema perfecto, rematado por el crítico que lo leyó seis veces y no entendió."
 fecha: 2011-10-28
@@ -17,6 +17,7 @@ motivos:
 autor: jose-asuncion-silva
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Soñaba en ese entonces en forjar un poema,

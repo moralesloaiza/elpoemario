@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Sin dragones"
 resumen: "Retrato de la mujer que no quiere ser salvada: dejó el armario lleno de armaduras de cartón, se cansó de salvar a sus salvadores y se salva sola."
 fecha: 2011-11-14
@@ -13,6 +13,7 @@ motivos:
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "Publicado originalmente en «Luna de Neón». El texto llegó a la antología por aporte de Yini Capo Castro."
 ---

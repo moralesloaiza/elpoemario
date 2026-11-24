@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Siempre..."
 resumen: "Despedida en la tarde junto al mar: el pañuelo, los quince años de ella y la fe de seguir soñándola a la vez lejos y al lado."
 fecha: 2011-10-27
@@ -16,6 +16,7 @@ motivos:
 autor: rafael-michelena-fortoul
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 La tarde está en nosotros, con un poco de bruma:

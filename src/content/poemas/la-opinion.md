@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La opinión"
 resumen: "Ante el féretro de Carolina cada cual dice lo suyo: el clérigo, el padre, la vieja, el filósofo —«uno menos»— y el poeta —«un ángel más»."
 fecha: 2011-10-28
@@ -12,6 +12,7 @@ temas:
 autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Pobre Carolina mía!

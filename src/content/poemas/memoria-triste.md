@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Memoria triste"
 resumen: "Desde tierra extranjera, el poeta llama a los años en que el porvenir era sueño de oro y hasta la pena sabía sonreír."
 fecha: 2012-02-17
@@ -16,6 +16,7 @@ temas:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---

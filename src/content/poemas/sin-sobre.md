@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Sin sobre"
 resumen: "El poeta lee la carta en que ella le prohíbe volver y traduce cada línea al revés, empezando por la posdata, que es siempre lo terrible."
 fecha: 2011-10-30
@@ -17,6 +17,7 @@ motivos:
 autor: juan-de-dios-peza
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Abro tu carta y reconozco ufano

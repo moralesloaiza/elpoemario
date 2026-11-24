@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Sólo tú"
 resumen: "Todos los amores anteriores deshechos para querer a una sola: el que habla se declara ya sin vacilaciones y sin ocaso a la vista."
 fecha: 2011-10-28
@@ -12,6 +12,7 @@ motivos:
 autor: cesar-casas-medina
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Amor como este amor nunca he sentido;

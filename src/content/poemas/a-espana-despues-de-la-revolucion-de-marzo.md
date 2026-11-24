@@ -21,7 +21,7 @@ motivos:
 autor: manuel-jose-quintana
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¿Qué era, decidme, la nación que un día

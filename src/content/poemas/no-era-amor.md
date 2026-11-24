@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "No era amor"
 resumen: "No era amor sino mirar sus ojos sin decir nada: dos ciegos que se dan la mano, y la tristeza final de que nadie llegara a creerlo."
 fecha: 2011-10-30
@@ -16,6 +16,7 @@ motivos:
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No era amor, fue otra cosa;

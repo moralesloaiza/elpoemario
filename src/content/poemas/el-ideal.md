@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "El ideal"
 resumen: "El ideal como fuerza que reanima y conduce; la promesa de seguirlo aunque sea a morir en suelo extraño y de ganarle un lauro a la patria."
 fecha: 2011-10-28
@@ -15,6 +15,7 @@ motivos:
 autor: juana-borrero
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Yo lo siento en mi alma!… Él me reanima

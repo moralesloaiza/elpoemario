@@ -20,6 +20,7 @@ motivos:
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Volverán las oscuras golondrinas

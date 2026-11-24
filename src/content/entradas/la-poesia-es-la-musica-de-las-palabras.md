@@ -7,7 +7,7 @@ resumen: "Por qué el sentimiento elevado exige un lenguaje distinto del
   Campoamor de testigo."
 ilustracion: ../../assets/uploads/entrada-la-poesia-es-la-musica-de-las-palabras.png
 borrador: false
-curador: El tesoro de la juventud o Enciclopedia de conocimientos
+curador: El tesoro de la juventud
 es_seudonimo: false
 tipo: bitacora
 ---

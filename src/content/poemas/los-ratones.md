@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Los ratones"
 resumen: "«Los ratones», de Lope de Vega: la fábula del cascabel; los ratones acuerdan ponérselo al gato hasta que uno pregunta quién se atreverá a colgarlo."
 fecha: 2011-11-15
@@ -13,6 +13,7 @@ temas:
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Juntáronse los ratones,

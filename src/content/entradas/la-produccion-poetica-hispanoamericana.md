@@ -9,7 +9,7 @@ resumen: "«Todos los espectáculos de la Naturaleza, todos los triunfos del
   composiciones de singular mérito artístico»."
 ilustracion: ../../assets/uploads/entrada-la-produccion-poetica-hispanoamericana.png
 borrador: false
-curador: El tesoro de la juventud o Enciclopedia de conocimientos
+curador: El tesoro de la juventud
 es_seudonimo: false
 tipo: bitacora
 ---

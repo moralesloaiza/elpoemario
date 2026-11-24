@@ -1,8 +1,7 @@
 ---
 nombre: Delmira Agustini
 tipo: clasico
-descripcion: Biografía de Delmira Agustini, poeta uruguaya del modernismo,
-  autora de «El libro blanco», «Cantos de la mañana» y «Los cálices vacíos».
+descripcion: Poeta modernista uruguaya, autora de «Los cálices vacíos».
 nacionalidad: Uruguay
 nacimiento: 1886
 muerte: 1914

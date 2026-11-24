@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La oruga y la presumida"
 resumen: "Fábula en redondillas: la oruga responde a la joven que la desprecia que su fealdad no es eterna, y que a ella la hizo mariposa el tocador."
 fecha: 2011-11-10
@@ -16,6 +16,7 @@ motivos:
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: La atribución a Lope de Vega es dudosa. El léxico ("¡Vil oruga!
   ¡bicho infame!") y el molde de fábula moral remiten más a una antología
   escolar decimonónica que al Siglo de Oro. La ficha se mantiene mientras no

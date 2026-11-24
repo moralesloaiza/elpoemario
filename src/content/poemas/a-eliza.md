@@ -17,7 +17,7 @@ motivos:
 autor: jose-joaquin-de-olmedo
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¿No ves cuán pronto por la azul esfera

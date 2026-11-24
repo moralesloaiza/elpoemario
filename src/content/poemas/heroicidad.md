@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Heroicidad"
 resumen: "Un borracho jura no beber más, resiste la invitación de un amigo y celebra tanto su heroísmo que entra a premiarse con un trago."
 fecha: 2011-10-28
@@ -13,6 +13,7 @@ temas:
 autor: ricardo-palma
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 — ¡No bebo más! ¡No bebo!—repetía

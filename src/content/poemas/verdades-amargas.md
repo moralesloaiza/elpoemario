@@ -17,6 +17,7 @@ motivos:
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: "*Verdades amargas* permanece catalogado como
   [anónimo](https://elpoemario.com/autores/anonimo/). La atribución más repetida
   en la tradición oral y editorial hispanoamericana señala al poeta hondureño

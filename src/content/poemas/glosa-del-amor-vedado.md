@@ -19,7 +19,7 @@ motivos:
 autor: hector-guillermo-villalobos
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 nota_curador: >-
   Hay poemas que uno no escribe y, sin embargo, dicen lo suyo mejor de lo que
   uno sabría decirlo.

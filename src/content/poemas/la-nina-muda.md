@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La niña muda"
 resumen: "El galán habla y habla a una muchacha que solo sonríe; cuando le pregunta si es muda, la hiere, y ella lo mira a través del llanto."
 fecha: 2012-01-09
@@ -16,6 +16,7 @@ motivos:
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 La vi sentada sobre el duro banco

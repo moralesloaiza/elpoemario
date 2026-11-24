@@ -66,7 +66,7 @@ console.log('\n— SILVA / MADRIGAL —');
 t('silva de Palma (14 v.)', forma(texto('la-poesia.md')), 'Silva');
 t('silva de Olmedo (29 v.)', forma(texto('a-eliza.md')), 'Silva');
 t('silva de Machado (30 v.)', forma(texto('a-un-olmo-seco.md')), 'Silva');
-t('silva larga de Bello (373 v.)', forma(texto('la-agricultura-de-la-zona-tórrida.md')), 'Silva');
+t('silva larga de Bello (373 v.)', forma(texto('la-agricultura-de-la-zona-torrida.md')), 'Silva');
 t('madrigal de Cetina (8 v.)', forma(texto('a-unos-ojos.md')), (r) => /^Madrigal/.test(r));
 
 console.log('\n— SILVA: NEGATIVOS —');

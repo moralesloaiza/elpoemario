@@ -13,7 +13,7 @@ motivos:
   - beso
   - boca
 autor: alejandro-de-morales-y-loaiza
-curador: Alejandro de Morales y Loaiza
+curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 nota_curador: "**\\*«Un silencio diferente a todos los demás silencios».**

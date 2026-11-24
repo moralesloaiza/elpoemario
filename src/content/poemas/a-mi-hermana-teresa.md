@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "A mi hermana Teresa"
 resumen: "Seis años de destierro contados a la hermana desde la orilla del Hudson, con la duda final de si ella todavía se acuerda de él."
 fecha: 2011-10-28
@@ -20,6 +20,7 @@ motivos:
 autor: miguel-teurbe-y-tolon
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 **I**

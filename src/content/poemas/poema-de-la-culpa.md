@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Poema de la culpa"
 resumen: "«Poema de la culpa», de José Ángel Buesa: el amante pide a Dios que perdone a la mujer ajena y le devuelve la culpa de haberla hecho tan bella."
 fecha: 2011-10-27
@@ -16,6 +16,7 @@ motivos:
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Yo la amé, y era de otro que también la quería.

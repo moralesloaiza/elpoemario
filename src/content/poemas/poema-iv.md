@@ -15,7 +15,7 @@ motivos:
   - amada
   - yo-lirico
 autor: alejandro-de-morales-y-loaiza
-curador: Alejandro de Morales y Loaiza
+curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 nota_curador: El poema cuarto está dedicado al amor imposible; a la suerte del
