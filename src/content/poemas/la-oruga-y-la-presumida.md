@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La oruga y la presumida"
 resumen: "Fábula en redondillas: la oruga responde a la joven que la desprecia que su fealdad no es eterna, y que a ella la hizo mariposa el tocador."
 fecha: 2011-11-10

@@ -1,9 +1,7 @@
 ---
 nombre: Alfonsina Storni
 tipo: clasico
-descripcion: Biografía de Alfonsina Storni, poeta argentina del posmodernismo,
-  autora de *Tú me quieres blanca*, *Ocre*, *Mundo de siete pozos* y *Voy a
-  dormir*.
+descripcion: Poeta argentina del posmodernismo, autora de «Tú me quieres blanca».
 nacionalidad: Argentina
 nacimiento: 1892
 muerte: 1938

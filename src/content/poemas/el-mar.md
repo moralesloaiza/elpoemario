@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "El mar"
 resumen: "Soneto al mar: sereno o desatado en tempestad, imagen de Dios por su abismo y hechura suya por su grandeza."
 fecha: 2011-11-03

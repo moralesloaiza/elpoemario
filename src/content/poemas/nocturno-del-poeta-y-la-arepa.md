@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Nocturno del poeta y la arepa"
 resumen: "«Nocturno del poeta y la arepa», de Aquiles Nazoa: nada abierto en la ciudad de noche, hasta que el hambre convierte la luna en arepa rellena de estrellas."
 fecha: 2012-01-03

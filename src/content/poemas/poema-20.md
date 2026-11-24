@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Poema 20"
 resumen: "«Puedo escribir los versos más tristes esta noche», poema 20 de Pablo Neruda (Veinte poemas de amor, 1924): el amor corto y el olvido largo."
 fecha: 2012-01-07

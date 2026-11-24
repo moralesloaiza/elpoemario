@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Una cena"
 resumen: "«Una cena», de Baltasar del Alcázar: el cuento de don Lope de Sosa se interrumpe una y otra vez por el vino y la morcilla, y queda para mañana."
 fecha: 2011-11-15

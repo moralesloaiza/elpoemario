@@ -1,8 +1,7 @@
 ---
 nombre: Amado Nervo
 tipo: clasico
-descripcion: Biografía de Amado Nervo, poeta mexicano del modernismo, autor de
-  En paz, La amada inmóvil, Serenidad y Elevación.
+descripcion: Poeta modernista mexicano, autor de «La amada inmóvil».
 nacionalidad: México
 nacimiento: 1870
 muerte: 1919

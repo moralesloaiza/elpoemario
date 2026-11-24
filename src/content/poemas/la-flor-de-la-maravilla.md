@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La flor de la Maravilla"
 resumen: "«Aprended, flores, de mí», letrilla de Luis de Góngora: la maravilla, que nace con el alba y muere con la noche, da lección a las demás flores."
 fecha: 2011-11-16

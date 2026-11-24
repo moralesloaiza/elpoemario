@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Así te amo"
 resumen: "Tres estrofas sobre un amor que anula el mundo: cuando se quiere así, la razón no resiste y el amado se vuelve norma de cuanto existe."
 fecha: 2011-10-26

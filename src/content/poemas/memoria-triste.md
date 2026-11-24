@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Memoria triste"
 resumen: "Desde tierra extranjera, el poeta llama a los años en que el porvenir era sueño de oro y hasta la pena sabía sonreír."
 fecha: 2012-02-17

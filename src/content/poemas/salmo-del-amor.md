@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Salmo del amor"
 resumen: "«Salmo del amor», de Eduardo Marquina: una bendición repetida verso a verso, que alcanza incluso a quien lo esquive y al asesino que la hiera."
 fecha: 2012-01-03

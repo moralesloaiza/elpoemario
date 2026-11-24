@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Pero más dulce"
 resumen: "El devoto interrumpe el rezo para besar a una mujer; Jesús le dice que eso no es pecado, y el segundo beso le vale un insulto y más dulzura."
 fecha: 2011-10-27

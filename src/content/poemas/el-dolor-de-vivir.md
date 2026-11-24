@@ -15,7 +15,7 @@ motivos:
 autor: luis-ramon-landaeta
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro Morales LOaiza
+nombre_real: Alejandro Morales Loaiza
 ---
 > La poesía es un destino.\
 > —Vicente Alexander.

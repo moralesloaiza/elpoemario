@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La barquilla"
 resumen: "«Pobre barquilla mía», de Lope de Vega: la barca rota que se engolfa en alta mar, advertida de que presumir de nave ocasiona fortunas."
 fecha: 2011-11-15

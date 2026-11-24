@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Un narigudo"
 resumen: "«Érase un hombre a una nariz pegado», de Francisco de Quevedo: catorce definiciones burlescas de una nariz descomunal, del reloj de sol a las Doce Tribus."
 fecha: 2011-11-15

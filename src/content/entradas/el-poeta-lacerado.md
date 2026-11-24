@@ -5,7 +5,6 @@ tipo: bitacora
 curador: "Don Alejandro"
 borrador: true
 ---
-
 Soy hombre porque soy libre,
 
 Y soy libre porque he decidido

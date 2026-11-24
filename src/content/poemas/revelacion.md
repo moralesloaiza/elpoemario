@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Revelación"
 resumen: "Una noche junto al río el poeta grita que la quiere y el eco lo lleva hasta el pinar; después calla, y solo lo saben el agua y una flor."
 fecha: 2011-10-27

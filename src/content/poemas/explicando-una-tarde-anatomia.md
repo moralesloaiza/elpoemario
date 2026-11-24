@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Explicando una tarde anatomía"
 resumen: "Un profesor de anatomía interrumpe la clase para decir que su hija lo abandonó y que se vive sin corazón; un alumno responde que él lo tiene."
 fecha: 2011-10-27

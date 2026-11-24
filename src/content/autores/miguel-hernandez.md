@@ -1,9 +1,7 @@
 ---
 nombre: Miguel Hernández
 tipo: clasico
-descripcion: Biografía de Miguel Hernández, poeta español de la Generación del
-  27, autor de *El rayo que no cesa*, *Viento del pueblo* y *Nanas de la
-  cebolla*.
+descripcion: Poeta español de la generación del 27, autor de «El rayo que no cesa».
 nacionalidad: España
 nacimiento: 1910
 muerte: 1942

@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Maternidad"
 resumen: "«Maternidad», de José Pedroni: los nueve meses vistos desde el hombre que espera, hasta el día en que ella se rompe cargada como una rama al viento."
 fecha: 2011-10-27

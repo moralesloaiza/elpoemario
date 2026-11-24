@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Penas y alegrías del amor"
 resumen: "«Penas y alegrías del amor», de Rafael de León: el amor de un hombre casado, separado de ella por un muro de silencio que el pueblo ronda."
 fecha: 2011-10-30

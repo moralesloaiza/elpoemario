@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "No era amor"
 resumen: "No era amor sino mirar sus ojos sin decir nada: dos ciegos que se dan la mano, y la tristeza final de que nadie llegara a creerlo."
 fecha: 2011-10-30

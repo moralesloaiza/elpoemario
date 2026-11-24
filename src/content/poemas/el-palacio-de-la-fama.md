@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "El palacio de la fama"
 resumen: "Tres octavas reales sobre el castillo de la Fama, cimentado en aire y palabras, único lugar que la muerte no ha podido escalar."
 fecha: 2011-11-15

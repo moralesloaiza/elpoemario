@@ -21,7 +21,7 @@ motivos:
 autor: garcilaso-de-la-vega
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 ---
    En tanto que de rosa y azucena
 se muestra la color en vuestro gesto,

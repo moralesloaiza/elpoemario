@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Romance de la luna, luna"
 resumen: "«Romance de la luna, luna», de Federico García Lorca (Romancero gitano, 1928): la luna entra en la fragua a bailar y se lleva al niño de la mano."
 fecha: 2011-10-27

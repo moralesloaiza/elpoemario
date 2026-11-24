@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Rutina"
 resumen: "«Rutina», de Rafael Cadenas (Falsas maniobras, 1966): el que se deshace y se rearma a golpes, con métodos de ensamblaje, hasta volver a su tamaño natural."
 fecha: 2011-11-24

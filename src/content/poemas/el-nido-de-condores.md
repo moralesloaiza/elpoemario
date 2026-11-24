@@ -23,7 +23,7 @@ motivos:
 autor: olegario-victor-andrade
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 ---
 ## I
 

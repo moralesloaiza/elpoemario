@@ -9,7 +9,7 @@ resumen: «Los buenos poetas son pocos, y sería necio suponer que, por el hecho
   pero no verdadera poesía, por carecer de la necesaria inspiración».
 ilustracion: ../../assets/uploads/entrada-por-que-debemos-leer-a-los-poetas.png
 borrador: false
-curador: El tesoro de la juventud o Enciclopedia de conocimientos
+curador: El tesoro de la juventud
 es_seudonimo: false
 nombre_real: ""
 tipo: bitacora
