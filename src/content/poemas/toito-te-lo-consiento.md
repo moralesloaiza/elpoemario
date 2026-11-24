@@ -1,5 +1,5 @@
 ---
-titulo: Toíto te lo consiento
+titulo: Menos faltarle a mi mare
 fecha: 2026-11-23
 borrador: true
 tipo: romance

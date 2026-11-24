@@ -2,7 +2,7 @@
 titulo: Echando cocos
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: decima
 movimiento: contemporaneo
 temas:
   - humor
@@ -33,7 +33,7 @@ Palomo frunce la cara.
 Su voz me revienta clara
 cuando a servir lo provoco:
 ¡Si eso no parece un coco
-si no una pobre tapara…!
+sino una pobre tapara…!
 
 El puño en guardia retiro
 para caerle al contrario.

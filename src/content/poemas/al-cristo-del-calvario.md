@@ -1,5 +1,5 @@
 ---
-titulo: Al Cristo del Calvario
+titulo: Oración al Cristo del Calvario
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre

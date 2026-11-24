@@ -2,7 +2,7 @@
 titulo: Galerón de la negra Juana María
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: romance
 movimiento: contemporaneo
 temas:
   - alegria
@@ -44,7 +44,7 @@ sostenes con almidón…
 Cintura de cuatro nuevo
 sonando de son a son,
 al pie del arpa sacude
-la canta y el camisón;
+la manta y el camisón;
 anima el contrapunteo,
 apura el trago de ron,
 y todo el patio llanero

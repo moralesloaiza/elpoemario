@@ -1,5 +1,5 @@
 ---
-titulo: Ya no
+titulo: Ya no será
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre
@@ -46,6 +46,6 @@ No me abrazarás nunca
 como esa noche
 nunca.
 
-No volverá a tocarte.
+No volveré a tocarte.
 
 No te veré morir.

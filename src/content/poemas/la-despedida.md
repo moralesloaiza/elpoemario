@@ -1,8 +1,8 @@
 ---
-titulo: La despedida
+titulo: Poema de la despedida
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - desamor
@@ -11,7 +11,7 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 ---
-Te digo adiós, y si acaso te quiero todavía.
+Te digo adiós, si acaso te quiero todavía.
 Quizás no he de olvidarte, pero te digo adiós.
 No sé si me quisiste… No sé si te quería…
 O tal vez nos quisimos demasiado los dos.

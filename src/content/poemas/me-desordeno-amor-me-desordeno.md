@@ -24,7 +24,7 @@ me desordeno, amor, me desordeno.
 
 Y mi suerte de fruta respetada
 arde en tu mano lúbrica y turbada
-como una mal promesa de veneno;
+como una mala promesa de veneno;
 
 y aunque quiero besarte arrodillada,
 cuando voy en tu boca, demorada,
