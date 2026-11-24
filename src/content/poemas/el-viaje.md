@@ -12,4 +12,20 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 ---
-[Texto pendiente]
+Solo quiero tu casa de ternura,
+vivir en su calor.
+Eres el mar y la orilla segura
+porque el único viaje es el amor.
+
+Reconocer tu alma, qué aventura
+de mágico sabor.
+Allí tendré profundidad y altura
+porque el único viaje es el amor.
+
+Besos desconocidos como puertos
+esperan bajo un cielo de mirada.
+—Lo demás es dolor.
+
+Hoy vuelvo de países que están muertos,
+después de un mar que no me dijo nada,
+porque el único viaje es el amor.
