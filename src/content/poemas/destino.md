@@ -36,6 +36,6 @@ el reflejo del tigre.
 
 El ciervo bebe el agua y la imagen. Se vuelve
 —antes que lo devoren— (cómplice, fascinado)
-Igual a su enemigo.
+igual a su enemigo.
 
 Damos la vida solo a lo que odiamos.
