@@ -1,6 +1,6 @@
 ---
 titulo: Sobre los amores sublimes
-fecha: 2025-08-12
+fecha: 2013-01-01
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true
