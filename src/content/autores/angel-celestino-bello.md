@@ -8,6 +8,7 @@ muerte: 1963
 siglo: 20
 lugar_nacimiento: El Chaparro, Anzoátegui, Venezuela
 lugar_muerte: Barcelona, Anzoátegui, Venezuela
+imagen: ../../assets/uploads/autor-angel-celestino-bello.png
 ---
 Nació en El Chaparro, en el estado Anzoátegui, el 16 de diciembre de 1902, y empezó a escribir versos en 1918. Fue maestro en Anzoátegui, Caracas, La Guaira y Guárico, y periodista en los diarios de su región, donde publicó su obra. Su romance «Justo Brito y Juan Tabares» pasó del papel a la memoria del llano y todavía se recita y se canta.
 
