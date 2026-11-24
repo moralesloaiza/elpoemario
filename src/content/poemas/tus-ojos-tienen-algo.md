@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Tus ojos tienen algo"
 resumen: "Cinco estrofas que definen unos ojos por contrarios: júbilo y llanto, siempre y jamás, puerto y tempestad, bondad con algo de maldad."
 fecha: 2011-10-27
@@ -13,6 +13,7 @@ temas:
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Tus ojos tienen algo de lo que nunca llega,

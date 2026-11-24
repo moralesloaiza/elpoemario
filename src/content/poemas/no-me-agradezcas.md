@@ -17,9 +17,9 @@ motivos:
   - corazon
   - mar-figura
 autor: alejandro-de-morales-y-loaiza
-curador: El Fabulario
-es_seudonimo: false
-nombre_real: ""
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: ""
 ---
 Mujer, no me des las gracias por quererte,

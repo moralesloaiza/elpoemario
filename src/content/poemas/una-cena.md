@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Una cena"
 resumen: "«Una cena», de Baltasar del Alcázar: el cuento de don Lope de Sosa se interrumpe una y otra vez por el vino y la morcilla, y queda para mañana."
 fecha: 2011-11-15
@@ -16,6 +16,7 @@ motivos:
 autor: baltasar-del-alcazar
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
    En Jaén, donde resido,

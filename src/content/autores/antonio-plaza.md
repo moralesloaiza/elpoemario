@@ -1,8 +1,7 @@
 ---
 nombre: Antonio Plaza
 tipo: clasico
-descripcion: Biografía de Antonio Plaza, poeta romántico mexicano, autor del
-  célebre «Álbum del corazón» y del poema «A una ramera».
+descripcion: Poeta romántico mexicano, autor de «A una ramera».
 nacionalidad: México
 nacimiento: 1830
 muerte: 1882

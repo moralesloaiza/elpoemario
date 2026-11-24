@@ -13,6 +13,7 @@ temas:
 autor: gabriela-mistral
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: Agradecimiento especial a **Yini Capo Castro** y a la pequeña **Margot**.
 ---
 Velloncito de mi carne,

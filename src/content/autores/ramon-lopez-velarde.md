@@ -1,8 +1,7 @@
 ---
 nombre: Ramón López Velarde
 tipo: clasico
-descripcion: Biografía de Ramón López Velarde, poeta mexicano del posmodernismo,
-  autor de «La suave patria», «La sangre devota» y «Zozobra».
+descripcion: Poeta mexicano del posmodernismo, autor de «La suave patria».
 nacionalidad: México
 nacimiento: 1888
 muerte: 1921

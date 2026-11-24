@@ -16,6 +16,7 @@ motivos:
 autor: jaime-sabines
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 En los ojos abiertos de los muertos

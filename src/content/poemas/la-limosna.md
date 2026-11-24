@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La limosna"
 resumen: "Lección a una hija sobre la limosna: quien la da recibe más que quien la pide, y la caridad termina siendo su propio galardón."
 fecha: 2011-10-28
@@ -16,6 +16,7 @@ motivos:
 autor: lazaro-maria-perez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Oye, hija mía: cuando el pobre toca

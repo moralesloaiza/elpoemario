@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Hermosa poesía para recitársela a papaíto en el día del Padre"
 resumen: "Homenaje paródico al padre en su día: cada elogio se desmiente con el recuerdo de sus borracheras, y la poesía se escribe desde la policía."
 fecha: 2012-01-28
@@ -13,6 +13,7 @@ motivos:
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Hoy día de los Padres, papaíto quisiera

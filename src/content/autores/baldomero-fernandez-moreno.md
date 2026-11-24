@@ -1,8 +1,7 @@
 ---
 nombre: Baldomero Fernández Moreno
 tipo: clasico
-descripcion: Biografía de Baldomero Fernández Moreno, poeta argentino del
-  sencillismo, autor de «Setenta balcones y ninguna flor».
+descripcion: Poeta argentino del sencillismo, autor de «Setenta balcones y ninguna flor».
 nacionalidad: Argentina
 nacimiento: 1886
 muerte: 1950

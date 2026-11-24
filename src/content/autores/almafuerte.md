@@ -1,8 +1,7 @@
 ---
 nombre: Almafuerte
 tipo: clasico
-descripcion: Biografía de Almafuerte (Pedro Bonifacio Palacios), poeta
-  argentino, autor de «¡Piu avanti!» y de una obra de acento moral y combativo.
+descripcion: Poeta argentino del siglo XIX, autor de «¡Piu avanti!».
 nacionalidad: Argentina
 nacimiento: 1854
 muerte: 1917

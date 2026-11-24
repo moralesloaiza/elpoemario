@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La hamaca"
 resumen: "Elogio burlón de la hamaca frente a los asuntos que cantan otros poetas: cetros, espadas y auroras, todos vencidos por el mecerse a la sombra."
 fecha: 2011-10-28
@@ -16,6 +16,7 @@ motivos:
 autor: jose-fernandez-madrid
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No canto los primores

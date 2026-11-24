@@ -8,7 +8,7 @@ resumen: «(...) El instinto poético, el sentimiento, tiene sus raíces en el
   diversos estados de ánimo, y ahí tuvo su origen la poesía».
 ilustracion: ../../assets/uploads/entrada-origen-de-la-poesia.png
 borrador: false
-curador: El tesoro de la juventud o Enciclopedia de conocimientos
+curador: El tesoro de la juventud
 es_seudonimo: false
 tipo: bitacora
 ---

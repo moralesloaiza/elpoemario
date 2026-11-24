@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Revelación"
 resumen: "Una noche junto al río el poeta grita que la quiere y el eco lo lleva hasta el pinar; después calla, y solo lo saben el agua y una flor."
 fecha: 2011-10-27
@@ -18,6 +18,7 @@ motivos:
 autor: jose-maria-peman
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Cómo volaba el pensamiento mío!…

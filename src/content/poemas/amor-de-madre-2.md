@@ -19,7 +19,7 @@ es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 nota_curador: >-
   Esta versión de la serie [Amor de
-  madre](https://elpoemario.com/entradas/el-largo-viaje-de-un-coraz%C3%B3n/)
+  madre](https://elpoemario.com/entradas/el-largo-viaje-de-un-corazon/)
   —que comienza «Rugiente pasión ardía…»— apareció de forma anónima en la
   revista mexicana La Familia (año IV, núm. 26, 24 de febrero de 1887). No es
   una traducción literal, sino una recreación libre en castellano del Amor de

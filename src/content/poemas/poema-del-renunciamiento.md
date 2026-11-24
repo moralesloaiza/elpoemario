@@ -16,7 +16,7 @@ motivos:
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true
-nombre_real: Alejandro de Morales y Loaiza
+nombre_real: Alejandro Morales Loaiza
 ---
 Pasarás por mi vida sin saber que pasaste.
 Pasarás en silencio por mi amor, y, al pasar,

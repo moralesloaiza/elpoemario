@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Canción del amor lejano"
 resumen: "«Canción del amor lejano», de José Ángel Buesa: no fue la más bella ni llegó a ser suya, y sin embargo a ninguna quiso como a ella."
 fecha: 2011-10-27
@@ -13,6 +13,7 @@ motivos:
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Ella no fue, entre todas, la más bella,

@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Rutina"
 resumen: "«Rutina», de Rafael Cadenas (Falsas maniobras, 1966): el que se deshace y se rearma a golpes, con métodos de ensamblaje, hasta volver a su tamaño natural."
 fecha: 2011-11-24
@@ -12,6 +12,7 @@ temas:
 autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-09-08
 nota_curador: "El texto de este poema llegó a la antología por aporte de Carlos Boom."
 ---

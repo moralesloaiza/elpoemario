@@ -18,6 +18,7 @@ motivos:
 autor: manuel-benitez-carrasco
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: ""
 ---
 

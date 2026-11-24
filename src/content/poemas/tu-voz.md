@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Tu voz"
 resumen: "Soneto a la primera vez que oyó su voz: quien escucha ese acento de dulzura llora, sonríe, se enternece y ama."
 fecha: 2012-02-11
@@ -14,6 +14,7 @@ motivos:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---

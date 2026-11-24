@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Penas y alegrías del amor"
 resumen: "«Penas y alegrías del amor», de Rafael de León: el amor de un hombre casado, separado de ella por un muro de silencio que el pueblo ronda."
 fecha: 2011-10-30
@@ -18,6 +18,7 @@ motivos:
 autor: rafael-de-leon-y-arias-de-saavedra
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Mira cómo se me pone

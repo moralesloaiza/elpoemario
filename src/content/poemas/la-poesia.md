@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "La poesía"
 resumen: "Receta burlesca para hacer versos: líneas de igual medida y consonantes en las puntas; lo difícil es lo del medio, que es poner talento."
 fecha: 2011-10-28
@@ -13,6 +13,7 @@ temas:
 autor: ricardo-palma
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 — ¿Es arte del demonio o brujería

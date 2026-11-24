@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Poema 15"
 resumen: "«Me gustas cuando callas», poema 15 de Pablo Neruda (Veinte poemas de amor, 1924): el silencio de ella, lejano y sencillo como una constelación."
 fecha: 2012-01-07
@@ -15,6 +15,7 @@ motivos:
 autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Me gustas cuando callas porque estás como ausente,

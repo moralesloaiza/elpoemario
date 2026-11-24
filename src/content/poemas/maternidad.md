@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Maternidad"
 resumen: "«Maternidad», de José Pedroni: los nueve meses vistos desde el hombre que espera, hasta el día en que ella se rompe cargada como una rama al viento."
 fecha: 2011-10-27
@@ -21,6 +21,7 @@ motivos:
 autor: jose-pedroni
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Mujer: en un silencio que me sabrá a ternura

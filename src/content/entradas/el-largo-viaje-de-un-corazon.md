@@ -11,7 +11,7 @@ resumen: "Una misma leyenda —el corazón arrancado de la madre que, caído en
 ilustracion: ../../assets/uploads/entrada-el-largo-viaje-de-un-corazon.png
 spotify_url: https://open.spotify.com/episode/3tXonSc5eYmJFNaXCrjbh8?si=S69cU0SSRXeY43DhmhZmmg
 borrador: false
-curador: Alejandro de Morales y Loaiza
+curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 tipo: bitacora

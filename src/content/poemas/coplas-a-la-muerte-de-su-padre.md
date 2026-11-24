@@ -24,6 +24,7 @@ motivos:
 autor: jorge-manrique
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 Recuerde el alma dormida,
 abive el seso y despierte,

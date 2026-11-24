@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Piececitos"
 resumen: "«Piececitos», de Gabriela Mistral: los pies del niño pobre, azules de frío y heridos por los guijarros, que las gentes cruzan sin ver."
 fecha: 2011-10-28
@@ -16,6 +16,7 @@ motivos:
 autor: gabriela-mistral
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Piececitos de niño,

@@ -21,9 +21,9 @@ motivos:
   - mano
   - nube
 autor: alejandro-de-morales-y-loaiza
-curador: Alejandro de Morales y Loaiza
-es_seudonimo: false
-nombre_real: ""
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: Titulada también «Raps-Oda del Marqués de Richmond».
 ---
 Nadie adora tanto la fragancia de las flores de un día

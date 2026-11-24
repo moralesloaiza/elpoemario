@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "Flores y nubes"
 resumen: "Diálogo de una hija con su madre sobre lo que dura: flores, nubes y amor se deshacen; solo quedan Dios en el cielo y el amor de madre."
 fecha: 2012-02-08
@@ -19,6 +19,7 @@ motivos:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---

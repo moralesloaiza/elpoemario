@@ -19,9 +19,9 @@ motivos:
   - mano
   - nube
 autor: alejandro-de-morales-y-loaiza
-curador: El Fabulario
-es_seudonimo: false
-nombre_real: ""
+curador: Don Alejandro
+es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 Mientras comía empanadas,
 mientras mis dientes hacían lunas en la superficie blanda,

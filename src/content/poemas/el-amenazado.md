@@ -1,4 +1,4 @@
-﻿---
+---
 titulo: "El amenazado"
 resumen: "«El amenazado», de Jorge Luis Borges (El oro de los tigres, 1972): el amor llega como un cerco y ni la erudición ni los hábitos sirven de talismán."
 fecha: 2011-11-01
@@ -14,6 +14,7 @@ motivos:
 autor: jorge-luis-borges
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: Poema en prosa, género que Borges practicó con regularidad a
   partir de *El hacedor* (1960). Agradecimiento especial a [José Alejandro
   Brito Boadas](http://www.chocolatesparalucia.com/).
