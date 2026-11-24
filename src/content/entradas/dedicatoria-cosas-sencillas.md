@@ -1,6 +1,6 @@
 ---
 titulo: Dedicatoria (cosas sencillas)
-fecha: 2012-01-21
+fecha: 2013-05-09
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true

@@ -1,6 +1,6 @@
 ---
 titulo: Confesiones nocturnas (IV)
-fecha: 2014-10-09
+fecha: 2013-05-09
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true

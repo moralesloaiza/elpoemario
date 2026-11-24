@@ -1,6 +1,6 @@
 ---
 titulo: Dedicatoria (amar castamente)
-fecha: 2012-03-22
+fecha: 2013-03-09
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true

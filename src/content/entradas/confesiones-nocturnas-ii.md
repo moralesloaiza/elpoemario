@@ -1,6 +1,6 @@
 ---
 titulo: Confesiones nocturnas (II)
-fecha: 2013-11-20
+fecha: 2013-07-09
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true

@@ -1,6 +1,6 @@
 ---
 titulo: Confesiones nocturnas (III)
-fecha: 2014-08-16
+fecha: 2013-04-08
 borrador: true
 curador: Don Alejandro
 es_seudonimo: true
