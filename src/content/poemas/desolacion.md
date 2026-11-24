@@ -50,4 +50,4 @@ La nieve es el semblante que asoma a mis cristales;
 Siempre ella, silenciosa, como la gran mirada
 de Dios sobre mí; siempre su azahar sobre mi casa;
 siempre, como el destino que ni mengua ni pasa,
-descenderá a cubrirme, terrible y extasiado.
+descenderá a cubrirme, terrible y extasiada.
