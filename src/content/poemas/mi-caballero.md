@@ -15,6 +15,7 @@ motivos:
 autor: jose-marti
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: "El texto de este poema llegó a la antología por aporte de Yini Capo Castro y Margot."
 ---
 

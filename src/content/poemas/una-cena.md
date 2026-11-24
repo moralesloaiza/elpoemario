@@ -16,6 +16,7 @@ motivos:
 autor: baltasar-del-alcazar
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
    En Jaén, donde resido,

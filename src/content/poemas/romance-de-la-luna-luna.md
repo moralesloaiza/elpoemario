@@ -19,6 +19,7 @@ motivos:
 autor: federico-garcia-lorca
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 La luna vino a la fragua

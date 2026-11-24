@@ -15,6 +15,7 @@ motivos:
 autor: luis-de-gongora
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 *Aprended, flores, de mí*

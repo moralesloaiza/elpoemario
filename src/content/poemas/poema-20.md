@@ -19,6 +19,7 @@ motivos:
 autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Puedo escribir los versos más tristes esta noche.

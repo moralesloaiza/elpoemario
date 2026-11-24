@@ -16,6 +16,7 @@ motivos:
 autor: bernardo-de-balbuena
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Entre la tierra, el cielo, el mar y el viento

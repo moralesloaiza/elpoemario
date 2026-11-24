@@ -13,6 +13,7 @@ temas:
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Tus ojos tienen algo de lo que nunca llega,

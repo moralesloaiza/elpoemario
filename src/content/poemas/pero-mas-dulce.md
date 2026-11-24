@@ -14,6 +14,7 @@ motivos:
 autor: carlos-borges
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Ante la imagen de Jesús rezaba

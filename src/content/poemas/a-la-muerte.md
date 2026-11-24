@@ -16,6 +16,7 @@ motivos:
 autor: adolfo-berro
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 EN vano, cruda Muerte,

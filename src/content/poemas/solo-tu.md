@@ -12,6 +12,7 @@ motivos:
 autor: cesar-casas-medina
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Amor como este amor nunca he sentido;

@@ -15,6 +15,7 @@ motivos:
 autor: juana-borrero
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Yo lo siento en mi alma!… Él me reanima

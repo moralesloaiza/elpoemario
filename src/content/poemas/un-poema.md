@@ -17,6 +17,7 @@ motivos:
 autor: jose-asuncion-silva
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Soñaba en ese entonces en forjar un poema,

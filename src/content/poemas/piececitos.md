@@ -16,6 +16,7 @@ motivos:
 autor: gabriela-mistral
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Piececitos de niño,

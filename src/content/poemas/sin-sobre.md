@@ -17,6 +17,7 @@ motivos:
 autor: juan-de-dios-peza
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Abro tu carta y reconozco ufano

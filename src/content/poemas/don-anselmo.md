@@ -15,6 +15,7 @@ motivos:
 autor: aquiles-nazoa
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Desde hace muchos años,

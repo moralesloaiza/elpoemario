@@ -12,6 +12,7 @@ temas:
 autor: rafael-cadenas
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-09-08
 nota_curador: "El texto de este poema llegó a la antología por aporte de Carlos Boom."
 ---

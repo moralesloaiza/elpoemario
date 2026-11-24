@@ -13,6 +13,7 @@ temas:
 autor: ramon-de-campoamor
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ## I

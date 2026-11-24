@@ -16,6 +16,7 @@ motivos:
 autor: jose-fernandez-madrid
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No canto los primores

@@ -16,6 +16,7 @@ motivos:
 autor: rafael-michelena-fortoul
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 La tarde está en nosotros, con un poco de bruma:

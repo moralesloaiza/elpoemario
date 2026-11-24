@@ -16,6 +16,7 @@ motivos:
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 No era amor, fue otra cosa;

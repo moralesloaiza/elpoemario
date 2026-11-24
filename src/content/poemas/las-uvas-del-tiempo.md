@@ -18,6 +18,7 @@ motivos:
 autor: andres-eloy-blanco
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Madre: esta noche se nos muere un año.

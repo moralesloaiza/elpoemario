@@ -16,6 +16,7 @@ motivos:
 autor: lazaro-maria-perez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Oye, hija mía: cuando el pobre toca

@@ -10,6 +10,7 @@ temas:
 autor: flora-delmis
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Cuando se quiere así como te quiero,

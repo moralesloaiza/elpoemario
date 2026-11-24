@@ -20,6 +20,7 @@ motivos:
 autor: miguel-teurbe-y-tolon
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 **I**

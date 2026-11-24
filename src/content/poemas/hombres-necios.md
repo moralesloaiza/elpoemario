@@ -18,6 +18,7 @@ motivos:
 autor: sor-juana-ines-de-la-cruz
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Hombres necios que acusáis

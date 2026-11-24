@@ -13,6 +13,7 @@ motivos:
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Hoy día de los Padres, papaíto quisiera

@@ -12,6 +12,7 @@ temas:
 autor: lope-de-vega
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Pobre, barquilla mía

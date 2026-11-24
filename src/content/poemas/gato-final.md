@@ -14,6 +14,7 @@ motivos:
 autor: juan-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "Publicado originalmente en «Luna de Neón». El texto llegó a la antología por aporte de Yini Capo Castro."
 ---

@@ -17,6 +17,7 @@ autor: nizar-qabbani
 traductor: alejandro-de-morales-y-loaiza
 curador: Don Alejandro
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 nota_curador: Traducción del inglés al español del año 2025. Para esta versión
   también se consultó con expertos del idioma árabe, para asegurarnos de que
   conservara la mayor fidelidad posible al original.

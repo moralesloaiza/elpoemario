@@ -21,6 +21,7 @@ motivos:
 autor: jose-pedroni
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Mujer: en un silencio que me sabrá a ternura

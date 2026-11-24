@@ -13,6 +13,7 @@ motivos:
 autor: jose-angel-buesa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Ella no fue, entre todas, la más bella,

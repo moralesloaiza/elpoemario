@@ -17,6 +17,7 @@ motivos:
 autor: eduardo-marquina
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Dios te bendiga, amor, porque eres bella!

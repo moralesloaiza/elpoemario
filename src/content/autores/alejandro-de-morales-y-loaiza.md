@@ -1,10 +1,7 @@
 ---
 nombre: Alejandro de Morales y Loaiza
 tipo: director
-descripcion: Alejandro de Morales y Loaiza (Maracaibo, 1985). Escritor, abogado
-  y locutor venezolano. Director de El Poemario, reúne su poesía inédita y
-  promueve la difusión de la literatura en español desde Quebec, donde reside
-  desde 2014.
+descripcion: Escritor, abogado y locutor venezolano, director de El Poemario.
 nacionalidad: Venezuela
 nacimiento: 1985
 siglo: 21

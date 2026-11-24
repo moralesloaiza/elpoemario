@@ -15,6 +15,7 @@ motivos:
 autor: pablo-neruda
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Me gustas cuando callas porque estás como ausente,

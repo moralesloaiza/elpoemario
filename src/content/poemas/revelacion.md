@@ -18,6 +18,7 @@ motivos:
 autor: jose-maria-peman
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 ¡Cómo volaba el pensamiento mío!…

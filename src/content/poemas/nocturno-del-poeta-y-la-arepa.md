@@ -18,6 +18,7 @@ motivos:
 autor: aquiles-nazoa
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Esta noche tiene hambre

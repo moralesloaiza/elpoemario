@@ -13,6 +13,7 @@ motivos:
 autor: rafael-maria-baralt
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Te admiro, ¡oh mar!, si la movible arena

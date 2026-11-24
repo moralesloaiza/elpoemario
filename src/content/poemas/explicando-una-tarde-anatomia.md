@@ -16,6 +16,7 @@ motivos:
 autor: eusebio-blasco
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Explicando una tarde anatomía

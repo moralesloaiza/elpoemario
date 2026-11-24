@@ -15,6 +15,7 @@ motivos:
 autor: francisco-de-quevedo
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Érase un hombre a una nariz pegado,

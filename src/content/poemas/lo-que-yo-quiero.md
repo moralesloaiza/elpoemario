@@ -19,6 +19,7 @@ motivos:
 autor: pedro-junco-jr
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 Lo que yo quiero

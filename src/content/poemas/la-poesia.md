@@ -13,6 +13,7 @@ temas:
 autor: ricardo-palma
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 — ¿Es arte del demonio o brujería

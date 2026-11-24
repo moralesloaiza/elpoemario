@@ -14,6 +14,7 @@ motivos:
 autor: juan-antonio-perez-bonalde
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 fecha_actualizada: 2026-08-13
 nota_curador: "El texto de este poema llegó a la antología por aporte de Flor María Fernández."
 ---

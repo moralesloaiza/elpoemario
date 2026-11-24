@@ -16,6 +16,7 @@ motivos:
 autor: ernesto-luis-rodriguez
 curador: "Don Alejandro"
 es_seudonimo: true
+nombre_real: Alejandro Morales Loaiza
 ---
 
 La vi sentada sobre el duro banco
