@@ -2,7 +2,7 @@
 titulo: El amor que calla
 fecha: 2026-11-23
 borrador: true
-tipo: verso-libre
+tipo: serventesio
 movimiento: modernismo
 temas:
   - amor
@@ -11,4 +11,17 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 ---
-[Texto pendiente]
+Si yo te odiara, mi odio te daría
+en las palabras, rotundo y seguro;
+pero te amo y mi amor no se confía
+a este hablar de los hombres, tan oscuro.
+
+Tú lo quisieras vuelto en alarido,
+y viene de tan hondo que ha deshecho
+su quemante raudal, desfallecido,
+antes de la garganta, antes del pecho.
+
+Estoy lo mismo que estanque colmado
+y te parezco un surtidor inerte.
+¡Todo por mi callar atribulado
+que es más atroz que el entrar en la muerte!
