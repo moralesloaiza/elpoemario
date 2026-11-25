@@ -2,6 +2,7 @@
 titulo: El poeta lacerado
 resumen: "Breve afirmación de libertad: el poeta se reconoce hombre y libre por haber elegido someterse a un dolor interminable."
 fecha: 2011-11-01
+ilustracion: ../../assets/uploads/poema-el-poeta-lacerado.png
 borrador: false
 tipo: verso-libre
 temas:

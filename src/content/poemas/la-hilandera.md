@@ -2,6 +2,7 @@
 titulo: La hilandera
 resumen: "«La hilandera», de Andrés Eloy Blanco: un hombre herido pide una venda que le ciegue el mundo, y son las lágrimas las que se lo devuelven."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-la-hilandera.png
 borrador: false
 tipo: romance
 movimiento: modernismo

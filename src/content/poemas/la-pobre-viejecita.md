@@ -2,6 +2,7 @@
 titulo: La pobre viejecita
 resumen: "«La pobre viejecita», de Rafael Pombo: la anciana rica que nunca tiene nada, cuento en verso para niños que se burla de la queja sin motivo."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-la-pobre-viejecita.png
 borrador: false
 tipo: romance
 movimiento: romanticismo

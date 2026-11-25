@@ -2,6 +2,7 @@
 titulo: El galante milagro
 resumen: "«El galante milagro», de Alfredo Arvelo Larriva: Jesús, de incógnito, consuela a una pastora morena dándole los rizos rubios y los ojos azules que su zagal desea."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-el-galante-milagro.png
 borrador: false
 tipo: soneto
 movimiento: modernismo

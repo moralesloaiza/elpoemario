@@ -2,6 +2,7 @@
 titulo: Palabreo de la loca Luz Caraballo
 resumen: "«Palabreo de la loca Luz Caraballo», de Andrés Eloy Blanco: una pastora del páramo andino cuenta con los dedos los hijos que perdió, hasta que solo le quedan los luceros."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-palabreo-de-la-loca-luz-caraballo.png
 borrador: false
 tipo: decima
 movimiento: modernismo

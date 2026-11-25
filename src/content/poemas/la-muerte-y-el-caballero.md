@@ -2,6 +2,7 @@
 titulo: La muerte y el caballero
 resumen: "«La muerte y el caballero», de Andrés Eloy Blanco: el madero que el Niño Jesús cargó de niño vuelve a ser cruz y caballo en el Calvario."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-la-muerte-y-el-caballero.png
 borrador: false
 tipo: copla
 movimiento: modernismo

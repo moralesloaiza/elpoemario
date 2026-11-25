@@ -2,6 +2,7 @@
 titulo: Flor
 resumen: "«Flor», de Juan Antonio Pérez Bonalde: elegía a la hija muerta, de la alegría que lo explicaba todo a la duda que ya no encuentra respuesta."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-flor.png
 borrador: false
 tipo: polimetrico
 movimiento: modernismo

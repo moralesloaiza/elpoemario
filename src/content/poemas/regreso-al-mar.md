@@ -2,6 +2,7 @@
 titulo: Regreso al mar
 resumen: "«Regreso al mar», de Andrés Eloy Blanco: soneto que vuelve al mar como al lugar donde mejor se quiere, entre el beso y el abismo."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-regreso-al-mar.png
 borrador: false
 tipo: soneto
 movimiento: modernismo

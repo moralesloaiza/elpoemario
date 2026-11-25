@@ -2,6 +2,7 @@
 titulo: El seminarista de los ojos negros
 resumen: "«El seminarista de los ojos negros», de Miguel Ramos Carrión: desde su ventana de Salamanca, una muchacha ama en silencio a un seminarista y lo sigue esperando ya anciana."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-el-seminarista-de-los-ojos-negros.png
 borrador: false
 tipo: romance
 movimiento: realismo

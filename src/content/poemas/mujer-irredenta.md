@@ -2,6 +2,7 @@
 titulo: Mujer irredenta
 resumen: "«Mujer irredenta», de Gioconda Belli: la poeta responde a quienes le exigen callar el deseo al envejecer y celebra la delicia y la fertilidad de los cuerpos otoñales."
 fecha: 2026-11-25
+ilustracion: ../../assets/uploads/poema-mujer-irredenta.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

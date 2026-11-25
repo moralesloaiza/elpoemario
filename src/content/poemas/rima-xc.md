@@ -2,6 +2,7 @@
 titulo: Rima XC
 resumen: "«Rima XC», atribuida a Gustavo Adolfo Bécquer: la vida es un sueño febril y breve; mejor sería uno largo, soñado hasta la muerte con el amor de los dos."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-rima-xc.png
 borrador: false
 tipo: silva
 movimiento: romanticismo
