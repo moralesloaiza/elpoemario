@@ -1,13 +1,18 @@
 ---
 titulo: El brindis del bohemio
 resumen: "«El brindis del bohemio», de Guillermo Aguirre y Fierro: en una cantina, la última noche del año, seis bohemios brindan por el amor, el olvido o el placer, hasta que uno brinda por su madre y todos callan."
-fecha: 2026-11-23
-borrador: true
+fecha: 2026-11-25
+borrador: false
 tipo: silva
 movimiento: modernismo
 temas:
   - amistad
   - familia
+  - tiempo
+motivos:
+  - noche
+  - estrella
+  - corazon
 autor: guillermo-aguirre-y-fierro
 curador: Don Alejandro
 es_seudonimo: true

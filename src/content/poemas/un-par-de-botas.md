@@ -9,6 +9,8 @@ temas:
   - justicia
   - infancia
   - trabajo
+motivos:
+  - mano
 autor: anonimo
 curador: Don Alejandro
 es_seudonimo: true

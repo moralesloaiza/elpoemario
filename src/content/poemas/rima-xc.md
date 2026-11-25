@@ -10,6 +10,9 @@ temas:
   - amor
   - muerte
   - tiempo
+motivos:
+  - yo-lirico
+  - amada
 autor: gustavo-adolfo-becquer
 curador: Don Alejandro
 es_seudonimo: true
