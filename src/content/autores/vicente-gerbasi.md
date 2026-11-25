@@ -8,6 +8,7 @@ muerte: 1992
 siglo: 20
 lugar_nacimiento: Canoabo, Venezuela
 lugar_muerte: Caracas, Venezuela
+imagen: ../../assets/uploads/autor-vicente-gerbasi.png
 ---
 Nació en Canoabo, Carabobo, en 1913, hijo de inmigrantes italianos. En 1937 fundó el grupo Viernes, una de las agrupaciones poéticas más notorias de Venezuela, y publicó *Vigilia del náufrago*. Es uno de los grandes nombres de la lírica de vanguardia en su país y autor de «Mi padre, el inmigrante».
 

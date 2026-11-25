@@ -8,6 +8,7 @@ muerte: 1945
 siglo: 20
 lugar_nacimiento: Etchevarría, Canelones, Uruguay
 lugar_muerte: Montevideo, Uruguay
+imagen: ../../assets/uploads/autor-juan-pedro-lopez.png
 ---
 Nació en 1885 en Etchevarría, en el departamento de Canelones, hijo de inmigrantes pobres, y apenas tuvo escuela primaria. Huérfano joven, se fue a Montevideo, trabajó en un saladero y se instaló en la Villa del Cerro. Fue payador: poeta del canto improvisado y de la décima dicha en voz alta.
 
