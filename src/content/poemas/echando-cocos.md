@@ -1,11 +1,13 @@
 ---
 titulo: Echando cocos
-fecha: 2026-11-23
-borrador: true
+resumen: "«Echando cocos», de Ernesto Luis Rodríguez: en décimas criollas, el narrador vence a cabezazos a Juan Palomo en la pulpería y luego se ufana ante la mujer del vencido."
+fecha: 2026-11-25
+borrador: false
 tipo: decima
 movimiento: contemporaneo
 temas:
   - humor
+  - deseo
 autor: ernesto-luis-rodriguez
 curador: Don Alejandro
 es_seudonimo: true

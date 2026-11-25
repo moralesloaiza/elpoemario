@@ -1,11 +1,17 @@
 ---
 titulo: Mujer irredenta
-fecha: 2026-11-23
-borrador: true
+resumen: "«Mujer irredenta», de Gioconda Belli: la poeta responde a quienes le exigen callar el deseo al envejecer y celebra la delicia y la fertilidad de los cuerpos otoñales."
+fecha: 2026-11-25
+borrador: false
 tipo: verso-libre
 movimiento: contemporaneo
 temas:
   - identidad
+  - deseo
+  - vejez
+  - libertad
+motivos:
+  - yo-lirico
 autor: gioconda-belli
 curador: Don Alejandro
 es_seudonimo: true

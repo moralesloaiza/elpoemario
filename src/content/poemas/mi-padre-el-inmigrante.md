@@ -1,13 +1,20 @@
 ---
 titulo: Mi padre, el inmigrante
-fecha: 2026-11-23
-borrador: true
+resumen: "«Mi padre, el inmigrante», de Vicente Gerbasi: poema en treinta cantos que evoca al padre llegado de Italia a Venezuela y medita sobre el origen, la noche y la muerte."
+fecha: 2026-11-25
+borrador: false
 tipo: verso-libre
 movimiento: vanguardia
 temas:
   - memoria
   - exilio
   - familia
+  - muerte
+motivos:
+  - noche
+  - sangre
+  - mar-figura
+  - rio
 autor: vicente-gerbasi
 curador: Don Alejandro
 es_seudonimo: true

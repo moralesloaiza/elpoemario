@@ -2,6 +2,7 @@
 titulo: Justo Brito y Juan Tabares
 resumen: "«Justo Brito y Juan Tabares», de Ángel Celestino Bello: un desaire en un baile llanero termina, años después, en un duelo a peinilla del que ninguno sale vivo."
 fecha: 2026-11-23
+fecha_actualizada: 2026-11-25
 borrador: false
 tipo: romance
 movimiento: popular-tradicional
@@ -16,6 +17,7 @@ autor: angel-celestino-bello
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
+nota_curador: "Todas las versiones que circulan pierden un verso tras «no se dijeron palabras»; lo suplimos con «ni se mentaron la madre», como lo recuerdan algunos lectores, aunque no consta en ninguna edición."
 ---
 Justo Brito y Juan Tabare,
 hombres de vera y peinilla
@@ -58,7 +60,8 @@ Justo Brito y Juan Tabare.
 
 Al mirarse frente a frente,
 les templó el rencor la sangre;
-no se dijeron palabras,
+no se dijeron palabras
+ni se mentaron la madre,
 y en el furor de la lucha
 las peinillas azarientas
 casi cortaban el aire.

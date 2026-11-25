@@ -1,12 +1,18 @@
 ---
 titulo: ¡Me desordeno, amor, me desordeno!
-fecha: 2026-11-23
-borrador: true
+resumen: "«¡Me desordeno, amor, me desordeno!», de Carilda Oliver Labra: soneto en que la amante confiesa cómo el deseo la desordena al besar al amado."
+fecha: 2026-11-25
+borrador: false
 tipo: soneto
 movimiento: contemporaneo
 temas:
   - amor
   - deseo
+motivos:
+  - amado
+  - boca
+  - mano
+  - beso
 autor: carilda-oliver-labra
 curador: Don Alejandro
 es_seudonimo: true

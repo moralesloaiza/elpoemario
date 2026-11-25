@@ -1,11 +1,17 @@
 ---
 titulo: Poema de la despedida
-fecha: 2026-11-23
-borrador: true
+resumen: "«Poema de la despedida», de José Ángel Buesa: adiós definitivo a un amor del que no se sabe si fue mucho o poco, pero en el que se seguirá pensando toda la vida."
+fecha: 2026-11-25
+borrador: false
 tipo: serventesio
 movimiento: modernismo
 temas:
   - desamor
+  - memoria
+  - ausencia
+motivos:
+  - amada
+  - corazon
 autor: jose-angel-buesa
 curador: Don Alejandro
 es_seudonimo: true
