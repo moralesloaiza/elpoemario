@@ -2,6 +2,8 @@
 titulo: Coloquio bajo el olivo
 resumen: "«Coloquio bajo el olivo», de Andrés Eloy Blanco: un padre rechaza todo odio de raza o de linaje y pide al hijo no cobrar a los hijos la culpa del padre."
 fecha: 2026-11-25
+ilustracion: ../../assets/uploads/poema-coloquio-bajo-el-olivo.png
+foco: 15
 borrador: false
 tipo: romance
 movimiento: modernismo
