@@ -1,5 +1,6 @@
 ---
 titulo: Ya no será
+resumen: "«Ya no será», de Idea Vilariño: la enumeración de todo lo que ya no será con el amado, desde la vida en común hasta saber quién fue el otro, ni verlo morir."
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre

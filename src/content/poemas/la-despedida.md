@@ -1,5 +1,6 @@
 ---
 titulo: Poema de la despedida
+resumen: "«Poema de la despedida», de José Ángel Buesa: adiós definitivo a un amor del que no se sabe si fue mucho o poco, pero en el que se seguirá pensando toda la vida."
 fecha: 2026-11-23
 borrador: true
 tipo: serventesio

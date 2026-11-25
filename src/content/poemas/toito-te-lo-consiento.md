@@ -1,5 +1,6 @@
 ---
 titulo: Menos faltarle a mi mare
+resumen: "«Toíto te lo consiento», de Rafael de León: con una copla por soleares, un hombre advierte a su mujer que le consiente todo menos que ofenda a su madre."
 fecha: 2026-11-23
 borrador: true
 tipo: romance

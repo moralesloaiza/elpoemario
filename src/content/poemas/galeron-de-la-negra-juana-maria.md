@@ -1,5 +1,6 @@
 ---
 titulo: Galerón de la negra Juana María
+resumen: "«Galerón de la negra Juana María», de Ernesto Luis Rodríguez: retrato de la negra Juana María, comparada con la palma, el fogón y los frutos del llano, que baila el joropo sin dar razón a nadie."
 fecha: 2026-11-23
 borrador: true
 tipo: romance

@@ -1,5 +1,6 @@
 ---
 titulo: El viaje
+resumen: "«El viaje», de María Elena Walsh: la amante solo quiere la casa del amado, porque, tras países muertos y mares que no dicen nada, el único viaje es el amor."
 fecha: 2026-11-23
 borrador: true
 tipo: soneto

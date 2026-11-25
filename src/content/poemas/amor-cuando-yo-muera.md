@@ -1,5 +1,6 @@
 ---
 titulo: Amor, cuando yo muera
+resumen: "«Amor, cuando yo muera», de Aquiles Nazoa: en tono burlón, el poeta pide a su amada que no le haga un velorio de viuda llorona y lo deje ser «un muerto distinto»."
 fecha: 2026-11-23
 borrador: true
 tipo: pareado

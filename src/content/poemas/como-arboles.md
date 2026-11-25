@@ -1,5 +1,6 @@
 ---
 titulo: Como árboles
+resumen: "«Como árboles», de Mario Benedetti: el poeta reconoce en los personajes de sus poemas a otros que lo ampararon como árboles y en los que, a la vez, está él mismo."
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre

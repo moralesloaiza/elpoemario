@@ -1,5 +1,6 @@
 ---
 titulo: Nodriza
+resumen: "«Nodriza», de Aurelio Arturo: el poeta recuerda a su nodriza negra, confundida con la noche, y las palabras y relatos suyos que aún le vuelven en el silencio."
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre

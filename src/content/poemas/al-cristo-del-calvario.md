@@ -1,5 +1,6 @@
 ---
 titulo: Oración al Cristo del Calvario
+resumen: "«Oración al Cristo del Calvario», atribuida a Gabriela Mistral: quien venía a pedir por su cuerpo enfermo calla ante las heridas del crucificado y solo pide aprender que el dolor es la llave de su puerta."
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre

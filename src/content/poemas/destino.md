@@ -1,5 +1,6 @@
 ---
 titulo: Destino
+resumen: "«Destino», de Rosario Castellanos: matamos lo que amamos y solo damos vida a lo que odiamos, como el ciervo que, al beber, se vuelve igual al tigre reflejado en el agua."
 fecha: 2026-11-23
 borrador: true
 tipo: verso-libre
