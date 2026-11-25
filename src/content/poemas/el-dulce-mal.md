@@ -2,6 +2,7 @@
 titulo: El dulce mal
 resumen: "«El dulce mal», de Andrés Eloy Blanco: el poeta repasa su vida de gloria y batallas, y solo al final encuentra el amor que lo está matando."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-el-dulce-mal.png
 borrador: false
 tipo: sexteto
 movimiento: modernismo

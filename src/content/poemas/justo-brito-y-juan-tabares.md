@@ -3,6 +3,7 @@ titulo: Justo Brito y Juan Tabares
 resumen: "«Justo Brito y Juan Tabares», de Ángel Celestino Bello: un desaire en un baile llanero termina, años después, en un duelo a peinilla del que ninguno sale vivo."
 fecha: 2026-11-23
 fecha_actualizada: 2026-11-25
+ilustracion: ../../assets/uploads/poema-justo-brito-y-juan-tabares.png
 borrador: false
 tipo: romance
 movimiento: popular-tradicional

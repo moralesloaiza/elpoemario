@@ -2,6 +2,7 @@
 titulo: El amor que calla
 resumen: "«El amor que calla», de Gabriela Mistral: el amor de quien habla es tan hondo que se deshace antes de llegar a la garganta, y su silencio parece frialdad."
 fecha: 2026-11-25
+ilustracion: ../../assets/uploads/poema-el-amor-que-calla.png
 borrador: false
 tipo: serventesio
 movimiento: modernismo

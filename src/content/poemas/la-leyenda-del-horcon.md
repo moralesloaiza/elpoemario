@@ -2,6 +2,7 @@
 titulo: La leyenda del horcón
 resumen: "«La leyenda del horcón», de Juan Pedro López: junto al fogón de una estancia, un viejo gaucho cuenta un crimen de su juventud, y el hijo que lo escucha descubre quién lo cometió."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-la-leyenda-del-horcon.png
 borrador: false
 tipo: decima
 movimiento: popular-tradicional

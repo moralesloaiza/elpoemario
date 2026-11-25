@@ -2,6 +2,8 @@
 titulo: Camina la Virgen pura
 resumen: "Villancico anónimo de tradición oral: camino de Belén, el Niño pide de beber, y el ciego que da sus naranjas a la Virgen recobra la vista."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-camina-la-virgen-pura.png
+foco: 30
 borrador: false
 tipo: romance
 movimiento: popular-tradicional

@@ -2,6 +2,7 @@
 titulo: Un par de botas
 resumen: "Poema anónimo de declamación: un comisario de campaña descubre que las botas robadas eran el regalo que un niño pidió a los Reyes Magos."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-un-par-de-botas.png
 borrador: false
 tipo: verso-libre
 movimiento: popular-tradicional

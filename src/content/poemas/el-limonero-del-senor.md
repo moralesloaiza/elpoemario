@@ -2,6 +2,7 @@
 titulo: El limonero del Señor
 resumen: "«El limonero del Señor», de Andrés Eloy Blanco: en la Caracas de la peste, la cruz del Nazareno se enreda en un limonero y sus frutos curan al pueblo."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-el-limonero-del-senor.png
 borrador: false
 tipo: romance
 movimiento: modernismo

@@ -2,6 +2,7 @@
 titulo: Dolor
 resumen: "«Dolor», de Alfonsina Storni: una tarde de octubre junto al mar, el deseo de mirarlo todo sin sentir nada hasta volverse olvido."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-dolor.png
 borrador: false
 tipo: romance
 movimiento: posmodernismo

@@ -2,6 +2,7 @@
 titulo: A solas
 resumen: "«A solas», de Ismael Enrique Arciniegas: el amor arrepentido vuelve al nido, pero encuentra el huerto seco, la fe perdida y el invierno ya instalado."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-a-solas.png
 borrador: false
 tipo: silva
 movimiento: modernismo

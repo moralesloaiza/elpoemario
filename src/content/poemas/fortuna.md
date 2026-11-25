@@ -2,6 +2,7 @@
 titulo: Fortuna
 resumen: "«Fortuna», de Ida Vitale: la poeta cuenta como suerte lo que a tantas mujeres se les niega, hablar, leer o andar libre, hasta ser «humano y mujer, ni más ni menos»."
 fecha: 2026-11-25
+ilustracion: ../../assets/uploads/poema-fortuna.png
 borrador: false
 tipo: verso-libre
 movimiento: contemporaneo

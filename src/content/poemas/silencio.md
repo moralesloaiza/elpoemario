@@ -2,6 +2,7 @@
 titulo: Silencio
 resumen: "«Silencio», de Andrés Eloy Blanco: un amor que, sin vista, sin voz y aun después de la muerte, se sigue diciendo en silencio."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-silencio.png
 borrador: false
 tipo: copla
 movimiento: modernismo

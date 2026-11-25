@@ -2,6 +2,7 @@
 titulo: Preludio
 resumen: "«Preludio», de José Antonio Ramos Sucre: el poeta desea las tinieblas vacías, donde la muerte, blanca Beatriz, lo libre de los recuerdos y del imposible amor."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-preludio.png
 borrador: false
 tipo: prosa-poetica
 movimiento: vanguardia

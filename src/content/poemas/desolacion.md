@@ -2,6 +2,7 @@
 titulo: Desolación
 resumen: "«Desolación», de Gabriela Mistral: desterrada en una tierra de bruma y nieve sin primavera, la poeta ve pasar barcos que no traen a los suyos y siente la nieve como la mirada de Dios."
 fecha: 2026-11-25
+ilustracion: ../../assets/uploads/poema-desolacion.png
 borrador: false
 tipo: cuarteto
 movimiento: modernismo

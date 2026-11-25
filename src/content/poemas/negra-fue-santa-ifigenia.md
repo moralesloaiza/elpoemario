@@ -2,6 +2,7 @@
 titulo: Negra fue Santa Ifigenia
 resumen: "Coplas anónimas de tradición oral afrodescendiente: el orgullo del color negro, de la santa y los clavos de Cristo hasta el luto que llega a la orilla del mar."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-negra-fue-santa-ifigenia.png
 borrador: false
 tipo: copla
 movimiento: popular-tradicional

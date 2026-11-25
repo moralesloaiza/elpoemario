@@ -2,6 +2,7 @@
 titulo: Miranda en la Carraca
 resumen: "«Miranda en la Carraca», de Tomás Ignacio Potentini: dos décimas ante el cuadro de Michelena, tan vivo que dan ganas de pedirle al pintor que libere al prisionero."
 fecha: 2026-11-23
+ilustracion: ../../assets/uploads/poema-miranda-en-la-carraca.png
 borrador: false
 tipo: decima
 movimiento: romanticismo
