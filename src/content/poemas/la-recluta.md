@@ -1,6 +1,8 @@
 ---
-titulo: La recluta
-resumen: "«La recluta», de Andrés Eloy Blanco: en el llano, la comisión de reclutamiento se lleva a Juan y deja a Juana sola, con el corazón como capilla sin santo."
+titulo: Palabreo de la recluta
+resumen: "«La recluta», de Andrés Eloy Blanco: en el llano, la comisión de
+  reclutamiento se lleva a Juan y deja a Juana sola, con el corazón como capilla
+  sin santo."
 fecha: 2026-11-23
 ilustracion: ../../assets/uploads/poema-la-recluta.png
 borrador: false
