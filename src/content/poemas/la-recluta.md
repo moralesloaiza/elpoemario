@@ -1,9 +1,10 @@
 ---
 titulo: Palabreo de la recluta
-resumen: "«La recluta», de Andrés Eloy Blanco: en el llano, la comisión de
-  reclutamiento se lleva a Juan y deja a Juana sola, con el corazón como capilla
-  sin santo."
+resumen: "«Palabreo de la recluta», de Andrés Eloy Blanco: en el llano, la
+  comisión de reclutamiento se lleva a Juan y deja a Juana sola, con el corazón
+  como capilla sin santo."
 fecha: 2026-11-23
+fecha_actualizada: 2026-11-25
 ilustracion: ../../assets/uploads/poema-la-recluta.png
 borrador: false
 tipo: glosa
@@ -22,10 +23,10 @@ curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
 ---
-¿Quién le va a secar el llanto
+*¿Quién le va a secar el llanto
 si pasó la comisión
 y le dejó el corazón
-como capilla sin santo?
+como capilla sin santo?*
 
 Si vino el reclutamiento,
 se fue Juan y quedó Juana.
