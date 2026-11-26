@@ -1,10 +1,10 @@
 ---
 activo: true
-rotacion_semanal: true
-cintillo: El poema de la semana
-extracto: "\n"
+rotacion_semanal: false
+cintillo: Ya en Instagram
+extracto: ""
 tipo: entrada
 poema_referido: ""
-entrada_referida: ""
+entrada_referida: cuarenta-poemas-para-complacer-a-nuestros-lectores
 autor_referido: ""
 ---
