@@ -1,8 +1,8 @@
 ---
-titulo: Cuarenta poemas que nos pedisteis
+titulo: Cuarenta poemas para complacer a nuestros lectores
 fecha: 2026-11-26
-resumen: "Pedimos a la audiencia de Instagram qué poema quería leer o escuchar. Aquí están los cuarenta que ya viven en El Poemario, con el nombre de quien pidió cada uno."
-ilustracion: ../../assets/uploads/entrada-cuarenta-poemas-nuevos.jpg
+resumen: "Preguntamos en Instagram qué poema querían leer o escuchar nuestros lectores. Aquí están los cuarenta que nos pidieron y que ya viven en El Poemario, con el nombre de quien pidió cada uno."
+ilustracion: ../../assets/uploads/entrada-cuarenta-poemas-para-complacer-a-nuestros-lectores.jpg
 borrador: false
 curador: Don Alejandro
 es_seudonimo: true
