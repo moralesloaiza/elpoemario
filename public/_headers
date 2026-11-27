@@ -35,13 +35,16 @@
 # fija el valor propio de /admin. Esto evita una CSP doble (y una XFO en
 # conflicto) y deja al panel con su politica propia en enforce.
 # El bloque /* debe ir antes que este para que el "! " tenga algo que quitar.
+# connect-src incluye blob: porque Decap lee las imagenes subidas con
+# fetch(blob:...) antes de mandarlas a GitHub; sin el, guardar una entrada
+# con imagen falla con "TypeError: Failed to fetch".
 # Si el editor /admin no cargara tras desplegar, revertir solo esta linea a
 # Content-Security-Policy-Report-Only es suficiente (el bloque /* queda intacto).
 /admin/*
   ! X-Frame-Options
   X-Frame-Options: DENY
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://*.githubusercontent.com; font-src 'self' data: https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://static.cloudflareinsights.com; connect-src 'self' https://api.github.com https://unpkg.com https://auth.elpoemario.com https://cloudflareinsights.com; frame-src 'self'; worker-src 'self' blob:; child-src blob:
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob: https://*.githubusercontent.com; font-src 'self' data: https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://static.cloudflareinsights.com; connect-src 'self' blob: https://api.github.com https://unpkg.com https://auth.elpoemario.com https://cloudflareinsights.com; frame-src 'self'; worker-src 'self' blob:; child-src blob:
 
 # Buscador de texto completo (Pagefind). Sus ficheros de runtime (pagefind.js y
 # sobre todo pagefind-worker.js) NO deben cachearse. El worker compila un modulo
