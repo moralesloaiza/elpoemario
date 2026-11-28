@@ -1,9 +1,12 @@
 ---
 titulo: Azul
-resumen: "Soneto del azul: la cumbre, el cielo, el mar y los ensueños, todos azules, hasta el azul de unos ojos que ya no volverán a mirarlo."
+resumen: "Soneto del azul: la cumbre, el cielo, el mar y los ensueños, todos
+  azules, hasta el azul de unos ojos que ya no volverán a mirarlo."
 fecha: 2011-11-01
 fecha_actualizada: 2026-07-15
 ilustracion: ../../assets/uploads/poema-azul.png
+foco: 0
+spotify_url: https://open.spotify.com/episode/58AMn0qISsJvsn3UqT1Pcn?si=uu6e1TrHSLCphBhS0pdedA
 borrador: false
 tipo: soneto
 movimiento: modernismo
