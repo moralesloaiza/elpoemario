@@ -1,7 +1,12 @@
 ---
 titulo: Poema del domingo triste
+resumen: En un domingo de lluvia, el poeta siente la ausencia del amor que no
+  volvió y piensa que con él la tarde gris sería alegre.
 fecha: 2026-11-27
+fecha_actualizada: 2026-11-27
 ilustracion: ../../assets/uploads/poema-poema-del-domingo-triste.png
+spotify_url: https://open.spotify.com/episode/0SlWXm8uWXqWiRV4USUnt6?si=FCAwmvjsS_GywNceOMHFQg
+borrador: false
 tipo: pareado
 movimiento: modernismo
 temas:
@@ -15,8 +20,6 @@ motivos:
   - sol
   - corazon
 autor: jose-angel-buesa
-resumen: En un domingo de lluvia, el poeta siente la ausencia del amor que no volvió y piensa que con él la tarde gris sería alegre.
-borrador: false
 curador: Don Alejandro
 es_seudonimo: true
 nombre_real: Alejandro Morales Loaiza
